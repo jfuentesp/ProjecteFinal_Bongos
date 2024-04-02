@@ -43,6 +43,7 @@ namespace m17
 
         protected override void OnComboSuccessActionAttack2()
         {
+            StopAllCoroutines();
             m_StateMachine.ChangeState<SMBHit2State>();
         }
     }

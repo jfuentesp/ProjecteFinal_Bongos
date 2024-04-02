@@ -40,6 +40,7 @@ public class SMBHit1x2State : SMBComboState
 
     protected override void OnComboSuccessActionAttack2()
     {
+        StopAllCoroutines();
         m_StateMachine.ChangeState<SMBHit2State>();
     }
 }
