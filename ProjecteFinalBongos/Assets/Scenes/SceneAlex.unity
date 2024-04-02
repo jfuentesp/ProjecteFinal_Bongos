@@ -123,6 +123,75 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1798548675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1798548677}
+  - component: {fileID: 1798548676}
+  - component: {fileID: 1798548678}
+  m_Layer: 0
+  m_Name: GeneradorSalas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1798548676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798548675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7ad263b13a60604889c2ca60cef13ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Sala: {fileID: 6593885139977142343, guid: 5652e9ba200240f4285660b20fb04238, type: 3}
+  m_Sala_1: {fileID: 6583768685179676287, guid: 5ba25d46a37c1004fb59d45a9566e65d, type: 3}
+  m_Sala_2: {fileID: 1896520274080283921, guid: 0b8746740a5c5f04989b6dcdf9254cf1, type: 3}
+  m_Sala_3: {fileID: 7903571166147493780, guid: f4066f0f224f0334b93418866622d36b, type: 3}
+  m_Sala_4: {fileID: 3545705395359638000, guid: b4790df5d85c73f489bda8e7ab581c43, type: 3}
+  puerta: {fileID: 3786532286857733865, guid: 89e75fd6dd9c8e14c95941318e892c93, type: 3}
+  tilemap: {fileID: 0}
+  maxSala: 20
+--- !u!4 &1798548677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798548675}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1798548678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798548675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585e6bdbbe71d134ab1d291d3a92544c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SalaInicial: {fileID: 6583768685179676287, guid: 5ba25d46a37c1004fb59d45a9566e65d, type: 3}
+  m_SalaBoss: {fileID: 1896520274080283921, guid: 0b8746740a5c5f04989b6dcdf9254cf1, type: 3}
+  puerta: {fileID: 3786532286857733865, guid: 89e75fd6dd9c8e14c95941318e892c93, type: 3}
+  maxSala: 20
 --- !u!1 &2054909691
 GameObject:
   m_ObjectHideFlags: 0
