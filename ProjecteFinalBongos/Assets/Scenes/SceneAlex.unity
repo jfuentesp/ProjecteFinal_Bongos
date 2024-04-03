@@ -148,7 +148,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798548675}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7ad263b13a60604889c2ca60cef13ef, type: 3}
   m_Name: 
@@ -190,8 +190,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SalaInicial: {fileID: 6583768685179676287, guid: 5ba25d46a37c1004fb59d45a9566e65d, type: 3}
   m_SalaBoss: {fileID: 1896520274080283921, guid: 0b8746740a5c5f04989b6dcdf9254cf1, type: 3}
+  m_SalaBossInicial: {fileID: 1896520274080283921, guid: 29f838b839c543f408a4c0675fcd3f7b, type: 3}
   puerta: {fileID: 3786532286857733865, guid: 89e75fd6dd9c8e14c95941318e892c93, type: 3}
-  maxSala: 20
+  m_PasilloTienda: {fileID: 3545705395359638000, guid: b4790df5d85c73f489bda8e7ab581c43, type: 3}
+  m_PasilloBichos: {fileID: 6593885139977142343, guid: 5652e9ba200240f4285660b20fb04238, type: 3}
+  m_PasilloObjetos: {fileID: 7903571166147493780, guid: f4066f0f224f0334b93418866622d36b, type: 3}
+  numSalaMaxima: 7
 --- !u!1 &2054909691
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +207,7 @@ GameObject:
   - component: {fileID: 2054909694}
   - component: {fileID: 2054909693}
   - component: {fileID: 2054909692}
+  - component: {fileID: 2054909695}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -284,3 +289,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2054909695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054909691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0

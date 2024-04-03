@@ -36,6 +36,7 @@ public class GeneracionSalas : MonoBehaviour
     private int numeroDeSala = 0;
     [SerializeField]
     private int maxSala = 20;
+    private bool acabado = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -94,37 +95,42 @@ public class GeneracionSalas : MonoBehaviour
 
     private void GenerarMapa(int x, int y, int sala)
     {
-        if (maxSala > 0)
+        if (acabado == false)
         {
-            if (numeroDeSala == 0)
+            if (maxSala > 0)
             {
-                matrix[x, y] = 1;
-                numeroDeSala++;
-                maxSala--;
-            }
+                if (numeroDeSala == 0)
+                {
+                    matrix[x, y] = 1;
+                    numeroDeSala++;
+                    maxSala--;
+                }
 
-            else if (numeroDeSala == 19)
-            {
+                else if (numeroDeSala == 19)
+                {
 
-                matrix[x, y] = 5;
-                numeroDeSala++;
-                maxSala--;
+                    matrix[x, y] = 5;
+                    numeroDeSala++;
+                    maxSala--;
+                    acabado = true;
+                }
+                else
+                {
+                    matrix[x, y] = sala;
+                }
+
+
+                List<int> PuertasAlrededor;
+                GetPuertasAlrededor(out PuertasAlrededor, x, y);
+                CambiarMatriz(PuertasAlrededor, x, y);
             }
             else
             {
-                matrix[x, y] = sala;
+                Debug.Log("AAAAA");
+                return;
             }
-
-
-            List<int> PuertasAlrededor;
-            GetPuertasAlrededor(out PuertasAlrededor, x, y);
-            CambiarMatriz(PuertasAlrededor, x, y);
         }
-        else
-        {
-            Debug.Log("AAAAA");
-            return;
-        }
+       
     }
 
     private void CambiarMatriz(List<int> puertasAlrededor, int x, int y)
@@ -135,6 +141,7 @@ public class GeneracionSalas : MonoBehaviour
         {
             if (maxSala > 0)
             {
+                print(maxSala);
                 switch (i)
                 {
                     case 1:
@@ -226,7 +233,7 @@ public class GeneracionSalas : MonoBehaviour
     }
     private void ponerSalaEnUno(int row, int col, int salaLado)
     {
-        Debug.Log(numeroDeSala);
+        //Debug.Log(numeroDeSala);
         if (matrix[row, col] != 0)
             return;
 
@@ -260,31 +267,7 @@ public class GeneracionSalas : MonoBehaviour
 
         } while (numeroPuertas > 0);
 
-        int c = 0;
         puertas.Shuffle();
-        foreach (int puerta in puertas)
-        {
-            switch (puerta)
-            {
-                case 1:
-                    if (matrix[x + 1, y] == 9) { c++; }
-                    break;
-                case 2:
-                    if (matrix[x, y - 1] == 9) { c++; }
-                    break;
-                case 3:
-                    if (matrix[x, y + 1] == 9) { c++; }
-                    break;
-                case 4:
-                    if (matrix[x - 1, y] == 9) { c++; }
-                    break;
-            }
-        }
-        if (c > 0)
-        {
-            GetPuertasAlrededor(out puertas, x, y);
-        }
-
     }
 
     public void GenSala()
