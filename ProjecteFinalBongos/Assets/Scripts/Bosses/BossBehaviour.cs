@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.Android;
 
 [RequireComponent(typeof(FiniteStateMachine))]
-[RequireComponent(typeof(SMBWalkState))]
+[RequireComponent(typeof(SMBChaseState))]
+[RequireComponent(typeof(SMBSingleAttackState))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class BossBehaviour : MonoBehaviour
 {
@@ -25,23 +26,34 @@ public class BossBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        onPlayerEnter(collision.gameObject);
+        //onPlayerEnter(collision.gameObject);
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Detecto al Player");
+            m_StateMachine.ChangeState<SMBSingleAttackState>();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+            m_StateMachine.ChangeState<SMBChaseState>();
     }
 
     private void Awake()
     {
         m_StateMachine = GetComponent<FiniteStateMachine>();
-       /* GetComponent<SMBPatrol>().OnPlayerEnter = (GameObject obj) =>
-        {
-            m_StateMachine.ChangeState<SMBAttack>();
-        };*/
+        /* GetComponent<SMBPatrol>().OnPlayerEnter = (GameObject obj) =>
+         {
+             m_StateMachine.ChangeState<SMBAttack>();
+         };*/
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        m_StateMachine.ChangeState<SMBWalkState>();
+        m_StateMachine.ChangeState<SMBChaseState>();
     }
 
     // Update is called once per frame

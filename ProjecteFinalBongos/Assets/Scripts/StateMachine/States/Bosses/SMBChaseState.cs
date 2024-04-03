@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SMBWalkState : SMState
+public class SMBChaseState : SMState
 {
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
@@ -30,7 +30,7 @@ public class SMBWalkState : SMState
     public override void InitState()
     {
         base.InitState();
-        m_WalkCoroutine = StartCoroutine(WalkCoroutine(m_WalkCoroutineTime));
+        //m_WalkCoroutine = StartCoroutine(WalkCoroutine(m_WalkCoroutineTime));
     }
 
     public override void ExitState()
@@ -38,17 +38,20 @@ public class SMBWalkState : SMState
         base.ExitState();
         if(m_WalkCoroutine != null)
             StopCoroutine(m_WalkCoroutine);
-
     }
 
     private void Update()
     {
-        
+        //To face the target
+        if (m_Target != null)
+            transform.up = m_Target.transform.position - transform.position;
     }
 
     private void FixedUpdate()
     {
-        
+        m_Rigidbody.velocity = Vector3.zero;
+        Vector3 direction = (m_Target.transform.position - transform.position).normalized;
+        m_Rigidbody.velocity = direction * m_WalkSpeed;
     }
 
     private Coroutine m_WalkCoroutine;
@@ -56,12 +59,7 @@ public class SMBWalkState : SMState
     {
         while(true)
         {
-            if (!m_IsWalkCoroutineRandom)
-            {
-                Vector3 direction = m_Target.transform.position;
-                m_Rigidbody.velocity = (direction - transform.position) * m_WalkSpeed;
-                yield return new WaitForSeconds(coroutineTime);
-            }
+
         }
     }
 }
