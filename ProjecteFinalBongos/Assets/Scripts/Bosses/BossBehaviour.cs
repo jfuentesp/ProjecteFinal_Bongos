@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Android;
 
 [RequireComponent(typeof(FiniteStateMachine))]
+[RequireComponent(typeof(SMBIdleState))]
+[RequireComponent(typeof(SMBWalkState))]
 [RequireComponent(typeof(SMBChaseState))]
 [RequireComponent(typeof(SMBSingleAttackState))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -53,7 +55,8 @@ public class BossBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_StateMachine.ChangeState<SMBChaseState>();
+        //m_StateMachine.ChangeState<SMBChaseState>();
+        m_StateMachine.ChangeState<SMBWalkState>();
     }
 
     // Update is called once per frame

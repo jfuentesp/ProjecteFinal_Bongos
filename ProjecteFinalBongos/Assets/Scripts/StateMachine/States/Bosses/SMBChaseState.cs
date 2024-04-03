@@ -8,17 +8,17 @@ public class SMBChaseState : SMState
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
 
+    [Header("Chase speed")]
     [SerializeField]
-    private Animation m_WalkAnimation;
-    [SerializeField]
-    private float m_WalkSpeed;
-    [SerializeField]
-    private float m_WalkCoroutineTime;
-    [SerializeField]
-    [Tooltip("If this is set to true, it will randomly walk between zero and Walk Coroutine Time.")]
-    private bool m_IsWalkCoroutineRandom;
+    private float m_ChaseSpeed;
+
+    [Header("Target to chase")]
     [SerializeField]
     private GameObject m_Target;
+
+    [Header("Chase animation")]
+    [SerializeField]
+    private string m_ChaseAnimationName;
 
     private void Awake()
     {
@@ -30,14 +30,11 @@ public class SMBChaseState : SMState
     public override void InitState()
     {
         base.InitState();
-        //m_WalkCoroutine = StartCoroutine(WalkCoroutine(m_WalkCoroutineTime));
     }
 
     public override void ExitState()
     {
         base.ExitState();
-        if(m_WalkCoroutine != null)
-            StopCoroutine(m_WalkCoroutine);
     }
 
     private void Update()
@@ -51,15 +48,6 @@ public class SMBChaseState : SMState
     {
         m_Rigidbody.velocity = Vector3.zero;
         Vector3 direction = (m_Target.transform.position - transform.position).normalized;
-        m_Rigidbody.velocity = direction * m_WalkSpeed;
-    }
-
-    private Coroutine m_WalkCoroutine;
-    private IEnumerator WalkCoroutine(float coroutineTime)
-    {
-        while(true)
-        {
-
-        }
+        m_Rigidbody.velocity = direction * m_ChaseSpeed;
     }
 }

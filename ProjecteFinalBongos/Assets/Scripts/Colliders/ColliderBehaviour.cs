@@ -12,6 +12,8 @@ public class ColliderBehaviour : MonoBehaviour
         m_IsColliding = false;
     }
 
+    //Future implementation for hitbox
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         

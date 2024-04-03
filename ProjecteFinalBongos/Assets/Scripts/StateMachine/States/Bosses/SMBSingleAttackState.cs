@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class SMBSingleAttackState : SMState
 {
+    private Rigidbody2D m_Rigidbody;
+    private FiniteStateMachine m_StateMachine;
+    private Animator m_Animator;
+
     [Header("Attack detection area settings")]
     [SerializeField]
     private Collider2D m_AttackArea;
@@ -33,20 +37,15 @@ public class SMBSingleAttackState : SMState
     [SerializeField]
     private GameObject m_Target;
 
-    private Rigidbody2D m_Rigidbody2D;
-    private FiniteStateMachine m_StateMachine;
-    private Animator m_Animator;
-
     [Header("Attack Animation")]
     [SerializeField]
-    private Animation m_SingleAttackAnimation;
+    private string m_SingleAttackAnimationName;
 
     private void Awake()
     {
-        m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
-        Debug.Log("Entro en el Awake");
 
         //Checking what kind of Collider we have set on the attack and giving it the required size
         if (m_AttackArea is BoxCollider2D)
@@ -88,8 +87,7 @@ public class SMBSingleAttackState : SMState
     {
         while(true)
         { 
-            Debug.Log("Ataco al player.");
-            m_Rigidbody2D.velocity = Vector3.zero;
+            m_Rigidbody.velocity = Vector3.zero;
             m_AttackHitbox.transform.position = position;
             transform.up = m_Target.transform.position - transform.position;
             m_AttackHitbox.gameObject.SetActive(true);
