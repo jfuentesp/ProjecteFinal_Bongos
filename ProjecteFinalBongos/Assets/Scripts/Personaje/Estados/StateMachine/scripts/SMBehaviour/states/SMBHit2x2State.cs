@@ -9,28 +9,19 @@ public class SMBHit2x2State : SMBComboState
     {
         base.Init();
         m_Animator.Play("attack2x2");
-        StartCoroutine(AttackBehaviour());
+        AttackBehaviour();
     }
-    IEnumerator AttackBehaviour()
+    public void AttackBehaviour()
     {
         m_Rigidbody.velocity = -transform.right * 20f;
-        yield return new WaitForSeconds(0.1f);
-        m_Rigidbody.velocity = Vector2.zero;
-        m_ComboHandler.InitComboWindow();
-        yield return new WaitForSeconds(0.5f);
-        m_ComboHandler.EndComboWindow();
-        OnEndAction();
+     
     }
     protected override void OnComboFailedAction()
     {
-
     }
 
     protected override void OnComboSuccessAction()
     {
-     
-
-
     }
 
     protected override void OnEndAction()

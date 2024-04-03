@@ -13,23 +13,14 @@ namespace m17
         {
             base.Init();
             m_Animator.Play("attack1x1");
-            StartCoroutine(comboTime());
         }
-        IEnumerator comboTime() {
-            yield return new WaitForSeconds(0.3f);
-            m_ComboHandler.InitComboWindow();
-            yield return new WaitForSeconds(0.5f);
-            m_ComboHandler.EndComboWindow();
-            OnEndAction();
-        }
+
         protected override void OnComboFailedAction()
         {
-            
         }
 
         protected override void OnComboSuccessAction()
         {
-            StopAllCoroutines();
             m_StateMachine.ChangeState<SMBHit1x2State>();
 
 
@@ -37,7 +28,7 @@ namespace m17
 
         protected override void OnEndAction()
         {
-            StopAllCoroutines();
+    
             m_StateMachine.ChangeState<SMBIdleState>();
         }
 

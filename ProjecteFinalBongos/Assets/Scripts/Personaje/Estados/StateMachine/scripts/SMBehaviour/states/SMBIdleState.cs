@@ -10,6 +10,7 @@ namespace m17
         private Animator m_Animator;
         private FiniteStateMachine m_StateMachine;
 
+
         private void Awake()
         {
             m_PJ = GetComponent<PJSMB>();

@@ -16,10 +16,7 @@ public class SMBHit1x4State : SMBComboState
         m_Rigidbody.velocity = transform.up * - 8;
         yield return new WaitForSeconds(0.2f);
         m_Rigidbody.velocity = Vector2.zero;
-        m_ComboHandler.InitComboWindow();
-        yield return new WaitForSeconds(0.5f);
-        m_ComboHandler.EndComboWindow();
-        OnEndAction();
+      
     }
     protected override void OnComboFailedAction()
     {

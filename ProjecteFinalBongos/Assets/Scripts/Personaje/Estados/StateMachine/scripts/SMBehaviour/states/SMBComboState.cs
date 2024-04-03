@@ -14,7 +14,7 @@ namespace m17
         protected Rigidbody2D m_Rigidbody;
         protected Animator m_Animator;
         protected FiniteStateMachine m_StateMachine;
-        protected ComboHandler m_ComboHandler;
+        private ComboHandler m_ComboHandler;
         private void Awake()
         {
         

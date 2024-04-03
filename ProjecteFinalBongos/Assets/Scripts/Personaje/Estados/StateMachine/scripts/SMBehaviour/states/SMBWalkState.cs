@@ -15,9 +15,6 @@ namespace m17
 
         private Vector2 m_Movement;
 
-        [SerializeField]
-        private float m_Speed = 3;
-
         private void Awake()
         {
             m_PJ = GetComponent<PJSMB>();
@@ -68,7 +65,7 @@ namespace m17
             {
                 transform.rotation = Quaternion.Euler(0, 180, 0);
             }
-            m_Rigidbody.velocity = m_Movement * m_Speed;
+            m_Rigidbody.velocity = m_Movement * m_PJ.Velocity;
         }
     }
 }
