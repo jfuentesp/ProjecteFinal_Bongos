@@ -10,6 +10,8 @@ public class SMBAdormitState : MBState
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
+    [SerializeField]
+    private GameEvent m_event;
     private void Awake()
     {
         m_PJ = GetComponent<PJSMB>();
@@ -29,13 +31,16 @@ public class SMBAdormitState : MBState
 
    private void OnTriggerEnter2D() {
         if (this.enabled) {
+            m_event.Raise();
             m_StateMachine.ChangeState<SMBIdleState>();
         }
     }
     IEnumerator StunSeconds()
     {
         yield return new WaitForSeconds(2f);
+        m_event.Raise();
         m_StateMachine.ChangeState<SMBIdleState>();
+
     }
     public override void Exit()
     {

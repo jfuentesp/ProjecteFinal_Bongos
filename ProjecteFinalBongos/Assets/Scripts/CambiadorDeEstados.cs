@@ -6,9 +6,15 @@ public class CambiadorDeEstados : MonoBehaviour
 {
     [SerializeField]
     private EstadoEvent estado;
+    [SerializeField]
+    private DañoEnemigoEvent daño;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        estado.Raise(EstadosAlterados.Enverinat);
+        
+        estado.Raise(EstadosAlterados.Paralitzat);
+        daño.Raise(5);
+    
     }
 }

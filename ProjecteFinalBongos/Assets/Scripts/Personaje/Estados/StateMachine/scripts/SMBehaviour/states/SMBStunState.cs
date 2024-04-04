@@ -11,6 +11,8 @@ public class SMBStunState : MBState
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
+    [SerializeField]
+    private GameEvent m_event;
     private void Awake()
     {
         m_PJ = GetComponent<PJSMB>();
@@ -22,13 +24,14 @@ public class SMBStunState : MBState
     public override void Init()
     {
         base.Init();
-        m_Animator.Play("stunPlayer");
+        m_Animator.Play("stunnedPlayer");
         m_Rigidbody.velocity = Vector2.zero;
         StartCoroutine(StunSeconds());
         
     }
     IEnumerator StunSeconds() { 
         yield return new WaitForSeconds(2f);
+        m_event.Raise();
         m_StateMachine.ChangeState<SMBIdleState>();
     }
     public override void Exit()

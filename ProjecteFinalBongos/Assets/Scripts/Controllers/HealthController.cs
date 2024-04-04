@@ -1,10 +1,11 @@
+using m17;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthController : MonoBehaviour, IHealable, IDamageable
 {
-    private EstadosAlterados m_estado;
+    private EstadosAlterados m_estado = EstadosAlterados.Normal;
 
     private const float MAXHP = 100f;
     [SerializeField]
@@ -19,7 +20,7 @@ public class HealthController : MonoBehaviour, IHealable, IDamageable
             m_HP -= damageAmount;
             if (m_HP < 0)
                 m_HP = 0;
-            m_HP -= (damageAmount * Random.Range(10, 31)) * 100;
+            m_HP -= (damageAmount * Random.Range(10, 31)) / 100;
             if (m_HP < 0)
                 m_HP = 0;
 
@@ -45,26 +46,18 @@ public class HealthController : MonoBehaviour, IHealable, IDamageable
 
     }
     public void CambiarEstado(EstadosAlterados estado) {
+    
         switch (estado) {
             case EstadosAlterados.Cremat:
-                if (m_estado.Equals(EstadosAlterados.Normal)) {
                     m_estado = EstadosAlterados.Cremat;
                     StartCoroutine(estadoRoutine());
-                }
                 break;
             case EstadosAlterados.Enverinat:
-                if (m_estado.Equals(EstadosAlterados.Normal))
-                {
                     m_estado = EstadosAlterados.Enverinat;
                     StartCoroutine(estadoRoutine());
-                }
                 break;
             case EstadosAlterados.Paralitzat:
-                if (m_estado.Equals(EstadosAlterados.Normal))
-                {
                     m_estado = EstadosAlterados.Paralitzat;
-                    StartCoroutine(estadoRoutine());
-                }
                 break;
             default: 
                 break;
@@ -75,28 +68,32 @@ public class HealthController : MonoBehaviour, IHealable, IDamageable
         if (m_estado.Equals(EstadosAlterados.Cremat))
         {
             yield return new WaitForSeconds(15f);
+       
             PararRutina();
         }
         else if (m_estado.Equals(EstadosAlterados.Enverinat))
         {
             while (EnverinatCount > 0)
             {
-                m_HP -= (m_HP * Random.Range(10, 16)) / 100;
+             
                 yield return new WaitForSeconds(4f);
+                m_HP -= (m_HP * Random.Range(5, 8)) / 100;
                 EnverinatCount--;
+                if (m_HP < 0)
+                    m_HP = 0;
             }
             EnverinatCount = EnverinatNum;
-            PararRutina();
-        }
-        else if (m_estado.Equals(EstadosAlterados.Paralitzat)) {
-            yield return new WaitForSeconds(9f);
             PararRutina();
         }
     }
 
     private void PararRutina() { 
         StopCoroutine(estadoRoutine());
+        EstadoNormal();
+    }
+    public void EstadoNormal() {
         m_estado = EstadosAlterados.Normal;
+
     }
 }
 

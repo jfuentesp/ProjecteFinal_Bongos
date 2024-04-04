@@ -20,6 +20,9 @@ namespace m17
     [RequireComponent(typeof(SMBHit2x2State))]
     [RequireComponent(typeof(SMBHit2x3State))]
     [RequireComponent(typeof(SMBHit2AereoState))]
+    [RequireComponent(typeof(SMBParalitzatState))]
+    [RequireComponent(typeof(SMBStunState))]
+    [RequireComponent(typeof(SMBAdormitState))]
 
     public class PJSMB : MonoBehaviour
     {
@@ -33,12 +36,11 @@ namespace m17
         public InputAction MovementAction => m_MovementAction;
         private HealthController m_HealthController;
         public PJSMB instance;
-
-        private float m_Velocity = 5f;
+         private float m_Velocity = 5f;
         private float m_VelocityBase = 5f;
         public float Velocity => m_Velocity;
         public bool mullat = false;
-        private EstadosAlterados m_estado;
+        private EstadosAlterados m_estado = EstadosAlterados.Normal;
 
 
         private void Awake()
@@ -47,13 +49,13 @@ namespace m17
             {
                 instance = this;
             }
-
             Assert.IsNotNull(m_InputAsset);
-            m_StateMachine = GetComponent<FiniteStateMachine>();
-            m_HealthController = GetComponent<HealthController>();  
             m_Input = Instantiate(m_InputAsset);
             m_MovementAction = m_Input.FindActionMap("PlayerActions").FindAction("Movement");
             m_Input.FindActionMap("PlayerActions").Enable();
+            m_StateMachine = GetComponent<FiniteStateMachine>();
+            m_HealthController = GetComponent<HealthController>();  
+        
             DontDestroyOnLoad(this.gameObject);
         }
 
@@ -62,72 +64,83 @@ namespace m17
             m_StateMachine.ChangeState<SMBIdleState>();
         }
 
-        public void AlternarEstado(EstadosAlterados estado) { 
+        public void AlternarEstado(EstadosAlterados estado) {
             switch (estado)
             {
             case EstadosAlterados.Adormit:
-                    m_StateMachine.ChangeState<SMBAdormitState>();
+                    if (m_estado.Equals(EstadosAlterados.Normal))
+                        m_StateMachine.ChangeState<SMBAdormitState>();
                     break;
             case EstadosAlterados.Atordit:
-                    m_StateMachine.ChangeState<SMBStunState>();
+                    if (m_estado.Equals(EstadosAlterados.Normal))
+                        m_StateMachine.ChangeState<SMBStunState>();
                     break;
             case EstadosAlterados.Mullat:
-                    if(!mullat)
-                    StartCoroutine(MullatRoutine());
+                    if(m_estado.Equals(EstadosAlterados.Normal))
+                        StartCoroutine(estadoRoutine());
                     break;
             case EstadosAlterados.Peus_Lleugers:
+
                     break;
             case EstadosAlterados.Forçut:
                     break;
             case EstadosAlterados.Paralitzat:
-                    m_HealthController.CambiarEstado(estado);
-                    m_StateMachine.ChangeState<SMBParalitzatState>();
+                    if (m_estado.Equals(EstadosAlterados.Normal))
+                    {
+                        Debug.Log("Entro");
+                        m_estado = estado;
+                        m_HealthController.CambiarEstado(estado);
+                        m_StateMachine.ChangeState<SMBParalitzatState>();
+                    }
                     break;
             case EstadosAlterados.Cremat:
-                    m_HealthController.CambiarEstado(estado);
+                    if (m_estado.Equals(EstadosAlterados.Normal))
+                        m_HealthController.CambiarEstado(estado);
                     break;
             case EstadosAlterados.Enverinat:
-                    m_HealthController.CambiarEstado(estado);
+                    if (m_estado.Equals(EstadosAlterados.Normal))
+                        m_HealthController.CambiarEstado(estado);
                     break;
                 default:
                     break;
 
             }
         }
-        private IEnumerator MullatRoutine()
+        private void Update()
         {
-            mullat = true;
-            m_Velocity = (m_Velocity * 50) / 100;
-            yield return new WaitForSeconds(5f);
-            mullat = false;
-            m_Velocity = m_VelocityBase;
-            PararCorrutina(EstadosAlterados.Mullat);
+            //Debug.Log(m_estado);
+        }
+        private IEnumerator estadoRoutine()
+        {
+            if (m_estado.Equals(EstadosAlterados.Mullat)) {
+                m_Velocity = (m_Velocity * 50) / 100;
+                yield return new WaitForSeconds(5f);
+                m_Velocity = m_VelocityBase;
+                PararCorrutina(EstadosAlterados.Mullat);
+            }
+  
         }
 
         public void PararCorrutina(EstadosAlterados estado) {
             switch (estado)
             {
-                case EstadosAlterados.Adormit:
-                    break;
-                case EstadosAlterados.Atordit:
-                    break;
                 case EstadosAlterados.Mullat:
-                    StopCoroutine(MullatRoutine());
+                    StopCoroutine(estadoRoutine());
+                    m_estado = EstadosAlterados.Normal;
                     break;
                 case EstadosAlterados.Peus_Lleugers:
                     break;
                 case EstadosAlterados.Forçut:
                     break;
-                case EstadosAlterados.Paralitzat:
-                    break;
-                case EstadosAlterados.Cremat:
-                    break;
-                case EstadosAlterados.Enverinat:
-                    break;
                 default:
                     break;
 
             }
+        }
+        public void EstadoNormal()
+        {
+            m_estado = EstadosAlterados.Normal;
+            Debug.Log("Hola");
         }
     }
 

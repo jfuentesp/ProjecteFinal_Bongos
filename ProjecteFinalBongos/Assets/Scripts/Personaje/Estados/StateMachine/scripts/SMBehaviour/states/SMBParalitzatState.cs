@@ -9,6 +9,8 @@ public class SMBParalitzatState : MBState
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
+    [SerializeField]
+    private GameEvent m_event;
     private void Awake()
     {
         m_PJ = GetComponent<PJSMB>();
@@ -20,14 +22,16 @@ public class SMBParalitzatState : MBState
     public override void Init()
     {
         base.Init();
+        
         m_Animator.Play("paralizedPlayer");
         m_Rigidbody.velocity = Vector2.zero;
         StartCoroutine(StunSeconds());
 
-    }
+    }   
     IEnumerator StunSeconds()
     {
         yield return new WaitForSeconds(9f);
+        m_event.Raise();
         m_StateMachine.ChangeState<SMBIdleState>();
     }
     public override void Exit()

@@ -39,8 +39,10 @@ namespace m17
         {
             base.Exit();
             m_ComboHandler.enabled = false;
-            m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed -= OnAttack1;
-            m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed -= OnAttack2;
+            if (m_PJ.Input != null) {
+                m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed -= OnAttack1;
+                m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed -= OnAttack2;
+            }
             m_ComboHandler.OnEndAction -= OnEndAction;
         }
 
