@@ -32,7 +32,7 @@ public class GeneracionSalasFinal : MonoBehaviour
     private int numSala;
     [SerializeField]
     private int numSalaMaxima;
-    private int[,] matrix = new int[100, 100];
+    private int[,] matrix = new int[40, 40];
     // Start is called before the first frame update
     void Start()
     {
@@ -95,40 +95,34 @@ public class GeneracionSalasFinal : MonoBehaviour
     private void GetPasillosAlrededor(out List<int> pasillosAlrededor, int posX, int posY)
     {
         pasillosAlrededor = new List<int>();
-        int numeroPuertas = Random.Range(1, GetPosiblesPuertasAlrededor(posX, posY));
-
-        do
+        List<int> posiblesPasillosAlrededor = GetPosiblesPuertasAlrededor(posX, posY);
+        posiblesPasillosAlrededor.Shuffle();
+        int numeroPuertas = Random.Range(1, 5);
+        if(posiblesPasillosAlrededor.Count < numSala)
         {
-            int puerta = Random.Range(1, 5);
-            int encontrado = pasillosAlrededor.FirstOrDefault<int>(n => n == puerta);
-
-            if (encontrado == 0)
+            for (int i = 0; i < numeroPuertas; i++)
             {
-                pasillosAlrededor.Add(puerta);
-                numeroPuertas--;
+                pasillosAlrededor.Add(posiblesPasillosAlrededor[i]);
             }
-        } while (numeroPuertas > 0);
-
-        pasillosAlrededor.Shuffle();
-    }
-
-    private int GetPosiblesPuertasAlrededor(int posX, int posY)
-    {
-        int puertasMax = 5;
-        if (matrix[posX + 2, posY] != 0 || matrix[posX + 1, posY] != 0) { puertasMax--; }
-        if (matrix[posX - 2, posY] != 0 || matrix[posX - 1, posY] != 0) { puertasMax--; }
-        if (matrix[posX, posY + 2] != 0 || matrix[posX, posY + 1] != 0) { puertasMax--; }
-        if (matrix[posX, posY - 2] != 0 || matrix[posX, posY - 1] != 0) { puertasMax--; }
-        if (puertasMax > numSala)
-        {
-            print(numSala);
-            return numSala;
         }
         else
         {
-            print(puertasMax);
-            return puertasMax;
+            for (int i = 0; i < numSala; i++)
+            {
+                pasillosAlrededor.Add(posiblesPasillosAlrededor[i]);
+            }
         }
+    }
+
+    private List<int> GetPosiblesPuertasAlrededor(int posX, int posY)
+    {
+        List<int> puertasDisponibles = new List<int>();
+        
+        if (matrix[posX + 2, posY] == 0 || matrix[posX + 1, posY] == 0) { puertasDisponibles.Add(1); }
+        if (matrix[posX - 2, posY] == 0 || matrix[posX - 1, posY] == 0) { puertasDisponibles.Add(2); }
+        if (matrix[posX, posY + 2] == 0 || matrix[posX, posY + 1] == 0) { puertasDisponibles.Add(3); }
+        if (matrix[posX, posY - 2] == 0 || matrix[posX, posY - 1] == 0) { puertasDisponibles.Add(4); }
+        return puertasDisponibles;
         
     }
     private void CambiarMatriz(List<int> puertasAlrededor, int posX, int posY)
@@ -140,19 +134,19 @@ public class GeneracionSalasFinal : MonoBehaviour
             switch (puerta)
             {
                 case 1:
-                    salaLado = Random.Range(3, 5);
+                    salaLado = Random.Range(2, 6);
                     SalaLateral(posX, posY, posX, posY - 1, posX, posY - 2, salaLado);
                     break;
                 case 2:
-                    salaLado = Random.Range(3, 5);
+                    salaLado = Random.Range(2, 6);
                     SalaLateral(posX, posY, posX + 1, posY, posX + 2, posY, salaLado);
                     break;
                 case 3:
-                    salaLado = Random.Range(3, 5);
+                    salaLado = Random.Range(2, 6);
                     SalaLateral(posX, posY, posX, posY + 1, posX, posY + 2, salaLado);
                     break;
                 case 4:
-                    salaLado = Random.Range(3, 5);
+                    salaLado = Random.Range(2, 6);
                     SalaLateral(posX, posY, posX - 1, posY, posX - 2, posY, salaLado);
                     break;
             }
@@ -161,16 +155,15 @@ public class GeneracionSalasFinal : MonoBehaviour
 
     private void SalaLateral(int posX1, int posY1, int posX2, int posY2, int posX3, int posY3, int salaLado)
     {
-        if (salaLado == matrix[posX1, posY1])
+        if (2 == salaLado)
         {
-            print($"posicio inicial: {posX1}, {posY1}, posicio final: {posX2}, {posY2}");
-            AmpliarSala(posX2, posY2);
+            if(2 == matrix[posX1, posY1] || 9 == matrix[posX1, posY1])
+                AmpliarSala(posX2, posY2);
         }
         else
         {
             if(numSala > 0)
             {
-                print($"posicio inicial: {posX1}, {posY1}, posicio final: {posX3}, {posY3}");
                 matrix[posX2, posY2] = salaLado;
 
                 listaSalas salaEncontrada = m_ListaSalasPadre.FirstOrDefault<listaSalas>(i => i.x == posX3 && i.y == posY3);
@@ -181,22 +174,21 @@ public class GeneracionSalasFinal : MonoBehaviour
                     m_ListaPuertas.Add(new listaSalas(posX2, posY2));
 
                 PonerNumeroSala(posX3, posY3);
-               
             }
         }
     }
     private void AmpliarSala(int row, int col)
     {
         //Debug.Log(numeroDeSala);
-        if (matrix[row, col] != 0 && numSala > 0)
+        if (matrix[row, col] != 0)
             return;
 
-        GenerarMapa(row, col, 2);
+        GenerarMapa(row, col, 9);
     }
     private void PonerNumeroSala(int row, int col)
     {
         //Debug.Log(numeroDeSala);
-        if (matrix[row, col] != 0)
+        if (matrix[row, col] != 0 && numSala > 0)
             return;
 
         numSala--;
@@ -258,11 +250,7 @@ public class GeneracionSalasFinal : MonoBehaviour
                 sala = Instantiate(m_SalaInicial);
                 break;
             case 2:
-                listaSalas encontrado = m_ListaSalasPadre.FirstOrDefault<listaSalas>(i => i.x == x && i.y == y);
-                if (encontrado.x != 0 && encontrado.y != 0)
                     sala = Instantiate(m_SalaBossInicial);
-                else
-                    sala = Instantiate(m_SalaBoss);
                 break;
             case 3:
                 sala = Instantiate(m_PasilloBichos);
