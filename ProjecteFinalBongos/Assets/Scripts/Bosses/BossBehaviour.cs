@@ -5,28 +5,32 @@ using UnityEngine.Android;
 
 [RequireComponent(typeof(FiniteStateMachine))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 public class BossBehaviour : MonoBehaviour
 {
     [Header("Boss parameters")]
     [SerializeField]
-    private string m_BossName;
-    public string BossName => m_BossName;
+    protected string m_BossName;
     [SerializeField]
-    private string m_Description;
-    public string Description => m_Description;
+    protected string m_Description;
     [SerializeField]
-    private float m_MaxHP;
-    public float MaxHP => m_MaxHP;
+    protected float m_MaxHP;
     [SerializeField]
-    private Sprite m_Sprite;
+    protected Sprite m_Sprite;
 
-    
+    protected FiniteStateMachine m_StateMachine;
+    protected Rigidbody2D m_Rigidbody;
+    protected Animator m_Animator;
+
     //en el meu estat--
     public delegate void OnPlayerEnter(GameObject obj);
     private OnPlayerEnter onPlayerEnter;
 
-    private void Awake()
+    protected void Awake()
     {
+        m_StateMachine = GetComponent<FiniteStateMachine>();
+        m_Rigidbody = GetComponent<Rigidbody2D>();
+        m_Animator = GetComponent<Animator>();
         /* GetComponent<SMBPatrol>().OnPlayerEnter = (GameObject obj) =>
          {
              m_StateMachine.ChangeState<SMBAttack>();

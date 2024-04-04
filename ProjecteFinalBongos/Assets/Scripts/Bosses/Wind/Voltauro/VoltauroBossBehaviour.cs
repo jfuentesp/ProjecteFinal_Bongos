@@ -2,33 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(FiniteStateMachine))]
 [RequireComponent(typeof(SMBIdleState))]
 [RequireComponent(typeof(SMBParriedState))]
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SMBChaseState))]
+[RequireComponent(typeof(SMBSingleAttackState))]
+[RequireComponent(typeof(SMBVoltauroTripleAttackState))]
+[RequireComponent(typeof(SMBChargeState))]
+[RequireComponent(typeof(SMBLightningSummonState))]
 public class VoltauroBossBehaviour : BossBehaviour
 {
-    private FiniteStateMachine m_StateMachine;
-    private Rigidbody2D m_Rigidbody;
-    private Animator m_Animator;
 
-    private void Awake()
+
+    private new void Awake()
     {
-        m_StateMachine = GetComponent<FiniteStateMachine>();
-        m_Rigidbody = GetComponent<Rigidbody2D>();
-        m_Animator = GetComponent<Animator>();
+        base.Awake();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //m_StateMachine.ChangeState<SMBChaseState>();
+        m_StateMachine.ChangeState<SMBLightningSummonState>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if(collision.CompareTag("Player"))
+        {
+            float rng = Random.value;
+            if (rng < 0.7f)
+            {
+                m_StateMachine.ChangeState<SMBSingleAttackState>();
+            } else
+            {
+                m_StateMachine.ChangeState<SMBVoltauroTripleAttackState>();
+            }
+        }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player"))
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        }
+    }
+
 }
