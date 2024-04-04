@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1182793447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1182793448}
+  m_Layer: 0
+  m_Name: Mundo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1182793448
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182793447}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1798548675
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +165,7 @@ GameObject:
   - component: {fileID: 1798548677}
   - component: {fileID: 1798548676}
   - component: {fileID: 1798548678}
+  - component: {fileID: 1798548679}
   m_Layer: 0
   m_Name: GeneradorSalas
   m_TagString: Untagged
@@ -183,18 +215,68 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798548675}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 585e6bdbbe71d134ab1d291d3a92544c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TransformParentMundo: {fileID: 1182793448}
+  m_ParedArriba: {fileID: 3656589015086540193, guid: 0e8623f7e9160774590829019ae7f027, type: 3}
+  m_ParedDerecha: {fileID: 684637506000575412, guid: 569da062959554445b87eff840582dda, type: 3}
+  m_ParedAbajo: {fileID: 4688923810658297158, guid: f3540f015be2e6d4287d389de741e860, type: 3}
+  m_ParedIzquierda: {fileID: 1393150433386124776, guid: d3502a394a6bdef4b96f963bc93a2880, type: 3}
+  m_PuertaArriba: {fileID: 911120822459056052, guid: 6d58fad3e4417524aad06fb55bfbd766, type: 3}
+  m_PuertaDerecha: {fileID: 9170935083591316210, guid: a8b9fc0bd4f02bc48a56437c39fa9887, type: 3}
+  m_PuertaAbajo: {fileID: 387184661043382453, guid: be3c301121de4e848b9f9c5f5d0b5ce2, type: 3}
+  m_PuertaIzquierda: {fileID: 7587270475992344669, guid: 7fd607557bdd5bf40bcc733007f491da, type: 3}
+  m_SalaInicialColor: {r: 0, g: 1, b: 1, a: 1}
+  m_SalaBossInicialColor: {r: 1, g: 0, b: 1, a: 1}
+  m_SalaBossColor: {r: 1, g: 0, b: 0, a: 1}
+  m_PasilloBichosColor: {r: 0, g: 0, b: 1, a: 1}
+  m_PasilloObjetosColor: {r: 1, g: 1, b: 0, a: 1}
+  m_PasilloTiendaColor: {r: 0, g: 1, b: 0, a: 1}
   m_SalaInicial: {fileID: 6583768685179676287, guid: 5ba25d46a37c1004fb59d45a9566e65d, type: 3}
-  m_SalaBoss: {fileID: 1896520274080283921, guid: 0b8746740a5c5f04989b6dcdf9254cf1, type: 3}
   m_SalaBossInicial: {fileID: 1896520274080283921, guid: 29f838b839c543f408a4c0675fcd3f7b, type: 3}
-  puerta: {fileID: 3786532286857733865, guid: 89e75fd6dd9c8e14c95941318e892c93, type: 3}
-  m_PasilloTienda: {fileID: 3545705395359638000, guid: b4790df5d85c73f489bda8e7ab581c43, type: 3}
+  m_SalaBoss: {fileID: 1896520274080283921, guid: 0b8746740a5c5f04989b6dcdf9254cf1, type: 3}
   m_PasilloBichos: {fileID: 6593885139977142343, guid: 5652e9ba200240f4285660b20fb04238, type: 3}
   m_PasilloObjetos: {fileID: 7903571166147493780, guid: f4066f0f224f0334b93418866622d36b, type: 3}
+  m_PasilloTienda: {fileID: 3545705395359638000, guid: b4790df5d85c73f489bda8e7ab581c43, type: 3}
+  numSala: 0
+  numSalaMaxima: 7
+--- !u!114 &1798548679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798548675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb43e3a352624254fbb3b3f2c5d4953d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformParentMundo: {fileID: 1182793448}
+  m_ParedArriba: {fileID: 3656589015086540193, guid: 0e8623f7e9160774590829019ae7f027, type: 3}
+  m_ParedDerecha: {fileID: 684637506000575412, guid: 569da062959554445b87eff840582dda, type: 3}
+  m_ParedAbajo: {fileID: 4688923810658297158, guid: f3540f015be2e6d4287d389de741e860, type: 3}
+  m_ParedIzquierda: {fileID: 1393150433386124776, guid: d3502a394a6bdef4b96f963bc93a2880, type: 3}
+  m_PuertaArriba: {fileID: 911120822459056052, guid: 6d58fad3e4417524aad06fb55bfbd766, type: 3}
+  m_PuertaDerecha: {fileID: 9170935083591316210, guid: a8b9fc0bd4f02bc48a56437c39fa9887, type: 3}
+  m_PuertaAbajo: {fileID: 387184661043382453, guid: be3c301121de4e848b9f9c5f5d0b5ce2, type: 3}
+  m_PuertaIzquierda: {fileID: 7587270475992344669, guid: 7fd607557bdd5bf40bcc733007f491da, type: 3}
+  m_SalaInicialColor: {r: 0, g: 1, b: 1, a: 1}
+  m_SalaBossInicialColor: {r: 1, g: 0, b: 0.9253988, a: 1}
+  m_SalaBossColor: {r: 1, g: 0, b: 0, a: 1}
+  m_PasilloBichosColor: {r: 0, g: 0.20422697, b: 1, a: 1}
+  m_PasilloObjetosColor: {r: 1, g: 0.913718, b: 0, a: 1}
+  m_PasilloTiendaColor: {r: 0, g: 1, b: 0, a: 1}
+  m_SalaInicial: {fileID: 6583768685179676287, guid: 5ba25d46a37c1004fb59d45a9566e65d, type: 3}
+  m_SalaBossInicial: {fileID: 1896520274080283921, guid: 29f838b839c543f408a4c0675fcd3f7b, type: 3}
+  m_SalaBoss: {fileID: 1896520274080283921, guid: 0b8746740a5c5f04989b6dcdf9254cf1, type: 3}
+  m_PasilloBichos: {fileID: 6593885139977142343, guid: 5652e9ba200240f4285660b20fb04238, type: 3}
+  m_PasilloObjetos: {fileID: 7903571166147493780, guid: f4066f0f224f0334b93418866622d36b, type: 3}
+  m_PasilloTienda: {fileID: 3545705395359638000, guid: b4790df5d85c73f489bda8e7ab581c43, type: 3}
+  numSala: 0
   numSalaMaxima: 7
 --- !u!1 &2054909691
 GameObject:

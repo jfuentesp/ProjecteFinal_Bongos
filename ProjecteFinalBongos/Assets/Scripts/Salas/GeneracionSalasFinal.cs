@@ -9,56 +9,78 @@ using Random = UnityEngine.Random;
 
 public class GeneracionSalasFinal : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject m_SalaInicial;
-    [SerializeField]
-    private GameObject m_SalaBoss;
-    [SerializeField]
-    private GameObject m_SalaBossInicial;
-    [SerializeField]
-    private GameObject puerta;
-    [SerializeField]
-    private GameObject m_PasilloTienda;
-    [SerializeField]
-    private GameObject m_PasilloBichos;
-    [SerializeField]
-    private GameObject m_PasilloObjetos;
+    [Header("Parent Mundo")]
+    [SerializeField] private Transform m_TransformParentMundo;
+
+    [Header("Prefabs Paredes")]
+    [SerializeField] private GameObject m_ParedArriba;
+    [SerializeField] private GameObject m_ParedDerecha;
+    [SerializeField] private GameObject m_ParedAbajo;
+    [SerializeField] private GameObject m_ParedIzquierda;
+
+    [Header("Prefabs Puertas")]
+    [SerializeField] private GameObject m_PuertaArriba;
+    [SerializeField] private GameObject m_PuertaDerecha;
+    [SerializeField] private GameObject m_PuertaAbajo;
+    [SerializeField] private GameObject m_PuertaIzquierda;
+
+
+    [Header("Color Sala")]
+    [SerializeField] private Color m_SalaInicialColor;
+    [SerializeField] private Color m_SalaBossInicialColor;
+    [SerializeField] private Color m_SalaBossColor;
+    [SerializeField] private Color m_PasilloBichosColor;
+    [SerializeField] private Color m_PasilloObjetosColor;
+    [SerializeField] private Color m_PasilloTiendaColor;
+
+    [Header("GameObject Sala")]
+    [SerializeField] GameObject m_SalaInicial;
+    [SerializeField] private GameObject m_SalaBossInicial;
+    [SerializeField] private GameObject m_SalaBoss;
+    [SerializeField] private GameObject m_PasilloBichos;
+    [SerializeField] private GameObject m_PasilloObjetos;
+    [SerializeField] private GameObject m_PasilloTienda;
 
     private List<listaSalas> m_ListaSalasPadre = new List<listaSalas>();
-    private List<listaSalas> m_ListaPuertas = new List<listaSalas>();
+    private List<listaSalasConHijos> m_ListaSalasPadreConHijos = new List<listaSalasConHijos>();
 
-
-    [SerializeField]
-    private int numSala;
-    [SerializeField]
-    private int numSalaMaxima;
-    private int[,] matrix = new int[40, 40];
+    [Header("Numeros Sala")]
+    [SerializeField] private int numSala;
+    [SerializeField] private int numSalaMaxima;
+    private int[,] matrix = new int[100, 100];
     // Start is called before the first frame update
     void Start()
     {
         try
         {
-            m_ListaPuertas.Clear();
             m_ListaSalasPadre.Clear();
             numSala = numSalaMaxima;
             RellenarMatriz();
-            GenerarMapa(20, 20, 0);
-            if(numSala != 0)
+            GenerarMapa(50, 50, 0);
+            if (numSala != 0)
             {
                 Start();
             }
             matrix[m_ListaSalasPadre[m_ListaSalasPadre.Count - 1].x, m_ListaSalasPadre[m_ListaSalasPadre.Count - 1].y] = 2;
-            PrintMapa();
             GenSala();
-            ImprimirListas();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            print(ex.ToString());
             Start();
         }
-
+        ImprimirListas();
     }
+
+    private void ImprimirListas()
+    {
+        string frase = "";
+        foreach(listaSalas sala in m_ListaSalasPadre)
+        {
+            frase += $"[{sala.x - 50}, {sala.y - 50}], ";
+        }
+        print(frase);
+    }
+
     private void RellenarMatriz()
     {
         for (int i = 0; i < matrix.GetLength(0); i++)
@@ -88,7 +110,6 @@ public class GeneracionSalasFinal : MonoBehaviour
             List<int> pasillosAlrededor;
             GetPasillosAlrededor(out pasillosAlrededor, posX, posY);
             CambiarMatriz(pasillosAlrededor, posX, posY);
-
         }
     }
 
@@ -98,7 +119,7 @@ public class GeneracionSalasFinal : MonoBehaviour
         List<int> posiblesPasillosAlrededor = GetPosiblesPuertasAlrededor(posX, posY);
         posiblesPasillosAlrededor.Shuffle();
         int numeroPuertas = Random.Range(1, 5);
-        if(posiblesPasillosAlrededor.Count < numSala)
+        if (posiblesPasillosAlrededor.Count < numSala)
         {
             for (int i = 0; i < numeroPuertas; i++)
             {
@@ -117,13 +138,13 @@ public class GeneracionSalasFinal : MonoBehaviour
     private List<int> GetPosiblesPuertasAlrededor(int posX, int posY)
     {
         List<int> puertasDisponibles = new List<int>();
-        
+
         if (matrix[posX + 2, posY] == 0 || matrix[posX + 1, posY] == 0) { puertasDisponibles.Add(1); }
         if (matrix[posX - 2, posY] == 0 || matrix[posX - 1, posY] == 0) { puertasDisponibles.Add(2); }
         if (matrix[posX, posY + 2] == 0 || matrix[posX, posY + 1] == 0) { puertasDisponibles.Add(3); }
         if (matrix[posX, posY - 2] == 0 || matrix[posX, posY - 1] == 0) { puertasDisponibles.Add(4); }
         return puertasDisponibles;
-        
+
     }
     private void CambiarMatriz(List<int> puertasAlrededor, int posX, int posY)
     {
@@ -131,22 +152,43 @@ public class GeneracionSalasFinal : MonoBehaviour
 
         foreach (int puerta in puertasAlrededor)
         {
+            salaLado = Random.Range(0, 11);
+            switch (salaLado)
+            {
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    salaLado = 2;
+                    break;
+               
+                case 7:
+                case 8:
+                    salaLado = 3;
+                    break;
+                
+                case 9:
+                    salaLado = 4;
+                    break;
+                case 10:
+                    salaLado = 5;
+                    break;
+            }
             switch (puerta)
             {
                 case 1:
-                    salaLado = Random.Range(2, 6);
                     SalaLateral(posX, posY, posX, posY - 1, posX, posY - 2, salaLado);
                     break;
                 case 2:
-                    salaLado = Random.Range(2, 6);
                     SalaLateral(posX, posY, posX + 1, posY, posX + 2, posY, salaLado);
                     break;
                 case 3:
-                    salaLado = Random.Range(2, 6);
                     SalaLateral(posX, posY, posX, posY + 1, posX, posY + 2, salaLado);
                     break;
                 case 4:
-                    salaLado = Random.Range(2, 6);
                     SalaLateral(posX, posY, posX - 1, posY, posX - 2, posY, salaLado);
                     break;
             }
@@ -157,21 +199,18 @@ public class GeneracionSalasFinal : MonoBehaviour
     {
         if (2 == salaLado)
         {
-            if(2 == matrix[posX1, posY1] || 9 == matrix[posX1, posY1])
+            if (2 == matrix[posX1, posY1] || 9 == matrix[posX1, posY1])
                 AmpliarSala(posX2, posY2);
         }
         else
         {
-            if(numSala > 0)
+            if (numSala > 0 && matrix[posX2, posY2] == 0 && matrix[posX3, posY3] == 0)
             {
                 matrix[posX2, posY2] = salaLado;
 
                 listaSalas salaEncontrada = m_ListaSalasPadre.FirstOrDefault<listaSalas>(i => i.x == posX3 && i.y == posY3);
                 if (salaEncontrada.x == 0 && salaEncontrada.y == 0)
                     m_ListaSalasPadre.Add(new listaSalas(posX3, posY3));
-                listaSalas puertaEncontrada = m_ListaSalasPadre.FirstOrDefault<listaSalas>(i => i.x == posX2 && i.y == posY2);
-                if (puertaEncontrada.x == 0 && puertaEncontrada.y == 0)
-                    m_ListaPuertas.Add(new listaSalas(posX2, posY2));
 
                 PonerNumeroSala(posX3, posY3);
             }
@@ -195,37 +234,6 @@ public class GeneracionSalasFinal : MonoBehaviour
         GenerarMapa(row, col, 2);
     }
 
-    private void PrintMapa()
-    {
-        string f = "";
-        for (int i = 0; i < matrix.GetLength(0); i++)
-        {
-            for (int j = 0; j < matrix.GetLength(1); j++)
-            {
-                f += matrix[j, i] + " ";
-            }
-            f += "\n";
-        }
-        Debug.Log(f);
-    }
-
-    private void ImprimirListas()
-    {
-        string listaSalas = "";
-        string listaPuertas = "";
-
-        foreach (listaSalas sala in m_ListaSalasPadre)
-        {
-            listaSalas += $" [{sala.x}, {sala.y}],";
-        }
-        foreach (listaSalas puerta in m_ListaPuertas)
-        {
-            listaPuertas += $" [{puerta.x}, {puerta.y}],";
-        }
-        print(listaSalas + "Total Salas: " + listaSalas.Length);
-        print(listaPuertas + "Total Puertas: " + listaPuertas.Length);
-    }
-
     public void GenSala()
     {
         for (int x = 0; x < matrix.GetLength(0); x++)
@@ -240,29 +248,29 @@ public class GeneracionSalasFinal : MonoBehaviour
 
     private void InstanciarSala(int x, int y, int tipoSala)
     {
-        int posicionX = ((20 - x) * 1);
-        int posicionY = ((20 - y) * 1);
+        float posicionX = (50 - x) * 12;
+        float posicionY = (50 - y) * 11;
         GameObject sala = null;
 
         switch (tipoSala)
         {
             case 1:
-                sala = Instantiate(m_SalaInicial);
+                sala = Instantiate(m_SalaInicial, m_TransformParentMundo);
                 break;
             case 2:
-                    sala = Instantiate(m_SalaBossInicial);
+                sala = Instantiate(m_SalaBossInicial, m_TransformParentMundo);
                 break;
             case 3:
-                sala = Instantiate(m_PasilloBichos);
+                sala = Instantiate(m_PasilloBichos, m_TransformParentMundo);
                 break;
             case 4:
-                sala = Instantiate(m_PasilloTienda);
+                sala = Instantiate(m_PasilloTienda, m_TransformParentMundo);
                 break;
             case 5:
-                sala = Instantiate(m_PasilloObjetos);
+                sala = Instantiate(m_PasilloObjetos, m_TransformParentMundo);
                 break;
             case 9:
-                sala = Instantiate(m_SalaBoss);
+                sala = Instantiate(m_SalaBoss, m_TransformParentMundo);
                 break;
             default:
                 break;
@@ -271,6 +279,98 @@ public class GeneracionSalasFinal : MonoBehaviour
         if (sala != null)
         {
             sala.transform.position = new Vector3(posicionX, posicionY, 0);
+            InstanciarParedesAndPuertas(x, y, sala.transform, tipoSala);
+        }
+    }
+
+    private void InstanciarParedesAndPuertas(int posicionX, int posicionY, Transform transformSala, int tipoSala)
+    {
+        GameObject estructuraArriba = null;
+        GameObject estructuraDerecha = null;
+        GameObject estructuraAbajo = null;
+        GameObject estructuraIzquierda = null;
+        List<GameObject> estructuras = new List<GameObject>();
+        if (matrix[posicionX, posicionY - 1] != 0)
+        {
+            estructuraArriba = Instantiate(m_PuertaArriba, transformSala);
+            estructuras.Add(estructuraArriba);
+        }
+        else
+        {
+            estructuraArriba = Instantiate(m_ParedArriba, transformSala);
+            estructuras.Add(estructuraArriba);
+        }
+        if (matrix[posicionX - 1, posicionY] != 0)
+        {
+            estructuraDerecha = Instantiate(m_PuertaDerecha, transformSala);
+            estructuras.Add(estructuraDerecha);
+        }
+        else
+        {
+            estructuraDerecha = Instantiate(m_ParedDerecha, transformSala);
+            estructuras.Add(estructuraDerecha);
+        }
+        if (matrix[posicionX, posicionY + 1] != 0)
+        {
+            estructuraAbajo = Instantiate(m_PuertaAbajo, transformSala);
+            estructuras.Add(estructuraAbajo);
+        }
+        else
+        {
+            estructuraAbajo = Instantiate(m_ParedAbajo, transformSala);
+            estructuras.Add(estructuraAbajo);
+        }
+        if (matrix[posicionX + 1, posicionY] != 0)
+        {
+            estructuraIzquierda = Instantiate(m_PuertaIzquierda, transformSala);
+            estructuras.Add(estructuraIzquierda);
+        }
+        else
+        {
+            estructuraIzquierda = Instantiate(m_ParedIzquierda, transformSala);
+            estructuras.Add(estructuraIzquierda);
+        }
+        PintarSalas(tipoSala, estructuras);
+    }
+
+    private void PintarSalas(int tipoSala, List<GameObject> estructuras)
+    {
+        switch (tipoSala)
+        {
+            case 1:
+                PintaSalaConColor(estructuras, m_SalaInicialColor);  
+                break;
+            case 2:
+                PintaSalaConColor(estructuras, m_SalaBossInicialColor);
+                break;
+            case 3:
+                PintaSalaConColor(estructuras, m_PasilloBichosColor);
+                break;
+            case 4:
+                PintaSalaConColor(estructuras, m_PasilloTiendaColor);
+                break;
+            case 5:
+                PintaSalaConColor(estructuras, m_PasilloObjetosColor);
+                break;
+            case 9:
+                PintaSalaConColor(estructuras, m_SalaBossColor);
+                break;
+        }
+    }
+
+    private void PintaSalaConColor(List<GameObject> estructuras, Color _ColorSala)
+    {
+        foreach(GameObject estructura in estructuras)
+        {
+            if(estructura.transform.childCount > 0)
+            {
+                estructura.transform.GetChild(0).GetComponent<SpriteRenderer>().color = _ColorSala;
+                estructura.transform.GetChild(1).GetComponent<SpriteRenderer>().color = _ColorSala;
+            }
+            else
+            {
+                estructura.GetComponent<SpriteRenderer>().color = _ColorSala;
+            }
         }
     }
 
@@ -282,6 +382,18 @@ public class GeneracionSalasFinal : MonoBehaviour
         public listaSalas(int X, int Y)
         {
             x = X; y = Y;
+        }
+    }
+    [Serializable]
+    private struct listaSalasConHijos
+    {
+        public listaSalas m_HabitacionPadre;
+        public List<listaSalas> m_HabitacionesHijas;
+
+        public listaSalasConHijos(listaSalas _HabitacionPadre, List<listaSalas> _HabitacionesHijas)
+        {
+            m_HabitacionPadre = _HabitacionPadre;
+            m_HabitacionesHijas = _HabitacionesHijas;
         }
     }
 }
