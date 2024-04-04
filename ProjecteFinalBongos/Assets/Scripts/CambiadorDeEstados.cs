@@ -9,6 +9,6 @@ public class CambiadorDeEstados : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        estado.Raise(EstadosAlterados.Mullat);
+        estado.Raise(EstadosAlterados.Enverinat);
     }
 }

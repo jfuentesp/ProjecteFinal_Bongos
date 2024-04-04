@@ -33,6 +33,8 @@ namespace m17
             base.Exit();
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed -= OnAttack1;
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed -= OnAttack2;
+
+
         }
 
         private void OnAttack1(InputAction.CallbackContext context)

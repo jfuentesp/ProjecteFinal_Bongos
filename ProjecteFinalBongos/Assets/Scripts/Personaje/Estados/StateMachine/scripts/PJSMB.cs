@@ -38,7 +38,7 @@ namespace m17
         private float m_VelocityBase = 5f;
         public float Velocity => m_Velocity;
         public bool mullat = false;
-
+        private EstadosAlterados m_estado;
 
 
         private void Awake()
@@ -66,8 +66,10 @@ namespace m17
             switch (estado)
             {
             case EstadosAlterados.Adormit:
+                    m_StateMachine.ChangeState<SMBAdormitState>();
                     break;
             case EstadosAlterados.Atordit:
+                    m_StateMachine.ChangeState<SMBStunState>();
                     break;
             case EstadosAlterados.Mullat:
                     if(!mullat)
@@ -78,10 +80,14 @@ namespace m17
             case EstadosAlterados.Forçut:
                     break;
             case EstadosAlterados.Paralitzat:
+                    m_HealthController.CambiarEstado(estado);
+                    m_StateMachine.ChangeState<SMBParalitzatState>();
                     break;
             case EstadosAlterados.Cremat:
+                    m_HealthController.CambiarEstado(estado);
                     break;
             case EstadosAlterados.Enverinat:
+                    m_HealthController.CambiarEstado(estado);
                     break;
                 default:
                     break;
