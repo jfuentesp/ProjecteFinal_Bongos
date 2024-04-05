@@ -353,7 +353,6 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2037308065}
   - {fileID: 1487583722}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -374,6 +373,14 @@ MonoBehaviour:
   m_Description: vakita xispas
   m_MaxHP: 40
   m_Sprite: {fileID: 0}
+  m_PlayerAttackDetectionAreaType: 0
+  m_AreaLength: 2
+  m_AreaWideness: 2
+  m_AreaRadius: 2
+  m_CheckingPlayerTimelapse: 0.2
+  m_LayersToCheck:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!95 &647821116
 Animator:
   serializedVersion: 5
@@ -492,7 +499,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ChargeSpeed: 10
   m_ChargeForce: 2
-  m_AttackRange: {fileID: 2037308066}
   m_Target: {fileID: 2002949456}
 --- !u!114 &647821123
 MonoBehaviour:
@@ -506,10 +512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f14c6c76a50ef8489cb51488bc69352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AttackArea: {fileID: 2037308066}
-  m_AreaLength: 1
-  m_AreaWideness: 1
-  m_AreaRadius: 1
   m_AttackHitbox: {fileID: 1487583723}
   m_HitboxLength: 1
   m_HitboxWideness: 1
@@ -528,10 +530,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed55b1b0673a9e24a98ce8d9413e3f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AttackArea: {fileID: 2037308066}
-  m_AreaLength: 1
-  m_AreaWideness: 1
-  m_AreaRadius: 1
   m_AttackHitbox: {fileID: 1487583723}
   m_HitboxLength: 1
   m_HitboxWideness: 1
@@ -661,7 +659,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1487583722
 Transform:
   m_ObjectHideFlags: 0
@@ -828,7 +826,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002949456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.72, y: 3.06, z: 0}
+  m_LocalPosition: {x: -4.98, y: 3.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -897,73 +895,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!1 &2037308064
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2037308065}
-  - component: {fileID: 2037308066}
-  m_Layer: 0
-  m_Name: AttackRange
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2037308065
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037308064}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 647821114}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &2037308066
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037308064}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1
 --- !u!1 &2142390350
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class SMBLightningSummonState : SMState
     private Rigidbody2D m_Rigidbody;
     private FiniteStateMachine m_StateMachine;
     private Animator m_Animator;
+    private BossBehaviour m_Boss;
 
     [Header("Amount of lightnings")]
     [SerializeField]
@@ -43,7 +44,7 @@ public class SMBLightningSummonState : SMState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
-
+        m_Boss = GetComponent<BossBehaviour>();
         //Initialize(); //Initializes parameters on a given bullet
     }
 
@@ -61,6 +62,7 @@ public class SMBLightningSummonState : SMState
     {
         base.InitState();
         m_Summoning = true;
+        m_Boss.SetBusy(true);
         StartCoroutine(SpawnLightnings());
     }
 
@@ -89,5 +91,6 @@ public class SMBLightningSummonState : SMState
             lightning.SetActive(true);
             yield return new WaitForSeconds(m_DelayTime);
         }
+        m_Boss.SetBusy(false);
     }
 }

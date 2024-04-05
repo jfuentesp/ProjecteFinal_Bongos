@@ -7,18 +7,7 @@ public class SMBVoltauroTripleAttackState : SMState
     private Rigidbody2D m_Rigidbody;
     private FiniteStateMachine m_StateMachine;
     private Animator m_Animator;
-
-    [Header("Attack detection area settings")]
-    [SerializeField]
-    private Collider2D m_AttackArea;
-    [Header("If the area is a rectangle collider")]
-    [SerializeField]
-    private float m_AreaLength;
-    [SerializeField]
-    private float m_AreaWideness;
-    [Header("If the area is a circle collider")]
-    [SerializeField]
-    private float m_AreaRadius;
+    private BossBehaviour m_Boss;
 
     [Header("Attack hitbox settings")]
     [SerializeField]
@@ -45,6 +34,17 @@ public class SMBVoltauroTripleAttackState : SMState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
+        m_Boss = GetComponent<BossBehaviour>();
+
+        //Checking what kind of Collider we have set on the hitbox and giving it the required size
+        if (m_AttackHitbox is BoxCollider2D)
+        {
+            SetBoxColliderSize(m_AttackHitbox);
+        }
+        if (m_AttackHitbox is CircleCollider2D)
+        {
+            SetCircleColliderSize(m_AttackHitbox);
+        }
     }
 
     public override void InitState()
@@ -80,6 +80,22 @@ public class SMBVoltauroTripleAttackState : SMState
             yield return new WaitForSeconds(attack3Delay);
             m_AttackHitbox.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.5f);
+            if (!m_Boss.IsPlayerDetected)
+                m_StateMachine.ChangeState<SMBChaseState>();
         }
+    }
+
+    public void SetCircleColliderSize(Collider2D collider)
+    {
+        CircleCollider2D circle;
+        collider.TryGetComponent<CircleCollider2D>(out circle);
+        circle.radius = m_HitboxRadius;
+    }
+
+    public void SetBoxColliderSize(Collider2D collider)
+    {
+        BoxCollider2D box;
+        collider.TryGetComponent<BoxCollider2D>(out box);
+        box.size = new Vector2(m_HitboxWideness, m_HitboxLength);
     }
 }

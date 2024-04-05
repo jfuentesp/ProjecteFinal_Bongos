@@ -7,6 +7,7 @@ public class SMBChargeState : SMState
     private Rigidbody2D m_Rigidbody;
     private FiniteStateMachine m_StateMachine;
     private Animator m_Animator;
+    private BossBehaviour m_Boss;
 
     [Header("Charge speed")]
     [SerializeField]
@@ -19,10 +20,6 @@ public class SMBChargeState : SMState
     private bool m_IsAiming;
     private bool m_IsCharging;
 
-    [Header("Attack range")]
-    [SerializeField]
-    private Collider2D m_AttackRange;
-
     [Header("Boss target")]
     [SerializeField]
     private GameObject m_Target;
@@ -32,12 +29,13 @@ public class SMBChargeState : SMState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
-        m_AttackRange.enabled = false;
+        m_Boss = GetComponent<BossBehaviour>();
     }
 
     public override void InitState()
     {
         base.InitState();
+        m_Boss.SetBusy(true);
         StartCoroutine(ChargeCoroutine());
     }
 
@@ -78,7 +76,6 @@ public class SMBChargeState : SMState
         {
             m_IsCharging = false;
             m_Rigidbody.velocity = Vector3.zero;
-            m_AttackRange.enabled = true;
             if(collision.gameObject.CompareTag("MechanicObstacle"))
                 m_StateMachine.ChangeState<SMBParriedState>();
             if(collision.gameObject.CompareTag("Player"))
@@ -89,6 +86,7 @@ public class SMBChargeState : SMState
                 if(target != null)
                     target.AddForce(transform.up * m_ChargeSpeed, ForceMode2D.Impulse);
             }
+            m_Boss.SetBusy(false);
         }
     }
 }

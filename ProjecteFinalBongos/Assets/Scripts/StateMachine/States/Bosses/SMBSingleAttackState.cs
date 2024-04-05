@@ -8,18 +8,7 @@ public class SMBSingleAttackState : SMState
     private Rigidbody2D m_Rigidbody;
     private FiniteStateMachine m_StateMachine;
     private Animator m_Animator;
-
-    [Header("Attack detection area settings")]
-    [SerializeField]
-    private Collider2D m_AttackArea;
-    [Header("If the area is a rectangle collider")]
-    [SerializeField]
-    private float m_AreaLength;
-    [SerializeField]
-    private float m_AreaWideness;
-    [Header("If the area is a circle collider")]
-    [SerializeField]
-    private float m_AreaRadius;
+    private BossBehaviour m_Boss;
 
     [Header("Attack hitbox settings")]
     [SerializeField]
@@ -46,16 +35,7 @@ public class SMBSingleAttackState : SMState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
-
-        //Checking what kind of Collider we have set on the attack and giving it the required size
-        if (m_AttackArea is BoxCollider2D)
-        {
-            SetBoxColliderSize(m_AttackArea);          
-        }
-        if (m_AttackArea is CircleCollider2D)
-        {
-            SetCircleColliderSize(m_AttackArea);
-        }
+        m_Boss = GetComponent<BossBehaviour>();
 
         //Checking what kind of Collider we have set on the hitbox and giving it the required size
         if(m_AttackHitbox is BoxCollider2D) 
@@ -94,6 +74,8 @@ public class SMBSingleAttackState : SMState
             yield return new WaitForSeconds(attackDelay);
             m_AttackHitbox.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.5f);
+            if (!m_Boss.IsPlayerDetected)
+                m_StateMachine.ChangeState<SMBChaseState>();
         }
     }
 
@@ -101,13 +83,13 @@ public class SMBSingleAttackState : SMState
     {
         CircleCollider2D circle;
         collider.TryGetComponent<CircleCollider2D>(out circle);
-        circle.radius = m_AreaRadius;
+        circle.radius = m_HitboxRadius;
     }
 
     public void SetBoxColliderSize(Collider2D collider)
     {
         BoxCollider2D box;
         collider.TryGetComponent<BoxCollider2D>(out box);
-        box.size = new Vector2(m_AreaWideness, m_AreaLength);
+        box.size = new Vector2(m_HitboxWideness, m_HitboxLength);
     }
 }
