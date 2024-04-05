@@ -49,23 +49,26 @@ public class PruebaSalas : MonoBehaviour
     [SerializeField] private int numSala;
     [SerializeField] private int numSalaMaxima;
     private int[,] matrix = new int[100, 100];
-    private listaSalas salaPadre;
     // Start is called before the first frame update
     void Start()
     {
         try
         {
-            m_ListaSalasPadre.Clear();
+            m_ListaSalasPadre.Clear(); 
+            m_ListaSalasPadreConHijos.Clear();
             numSala = numSalaMaxima;
             RellenarMatriz();
             GenerarMapa(50, 50, 0);
-            matrix[m_ListaSalasPadre[m_ListaSalasPadre.Count - 1].x, m_ListaSalasPadre[m_ListaSalasPadre.Count - 1].y] = 2;
+            matrix[m_ListaSalasPadre[m_ListaSalasPadre.Count - 1].x + 50, m_ListaSalasPadre[m_ListaSalasPadre.Count - 1].y + 50] = 2;
             if (numSala != 0)
             {
                 Start();
             }
-            GenSala();
-            ImprimirListas();
+            else
+            {
+                ImprimirListas();
+                GenSala();
+            }
         }
         catch (Exception)
         {
@@ -78,22 +81,9 @@ public class PruebaSalas : MonoBehaviour
         string frase = "";
         foreach (listaSalas sala in m_ListaSalasPadre)
         {
-            frase += $"[{sala.x - 50}, {sala.y - 50}], ";
+            frase += $"[{sala.x}, {sala.y}], ";
         }
         print(frase);
-
-       
-        foreach (listaSalasConHijos sala in m_ListaSalasPadreConHijos)
-        {
-            string frase2 = "";
-            frase += $"Sala padre: [{sala.m_HabitacionPadre.x}, {sala.m_HabitacionPadre.y}]" +
-                $"Hijos: ";
-            foreach(listaSalas salita in sala.m_HabitacionesHijas)
-            {
-                frase += $"Sala Hija: [{salita.x}, {salita.y}], ";
-            }
-            print(frase2);
-        }
     }
 
     private void RellenarMatriz()
@@ -168,30 +158,15 @@ public class PruebaSalas : MonoBehaviour
         foreach (int puerta in puertasAlrededor)
         {
             salaLado = Random.Range(0, 11);
-            switch (salaLado)
-            {
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                    salaLado = 2;
-                    break;
+            if (salaLado >= 0 && salaLado <= 6)
+                salaLado = 2;
+            else if (salaLado > 6 && salaLado <= 8)
+                salaLado = 3;
+            else if (salaLado > 8 && salaLado <= 9)
+                salaLado = 4;
+            else
+                salaLado = 5;
 
-                case 7:
-                case 8:
-                    salaLado = 3;
-                    break;
-
-                case 9:
-                    salaLado = 4;
-                    break;
-                case 10:
-                    salaLado = 5;
-                    break;
-            }
             switch (puerta)
             {
                 case 1:
@@ -215,8 +190,10 @@ public class PruebaSalas : MonoBehaviour
         if (2 == salaLado)
         {
             if (2 == matrix[posX1, posY1] || 9 == matrix[posX1, posY1])
+            {
                 AmpliarSala(posX2, posY2);
-            AddSalaPadre(posX2 - 50, posY2 - 50);
+                //AddSalaPadre(posX2 - 50, posY2 - 50);
+            }
         }
         else
         {
@@ -227,22 +204,23 @@ public class PruebaSalas : MonoBehaviour
                 listaSalas salaEncontrada = m_ListaSalasPadre.FirstOrDefault<listaSalas>(i => i.x == posX3 && i.y == posY3);
                 if (salaEncontrada.x == 0 && salaEncontrada.y == 0)
                 {
-                    m_ListaSalasPadre.Add(new listaSalas(posX3, posY3));
+                    m_ListaSalasPadre.Add(new listaSalas(posX3 - 50, posY3 - 50));
+                    listaSalas salaPadre = new listaSalas(posX3 - 50, posY3 - 50);
+                    m_ListaSalasPadreConHijos.Add(new listaSalasConHijos(new listaSalas(posX3 - 50, posY3 - 50), new List<listaSalas>()));
 
                     PonerNumeroSala(posX3, posY3);
-                    CambiarSalaPadre(posX3 - 50, posY3 - 50);
                 }
-                    
+
             }
         }
     }
-
+    /*
     private void AddSalaPadre(int posX2, int posY2)
     {
         listaSalasConHijos salaEncontrada = m_ListaSalasPadreConHijos.FirstOrDefault<listaSalasConHijos>(i => i.m_HabitacionPadre.x == salaPadre.x && i.m_HabitacionPadre.y == salaPadre.y);
-        if(salaEncontrada.m_HabitacionPadre.x != 0 && salaEncontrada.m_HabitacionPadre.y != 0)
+        if (salaEncontrada.m_HabitacionPadre.x != 0 && salaEncontrada.m_HabitacionPadre.y != 0)
         {
-            for(int i = 0; i < m_ListaSalasPadreConHijos.Count; i++)
+            for (int i = 0; i < m_ListaSalasPadreConHijos.Count; i++)
             {
                 if (m_ListaSalasPadreConHijos[i].m_HabitacionPadre.x == salaEncontrada.m_HabitacionPadre.x && m_ListaSalasPadreConHijos[i].m_HabitacionPadre.y == salaEncontrada.m_HabitacionPadre.y)
                 {
@@ -250,13 +228,7 @@ public class PruebaSalas : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void CambiarSalaPadre(int posX3, int posY3)
-    {
-        salaPadre = new listaSalas(posX3, posY3);
-        m_ListaSalasPadreConHijos.Add(new listaSalasConHijos(salaPadre, new List<listaSalas>()));
-    }
+    }*/
 
     private void AmpliarSala(int row, int col)
     {
@@ -284,8 +256,6 @@ public class PruebaSalas : MonoBehaviour
             }
         }
     }
-    
-
     private void InstanciarSala(int x, int y, int tipoSala)
     {
         float posicionX = (x - 50) * 12;
@@ -314,7 +284,6 @@ public class PruebaSalas : MonoBehaviour
                 break;
             default:
                 break;
-
         }
         if (sala != null)
         {
@@ -325,12 +294,12 @@ public class PruebaSalas : MonoBehaviour
 
     private void InstanciarParedesAndPuertas(int posicionX, int posicionY, Transform transformSala, int tipoSala)
     {
-        GameObject estructuraArriba = null;
-        GameObject estructuraDerecha = null;
-        GameObject estructuraAbajo = null;
-        GameObject estructuraIzquierda = null;
+        GameObject estructuraArriba;
+        GameObject estructuraDerecha;
+        GameObject estructuraAbajo;
+        GameObject estructuraIzquierda;
         List<GameObject> estructuras = new List<GameObject>();
-        if (matrix[posicionX, posicionY - 1] != 0)
+        if (matrix[posicionX, posicionY + 1] != 0)
         {
             estructuraArriba = Instantiate(m_PuertaArriba, transformSala);
             estructuras.Add(estructuraArriba);
@@ -340,7 +309,7 @@ public class PruebaSalas : MonoBehaviour
             estructuraArriba = Instantiate(m_ParedArriba, transformSala);
             estructuras.Add(estructuraArriba);
         }
-        if (matrix[posicionX - 1, posicionY] != 0)
+        if (matrix[posicionX + 1, posicionY] != 0)
         {
             estructuraDerecha = Instantiate(m_PuertaDerecha, transformSala);
             estructuras.Add(estructuraDerecha);
@@ -350,7 +319,7 @@ public class PruebaSalas : MonoBehaviour
             estructuraDerecha = Instantiate(m_ParedDerecha, transformSala);
             estructuras.Add(estructuraDerecha);
         }
-        if (matrix[posicionX, posicionY + 1] != 0)
+        if (matrix[posicionX, posicionY - 1] != 0)
         {
             estructuraAbajo = Instantiate(m_PuertaAbajo, transformSala);
             estructuras.Add(estructuraAbajo);
@@ -360,7 +329,7 @@ public class PruebaSalas : MonoBehaviour
             estructuraAbajo = Instantiate(m_ParedAbajo, transformSala);
             estructuras.Add(estructuraAbajo);
         }
-        if (matrix[posicionX + 1, posicionY] != 0)
+        if (matrix[posicionX - 1, posicionY] != 0)
         {
             estructuraIzquierda = Instantiate(m_PuertaIzquierda, transformSala);
             estructuras.Add(estructuraIzquierda);
