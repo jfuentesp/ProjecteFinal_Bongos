@@ -1,6 +1,7 @@
 using m17;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class SMBHit1x4State : SMBComboState
