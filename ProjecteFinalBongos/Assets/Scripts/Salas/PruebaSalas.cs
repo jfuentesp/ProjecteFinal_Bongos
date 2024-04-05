@@ -58,7 +58,7 @@ public class PruebaSalas : MonoBehaviour
             m_ListaSalasPadreConHijos.Clear();
             numSala = numSalaMaxima;
             RellenarMatriz();
-            GenerarMapa(50, 50, 0);
+            GenerarMapa(50, 50, 0, new listaSalas(50, 50));
             matrix[m_ListaSalasPadre[m_ListaSalasPadre.Count - 1].x + 50, m_ListaSalasPadre[m_ListaSalasPadre.Count - 1].y + 50] = 2;
             if (numSala != 0)
             {
@@ -96,8 +96,7 @@ public class PruebaSalas : MonoBehaviour
             }
         }
     }
-
-    private void GenerarMapa(int posX, int posY, int tipoSalaBoss)
+    private void GenerarMapa(int posX, int posY, int tipoSalaBoss, listaSalas salaPadre)
     {
         if (numSala > 0)
         {
@@ -114,7 +113,7 @@ public class PruebaSalas : MonoBehaviour
 
             List<int> pasillosAlrededor;
             GetPasillosAlrededor(out pasillosAlrededor, posX, posY);
-            CambiarMatriz(pasillosAlrededor, posX, posY);
+            CambiarMatriz(pasillosAlrededor, posX, posY, salaPadre);
         }
     }
 
@@ -151,7 +150,7 @@ public class PruebaSalas : MonoBehaviour
         return puertasDisponibles;
 
     }
-    private void CambiarMatriz(List<int> puertasAlrededor, int posX, int posY)
+    private void CambiarMatriz(List<int> puertasAlrededor, int posX, int posY, listaSalas salaPadre)
     {
         int salaLado;
 
@@ -170,29 +169,28 @@ public class PruebaSalas : MonoBehaviour
             switch (puerta)
             {
                 case 1:
-                    SalaLateral(posX, posY, posX, posY - 1, posX, posY - 2, salaLado);
+                    SalaLateral(posX, posY, posX, posY - 1, posX, posY - 2, salaLado, salaPadre);
                     break;
                 case 2:
-                    SalaLateral(posX, posY, posX + 1, posY, posX + 2, posY, salaLado);
+                    SalaLateral(posX, posY, posX + 1, posY, posX + 2, posY, salaLado, salaPadre);
                     break;
                 case 3:
-                    SalaLateral(posX, posY, posX, posY + 1, posX, posY + 2, salaLado);
+                    SalaLateral(posX, posY, posX, posY + 1, posX, posY + 2, salaLado, salaPadre);
                     break;
                 case 4:
-                    SalaLateral(posX, posY, posX - 1, posY, posX - 2, posY, salaLado);
+                    SalaLateral(posX, posY, posX - 1, posY, posX - 2, posY, salaLado, salaPadre);
                     break;
             }
         }
     }
 
-    private void SalaLateral(int posX1, int posY1, int posX2, int posY2, int posX3, int posY3, int salaLado)
+    private void SalaLateral(int posX1, int posY1, int posX2, int posY2, int posX3, int posY3, int salaLado, listaSalas salaPadre)
     {
         if (2 == salaLado)
         {
             if (2 == matrix[posX1, posY1] || 9 == matrix[posX1, posY1])
             {
-                AmpliarSala(posX2, posY2);
-                //AddSalaPadre(posX2 - 50, posY2 - 50);
+                AmpliarSala(posX2, posY2, salaPadre);
             }
         }
         else
@@ -205,45 +203,57 @@ public class PruebaSalas : MonoBehaviour
                 if (salaEncontrada.x == 0 && salaEncontrada.y == 0)
                 {
                     m_ListaSalasPadre.Add(new listaSalas(posX3 - 50, posY3 - 50));
-                    listaSalas salaPadre = new listaSalas(posX3 - 50, posY3 - 50);
+                    salaPadre = new listaSalas(posX3 - 50, posY3 - 50);
                     m_ListaSalasPadreConHijos.Add(new listaSalasConHijos(new listaSalas(posX3 - 50, posY3 - 50), new List<listaSalas>()));
 
-                    PonerNumeroSala(posX3, posY3);
+                    PonerNumeroSala(posX3, posY3, salaPadre);
                 }
-
             }
         }
     }
-    /*
-    private void AddSalaPadre(int posX2, int posY2)
+    private void AddSalaPadre(int posX2, int posY2, listaSalas salaPadre)
     {
-        listaSalasConHijos salaEncontrada = m_ListaSalasPadreConHijos.FirstOrDefault<listaSalasConHijos>(i => i.m_HabitacionPadre.x == salaPadre.x && i.m_HabitacionPadre.y == salaPadre.y);
-        if (salaEncontrada.m_HabitacionPadre.x != 0 && salaEncontrada.m_HabitacionPadre.y != 0)
+        bool encontrado = false;
+        for (int i = 0; i < m_ListaSalasPadre.Count; i++)
         {
-            for (int i = 0; i < m_ListaSalasPadreConHijos.Count; i++)
+            if (m_ListaSalasPadre[i].x == salaPadre.x && m_ListaSalasPadre[i].y == salaPadre.y)
             {
-                if (m_ListaSalasPadreConHijos[i].m_HabitacionPadre.x == salaEncontrada.m_HabitacionPadre.x && m_ListaSalasPadreConHijos[i].m_HabitacionPadre.y == salaEncontrada.m_HabitacionPadre.y)
+                encontrado = true; break;
+            }
+        }
+        if (encontrado)
+        {
+            print($"Sala padre: [{salaPadre.x}, {salaPadre.y}]");
+            if (salaPadre.x != 0 && salaPadre.y != 0)
+            {
+                for (int i = 0; i < m_ListaSalasPadreConHijos.Count; i++)
                 {
-                    m_ListaSalasPadreConHijos[i].m_HabitacionesHijas.Add(new listaSalas(posX2, posY2));
+                    if (m_ListaSalasPadreConHijos[i].m_HabitacionPadre.x == salaPadre.x && m_ListaSalasPadreConHijos[i].m_HabitacionPadre.y == salaPadre.y)
+                    {
+                        m_ListaSalasPadreConHijos[i].m_HabitacionesHijas.Add(new listaSalas(posX2, posY2));
+                    }
                 }
             }
         }
-    }*/
+        
+    }
 
-    private void AmpliarSala(int row, int col)
+    private void AmpliarSala(int row, int col, listaSalas salaPadre)
     {
         if (matrix[row, col] != 0)
             return;
 
-        GenerarMapa(row, col, 9);
+
+        AddSalaPadre(row - 50, col - 50, salaPadre);
+        GenerarMapa(row, col, 9, salaPadre);
     }
-    private void PonerNumeroSala(int row, int col)
+    private void PonerNumeroSala(int row, int col, listaSalas salaPadre)
     {
         if (matrix[row, col] != 0 && numSala > 0)
             return;
 
         numSala--;
-        GenerarMapa(row, col, 2);
+        GenerarMapa(row, col, 2, salaPadre);
     }
     public void GenSala()
     {
