@@ -42,6 +42,7 @@ public class PruebaSalas : MonoBehaviour
     [SerializeField] private GameObject m_PasilloTienda;
 
     private List<listaSalas> m_ListaSalasPadre = new List<listaSalas>();
+    [SerializeField]
     private List<listaSalasConHijos> m_ListaSalasPadreConHijos = new List<listaSalasConHijos>();
 
     [Header("Numeros Sala")]
@@ -255,7 +256,6 @@ public class PruebaSalas : MonoBehaviour
     {
         salaPadre = new listaSalas(posX3, posY3);
         m_ListaSalasPadreConHijos.Add(new listaSalasConHijos(salaPadre, new List<listaSalas>()));
-        print($"sala Padre: [{salaPadre.x}, {salaPadre.y}]");
     }
 
     private void AmpliarSala(int row, int col)
@@ -288,8 +288,8 @@ public class PruebaSalas : MonoBehaviour
 
     private void InstanciarSala(int x, int y, int tipoSala)
     {
-        float posicionX = (50 - x) * 12;
-        float posicionY = (50 - y) * 11;
+        float posicionX = (x - 50) * 12;
+        float posicionY = (y - 50) * 11;
         GameObject sala = null;
 
         switch (tipoSala)
