@@ -5,6 +5,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using static UnityEngine.Rendering.DebugUI.Table;
 using Random = UnityEngine.Random;
 
 public class PruebaSalas : MonoBehaviour
@@ -54,7 +55,7 @@ public class PruebaSalas : MonoBehaviour
     {
         try
         {
-            m_ListaSalasPadre.Clear(); 
+            m_ListaSalasPadre.Clear();
             m_ListaSalasPadreConHijos.Clear();
             numSala = numSalaMaxima;
             RellenarMatriz();
@@ -68,12 +69,122 @@ public class PruebaSalas : MonoBehaviour
             {
                 ImprimirListas();
                 GenSala();
+                GenSalasBoss();
             }
         }
         catch (Exception)
         {
             Start();
         }
+    }
+
+    private void GenSalasBoss()
+    {
+        foreach (listaSalasConHijos salaPadre in m_ListaSalasPadreConHijos)
+        {
+            salaPadre.m_HabitacionesHijas.Add(salaPadre.m_HabitacionPadre);
+            InstanciarSalaJefes(salaPadre.m_HabitacionPadre.x + 50, salaPadre.m_HabitacionPadre.y + 50, salaPadre.m_HabitacionesHijas);
+            foreach (listaSalas salaHija in salaPadre.m_HabitacionesHijas)
+            {
+                InstanciarSalaJefes(salaHija.x + 50, salaHija.y + 50, salaPadre.m_HabitacionesHijas);
+            }
+        }
+    }
+
+    private void InstanciarSalaJefes(int x, int y, List<listaSalas> salasHijas)
+    {
+        float posicionX = (x - 50) * 12;
+        float posicionY = (y - 50) * 11;
+        GameObject sala = null;
+
+        switch (matrix[x, y])
+        {
+            case 2:
+                sala = Instantiate(m_SalaBossInicial, m_TransformParentMundo);
+                break;
+            case 9:
+                sala = Instantiate(m_SalaBoss, m_TransformParentMundo);
+                break;
+            default:
+                break;
+        }
+        if (sala != null)
+        {
+            sala.transform.position = new Vector3(posicionX, posicionY, 0);
+            InstanciarParedesAndPuertasBoss(x, y, sala.transform, matrix[x, y], salasHijas);
+        }
+    }
+    private void InstanciarParedesAndPuertasBoss(int posicionX, int posicionY, Transform transformSala, int tipoSala, List<listaSalas> salasHijas)
+    {
+        GameObject estructuraArriba;
+        GameObject estructuraDerecha;
+        GameObject estructuraAbajo;
+        GameObject estructuraIzquierda;
+        List<GameObject> estructuras = new List<GameObject>();
+        if (!EstaENLaListaDeSalas(posicionX - 50, posicionY + 1 - 50, salasHijas))
+        {
+            estructuraArriba = Instantiate(m_ParedArriba, transformSala);
+            estructuras.Add(estructuraArriba);
+        }
+        else
+        {
+
+            /*estructuraArriba = Instantiate(m_ParedArriba, transformSala);
+            estructuras.Add(estructuraArriba);*/
+        }
+        if (!EstaENLaListaDeSalas(posicionX + 1 - 50, posicionY - 50, salasHijas))
+        {
+            estructuraDerecha = Instantiate(m_ParedDerecha, transformSala);
+            estructuras.Add(estructuraDerecha);
+        }
+        else
+        {
+            /*estructuraDerecha = Instantiate(m_ParedDerecha, transformSala);
+            estructuras.Add(estructuraDerecha);*/
+        }
+        if (!EstaENLaListaDeSalas(posicionX - 50, posicionY - 1 - 50, salasHijas))
+        {
+            estructuraAbajo = Instantiate(m_ParedAbajo, transformSala);
+            estructuras.Add(estructuraAbajo);
+        }
+        else
+        {
+            /*estructuraAbajo = Instantiate(m_ParedAbajo, transformSala);
+            estructuras.Add(estructuraAbajo);*/
+        }
+        if (!EstaENLaListaDeSalas(posicionX - 1 - 50, posicionY - 50, salasHijas))
+        {
+            estructuraIzquierda = Instantiate(m_ParedIzquierda, transformSala);
+            estructuras.Add(estructuraIzquierda);
+        }
+        else
+        {
+            /*estructuraIzquierda = Instantiate(m_ParedIzquierda, transformSala);
+            estructuras.Add(estructuraIzquierda);*/
+        }
+        PintarSalas(tipoSala, estructuras);
+    }
+    private bool EstaENLaListaDeSalas(int x, int y, List<listaSalas> salasHijas)
+    {
+        for (int i = 0; i < salasHijas.Count; i++)
+        {
+            if (salasHijas[i].x == x && salasHijas[i].y == y)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    private bool EstaENLaListaDeSalas(int x, int y)
+    {
+        for (int i = 0; i < m_ListaSalasPadre.Count; i++)
+        {
+            if (m_ListaSalasPadre[i].x == x && m_ListaSalasPadre[i].y == y)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void ImprimirListas()
@@ -109,7 +220,14 @@ public class PruebaSalas : MonoBehaviour
             {
                 matrix[posX, posY] = 5;
             }
-            else { matrix[posX, posY] = tipoSalaBoss; }
+            else
+            {
+                if (tipoSalaBoss == 9)
+                {
+                    AddSalaPadre(posX - 50, posY - 50, salaPadre);
+                }
+                matrix[posX, posY] = tipoSalaBoss;
+            }
 
             List<int> pasillosAlrededor;
             GetPasillosAlrededor(out pasillosAlrededor, posX, posY);
@@ -213,38 +331,24 @@ public class PruebaSalas : MonoBehaviour
     }
     private void AddSalaPadre(int posX2, int posY2, listaSalas salaPadre)
     {
-        bool encontrado = false;
-        for (int i = 0; i < m_ListaSalasPadre.Count; i++)
+
+        if (EstaENLaListaDeSalas(salaPadre.x, salaPadre.y))
         {
-            if (m_ListaSalasPadre[i].x == salaPadre.x && m_ListaSalasPadre[i].y == salaPadre.y)
+            for (int i = 0; i < m_ListaSalasPadreConHijos.Count; i++)
             {
-                encontrado = true; break;
-            }
-        }
-        if (encontrado)
-        {
-            print($"Sala padre: [{salaPadre.x}, {salaPadre.y}]");
-            if (salaPadre.x != 0 && salaPadre.y != 0)
-            {
-                for (int i = 0; i < m_ListaSalasPadreConHijos.Count; i++)
+                if (m_ListaSalasPadreConHijos[i].m_HabitacionPadre.x == salaPadre.x && m_ListaSalasPadreConHijos[i].m_HabitacionPadre.y == salaPadre.y)
                 {
-                    if (m_ListaSalasPadreConHijos[i].m_HabitacionPadre.x == salaPadre.x && m_ListaSalasPadreConHijos[i].m_HabitacionPadre.y == salaPadre.y)
-                    {
-                        m_ListaSalasPadreConHijos[i].m_HabitacionesHijas.Add(new listaSalas(posX2, posY2));
-                    }
+                    m_ListaSalasPadreConHijos[i].m_HabitacionesHijas.Add(new listaSalas(posX2, posY2));
                 }
             }
         }
-        
+
     }
 
     private void AmpliarSala(int row, int col, listaSalas salaPadre)
     {
         if (matrix[row, col] != 0)
             return;
-
-
-        AddSalaPadre(row - 50, col - 50, salaPadre);
         GenerarMapa(row, col, 9, salaPadre);
     }
     private void PonerNumeroSala(int row, int col, listaSalas salaPadre)
@@ -261,18 +365,18 @@ public class PruebaSalas : MonoBehaviour
         {
             for (int y = 0; y < matrix.GetLength(1); y++)
             {
-                if (matrix[x, y] != 0)
-                    InstanciarSala(x, y, matrix[x, y]);
+                if (matrix[x, y] != 0 && matrix[x, y] != 9 && matrix[x, y] != 2)
+                    InstanciarSala(x, y);
             }
         }
     }
-    private void InstanciarSala(int x, int y, int tipoSala)
+    private void InstanciarSala(int x, int y)
     {
         float posicionX = (x - 50) * 12;
         float posicionY = (y - 50) * 11;
         GameObject sala = null;
 
-        switch (tipoSala)
+        switch (matrix[x, y])
         {
             case 1:
                 sala = Instantiate(m_SalaInicial, m_TransformParentMundo);
@@ -298,7 +402,7 @@ public class PruebaSalas : MonoBehaviour
         if (sala != null)
         {
             sala.transform.position = new Vector3(posicionX, posicionY, 0);
-            InstanciarParedesAndPuertas(x, y, sala.transform, tipoSala);
+            InstanciarParedesAndPuertas(x, y, sala.transform, matrix[x, y]);
         }
     }
 
