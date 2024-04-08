@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class SMBSingleAttackState : SMState
+public class SMBVoltauroTripleAttackState : SMState
 {
     private Rigidbody2D m_Rigidbody;
     private FiniteStateMachine m_StateMachine;
@@ -28,7 +27,7 @@ public class SMBSingleAttackState : SMState
 
     [Header("Attack Animation")]
     [SerializeField]
-    private string m_SingleAttackAnimationName;
+    private string m_VoltauroTripleAttackAnimationName;
 
     private void Awake()
     {
@@ -38,40 +37,47 @@ public class SMBSingleAttackState : SMState
         m_Boss = GetComponent<BossBehaviour>();
 
         //Checking what kind of Collider we have set on the hitbox and giving it the required size
-        if(m_AttackHitbox is BoxCollider2D) 
+        if (m_AttackHitbox is BoxCollider2D)
         {
             SetBoxColliderSize(m_AttackHitbox);
         }
-        if(m_AttackHitbox is  CircleCollider2D)
+        if (m_AttackHitbox is CircleCollider2D)
         {
             SetCircleColliderSize(m_AttackHitbox);
         }
     }
 
-
     public override void InitState()
     {
         base.InitState();
-        m_SingleAttackCoroutine = StartCoroutine(AttackCoroutine(transform.position + transform.up, 1f));
+        m_TripleAttackCoroutine = StartCoroutine(AttackCoroutine(transform.position + transform.up, 0.5f, 0.5f, 1f));
     }
 
     public override void ExitState()
     {
         base.ExitState();
-        if(m_SingleAttackCoroutine != null)
-            StopCoroutine(m_SingleAttackCoroutine);
+        if (m_TripleAttackCoroutine != null)
+            StopCoroutine(m_TripleAttackCoroutine);
     }
 
-    private Coroutine m_SingleAttackCoroutine;
-    public IEnumerator AttackCoroutine(Vector2 position, float attackDelay)
+    private Coroutine m_TripleAttackCoroutine;
+    public IEnumerator AttackCoroutine(Vector2 position, float attack1Delay, float attack2Delay, float attack3Delay)
     {
-        while(true)
-        { 
+        while (true)
+        {
             m_Rigidbody.velocity = Vector3.zero;
             m_AttackHitbox.transform.position = position;
             transform.up = m_Target.transform.position - transform.position;
             m_AttackHitbox.gameObject.SetActive(true);
-            yield return new WaitForSeconds(attackDelay);
+            yield return new WaitForSeconds(attack1Delay);
+            m_AttackHitbox.gameObject.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+            m_AttackHitbox.gameObject.SetActive(true);
+            yield return new WaitForSeconds(attack2Delay);
+            m_AttackHitbox.gameObject.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+            m_AttackHitbox.gameObject.SetActive(true);
+            yield return new WaitForSeconds(attack3Delay);
             m_AttackHitbox.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.5f);
             if (!m_Boss.IsPlayerDetected)
