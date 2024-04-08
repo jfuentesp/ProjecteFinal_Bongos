@@ -27,7 +27,7 @@ public class SMBChargeState : SMState
     public delegate void OnChargeMiss(GameObject obj);
     public OnChargeMiss OnChargeMissed;
 
-    private void Awake()
+    private new void Awake()
     {
         base.Awake();
         m_Rigidbody = GetComponent<Rigidbody2D>();
