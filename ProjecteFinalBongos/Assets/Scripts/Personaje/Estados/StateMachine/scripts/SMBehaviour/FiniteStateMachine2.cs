@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace m17
+/*namespace m17
 {
     public class FiniteStateMachine2 : MonoBehaviour
     {
@@ -40,3 +40,4 @@ namespace m17
         }
     }
 }
+   */

@@ -1,4 +1,4 @@
-using m17;
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
@@ -15,8 +15,9 @@ public class SMBStunState : SMState
     private GameEvent m_event;
     [SerializeField]
     private TimesScriptable playerTimes;
-    private void Awake()
+    private new void Awake()
     {
+        base.Awake();
         m_PJ = GetComponent<PJSMB>();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();

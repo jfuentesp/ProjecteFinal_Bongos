@@ -13,9 +13,9 @@ public abstract class SMBComboState : SMState
     protected Animator m_Animator;
     protected FiniteStateMachine m_StateMachine;
     private ComboHandler m_ComboHandler;
-    private void Awake()
+    private new void Awake()
     {
-        
+        base.Awake();
         m_PJ = GetComponent<PJSMB>();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();

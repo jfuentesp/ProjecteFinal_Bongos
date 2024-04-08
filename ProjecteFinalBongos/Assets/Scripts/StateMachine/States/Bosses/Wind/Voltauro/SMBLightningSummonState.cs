@@ -39,8 +39,9 @@ public class SMBLightningSummonState : SMState
     private float m_AttackSpeed;
     private Sprite m_AttackSprite;
 
-    private void Awake()
+    private new void Awake()
     {
+        base.Awake();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();

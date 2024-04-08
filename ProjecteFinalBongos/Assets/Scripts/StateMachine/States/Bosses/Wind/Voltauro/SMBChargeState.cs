@@ -24,8 +24,9 @@ public class SMBChargeState : SMState
     [SerializeField]
     private GameObject m_Target;
 
-    private void Awake()
+    private new void Awake()
     {
+        base.Awake();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();

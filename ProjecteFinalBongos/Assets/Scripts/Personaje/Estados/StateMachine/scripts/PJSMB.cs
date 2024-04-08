@@ -99,7 +99,6 @@ public class PJSMB : MonoBehaviour
     {
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_StateMachine.ChangeState<SMBPlayerIdleState>();
-        m_HealthController.OnChange += AlternarEstado;
         m_Velocity = m_PlayerBaseStats.m_BaseVelocity;
         m_Strength = m_PlayerBaseStats.m_BaseStrength;
         m_Defense = m_PlayerBaseStats.m_BaseDefense;

@@ -14,8 +14,9 @@ public class SMBPlayerWalkState : SMState
 
     private Vector2 m_Movement;
 
-    private void Awake()
+    private new void Awake()
     {
+        base.Awake();
         m_PJ = GetComponent<PJSMB>();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();

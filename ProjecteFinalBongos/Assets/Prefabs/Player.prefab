@@ -26,14 +26,11 @@ GameObject:
   - component: {fileID: 8226321951086738282}
   - component: {fileID: 7292434299632388689}
   - component: {fileID: 6759636076832074010}
-  - component: {fileID: 7127180756505567192}
   - component: {fileID: 3217479241999672515}
   - component: {fileID: 4123619812283796905}
   - component: {fileID: 8807905285937194194}
-  - component: {fileID: 791973544916380371}
-  - component: {fileID: 4678787166404675555}
-  - component: {fileID: 2202998182776408031}
   - component: {fileID: 838550027639374841}
+  - component: {fileID: 7127180756505567192}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -369,19 +366,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a07f2cdcde3c843989d76bd457c4ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7127180756505567192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922464185457733035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69c37cf3aabdc8c418a83b17a3ed16d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HP: 100
 --- !u!114 &3217479241999672515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,102 +408,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_event: {fileID: 11400000, guid: 8d499105d7ef44a45bb87b599400d7d2, type: 2}
   playerTimes: {fileID: 0}
---- !u!114 &791973544916380371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922464185457733035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73e455991ab184643a97ba12f9e0ac1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 06ab8ef3fd003b44f978d15f56df66d2, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2740482035974031851}
-        m_TargetAssemblyTypeName: m17.PJSMB, Assembly-CSharp
-        m_MethodName: AlternarEstado
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &4678787166404675555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922464185457733035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4aa1f31f7e620c5438a13b93f0784f1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: a0126d04316ae494e89a6f759f4989a1, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7127180756505567192}
-        m_TargetAssemblyTypeName: HealthController, Assembly-CSharp
-        m_MethodName: Damage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2202998182776408031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922464185457733035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79c05630067a73141a269d1b84d8bcd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 0}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7127180756505567192}
-        m_TargetAssemblyTypeName: HealthController, Assembly-CSharp
-        m_MethodName: EstadoNormal
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2740482035974031851}
-        m_TargetAssemblyTypeName: m17.PJSMB, Assembly-CSharp
-        m_MethodName: EstadoNormal
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &838550027639374841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,3 +420,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffffcba53bd5cc140b776f6890a428fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7127180756505567192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922464185457733035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HP: 100
