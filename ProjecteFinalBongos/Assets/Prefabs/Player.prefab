@@ -31,6 +31,9 @@ GameObject:
   - component: {fileID: 3217479241999672515}
   - component: {fileID: 4123619812283796905}
   - component: {fileID: 8807905285937194194}
+  - component: {fileID: 791973544916380371}
+  - component: {fileID: 4678787166404675555}
+  - component: {fileID: 2202998182776408031}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -51,7 +54,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &268229367134758429
 SpriteRenderer:
@@ -119,7 +122,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InputAsset: {fileID: -944628639613478452, guid: 4a0311c0fadff564bb0a0970761e8c5d, type: 3}
   instance: {fileID: 0}
-  mullat: 0
+  m_playerTimes: {fileID: 11400000, guid: 565fd6da80ca7ae42a8ef017fe77f01f, type: 2}
+  m_ParalizedLifeModifier: 2
+  m_WrathLifeModifier: 1.5
+  m_PlayerBaseStats: {fileID: 11400000, guid: a62e57ce6b4936c4fb78b3251bb820a0, type: 2}
+  m_Velocity: 0
+  m_AttackTime: 0
+  m_Strength: 0
+  m_Defense: 0
+  m_StrongAttack: 0
+  m_WeakAttack: 0
 --- !u!114 &3361480863684167437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,7 +406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e762b4bfd70e9448c9979b54257127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_event: {fileID: 0}
+  m_event: {fileID: 11400000, guid: 8d499105d7ef44a45bb87b599400d7d2, type: 2}
+  playerTimes: {fileID: 0}
 --- !u!114 &4123619812283796905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,7 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab17924260d5954a996368edeeb01e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_event: {fileID: 0}
+  m_event: {fileID: 11400000, guid: 8d499105d7ef44a45bb87b599400d7d2, type: 2}
 --- !u!114 &8807905285937194194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,4 +433,100 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e638441cfb0701c4899fbe6ae456dc28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_event: {fileID: 0}
+  m_event: {fileID: 11400000, guid: 8d499105d7ef44a45bb87b599400d7d2, type: 2}
+--- !u!114 &791973544916380371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922464185457733035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e455991ab184643a97ba12f9e0ac1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 06ab8ef3fd003b44f978d15f56df66d2, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2740482035974031851}
+        m_TargetAssemblyTypeName: m17.PJSMB, Assembly-CSharp
+        m_MethodName: AlternarEstado
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4678787166404675555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922464185457733035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa1f31f7e620c5438a13b93f0784f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: a0126d04316ae494e89a6f759f4989a1, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7127180756505567192}
+        m_TargetAssemblyTypeName: HealthController, Assembly-CSharp
+        m_MethodName: Damage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2202998182776408031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922464185457733035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79c05630067a73141a269d1b84d8bcd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 0}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7127180756505567192}
+        m_TargetAssemblyTypeName: HealthController, Assembly-CSharp
+        m_MethodName: EstadoNormal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2740482035974031851}
+        m_TargetAssemblyTypeName: m17.PJSMB, Assembly-CSharp
+        m_MethodName: EstadoNormal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

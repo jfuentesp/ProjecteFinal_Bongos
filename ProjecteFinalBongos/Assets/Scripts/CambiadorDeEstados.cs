@@ -5,15 +5,17 @@ using UnityEngine;
 public class CambiadorDeEstados : MonoBehaviour
 {
     [SerializeField]
-    private EstadoEvent estado;
+    private EstadoEvent estadoEvent;
     [SerializeField]
     private DañoEnemigoEvent daño;
+    [SerializeField]
+    private EstadosAlterados estado;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        estado.Raise(EstadosAlterados.Paralitzat);
+        estadoEvent.Raise(estado);
         daño.Raise(5);
     
     }

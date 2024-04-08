@@ -13,6 +13,8 @@ public class SMBStunState : MBState
     private FiniteStateMachine m_StateMachine;
     [SerializeField]
     private GameEvent m_event;
+    [SerializeField]
+    private TimesScriptable playerTimes;
     private void Awake()
     {
         m_PJ = GetComponent<PJSMB>();
@@ -30,7 +32,7 @@ public class SMBStunState : MBState
         
     }
     IEnumerator StunSeconds() { 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(playerTimes.m_StunTime);
         m_event.Raise();
         m_StateMachine.ChangeState<SMBIdleState>();
     }

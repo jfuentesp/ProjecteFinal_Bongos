@@ -11,6 +11,7 @@ public class HealthController : MonoBehaviour, IHealable, IDamageable
     private const float MAXHP = 100f;
     [SerializeField]
     private float m_HP = MAXHP;
+    public float HP { get => m_HP; }
 
     public Action<EstadosAlterados> OnChange;
 
