@@ -138,6 +138,7 @@ namespace m17
                     if (!Stun)
                     {
                         Stun = true;
+                        Paralized = true;
                         m_StateMachine.ChangeState<SMBParalitzatState>();
                     }
                     break;
@@ -263,9 +264,11 @@ namespace m17
             {
                 Daño += Daño * m_ParalizedLifeModifier;
                 m_HealthController.Damage(Daño);
+                Debug.Log("Bingo");
             }
             else if (Wrath)
             {
+                Debug.Log("Bingo");
                 Daño += Daño * m_WrathLifeModifier;
                 m_HealthController.Damage(Daño);
             }
@@ -283,6 +286,7 @@ namespace m17
         }
         public void StopStun() {
             Stun = false;
+            Paralized = false;
         }
     }
 
