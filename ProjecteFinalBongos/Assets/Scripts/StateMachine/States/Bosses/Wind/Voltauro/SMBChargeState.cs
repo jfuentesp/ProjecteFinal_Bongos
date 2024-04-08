@@ -29,6 +29,7 @@ public class SMBChargeState : SMState
 
     private void Awake()
     {
+        base.Awake();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
@@ -52,13 +53,13 @@ public class SMBChargeState : SMState
         m_IsAiming = true;
         yield return new WaitForSeconds(2f);
         m_IsAiming = false;
-        m_IsCharging = true;    
+        m_IsCharging = true;
     }
 
     Vector3 m_Direction;
     private void Update()
     {
-        if(m_IsAiming) 
+        if(m_IsAiming)
         {
             m_Direction = (m_Target.transform.position - transform.position).normalized;
             m_Rigidbody.velocity = Vector3.zero;
@@ -67,7 +68,7 @@ public class SMBChargeState : SMState
     }
 
     private void FixedUpdate()
-    { 
+    {
         if (m_IsCharging)
             m_Rigidbody.velocity = m_Direction * m_ChargeSpeed;
     }

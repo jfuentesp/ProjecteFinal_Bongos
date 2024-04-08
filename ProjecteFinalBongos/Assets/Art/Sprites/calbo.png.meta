@@ -1,0 +1,5891 @@
+fileFormatVersion: 2
+guid: 1bd844708b32c8a4c8d18dd3a8ae207b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: calbo_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 3582
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab30f19f4e959b44db267d0b5b097830
+      internalID: -221396238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 3582
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d955af0cc28d7e43b7899f3252235f3
+      internalID: 685056762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 3582
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a2ecdd55d8876141b1971aacc6fae23
+      internalID: 376199665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_3
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 3582
+        width: 39
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 101756a33d964524ea6c76b062c26bfa
+      internalID: 1174093678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_4
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 3582
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed8c91c6660e2b144bbdec98dc3c9b54
+      internalID: -612130103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_5
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 3582
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfb87946734ca104d8b27655c70be2b0
+      internalID: 1353621085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_6
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 3582
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d7a097f2c066ff418ae6ba1a4a46f9a
+      internalID: -1398879494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 3518
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b1d06da9e4d62143ae21f54fea9377a
+      internalID: 833697322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_8
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 3518
+        width: 28
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccc94a1ef4109eb40b1d8269f891a79e
+      internalID: 457810452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_9
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 3518
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d94a9725dfa81984b8a4957771f47fbd
+      internalID: -1061250140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_10
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 3518
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ba5f075c566a4d4ba34a4b47977c1cb
+      internalID: -1474823932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_11
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 3518
+        width: 37
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f79f427f4ae04cf42b9ffd8e60613b53
+      internalID: 1546220547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_12
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 3518
+        width: 39
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 255116053a1edcd44b9a0030c97a36d6
+      internalID: 1123198161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_13
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 3518
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82de38e5fe99fbc47ac1baea404f846b
+      internalID: 1698338280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_14
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 3454
+        width: 32
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e4c2d99155885e46b774e12f3350706
+      internalID: 1036152229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_15
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 3454
+        width: 32
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff2b4851b1060de4da9e4acbcfc6b424
+      internalID: -1784000803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_16
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 3454
+        width: 32
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d36780632e24bbb4c950ed20594ce680
+      internalID: -722417710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_17
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 3454
+        width: 39
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed5b1a13a6ff51a4c8438e63d8231975
+      internalID: -149898115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_18
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 3454
+        width: 52
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c222bfb4c1614e4aa73299585c3a262
+      internalID: -1795268090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_19
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 3454
+        width: 52
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a447cd958ce744840bc8a3d088edbb41
+      internalID: 851669506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_20
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 3454
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0af8ef33f1f263447b98103d50afdf1e
+      internalID: -402622415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_21
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 3391
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52c0a947b4dfb31498fc9e969a7df174
+      internalID: 511115398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_22
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 3391
+        width: 28
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7bb130dcd6f7d644a42dabb840b588b
+      internalID: 446959426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_23
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 3391
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2975543d1e9404544bf938e18dc63c9c
+      internalID: 333329319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_24
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 3391
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 589c899417d912a48bdfbe2e64270b7f
+      internalID: -489255570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_25
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 3391
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b84258b9a97b5824995f5360264cb9f7
+      internalID: -284265206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_26
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 3391
+        width: 40
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 641ee84ff68046044a36d668278292f6
+      internalID: 195717959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_27
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 3391
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02dce2898bdadb4095561e030d3b4cd
+      internalID: 1012158963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_28
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 3327
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7135799a7be099d4c860c545bb56c8ce
+      internalID: -1792223781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_29
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 3327
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ec1291c4fa47574fb30f756b8e39a5a
+      internalID: -1532159303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_30
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 3327
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0761f8630e6e2141976c4f532be19bd
+      internalID: 1175019956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_31
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 3327
+        width: 29
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a767a31f4d74e45b8e50548ca6c6ba
+      internalID: 100709773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_32
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 3327
+        width: 29
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64cc4c17ab79eef48bf0e003310bbfa5
+      internalID: -1517398145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_33
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 3327
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29b11f3120f93c24d99a95817474357d
+      internalID: 1470138134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_34
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 3327
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a7414930b0557749b50b3a9087e2ce4
+      internalID: -1772352776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_35
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 3327
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61bd6ad7bda7b7a4aaddc2f451f8b91e
+      internalID: 2093958330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_36
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 3263
+        width: 28
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24119fd07cd392146a0a689f8a598d33
+      internalID: 667577211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_37
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 3263
+        width: 28
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13bb0c4fd832e774d87b5fafe4c32a4b
+      internalID: 1109832663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_38
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 3263
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae360458aafd3234881f6cb57e34bf6d
+      internalID: 1661572679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_39
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 3263
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72f524643b1975141a305223d7050bfe
+      internalID: 997021448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_40
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 3263
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abaae89c7ac3eb148897e01a63f87ea8
+      internalID: 1154747059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_41
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 3263
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd6e98950e11fab44a5a1499a72fef4c
+      internalID: 375746007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_42
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 3263
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 175d1e24bc9be2e4e8c39191f0d1577f
+      internalID: 1652238143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_43
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 3263
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b8f32889b2935b43952b472be557721
+      internalID: -54470011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_44
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 3199
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7edd779fb6a664e47a5e9e0d679602b2
+      internalID: 1847651005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_45
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 3199
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e408d9eed1fda5641a61402055a353da
+      internalID: 683525667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_46
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 3199
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3db137eb664b074e809a2fd25886508
+      internalID: 819743654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_47
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 3199
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 347bd5576bc5d6e409552e848aa97c07
+      internalID: 622737537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_48
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 3199
+        width: 29
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a414c6926737cd4d874b515fd4b6d78
+      internalID: 1994232721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_49
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 3199
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfabc39bd9cdcbb4ebd6db63e5658e6a
+      internalID: 1424651420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_50
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 3199
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 508a151b2f81e644bbcb5b5323f7be82
+      internalID: 2118608782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_51
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 3199
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c241db1d7ece1446950f66d10946cfb
+      internalID: 1765362393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_52
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 3135
+        width: 28
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6beff874c78662343ae8958aaf7cd2d3
+      internalID: 1510925791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_53
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 3135
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a007a8856890877419e89f127bc83ced
+      internalID: 1699073366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_54
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 3135
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68846dc6945769945a0665f5324bc7c8
+      internalID: -849433403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_55
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 3135
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04f637c0b7bb377439b75429a4a752bc
+      internalID: -502576458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_56
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 3135
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34a062cc814496146b92e2d34c4a2aad
+      internalID: 2132684357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_57
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 3135
+        width: 37
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac59237748b389a449ecbc45c044a24b
+      internalID: -49884962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_58
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 3135
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56d795eb1ced09648a27a2eec5552714
+      internalID: 153795060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_59
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 3135
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1583a2755c8351a4ba603a45ef1370c9
+      internalID: -155302967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_60
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 3071
+        width: 41
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d1a198e68573c540a3ab0e247749534
+      internalID: 644589005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_61
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 3071
+        width: 38
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26d1d98096937004b99d2188f5056af6
+      internalID: -112819165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_62
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 3071
+        width: 38
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da3d1fd54632a8c4985276c5d444b6bb
+      internalID: 1691887373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_63
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 3071
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdce6230c4f22624791842e51750470e
+      internalID: -1484823727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_64
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 3071
+        width: 39
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 879dc120d7ce4c54f97e7343377fe3ba
+      internalID: -1781599403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_65
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 3071
+        width: 39
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc53a56b28fbf74abede1f282a7c0fb
+      internalID: 1997632905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_66
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 3071
+        width: 39
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0f0b8912d82ae54e93bc6a9a24fd48b
+      internalID: 1801624104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_67
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 3071
+        width: 39
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6f87fa88958d674e92669b78459c63c
+      internalID: -692480475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_68
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 3071
+        width: 40
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3ba36481c486e045944be0ccb6e1488
+      internalID: 1562304939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_69
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 3007
+        width: 41
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7e3803cd57e4224eaedc901d718de90
+      internalID: -820931793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_70
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 3007
+        width: 48
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 010529543a2a550468b9ecc2278a3cd0
+      internalID: -1210937489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_71
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 3007
+        width: 48
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5420ba3488b2864dba1543290fb113e
+      internalID: -1501259726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_72
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 3007
+        width: 47
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37da66a4d096601498f8b4dae93a729f
+      internalID: -373688255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_73
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 3007
+        width: 43
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4166c87fe38859419b97bca7f395a2e
+      internalID: -1837140854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_74
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 3007
+        width: 36
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 772c0ccbebbfbde499bf0f21575432ec
+      internalID: 101742077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_75
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 3007
+        width: 41
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fda521839dad2ac458dee7b47ac09746
+      internalID: -376702084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_76
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 3007
+        width: 45
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60bfbb5c34a1b3f4abd201487747d2f6
+      internalID: 494218880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_77
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 3007
+        width: 47
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06dd78bcc35a834439a7ed1499f5c9aa
+      internalID: 1422769322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_78
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 2943
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f2ae3367f752c44882731c11196e17c
+      internalID: -2036229857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_79
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 2943
+        width: 32
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d92eeb0628679284581e3f019659200b
+      internalID: -632163301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_80
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 2943
+        width: 32
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16733d2197134d84e811d74f7fb4cbfd
+      internalID: -1736558603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_81
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 2943
+        width: 33
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63433287a29e6d341a6ac3f244b46d25
+      internalID: 908618021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_82
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 2943
+        width: 34
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92cd5c656f9b65d4483c1dc71f44cd73
+      internalID: -944914346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_83
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 2943
+        width: 34
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42f0a3386e52eda459961bab9dfc96b8
+      internalID: 1658006218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_84
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 2943
+        width: 34
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ec24f7250721243849ee5e4bf5f23c
+      internalID: 1424016095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_85
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 2943
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b193ef09651ee0438e6bb9bd2efb989
+      internalID: 844286309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_86
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 2943
+        width: 33
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08aa28ac669d8640b8f6e3ebdc31f4c
+      internalID: -877088165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_87
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 2878
+        width: 41
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90b66b669769ed14bb349b883a06daee
+      internalID: 280722008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_88
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 2878
+        width: 48
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d5a4e1c2202ce941978387afc7854e8
+      internalID: 897200490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_89
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 2878
+        width: 48
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d42e955447eb014e95aa2b77c99ace3
+      internalID: -818024828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_90
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 2878
+        width: 49
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 205686b104f960a4aa85afb6ac76481f
+      internalID: -499128558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_91
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 2878
+        width: 42
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1debc0d14f249bb4aaca387c7b8cfb24
+      internalID: -552989500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_92
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 2878
+        width: 36
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a76103961c15ba4b92db1fd8c6e5673
+      internalID: -1648345037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_93
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 2878
+        width: 41
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79e997a54a0dbc745b69de8e18edfe9d
+      internalID: -775357569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_94
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 2878
+        width: 46
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b4b1d403944ef84ba150766e227064c
+      internalID: -1956187308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_95
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 2878
+        width: 48
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ae61e8ccb066254abd3250e983f51ce
+      internalID: -87972690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_96
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 2814
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d56ec6eaf3d8e66418e20a566a07fc53
+      internalID: -1002829915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_97
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 2814
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41f522e490f1cc84ca3798d230f53384
+      internalID: 342702914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_98
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 2814
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 780cf8d64b6d958428640fa946b17e71
+      internalID: -316335799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_99
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 2814
+        width: 33
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63074d363ede49f43879218722720ffa
+      internalID: -1903805872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_100
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 2814
+        width: 41
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5363535fdce2b4e458f7263a04a15899
+      internalID: 1904063093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_101
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 2814
+        width: 43
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39e1c2a534a71134288e96c3673491c8
+      internalID: 790457368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_102
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 2750
+        width: 27
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f932f35d0383a614fa221881d41949ff
+      internalID: -1334270715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_103
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 2750
+        width: 29
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6310490f0aec4234dac464466b4743d3
+      internalID: 292822553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_104
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 2750
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6db7f7ce76e87b428ff2ffa75e47fd8
+      internalID: -1617051644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_105
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 2750
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5070e319d5fd81042a1a5638bcd714cf
+      internalID: 2065455677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_106
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 2750
+        width: 39
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3623974de01efa24c82e063eb9dd4b3c
+      internalID: 770212798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_107
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 2750
+        width: 35
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8d954e8c62cdd8479df25ac126daa2b
+      internalID: -1768817551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_108
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 2686
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59589523e9bcfe84f9d7174636026170
+      internalID: -1915358257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_109
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 2686
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42fb34e157280454a899b95e3daa9340
+      internalID: 1107369640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_110
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 2686
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64053d6c938f31344bac961afebb0bc8
+      internalID: 453787164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_111
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 2686
+        width: 33
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ce1bb665db357144b25d9dc8583a9a9
+      internalID: -2109413272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_112
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 2686
+        width: 41
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f011f48fd104e4fb420e0a7e252923
+      internalID: -110686226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_113
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 2686
+        width: 45
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61d3631ae854be84191d54abe842dfd3
+      internalID: -1202910269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_114
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 2622
+        width: 28
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdee6c5aa552c7e42ae9bf11098f3d1a
+      internalID: 1344790588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_115
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 2622
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 041f60e593a26324b8b7ac51ddf73193
+      internalID: 2058332811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_116
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 2622
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7362b9918589334fae73f9e70d009ae
+      internalID: 1020991910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_117
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 2622
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b6b40562764cdd4d84d87d7d2cd9e42
+      internalID: -1689087206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_118
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 2622
+        width: 40
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cd1bc79480e1cb47ad15217c6365868
+      internalID: -1414584248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_119
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 2622
+        width: 35
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b0a5da895adef5468b03733e0269d2b
+      internalID: -1412726492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_120
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 2558
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7980607d84c29df47962480cb582f6c5
+      internalID: -1699039861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_121
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 2558
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0186b77b3c0e5744972e109c75037cc
+      internalID: -359071904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_122
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 2558
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd952b1bba88ade4eb0f80550725b86a
+      internalID: -1296688354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_123
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 2558
+        width: 33
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 072a716bfe5172647bc9bc2458d568d2
+      internalID: 1617916689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_124
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 2558
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd3b18d744c7bf8429181876d9244114
+      internalID: -1525071729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_125
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 2558
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 013bba64f0ae93d42a726cb87f4c0a87
+      internalID: -79082294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_126
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 2558
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9baaa5a7591b1d74a964fe8974788a58
+      internalID: 768572005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_127
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 2558
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47374d618bb49984796ebcff59af38e2
+      internalID: 1872137962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_128
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 2558
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9c3306ebcda0684395ee3d1f7973ef7
+      internalID: -474443743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_129
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 2558
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6540d4a1b833455438b2f37a2b077500
+      internalID: 1981902872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_130
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 2558
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceaee094afd14a043802c220a1f534ea
+      internalID: -2100761613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_131
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 2558
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd128c0e81b7e0c4194c5e2d4ea34634
+      internalID: -249301547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_132
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 2558
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c46ef21dff7a22641a274ec269fcbfbd
+      internalID: -69938376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_133
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 2494
+        width: 28
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59d80fb0ef579f640bd09b6aa28d082a
+      internalID: 706804573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_134
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 2494
+        width: 28
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85ca0ea37df4e6643b08f4e845b55d09
+      internalID: 1329009604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_135
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 2494
+        width: 35
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4081cea6e2549f548be58aa7bb8ce700
+      internalID: -2116516007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_136
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 2494
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e4cb37a6888f214eb773cbaa2f51f36
+      internalID: -1400830511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_137
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 2494
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 342ac2b41627cb2458b2bfa9e4cd491d
+      internalID: 1360453889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_138
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 2494
+        width: 36
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b60789bf7231a244ac70ac2def2eda9
+      internalID: 1009358663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_139
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 2494
+        width: 39
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a43fd13ca2f03ea47a93569b34b8d23e
+      internalID: -1878162592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_140
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 2494
+        width: 39
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41f52802d1690ec4a8ef5ec2894e03c4
+      internalID: -788788709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_141
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 2494
+        width: 41
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f370d69a702ae3f4e882f7e5f1245933
+      internalID: 2124118717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_142
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 2494
+        width: 37
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 119249774f2af0b4da7d813df7d79fba
+      internalID: 1202702375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_143
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 2494
+        width: 36
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 299abd40255ddfb42b869d5218207e34
+      internalID: -1250312477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_144
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 2494
+        width: 36
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f0aab22c6625e944bcdd1b9d24352ae
+      internalID: 1133368632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_145
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 2494
+        width: 36
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c2b1c13262932640a83f5a7548183d5
+      internalID: 400481930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_146
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 2431
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b7db72f7fa11874cabab68bb5b1ba85
+      internalID: -2052363909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_147
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 2431
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b7df017b82806d4083fcfe3c70c2de6
+      internalID: 808512635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_148
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 2431
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 210a86133ea4ef54e82a1578d5ee2f98
+      internalID: 611215586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_149
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 2431
+        width: 33
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f3951966da04f5429766dabdda32c63
+      internalID: 1276705138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_150
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 2431
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f19392ff11ec3a4f8000cbbe3c2a972
+      internalID: -862381576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_151
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 2431
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82a97a5a85115034e83d5cf9f198454e
+      internalID: 73895449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_152
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 2431
+        width: 28
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f519f2ca144e4f34bac559e0ea533d27
+      internalID: -415367581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_153
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 2431
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57ebfcd97772d024cbab12c6728d1140
+      internalID: -606616979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_154
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 2431
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcefb31407499da4abc6c9712f5f29bb
+      internalID: 1107001735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_155
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 2431
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e0ed10d859ae07428d8de9aa1dffd32
+      internalID: 177772551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_156
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 2431
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c3c31312e440a64eb8fbf5ea8abc8df
+      internalID: 8764606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_157
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 2431
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d61373c36e3fc64183192d78af50c18
+      internalID: -86323814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_158
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 2431
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 426f97c0250c1ba44a0e6ef70e17853d
+      internalID: -1709197950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_159
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 2367
+        width: 28
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c0898cb555f25340955d344da397bcd
+      internalID: 393214467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_160
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 2367
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e41408627b0b14099dce1cc282ffc7
+      internalID: 1364974528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_161
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 2367
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 834f2bf991999a94e8c4834d0dea2878
+      internalID: 364640951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_162
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 2367
+        width: 37
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 561335142cdf41a4a84aecdba6c23adf
+      internalID: 240461123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_163
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 2367
+        width: 37
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20fb5ed69a68a0e41b0e573741f79e8b
+      internalID: -1097456390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_164
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 2367
+        width: 37
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c1ac15e9fe7d8d43b0ab287a706c6ad
+      internalID: -625318228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_165
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 2367
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 076572d50fbd01346828bece76a3daee
+      internalID: 976833129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_166
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 2367
+        width: 39
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df4890db040396a4b9ff0c1b17616c85
+      internalID: 965033143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_167
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 2367
+        width: 41
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf753c7f9f072434c8839953f21efbc7
+      internalID: 723616054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_168
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 2367
+        width: 39
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1efc4d4eee29d6749be99ba8c02a028a
+      internalID: -1109186678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_169
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 2367
+        width: 37
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e7416077d115e848a26b32af81bc847
+      internalID: -45116335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_170
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 2367
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52b4b6c1b6856a649ada1562ba5c0900
+      internalID: -232322812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_171
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 2367
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5e25aa967454b04ba0f09f6d0b25ba1
+      internalID: 1813583723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_172
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 2303
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e686eecacea6f1b43b196e1b9569a810
+      internalID: 2085014100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_173
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 2303
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19265b2b31ecc6c43a56e8d1d90f601f
+      internalID: 360302796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_174
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 2303
+        width: 37
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce19f6d2ccf569246b1727dbdb7ea718
+      internalID: 1339241139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_175
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 2303
+        width: 37
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5439db6b09ea1224d90bd2aad2c36cce
+      internalID: 327893869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_176
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 2303
+        width: 37
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d62bdd1b5933704f95e62a6afd63b31
+      internalID: 2071032640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_177
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 2303
+        width: 43
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de0bf193a9e422b4da85d92877f1e6ff
+      internalID: -1861217435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_178
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 2303
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89d4d06a082e2ef4d95c4c0147b5f6cc
+      internalID: 1200640885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_179
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 2303
+        width: 21
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de337c7692e37c54aa3ab61f41bb97d5
+      internalID: 906958358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_180
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 2303
+        width: 21
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a6916115e57fc949978f86fb288fde8
+      internalID: 2103888226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_181
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 2303
+        width: 21
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f56ae5de3cbd92f48ad0c499334ae422
+      internalID: 277997739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_182
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 2175
+        width: 41
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa9cf452abe6b8842b37b8dd49d6eef1
+      internalID: 1420038038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_183
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 2175
+        width: 52
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26c80b2ec7013c44f967145d3abedd2a
+      internalID: -849594818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_184
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 2175
+        width: 47
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be130082d379e8b4a873ae02f2accc5c
+      internalID: 764667919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_185
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 2175
+        width: 61
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab57f94420fcc9447bfc2a88b8c5317c
+      internalID: -2115777968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_186
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 2175
+        width: 83
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30e461b9f25efa042aa788def9638659
+      internalID: 1083716445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_187
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 2175
+        width: 82
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa2cd2498b063994ebddd96b2998abfa
+      internalID: -1724559937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_188
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 1983
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d598358174d0e648830591f348debda
+      internalID: 1989609516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_189
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1983
+        width: 33
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84d28796f015c7247978208a2f2eeb11
+      internalID: -1066314354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_190
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 1983
+        width: 39
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd530421f89b4e04d8b34604b1523327
+      internalID: -115700724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_191
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 1983
+        width: 59
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 630674ede3e840f45be8141df0b461d8
+      internalID: 1475585086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_192
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 1983
+        width: 95
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b89679b91955e749bde9403da66a0e1
+      internalID: -973505417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_193
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 1983
+        width: 93
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd8aae7175b89794fb04a30a23f5efb0
+      internalID: -1569064899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_194
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 1790
+        width: 41
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09fad3812adb90343b6a4a0500c02e32
+      internalID: -1237495259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_195
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 1790
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c8af8c371ebbc346b5f9ce17987eb1d
+      internalID: -1591948661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_196
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 1790
+        width: 47
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 477492869035ece4db4cbe955e343a6b
+      internalID: 1403113281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_197
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 1790
+        width: 57
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13aecccaa9979014093f10cd50b1adee
+      internalID: 1071909290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_198
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 1774
+        width: 83
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e222f22f2ccfdfc4f81d290a6b08b08c
+      internalID: 1262564537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_199
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 1776
+        width: 82
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97632b1252ff58c458103b6adfd1af6c
+      internalID: 870909244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_200
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 1598
+        width: 59
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee022c28cde762243b74f5f79239e566
+      internalID: 629983124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_201
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 1598
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf4ddfcb14191549a26a38ad3626010
+      internalID: -1763391977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_202
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 1598
+        width: 41
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c83b144d1d17de941aae5539a4fc3f17
+      internalID: -330776350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_203
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1598
+        width: 59
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b94a6cce8daacef4981dc4ecdf887c00
+      internalID: -1342665897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_204
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 1598
+        width: 96
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2da3f1c21b4dd54b995679a8f765f29
+      internalID: -756127653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_205
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 1598
+        width: 95
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1bcdb6753eb4c4418d53e3742b5069e
+      internalID: 1880780189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_206
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 1407
+        width: 81
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df04c0bb474becb44b423c4546d9d11e
+      internalID: 991424445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_207
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 1407
+        width: 75
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2def4170480281449182cdcb0831f93
+      internalID: -1972308672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_208
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 1407
+        width: 84
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 514eb607135aebc4898f6b13d5a81e9c
+      internalID: -158733307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_209
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 1407
+        width: 68
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d81daa248df675469a932a9d997ca55
+      internalID: 1671511031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_210
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 1407
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7222a36023d4c424f92bcb3ff7b58a29
+      internalID: -1364346147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_211
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 1407
+        width: 43
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5de7cc362bb0b4c4592238c9241f923a
+      internalID: -71939544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_212
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1215
+        width: 36
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f5433b754e5f3947a42d738785571e3
+      internalID: 2091424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_213
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 1215
+        width: 59
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e901eb5cf30f66c4bbeef7ac6ed8abf3
+      internalID: 1234411168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_214
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 1215
+        width: 91
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 077a8b478f4231f48b39752898581c45
+      internalID: 1069733209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_215
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 1215
+        width: 62
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 464ed82d8422e654a9da3c1eb31eb3e2
+      internalID: 522011781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_216
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 1215
+        width: 29
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c5be19774b19c4d8b63e00c754f65d
+      internalID: 828727019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_217
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 1215
+        width: 59
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eee0241f0a805804abf3c2569a60b40b
+      internalID: 1836163101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_218
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 1022
+        width: 72
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfd52aa0d0c48d6449b1ac6ea3107c3e
+      internalID: -111143745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_219
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 1022
+        width: 76
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25c6d93c325cf544b83603687dee8f85
+      internalID: 955989425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_220
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 1022
+        width: 84
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e01146497fb64e40a25535ddc213261
+      internalID: -1018252522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_221
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 1021
+        width: 80
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36f00302a3cbf5d47bb6e96d7b5a2b0e
+      internalID: -439810463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_222
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 1022
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea7ff8cc8933577438a556dad7940e74
+      internalID: -2093562100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_223
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 1022
+        width: 43
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 752b732b8c4925f47b30c6be028bd5fd
+      internalID: 198635792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_224
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 830
+        width: 94
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e95c02004b2a34349a85fef12b93fb45
+      internalID: 1824736629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_225
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 830
+        width: 97
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccc69279afdc30c4ea819066c63df2af
+      internalID: -1713809236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_226
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 830
+        width: 61
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d0b54e579ebb7f44ae3b61e89da5895
+      internalID: -783088906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_227
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 830
+        width: 39
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3511afdfa92a7c94b8b4863428b8c459
+      internalID: 74594008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_228
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 830
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eacf9e2a2aded748964c07298c2c2d4
+      internalID: -746109176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_229
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 830
+        width: 59
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7c561b0e57b9444e9fcb59b6697afc0
+      internalID: -1952181017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_230
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 639
+        width: 41
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b2a59b7f4302c34cb2ec30ce2a84519
+      internalID: 254650536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_231
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 639
+        width: 37
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e354e3b65e818db49b89882787fb78ec
+      internalID: -375580610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_232
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 639
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5de61f4f2e44df4a98a7171946a278c
+      internalID: 1338442647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_233
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 639
+        width: 32
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 058dd5fa1a0293f4292610db5b7db06b
+      internalID: -757808874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_234
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 639
+        width: 32
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c464459ebdee6434eab602d802e4c4a6
+      internalID: 1751057233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_235
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 639
+        width: 31
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b623a7f536f256b4698b54a6ebaf0164
+      internalID: 633059772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_236
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 639
+        width: 32
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64375c4000ba2654a98b158c291a2d36
+      internalID: -1218816210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_237
+      rect:
+        serializedVersion: 2
+        x: 1426
+        y: 639
+        width: 32
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3306ab27d13c73a42b932ec1b025510d
+      internalID: 558663291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_238
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 447
+        width: 58
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fb8a1e352a443b4e9080d593b072201
+      internalID: 2072377525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_239
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 447
+        width: 55
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4e03734a54d70f4e9b1af3ea5c1dd41
+      internalID: -363009356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_240
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 447
+        width: 57
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8411c81768d9a194bb6be3c69fd8d5e8
+      internalID: -1635380112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_241
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 447
+        width: 61
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bddde645a856cc74699f7f809d68f6e6
+      internalID: -735174654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_242
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 447
+        width: 69
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e9eee57ef129a94aabf3c1bdd987b7e
+      internalID: -871111719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_243
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 447
+        width: 77
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19f12cd01aec85b41a3532768fa0f3a2
+      internalID: 814611313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_244
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 447
+        width: 70
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceb77c6a9aabfde419273c297b221f41
+      internalID: -1833551625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_245
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 447
+        width: 64
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 920af70d84907a14f9e7f741b9f99ab7
+      internalID: -1080302731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_246
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 255
+        width: 37
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3cabd7f64eaabe49876f913a61b9f31
+      internalID: -927435073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_247
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 255
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a18defe674b134f982d1973075a2f5
+      internalID: 469126118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_248
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 255
+        width: 34
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 789c1a5b23f51134fa42e429b7855e88
+      internalID: 715209801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_249
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 255
+        width: 32
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fe7fa25e2a74004ca5f254552261e09
+      internalID: -1388621866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_250
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 242
+        width: 28
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be0fc749db512bc4d8e7d6cca47909e8
+      internalID: -143808719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_251
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 232
+        width: 29
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8f032c53bccfa14caacfee71f746585
+      internalID: 490419576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_252
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 242
+        width: 29
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8149b4c39aa53344bef4572510b85d2
+      internalID: -140695487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_253
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 255
+        width: 32
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40e7dafbdc957f044a2f0f3b7dfa0765
+      internalID: 3095258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_254
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 62
+        width: 59
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92f28d5fc9fe2694a9b164dbff6a6ffb
+      internalID: -1262709796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_255
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 62
+        width: 55
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 914c8adb014f24240b65fc0f237d0d9d
+      internalID: 1611976159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_256
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 62
+        width: 57
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e02426cc2a48cec4580c3c84b8303700
+      internalID: -1497645690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_257
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 62
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4434346154481b24a9d4069ecdb7de25
+      internalID: 1241809511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_258
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 62
+        width: 69
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee76992452acd434f8db4e2402062558
+      internalID: -2118300776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_259
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 62
+        width: 75
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12c76f230bce7ad40a4ebd1bdeeff9cf
+      internalID: -1040254872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_260
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 62
+        width: 70
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e38025b684ab1c54486cc2a6fc46f9f8
+      internalID: -604290779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calbo_261
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 62
+        width: 64
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c534945890a5f0b4897155281a58338d
+      internalID: 2132355332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      calbo_0: -221396238
+      calbo_1: 685056762
+      calbo_10: -1474823932
+      calbo_100: 1904063093
+      calbo_101: 790457368
+      calbo_102: -1334270715
+      calbo_103: 292822553
+      calbo_104: -1617051644
+      calbo_105: 2065455677
+      calbo_106: 770212798
+      calbo_107: -1768817551
+      calbo_108: -1915358257
+      calbo_109: 1107369640
+      calbo_11: 1546220547
+      calbo_110: 453787164
+      calbo_111: -2109413272
+      calbo_112: -110686226
+      calbo_113: -1202910269
+      calbo_114: 1344790588
+      calbo_115: 2058332811
+      calbo_116: 1020991910
+      calbo_117: -1689087206
+      calbo_118: -1414584248
+      calbo_119: -1412726492
+      calbo_12: 1123198161
+      calbo_120: -1699039861
+      calbo_121: -359071904
+      calbo_122: -1296688354
+      calbo_123: 1617916689
+      calbo_124: -1525071729
+      calbo_125: -79082294
+      calbo_126: 768572005
+      calbo_127: 1872137962
+      calbo_128: -474443743
+      calbo_129: 1981902872
+      calbo_13: 1698338280
+      calbo_130: -2100761613
+      calbo_131: -249301547
+      calbo_132: -69938376
+      calbo_133: 706804573
+      calbo_134: 1329009604
+      calbo_135: -2116516007
+      calbo_136: -1400830511
+      calbo_137: 1360453889
+      calbo_138: 1009358663
+      calbo_139: -1878162592
+      calbo_14: 1036152229
+      calbo_140: -788788709
+      calbo_141: 2124118717
+      calbo_142: 1202702375
+      calbo_143: -1250312477
+      calbo_144: 1133368632
+      calbo_145: 400481930
+      calbo_146: -2052363909
+      calbo_147: 808512635
+      calbo_148: 611215586
+      calbo_149: 1276705138
+      calbo_15: -1784000803
+      calbo_150: -862381576
+      calbo_151: 73895449
+      calbo_152: -415367581
+      calbo_153: -606616979
+      calbo_154: 1107001735
+      calbo_155: 177772551
+      calbo_156: 8764606
+      calbo_157: -86323814
+      calbo_158: -1709197950
+      calbo_159: 393214467
+      calbo_16: -722417710
+      calbo_160: 1364974528
+      calbo_161: 364640951
+      calbo_162: 240461123
+      calbo_163: -1097456390
+      calbo_164: -625318228
+      calbo_165: 976833129
+      calbo_166: 965033143
+      calbo_167: 723616054
+      calbo_168: -1109186678
+      calbo_169: -45116335
+      calbo_17: -149898115
+      calbo_170: -232322812
+      calbo_171: 1813583723
+      calbo_172: 2085014100
+      calbo_173: 360302796
+      calbo_174: 1339241139
+      calbo_175: 327893869
+      calbo_176: 2071032640
+      calbo_177: -1861217435
+      calbo_178: 1200640885
+      calbo_179: 906958358
+      calbo_18: -1795268090
+      calbo_180: 2103888226
+      calbo_181: 277997739
+      calbo_182: 1420038038
+      calbo_183: -849594818
+      calbo_184: 764667919
+      calbo_185: -2115777968
+      calbo_186: 1083716445
+      calbo_187: -1724559937
+      calbo_188: 1989609516
+      calbo_189: -1066314354
+      calbo_19: 851669506
+      calbo_190: -115700724
+      calbo_191: 1475585086
+      calbo_192: -973505417
+      calbo_193: -1569064899
+      calbo_194: -1237495259
+      calbo_195: -1591948661
+      calbo_196: 1403113281
+      calbo_197: 1071909290
+      calbo_198: 1262564537
+      calbo_199: 870909244
+      calbo_2: 376199665
+      calbo_20: -402622415
+      calbo_200: 629983124
+      calbo_201: -1763391977
+      calbo_202: -330776350
+      calbo_203: -1342665897
+      calbo_204: -756127653
+      calbo_205: 1880780189
+      calbo_206: 991424445
+      calbo_207: -1972308672
+      calbo_208: -158733307
+      calbo_209: 1671511031
+      calbo_21: 511115398
+      calbo_210: -1364346147
+      calbo_211: -71939544
+      calbo_212: 2091424
+      calbo_213: 1234411168
+      calbo_214: 1069733209
+      calbo_215: 522011781
+      calbo_216: 828727019
+      calbo_217: 1836163101
+      calbo_218: -111143745
+      calbo_219: 955989425
+      calbo_22: 446959426
+      calbo_220: -1018252522
+      calbo_221: -439810463
+      calbo_222: -2093562100
+      calbo_223: 198635792
+      calbo_224: 1824736629
+      calbo_225: -1713809236
+      calbo_226: -783088906
+      calbo_227: 74594008
+      calbo_228: -746109176
+      calbo_229: -1952181017
+      calbo_23: 333329319
+      calbo_230: 254650536
+      calbo_231: -375580610
+      calbo_232: 1338442647
+      calbo_233: -757808874
+      calbo_234: 1751057233
+      calbo_235: 633059772
+      calbo_236: -1218816210
+      calbo_237: 558663291
+      calbo_238: 2072377525
+      calbo_239: -363009356
+      calbo_24: -489255570
+      calbo_240: -1635380112
+      calbo_241: -735174654
+      calbo_242: -871111719
+      calbo_243: 814611313
+      calbo_244: -1833551625
+      calbo_245: -1080302731
+      calbo_246: -927435073
+      calbo_247: 469126118
+      calbo_248: 715209801
+      calbo_249: -1388621866
+      calbo_25: -284265206
+      calbo_250: -143808719
+      calbo_251: 490419576
+      calbo_252: -140695487
+      calbo_253: 3095258
+      calbo_254: -1262709796
+      calbo_255: 1611976159
+      calbo_256: -1497645690
+      calbo_257: 1241809511
+      calbo_258: -2118300776
+      calbo_259: -1040254872
+      calbo_26: 195717959
+      calbo_260: -604290779
+      calbo_261: 2132355332
+      calbo_27: 1012158963
+      calbo_28: -1792223781
+      calbo_29: -1532159303
+      calbo_3: 1174093678
+      calbo_30: 1175019956
+      calbo_31: 100709773
+      calbo_32: -1517398145
+      calbo_33: 1470138134
+      calbo_34: -1772352776
+      calbo_35: 2093958330
+      calbo_36: 667577211
+      calbo_37: 1109832663
+      calbo_38: 1661572679
+      calbo_39: 997021448
+      calbo_4: -612130103
+      calbo_40: 1154747059
+      calbo_41: 375746007
+      calbo_42: 1652238143
+      calbo_43: -54470011
+      calbo_44: 1847651005
+      calbo_45: 683525667
+      calbo_46: 819743654
+      calbo_47: 622737537
+      calbo_48: 1994232721
+      calbo_49: 1424651420
+      calbo_5: 1353621085
+      calbo_50: 2118608782
+      calbo_51: 1765362393
+      calbo_52: 1510925791
+      calbo_53: 1699073366
+      calbo_54: -849433403
+      calbo_55: -502576458
+      calbo_56: 2132684357
+      calbo_57: -49884962
+      calbo_58: 153795060
+      calbo_59: -155302967
+      calbo_6: -1398879494
+      calbo_60: 644589005
+      calbo_61: -112819165
+      calbo_62: 1691887373
+      calbo_63: -1484823727
+      calbo_64: -1781599403
+      calbo_65: 1997632905
+      calbo_66: 1801624104
+      calbo_67: -692480475
+      calbo_68: 1562304939
+      calbo_69: -820931793
+      calbo_7: 833697322
+      calbo_70: -1210937489
+      calbo_71: -1501259726
+      calbo_72: -373688255
+      calbo_73: -1837140854
+      calbo_74: 101742077
+      calbo_75: -376702084
+      calbo_76: 494218880
+      calbo_77: 1422769322
+      calbo_78: -2036229857
+      calbo_79: -632163301
+      calbo_8: 457810452
+      calbo_80: -1736558603
+      calbo_81: 908618021
+      calbo_82: -944914346
+      calbo_83: 1658006218
+      calbo_84: 1424016095
+      calbo_85: 844286309
+      calbo_86: -877088165
+      calbo_87: 280722008
+      calbo_88: 897200490
+      calbo_89: -818024828
+      calbo_9: -1061250140
+      calbo_90: -499128558
+      calbo_91: -552989500
+      calbo_92: -1648345037
+      calbo_93: -775357569
+      calbo_94: -1956187308
+      calbo_95: -87972690
+      calbo_96: -1002829915
+      calbo_97: 342702914
+      calbo_98: -316335799
+      calbo_99: -1903805872
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

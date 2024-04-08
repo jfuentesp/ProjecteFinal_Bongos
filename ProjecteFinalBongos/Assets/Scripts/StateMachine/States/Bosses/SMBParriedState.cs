@@ -12,8 +12,9 @@ public class SMBParriedState : SMState
     [SerializeField]
     private float m_ParryDuration;
 
-    private void Awake()
+    private new void Awake()
     {
+        base.Awake();   
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
