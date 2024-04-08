@@ -6,7 +6,7 @@ using UnityEngine.Assertions;
 
 namespace m17
 {
-    public class FiniteStateMachine : MonoBehaviour
+    public class FiniteStateMachine2 : MonoBehaviour
     {
         IState[] m_States;
 

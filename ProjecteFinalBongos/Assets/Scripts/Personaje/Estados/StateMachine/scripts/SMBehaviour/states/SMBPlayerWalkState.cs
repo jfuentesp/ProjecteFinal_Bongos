@@ -2,25 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(ComboHandler))]
-public abstract class SMBComboState : SMState
+
+public class SMBPlayerWalkState : SMState
 {
     private PJSMB m_PJ;
-    protected Rigidbody2D m_Rigidbody;
-    protected Animator m_Animator;
-    protected FiniteStateMachine m_StateMachine;
-    private ComboHandler m_ComboHandler;
+    private Rigidbody2D m_Rigidbody;
+    private Animator m_Animator;
+    private FiniteStateMachine m_StateMachine;
+
+    private Vector2 m_Movement;
+
     private void Awake()
     {
-        
         m_PJ = GetComponent<PJSMB>();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
-        m_ComboHandler = GetComponent<ComboHandler>();
     }
 
     public override void InitState()
@@ -28,41 +27,47 @@ public abstract class SMBComboState : SMState
         base.InitState();
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed += OnAttack1;
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed += OnAttack2;
-        m_Rigidbody.velocity = Vector2.zero;
-        m_ComboHandler.enabled = true;
-        m_ComboHandler.OnEndAction += OnEndAction;
+        m_Animator.Play("walkPlayer");
     }
 
     public override void ExitState()
     {
         base.ExitState();
-        m_ComboHandler.enabled = false;
-        if (m_PJ.Input != null) {
+        if (m_PJ.Input) {
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed -= OnAttack1;
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed -= OnAttack2;
         }
-        m_ComboHandler.OnEndAction -= OnEndAction;
+
     }
 
     private void OnAttack1(InputAction.CallbackContext context)
     {
-        if (m_ComboHandler.ComboAvailable)
-            OnComboSuccessAction();
-        else
-            OnComboFailedAction();
+        m_StateMachine.ChangeState<SMBHit1State>();
     }
     private void OnAttack2(InputAction.CallbackContext context)
     {
-        if (m_ComboHandler.ComboAvailable)
-            OnComboSuccessActionAttack2();
-        else
-            OnComboFailedAction();
+        m_StateMachine.ChangeState<SMBHit2State>();
     }
 
-    protected abstract void OnComboSuccessAction();
-    protected abstract void OnComboSuccessActionAttack2();
-    protected abstract void OnComboFailedAction();
+    private void Update()
+    {
 
-    protected abstract void OnEndAction();
+        m_Movement = m_PJ.MovementAction.ReadValue<Vector2>();
+
+        if(m_Movement ==  Vector2.zero)
+            m_StateMachine.ChangeState<SMBPlayerIdleState>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (m_Movement.x > 0) {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (m_Movement.x < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        m_Rigidbody.velocity = m_Movement * m_PJ.Velocity;
+    }
 }
 

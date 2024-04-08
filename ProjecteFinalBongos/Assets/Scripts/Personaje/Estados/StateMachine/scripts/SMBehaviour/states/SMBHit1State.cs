@@ -5,37 +5,36 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
 
-namespace m17
+
+public class SMBHit1State : SMBComboState
 {
-    public class SMBHit1State : SMBComboState
+    public override void InitState()
     {
-        public override void Init()
-        {
-            base.Init();
-            m_Animator.Play("attack1x1");
-        }
+        base.InitState();
+        m_Animator.Play("attack1x1");
+    }
 
-        protected override void OnComboFailedAction()
-        {
-        }
+    protected override void OnComboFailedAction()
+    {
+    }
 
-        protected override void OnComboSuccessAction()
-        {
-            m_StateMachine.ChangeState<SMBHit1x2State>();
+    protected override void OnComboSuccessAction()
+    {
+        m_StateMachine.ChangeState<SMBHit1x2State>();
 
 
-        }
+    }
 
-        protected override void OnEndAction()
-        {
+    protected override void OnEndAction()
+    {
     
-            m_StateMachine.ChangeState<SMBIdleState>();
-        }
+        m_StateMachine.ChangeState<SMBPlayerIdleState>();
+    }
 
-        protected override void OnComboSuccessActionAttack2()
-        {
-            StopAllCoroutines();
-            m_StateMachine.ChangeState<SMBHit2State>();
-        }
+    protected override void OnComboSuccessActionAttack2()
+    {
+        StopAllCoroutines();
+        m_StateMachine.ChangeState<SMBHit2State>();
     }
 }
+

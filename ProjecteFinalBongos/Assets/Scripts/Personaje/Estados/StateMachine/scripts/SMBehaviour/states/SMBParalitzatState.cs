@@ -1,9 +1,8 @@
-using m17;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SMBParalitzatState : MBState
+public class SMBParalitzatState : SMState
 {
     private PJSMB m_PJ;
     private Rigidbody2D m_Rigidbody;
@@ -21,9 +20,9 @@ public class SMBParalitzatState : MBState
         m_StateMachine = GetComponent<FiniteStateMachine>();
     }
 
-    public override void Init()
+    public override void InitState()
     {
-        base.Init();
+        base.InitState();
         
         m_Animator.Play("paralizedPlayer");
         m_Rigidbody.velocity = Vector2.zero;
@@ -34,11 +33,11 @@ public class SMBParalitzatState : MBState
     {
         yield return new WaitForSeconds(playerTimes.m_ParalizedTime);
         m_event.Raise();
-        m_StateMachine.ChangeState<SMBIdleState>();
+        m_StateMachine.ChangeState<SMBPlayerIdleState>();
     }
-    public override void Exit()
+    public override void ExitState()
     {
-        base.Exit();
+        base.ExitState();
         StopAllCoroutines();
     }
 }

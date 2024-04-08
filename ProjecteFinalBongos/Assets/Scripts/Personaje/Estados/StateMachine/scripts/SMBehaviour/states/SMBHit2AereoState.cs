@@ -1,13 +1,12 @@
-using m17;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SMBHit2AereoState : SMBComboState
 {
-    public override void Init()
+    public override void InitState()
     {
-        base.Init();
+        base.InitState();
         m_Animator.Play("attack2Aereo");
         StartCoroutine(AttackBehaviour());
     }
@@ -30,7 +29,7 @@ public class SMBHit2AereoState : SMBComboState
     protected override void OnEndAction()
     {
         StopAllCoroutines();
-        m_StateMachine.ChangeState<SMBIdleState>();
+        m_StateMachine.ChangeState<SMBPlayerIdleState>();
     }
 
     protected override void OnComboSuccessActionAttack2()

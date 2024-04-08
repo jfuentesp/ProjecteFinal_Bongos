@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SMBStunState : MBState
+public class SMBStunState : SMState
 {
     private PJSMB m_PJ;
     private Rigidbody2D m_Rigidbody;
@@ -23,9 +23,9 @@ public class SMBStunState : MBState
         m_StateMachine = GetComponent<FiniteStateMachine>();
     }
 
-    public override void Init()
+    public override void InitState()
     {
-        base.Init();
+        base.InitState();
         m_Animator.Play("stunnedPlayer");
         m_Rigidbody.velocity = Vector2.zero;
         StartCoroutine(StunSeconds());
@@ -34,11 +34,11 @@ public class SMBStunState : MBState
     IEnumerator StunSeconds() { 
         yield return new WaitForSeconds(playerTimes.m_StunTime);
         m_event.Raise();
-        m_StateMachine.ChangeState<SMBIdleState>();
+        m_StateMachine.ChangeState<SMBPlayerIdleState>();
     }
-    public override void Exit()
+    public override void ExitState()
     {
-        base.Exit();
+        base.ExitState();
         StopAllCoroutines();
     }
 }

@@ -1,9 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace m17
-{
-    public class SMBIdleState : MBState
+
+    public class SMBPlayerIdleState : SMState
     {
         private PJSMB m_PJ;
         private Rigidbody2D m_Rigidbody;
@@ -11,27 +10,29 @@ namespace m17
         private FiniteStateMachine m_StateMachine;
 
 
-        private void Awake()
+        private new void Awake()
         {
+            base.Awake();
             m_PJ = GetComponent<PJSMB>();
             m_Rigidbody = GetComponent<Rigidbody2D>();
             m_Animator = GetComponent<Animator>();
             m_StateMachine = GetComponent<FiniteStateMachine>();
         }
 
-        public override void Init()
+        public override void InitState()
         {
-            base.Init();
+            base.InitState();
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed += OnAttack1;
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed += OnAttack2;
             m_Rigidbody.velocity = Vector2.zero;
             m_Animator.Play("idlePlayer");
         }
 
-        public override void Exit()
+        public override void ExitState()
         {
-            base.Exit();
-            if (m_PJ.Input != null) {
+            base.ExitState();
+            if (m_PJ.Input != null)
+            {
                 m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed -= OnAttack1;
                 m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed -= OnAttack2;
             }
@@ -49,7 +50,7 @@ namespace m17
         private void Update()
         {
             if (m_PJ.MovementAction.ReadValue<Vector2>() != Vector2.zero)
-                m_StateMachine.ChangeState<SMBWalkState>();
+                m_StateMachine.ChangeState<SMBPlayerWalkState>();
         }
     }
-}
+

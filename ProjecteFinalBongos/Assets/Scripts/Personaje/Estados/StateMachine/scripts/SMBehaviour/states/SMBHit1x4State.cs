@@ -1,4 +1,3 @@
-using m17;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -6,9 +5,9 @@ using UnityEngine;
 
 public class SMBHit1x4State : SMBComboState
 {
-    public override void Init()
+    public override void InitState()
     {
-        base.Init();
+        base.InitState();
         m_Animator.Play("attack1x4");
         StartCoroutine(AttackBehaviour());
     }
@@ -32,7 +31,7 @@ public class SMBHit1x4State : SMBComboState
     protected override void OnEndAction()
     {
         StopAllCoroutines();
-        m_StateMachine.ChangeState<SMBIdleState>();
+        m_StateMachine.ChangeState<SMBPlayerIdleState>();
     }
 
     protected override void OnComboSuccessActionAttack2()
