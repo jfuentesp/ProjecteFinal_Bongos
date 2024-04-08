@@ -30,8 +30,9 @@ public class SMBSingleAttackState : SMState
     [SerializeField]
     private string m_SingleAttackAnimationName;
 
-    private void Awake()
+    private new void Awake()
     {
+        base.Awake();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();

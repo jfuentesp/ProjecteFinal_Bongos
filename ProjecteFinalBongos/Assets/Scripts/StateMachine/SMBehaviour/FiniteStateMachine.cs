@@ -16,8 +16,8 @@ public class FiniteStateMachine : MonoBehaviour
     {
         m_States = GetComponents<IState>();
 
-        foreach (IState state in m_States)
-            state.ExitState();
+        //foreach (IState state in m_States)
+            //state.ExitState();
     }
 
     public T GetState<T>() where T : IState
