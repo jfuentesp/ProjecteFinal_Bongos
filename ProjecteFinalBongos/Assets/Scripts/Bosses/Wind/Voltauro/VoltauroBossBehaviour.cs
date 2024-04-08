@@ -24,21 +24,20 @@ public class VoltauroBossBehaviour : BossBehaviour
         m_CurrentPhase = Phase.ONE;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         m_StateMachine.ChangeState<SMBChaseState>();
         m_NumberOfAttacksBeforeCharge = Random.Range(1, 6);
     }
 
-
     private IEnumerator PlayerDetectionCoroutine()
     {
         while(m_IsAlive)
         {
-            RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
+
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
+                RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
                 Debug.Log("Entro 1");
                 if(hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
@@ -53,6 +52,7 @@ public class VoltauroBossBehaviour : BossBehaviour
             } 
             else
             {
+                RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position, m_BoxArea, transform.rotation.z, transform.position);
                 if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
@@ -73,23 +73,26 @@ public class VoltauroBossBehaviour : BossBehaviour
         if(m_NumberOfAttacksBeforeCharge <= 0)
         {
             SetCharge();
+            return;
         } 
-        else
+
+        switch(rng)
         {
-            /*switch(rng)
-            {
-                case 0.5f && Phase.TWO
-            }*/
-            if (rng < 0.7f)
-            {
+            case < 0.5f:
                 m_NumberOfAttacksBeforeCharge--;
                 m_StateMachine.ChangeState<SMBSingleAttackState>();
-            }
-            else if( rng > 0.8f)
-            {
+                break;
+            case > 0.51f:
                 m_NumberOfAttacksBeforeCharge--;
-                m_StateMachine.ChangeState<SMBVoltauroTripleAttackState>();
-            }
+                if (m_CurrentPhase == Phase.TWO && rng > 0.8f)
+                {
+                    m_StateMachine.ChangeState<SMBLightningSummonState>();
+                }
+                else
+                {
+                    m_StateMachine.ChangeState<SMBVoltauroTripleAttackState>();
+                }
+                break;
         }
     }
 
@@ -108,4 +111,9 @@ public class VoltauroBossBehaviour : BossBehaviour
     {
         m_StateMachine.ChangeState<SMBLightningSummonState>();
     }  
+
+    private void SetPhase(Phase phaseToSet)
+    {
+        m_CurrentPhase = phaseToSet;
+    }
 }
