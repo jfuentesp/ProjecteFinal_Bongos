@@ -28,6 +28,10 @@ public class VoltauroBossBehaviour : BossBehaviour
     {
         m_StateMachine.ChangeState<SMBChaseState>();
         m_NumberOfAttacksBeforeCharge = Random.Range(1, 6);
+        GetComponent<SMBChargeState>().OnChargeMissed = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
     }
 
     private IEnumerator PlayerDetectionCoroutine()

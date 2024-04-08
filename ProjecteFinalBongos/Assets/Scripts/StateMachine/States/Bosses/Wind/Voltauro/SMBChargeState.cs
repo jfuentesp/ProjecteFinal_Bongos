@@ -24,6 +24,9 @@ public class SMBChargeState : SMState
     [SerializeField]
     private GameObject m_Target;
 
+    public delegate void OnChargeMiss(GameObject obj);
+    public OnChargeMiss OnChargeMissed;
+
     private void Awake()
     {
         m_Rigidbody = GetComponent<Rigidbody2D>();
@@ -63,7 +66,6 @@ public class SMBChargeState : SMState
         }
     }
 
-
     private void FixedUpdate()
     { 
         if (m_IsCharging)
@@ -76,8 +78,8 @@ public class SMBChargeState : SMState
         {
             m_IsCharging = false;
             m_Rigidbody.velocity = Vector3.zero;
-            if(collision.gameObject.CompareTag("MechanicObstacle"))
-                m_StateMachine.ChangeState<SMBParriedState>();
+            if (collision.gameObject.CompareTag("MechanicObstacle"))
+                OnChargeMissed.Invoke(gameObject);
             if(collision.gameObject.CompareTag("Player"))
             {
                 m_StateMachine.ChangeState<SMBChaseState>();
