@@ -29,6 +29,7 @@ public class PegasusBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBGroundHitState>();
         };
+        print(m_HealthController.HP);
     }
 
     private IEnumerator PlayerDetectionCoroutine()
