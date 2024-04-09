@@ -17,6 +17,8 @@ public class SMBBulletsAroundState : SMState
     [SerializeField]
     private Pool m_Pool;
 
+    private Coroutine SpawnBulletsCoroutine;
+
 
     float m_CurrentDuration = 0;
 
@@ -34,11 +36,13 @@ public class SMBBulletsAroundState : SMState
         base.InitState();
         m_CurrentDuration = 0;
         m_Boss.SetBusy(true);
-        SpawnBullets();
+        m_Rigidbody.velocity = Vector3.zero;
+        SpawnBulletsCoroutine = StartCoroutine(SpawnBullets());
     }
 
-    private void SpawnBullets()
+    private IEnumerator SpawnBullets()
     {
+        yield return new WaitForSeconds(m_SummoningDuration / 2);
         for(float i = -1; i < 2; i += 0.5f)
         {
             for (float j = -1; j < 2; j += 0.5f)
@@ -56,7 +60,6 @@ public class SMBBulletsAroundState : SMState
         m_CurrentDuration += Time.deltaTime;
         if (m_CurrentDuration >= m_SummoningDuration)
         {
-            m_Boss.SetBusy(false);
             m_StateMachine.ChangeState<SMBChaseState>();
         }
     }

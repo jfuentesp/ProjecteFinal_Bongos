@@ -11,6 +11,7 @@ using UnityEngine;
 public class PegasusBossBehaviour : BossBehaviour
 {
     private Coroutine m_PlayerDetectionCoroutine;
+    private int m_NumberOfAttacksBeforeCharge;
     private new void Awake()
     {
         base.Awake();
@@ -19,10 +20,14 @@ public class PegasusBossBehaviour : BossBehaviour
     void Start()
     {
         m_StateMachine.ChangeState<SMBChaseState>();
-        //m_NumberOfAttacksBeforeCharge = Random.Range(1, 6);
+        m_NumberOfAttacksBeforeCharge = Random.Range(1, 2);
         GetComponent<SMBChargeState>().OnChargeMissed = (GameObject obj) =>
         {
-            m_StateMachine.ChangeState<SMBBulletsAroundState>();
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBGroundHitState>();
         };
     }
 
@@ -38,9 +43,7 @@ public class PegasusBossBehaviour : BossBehaviour
                 if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-
-                    m_StateMachine.ChangeState<SMBChargeState>();
-                    //SetAttack();
+                    SetAttack();
                 }
                 else
                 {
@@ -53,7 +56,7 @@ public class PegasusBossBehaviour : BossBehaviour
                 if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    //SetAttack();
+                    SetAttack();
                 }
                 else
                 {
@@ -63,5 +66,22 @@ public class PegasusBossBehaviour : BossBehaviour
             yield return new WaitForSeconds(m_CheckingPlayerTimelapse);
         }
     }
+    private void SetAttack()
+    {
+       
+        if (m_NumberOfAttacksBeforeCharge <= 0)
+        {
+            WalkAround();
+            return;
+        }
+        m_NumberOfAttacksBeforeCharge--;
+        m_StateMachine.ChangeState<SMBChargeState>();
 
+       
+    }
+    private void WalkAround()
+    {
+        m_NumberOfAttacksBeforeCharge = Random.Range(1, 2);
+        m_StateMachine.ChangeState<SMBWalkAroundState>();
+    }
 }

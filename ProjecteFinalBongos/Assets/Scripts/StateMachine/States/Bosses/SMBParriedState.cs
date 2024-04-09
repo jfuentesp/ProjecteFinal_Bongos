@@ -7,6 +7,8 @@ public class SMBParriedState : SMState
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
+    public delegate void OnRecomposition(GameObject obj);
+    public OnRecomposition OnRecomposited;
 
     [Header("Parry duration")]
     [SerializeField]
@@ -34,7 +36,8 @@ public class SMBParriedState : SMState
     private IEnumerator ParriedCoroutine()
     {
         yield return new WaitForSeconds(m_ParryDuration);
-        m_StateMachine.ChangeState<SMBChaseState>();
+        //m_StateMachine.ChangeState<SMBChaseState>();
+        OnRecomposited.Invoke(gameObject);
     }
 
 

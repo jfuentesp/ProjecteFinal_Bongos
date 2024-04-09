@@ -7,6 +7,7 @@ public class SMBChaseState : SMState
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
+    private BossBehaviour m_Boss;
 
     [Header("Chase speed")]
     [SerializeField]
@@ -26,11 +27,14 @@ public class SMBChaseState : SMState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
+        m_Boss = GetComponent<BossBehaviour>();
     }
 
     public override void InitState()
     {
         base.InitState();
+
+        m_Boss.SetBusy(false);
     }
 
     public override void ExitState()
