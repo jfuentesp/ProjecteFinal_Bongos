@@ -13,9 +13,7 @@ public class SMBChaseState : SMState
     [SerializeField]
     private float m_ChaseSpeed;
 
-    [Header("Target to chase")]
-    [SerializeField]
-    private GameObject m_Target;
+    private Transform m_Target;
 
     [Header("Chase animation")]
     [SerializeField]
@@ -28,6 +26,7 @@ public class SMBChaseState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_Target = m_Boss.Target;
     }
 
     public override void InitState()
@@ -46,13 +45,13 @@ public class SMBChaseState : SMState
     {
         //To face the target
         if (m_Target != null)
-            transform.up = m_Target.transform.position - transform.position;
+            transform.up = m_Target.position - transform.position;
     }
 
     private void FixedUpdate()
     {
         m_Rigidbody.velocity = Vector3.zero;
-        Vector3 direction = (m_Target.transform.position - transform.position).normalized;
+        Vector3 direction = (m_Target.position - transform.position).normalized;
         m_Rigidbody.velocity = direction * m_ChaseSpeed;
     }
 }

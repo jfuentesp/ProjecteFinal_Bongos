@@ -20,9 +20,7 @@ public class SMBChargeState : SMState
     private bool m_IsAiming;
     private bool m_IsCharging;
 
-    [Header("Boss target")]
-    [SerializeField]
-    private GameObject m_Target;
+    private Transform m_Target;
 
     public delegate void OnChargeMiss(GameObject obj);
     public OnChargeMiss OnChargeMissed;
@@ -34,6 +32,7 @@ public class SMBChargeState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_Target = m_Boss.Target;
     }
 
     public override void InitState()

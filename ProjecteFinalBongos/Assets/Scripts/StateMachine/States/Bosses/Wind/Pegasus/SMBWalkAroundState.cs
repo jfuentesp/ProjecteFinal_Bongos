@@ -20,9 +20,7 @@ public class SMBWalkAroundState : SMState
     [SerializeField]
     private float m_WalkingDuration;
 
-    [Header("Boss target")]
-    [SerializeField]
-    private GameObject m_Target;
+    private Transform m_Target;
     float m_CurrentDuration;
 
 
@@ -33,6 +31,7 @@ public class SMBWalkAroundState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_Target = m_Boss.Target;
     }
     public override void InitState()
     {
