@@ -285,8 +285,8 @@ namespace GeneracionSalas
         }
         private void InstanciarPasillo(int x, int y, List<ListaSalas> habitacionesHijas)
         {
-            float posicionX = (x - 50) * 12;
-            float posicionY = (y - 50) * 11;
+            float posicionX = (x - 50) * 20;
+            float posicionY = (y - 50) * 20;
             GameObject sala;
 
             switch (matrix[x, y])
@@ -312,8 +312,8 @@ namespace GeneracionSalas
         }
         private void InstanciarSalaJefes(int x, int y, List<ListaSalas> salasHijas)
         {
-            float posicionX = (x - 50) * 12;
-            float posicionY = (y - 50) * 11;
+            float posicionX = (x - 50) * 20;
+            float posicionY = (y - 50) * 20;
             GameObject sala = null;
 
             switch (matrix[x, y])
