@@ -8,7 +8,8 @@ using UnityEngine;
 [RequireComponent(typeof(SMBSingleAttackState))]
 [RequireComponent(typeof(SMBDoubleAttackState))]
 [RequireComponent(typeof(SMBTripleAttackState))]
-
+[RequireComponent(typeof(SMBBelosHealingState))]
+[RequireComponent(typeof(SMBBelosLighningChainsState))]
 public class BelosBossBehaviour : BossBehaviour
 {
     private Coroutine m_PlayerDetectionCoroutine;
@@ -42,7 +43,7 @@ public class BelosBossBehaviour : BossBehaviour
             case > 0.8f:
                 if (m_CurrentPhase == Phase.TWO && rng > 0.9f)
                 {
-                    m_StateMachine.ChangeState<SMBLightningSummonState>();
+                    m_StateMachine.ChangeState<SMBBelosLighningChainsState>();
                 }
                 else
                 {

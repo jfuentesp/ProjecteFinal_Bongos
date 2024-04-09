@@ -20,17 +20,18 @@ public class SMBBelosHealingState : SMState
 
     [Header("Amount to substract to the healing multiplier with every healing cycle")]
     [Tooltip("Healing Multiplier starts at 1. With every healing loop, it substracts a 0.x quantity to the healin multiplier so it heals less with every cycle.")]
-    [Range(0f, 0.9f)]
+    [SerializeField, Range(0f, 0.9f)]
     private float m_HealingMultiplierPenalization;
 
     [Header("Healing animation")]
     [SerializeField]
-    private string m_WalkAnimationName;
+    private string m_HealingAnimationName;
 
     private float m_HealingMultiplier;
 
-    private void Awake()
+    private new void Awake()
     {
+        base.Awake();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
@@ -41,7 +42,7 @@ public class SMBBelosHealingState : SMState
     public override void InitState()
     {
         base.InitState();
-
+        m_Boss.SetBusy(true);
     }
 
     public override void ExitState()

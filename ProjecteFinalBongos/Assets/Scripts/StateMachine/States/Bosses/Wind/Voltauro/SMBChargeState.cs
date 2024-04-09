@@ -87,7 +87,6 @@ public class SMBChargeState : SMState
                 if(target != null)
                     target.AddForce(transform.up * m_ChargeSpeed, ForceMode2D.Impulse);
             }
-            m_Boss.SetBusy(false);
         }
     }
 }

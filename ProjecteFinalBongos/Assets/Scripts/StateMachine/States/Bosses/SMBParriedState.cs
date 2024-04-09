@@ -7,7 +7,7 @@ public class SMBParriedState : SMState
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
-
+    private BossBehaviour m_Boss;
     [Header("Parry duration")]
     [SerializeField]
     private float m_ParryDuration;
@@ -23,6 +23,7 @@ public class SMBParriedState : SMState
     public override void InitState()
     {
         base.InitState();
+        m_Boss.SetBusy(true);
         StartCoroutine(ParriedCoroutine());
     }
 
