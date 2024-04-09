@@ -6,6 +6,8 @@ using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
 
 
+[RequireComponent(typeof(SMBPlayerParryState))]
+[RequireComponent(typeof(SMBPlayerSuccesfulParryState))]
 [RequireComponent(typeof(HealthController))]
 [RequireComponent(typeof(SMBPlayerIdleState))]
 [RequireComponent(typeof(SMBPlayerWalkState))]

@@ -22,11 +22,11 @@ public class SMBHit2State : SMBComboState
         else if (m_PJ.direccion == 0)
         {
             m_Animator.Play("attack2x1");
-            Debug.Log(m_PJ.direccion);
+          
         }
-        AttackBehaviour();
+        StartCoroutine(AttackBehaviour());
     }
-    public void AttackBehaviour()
+    IEnumerator AttackBehaviour()
     {
         if (m_PJ.direccion == 1)
         {
@@ -40,7 +40,8 @@ public class SMBHit2State : SMBComboState
         {
             m_Rigidbody.velocity = transform.right * 4f;
         }
-
+        yield return new WaitForSeconds(0.1f);
+        m_Rigidbody.velocity = Vector2.zero;   
         
     }
     protected override void OnComboFailedAction()
@@ -50,7 +51,7 @@ public class SMBHit2State : SMBComboState
 
     protected override void OnComboSuccessAction()
     {
-
+        StopAllCoroutines();
         m_StateMachine.ChangeState<SMBHit1x3State>();
 
 
@@ -58,12 +59,13 @@ public class SMBHit2State : SMBComboState
 
     protected override void OnEndAction()
     {
-       
+        StopAllCoroutines();
         m_StateMachine.ChangeState<SMBPlayerIdleState>();
     }
 
     protected override void OnComboSuccessActionAttack2()
     {
+        StopAllCoroutines();
         m_StateMachine.ChangeState<SMBHit2x2State>();
     }
 }

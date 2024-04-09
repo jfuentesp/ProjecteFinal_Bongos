@@ -18,7 +18,7 @@ public class SMBHit1x3State : SMBComboState
         else if (m_PJ.direccion == 0)
         {
             m_Animator.Play("attack1x3");
-            Debug.Log(m_PJ.direccion);
+
         }
     }
  

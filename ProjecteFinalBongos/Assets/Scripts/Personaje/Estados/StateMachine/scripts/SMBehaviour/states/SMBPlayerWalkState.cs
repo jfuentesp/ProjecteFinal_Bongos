@@ -28,6 +28,7 @@ public class SMBPlayerWalkState : SMState
         base.InitState();
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed += OnAttack1;
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed += OnAttack2;
+        m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed += Parry;
 
     }
 
@@ -37,6 +38,7 @@ public class SMBPlayerWalkState : SMState
         if (m_PJ.Input) {
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed -= OnAttack1;
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed -= OnAttack2;
+            m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed += Parry;
         }
 
     }
@@ -48,6 +50,10 @@ public class SMBPlayerWalkState : SMState
     private void OnAttack2(InputAction.CallbackContext context)
     {
         m_StateMachine.ChangeState<SMBHit2State>();
+    }
+    private void Parry(InputAction.CallbackContext context)
+    {
+        m_StateMachine.ChangeState<SMBPlayerParryState>();
     }
 
     private void Update()

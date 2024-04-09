@@ -9,23 +9,36 @@ public class SMBHit2x2State : SMBComboState
         base.InitState();
         if (m_PJ.direccion == 1)
         {
-            m_Animator.Play("attack1x1Down");
+            m_Animator.Play("attack2x2Down");
         }
         else if (m_PJ.direccion == 2)
         {
-            m_Animator.Play("attack1x1Up");
+            m_Animator.Play("attack2x2Up");
         }
         else if (m_PJ.direccion == 0)
         {
-            m_Animator.Play("attack1x1");
-            Debug.Log(m_PJ.direccion);
+            m_Animator.Play("attack2x2");
         }
-        AttackBehaviour();
+       StartCoroutine( AttackBehaviour());
     }
-    public void AttackBehaviour()
+    IEnumerator AttackBehaviour()
     {
-        m_Rigidbody.velocity = -transform.right * 20f;
-     
+        if (m_PJ.direccion == 1)
+        {
+            m_Rigidbody.velocity = transform.up * 15f;
+        }
+        else if (m_PJ.direccion == 2)
+        {
+            m_Rigidbody.velocity = -transform.up * 15f;
+        }
+        else if (m_PJ.direccion == 0)
+        {
+            m_Rigidbody.velocity = -transform.right * 15f;
+        }
+        yield return new WaitForSeconds(0.1f);
+        m_Rigidbody.velocity = Vector2.zero;
+
+
     }
     protected override void OnComboFailedAction()
     {

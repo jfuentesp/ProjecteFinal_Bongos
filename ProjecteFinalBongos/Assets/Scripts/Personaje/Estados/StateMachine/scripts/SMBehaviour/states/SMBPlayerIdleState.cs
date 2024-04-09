@@ -24,7 +24,8 @@ using UnityEngine.InputSystem;
             base.InitState();
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed += OnAttack1;
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed += OnAttack2;
-            m_Rigidbody.velocity = Vector2.zero;
+        m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed += Parry;
+        m_Rigidbody.velocity = Vector2.zero;
 
         if (m_PJ.direccion == 0)
         {
@@ -49,7 +50,8 @@ using UnityEngine.InputSystem;
             {
                 m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed -= OnAttack1;
                 m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed -= OnAttack2;
-            }
+            m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed -= Parry;
+        }
         }
 
         private void OnAttack1(InputAction.CallbackContext context)
@@ -61,7 +63,12 @@ using UnityEngine.InputSystem;
             m_StateMachine.ChangeState<SMBHit2State>();
         }
 
-        private void Update()
+    private void Parry(InputAction.CallbackContext context)
+    {
+        m_StateMachine.ChangeState<SMBPlayerParryState>();
+    }
+
+    private void Update()
         {
             if (m_PJ.MovementAction.ReadValue<Vector2>() != Vector2.zero)
                 m_StateMachine.ChangeState<SMBPlayerWalkState>();
