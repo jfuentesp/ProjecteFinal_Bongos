@@ -25,10 +25,24 @@ using UnityEngine.InputSystem;
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed += OnAttack1;
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed += OnAttack2;
             m_Rigidbody.velocity = Vector2.zero;
+
+        if (m_PJ.direccion == 0)
+        {
             m_Animator.Play("idlePlayer");
         }
+        else if (m_PJ.direccion == 1) {
+            m_Animator.Play("idleDown");
+        }
+        else if (m_PJ.direccion == 2)
+        {
+            m_Animator.Play("idleUp");
+        }
 
-        public override void ExitState()
+
+
+    }
+
+    public override void ExitState()
         {
             base.ExitState();
             if (m_PJ.Input != null)

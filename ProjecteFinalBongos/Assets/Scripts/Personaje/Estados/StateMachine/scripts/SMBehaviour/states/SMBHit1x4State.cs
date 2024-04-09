@@ -13,7 +13,18 @@ public class SMBHit1x4State : SMBComboState
     }
     IEnumerator AttackBehaviour()
     {
-        m_Rigidbody.velocity = transform.up * - 8;
+        if (m_PJ.direccion == 1) {
+            m_Rigidbody.velocity = transform.up * -8;
+        }
+        else if (m_PJ.direccion == 2)
+        {
+            m_Rigidbody.velocity = transform.up * 8;
+        }
+        else if (m_PJ.direccion == 0)
+        {
+            m_Rigidbody.velocity = transform.right * 8;
+        }
+
         yield return new WaitForSeconds(0.2f);
         m_Rigidbody.velocity = Vector2.zero;
       

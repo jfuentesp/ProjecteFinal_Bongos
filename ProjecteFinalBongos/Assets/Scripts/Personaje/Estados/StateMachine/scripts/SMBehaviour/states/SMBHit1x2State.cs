@@ -7,7 +7,20 @@ public class SMBHit1x2State : SMBComboState
     public override void InitState()
     {
         base.InitState();
-        m_Animator.Play("attack1x2");
+        if (m_PJ.direccion == 1)
+        {
+            m_Animator.Play("attack1x2Down");
+        }
+        else if (m_PJ.direccion == 2)
+        {
+            m_Animator.Play("attack1x2Up");
+        }
+        else if (m_PJ.direccion == 0)
+        {
+            m_Animator.Play("attack1x2");
+            Debug.Log(m_PJ.direccion);
+        }
+
     }
 
     protected override void OnComboFailedAction()

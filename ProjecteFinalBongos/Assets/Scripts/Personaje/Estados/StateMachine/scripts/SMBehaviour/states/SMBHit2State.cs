@@ -11,12 +11,36 @@ public class SMBHit2State : SMBComboState
     public override void InitState()
     {
         base.InitState();
-        m_Animator.Play("attack2x1");
+        if (m_PJ.direccion == 1)
+        {
+            m_Animator.Play("attack2x1Down");
+        }
+        else if (m_PJ.direccion == 2)
+        {
+            m_Animator.Play("attack2x1Up");
+        }
+        else if (m_PJ.direccion == 0)
+        {
+            m_Animator.Play("attack2x1");
+            Debug.Log(m_PJ.direccion);
+        }
         AttackBehaviour();
     }
     public void AttackBehaviour()
     {
-        m_Rigidbody.velocity = transform.right * 8f;
+        if (m_PJ.direccion == 1)
+        {
+            m_Rigidbody.velocity = transform.up * -4f;
+        }
+        else if (m_PJ.direccion == 2)
+        {
+            m_Rigidbody.velocity = transform.up * 4f;
+        }
+        else if (m_PJ.direccion == 0)
+        {
+            m_Rigidbody.velocity = transform.right * 4f;
+        }
+
         
     }
     protected override void OnComboFailedAction()

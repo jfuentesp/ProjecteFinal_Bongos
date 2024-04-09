@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
@@ -11,7 +12,19 @@ public class SMBHit1State : SMBComboState
     public override void InitState()
     {
         base.InitState();
-        m_Animator.Play("attack1x1");
+        if (m_PJ.direccion == 1)
+        {
+            m_Animator.Play("attack1x1Down");
+        }
+        else if (m_PJ.direccion == 2)
+        {
+            m_Animator.Play("attack1x1Up");
+        }
+        else if (m_PJ.direccion == 0) {
+            m_Animator.Play("attack1x1");
+            Debug.Log(m_PJ.direccion);
+        }
+        
     }
 
     protected override void OnComboFailedAction()

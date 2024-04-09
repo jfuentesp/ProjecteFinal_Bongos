@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(ComboHandler))]
 public abstract class SMBComboState : SMState
 {
-    private PJSMB m_PJ;
+    protected PJSMB m_PJ;
     protected Rigidbody2D m_Rigidbody;
     protected Animator m_Animator;
     protected FiniteStateMachine m_StateMachine;
@@ -21,6 +21,7 @@ public abstract class SMBComboState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_ComboHandler = GetComponent<ComboHandler>();
+
     }
 
     public override void InitState()

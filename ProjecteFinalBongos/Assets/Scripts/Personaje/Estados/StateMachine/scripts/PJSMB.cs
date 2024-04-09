@@ -32,6 +32,7 @@ public class PJSMB : MonoBehaviour
     private InputActionAsset m_Input;
     public InputActionAsset Input => m_Input;
     private InputAction m_MovementAction;
+    public int direccion;
     public InputAction MovementAction => m_MovementAction;
     private HealthController m_HealthController;
     public PJSMB instance;

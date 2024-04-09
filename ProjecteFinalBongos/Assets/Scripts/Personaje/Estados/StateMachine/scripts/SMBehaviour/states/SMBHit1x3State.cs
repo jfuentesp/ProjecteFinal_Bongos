@@ -7,15 +7,21 @@ public class SMBHit1x3State : SMBComboState
     public override void InitState()
     {
         base.InitState();
-        m_Animator.Play("attack1x3");
-        AttackBehaviour();
+        if (m_PJ.direccion == 1)
+        {
+            m_Animator.Play("attack1x3Down");
+        }
+        else if (m_PJ.direccion == 2)
+        {
+            m_Animator.Play("attack1x3Up");
+        }
+        else if (m_PJ.direccion == 0)
+        {
+            m_Animator.Play("attack1x3");
+            Debug.Log(m_PJ.direccion);
+        }
     }
-    public void AttackBehaviour()
-    {
-        m_Rigidbody.velocity = transform.up * 5f;
-        m_Rigidbody.gravityScale = 1f;
-    }
-   
+ 
      
     protected override void OnComboFailedAction()
     {

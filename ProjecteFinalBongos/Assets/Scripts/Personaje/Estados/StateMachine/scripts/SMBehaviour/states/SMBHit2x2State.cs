@@ -7,7 +7,19 @@ public class SMBHit2x2State : SMBComboState
     public override void InitState()
     {
         base.InitState();
-        m_Animator.Play("attack2x2");
+        if (m_PJ.direccion == 1)
+        {
+            m_Animator.Play("attack1x1Down");
+        }
+        else if (m_PJ.direccion == 2)
+        {
+            m_Animator.Play("attack1x1Up");
+        }
+        else if (m_PJ.direccion == 0)
+        {
+            m_Animator.Play("attack1x1");
+            Debug.Log(m_PJ.direccion);
+        }
         AttackBehaviour();
     }
     public void AttackBehaviour()
