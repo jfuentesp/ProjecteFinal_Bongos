@@ -8,7 +8,8 @@ public class SalaBoss : TipoSala
     [SerializeField]
     private GameObject m_JefeFinal;
     public Action OnPLayerInSala;
-    
+    [SerializeField]
+    List<GeneracionSalas.GeneracionSalasFinal.ListaSalasConHijos> m_ListaSalas;    
     protected override void SpawnerSala()
     {
         GameObject jefe = Instantiate(m_JefeFinal, transform.position, Quaternion.identity);

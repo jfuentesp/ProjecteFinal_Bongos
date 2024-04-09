@@ -403,7 +403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &592956135
 Transform:
   m_ObjectHideFlags: 0
@@ -437,6 +437,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JefeFinal: {fileID: 1997036357}
+  m_ListaSalas:
+  - m_HabitacionPadre:
+      x: 0
+      y: 0
+    m_HabitacionesHijas: []
 --- !u!1 &1182793447
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!58 &1195755620
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -778,7 +783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &1668585609
 Rigidbody2D:
   serializedVersion: 4
