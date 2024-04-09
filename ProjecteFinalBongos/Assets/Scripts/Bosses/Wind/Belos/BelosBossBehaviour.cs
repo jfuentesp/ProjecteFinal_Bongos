@@ -12,6 +12,7 @@ using UnityEngine;
 [RequireComponent(typeof(SMBBelosLighningChainsState))]
 public class BelosBossBehaviour : BossBehaviour
 {
+    private int m_NumberOfAttacksBeforeTrap;
     private Coroutine m_PlayerDetectionCoroutine;
     private enum Phase { ONE, TWO }
     private Phase m_CurrentPhase;
@@ -26,6 +27,7 @@ public class BelosBossBehaviour : BossBehaviour
     private void Start()
     {
         m_StateMachine.ChangeState<SMBChaseState>();
+        m_NumberOfAttacksBeforeTrap = Random.Range(1, 6);
         GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
@@ -35,6 +37,9 @@ public class BelosBossBehaviour : BossBehaviour
     private void SetAttack()
     {
         float rng = Random.value;
+
+
+
         if(m_CurrentPhase == Phase.TWO && m_MaxHP > 5) //Y la vida caiga por debajo del 5%
         {
             m_StateMachine.ChangeState<SMBBelosHealingState>();
@@ -44,20 +49,16 @@ public class BelosBossBehaviour : BossBehaviour
         switch (rng)
         {
             case < 0.5f:
+                m_NumberOfAttacksBeforeTrap--;
                 m_StateMachine.ChangeState<SMBSingleAttackState>();
                 break;
             case < 0.65f:
+                m_NumberOfAttacksBeforeTrap--;
                 m_StateMachine.ChangeState<SMBDoubleAttackState>();
                 break;
             case > 0.8f:
-                if (m_CurrentPhase == Phase.ONE && rng > 0.9f)
-                {
-                    m_StateMachine.ChangeState<SMBBelosLighningChainsState>();
-                }
-                else
-                {
-                    m_StateMachine.ChangeState<SMBTripleAttackState>();
-                }
+                m_NumberOfAttacksBeforeTrap--;
+                m_StateMachine.ChangeState<SMBTripleAttackState>();           
                 break;
         }
     }
@@ -76,7 +77,6 @@ public class BelosBossBehaviour : BossBehaviour
     {
         while (m_IsAlive)
         {
-
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
                 RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);

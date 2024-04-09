@@ -23,14 +23,14 @@ public class TrapBullet : Bullet
     {
         base.Init(direction);
         m_CurrentScale = transform.localScale;
-        enabled = true;
+        growing = true;
     }
 
     float t = 0;
-    bool enabled = true;
+    bool growing = true;
     private void Update()
     {
-        if (!enabled)
+        if (!growing)
             return;
         t += Time.deltaTime / m_GrowthDuration;
         Vector3 newScale = new Vector3(Mathf.Lerp(m_CurrentScale.x, transform.localScale.x * m_GrowthSize, t),
@@ -39,7 +39,7 @@ public class TrapBullet : Bullet
 
         if(t > m_GrowthDuration) 
         {
-            enabled = false;
+            growing = false;
         }
     }
 
