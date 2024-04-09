@@ -26,8 +26,9 @@ public class SMBWalkState : SMState
     [SerializeField]
     private string m_WalkAnimationName;
 
-    private void Awake()
+    private new void Awake()
     {
+        base.Awake();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
