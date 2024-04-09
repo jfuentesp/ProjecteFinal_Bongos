@@ -5,46 +5,41 @@ using UnityEngine;
 
 public class GroundHit : MonoBehaviour
 {
-    private bool m_Growing;
-
     [SerializeField]
     float m_GrowingDuration;
+    [SerializeField]
+    private int m_FuerzaRepulsion;
     float m_CurrentDuration;
     // Start is called before the first frame update
     void Start()
     {
-        m_Growing = false;
-        GetComponent<SMBParriedState>().OnRecomposited += StartGrowing;
-        transform.GetChild(0).gameObject.SetActive(false);
-        transform.GetChild(0).localScale = new Vector3(0.1f, 0.1f, 0.1f);
-    }
-
-    private void StartGrowing(GameObject obj)
-    {
-        transform.GetChild(0).gameObject.SetActive(true);
-        m_Growing = true;
-        m_CurrentDuration = 0;
+        transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-        if (m_Growing)
+        m_CurrentDuration += Time.deltaTime;
+        if (m_CurrentDuration >= m_GrowingDuration)
         {
-            m_CurrentDuration += Time.deltaTime;
-            if (m_CurrentDuration >= m_GrowingDuration)
-            {
-                StopGrowing();
-            }
-            transform.GetChild(0).localScale += new Vector3(0.5f, 0.5f, 0.5f) * Time.deltaTime;
+            StopGrowing();
+        }
+        if (transform.localScale.x < 10)
+        {
+            transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
         }
     }
 
     private void StopGrowing()
     {
-        transform.GetChild(0).gameObject.SetActive(false);
-        transform.GetChild(0).localScale = new Vector3(0.1f, 0.1f, 0.1f);
-        m_Growing = false;
+        transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        Destroy(gameObject);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.GetComponent<Rigidbody2D>().AddForce(collision.transform.position - transform.position.normalized * m_FuerzaRepulsion, ForceMode2D.Impulse);
+        }
     }
 }

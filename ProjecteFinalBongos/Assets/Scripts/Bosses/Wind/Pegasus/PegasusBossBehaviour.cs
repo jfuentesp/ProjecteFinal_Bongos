@@ -20,7 +20,7 @@ public class PegasusBossBehaviour : BossBehaviour
     void Start()
     {
         m_StateMachine.ChangeState<SMBChaseState>();
-        m_NumberOfAttacksBeforeCharge = Random.Range(1, 2);
+        m_NumberOfAttacksBeforeCharge = Random.Range(5, 7);
         GetComponent<SMBChargeState>().OnChargeMissed = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBParriedState>();
@@ -81,7 +81,7 @@ public class PegasusBossBehaviour : BossBehaviour
     }
     private void WalkAround()
     {
-        m_NumberOfAttacksBeforeCharge = Random.Range(1, 2);
+        m_NumberOfAttacksBeforeCharge = Random.Range(5, 7);
         m_StateMachine.ChangeState<SMBWalkAroundState>();
     }
 }

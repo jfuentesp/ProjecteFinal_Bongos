@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,10 @@ public class SMBGroundHitState : SMState
     private FiniteStateMachine m_StateMachine;
     private Animator m_Animator;
     private BossBehaviour m_Boss;
-
+    [SerializeField]
+    private GameObject m_OndaExpansiva;
+    
+    [SerializeField]
     float m_GroundHitDuration;
     float m_CurrentDuration;
     private new void Awake()
@@ -25,7 +29,8 @@ public class SMBGroundHitState : SMState
         base.InitState();
         m_CurrentDuration = 0;
         m_Boss.SetBusy(true);
-        m_Rigidbody.velocity = Vector2.up;
+        m_Rigidbody.velocity = Vector2.zero;
+        HitGround();
     }
 
 
@@ -40,5 +45,11 @@ public class SMBGroundHitState : SMState
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         }
+    }
+
+    private void HitGround()
+    {
+        GameObject ondaExpansiva = Instantiate(m_OndaExpansiva);
+        ondaExpansiva.transform.position = transform.position;
     }
 }
