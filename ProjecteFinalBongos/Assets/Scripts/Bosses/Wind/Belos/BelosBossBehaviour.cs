@@ -23,6 +23,15 @@ public class BelosBossBehaviour : BossBehaviour
         m_CurrentPhase = Phase.ONE;
     }
 
+    private void Start()
+    {
+        m_StateMachine.ChangeState<SMBChaseState>();
+        GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+    }
+
     private void SetAttack()
     {
         float rng = Random.value;
@@ -41,7 +50,7 @@ public class BelosBossBehaviour : BossBehaviour
                 m_StateMachine.ChangeState<SMBDoubleAttackState>();
                 break;
             case > 0.8f:
-                if (m_CurrentPhase == Phase.TWO && rng > 0.9f)
+                if (m_CurrentPhase == Phase.ONE && rng > 0.9f)
                 {
                     m_StateMachine.ChangeState<SMBBelosLighningChainsState>();
                 }
@@ -71,10 +80,8 @@ public class BelosBossBehaviour : BossBehaviour
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
                 RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
-                Debug.Log("Entro 1");
                 if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
-                    Debug.Log("Entro 2");
                     m_IsPlayerDetected = true;
                     SetAttack();
                 }

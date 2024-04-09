@@ -16,7 +16,7 @@ public class SMBBelosLighningChainsState : SMState
     [SerializeField]
     private float m_ChainSpeed;
 
-    private new void Awake()
+    protected override void Awake()
     {
         base.Awake();
         m_Rigidbody = GetComponent<Rigidbody2D>();
@@ -29,6 +29,7 @@ public class SMBBelosLighningChainsState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
+        ShootTrap();
     }
 
     public override void ExitState()
@@ -40,7 +41,8 @@ public class SMBBelosLighningChainsState : SMState
     private void ShootTrap()
     {
         GameObject bulletObject = m_Pool.GetElement();
-        Bullet bullet = bulletObject.GetComponent<Bullet>();
-
+        TrapBullet trap = bulletObject.GetComponent<TrapBullet>();
+        trap.Init(m_Boss.Target.position);
+        m_StateMachine.ChangeState<SMBChaseState>();
     }
 }

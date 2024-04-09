@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 483779402087256274}
   - component: {fileID: 1048644416574972401}
   - component: {fileID: 1408490090857390596}
+  - component: {fileID: 8624516405051555047}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -177,3 +178,21 @@ MonoBehaviour:
   m_TimeUntilDestroyed: 5
   m_SizeRadius: 0.5
   m_Speed: 7
+--- !u!114 &8624516405051555047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7332060548842877283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96e0139a4d86ff04d93c69700b99ce83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TimeUntilDestroyed: 5
+  m_SizeRadius: 0
+  m_Speed: 0
+  m_CagePrefab: {fileID: 0}
+  m_GrowthDuration: 4
+  m_GrowthSize: 0.1

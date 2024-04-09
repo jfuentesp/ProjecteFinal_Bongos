@@ -433,6 +433,7 @@ GameObject:
   - component: {fileID: 1898607640}
   - component: {fileID: 1898607650}
   - component: {fileID: 1898607649}
+  - component: {fileID: 1898607651}
   m_Layer: 0
   m_Name: Belos
   m_TagString: Untagged
@@ -551,6 +552,7 @@ MonoBehaviour:
   m_Description: prinsipito xispas
   m_MaxHP: 500
   m_Sprite: {fileID: 21300000, guid: 1cf35e76a32c87c4da15e964cea769b2, type: 3}
+  m_Target: {fileID: 2002949458}
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 2
   m_AreaWideness: 2
@@ -608,7 +610,6 @@ MonoBehaviour:
   m_HitboxLength: 2
   m_HitboxWideness: 2
   m_HitboxRadius: 2
-  m_Target: {fileID: 2002949456}
   m_TripleAttackAnimationName: 
 --- !u!114 &1898607644
 MonoBehaviour:
@@ -626,7 +627,6 @@ MonoBehaviour:
   m_HitboxLength: 2
   m_HitboxWideness: 2
   m_HitboxRadius: 2
-  m_Target: {fileID: 2002949456}
   m_DoubleAttackAnimationName: 
 --- !u!114 &1898607645
 MonoBehaviour:
@@ -644,7 +644,6 @@ MonoBehaviour:
   m_HitboxLength: 2
   m_HitboxWideness: 2
   m_HitboxRadius: 2
-  m_Target: {fileID: 2002949456}
   m_SingleAttackAnimationName: 
 --- !u!114 &1898607646
 MonoBehaviour:
@@ -659,7 +658,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ChaseSpeed: 2
-  m_Target: {fileID: 2002949456}
   m_ChaseAnimationName: 
 --- !u!114 &1898607647
 MonoBehaviour:
@@ -699,6 +697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 574878a6486672d46b88bdcb2b45b76d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Pool: {fileID: 961151865}
   m_ChainSpeed: 3
 --- !u!114 &1898607650
 MonoBehaviour:
@@ -715,7 +714,52 @@ MonoBehaviour:
   m_AmountToHeal: 300
   m_HealingDelay: 4
   m_HealingMultiplierPenalization: 0.3
-  m_WalkAnimationName: 
+  m_HealingAnimationName: 
+--- !u!61 &1898607651
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898607636}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &2002949456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,6 +1149,10 @@ PrefabInstance:
       propertyPath: m_Target
       value: 
       objectReference: {fileID: 2002949456}
+    - target: {fileID: 9029267029551829187, guid: 267d9aac067c1c946ab3bea63261c6bd, type: 3}
+      propertyPath: m_Target
+      value: 
+      objectReference: {fileID: 2002949458}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -46,10 +46,8 @@ public class VoltauroBossBehaviour : BossBehaviour
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
                 RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
-                Debug.Log("Entro 1");
                 if(hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
-                    Debug.Log("Entro 2");
                     m_IsPlayerDetected = true;
                     SetAttack();
                 } 
