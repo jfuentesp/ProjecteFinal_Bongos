@@ -20,9 +20,10 @@ public class SMBChargeState : SMState
     private bool m_IsAiming;
     private bool m_IsCharging;
 
-    [Header("Boss target")]
-    [SerializeField]
-    private GameObject m_Target;
+    private Transform m_Target;
+
+    public delegate void OnChargeMiss(GameObject obj);
+    public OnChargeMiss OnChargeMissed;
 
     private new void Awake()
     {
@@ -31,6 +32,7 @@ public class SMBChargeState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_Target = m_Boss.Target;
     }
 
     public override void InitState()
@@ -50,13 +52,13 @@ public class SMBChargeState : SMState
         m_IsAiming = true;
         yield return new WaitForSeconds(2f);
         m_IsAiming = false;
-        m_IsCharging = true;    
+        m_IsCharging = true;
     }
 
     Vector3 m_Direction;
     private void Update()
     {
-        if(m_IsAiming) 
+        if(m_IsAiming)
         {
             m_Direction = (m_Target.transform.position - transform.position).normalized;
             m_Rigidbody.velocity = Vector3.zero;
@@ -64,9 +66,8 @@ public class SMBChargeState : SMState
         }
     }
 
-
     private void FixedUpdate()
-    { 
+    {
         if (m_IsCharging)
             m_Rigidbody.velocity = m_Direction * m_ChargeSpeed;
     }
@@ -77,8 +78,8 @@ public class SMBChargeState : SMState
         {
             m_IsCharging = false;
             m_Rigidbody.velocity = Vector3.zero;
-            if(collision.gameObject.CompareTag("MechanicObstacle"))
-                m_StateMachine.ChangeState<SMBParriedState>();
+            if (collision.gameObject.CompareTag("MechanicObstacle"))
+                OnChargeMissed.Invoke(gameObject);
             if(collision.gameObject.CompareTag("Player"))
             {
                 m_StateMachine.ChangeState<SMBChaseState>();

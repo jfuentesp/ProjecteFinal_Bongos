@@ -17,6 +17,9 @@ public class BossBehaviour : MonoBehaviour
     protected float m_MaxHP;
     [SerializeField]
     protected Sprite m_Sprite;
+    [SerializeField]
+    protected Transform m_Target;
+    public Transform Target => m_Target;
 
     protected FiniteStateMachine m_StateMachine;
     protected Rigidbody2D m_Rigidbody;

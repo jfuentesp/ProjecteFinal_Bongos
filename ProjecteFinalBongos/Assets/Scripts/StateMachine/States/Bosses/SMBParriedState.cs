@@ -14,10 +14,11 @@ public class SMBParriedState : SMState
 
     private new void Awake()
     {
-        base.Awake();   
+        base.Awake();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
+        m_Boss = GetComponent<BossBehaviour>();
     }
 
     public override void InitState()
@@ -35,8 +36,7 @@ public class SMBParriedState : SMState
     private IEnumerator ParriedCoroutine()
     {
         yield return new WaitForSeconds(m_ParryDuration);
-        m_StateMachine.ChangeState<SMBChaseState>();
+        //m_StateMachine.ChangeState<SMBChaseState>();
+        OnRecomposited.Invoke(gameObject);
     }
-
-
 }
