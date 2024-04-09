@@ -21,16 +21,15 @@ public class SMBDoubleAttackState : SMState
     [SerializeField]
     private float m_HitboxRadius;
 
-    [Header("Target gameObject")]
-    [SerializeField]
-    private GameObject m_Target;
+    private Transform m_Target;
 
     [Header("Attack Animation")]
     [SerializeField]
     private string m_DoubleAttackAnimationName;
 
-    private void Awake()
+    private new void Awake()
     {
+        base.Awake();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();

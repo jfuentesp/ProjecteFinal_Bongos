@@ -8,6 +8,9 @@ public class SMBParriedState : SMState
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
     private BossBehaviour m_Boss;
+    public delegate void OnRecomposition(GameObject obj);
+    public OnRecomposition OnRecomposited;
+
     [Header("Parry duration")]
     [SerializeField]
     private float m_ParryDuration;

@@ -32,6 +32,10 @@ public class VoltauroBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBParriedState>();
         };
+        GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
     }
 
     private IEnumerator PlayerDetectionCoroutine()
