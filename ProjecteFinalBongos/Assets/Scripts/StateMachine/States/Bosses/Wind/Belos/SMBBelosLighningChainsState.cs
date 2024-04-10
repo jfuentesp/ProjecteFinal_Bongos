@@ -2,20 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SMBParriedState : SMState
+public class SMBBelosLighningChainsState : SMState
 {
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
     private BossBehaviour m_Boss;
-    public delegate void OnRecomposition(GameObject obj);
-    public OnRecomposition OnRecomposited;
 
-    [Header("Parry duration")]
     [SerializeField]
-    private float m_ParryDuration;
+    private Pool m_Pool;
 
-    private new void Awake()
+    [Header("Projectile speed")]
+    [SerializeField]
+    private float m_ChainSpeed;
+
+    protected override void Awake()
     {
         base.Awake();
         m_Rigidbody = GetComponent<Rigidbody2D>();
@@ -28,7 +29,7 @@ public class SMBParriedState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        StartCoroutine(ParriedCoroutine());
+        ShootTrap();
     }
 
     public override void ExitState()
@@ -36,10 +37,14 @@ public class SMBParriedState : SMState
         base.ExitState();
     }
 
-    private IEnumerator ParriedCoroutine()
+    private void ShootTrap()
     {
-        yield return new WaitForSeconds(m_ParryDuration);
-        //m_StateMachine.ChangeState<SMBChaseState>();
-        OnRecomposited.Invoke(gameObject);
+        GameObject bulletObject = m_Pool.GetElement();
+        bulletObject.transform.position = transform.position;
+        TrapBullet trap = bulletObject.GetComponent<TrapBullet>();
+        trap.enabled = true;
+        bulletObject.SetActive(true);
+        trap.Init(m_Boss.Target.position);
+        m_StateMachine.ChangeState<SMBChaseState>();
     }
 }
