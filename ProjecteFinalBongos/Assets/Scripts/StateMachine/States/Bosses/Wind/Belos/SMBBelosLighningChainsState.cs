@@ -35,13 +35,15 @@ public class SMBBelosLighningChainsState : SMState
     public override void ExitState()
     {
         base.ExitState();
-
     }
 
     private void ShootTrap()
     {
         GameObject bulletObject = m_Pool.GetElement();
+        bulletObject.transform.position = transform.position;
         TrapBullet trap = bulletObject.GetComponent<TrapBullet>();
+        trap.enabled = true;
+        bulletObject.SetActive(true);
         trap.Init(m_Boss.Target.position);
         m_StateMachine.ChangeState<SMBChaseState>();
     }

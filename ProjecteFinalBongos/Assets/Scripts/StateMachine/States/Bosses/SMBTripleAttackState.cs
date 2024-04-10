@@ -17,6 +17,7 @@ public class SMBTripleAttackState : SMBBasicAttackState
     public override void InitState()
     {
         base.InitState();
+        m_Boss.SetBusy(true);
         m_TripleAttackCoroutine = StartCoroutine(AttackCoroutine(transform.position + transform.up, 0.5f, 0.5f, 1f));
     }
 

@@ -18,6 +18,7 @@ public class SMBSingleAttackState : SMBBasicAttackState
     public override void InitState()
     {
         base.InitState();
+        m_Boss.SetBusy(true);
         m_SingleAttackCoroutine = StartCoroutine(AttackCoroutine(transform.position + transform.up, 1f));
     }
 

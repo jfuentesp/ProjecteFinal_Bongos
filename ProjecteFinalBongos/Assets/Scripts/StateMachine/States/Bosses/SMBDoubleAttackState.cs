@@ -16,6 +16,7 @@ public class SMBDoubleAttackState : SMBBasicAttackState
     public override void InitState()
     {
         base.InitState();
+        m_Boss.SetBusy(true);
         m_DoubleAttackCoroutine = StartCoroutine(AttackCoroutine(transform.position + transform.up, 0.5f, 0.5f));
     }
 

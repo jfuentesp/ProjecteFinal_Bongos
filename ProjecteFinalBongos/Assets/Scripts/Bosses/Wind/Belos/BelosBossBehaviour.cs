@@ -36,16 +36,20 @@ public class BelosBossBehaviour : BossBehaviour
 
     private void SetAttack()
     {
+        if(m_NumberOfAttacksBeforeTrap <= 0)
+        {
+            Debug.Log("Entro en trampa.");
+            m_NumberOfAttacksBeforeTrap = Random.Range(1, 6);
+            m_StateMachine.ChangeState<SMBBelosLighningChainsState>();
+            return;
+        }
+
         float rng = Random.value;
-
-
-
         if(m_CurrentPhase == Phase.TWO && m_MaxHP > 5) //Y la vida caiga por debajo del 5%
         {
             m_StateMachine.ChangeState<SMBBelosHealingState>();
         }
-
-
+        Debug.Log("Ataques restantes: " + m_NumberOfAttacksBeforeTrap);
         switch (rng)
         {
             case < 0.5f:

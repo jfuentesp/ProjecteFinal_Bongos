@@ -14,35 +14,29 @@ public class TrapBullet : Bullet
     private float m_GrowthDuration;
 
     [Header("Growth size")]
-    [SerializeField, Range(0, 0.9f)]
+    [SerializeField, Range(0, 1f)]
     private float m_GrowthSize;
 
     Vector3 m_CurrentScale;
+
+    private void OnEnable()
+    {
+        m_GrowthCoroutine = StartCoroutine(GrowthCoroutine());
+    }
+
+    private void OnDisable()
+    {
+        if(m_GrowthCoroutine != null)
+            StopCoroutine(m_GrowthCoroutine);
+    }
 
     public override void Init(Vector2 direction)
     {
         base.Init(direction);
         m_CurrentScale = transform.localScale;
-        growing = true;
     }
 
     float t = 0;
-    bool growing = true;
-    private void Update()
-    {
-        if (!growing)
-            return;
-        t += Time.deltaTime / m_GrowthDuration;
-        Vector3 newScale = new Vector3(Mathf.Lerp(m_CurrentScale.x, transform.localScale.x * m_GrowthSize, t),
-                                       Mathf.Lerp(m_CurrentScale.y, transform.localScale.y * m_GrowthSize, t), 0);
-        transform.localScale = newScale;
-
-        if(t > m_GrowthDuration) 
-        {
-            growing = false;
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -52,5 +46,18 @@ public class TrapBullet : Bullet
     private void SetPlayerOnCage(GameObject gameobject)
     {
         
+    }
+
+    private Coroutine m_GrowthCoroutine;
+    private IEnumerator GrowthCoroutine()
+    {
+        while(t < m_GrowthDuration)
+        {
+            float size = Mathf.Lerp(m_CurrentScale.x, transform.localScale.x / m_GrowthSize, t);
+            Vector3 newScale = new Vector3(size, size, 0);
+            transform.localScale = newScale;
+            yield return new WaitForSeconds(0.2f);
+            t += 0.2f;
+        }
     }
 }
