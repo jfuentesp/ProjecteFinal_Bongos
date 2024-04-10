@@ -10,6 +10,9 @@ public class AlteaBossBehaviour : BossBehaviour
     private int m_NumberOfAttacksBeforeCharge;
     private SalaBoss m_SalaPadre;
 
+    [SerializeField]
+    private LayerMask m_HuevosLayerMask;
+
     [Header("Pool of projectiles/splats")]
     [SerializeField]
     private Pool m_Pool;
@@ -75,7 +78,7 @@ public class AlteaBossBehaviour : BossBehaviour
     private void PonerHuevo()
     {
         Vector2 posicionHuevo = m_SalaPadre.GetPosicionAleatoriaEnSala();
-        RaycastHit2D hit = Physics2D.CircleCast(posicionHuevo, 1, posicionHuevo);
+        RaycastHit2D hit = Physics2D.CircleCast(posicionHuevo, 1, posicionHuevo, 1, m_HuevosLayerMask);
         if (hit.collider != null)
         {
             PonerHuevo();
@@ -85,6 +88,8 @@ public class AlteaBossBehaviour : BossBehaviour
             GameObject egg = m_Pool.GetElement();
             egg.transform.position = new Vector2(posicionHuevo.x, posicionHuevo.y);
             egg.SetActive(true);
+            egg.GetComponent<EggAltea>().enabled = true;
+            egg.GetComponent<EggAltea>().Init();
         }
     }
 }
