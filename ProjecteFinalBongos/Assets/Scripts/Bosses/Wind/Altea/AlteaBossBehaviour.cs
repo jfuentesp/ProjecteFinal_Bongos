@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,28 +9,24 @@ public class AlteaBossBehaviour : BossBehaviour
     private Coroutine m_SpawnEggCoroutine;
     private int m_NumberOfAttacksBeforeCharge;
     private SalaBoss m_SalaPadre;
+
+    [Header("Pool of projectiles/splats")]
+    [SerializeField]
+    private Pool m_Pool;
+
     private new void Awake()
     {
         base.Awake();
         m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
-        m_SpawnEggCoroutine = StartCoroutine(SpawnEggsCoroutine());
         m_SalaPadre = GetComponentInParent<SalaBoss>();
     }
 
-   
+
 
     void Start()
     {
         m_StateMachine.ChangeState<SMBChaseState>();
-        m_NumberOfAttacksBeforeCharge = Random.Range(5, 7);
-        GetComponent<SMBChargeState>().OnChargeMissed = (GameObject obj) =>
-        {
-            m_StateMachine.ChangeState<SMBParriedState>();
-        };
-        GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
-        {
-            m_StateMachine.ChangeState<SMBGroundHitState>();
-        };
+        m_SpawnEggCoroutine = StartCoroutine(SpawnEggsCoroutine());
     }
     private IEnumerator PlayerDetectionCoroutine()
     {
@@ -43,7 +40,7 @@ public class AlteaBossBehaviour : BossBehaviour
                 if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    
+
                 }
                 else
                 {
@@ -56,7 +53,7 @@ public class AlteaBossBehaviour : BossBehaviour
                 if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    
+
                 }
                 else
                 {
@@ -70,8 +67,24 @@ public class AlteaBossBehaviour : BossBehaviour
     {
         while (m_IsAlive)
         {
-            m_SalaPadre.GetPosicionAleatoriaEnSala();
+            PonerHuevo();
             yield return new WaitForSeconds(2);
+        }
+    }
+
+    private void PonerHuevo()
+    {
+        Vector2 posicionHuevo = m_SalaPadre.GetPosicionAleatoriaEnSala();
+        RaycastHit2D hit = Physics2D.CircleCast(posicionHuevo, 1, posicionHuevo);
+        if (hit.collider != null)
+        {
+            PonerHuevo();
+        }
+        else
+        {
+            GameObject egg = m_Pool.GetElement();
+            egg.transform.position = new Vector2(posicionHuevo.x, posicionHuevo.y);
+            egg.SetActive(true);
         }
     }
 }

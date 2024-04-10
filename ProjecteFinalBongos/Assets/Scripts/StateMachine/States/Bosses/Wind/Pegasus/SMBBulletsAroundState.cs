@@ -50,7 +50,7 @@ public class SMBBulletsAroundState : SMState
                 GameObject lightning = m_Pool.GetElement();
                 lightning.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
                 lightning.SetActive(true);
-                lightning.GetComponent<Bullet>().Init(new Vector2(i, j));
+                lightning.GetComponent<SinusBullet>().Init(new Vector2(i, j));
             }
         }
     }
