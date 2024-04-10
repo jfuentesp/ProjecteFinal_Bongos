@@ -14,13 +14,12 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField]
     protected string m_Description;
     [SerializeField]
-    protected float m_MaxHP;
-    [SerializeField]
     protected Sprite m_Sprite;
     [SerializeField]
     protected Transform m_Target;
     public Transform Target => m_Target;
 
+    protected HealthController m_HealthController;
     protected FiniteStateMachine m_StateMachine;
     protected Rigidbody2D m_Rigidbody;
     protected Animator m_Animator;
@@ -64,6 +63,7 @@ public class BossBehaviour : MonoBehaviour
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
+        m_HealthController = GetComponent<HealthController>();
         if(m_PlayerAttackDetectionAreaType == CollisionType.BOX)
             m_BoxArea = new Vector2(m_AreaWideness, m_AreaLength);
         m_IsBusy = false;
