@@ -38,7 +38,6 @@ public class BelosBossBehaviour : BossBehaviour
     {
         if(m_NumberOfAttacksBeforeTrap <= 0 && m_CurrentPhase == Phase.TWO)
         {
-            Debug.Log("Entro en trampa.");
             m_NumberOfAttacksBeforeTrap = Random.Range(1, 6);
             m_StateMachine.ChangeState<SMBBelosLighningChainsState>();
             return;
@@ -50,7 +49,6 @@ public class BelosBossBehaviour : BossBehaviour
             m_StateMachine.ChangeState<SMBBelosHealingState>();
         }
 
-        Debug.Log("Ataques restantes: " + m_NumberOfAttacksBeforeTrap);
         switch (rng)
         {
             case < 0.5f:
