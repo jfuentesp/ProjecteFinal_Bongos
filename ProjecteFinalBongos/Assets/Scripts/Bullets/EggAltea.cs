@@ -20,5 +20,6 @@ public class EggAltea : Splash
     private void OnDisable()
     {
         //print("Spawn Serpiente" + transform.localPosition);
+        DisableBullet();
     }
 }

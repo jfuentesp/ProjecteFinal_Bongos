@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SMBIdleState))]
+[RequireComponent(typeof(SMBRunAwayState))]
 public class AlteaBossBehaviour : BossBehaviour
 {
     private Coroutine m_PlayerDetectionCoroutine;
@@ -20,7 +22,6 @@ public class AlteaBossBehaviour : BossBehaviour
     private new void Awake()
     {
         base.Awake();
-        m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
         m_SalaPadre = GetComponentInParent<SalaBoss>();
     }
 
@@ -28,50 +29,20 @@ public class AlteaBossBehaviour : BossBehaviour
 
     void Start()
     {
-        m_StateMachine.ChangeState<SMBChaseState>();
+        GetComponent<SMBRunAwayState>().onStoppedRunningAway = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        m_StateMachine.ChangeState<SMBRunAwayState>();
         m_SpawnEggCoroutine = StartCoroutine(SpawnEggsCoroutine());
     }
-    private IEnumerator PlayerDetectionCoroutine()
-    {
-        while (m_IsAlive)
-        {
-
-            if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
-            {
-                RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
-
-                if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
-                {
-                    m_IsPlayerDetected = true;
-
-                }
-                else
-                {
-                    m_IsPlayerDetected = false;
-                }
-            }
-            else
-            {
-                RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position, m_BoxArea, transform.rotation.z, transform.position);
-                if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
-                {
-                    m_IsPlayerDetected = true;
-
-                }
-                else
-                {
-                    m_IsPlayerDetected = false;
-                }
-            }
-            yield return new WaitForSeconds(m_CheckingPlayerTimelapse);
-        }
-    }
+   
     private IEnumerator SpawnEggsCoroutine()
     {
         while (m_IsAlive)
         {
+            yield return new WaitForSeconds(7);
             PonerHuevo();
-            yield return new WaitForSeconds(2);
         }
     }
 
