@@ -41,7 +41,8 @@ public class SMBPlayerParryState : MBState
     }
 
     public void ExitWindow() { 
-        parry= false;
+        parry = false;
+    
     }
     public void Exit()
     {
