@@ -47,6 +47,8 @@ namespace GeneracionSalas
         private List<ListaSalasConHijos> m_ListaSalasPadreConHijos = new List<ListaSalasConHijos>();
         private List<ListaSalasConHijos> m_ListaPasillosConSalas = new List<ListaSalasConHijos>();
 
+        public Action onMapaFinalized;
+
         [Header("Numeros Sala")]
         [SerializeField] private int numSala;
         [SerializeField] private int numSalaMaxima;
@@ -69,6 +71,7 @@ namespace GeneracionSalas
                 {
                     GenSalasBoss();
                     GenPasillos();
+                    onMapaFinalized.Invoke();
                 }
             }
             catch (Exception)
@@ -395,48 +398,52 @@ namespace GeneracionSalas
 
             if (EstaEnLaListaDePasillosHijos(posicionX - 50, posicionY - 50, posicionX - 50, posicionY + 1 - 50))
             {
-                estructuraArriba = Instantiate(m_PuertaArriba, transformSala);
+                estructuraArriba = Instantiate(m_PuertaArriba);
                 estructuras.Add(estructuraArriba);
             }
             else if (!EstaENLaListaDeSalas(posicionX - 50, posicionY + 1 - 50, salasHijas))
             {
-                estructuraArriba = Instantiate(m_ParedArriba, transformSala);
+                estructuraArriba = Instantiate(m_ParedArriba);
                 estructuras.Add(estructuraArriba);
             }
 
             if (EstaEnLaListaDePasillosHijos(posicionX - 50, posicionY - 50, posicionX + 1 - 50, posicionY - 50))
             {
-                estructuraDerecha = Instantiate(m_PuertaDerecha, transformSala);
+                estructuraDerecha = Instantiate(m_PuertaDerecha);
                 estructuras.Add(estructuraDerecha);
             }
             else if (!EstaENLaListaDeSalas(posicionX + 1 - 50, posicionY - 50, salasHijas))
             {
-                estructuraDerecha = Instantiate(m_ParedDerecha, transformSala);
+                estructuraDerecha = Instantiate(m_ParedDerecha);
                 estructuras.Add(estructuraDerecha);
             }
 
             if (EstaEnLaListaDePasillosHijos(posicionX - 50, posicionY - 50, posicionX - 50, posicionY - 1 - 50))
             {
-                estructuraAbajo = Instantiate(m_PuertaAbajo, transformSala);
+                estructuraAbajo = Instantiate(m_PuertaAbajo);
                 estructuras.Add(estructuraAbajo);
             }
             else if (!EstaENLaListaDeSalas(posicionX - 50, posicionY - 1 - 50, salasHijas))
             {
-                estructuraAbajo = Instantiate(m_ParedAbajo, transformSala);
+                estructuraAbajo = Instantiate(m_ParedAbajo);
                 estructuras.Add(estructuraAbajo);
             }
 
             if (EstaEnLaListaDePasillosHijos(posicionX - 50, posicionY - 50, posicionX - 1 - 50, posicionY - 50))
             {
-                estructuraIzquierda = Instantiate(m_PuertaIzquierda, transformSala);
+                estructuraIzquierda = Instantiate(m_PuertaIzquierda);
                 estructuras.Add(estructuraIzquierda);
             }
             else if (!EstaENLaListaDeSalas(posicionX - 1 - 50, posicionY - 50, salasHijas))
             {
-                estructuraIzquierda = Instantiate(m_ParedIzquierda, transformSala);
+                estructuraIzquierda = Instantiate(m_ParedIzquierda);
                 estructuras.Add(estructuraIzquierda);
             }
-
+            foreach(GameObject estructura in estructuras)
+            {
+                estructura.transform.parent = transformSala;
+                estructura.transform.position = transformSala.position;
+            }
             PintarSalas(tipoSala, estructuras);
         }
         private bool EstaENLaListaDeSalas(int x, int y, List<ListaSalas> salasHijas)
