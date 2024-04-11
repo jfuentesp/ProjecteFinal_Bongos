@@ -13,6 +13,10 @@ public abstract class SMBComboState : SMState
     protected Animator m_Animator;
     protected FiniteStateMachine m_StateMachine;
     private ComboHandler m_ComboHandler;
+    public Action<float> OnAttack;
+    protected float Strength;
+    protected float m_StrongAttack;
+    protected float m_WeakAttack;
     private new void Awake()
     {
         base.Awake();
@@ -21,6 +25,9 @@ public abstract class SMBComboState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_ComboHandler = GetComponent<ComboHandler>();
+        Strength = 10f;
+        m_StrongAttack = 5f;
+        m_WeakAttack = 3f;
 
     }
 
@@ -63,7 +70,7 @@ public abstract class SMBComboState : SMState
     protected abstract void OnComboSuccessAction();
     protected abstract void OnComboSuccessActionAttack2();
     protected abstract void OnComboFailedAction();
-
+    protected abstract void ChangeAttack(); 
     protected abstract void OnEndAction();
 }
 

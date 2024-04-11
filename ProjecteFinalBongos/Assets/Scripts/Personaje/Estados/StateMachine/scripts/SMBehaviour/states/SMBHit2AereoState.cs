@@ -9,6 +9,7 @@ public class SMBHit2AereoState : SMBComboState
         base.InitState();
         m_Animator.Play("attack2Aereo");
         StartCoroutine(AttackBehaviour());
+        ChangeAttack();
     }
     IEnumerator AttackBehaviour()
     {
@@ -36,5 +37,8 @@ public class SMBHit2AereoState : SMBComboState
     {
     }
 
-  
+    protected override void ChangeAttack()
+    {
+        OnAttack.Invoke(m_WeakAttack + ((Strength * Random.Range(50, 101) / 100)));
+    }
 }

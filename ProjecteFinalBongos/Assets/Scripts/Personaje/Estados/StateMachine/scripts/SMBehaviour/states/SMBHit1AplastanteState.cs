@@ -9,6 +9,7 @@ public class SMBHit1AplastanteState : SMBComboState
         base.InitState();
         m_Animator.Play("attack1Aplastante");
         StartCoroutine(comboTime());
+        ChangeAttack();
     }
     IEnumerator comboTime()
     {
@@ -37,5 +38,11 @@ public class SMBHit1AplastanteState : SMBComboState
     protected override void OnComboSuccessActionAttack2()
     {
      
+    }
+
+    protected override void ChangeAttack()
+    {
+  
+        OnAttack.Invoke(m_StrongAttack + ((Strength * Random.Range(50, 101) / 100)));
     }
 }

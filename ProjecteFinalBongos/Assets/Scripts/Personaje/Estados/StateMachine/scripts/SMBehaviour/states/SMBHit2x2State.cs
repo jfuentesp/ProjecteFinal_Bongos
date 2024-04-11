@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SMBHit2x2State : SMBComboState
 {
+    private float damage;
     public override void InitState()
     {
         base.InitState();
@@ -20,6 +21,7 @@ public class SMBHit2x2State : SMBComboState
             m_Animator.Play("attack2x2");
         }
        StartCoroutine( AttackBehaviour());
+        ChangeAttack();
     }
     IEnumerator AttackBehaviour()
     {
@@ -58,5 +60,10 @@ public class SMBHit2x2State : SMBComboState
     {
         StopAllCoroutines();
         m_StateMachine.ChangeState<SMBHit2x3State>();
+    }
+
+    protected override void ChangeAttack()
+    {
+        OnAttack.Invoke(m_WeakAttack +((Strength * Random.Range(50,101)/100)));
     }
 }

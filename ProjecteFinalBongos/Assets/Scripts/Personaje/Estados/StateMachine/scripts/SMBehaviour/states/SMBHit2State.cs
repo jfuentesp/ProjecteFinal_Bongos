@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
-
+using Random = UnityEngine.Random;
 
 public class SMBHit2State : SMBComboState
 {
@@ -25,6 +25,7 @@ public class SMBHit2State : SMBComboState
           
         }
         StartCoroutine(AttackBehaviour());
+        ChangeAttack();
     }
     IEnumerator AttackBehaviour()
     {
@@ -67,6 +68,11 @@ public class SMBHit2State : SMBComboState
     {
         StopAllCoroutines();
         m_StateMachine.ChangeState<SMBHit2x2State>();
+    }
+
+    protected override void ChangeAttack()
+    {
+        OnAttack.Invoke(m_WeakAttack);  
     }
 }
 

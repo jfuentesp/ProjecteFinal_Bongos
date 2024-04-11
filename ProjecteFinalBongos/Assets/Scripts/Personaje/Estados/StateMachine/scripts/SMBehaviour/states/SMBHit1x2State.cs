@@ -45,5 +45,10 @@ public class SMBHit1x2State : SMBComboState
     {
         m_StateMachine.ChangeState<SMBHit2State>();
     }
+
+    protected override void ChangeAttack()
+    {
+        OnAttack.Invoke(m_StrongAttack + ((Strength * Random.Range(50, 101) / 100)));
+    }
 }
 

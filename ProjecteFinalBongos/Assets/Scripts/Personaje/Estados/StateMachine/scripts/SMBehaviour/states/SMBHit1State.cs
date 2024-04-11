@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
-
+using Random = UnityEngine.Random;
 
 public class SMBHit1State : SMBComboState
 {
@@ -24,6 +24,7 @@ public class SMBHit1State : SMBComboState
             m_Animator.Play("attack1x1");
             Debug.Log(m_PJ.direccion);
         }
+        ChangeAttack();
         
     }
 
@@ -48,6 +49,12 @@ public class SMBHit1State : SMBComboState
     {
         StopAllCoroutines();
         m_StateMachine.ChangeState<SMBHit2State>();
+    }
+
+    protected override void ChangeAttack()
+    {
+
+        OnAttack.Invoke(m_StrongAttack + ((Strength * Random.Range(50, 101) / 100)));
     }
 }
 

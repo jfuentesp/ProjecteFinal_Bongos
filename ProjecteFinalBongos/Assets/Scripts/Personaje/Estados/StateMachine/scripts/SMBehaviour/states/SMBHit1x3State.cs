@@ -49,4 +49,9 @@ public class SMBHit1x3State : SMBComboState
         m_Rigidbody.gravityScale = 0;
         m_StateMachine.ChangeState<SMBHit2AereoState>();
     }
+
+    protected override void ChangeAttack()
+    {
+        OnAttack.Invoke(m_StrongAttack + ((Strength * Random.Range(50, 101) / 100)));
+    }
 }

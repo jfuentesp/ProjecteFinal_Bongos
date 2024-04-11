@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SMBHit1x4State : SMBComboState
 {
@@ -10,6 +11,7 @@ public class SMBHit1x4State : SMBComboState
         base.InitState();
         m_Animator.Play("attack1x4");
         StartCoroutine(AttackBehaviour());
+        ChangeAttack();
     }
     IEnumerator AttackBehaviour()
     {
@@ -48,5 +50,10 @@ public class SMBHit1x4State : SMBComboState
     protected override void OnComboSuccessActionAttack2()
     {
         m_StateMachine.ChangeState<SMBHit2x2State>();
+    }
+
+    protected override void ChangeAttack()
+    {
+        OnAttack.Invoke(m_WeakAttack + ((Strength * Random.Range(50, 101) / 100)));
     }
 }
