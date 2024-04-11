@@ -5,11 +5,10 @@ using UnityEngine;
 
 [RequireComponent(typeof(SMBIdleState))]
 [RequireComponent(typeof(SMBRunAwayState))]
+[RequireComponent(typeof(SMBRangedAttack))]
 public class AlteaBossBehaviour : BossBehaviour
 {
-    private Coroutine m_PlayerDetectionCoroutine;
     private Coroutine m_SpawnEggCoroutine;
-    private int m_NumberOfAttacksBeforeCharge;
     private SalaBoss m_SalaPadre;
 
     [SerializeField]
@@ -25,13 +24,15 @@ public class AlteaBossBehaviour : BossBehaviour
         m_SalaPadre = GetComponentInParent<SalaBoss>();
     }
 
-
-
     void Start()
     {
         GetComponent<SMBRunAwayState>().onStoppedRunningAway = (GameObject obj) =>
         {
-            m_StateMachine.ChangeState<SMBChaseState>();
+            m_StateMachine.ChangeState<SMBRangedAttack>();
+        };
+        GetComponent<SMBRangedAttack>().onAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBRunAwayState>();
         };
         m_StateMachine.ChangeState<SMBRunAwayState>();
         m_SpawnEggCoroutine = StartCoroutine(SpawnEggsCoroutine());
@@ -60,7 +61,7 @@ public class AlteaBossBehaviour : BossBehaviour
             egg.transform.position = new Vector2(posicionHuevo.x, posicionHuevo.y);
             egg.SetActive(true);
             egg.GetComponent<EggAltea>().enabled = true;
-            egg.GetComponent<EggAltea>().Init();
+            egg.GetComponent<EggAltea>().Init(m_Target);
         }
     }
 }

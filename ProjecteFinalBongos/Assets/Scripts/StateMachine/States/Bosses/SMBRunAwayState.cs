@@ -51,6 +51,9 @@ public class SMBRunAwayState : SMState
         base.InitState();
         m_Boss.SetBusy(true);
         m_WalkingDuration = Random.Range(m_minimumWalkingDuration, m_maximumWalkingDuration);
+        m_TimeChangeDirection = 0;
+        m_TimeCaminar = 0;
+        
     }
 
     public override void ExitState()
@@ -88,7 +91,7 @@ public class SMBRunAwayState : SMState
     private void FixedUpdate()
     {
         m_TimeChangeDirection += Time.fixedDeltaTime;
-        if (m_TimeChangeDirection > 3)
+        if (m_TimeChangeDirection > 1)
         {
             AVerKittea();
             m_TimeChangeDirection = 0;

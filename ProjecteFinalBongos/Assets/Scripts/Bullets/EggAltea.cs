@@ -7,11 +7,24 @@ public class EggAltea : Splash
     [SerializeField]
     private GameObject m_SerpientePrefab;
 
-    public override void Init()
+    private Transform m_Target;
+    private bool m_Nacido;
+
+    public void Init(Transform _Target)
     {
-        base.Init();
-      
+        m_Size = new Vector2(m_SizeWideness, m_SizeLength);
+        transform.localScale = m_Size;
+        m_Target = _Target;
+        m_Nacido = false;
+        StartCoroutine(BornSNake());
     }
+    protected virtual IEnumerator BornSNake()
+    {
+        yield return new WaitForSeconds(m_TimeUntilDestroyed);
+        m_Nacido = true;
+        this.gameObject.SetActive(false);
+    }
+
     private void Update()
     {
         
@@ -19,7 +32,13 @@ public class EggAltea : Splash
 
     private void OnDisable()
     {
-        //print("Spawn Serpiente" + transform.localPosition);
+        if (m_Nacido)
+        {
+            GameObject Serpiente = Instantiate(m_SerpientePrefab);
+            Serpiente.transform.position = transform.position;
+            Serpiente.GetComponent<EnemySnake>().Init(m_Target);
+        }
+        
         DisableBullet();
     }
 }
