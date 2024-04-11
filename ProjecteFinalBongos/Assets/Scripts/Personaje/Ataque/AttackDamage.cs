@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class AttackDamage : MonoBehaviour
 {
+    [SerializeField]
     private float m_Damage;
-    public float Damage { get { return m_Damage; } }
-    private SMBComboState m_ComboState;
-    void Start()
-    {
-        m_ComboState = transform.parent.GetComponent<SMBComboState>();
-        m_ComboState.OnAttack += ChangeAttack;
-    }
-
-    private void ChangeAttack(float damage) { 
+    public float Damage => m_Damage;
+    public void ChangeAttack(float damage) {
         m_Damage = damage;
     
     }

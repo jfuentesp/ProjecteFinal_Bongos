@@ -20,7 +20,8 @@ public class SMBHit2x3State : SMBComboState
             m_Animator.Play("attack2x3");
         }
         StartCoroutine(AttackBehaviour());
-        ChangeAttack();
+        SetDamage();
+   
     }
     IEnumerator AttackBehaviour()
     {
@@ -66,8 +67,8 @@ public class SMBHit2x3State : SMBComboState
         m_StateMachine.ChangeState<SMBHit2State>();
     }
 
-    protected override void ChangeAttack()
+    protected override void SetDamage()
     {
-        OnAttack.Invoke(m_WeakAttack + ((Strength * Random.Range(50, 101) / 100)));
+        base.SetDamage();
     }
 }

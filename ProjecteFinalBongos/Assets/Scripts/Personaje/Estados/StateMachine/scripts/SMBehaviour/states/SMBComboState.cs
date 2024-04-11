@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(ComboHandler))]
 public abstract class SMBComboState : SMState
@@ -13,10 +14,11 @@ public abstract class SMBComboState : SMState
     protected Animator m_Animator;
     protected FiniteStateMachine m_StateMachine;
     private ComboHandler m_ComboHandler;
-    public Action<float> OnAttack;
     protected float Strength;
-    protected float m_StrongAttack;
-    protected float m_WeakAttack;
+    [SerializeField]
+    protected float m_Damage;
+    [SerializeField]
+
     private new void Awake()
     {
         base.Awake();
@@ -26,8 +28,6 @@ public abstract class SMBComboState : SMState
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_ComboHandler = GetComponent<ComboHandler>();
         Strength = 10f;
-        m_StrongAttack = 5f;
-        m_WeakAttack = 3f;
 
     }
 
@@ -66,11 +66,14 @@ public abstract class SMBComboState : SMState
         else
             OnComboFailedAction();
     }
-
+    protected virtual void SetDamage()
+    {
+        float damageFinal = m_Damage+((Strength * Random.Range(50,101))/100);
+        GetComponentInChildren<AttackDamage>().ChangeAttack(damageFinal);
+    }
     protected abstract void OnComboSuccessAction();
     protected abstract void OnComboSuccessActionAttack2();
-    protected abstract void OnComboFailedAction();
-    protected abstract void ChangeAttack(); 
+    protected abstract void OnComboFailedAction(); 
     protected abstract void OnEndAction();
 }
 

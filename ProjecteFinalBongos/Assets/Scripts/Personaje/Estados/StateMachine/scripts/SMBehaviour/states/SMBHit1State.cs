@@ -22,9 +22,8 @@ public class SMBHit1State : SMBComboState
         }
         else if (m_PJ.direccion == 0) {
             m_Animator.Play("attack1x1");
-            Debug.Log(m_PJ.direccion);
         }
-        ChangeAttack();
+        SetDamage();
         
     }
 
@@ -50,11 +49,11 @@ public class SMBHit1State : SMBComboState
         StopAllCoroutines();
         m_StateMachine.ChangeState<SMBHit2State>();
     }
-
-    protected override void ChangeAttack()
+    protected override void SetDamage()
     {
+        base.SetDamage();
 
-        OnAttack.Invoke(m_StrongAttack + ((Strength * Random.Range(50, 101) / 100)));
     }
+
 }
 

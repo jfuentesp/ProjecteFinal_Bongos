@@ -20,6 +20,7 @@ public class SMBHit1x3State : SMBComboState
             m_Animator.Play("attack1x3");
 
         }
+        SetDamage();
     }
  
      
@@ -31,7 +32,7 @@ public class SMBHit1x3State : SMBComboState
     protected override void OnComboSuccessAction()
     {
       
-        m_Rigidbody.gravityScale = 0;
+    
         m_StateMachine.ChangeState<SMBHit1x4State>();
 
 
@@ -40,18 +41,16 @@ public class SMBHit1x3State : SMBComboState
     protected override void OnEndAction()
     {
      
-        m_Rigidbody.gravityScale = 0;
+    
         m_StateMachine.ChangeState<SMBPlayerIdleState>();
     }
 
     protected override void OnComboSuccessActionAttack2()
     {
-        m_Rigidbody.gravityScale = 0;
-        m_StateMachine.ChangeState<SMBHit2AereoState>();
     }
 
-    protected override void ChangeAttack()
+    protected override void SetDamage()
     {
-        OnAttack.Invoke(m_StrongAttack + ((Strength * Random.Range(50, 101) / 100)));
+        base.SetDamage();
     }
 }

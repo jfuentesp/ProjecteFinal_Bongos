@@ -94,7 +94,6 @@ public class PJSMB : MonoBehaviour
         m_HealthController = GetComponent<HealthController>();
         m_Animator = GetComponent<Animator>();
         Stun = false;
-        Debug.Log("Existo?");
         DontDestroyOnLoad(this.gameObject);
     }
 
