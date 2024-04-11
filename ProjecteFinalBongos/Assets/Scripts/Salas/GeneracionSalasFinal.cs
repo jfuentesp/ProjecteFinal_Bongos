@@ -47,6 +47,8 @@ namespace GeneracionSalas
         private List<ListaSalasConHijos> m_ListaSalasPadreConHijos = new List<ListaSalasConHijos>();
         private List<ListaSalasConHijos> m_ListaPasillosConSalas = new List<ListaSalasConHijos>();
 
+        public Action onMapaFinalized;
+
         [Header("Numeros Sala")]
         [SerializeField] private int numSala;
         [SerializeField] private int numSalaMaxima;
@@ -69,11 +71,16 @@ namespace GeneracionSalas
                 {
                     GenSalasBoss();
                     GenPasillos();
+
                 }
             }
             catch (Exception)
             {
                 Start();
+            }
+            finally
+            {
+                onMapaFinalized.Invoke();
             }
         }
         private void RellenarMatriz()
