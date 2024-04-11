@@ -15,10 +15,25 @@ public class SMBSetFlyingState : SMState
     [SerializeField]
     private float m_FlyingSpeed;
 
-    // Start is called before the first frame update
+    [Header("Set Flying Animation")]
+    [SerializeField]
+    private string m_SetFlyingAnimationName;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        m_Rigidbody = GetComponent<Rigidbody2D>();
+        m_StateMachine = GetComponent<FiniteStateMachine>();
+        m_Animator = GetComponent<Animator>();
+        m_Boss = GetComponent<BossBehaviour>();
+    }
+
+    //The enemy will "set fly" in animation
     void Start()
     {
-        
+        if (m_Animator == null)
+            Debug.Log("No detecto el animator");
+        m_Animator.Play(m_SetFlyingAnimationName);
     }
 
     // Update is called once per frame

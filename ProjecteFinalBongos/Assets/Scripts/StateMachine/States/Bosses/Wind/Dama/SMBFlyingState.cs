@@ -28,7 +28,7 @@ public class SMBFlyingState : SMState
     private int m_MaximumHarpiesToSpawn;
 
     private int m_NumberOfHarpiesToSpawn;
-    private int m_DeadHarpies;
+    private int m_HarpiesToDie;
 
     [Header("Minion prefab")]
     [SerializeField]
@@ -51,7 +51,10 @@ public class SMBFlyingState : SMState
     public override void InitState()
     {
         base.InitState();
+        m_Animator.Play(m_FlyingAnimationName);
         m_Boss.SetBusy(true);
+        m_NumberOfHarpiesToSpawn = Random.Range(m_MinimumHarpiesToSpawn, m_MaximumHarpiesToSpawn);
+        m_HarpiesToDie = m_NumberOfHarpiesToSpawn; //Puede que esto sea -1...
         StartCoroutine(SpawnWhileFlyingCoroutine());
     }
 
@@ -60,17 +63,23 @@ public class SMBFlyingState : SMState
         base.ExitState();
     }
 
-    private void Update()
+    public void OnHarpyDeath()
     {
-        
+        m_HarpiesToDie--;
+        Debug.Log("Harpias muertas: " + m_HarpiesToDie);
+        if (m_HarpiesToDie <= 0)
+            m_StateMachine.ChangeState<SMBLandingState>();
     }
 
     private IEnumerator SpawnWhileFlyingCoroutine()
     {
         while(m_NumberOfHarpiesToSpawn > 0)
         {
-            GameObject harpy = Instantiate(m_Prefab);
-            harpy.transform.position = transform.position;
+            GameObject obj = Instantiate(m_Prefab);
+            HarpyBehaviour harpy = obj.GetComponent<HarpyBehaviour>();
+            Vector3 spawnPos = new Vector3(Random.Range(transform.position.x - 5, transform.position.x + 5), transform.position.y + 7, 0);
+            obj.transform.position = spawnPos;
+            harpy.Init(m_Target);
             yield return new WaitForSeconds(m_SpawnTime);
         }
     }
