@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5308115729871838875}
   - component: {fileID: 6766844748812692863}
   - component: {fileID: 5681716214612819958}
-  - component: {fileID: -2816837837213972517}
   - component: {fileID: -6490426775595885310}
   m_Layer: 0
   m_Name: Splash
@@ -135,21 +134,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-2816837837213972517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8564957952386650585}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 441400f3742ab9a4ca8058c5117d5de0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TimeUntilDestroyed: 3
-  m_SizeLength: 1
-  m_SizeWideness: 1
 --- !u!114 &-6490426775595885310
 MonoBehaviour:
   m_ObjectHideFlags: 0

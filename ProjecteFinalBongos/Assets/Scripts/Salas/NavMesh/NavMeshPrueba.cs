@@ -16,12 +16,13 @@ public class NavMeshPrueba : MonoBehaviour
     private void Awake()
     {
         m_Surface = GetComponent<NavMeshSurface>();
+        m_Mapa.onMapaFinalized += GenNavMesh;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        m_Mapa.onMapaFinalized += GenNavMesh;
+        
     }
 
     private void GenNavMesh()

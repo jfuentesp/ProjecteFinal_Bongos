@@ -3,26 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SMBBulletsAroundState : SMState
+public class SMBTornadosState : SMState
 {
     private Rigidbody2D m_Rigidbody;
     private FiniteStateMachine m_StateMachine;
     private Animator m_Animator;
     private BossBehaviour m_Boss;
 
+    float m_CurrentDuration = 0;
     [Header("Summoning duration")]
     [SerializeField]
     private float m_SummoningDuration;
-
-    [Header("Pool of projectiles/splats")]
-    [SerializeField]
-    private Pool m_Pool;
-
-    private Coroutine SpawnBulletsCoroutine;
-
-    public Action<GameObject> onBulletsSpawned;
-
-    float m_CurrentDuration = 0;
+    public Action<GameObject> onTornadoSpawned;
 
     private new void Awake()
     {
@@ -39,34 +31,14 @@ public class SMBBulletsAroundState : SMState
         m_CurrentDuration = 0;
         m_Boss.SetBusy(true);
         m_Rigidbody.velocity = Vector3.zero;
-        SpawnBulletsCoroutine = StartCoroutine(SpawnBullets());
     }
-
-    private IEnumerator SpawnBullets()
-    {
-        yield return new WaitForSeconds(m_SummoningDuration / 2);
-        for(float i = -1; i < 2; i += 0.5f)
-        {
-            for (float j = -1; j < 2; j += 0.5f)
-            {
-                GameObject lightning = m_Pool.GetElement();
-                lightning.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-                lightning.SetActive(true);
-                lightning.GetComponent<SinusBullet>().Init(new Vector2(i, j));
-            }
-        }
-    }
-
+    // Update is called once per frame
     void Update()
     {
         m_CurrentDuration += Time.deltaTime;
         if (m_CurrentDuration >= m_SummoningDuration)
         {
-            onBulletsSpawned.Invoke(gameObject);
+            onTornadoSpawned.Invoke(gameObject);
         }
-    }
-    public override void ExitState()
-    {
-        base.ExitState();
     }
 }

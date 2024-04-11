@@ -29,6 +29,11 @@ public class PegasusBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBGroundHitState>();
         };
+        GetComponent<SMBBulletsAroundState>().onBulletsSpawned = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+
     }
 
     private IEnumerator PlayerDetectionCoroutine()
