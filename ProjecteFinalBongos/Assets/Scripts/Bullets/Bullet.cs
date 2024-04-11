@@ -37,7 +37,19 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag("MechanicObstacle"))
         {
             StopCoroutine(ReturnToPoolCoroutine());
-            this.gameObject.SetActive(false);
+            DisableBullet();
         }
+    }
+
+    protected void DisableBullet()
+    {
+        MonoBehaviour[] comps = gameObject.GetComponents<MonoBehaviour>();
+        foreach (MonoBehaviour comp in comps)
+        {
+            comp.enabled = false;
+        }
+        transform.localScale = m_Size;
+        GetComponent<Bullet>().enabled = true;
+        this.gameObject.SetActive(false);
     }
 }

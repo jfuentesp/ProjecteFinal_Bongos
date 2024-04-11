@@ -26,6 +26,7 @@ public class BossBehaviour : MonoBehaviour
 
     protected bool m_IsBusy;
     protected bool m_IsAlive;
+    public bool IsAlive => m_IsAlive;
     protected bool m_IsPlayerDetected;
     public bool IsPlayerDetected => m_IsPlayerDetected;
 
