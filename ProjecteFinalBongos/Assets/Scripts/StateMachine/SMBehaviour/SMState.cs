@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class SMState : MonoBehaviour, IState
 {
     /* An external State for a Finite State Machine */
-    protected void Awake()
+    protected virtual void Awake()
     {
         enabled = false;
     }

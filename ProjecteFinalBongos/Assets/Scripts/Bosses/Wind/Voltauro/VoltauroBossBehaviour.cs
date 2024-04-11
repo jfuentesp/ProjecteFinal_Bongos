@@ -7,7 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(SMBParriedState))]
 [RequireComponent(typeof(SMBChaseState))]
 [RequireComponent(typeof(SMBSingleAttackState))]
-[RequireComponent(typeof(SMBVoltauroTripleAttackState))]
+[RequireComponent(typeof(SMBTripleAttackState))]
 [RequireComponent(typeof(SMBChargeState))]
 [RequireComponent(typeof(SMBLightningSummonState))]
 public class VoltauroBossBehaviour : BossBehaviour
@@ -28,6 +28,14 @@ public class VoltauroBossBehaviour : BossBehaviour
     {
         m_StateMachine.ChangeState<SMBChaseState>();
         m_NumberOfAttacksBeforeCharge = Random.Range(1, 6);
+        GetComponent<SMBChargeState>().OnChargeMissed = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
     }
 
     private IEnumerator PlayerDetectionCoroutine()
@@ -38,10 +46,8 @@ public class VoltauroBossBehaviour : BossBehaviour
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
                 RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
-                Debug.Log("Entro 1");
                 if(hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
-                    Debug.Log("Entro 2");
                     m_IsPlayerDetected = true;
                     SetAttack();
                 } 
@@ -90,7 +96,7 @@ public class VoltauroBossBehaviour : BossBehaviour
                 }
                 else
                 {
-                    m_StateMachine.ChangeState<SMBVoltauroTripleAttackState>();
+                    m_StateMachine.ChangeState<SMBTripleAttackState>();
                 }
                 break;
         }

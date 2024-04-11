@@ -8,19 +8,47 @@ public class Bullet : MonoBehaviour
     protected float m_TimeUntilDestroyed;
     [SerializeField]
     protected float m_SizeRadius;
+    [SerializeField]
+    protected float m_Speed;
     protected Vector2 m_Size;
+    protected Rigidbody2D m_Rigidbody;
 
-    // Start is called before the first frame update
-    void Start()
+    protected void Awake()
     {
+        m_Rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    public virtual void Init(Vector2 direction)
+    {
+        transform.up = direction;
         m_Size = new Vector2(m_SizeRadius, m_SizeRadius);
         transform.localScale = m_Size;
+        m_Rigidbody.velocity = transform.up * m_Speed;
         StartCoroutine(ReturnToPoolCoroutine());
     }
 
-    private IEnumerator ReturnToPoolCoroutine()
+    protected virtual IEnumerator ReturnToPoolCoroutine()
     {
         yield return new WaitForSeconds(m_TimeUntilDestroyed);
+        this.gameObject.SetActive(false);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("MechanicObstacle"))
+        {
+            StopCoroutine(ReturnToPoolCoroutine());
+            DisableBullet();
+        }
+    }
+
+    protected void DisableBullet()
+    {
+        MonoBehaviour[] comps = gameObject.GetComponents<MonoBehaviour>();
+        foreach (MonoBehaviour comp in comps)
+        {
+            comp.enabled = false;
+        }
+        transform.localScale = m_Size;
         this.gameObject.SetActive(false);
     }
 }

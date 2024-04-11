@@ -92,6 +92,5 @@ public class SMBLightningSummonState : SMState
             lightning.SetActive(true);
             yield return new WaitForSeconds(m_DelayTime);
         }
-        m_Boss.SetBusy(false);
     }
 }
