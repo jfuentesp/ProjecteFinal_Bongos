@@ -49,7 +49,6 @@ public class Bullet : MonoBehaviour
             comp.enabled = false;
         }
         transform.localScale = m_Size;
-        GetComponent<Bullet>().enabled = true;
         this.gameObject.SetActive(false);
     }
 }
