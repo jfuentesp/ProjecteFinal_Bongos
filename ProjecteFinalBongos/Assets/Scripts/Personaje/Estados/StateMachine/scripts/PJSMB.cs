@@ -1,11 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
-
+[RequireComponent(typeof(HabilidadDeMovimientoState))]
 [RequireComponent(typeof(SMBPlayerParryState))]
 [RequireComponent(typeof(SMBPlayerSuccesfulParryState))]
 [RequireComponent(typeof(HealthController))]
@@ -40,6 +42,9 @@ public class PJSMB : MonoBehaviour
     public PJSMB instance;
     private EstadosAlterados m_estado = EstadosAlterados.Normal;
     private bool Invencible, Stun, Poison,Wet,Burn, Wrath, Speedy, StrongMan, Stuck, Paralized;
+    private List<string> parrys = new List<string>();
+    private string m_actualParry = "prueba";
+    public string Parry => m_actualParry;
     [Header("Otros")]
     private float velocityBefore;
     private float strengthBefore;
@@ -50,7 +55,7 @@ public class PJSMB : MonoBehaviour
     [Header("Tiempos")]
     [SerializeField]
     private TimesScriptable m_playerTimes;
-   
+    
     [Header("Modificadores")]
     [SerializeField]
     private float m_ParalizedLifeModifier;
@@ -106,6 +111,7 @@ public class PJSMB : MonoBehaviour
         m_Defense = m_PlayerBaseStats.m_BaseDefense;
         m_AttackTime = m_PlayerBaseStats.m_BaseAttackTime;
     }
+
 
     public void AlternarEstado(EstadosAlterados estado) {
         switch (estado)

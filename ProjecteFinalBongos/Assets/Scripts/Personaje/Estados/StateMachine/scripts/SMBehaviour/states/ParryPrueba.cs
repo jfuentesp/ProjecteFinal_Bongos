@@ -2,19 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dash : SMBMovementState
+public class ParryPrueba : SMBPlayerParryState
 {
-
     public override void InitState()
     {
         base.InitState();
-        if (m_PJ.direccion == 0) { 
-        
-        }
+        print("Hola");
     }
-
-    protected override void MovementAction()
+    public override void ExitState()
     {
-       
+        base.ExitState();
     }
 }

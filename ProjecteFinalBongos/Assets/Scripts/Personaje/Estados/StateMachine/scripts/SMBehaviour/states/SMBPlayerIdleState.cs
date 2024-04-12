@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,8 +9,8 @@ using UnityEngine.InputSystem;
         private Rigidbody2D m_Rigidbody;
         private Animator m_Animator;
         private FiniteStateMachine m_StateMachine;
-
-
+        private string parryType;
+    private Type m_Type = typeof(ParryPrueba); 
         private new void Awake()
         {
             base.Awake();
@@ -17,6 +18,7 @@ using UnityEngine.InputSystem;
             m_Rigidbody = GetComponent<Rigidbody2D>();
             m_Animator = GetComponent<Animator>();
             m_StateMachine = GetComponent<FiniteStateMachine>();
+            parryType = m_PJ.Parry;
         }
 
         public override void InitState()
