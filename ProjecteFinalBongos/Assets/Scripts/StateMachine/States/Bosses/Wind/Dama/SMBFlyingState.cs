@@ -35,7 +35,16 @@ public class SMBFlyingState : SMState
     private GameObject m_Prefab;
 
     [Header("Flying speed")]
+    [SerializeField]
     private float m_FlyingSpeed;
+
+    [Header("Change direction time")]
+    [SerializeField]
+    private float m_DirectionTime;
+
+    [Header("LayerMask for RayCasting on random walk")]
+    [SerializeField]
+    private LayerMask m_LayerMask;
 
     protected override void Awake()
     {
@@ -73,6 +82,32 @@ public class SMBFlyingState : SMState
             m_StateMachine.ChangeState<SMBLandingState>();
         }
     }
+
+    private float m_TimeChangeDirection = 0;
+    private void FixedUpdate()
+    {
+        m_TimeChangeDirection += Time.fixedDeltaTime;
+        if (m_TimeChangeDirection > m_DirectionTime)
+        {
+            RandomWalk();
+            m_TimeChangeDirection = 0;
+        }
+    }
+
+    private void RandomWalk()
+    {
+        Vector3 direccion = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direccion, 7, m_LayerMask);
+        if (hit.collider != null)
+        {
+            RandomWalk();
+        }
+        else
+        {
+            m_Rigidbody.velocity = direccion.normalized * m_FlyingSpeed;
+        }
+    }
+
 
     private IEnumerator SpawnWhileFlyingCoroutine()
     {

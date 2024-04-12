@@ -56,6 +56,7 @@ public class DamaBossBehaviour : BossBehaviour
         m_StateMachine.ChangeState<SMBChaseState>();
     }
 
+
     private IEnumerator PlayerDetectionCoroutine()
     {
         while (m_IsAlive)

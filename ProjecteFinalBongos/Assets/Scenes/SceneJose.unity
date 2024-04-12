@@ -726,6 +726,11 @@ MonoBehaviour:
   m_MinimumHarpiesToSpawn: 3
   m_MaximumHarpiesToSpawn: 12
   m_Prefab: {fileID: 2175183814778568638, guid: dcad94abb0d0ab949b5c77b2fbadec97, type: 3}
+  m_FlyingSpeed: 2
+  m_DirectionTime: 1
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!114 &1845173540
 MonoBehaviour:
   m_ObjectHideFlags: 0

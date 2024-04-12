@@ -29,6 +29,7 @@ public class SMBLandingState : SMState
     public override void InitState()
     {
         base.InitState();
+        m_Rigidbody.velocity = Vector3.zero;
         m_Animator.Play(m_LandingAnimationName);
         m_Boss.SetBusy(false);
     }
