@@ -45,7 +45,8 @@ public class GryphusBossBehaviour : BossBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            Debug.Log("Me curo");
+            if(m_CurrentPhase == Phase.ONE)
+                Debug.Log("Me curo");
         }
     }
 
