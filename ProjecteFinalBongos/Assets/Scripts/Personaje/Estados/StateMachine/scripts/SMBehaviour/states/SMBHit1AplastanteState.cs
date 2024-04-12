@@ -7,15 +7,21 @@ public class SMBHit1AplastanteState : SMBComboState
     public override void InitState()
     {
         base.InitState();
-        m_Animator.Play("attack1Aplastante");
-        StartCoroutine(comboTime());
+        if (m_PJ.direccion == 1)
+        {
+            m_Animator.Play("attack1AplastanteDown");
+        }
+        else if (m_PJ.direccion == 2)
+        {
+            m_Animator.Play("attack1AplastanteUp");
+        }
+        else if (m_PJ.direccion == 0)
+        {
+            m_Animator.Play("attack1Aplastante");
+        }
+        SetDamage();
     }
-    IEnumerator comboTime()
-    {
-   
-        yield return new WaitForSeconds(0.7f);
-        OnEndAction();
-    }
+
     protected override void OnComboFailedAction()
     {
 
@@ -37,5 +43,12 @@ public class SMBHit1AplastanteState : SMBComboState
     protected override void OnComboSuccessActionAttack2()
     {
      
+    }
+
+    protected override void SetDamage()
+    {
+        base.SetDamage();
+
+        transform.GetChild(1).GetComponent<AttackDamage>().ChangeAttack(m_Damage + ((Strength * Random.Range(50, 101)) / 100));
     }
 }

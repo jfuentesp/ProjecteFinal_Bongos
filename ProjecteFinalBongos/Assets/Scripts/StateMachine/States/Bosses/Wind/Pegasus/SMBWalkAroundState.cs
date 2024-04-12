@@ -18,6 +18,9 @@ public class SMBWalkAroundState : SMState
 
     [Header("Walking duration")]
     [SerializeField]
+    private float m_minimumWalkingDuration;
+    [SerializeField]
+    private float m_maximumWalkingDuration;
     private float m_WalkingDuration;
 
     private Transform m_Target;
@@ -36,6 +39,7 @@ public class SMBWalkAroundState : SMState
     public override void InitState()
     {
         base.InitState();
+        m_WalkingDuration = Random.Range(m_minimumWalkingDuration, m_maximumWalkingDuration);
         m_CurrentDuration = 0;
         m_Boss.SetBusy(true);
         m_Rigidbody.velocity = Vector2.up;

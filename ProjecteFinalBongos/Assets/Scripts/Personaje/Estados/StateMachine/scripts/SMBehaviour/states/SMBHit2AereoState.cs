@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class SMBHit2AereoState : SMBComboState
 {
+    [SerializeField]
+    AttackEvent a;
     public override void InitState()
     {
         base.InitState();
         m_Animator.Play("attack2Aereo");
         StartCoroutine(AttackBehaviour());
+        SetDamage();
+       
     }
     IEnumerator AttackBehaviour()
     {
@@ -36,5 +40,8 @@ public class SMBHit2AereoState : SMBComboState
     {
     }
 
-  
+    protected override void SetDamage()
+    {
+        base.SetDamage();
+    }
 }

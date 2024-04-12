@@ -28,7 +28,8 @@ public class SMBPlayerWalkState : SMState
         base.InitState();
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed += OnAttack1;
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed += OnAttack2;
-        m_Animator.Play("walkPlayer");
+        m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed += Parry;
+
     }
 
     public override void ExitState()
@@ -37,6 +38,7 @@ public class SMBPlayerWalkState : SMState
         if (m_PJ.Input) {
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed -= OnAttack1;
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed -= OnAttack2;
+            m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed += Parry;
         }
 
     }
@@ -48,6 +50,10 @@ public class SMBPlayerWalkState : SMState
     private void OnAttack2(InputAction.CallbackContext context)
     {
         m_StateMachine.ChangeState<SMBHit2State>();
+    }
+    private void Parry(InputAction.CallbackContext context)
+    {
+        m_StateMachine.ChangeState<SMBPlayerParryState>();
     }
 
     private void Update()
@@ -63,11 +69,26 @@ public class SMBPlayerWalkState : SMState
     {
         if (m_Movement.x > 0) {
             transform.rotation = Quaternion.Euler(0, 0, 0);
+            m_PJ.direccion = 0;
+            m_Animator.Play("walkPlayer");
         }
         else if (m_Movement.x < 0)
         {
+            m_PJ.direccion = 0;
             transform.rotation = Quaternion.Euler(0, 180, 0);
+            m_Animator.Play("walkPlayer");
         }
+        if (m_Movement.y < 0 && m_Movement.x == 0)
+        {
+            m_PJ.direccion = 1;
+            m_Animator.Play("walkDown");
+        }
+        else if (m_Movement.y > 0 && m_Movement.x == 0)
+        {
+            m_PJ.direccion = 2;
+            m_Animator.Play("walkUp");
+        }
+
         m_Rigidbody.velocity = m_Movement * m_PJ.Velocity;
     }
 }

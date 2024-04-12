@@ -6,6 +6,8 @@ using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
 
 
+[RequireComponent(typeof(SMBPlayerParryState))]
+[RequireComponent(typeof(SMBPlayerSuccesfulParryState))]
 [RequireComponent(typeof(HealthController))]
 [RequireComponent(typeof(SMBPlayerIdleState))]
 [RequireComponent(typeof(SMBPlayerWalkState))]
@@ -32,6 +34,7 @@ public class PJSMB : MonoBehaviour
     private InputActionAsset m_Input;
     public InputActionAsset Input => m_Input;
     private InputAction m_MovementAction;
+    public int direccion;
     public InputAction MovementAction => m_MovementAction;
     private HealthController m_HealthController;
     public PJSMB instance;
@@ -91,7 +94,6 @@ public class PJSMB : MonoBehaviour
         m_HealthController = GetComponent<HealthController>();
         m_Animator = GetComponent<Animator>();
         Stun = false;
-        Debug.Log("Existo?");
         DontDestroyOnLoad(this.gameObject);
     }
 

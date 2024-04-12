@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6766844748812692863}
   - component: {fileID: 5681716214612819958}
   - component: {fileID: -2816837837213972517}
+  - component: {fileID: -6490426775595885310}
   m_Layer: 0
   m_Name: Splash
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8564957952386650585}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -141,7 +142,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8564957952386650585}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 441400f3742ab9a4ca8058c5117d5de0, type: 3}
   m_Name: 
@@ -149,3 +150,19 @@ MonoBehaviour:
   m_TimeUntilDestroyed: 3
   m_SizeLength: 1
   m_SizeWideness: 1
+--- !u!114 &-6490426775595885310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8564957952386650585}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36289fafa1389143a53c847a4197827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TimeUntilDestroyed: 5
+  m_SizeLength: 1
+  m_SizeWideness: 1
+  m_SerpientePrefab: {fileID: 5513851930493740377, guid: a799decb14ea03146848c315774bca92, type: 3}

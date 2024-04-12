@@ -32,7 +32,6 @@ public class SMBChaseState : SMState
     public override void InitState()
     {
         base.InitState();
-
         m_Boss.SetBusy(false);
     }
 
@@ -50,8 +49,11 @@ public class SMBChaseState : SMState
 
     private void FixedUpdate()
     {
-        m_Rigidbody.velocity = Vector3.zero;
-        Vector3 direction = (m_Target.position - transform.position).normalized;
-        m_Rigidbody.velocity = direction * m_ChaseSpeed;
+        if (m_Target != null)
+        {
+            m_Rigidbody.velocity = Vector3.zero;
+            Vector3 direction = (m_Target.position - transform.position).normalized;
+            m_Rigidbody.velocity = direction * m_ChaseSpeed;
+        }
     }
 }
