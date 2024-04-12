@@ -26,14 +26,20 @@ public class Bullet : MonoBehaviour
         m_Rigidbody.velocity = transform.up * m_Speed;
         StartCoroutine(ReturnToPoolCoroutine());
     }
+    private void Update()
+    {
 
+    }
     protected virtual IEnumerator ReturnToPoolCoroutine()
     {
         yield return new WaitForSeconds(m_TimeUntilDestroyed);
         this.gameObject.SetActive(false);
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!enabled)
+            return;
         if (collision.gameObject.CompareTag("MechanicObstacle"))
         {
             StopCoroutine(ReturnToPoolCoroutine());

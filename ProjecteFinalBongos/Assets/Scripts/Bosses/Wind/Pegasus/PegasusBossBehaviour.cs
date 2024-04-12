@@ -23,7 +23,7 @@ public class PegasusBossBehaviour : BossBehaviour
         m_NumberOfAttacksBeforeCharge = Random.Range(5, 7);
         GetComponent<SMBChargeState>().OnChargeMissed = (GameObject obj) =>
         {
-            m_StateMachine.ChangeState<SMBParriedState>();
+            m_StateMachine.ChangeState<SMBBulletsAroundState>();
         };
         GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
         {

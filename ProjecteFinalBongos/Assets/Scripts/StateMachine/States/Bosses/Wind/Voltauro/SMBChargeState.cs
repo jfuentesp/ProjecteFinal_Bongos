@@ -58,7 +58,7 @@ public class SMBChargeState : SMState
     Vector3 m_Direction;
     private void Update()
     {
-        if(m_IsAiming)
+        if (m_IsAiming)
         {
             m_Direction = (m_Target.transform.position - transform.position).normalized;
             m_Rigidbody.velocity = Vector3.zero;
@@ -74,19 +74,24 @@ public class SMBChargeState : SMState
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(m_IsCharging)
+        if (enabled)
         {
-            m_IsCharging = false;
-            m_Rigidbody.velocity = Vector3.zero;
-            if (collision.gameObject.CompareTag("MechanicObstacle"))
-                OnChargeMissed.Invoke(gameObject);
-            if(collision.gameObject.CompareTag("Player"))
+            if (m_IsCharging)
             {
-                m_StateMachine.ChangeState<SMBChaseState>();
-                Rigidbody2D target;
-                collision.gameObject.TryGetComponent<Rigidbody2D>(out target);
-                if(target != null)
-                    target.AddForce(transform.up * m_ChargeSpeed, ForceMode2D.Impulse);
+                m_IsCharging = false;
+                m_Rigidbody.velocity = Vector3.zero;
+                if (collision.gameObject.CompareTag("MechanicObstacle"))
+                {
+                    OnChargeMissed.Invoke(gameObject);
+                }
+                if (collision.gameObject.CompareTag("Player"))
+                {
+                    m_StateMachine.ChangeState<SMBChaseState>();
+                    Rigidbody2D target;
+                    collision.gameObject.TryGetComponent<Rigidbody2D>(out target);
+                    if (target != null)
+                        target.AddForce(transform.up * m_ChargeSpeed, ForceMode2D.Impulse);
+                }
             }
         }
     }

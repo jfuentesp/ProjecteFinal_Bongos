@@ -19,7 +19,10 @@ public class AlteaBullet : Bullet
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer != LayerMask.NameToLayer("BossHurtBox"))
-            DisableBullet();
+        if (!enabled)
+            return;
+
+        if (collision.gameObject.layer != LayerMask.NameToLayer("BossHurtBox"))
+                DisableBullet();
     }
 }
