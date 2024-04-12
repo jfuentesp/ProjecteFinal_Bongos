@@ -24,6 +24,7 @@ public class GryphusBossBehaviour : BossBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_StateMachine.ChangeState<SMBChaseState>();
         GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
@@ -40,6 +41,14 @@ public class GryphusBossBehaviour : BossBehaviour
         
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player"))
+        {
+            Debug.Log("Me curo");
+        }
+    }
+
     private void SetAttack()
     {
         float rng = Random.value;
@@ -53,15 +62,11 @@ public class GryphusBossBehaviour : BossBehaviour
             case < 0.5f:
                 m_StateMachine.ChangeState<SMBSingleAttackState>();
                 break;
-            case > 0.51f:
-                if (m_CurrentPhase == Phase.TWO && rng > 0.8f)
-                {
-                    m_StateMachine.ChangeState<SMBLightningSummonState>();
-                }
-                else
-                {
-                    m_StateMachine.ChangeState<SMBTripleAttackState>();
-                }
+            case < 0.65f:
+                m_StateMachine.ChangeState<SMBDoubleAttackState>();
+                break;
+            case > 0.8f:
+                m_StateMachine.ChangeState<SMBTripleAttackState>();
                 break;
         }
     }
@@ -79,7 +84,7 @@ public class GryphusBossBehaviour : BossBehaviour
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
                 RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
-                if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
+                if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
                     SetAttack();
@@ -92,7 +97,7 @@ public class GryphusBossBehaviour : BossBehaviour
             else
             {
                 RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position, m_BoxArea, transform.rotation.z, transform.position);
-                if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
+                if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
                     SetAttack();
