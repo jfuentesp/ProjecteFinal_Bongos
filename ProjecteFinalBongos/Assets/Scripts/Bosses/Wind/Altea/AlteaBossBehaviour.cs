@@ -9,7 +9,6 @@ using UnityEngine;
 public class AlteaBossBehaviour : BossBehaviour
 {
     private Coroutine m_SpawnEggCoroutine;
-    private SalaBoss m_SalaPadre;
 
     [SerializeField]
     private LayerMask m_HuevosLayerMask;

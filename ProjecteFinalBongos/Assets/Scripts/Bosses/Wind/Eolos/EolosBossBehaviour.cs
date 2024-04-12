@@ -10,7 +10,6 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(SMBTornadosState))]
 public class EolosBossBehaviour : BossBehaviour
 {
-    private SalaBoss m_SalaPadre;
     [SerializeField]
     private float m_TiempoMinimo;
     [SerializeField]

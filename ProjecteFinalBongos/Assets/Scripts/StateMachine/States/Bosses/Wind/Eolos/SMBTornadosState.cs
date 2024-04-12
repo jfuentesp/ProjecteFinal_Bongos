@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class SMBTornadosState : SMState
 {
@@ -16,6 +17,16 @@ public class SMBTornadosState : SMState
     private float m_SummoningDuration;
     public Action<GameObject> onTornadoSpawned;
 
+    [SerializeField]
+    private GameObject m_TornadoPrefab;
+
+    private Transform m_Target;
+    [Header("Circlecast Tornado Variables")]
+    [SerializeField]
+    private LayerMask m_TornadoLayerMask;
+    [SerializeField]
+    private float m_RangoCircleCast;
+
     private new void Awake()
     {
         base.Awake();
@@ -23,6 +34,7 @@ public class SMBTornadosState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_Target = m_Boss.Target;
         //Initialize(); //Initializes parameters on a given bullet
     }
     public override void InitState()
@@ -31,7 +43,25 @@ public class SMBTornadosState : SMState
         m_CurrentDuration = 0;
         m_Boss.SetBusy(true);
         m_Rigidbody.velocity = Vector3.zero;
+        SpawnTornado();
     }
+
+    private void SpawnTornado()
+    {
+        Vector2 posicionTornado = m_Boss.SalaPadre.GetPosicionAleatoriaEnSala();
+        RaycastHit2D hit = Physics2D.CircleCast(posicionTornado, m_RangoCircleCast, posicionTornado, m_RangoCircleCast, m_TornadoLayerMask);
+        if (hit.collider != null && Vector2.Distance(hit.transform.position, m_Target.position) > 6)
+        {
+            SpawnTornado();
+        }
+        else
+        {
+            GameObject tornado = Instantiate(m_TornadoPrefab);
+            tornado.transform.position = posicionTornado;
+            tornado.GetComponent<TornadoBehaviour>().Init(m_Target);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

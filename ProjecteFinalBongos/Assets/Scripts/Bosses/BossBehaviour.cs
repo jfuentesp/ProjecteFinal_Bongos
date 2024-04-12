@@ -24,6 +24,8 @@ public class BossBehaviour : MonoBehaviour
     protected Rigidbody2D m_Rigidbody;
     protected Animator m_Animator;
 
+    protected SalaBoss m_SalaPadre;
+    public SalaBoss SalaPadre => m_SalaPadre;
     protected bool m_IsBusy;
     protected bool m_IsAlive;
     public bool IsAlive => m_IsAlive;

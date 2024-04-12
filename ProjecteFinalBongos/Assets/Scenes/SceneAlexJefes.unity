@@ -222,7 +222,8 @@ GameObject:
   - component: {fileID: 1023984345}
   - component: {fileID: 1023984344}
   - component: {fileID: 1023984343}
-  m_Layer: 0
+  - component: {fileID: 1023984347}
+  m_Layer: 7
   m_Name: MovementPoint
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -351,13 +352,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023984342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -39.2, y: 0, z: 0}
+  m_LocalPosition: {x: -11.22, y: 1.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1023984347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023984342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99cf9a438d41856429c1149e18836899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Speed: 5
 --- !u!1 &1107155809 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4688923810658297158, guid: f3540f015be2e6d4287d389de741e860, type: 3}
@@ -653,6 +667,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SummoningDuration: 2
+  m_TornadoPrefab: {fileID: 7324040313650042030, guid: 320c03b157e4d8046ae51e497b0b8c04, type: 3}
+  m_TornadoLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RangoCircleCast: 2
 --- !u!1001 &1156160349
 PrefabInstance:
   m_ObjectHideFlags: 0
