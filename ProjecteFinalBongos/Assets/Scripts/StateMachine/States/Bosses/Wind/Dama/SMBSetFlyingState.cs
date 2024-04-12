@@ -28,17 +28,14 @@ public class SMBSetFlyingState : SMState
         m_Boss = GetComponent<BossBehaviour>();
     }
 
-    //The enemy will "set fly" in animation
-    void Start()
+    public override void InitState()
     {
-        if (m_Animator == null)
-            Debug.Log("No detecto el animator");
+        base.InitState();
         m_Animator.Play(m_SetFlyingAnimationName);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void ExitState()
     {
-        
+        base.ExitState();
     }
 }

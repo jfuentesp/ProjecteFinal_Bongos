@@ -6,8 +6,12 @@ using UnityEngine;
 [RequireComponent(typeof(SMBChaseState))]
 [RequireComponent(typeof(SMBFlyingState))]
 [RequireComponent(typeof(SMBSetFlyingState))]
+[RequireComponent(typeof(SMBLandingState))]
+[RequireComponent(typeof(SMBSingleAttackState))]
+[RequireComponent(typeof(SMBDoubleAttackState))]
 public class DamaBossBehaviour : BossBehaviour
 {
+    private int m_NumberOfAttacksBeforeFlying;
     private Coroutine m_PlayerDetectionCoroutine;
     private enum Phase { ONE, TWO }
     private Phase m_CurrentPhase;
@@ -23,17 +27,33 @@ public class DamaBossBehaviour : BossBehaviour
     void Start()
     {
         SetFlying();
+        GetComponent<SMBSingleAttackState>().OnStopDetectingPlayer = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
     }
 
     public void SetFlying()
     {
         m_IsFlying = true;
+        m_NumberOfAttacksBeforeFlying = Random.Range(1, 6);
+        m_Rigidbody.velocity = Vector3.zero;
+        transform.up = Vector3.zero;
+        if (m_PlayerDetectionCoroutine != null)
+            StopCoroutine(m_PlayerDetectionCoroutine);
         m_StateMachine.ChangeState<SMBSetFlyingState>();
     }
 
     public void SetFlyingShadow()
     {
         m_StateMachine.ChangeState<SMBFlyingState>();
+    }
+
+    public void SetChase()
+    {
+        m_IsFlying = false;
+        m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
+        m_StateMachine.ChangeState<SMBChaseState>();
     }
 
     private IEnumerator PlayerDetectionCoroutine()
@@ -43,7 +63,7 @@ public class DamaBossBehaviour : BossBehaviour
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
                 RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
-                if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
+                if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
                     SetAttack();
@@ -56,7 +76,7 @@ public class DamaBossBehaviour : BossBehaviour
             else
             {
                 RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position, m_BoxArea, transform.rotation.z, transform.position);
-                if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
+                if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
                     SetAttack();
@@ -72,22 +92,23 @@ public class DamaBossBehaviour : BossBehaviour
 
     private void SetAttack()
     {
+        Debug.Log("Entro en el ataque. Numero de ataques restante: " + m_NumberOfAttacksBeforeFlying);
         float rng = Random.value;
-        if (m_CurrentPhase == Phase.TWO) //Y la vida caiga por debajo del 5%
+        if (m_NumberOfAttacksBeforeFlying <= 0)
         {
-            m_StateMachine.ChangeState<SMBBelosHealingState>();
+            SetFlying();
+            return;
         }
 
         switch (rng)
         {
             case < 0.5f:
+                m_NumberOfAttacksBeforeFlying--;
                 m_StateMachine.ChangeState<SMBSingleAttackState>();
                 break;
-            case < 0.65f:
+            case < 0.51f:
+                m_NumberOfAttacksBeforeFlying--;
                 m_StateMachine.ChangeState<SMBDoubleAttackState>();
-                break;
-            case > 0.8f:
-                m_StateMachine.ChangeState<SMBTripleAttackState>();
                 break;
         }
     }

@@ -51,6 +51,7 @@ public class BelosBossBehaviour : BossBehaviour
         if(m_CurrentPhase == Phase.TWO) //Y la vida caiga por debajo del 5%
         {
             m_StateMachine.ChangeState<SMBBelosHealingState>();
+            return;
         }
 
         switch (rng)
