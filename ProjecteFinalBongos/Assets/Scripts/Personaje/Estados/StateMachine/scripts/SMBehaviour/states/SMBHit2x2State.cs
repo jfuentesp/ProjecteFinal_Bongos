@@ -4,16 +4,44 @@ using UnityEngine;
 
 public class SMBHit2x2State : SMBComboState
 {
+    private float damage;
     public override void InitState()
     {
         base.InitState();
-        m_Animator.Play("attack2x2");
-        AttackBehaviour();
+        if (m_PJ.direccion == 1)
+        {
+            m_Animator.Play("attack2x2Down");
+        }
+        else if (m_PJ.direccion == 2)
+        {
+            m_Animator.Play("attack2x2Up");
+        }
+        else if (m_PJ.direccion == 0)
+        {
+            m_Animator.Play("attack2x2");
+        }
+        StartCoroutine( AttackBehaviour());
+        SetDamage();
+   
     }
-    public void AttackBehaviour()
+    IEnumerator AttackBehaviour()
     {
-        m_Rigidbody.velocity = -transform.right * 20f;
-     
+        if (m_PJ.direccion == 1)
+        {
+            m_Rigidbody.velocity = transform.up * 15f;
+        }
+        else if (m_PJ.direccion == 2)
+        {
+            m_Rigidbody.velocity = -transform.up * 15f;
+        }
+        else if (m_PJ.direccion == 0)
+        {
+            m_Rigidbody.velocity = -transform.right * 15f;
+        }
+        yield return new WaitForSeconds(0.1f);
+        m_Rigidbody.velocity = Vector2.zero;
+
+
     }
     protected override void OnComboFailedAction()
     {
@@ -33,5 +61,10 @@ public class SMBHit2x2State : SMBComboState
     {
         StopAllCoroutines();
         m_StateMachine.ChangeState<SMBHit2x3State>();
+    }
+
+    protected override void SetDamage()
+    {
+        base.SetDamage();
     }
 }

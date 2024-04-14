@@ -14,8 +14,6 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField]
     protected string m_Description;
     [SerializeField]
-    protected Sprite m_Sprite;
-    [SerializeField]
     protected Transform m_Target;
     public Transform Target => m_Target;
 
