@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Android;
+using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(FiniteStateMachine))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -29,6 +32,8 @@ public class BossBehaviour : MonoBehaviour
     public bool IsAlive => m_IsAlive;
     protected bool m_IsPlayerDetected;
     public bool IsPlayerDetected => m_IsPlayerDetected;
+
+    public Action OnPlayerInSala;
 
     protected enum CollisionType { CIRCLE, BOX }
 
@@ -64,6 +69,7 @@ public class BossBehaviour : MonoBehaviour
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_HealthController = GetComponent<HealthController>();
+        m_HealthController.onDeath += VidaCero;
         if(m_PlayerAttackDetectionAreaType == CollisionType.BOX)
             m_BoxArea = new Vector2(m_AreaWideness, m_AreaLength);
         m_IsBusy = false;
@@ -73,6 +79,29 @@ public class BossBehaviour : MonoBehaviour
          {
              m_StateMachine.ChangeState<SMBAttack>();
          };*/
+    }
+
+    protected virtual void VidaCero()
+    {
+        
+    }
+
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    {
+        m_Rigidbody.velocity = Vector2.zero;
+    }
+
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("PlayerHitBox"))
+        {
+            m_HealthController.Damage(50);
+        }
+    }
+
+    public virtual void Init(Transform _Target)
+    {
+        m_Target = _Target;
     }
 
     public void SetBusy(bool status)

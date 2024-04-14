@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,8 +23,10 @@ public class SMBChargeState : SMState
 
     private Transform m_Target;
 
-    public delegate void OnChargeMiss(GameObject obj);
-    public OnChargeMiss OnChargeMissed;
+    public Action<GameObject> OnChargeMissed;
+    public Action<GameObject> OnChargeParried;
+    public Action<GameObject> OnChargePlayer;
+
 
     private new void Awake()
     {
@@ -32,12 +35,19 @@ public class SMBChargeState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_Boss.OnPlayerInSala += GetTarget;
+    }
+
+    private void GetTarget()
+    {
         m_Target = m_Boss.Target;
     }
 
     public override void InitState()
     {
         base.InitState();
+        m_IsAiming = false;
+        m_IsCharging = false;
         m_Boss.SetBusy(true);
         StartCoroutine(ChargeCoroutine());
     }
@@ -86,11 +96,19 @@ public class SMBChargeState : SMState
                 }
                 if (collision.gameObject.CompareTag("Player"))
                 {
-                    m_StateMachine.ChangeState<SMBChaseState>();
-                    Rigidbody2D target;
-                    collision.gameObject.TryGetComponent<Rigidbody2D>(out target);
-                    if (target != null)
-                        target.AddForce(transform.up * m_ChargeSpeed, ForceMode2D.Impulse);
+                    collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                    if (collision.gameObject.GetComponent<SMBPlayerParryState>().parry)
+                    {
+                        OnChargeParried.Invoke(gameObject);
+                    }
+                    else
+                    {
+                        OnChargePlayer.Invoke(gameObject);
+                        Rigidbody2D target;
+                        collision.gameObject.TryGetComponent<Rigidbody2D>(out target);
+                        if (target != null)
+                            target.AddForce(transform.up * m_ChargeSpeed, ForceMode2D.Impulse);
+                    }
                 }
             }
         }

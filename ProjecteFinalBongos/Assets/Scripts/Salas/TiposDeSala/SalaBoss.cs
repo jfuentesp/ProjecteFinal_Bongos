@@ -13,12 +13,17 @@ public class SalaBoss : TipoSala
     [SerializeField]
     GeneracionSalas.GeneracionSalasFinal.ListaSalasConHijos m_ListaSalasPadreHijas;
     private List<GeneracionSalas.GeneracionSalasFinal.ListaSalas> m_ListaSalas;
+    [SerializeField]
+    private Transform m_Target;
     private float minX, minY, maxX, maxY;
 
     private void Start()
     {
         MaximosMinimosSala();
         TodasLasSalasEnUnaLista();
+        GameObject jefe = Instantiate(m_JefeFinal, transform);
+        jefe.transform.localPosition = Vector3.zero;
+        jefe.GetComponent<BossBehaviour>().Init(m_Target);
     }
 
     private void TodasLasSalasEnUnaLista()

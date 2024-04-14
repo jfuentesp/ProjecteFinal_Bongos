@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SMBChaseState : SMState
 {
@@ -19,6 +20,8 @@ public class SMBChaseState : SMState
     [SerializeField]
     private string m_ChaseAnimationName;
 
+    private NavMeshAgent m_NavMeshAgent;
+
     private new void Awake()
     {
         base.Awake();
@@ -26,6 +29,14 @@ public class SMBChaseState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_NavMeshAgent= GetComponent<NavMeshAgent>();
+        m_NavMeshAgent.updateRotation = false;
+        m_NavMeshAgent.updateUpAxis = false;
+        m_Boss.OnPlayerInSala += GetTarget;
+    }
+
+    private void GetTarget()
+    {
         m_Target = m_Boss.Target;
     }
 
@@ -33,11 +44,13 @@ public class SMBChaseState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(false);
+        m_NavMeshAgent.isStopped = false;
     }
 
     public override void ExitState()
     {
         base.ExitState();
+        m_NavMeshAgent.isStopped = true;
     }
 
     private void Update()
@@ -51,9 +64,10 @@ public class SMBChaseState : SMState
     {
         if (m_Target != null)
         {
-            m_Rigidbody.velocity = Vector3.zero;
+            m_NavMeshAgent.SetDestination(m_Target.position);
+            /*m_Rigidbody.velocity = Vector3.zero;
             Vector3 direction = (m_Target.position - transform.position).normalized;
-            m_Rigidbody.velocity = direction * m_ChaseSpeed;
+            m_Rigidbody.velocity = direction * m_ChaseSpeed;*/
         }
     }
 }

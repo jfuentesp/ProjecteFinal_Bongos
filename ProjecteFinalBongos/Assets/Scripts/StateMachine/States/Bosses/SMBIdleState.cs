@@ -1,12 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class SMBIdleState : SMState
 {
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
+    public Action<GameObject> OnPlayerEnter;
 
     [Header("Idle animation")]
     [SerializeField]
@@ -17,7 +20,14 @@ public class SMBIdleState : SMState
         base.Awake();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
-        m_StateMachine = GetComponent<FiniteStateMachine>();
+        m_StateMachine = GetComponent<FiniteStateMachine>(); 
+        
+        GetComponent<BossBehaviour>().OnPlayerInSala += GetTarget;
+    }
+
+    private void GetTarget()
+    {
+        OnPlayerEnter.Invoke(gameObject);
     }
 
     public override void InitState()

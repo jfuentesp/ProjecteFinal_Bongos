@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 public class SMBWalkAroundState : SMState
@@ -26,6 +27,8 @@ public class SMBWalkAroundState : SMState
     private Transform m_Target;
     float m_CurrentDuration;
 
+    private NavMeshAgent m_NavMeshAgent;
+
 
     private new void Awake()
     {
@@ -34,8 +37,17 @@ public class SMBWalkAroundState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_NavMeshAgent = GetComponent<NavMeshAgent>();
+        m_NavMeshAgent.updateRotation = false;
+        m_NavMeshAgent.updateUpAxis = false;
+        m_Boss.OnPlayerInSala += GetTarget;
+    }
+
+    private void GetTarget()
+    {
         m_Target = m_Boss.Target;
     }
+
     public override void InitState()
     {
         base.InitState();
@@ -43,12 +55,14 @@ public class SMBWalkAroundState : SMState
         m_CurrentDuration = 0;
         m_Boss.SetBusy(true);
         m_Rigidbody.velocity = Vector2.up;
+        m_NavMeshAgent.isStopped = false;
     }
 
    
     public override void ExitState()
     {
         base.ExitState();
+        m_NavMeshAgent.isStopped = true;
     }
 
     void Update()
@@ -57,7 +71,9 @@ public class SMBWalkAroundState : SMState
 
         moveDirection.Normalize();
 
-        m_Rigidbody.velocity = moveDirection * m_WalkSpeed;
+        m_NavMeshAgent.SetDestination(moveDirection * 5);
+
+        //m_Rigidbody.velocity = moveDirection * m_WalkSpeed;
 
         m_CurrentDuration += Time.deltaTime;
         if (m_CurrentDuration >= m_WalkingDuration)
