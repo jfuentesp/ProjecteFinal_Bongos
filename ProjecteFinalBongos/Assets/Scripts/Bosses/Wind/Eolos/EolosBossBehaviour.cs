@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(SMBChaosState))]
 [RequireComponent(typeof(SMBBulletsAroundState))]
 [RequireComponent(typeof(SMBTornadosState))]
+[RequireComponent(typeof(SMBLightningSummonState))]
 public class EolosBossBehaviour : BossBehaviour
 {
     [SerializeField]
@@ -23,7 +24,7 @@ public class EolosBossBehaviour : BossBehaviour
     {
         base.Awake();
         m_SalaPadre = GetComponentInParent<SalaBoss>();
-        m_CurrentPhase = Phase.ONE;
+        m_CurrentPhase = Phase.TWO;
         GetComponent<SMBChaosState>().empezarContador += EmpezarCorrutina;
     }
 
@@ -50,15 +51,35 @@ public class EolosBossBehaviour : BossBehaviour
         m_tiempoEntreAtaque = Random.Range(m_TiempoMinimo, m_TiempoMaximo);
         yield return new WaitForSeconds(m_tiempoEntreAtaque);
         int numerin = Random.Range(0, 2);
-        switch (numerin)
+        if(m_CurrentPhase == Phase.ONE)
         {
-            case 0:
-                m_StateMachine.ChangeState<SMBBulletsAroundState>();
-                break;
-            case 1:
-                m_StateMachine.ChangeState<SMBTornadosState>();
-                break;
+            switch (numerin)
+            {
+                case 0:
+                    m_StateMachine.ChangeState<SMBBulletsAroundState>();
+                    break;
+                case 1:
+                    m_StateMachine.ChangeState<SMBTornadosState>();
+                    break;
+            }
         }
+        else if(m_CurrentPhase == Phase.TWO)
+        {
+            switch (numerin)
+            {
+                case 0:
+                    m_StateMachine.ChangeState<SMBLightningSummonState>();
+                    break;
+                case 1:
+                    m_StateMachine.ChangeState<SMBTornadosState>();
+                    break;
+            }
+        }
+        else
+        {
+
+        }
+        
     }
 
 
