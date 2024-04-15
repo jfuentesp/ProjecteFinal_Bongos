@@ -16,7 +16,7 @@ public class PruebaNavMesh : MonoBehaviour
     {
         canUpdate = false;
         surface = GetComponent<NavMeshSurface>();
-        //m_Mapa.onMapaFinalized += ConstruirMapa;
+        m_Mapa.onMapaFinalized += ConstruirMapa;
 
     }
     // Start is called before the first frame update
@@ -29,14 +29,15 @@ public class PruebaNavMesh : MonoBehaviour
             return;
         }
     }
-    private void Update()
-    {
-        if (canUpdate)
-        {
-            print("Update");
-            BakeNavMesh();
-        }
-    }
+    /* private void Update()
+     {
+         if (canUpdate)
+         {
+             print("Update");
+             //BakeNavMesh();
+         }
+     }
+ */
     private void ConstruirMapa()
     {
         print("eo");
