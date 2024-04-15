@@ -22,12 +22,6 @@ public class BelosBossBehaviour : BossBehaviour
         base.Awake();
         m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
         m_CurrentPhase = Phase.ONE;
-    }
-
-    private void Start()
-    {
-        m_StateMachine.ChangeState<SMBChaseState>();
-        m_NumberOfAttacksBeforeTrap = Random.Range(1, 6);
         GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
@@ -36,6 +30,18 @@ public class BelosBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        m_StateMachine.ChangeState<SMBIdleState>();
+
+        m_NumberOfAttacksBeforeTrap = Random.Range(1, 6);
+    }
+    public override void Init(Transform _Target)
+    {
+        base.Init(_Target);
+        OnPlayerInSala.Invoke();
     }
 
     private void SetAttack()
@@ -88,7 +94,7 @@ public class BelosBossBehaviour : BossBehaviour
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
                 RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
-                if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
+                if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
                     SetAttack();
@@ -114,6 +120,19 @@ public class BelosBossBehaviour : BossBehaviour
             yield return new WaitForSeconds(m_CheckingPlayerTimelapse);
         }
     }
-
-
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+        if (m_CurrentPhase == Phase.ONE && m_HealthController.HP <= m_HealthController.HPMAX / 2)
+        {
+            print("Cambio de fase");
+            m_CurrentPhase = Phase.TWO;
+        }
+    }
+    protected override void VidaCero()
+    {
+        base.VidaCero();
+        m_IsAlive = false;
+        Destroy(gameObject);
+    }
 }

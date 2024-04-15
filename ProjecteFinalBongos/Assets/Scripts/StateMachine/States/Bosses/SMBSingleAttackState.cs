@@ -51,4 +51,8 @@ public class SMBSingleAttackState : SMBBasicAttackState
                 //m_StateMachine.ChangeState<SMBChaseState>();
         }
     }
+    private void Update()
+    {
+        
+    }
 }

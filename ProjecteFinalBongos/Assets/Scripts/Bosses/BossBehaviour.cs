@@ -122,4 +122,9 @@ public class BossBehaviour : MonoBehaviour
     {
         m_IsBusy = status;
     }
+
+    public void CurarBoss(float _Heal)
+    {
+        m_HealthController.Heal(_Heal);
+    }
 }

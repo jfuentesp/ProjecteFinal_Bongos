@@ -43,6 +43,7 @@ public class SMBBelosHealingState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
+        m_HealingCoroutine = StartCoroutine(HealingCoroutine());
     }
 
     public override void ExitState()
@@ -53,9 +54,13 @@ public class SMBBelosHealingState : SMState
 
     private void Heal()
     {
+        m_Boss.CurarBoss(m_AmountToHeal * m_HealingMultiplier);
         //Current HP += m_AmountToheal * m_HealingMultiplier;
     }
+    private void Update()
+    {
 
+    }
     private Coroutine m_HealingCoroutine;
     private IEnumerator HealingCoroutine()
     {
@@ -66,6 +71,7 @@ public class SMBBelosHealingState : SMState
             //if(m_HealingMultiplier > 0)
             m_HealingMultiplier -= m_HealingMultiplierPenalization;
             // else se muere jjajajajaj
+            m_StateMachine.ChangeState<SMBChaseState>();
         } 
         else
         {
