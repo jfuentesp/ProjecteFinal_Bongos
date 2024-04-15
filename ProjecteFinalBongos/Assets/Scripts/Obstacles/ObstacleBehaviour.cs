@@ -30,8 +30,9 @@ public class ObstacleBehaviour : MonoBehaviour
     {
         if(collision.CompareTag("Splash"))
         {
-            Splash splash = collision.GetComponent<Splash>();
+            Splash splash = collision.gameObject.GetComponent<Splash>();
             Debug.Log("Soy el obstaculo y choco contra el Splash");
+            Debug.Log(splash.SplashEffectState);
             if (splash.SplashEffectState == ObstacleStateEnum.ELECTRIFIED)
             {
                 Debug.Log("Entro en shoot");

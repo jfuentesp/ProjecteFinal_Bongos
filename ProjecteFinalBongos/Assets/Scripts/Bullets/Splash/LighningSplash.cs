@@ -8,6 +8,7 @@ public class LighningSplash : Splash
     {
         base.Init();
         m_SplashEffectState = ObstacleStateEnum.ELECTRIFIED;
+        Debug.Log("Soy el lighning y mi estado es: " + m_SplashEffectState);
     }
 
     private void Update()
