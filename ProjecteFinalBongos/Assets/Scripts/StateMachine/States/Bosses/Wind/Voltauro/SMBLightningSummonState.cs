@@ -95,6 +95,8 @@ public class SMBLightningSummonState : SMState
             GameObject lightning = m_Pool.GetElement();
             lightning.transform.position = new Vector3(transform.position.x + randX, transform.position.y + randY, 0);
             lightning.SetActive(true);
+            lightning.GetComponent<LighningSplash>().enabled = true;
+            lightning.GetComponent<LighningSplash>().Init();
             yield return new WaitForSeconds(m_DelayTime);
         }
         OnEndSummoning.Invoke(gameObject);

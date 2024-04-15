@@ -13,15 +13,15 @@ public class Splash : MonoBehaviour
     protected float m_SizeWideness;
     protected Vector2 m_Size;
 
+    [SerializeField]
+    protected ObstacleStateEnum m_SplashEffectState;
+    public ObstacleStateEnum SplashEffectState => m_SplashEffectState;
+
     public virtual void Init()
     {
         m_Size = new Vector2(m_SizeWideness, m_SizeLength);
         transform.localScale = m_Size;
         StartCoroutine(ReturnToPoolCoroutine());
-    }
-    private void Update()
-    {
-
     }
 
     protected virtual IEnumerator ReturnToPoolCoroutine()
