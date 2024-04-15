@@ -17,14 +17,6 @@ public class GryphusBossBehaviour : BossBehaviour
     private new void Awake()
     {
         base.Awake();
-        m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
-        m_CurrentPhase = Phase.ONE;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        m_StateMachine.ChangeState<SMBChaseState>();
         GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
@@ -33,20 +25,37 @@ public class GryphusBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Player"))
+        GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
         {
-            if(m_CurrentPhase == Phase.ONE)
-                Debug.Log("Me curo");
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        m_StateMachine.ChangeState<SMBIdleState>();
+        GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
+        m_CurrentPhase = Phase.ONE;
+    }
+    public override void Init(Transform _Target)
+    {
+        base.Init(_Target);
+        OnPlayerInSala.Invoke();
+    }
+    private void EmpezarCorutina(GameObject obj)
+    {
+        m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+
+        if(collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox"))
+        {
+            if (m_CurrentPhase == Phase.ONE)
+                m_HealthController.Heal(20);
+        }
+        if (m_CurrentPhase == Phase.ONE && m_HealthController.HP <= m_HealthController.HPMAX / 2)
+        {
+            print("Cambio de fase");
+            m_CurrentPhase = Phase.TWO;
         }
     }
 
