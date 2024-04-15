@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Android;
 using static UnityEngine.GraphicsBuffer;
 
@@ -63,6 +64,8 @@ public class BossBehaviour : MonoBehaviour
     public delegate void OnPlayerEnter(GameObject obj);
     private OnPlayerEnter onPlayerEnter;
 
+    protected NavMeshAgent m_NavMeshAgent;
+
     protected void Awake()
     {
         m_StateMachine = GetComponent<FiniteStateMachine>();
@@ -75,12 +78,23 @@ public class BossBehaviour : MonoBehaviour
         m_IsBusy = false;
         m_IsAlive = true;
         m_IsPlayerDetected = false;
+        m_NavMeshAgent = GetComponent<NavMeshAgent>();
+        m_NavMeshAgent.updateRotation = false;
+        m_NavMeshAgent.updateUpAxis = false;
         /* GetComponent<SMBPatrol>().OnPlayerEnter = (GameObject obj) =>
          {
              m_StateMachine.ChangeState<SMBAttack>();
          };*/
     }
 
+    protected virtual void Update()
+    {
+        transform.localEulerAngles = new Vector3(0,0, transform.localEulerAngles.z);
+    }
+    private void FixedUpdate()
+    {
+        
+    }
     protected virtual void VidaCero()
     {
         

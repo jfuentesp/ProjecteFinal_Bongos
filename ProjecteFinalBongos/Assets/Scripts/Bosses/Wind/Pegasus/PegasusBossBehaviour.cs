@@ -122,6 +122,7 @@ public class PegasusBossBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
+        m_IsAlive = false;
         Destroy(gameObject);
     }
 }

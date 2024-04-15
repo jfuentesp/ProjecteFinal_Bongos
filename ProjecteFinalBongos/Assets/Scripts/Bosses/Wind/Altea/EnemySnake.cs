@@ -11,9 +11,6 @@ public class EnemySnake : BossBehaviour
     private new void Awake()
     {
         base.Awake();
-    }
-    void Start()
-    {
         GetComponent<SMBChargeState>().OnChargeMissed = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBParriedState>();
@@ -22,11 +19,17 @@ public class EnemySnake : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+
+        m_StateMachine.ChangeState<SMBIdleState>();
     }
-    public void Init(Transform _Target)
+    public override void Init(Transform _Target)
     {
-        m_Target = _Target;
-        m_StateMachine.ChangeState<SMBChaseState>();
+        base.Init(_Target);
+        OnPlayerInSala.Invoke();
     }
 
     private IEnumerator PlayerDetectionCoroutine()
@@ -64,5 +67,11 @@ public class EnemySnake : BossBehaviour
             }
             yield return new WaitForSeconds(m_CheckingPlayerTimelapse);
         }
+    }
+    protected override void VidaCero()
+    {
+        base.VidaCero();
+        m_IsAlive = false;
+        Destroy(gameObject);
     }
 }
