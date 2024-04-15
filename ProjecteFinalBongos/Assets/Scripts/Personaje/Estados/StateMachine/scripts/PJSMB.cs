@@ -44,7 +44,14 @@ public class PJSMB : MonoBehaviour
     private bool Invencible, Stun, Poison,Wet,Burn, Wrath, Speedy, StrongMan, Stuck, Paralized;
     private List<string> parrys = new List<string>();
     private string m_actualParry = "prueba";
+
+    private List<string> movement = new List<string>();
+    private string m_actualMovement = "Dash";
+
     public string Parry => m_actualParry;
+    public string Movement => m_actualMovement;
+    private bool m_canMove = true;
+    public bool CanMove => m_canMove;   
     [Header("Otros")]
     private float velocityBefore;
     private float strengthBefore;
@@ -99,6 +106,8 @@ public class PJSMB : MonoBehaviour
         m_HealthController = GetComponent<HealthController>();
         m_Animator = GetComponent<Animator>();
         Stun = false;
+        initMovementAbility();
+
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -110,6 +119,11 @@ public class PJSMB : MonoBehaviour
         m_Strength = m_PlayerBaseStats.m_BaseStrength;
         m_Defense = m_PlayerBaseStats.m_BaseDefense;
         m_AttackTime = m_PlayerBaseStats.m_BaseAttackTime;
+ 
+    }
+    private void initMovementAbility() {
+        movement.Add("Dash");
+   
     }
 
 
@@ -188,7 +202,7 @@ public class PJSMB : MonoBehaviour
     }
     IEnumerator SpeedRoutine() {
         Speedy = true;
-        m_VelocityModifier = Random.Range(10f, 21f);
+        m_VelocityModifier = Random.Range(50f, 71f);
         velocityBefore = m_Velocity;
         m_Velocity += (m_Velocity * m_VelocityModifier) / 100;
         yield return new WaitForSeconds(m_playerTimes.m_VelocityTime);
@@ -255,6 +269,27 @@ public class PJSMB : MonoBehaviour
         Stuck = false;
         m_Velocity = velocityBefore;
         PararCorrutina("StuckRoutine");
+    }
+
+    IEnumerator MovementCooldown() {
+        m_canMove = false;
+        yield return new WaitForSeconds(1f);
+        m_canMove = true;
+        PararCorrutina("MovementCooldown");
+
+    }
+    public void initCoolDown()
+    {
+        StartCoroutine(MovementCooldown());
+    }
+    public void changeMovement(int movementAction) {
+        if (movement.Contains(movement[movementAction])) {
+            m_actualMovement = movement[movementAction];
+        }
+       
+    }
+    public void learnMovement(string movementAction) { 
+        movement.Add(movementAction);
     }
     public void recibirDaño(float Daño)
     {
