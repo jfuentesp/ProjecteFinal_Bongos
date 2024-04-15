@@ -127,6 +127,8 @@ GameObject:
   - component: {fileID: 7781588974767550170}
   - component: {fileID: 2075526701291517141}
   - component: {fileID: 6295494223804693635}
+  - component: {fileID: 6501234701757191582}
+  - component: {fileID: 3428213083637556498}
   m_Layer: 0
   m_Name: Voltauro
   m_TagString: Untagged
@@ -252,7 +254,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -302,8 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BossName: Voltauro
   m_Description: vakita xispas
-  m_MaxHP: 40
-  m_Sprite: {fileID: 0}
+  m_Target: {fileID: 0}
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 2
   m_AreaWideness: 2
@@ -311,7 +312,7 @@ MonoBehaviour:
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 128
 --- !u!114 &747348777711652988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,7 +326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ChaseSpeed: 1
-  m_Target: {fileID: 0}
   m_ChaseAnimationName: 
 --- !u!114 &5062246643037628907
 MonoBehaviour:
@@ -343,7 +343,6 @@ MonoBehaviour:
   m_HitboxLength: 1
   m_HitboxWideness: 1
   m_HitboxRadius: 1
-  m_Target: {fileID: 0}
   m_SingleAttackAnimationName: 
 --- !u!114 &5674208956649352257
 MonoBehaviour:
@@ -361,7 +360,6 @@ MonoBehaviour:
   m_HitboxLength: 1
   m_HitboxWideness: 1
   m_HitboxRadius: 1
-  m_Target: {fileID: 0}
   m_TripleAttackAnimationName: 
 --- !u!114 &7781588974767550170
 MonoBehaviour:
@@ -377,7 +375,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ChargeSpeed: 10
   m_ChargeForce: 2
-  m_Target: {fileID: 0}
 --- !u!114 &2075526701291517141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,3 +438,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6501234701757191582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652317080108237547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MAXHP: 500
+--- !u!195 &3428213083637556498
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652317080108237547}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 0
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.00001
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

@@ -46,6 +46,7 @@ public class SMBLightningSummonState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_Pool = GameObject.Find("PoolSplash").GetComponent<Pool>();
         //Initialize(); //Initializes parameters on a given bullet
     }
 
@@ -92,5 +93,6 @@ public class SMBLightningSummonState : SMState
             lightning.SetActive(true);
             yield return new WaitForSeconds(m_DelayTime);
         }
+        m_StateMachine.ChangeState<SMBChaseState>();
     }
 }
