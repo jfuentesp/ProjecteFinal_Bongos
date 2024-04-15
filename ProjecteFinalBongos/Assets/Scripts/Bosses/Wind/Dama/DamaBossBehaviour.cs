@@ -9,6 +9,8 @@ using UnityEngine;
 [RequireComponent(typeof(SMBLandingState))]
 [RequireComponent(typeof(SMBSingleAttackState))]
 [RequireComponent(typeof(SMBDoubleAttackState))]
+[RequireComponent(typeof(SMBParriedState))]
+[RequireComponent(typeof(HealthController))]
 public class DamaBossBehaviour : BossBehaviour
 {
     private int m_NumberOfAttacksBeforeFlying;
@@ -21,12 +23,6 @@ public class DamaBossBehaviour : BossBehaviour
     private new void Awake()
     {
         base.Awake();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        SetFlying();
         GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
@@ -35,6 +31,17 @@ public class DamaBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        GetComponent<SMBIdleState>().OnPlayerEnter += ActivateBoss;
+        m_StateMachine.ChangeState<SMBIdleState>();
+    }
+    public override void Init(Transform _Target)
+    {
+        base.Init(_Target);
+        OnPlayerInSala.Invoke();
+    }
+    private void ActivateBoss(GameObject @object)
+    {
+        SetFlying();
     }
 
     public void SetFlying()
@@ -116,5 +123,11 @@ public class DamaBossBehaviour : BossBehaviour
                 m_StateMachine.ChangeState<SMBDoubleAttackState>();
                 break;
         }
+    }
+    protected override void VidaCero()
+    {
+        base.VidaCero();
+        m_IsAlive = false;
+        Destroy(gameObject);
     }
 }

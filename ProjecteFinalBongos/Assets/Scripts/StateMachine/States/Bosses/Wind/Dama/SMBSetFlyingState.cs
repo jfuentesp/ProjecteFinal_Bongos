@@ -7,9 +7,7 @@ public class SMBSetFlyingState : SMState
     private Rigidbody2D m_Rigidbody;
     private FiniteStateMachine m_StateMachine;
     private Animator m_Animator;
-    private BossBehaviour m_Boss;
 
-    private Transform m_Target;
 
     [Header("Speed to fly")]
     [SerializeField]
@@ -25,7 +23,6 @@ public class SMBSetFlyingState : SMState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Animator = GetComponent<Animator>();
-        m_Boss = GetComponent<BossBehaviour>();
     }
 
     public override void InitState()

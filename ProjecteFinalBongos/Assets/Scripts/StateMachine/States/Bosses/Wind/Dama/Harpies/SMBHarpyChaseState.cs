@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,12 +31,18 @@ public class SMBHarpyChaseState : SMState
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Animator = GetComponent<Animator>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_Boss.OnPlayerInSala += SetTarget;
+    }
+
+    private void SetTarget()
+    {
+        m_Target = m_Boss.Target;
     }
 
     public override void InitState()
     {
         base.InitState();
-        m_Target = m_Boss.Target;
+        
         //Esto en realidad tendrá que ir cuando el bicho muera
         m_OnDeathEvent.Raise();
     }
@@ -53,8 +60,15 @@ public class SMBHarpyChaseState : SMState
 
     private void FixedUpdate()
     {
-        m_Rigidbody.velocity = Vector3.zero;
-        Vector3 direction = (m_Target.position - transform.position).normalized;
-        m_Rigidbody.velocity = direction * m_FlyingSpeed;
+        if (m_Target != null)
+        {
+            m_Rigidbody.velocity = Vector3.zero;
+            Vector3 direction = (m_Target.position - transform.position).normalized;
+            m_Rigidbody.velocity = direction * m_FlyingSpeed;
+        }
+        else
+        {
+            //Debug.LogError("No target");
+        }
     }
 }

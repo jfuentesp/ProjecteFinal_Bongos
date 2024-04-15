@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,18 +11,30 @@ public class HarpyBehaviour : BossBehaviour
     protected new void Awake()
     {
         base.Awake();
-    }
-
-    public void Init(Transform target)
-    {
-        m_Target = target;
         m_IsBusy = false;
-        m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
-        m_StateMachine.ChangeState<SMBHarpyChaseState>();
         GetComponent<SMBSingleAttackState>().OnStopDetectingPlayer = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBHarpyChaseState>();
         };
+        GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBHarpyChaseState>();
+        };
+
+        GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
+        m_StateMachine.ChangeState<SMBIdleState>();
+
+    }
+
+    private void EmpezarCorutina(GameObject @object)
+    {
+        m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
+    }
+
+    public override void Init(Transform target)
+    {
+        m_Target = target;
+        OnPlayerInSala.Invoke();
     }
 
     private Coroutine m_PlayerDetectionCoroutine;
@@ -58,7 +71,12 @@ public class HarpyBehaviour : BossBehaviour
             yield return new WaitForSeconds(m_CheckingPlayerTimelapse);
         }
     }
-
+    protected override void VidaCero()
+    {
+        base.VidaCero();
+        m_IsAlive = false;
+        Destroy(gameObject);
+    }
     private void Attack()
     {
         m_StateMachine.ChangeState<SMBSingleAttackState>();

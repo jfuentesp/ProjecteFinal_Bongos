@@ -53,7 +53,11 @@ public class SMBFlyingState : SMState
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Animator = GetComponent<Animator>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_Boss.OnPlayerInSala += SetTarget;
+    }
 
+    private void SetTarget()
+    {
         m_Target = m_Boss.Target;
     }
 
@@ -75,10 +79,9 @@ public class SMBFlyingState : SMState
     public void OnHarpyDeath()
     {
         m_HarpiesToDie--;
-        Debug.Log("Harpias muertas: " + m_HarpiesToDie);
+        //Debug.Log("Harpias muertas: " + m_HarpiesToDie);
         if (m_HarpiesToDie <= 0)
         {
-            Debug.Log("Hola.");
             m_StateMachine.ChangeState<SMBLandingState>();
         }
     }

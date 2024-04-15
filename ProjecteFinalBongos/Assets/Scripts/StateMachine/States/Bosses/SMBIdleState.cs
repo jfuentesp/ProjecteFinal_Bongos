@@ -29,7 +29,10 @@ public class SMBIdleState : SMState
     {
         OnPlayerEnter.Invoke(gameObject);
     }
-
+    private void Update()
+    {
+        
+    }
     public override void InitState()
     {
         base.InitState();
