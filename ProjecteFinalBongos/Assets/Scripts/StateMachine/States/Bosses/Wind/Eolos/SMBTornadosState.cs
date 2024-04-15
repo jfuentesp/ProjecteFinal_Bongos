@@ -34,8 +34,12 @@ public class SMBTornadosState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_Boss.OnPlayerInSala += GetTarget;
+    }
+
+    private void GetTarget()
+    {
         m_Target = m_Boss.Target;
-        //Initialize(); //Initializes parameters on a given bullet
     }
     public override void InitState()
     {

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SMBLightningSummonState : SMState
 {
@@ -38,6 +40,8 @@ public class SMBLightningSummonState : SMState
     private float m_AttackRate;
     private float m_AttackSpeed;
     private Sprite m_AttackSprite;
+
+    public Action<GameObject> OnEndSummoning;
 
     private new void Awake()
     {
@@ -93,6 +97,6 @@ public class SMBLightningSummonState : SMState
             lightning.SetActive(true);
             yield return new WaitForSeconds(m_DelayTime);
         }
-        m_StateMachine.ChangeState<SMBChaseState>();
+        OnEndSummoning.Invoke(gameObject);
     }
 }

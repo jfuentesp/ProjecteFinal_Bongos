@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -24,14 +25,8 @@ public class EolosBossBehaviour : BossBehaviour
     {
         base.Awake();
         m_SalaPadre = GetComponentInParent<SalaBoss>();
-        m_CurrentPhase = Phase.TWO;
+        m_CurrentPhase = Phase.ONE;
         GetComponent<SMBChaosState>().empezarContador += EmpezarCorrutina;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        m_StateMachine.ChangeState<SMBChaosState>();
         GetComponent<SMBBulletsAroundState>().onBulletsSpawned = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaosState>();
@@ -40,6 +35,21 @@ public class EolosBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaosState>();
         };
+        GetComponent<SMBLightningSummonState>().OnEndSummoning = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaosState>();
+        };
+        GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaosState>();
+        };
+        m_StateMachine.ChangeState<SMBIdleState>();
+    }
+
+    public override void Init(Transform _Target)
+    {
+        base.Init(_Target);
+        OnPlayerInSala.Invoke();
     }
     private void EmpezarCorrutina()
     {
@@ -81,12 +91,27 @@ public class EolosBossBehaviour : BossBehaviour
         }
         
     }
-
-
-
-    // Update is called once per frame
-    void Update()
+    protected override void VidaCero()
     {
-
+        base.VidaCero();
+        print("Cambio de fase");
+        if(m_CurrentPhase == Phase.ONE)
+        {
+            m_HealthController.Heal(m_HealthController.HPMAX);
+            m_CurrentPhase = Phase.TWO;
+            return;
+        }
+        if (m_CurrentPhase == Phase.TWO)
+        {
+            m_HealthController.Heal(m_HealthController.HPMAX);
+            m_CurrentPhase = Phase.THREE;
+            return;
+        }
+        if (m_CurrentPhase == Phase.THREE)
+        {
+            m_IsAlive = false;
+            Destroy(gameObject);
+        }
     }
+
 }
