@@ -5,6 +5,14 @@ using UnityEngine;
 
 public class Splash : MonoBehaviour
 {
+
+    /*
+     * Según lo hablado con el Héctor, en caso de querer usar dos efectos a la vez habría que cambiar el sistema del Splash.
+     * Ahora mismo está funcionando con Linq, pero podemos rehacerlo para que use un Manager (Splash) y que use clases normales o
+     * interficies (los hijos) no monobehaviour. El manager comprueba qué efectos inicializa y los hijos se encargan de darle los
+     * comporotamientos.
+     */
+
     [SerializeField]
     protected float m_TimeUntilDestroyed;
     [SerializeField]
@@ -38,5 +46,10 @@ public class Splash : MonoBehaviour
         }
         transform.localScale = m_Size;
         this.gameObject.SetActive(false);
+    }
+
+    public void SetObstacleEffect(ObstacleStateEnum state)
+    {
+        m_SplashEffectState = state;
     }
 }

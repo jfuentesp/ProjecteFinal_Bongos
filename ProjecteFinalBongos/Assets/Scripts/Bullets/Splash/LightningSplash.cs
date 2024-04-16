@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LighningSplash : Splash
+public class LightningSplash : Splash
 {
     public override void Init()
     {
         base.Init();
         m_SplashEffectState = ObstacleStateEnum.ELECTRIFIED;
-        Debug.Log("Soy el lighning y mi estado es: " + m_SplashEffectState);
+        SetObstacleEffect(ObstacleStateEnum.ELECTRIFIED);
     }
 
     private void Update()
