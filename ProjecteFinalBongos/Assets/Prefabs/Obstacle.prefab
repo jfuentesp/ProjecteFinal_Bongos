@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1435640245455216291}
   - component: {fileID: 4065604053717072882}
   - component: {fileID: 2969236976877917234}
+  - component: {fileID: -702235614443601465}
+  - component: {fileID: 8312534956746309438}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: MechanicObstacle
@@ -161,3 +163,36 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-702235614443601465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7255771355892343705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 838663d0aeae6be45b384dc0f8a6f369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SplashDamage: 0
+  m_SplashSlowTime: 0
+  m_LightningShootingTime: 0
+  m_LightningShootingDelay: 0
+  m_BulletPool: {fileID: 0}
+--- !u!114 &8312534956746309438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7255771355892343705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
