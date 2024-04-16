@@ -39,5 +39,10 @@ public class HealthController : MonoBehaviour, IHealable, IDamageable
 
         Debug.Log(string.Format("Healed by {0} points. Remaining HP: {1}", healAmount, m_HP));
     }
+
+    public void Regenerate(float regenerationAmount, float duration, float tickDelay)
+    {
+        throw new NotImplementedException();
+    }
 }
 
