@@ -39,6 +39,8 @@ public class TrapBullet : Bullet
     float t = 0;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!enabled)
+            return;
         if (collision.CompareTag("Player"))
             SetPlayerOnCage(collision.gameObject);
     }

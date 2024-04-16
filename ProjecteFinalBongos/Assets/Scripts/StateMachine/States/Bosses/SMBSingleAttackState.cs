@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class SMBSingleAttackState : SMBBasicAttackState
     [Header("Attack Animation")]
     [SerializeField]
     private string m_SingleAttackAnimationName;
+
+    public Action<GameObject> OnStopDetectingPlayer;
 
     protected override void Awake()
     {
@@ -33,7 +36,7 @@ public class SMBSingleAttackState : SMBBasicAttackState
     public IEnumerator AttackCoroutine(Vector2 position, float attackDelay)
     {
         while(true)
-        { 
+        {
             m_Rigidbody.velocity = Vector3.zero;
             m_AttackHitbox.transform.position = position;
             transform.up = m_Target.position - transform.position;
@@ -42,7 +45,14 @@ public class SMBSingleAttackState : SMBBasicAttackState
             m_AttackHitbox.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.5f);
             if (!m_Boss.IsPlayerDetected)
-                m_StateMachine.ChangeState<SMBChaseState>();
+            {
+                OnStopDetectingPlayer.Invoke(gameObject);
+            }
+                //m_StateMachine.ChangeState<SMBChaseState>();
         }
+    }
+    private void Update()
+    {
+        
     }
 }

@@ -37,7 +37,6 @@ public class Splash : MonoBehaviour
             comp.enabled = false;
         }
         transform.localScale = m_Size;
-        GetComponent<Splash>().enabled = true;
         this.gameObject.SetActive(false);
     }
 }

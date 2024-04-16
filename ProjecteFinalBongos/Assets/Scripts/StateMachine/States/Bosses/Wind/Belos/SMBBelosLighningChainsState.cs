@@ -23,8 +23,12 @@ public class SMBBelosLighningChainsState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_Pool = GameObject.Find("PoolBullet").GetComponent<Pool>();
     }
+    private void Update()
+    {
 
+    }
     public override void InitState()
     {
         base.InitState();

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SMBLightningSummonState : SMState
 {
@@ -39,6 +41,8 @@ public class SMBLightningSummonState : SMState
     private float m_AttackSpeed;
     private Sprite m_AttackSprite;
 
+    public Action<GameObject> OnEndSummoning;
+
     private new void Awake()
     {
         base.Awake();
@@ -46,6 +50,7 @@ public class SMBLightningSummonState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_Pool = GameObject.Find("PoolSplash").GetComponent<Pool>();
         //Initialize(); //Initializes parameters on a given bullet
     }
 
@@ -92,5 +97,6 @@ public class SMBLightningSummonState : SMState
             lightning.SetActive(true);
             yield return new WaitForSeconds(m_DelayTime);
         }
+        OnEndSummoning.Invoke(gameObject);
     }
 }

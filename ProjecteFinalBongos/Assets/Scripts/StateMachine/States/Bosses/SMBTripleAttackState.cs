@@ -52,4 +52,8 @@ public class SMBTripleAttackState : SMBBasicAttackState
                 m_StateMachine.ChangeState<SMBChaseState>();
         }
     }
+    private void Update()
+    {
+
+    }
 }

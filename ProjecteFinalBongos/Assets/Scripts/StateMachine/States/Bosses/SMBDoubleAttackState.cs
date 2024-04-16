@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +27,10 @@ public class SMBDoubleAttackState : SMBBasicAttackState
         if (m_DoubleAttackCoroutine != null)
             StopCoroutine(m_DoubleAttackCoroutine);
     }
+    private void Update()
+    {
 
+    }
     private Coroutine m_DoubleAttackCoroutine;
     public IEnumerator AttackCoroutine(Vector2 position, float attack1Delay, float attack2Delay)
     {

@@ -7,10 +7,16 @@ public class HealthController : MonoBehaviour, IHealable, IDamageable
 {
     public Action onDeath;
     [SerializeField]
-    private const float MAXHP = 100f;
+    private float MAXHP = 100f;
+    public float HPMAX => MAXHP;
 
-    [SerializeField]
-    private float m_HP = MAXHP;
+    private float m_HP;
+
+    private void Start()
+    {
+        m_HP = MAXHP;
+    }
+
     public float HP { get { return m_HP; } }
 
     public void Damage(float damageAmount)

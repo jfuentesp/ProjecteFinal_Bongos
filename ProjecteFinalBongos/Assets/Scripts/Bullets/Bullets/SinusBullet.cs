@@ -18,6 +18,7 @@ public class SinusBullet : Bullet
             case 1:
                 sentidoHorario = false; break;
         }
+       
     }
     private void FixedUpdate()
     {
@@ -42,5 +43,13 @@ public class SinusBullet : Bullet
         }
         m_Rigidbody.velocity = transform.up * m_Speed;
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!enabled)
+            return;
+        if(collision.gameObject.CompareTag("MechanicObstacle"))
+            DisableBullet();
+    }
+
 }

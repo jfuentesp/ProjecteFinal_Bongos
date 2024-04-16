@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class SMBBulletsAroundState : SMState
 {
@@ -19,6 +21,7 @@ public class SMBBulletsAroundState : SMState
 
     private Coroutine SpawnBulletsCoroutine;
 
+    public Action<GameObject> onBulletsSpawned;
 
     float m_CurrentDuration = 0;
 
@@ -29,6 +32,7 @@ public class SMBBulletsAroundState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_Pool = GameObject.Find("PoolBullet").GetComponent<Pool>();
         //Initialize(); //Initializes parameters on a given bullet
     }
     public override void InitState()
@@ -43,14 +47,20 @@ public class SMBBulletsAroundState : SMState
     private IEnumerator SpawnBullets()
     {
         yield return new WaitForSeconds(m_SummoningDuration / 2);
-        for(float i = -1; i < 2; i += 0.5f)
+        for(float i = -1; i < 2; i += 1f)
         {
-            for (float j = -1; j < 2; j += 0.5f)
+            for (float j = -1; j < 2; j += 1f)
             {
+                /*GameObject lightning = m_Pool.GetElement();
+                lightning.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+                lightning.SetActive(true);
+                lightning.GetComponent<SinusBullet>().enabled = true;
+                lightning.GetComponent<SinusBullet>().Init(new Vector2(i, j));*/
                 GameObject lightning = m_Pool.GetElement();
                 lightning.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
                 lightning.SetActive(true);
-                lightning.GetComponent<SinusBullet>().Init(new Vector2(i, j));
+                lightning.GetComponent<SinusBullet>().enabled = true;
+                lightning.GetComponent<SinusBullet>().Init(new Vector2(i, j).normalized);
             }
         }
     }
@@ -60,7 +70,7 @@ public class SMBBulletsAroundState : SMState
         m_CurrentDuration += Time.deltaTime;
         if (m_CurrentDuration >= m_SummoningDuration)
         {
-            m_StateMachine.ChangeState<SMBChaseState>();
+            onBulletsSpawned.Invoke(gameObject);
         }
     }
     public override void ExitState()

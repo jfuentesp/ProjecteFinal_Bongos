@@ -9,7 +9,6 @@ using UnityEngine;
 public class AlteaBossBehaviour : BossBehaviour
 {
     private Coroutine m_SpawnEggCoroutine;
-    private SalaBoss m_SalaPadre;
 
     [SerializeField]
     private LayerMask m_HuevosLayerMask;
@@ -22,10 +21,6 @@ public class AlteaBossBehaviour : BossBehaviour
     {
         base.Awake();
         m_SalaPadre = GetComponentInParent<SalaBoss>();
-    }
-
-    void Start()
-    {
         GetComponent<SMBRunAwayState>().onStoppedRunningAway = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBRangedAttack>();
@@ -34,10 +29,27 @@ public class AlteaBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBRunAwayState>();
         };
-        m_StateMachine.ChangeState<SMBRunAwayState>();
+        GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBRunAwayState>();
+        };
+        m_Pool = GameObject.Find("PoolSplash").GetComponent<Pool>();
+        GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
+        m_StateMachine.ChangeState<SMBIdleState>();
+    }
+    private void Start()
+    {
+    }
+    public override void Init(Transform _Target)
+    {
+        base.Init(_Target);
+        OnPlayerInSala.Invoke();
+    }
+    private void EmpezarCorutina(GameObject obj)
+    {
         m_SpawnEggCoroutine = StartCoroutine(SpawnEggsCoroutine());
     }
-   
+
     private IEnumerator SpawnEggsCoroutine()
     {
         while (m_IsAlive)
@@ -63,5 +75,15 @@ public class AlteaBossBehaviour : BossBehaviour
             egg.GetComponent<EggAltea>().enabled = true;
             egg.GetComponent<EggAltea>().Init(m_Target);
         }
+    }
+    protected override void VidaCero()
+    {
+        base.VidaCero();
+        m_IsAlive = false;
+        Destroy(gameObject);
+    }
+    protected override void Update()
+    {
+        base.Update();
     }
 }

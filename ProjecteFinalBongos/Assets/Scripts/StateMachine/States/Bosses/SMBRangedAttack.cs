@@ -26,6 +26,12 @@ public class SMBRangedAttack : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_Pool = GameObject.Find("PoolBullet").GetComponent<Pool>();
+        m_Boss.OnPlayerInSala += GetTarget;
+    }
+
+    private void GetTarget()
+    {
         m_Target = m_Boss.Target;
     }
 
