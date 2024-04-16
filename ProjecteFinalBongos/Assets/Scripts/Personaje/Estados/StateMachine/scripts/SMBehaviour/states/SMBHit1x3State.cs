@@ -22,7 +22,7 @@ public class SMBHit1x3State : SMBComboState
             m_Animator.Play("attack1x3");
 
         }
-        if (m_PJ.Attacks.Contains("1x3Paralize")) {
+        if (m_PJ.PlayerAbilitiesController.AtaquesMejoradosDisponibles.Contains("1x3Paralize")) {
             int rnd = Random.Range(0, 11);
             if (rnd >= 5 && rnd <= 10)
             {

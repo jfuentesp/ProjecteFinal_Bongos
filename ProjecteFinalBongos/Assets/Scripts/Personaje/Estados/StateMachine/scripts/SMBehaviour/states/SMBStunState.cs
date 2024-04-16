@@ -23,11 +23,13 @@ public class SMBStunState : SMState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
+
     }
 
     public override void InitState()
     {
         base.InitState();
+        m_Time = playerTimes.m_StunTime;
         m_Animator.Play("stunnedPlayer");
         m_Rigidbody.velocity = Vector2.zero;
         StartCoroutine(StunSeconds());
@@ -42,7 +44,6 @@ public class SMBStunState : SMState
     {
         base.ExitState();
         StopAllCoroutines();
-        print("aaa ");
     }
 
     public void ChangeTime(float time) { 
