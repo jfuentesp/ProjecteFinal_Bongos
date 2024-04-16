@@ -11,10 +11,8 @@ public class PruebaNavMesh : MonoBehaviour
     [SerializeField]
     GeneracionSalasFinal m_Mapa;
     private NavMeshSurface surface;
-    private bool canUpdate;
     private void Awake()
     {
-        canUpdate = false;
         surface = GetComponent<NavMeshSurface>();
         m_Mapa.onMapaFinalized += ConstruirMapa;
 
@@ -40,9 +38,7 @@ public class PruebaNavMesh : MonoBehaviour
  */
     private void ConstruirMapa()
     {
-        print("eo");
         // Haz el bake del NavMesh
-        canUpdate = true;
         BakeNavMesh();
     }
 

@@ -53,6 +53,11 @@ namespace GeneracionSalas
         [SerializeField] private int numSala;
         [SerializeField] private int numSalaMaxima;
         private int[,] matrix = new int[100, 100];
+
+        [Header("Tiles y Tilemap")]
+        [SerializeField] private Tilemap m_Tilemap;
+        [SerializeField] private RuleTile m_TileSalas;
+        [SerializeField] private Tile m_TilePared;
         // Start is called before the first frame update
         void Start()
         {
@@ -525,4 +530,16 @@ namespace GeneracionSalas
             }
         }
     }
+    /*
+     public Tilemap tilemap; // Referencia al componente Tilemap
+
+    void Start()
+    {
+        // Ejemplo de cómo obtener la posición del tilemap en función de una posición en el mundo
+        Vector3 worldPosition = new Vector3(10f, 0f, 0f); // Posición en el mundo
+        Vector3Int cellPosition = tilemap.WorldToCell(worldPosition); // Convierte la posición del mundo a coordenadas de celda del tilemap
+        Vector3Int tilemapPosition = new Vector3Int(cellPosition.x * tilemap.cellSize.x, cellPosition.y * tilemap.cellSize.y, 0); // Obtiene la posición del tilemap en función de la coordenada de la celda
+        Debug.Log("Tilemap Position: " + tilemapPosition); // Muestra la posición del tilemap en la consola
+    }
+     */
 }
