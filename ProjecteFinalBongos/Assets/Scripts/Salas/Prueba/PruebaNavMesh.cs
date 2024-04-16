@@ -45,7 +45,7 @@ public class PruebaNavMesh : MonoBehaviour
     void BakeNavMesh()
     {
         // Borra cualquier NavMesh existente
-        //NavMesh.RemoveAllNavMeshData();
+        NavMesh.RemoveAllNavMeshData();
 
         // Haz el bake del NavMesh
         surface.BuildNavMesh();

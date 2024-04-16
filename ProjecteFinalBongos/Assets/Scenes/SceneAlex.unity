@@ -231,38 +231,7 @@ Transform:
   m_Children:
   - {fileID: 1259583352}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &512374414
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 512374415}
-  m_Layer: 0
-  m_Name: Environment
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &512374415
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512374414}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1056977789
 GameObject:
@@ -399,7 +368,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1182793447
 GameObject:
@@ -865,49 +834,49 @@ Tilemap:
       e00: 0
       e01: 0
       e02: 0
-      e03: -0.021349877
+      e03: -0.0018594116
       e10: 0
       e11: 0
       e12: 0
-      e13: 1.9e-43
+      e13: 1.58e-43
       e20: 0
       e21: 0
-      e22: 1.2492612e-36
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 4.5904e-41
-      e33: 0
-  - m_RefCount: 0
-    m_Data:
-      e00: 0.000000001082423
-      e01: 7.39315e-39
-      e02: 1.7642098e+29
-      e03: 7.395123e-39
-      e10: 5.97e-43
-      e11: 5.97e-43
-      e12: 5.98e-43
-      e13: 5.97e-43
-      e20: 4.1588e-41
-      e21: 1.233799e-33
       e22: 0
       e23: 0
       e30: 0
-      e31: 4.5907e-41
+      e31: 0
       e32: 0
       e33: 0
   - m_RefCount: 0
     m_Data:
-      e00: 0.000000001082423
-      e01: -4.2075333e+29
-      e02: 4.1588e-41
-      e03: 7.395078e-39
-      e10: 5.97e-43
-      e11: 5.97e-43
+      e00: 0
+      e01: 0
+      e02: 0
+      e03: -0.0018594116
+      e10: 0
+      e11: 0
       e12: 0
-      e13: 5.97e-43
-      e20: 4.1588e-41
-      e21: -4.039305e+26
+      e13: 1.58e-43
+      e20: 0
+      e21: 0
+      e22: 0
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 0
+  - m_RefCount: 0
+    m_Data:
+      e00: 5.880798e-29
+      e01: -1.1736225e-19
+      e02: 4.2378e-41
+      e03: 2.3801872e+10
+      e10: 7.62e-43
+      e11: 7.65e-43
+      e12: 0
+      e13: 7.62e-43
+      e20: 4.2378e-41
+      e21: 5.5408177e+17
       e22: 0
       e23: 0
       e30: 0
@@ -916,25 +885,25 @@ Tilemap:
       e33: 0
   - m_RefCount: 0
     m_Data:
-      e00: 0.000000001082423
-      e01: 7.393116e-39
-      e02: 1.7642098e+29
-      e03: 7.395224e-39
-      e10: 5.97e-43
-      e11: 5.97e-43
-      e12: 5.98e-43
-      e13: 5.97e-43
-      e20: 4.1588e-41
-      e21: 1.233799e-33
-      e22: 0
-      e23: 0
-      e30: 0
-      e31: 4.5907e-41
-      e32: 0
-      e33: 0
+      e00: 0
+      e01: 0
+      e02: 2.378652e+10
+      e03: 2.378652e+10
+      e10: 7.65e-43
+      e11: 0
+      e12: 7.62e-43
+      e13: 7.62e-43
+      e20: 2.105482e+19
+      e21: 0.40203762
+      e22: -1.1195826e-28
+      e23: -1.1016123e-19
+      e30: 4.5904e-41
+      e31: 7.65e-43
+      e32: 7.62e-43
+      e33: 7.65e-43
   m_TileColorArray:
   - m_RefCount: 0
-    m_Data: {r: 4.0918e-41, g: 4.0918e-41, b: 4.0918e-41, a: 4.0918e-41}
+    m_Data: {r: 4.24e-41, g: 4.24e-41, b: 4.24e-41, a: 4.24e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1283,14 +1252,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TransformParentMundo: {fileID: 1182793448}
-  m_ParedArriba: {fileID: 3656589015086540193, guid: 0e8623f7e9160774590829019ae7f027, type: 3}
-  m_ParedDerecha: {fileID: 684637506000575412, guid: 569da062959554445b87eff840582dda, type: 3}
-  m_ParedAbajo: {fileID: 4688923810658297158, guid: f3540f015be2e6d4287d389de741e860, type: 3}
-  m_ParedIzquierda: {fileID: 1393150433386124776, guid: d3502a394a6bdef4b96f963bc93a2880, type: 3}
-  m_PuertaArriba: {fileID: 911120822459056052, guid: 6d58fad3e4417524aad06fb55bfbd766, type: 3}
-  m_PuertaDerecha: {fileID: 9170935083591316210, guid: a8b9fc0bd4f02bc48a56437c39fa9887, type: 3}
-  m_PuertaAbajo: {fileID: 387184661043382453, guid: be3c301121de4e848b9f9c5f5d0b5ce2, type: 3}
-  m_PuertaIzquierda: {fileID: 7587270475992344669, guid: 7fd607557bdd5bf40bcc733007f491da, type: 3}
+  m_ParedArribaSala: {fileID: 3656589015086540193, guid: 0e8623f7e9160774590829019ae7f027, type: 3}
+  m_ParedDerechaSala: {fileID: 684637506000575412, guid: 569da062959554445b87eff840582dda, type: 3}
+  m_ParedAbajoSala: {fileID: 4688923810658297158, guid: f3540f015be2e6d4287d389de741e860, type: 3}
+  m_ParedIzquierdaSala: {fileID: 1393150433386124776, guid: d3502a394a6bdef4b96f963bc93a2880, type: 3}
+  m_PuertaArribaSala: {fileID: 911120822459056052, guid: 6d58fad3e4417524aad06fb55bfbd766, type: 3}
+  m_PuertaDerechaSala: {fileID: 9170935083591316210, guid: a8b9fc0bd4f02bc48a56437c39fa9887, type: 3}
+  m_PuertaAbajoSala: {fileID: 387184661043382453, guid: be3c301121de4e848b9f9c5f5d0b5ce2, type: 3}
+  m_PuertaIzquierdaSala: {fileID: 7587270475992344669, guid: 7fd607557bdd5bf40bcc733007f491da, type: 3}
+  m_ParedArribaPasillo: {fileID: 5288790551552981493, guid: 88b709077db2a694eb06a3c1572acc77, type: 3}
+  m_ParedDerechaPasillo: {fileID: 538274986853838781, guid: 45d72885d5c002040ae95cbc92d40024, type: 3}
+  m_ParedAbajoPasillo: {fileID: 7810417703607996564, guid: ab510f3b2e791e44eab4e4bddbe37b46, type: 3}
+  m_ParedIzquierdaPasillo: {fileID: 2670238466172871037, guid: 43ffb20bc7341514086d7ebfa4400af6, type: 3}
+  m_PuertaArribaPasillo: {fileID: 6784467074558419180, guid: a887c6085fcf0eb4a8e119cd79988d7b, type: 3}
+  m_PuertaDerechaPasillo: {fileID: 7390359722659592353, guid: 5804944e47a4e1447beed883c6879ef7, type: 3}
+  m_PuertaAbajoPasillo: {fileID: 812811400696489877, guid: f1333ad7ff9e3444e8c828035a61b34b, type: 3}
+  m_PuertaIzquierdaPasillo: {fileID: 153472978967516143, guid: c860deeb50d0418499abe4787cf5f547, type: 3}
   m_SalaInicialColor: {r: 0, g: 1, b: 1, a: 1}
   m_SalaBossInicialColor: {r: 1, g: 0, b: 1, a: 1}
   m_SalaBossColor: {r: 1, g: 0, b: 0, a: 1}
@@ -1303,6 +1280,8 @@ MonoBehaviour:
   m_PasilloBichos: {fileID: 6593885139977142343, guid: 5652e9ba200240f4285660b20fb04238, type: 3}
   m_PasilloObjetos: {fileID: 7903571166147493780, guid: f4066f0f224f0334b93418866622d36b, type: 3}
   m_PasilloTienda: {fileID: 3545705395359638000, guid: b4790df5d85c73f489bda8e7ab581c43, type: 3}
+  m_ListaSalasPadreConHijos: []
+  m_ListaPasillosConSalas: []
   numSala: 0
   numSalaMaxima: 7
   m_Tilemap: {fileID: 1259583354}
@@ -1390,7 +1369,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2049791577
 GameObject:
@@ -1470,7 +1449,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2049791581
 MonoBehaviour:
@@ -1792,7 +1771,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2058623618
 MonoBehaviour:
