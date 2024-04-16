@@ -18,7 +18,7 @@ public class SMBPlayerParryState : MBState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_State = GetComponent<SMBStunState>();
-
+        m_Animator.speed = 1.0f;
     }
 
     public override void InitState()

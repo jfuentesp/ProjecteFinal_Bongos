@@ -26,17 +26,26 @@ public class PlayerStatsController : MonoBehaviour
     [SerializeField]
     public float m_Velocity;
     [SerializeField]
-    public float m_AttackTime;
+    public float m_AttackTime = 1f;
     [SerializeField]
     public float m_Strength;
     [SerializeField]
     public float m_Defense;
-
+    public Equipable armadura;
+    public Equipable espada;
     private void Start()
     {
         m_Velocity = m_PlayerBaseStats.m_BaseVelocity;
         m_AttackTime = m_PlayerBaseStats.m_BaseAttackTime;
         m_Strength = m_PlayerBaseStats.m_BaseStrength;
         m_Defense = m_PlayerBaseStats.m_BaseDefense;
+    }
+
+    public void EquipArmor() { 
+        
+    }
+    public void EquipSword()
+    {
+
     }
 }

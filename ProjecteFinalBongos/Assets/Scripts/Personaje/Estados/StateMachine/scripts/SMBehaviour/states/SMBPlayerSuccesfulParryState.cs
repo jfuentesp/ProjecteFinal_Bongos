@@ -20,7 +20,7 @@ public class SMBPlayerSuccesfulParryState : MBState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
-       
+        m_Animator.speed = 1.0f;
     }
 
     public override void InitState()
