@@ -9,7 +9,6 @@ public class HabilidadDeMovimientoState : SMState
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
-    private SMBStunState m_State;
     private string m_habilidad;
     private float dashSpeed = 10f;
     private float dashSpeedInvicible = 5f;
@@ -24,7 +23,6 @@ public class HabilidadDeMovimientoState : SMState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
-        m_State = GetComponent<SMBStunState>();
         m_habilidad = m_PJ.Movement;
 
     }
@@ -32,7 +30,6 @@ public class HabilidadDeMovimientoState : SMState
     public override void InitState()
     {
         base.InitState();
-        print(m_habilidad);
         StartCoroutine(habilidad());
     }
 

@@ -30,17 +30,34 @@ public class SMBHit2State : SMBComboState
     }
     IEnumerator AttackBehaviour()
     {
-        if (m_PJ.direccion == 1)
+        if (m_PJ.Attacks.Contains("2x1better"))
         {
-            m_Rigidbody.velocity = transform.up * -4f;
+            if (m_PJ.direccion == 1)
+            {
+                m_Rigidbody.velocity = transform.up * -7f;
+            }
+            else if (m_PJ.direccion == 2)
+            {
+                m_Rigidbody.velocity = transform.up * 7f;
+            }
+            else if (m_PJ.direccion == 0)
+            {
+                m_Rigidbody.velocity = transform.right * 7f;
+            }
         }
-        else if (m_PJ.direccion == 2)
-        {
-            m_Rigidbody.velocity = transform.up * 4f;
-        }
-        else if (m_PJ.direccion == 0)
-        {
-            m_Rigidbody.velocity = transform.right * 4f;
+        else {
+            if (m_PJ.direccion == 1)
+            {
+                m_Rigidbody.velocity = transform.up * -4f;
+            }
+            else if (m_PJ.direccion == 2)
+            {
+                m_Rigidbody.velocity = transform.up * 4f;
+            }
+            else if (m_PJ.direccion == 0)
+            {
+                m_Rigidbody.velocity = transform.right * 4f;
+            }
         }
         yield return new WaitForSeconds(0.1f);
         m_Rigidbody.velocity = Vector2.zero;   

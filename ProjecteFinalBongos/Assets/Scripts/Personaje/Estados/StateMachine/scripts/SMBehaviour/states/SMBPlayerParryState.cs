@@ -40,11 +40,13 @@ public class SMBPlayerParryState : MBState
     }
     public void InitWindow() { 
         parry = true;
+        GetComponent<DañoEnemigoListener>().enabled = false;
     }
 
     public void ExitWindow()
     {
         parry = false;
+        GetComponent<DañoEnemigoListener>().enabled = true;
         Exit();
     }
  
