@@ -79,8 +79,6 @@ public class BossBehaviour : MonoBehaviour
         m_IsAlive = true;
         m_IsPlayerDetected = false;
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
-        m_NavMeshAgent.updateRotation = false;
-        m_NavMeshAgent.updateUpAxis = false;
         /* GetComponent<SMBPatrol>().OnPlayerEnter = (GameObject obj) =>
          {
              m_StateMachine.ChangeState<SMBAttack>();

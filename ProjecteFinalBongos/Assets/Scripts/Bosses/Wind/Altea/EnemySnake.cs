@@ -23,13 +23,13 @@ public class EnemySnake : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
-
         m_StateMachine.ChangeState<SMBIdleState>();
     }
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
         OnPlayerInSala.Invoke();
+        StartCoroutine(PlayerDetectionCoroutine());
     }
 
     private IEnumerator PlayerDetectionCoroutine()
@@ -40,7 +40,7 @@ public class EnemySnake : BossBehaviour
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
                 RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
-                if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
+                if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
                     m_StateMachine.ChangeState<SMBChaseState>();
@@ -54,7 +54,7 @@ public class EnemySnake : BossBehaviour
             else
             {
                 RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position, m_BoxArea, transform.rotation.z, transform.position);
-                if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
+                if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
                     m_StateMachine.ChangeState<SMBChaseState>();

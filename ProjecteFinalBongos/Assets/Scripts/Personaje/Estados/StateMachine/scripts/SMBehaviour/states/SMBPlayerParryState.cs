@@ -8,6 +8,7 @@ public class SMBPlayerParryState : MBState
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
+    private SMBStunState m_State;
     public bool parry;
 
     private void Awake()
@@ -16,6 +17,7 @@ public class SMBPlayerParryState : MBState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
+        m_State = GetComponent<SMBStunState>();
 
     }
 
@@ -38,15 +40,23 @@ public class SMBPlayerParryState : MBState
     }
     public void InitWindow() { 
         parry = true;
+        GetComponent<DañoEnemigoListener>().enabled = false;
     }
 
-    public void ExitWindow() { 
+    public void ExitWindow()
+    {
         parry = false;
-    
+        GetComponent<DañoEnemigoListener>().enabled = true;
+        Exit();
     }
+ 
     public void Exit()
     {
-        m_StateMachine.ChangeState<SMBPlayerIdleState>();
+        m_State.ChangeTime(1.5f);
+        m_StateMachine.ChangeState<SMBStunState>();
+
+
+
     }
 
     public void OnCollisionExit(Collision collision)
@@ -56,5 +66,5 @@ public class SMBPlayerParryState : MBState
                 m_StateMachine.ChangeState<SMBPlayerSuccesfulParryState>();
         }
     }
-
+    
 }

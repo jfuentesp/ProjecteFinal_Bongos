@@ -1,11 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
-
+[RequireComponent(typeof(HabilidadDeMovimientoState))]
 [RequireComponent(typeof(SMBPlayerParryState))]
 [RequireComponent(typeof(SMBPlayerSuccesfulParryState))]
 [RequireComponent(typeof(HealthController))]
@@ -40,6 +42,20 @@ public class PJSMB : MonoBehaviour
     public PJSMB instance;
     private EstadosAlterados m_estado = EstadosAlterados.Normal;
     private bool Invencible, Stun, Poison,Wet,Burn, Wrath, Speedy, StrongMan, Stuck, Paralized;
+    private List<string> parrys = new List<string>();
+
+    private string m_actualParry = "Invincible";
+
+    private List<string> movement = new List<string>();
+    private string m_actualMovement = "Dash";
+
+    public string Parry => m_actualParry;
+    public string Movement => m_actualMovement;
+    private bool m_canMove = true;
+    public bool CanMove => m_canMove;
+
+    private List<string> attacks = new List<string>();
+    public List<string> Attacks => attacks;
     [Header("Otros")]
     private float velocityBefore;
     private float strengthBefore;
@@ -50,7 +66,7 @@ public class PJSMB : MonoBehaviour
     [Header("Tiempos")]
     [SerializeField]
     private TimesScriptable m_playerTimes;
-   
+    
     [Header("Modificadores")]
     [SerializeField]
     private float m_ParalizedLifeModifier;
@@ -94,6 +110,11 @@ public class PJSMB : MonoBehaviour
         m_HealthController = GetComponent<HealthController>();
         m_Animator = GetComponent<Animator>();
         Stun = false;
+        attacks.Add("2x2better");
+        attacks.Add("2x1better");
+        attacks.Add("1x4better");
+        initMovementAbility();
+        initParryAbility();
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -105,7 +126,18 @@ public class PJSMB : MonoBehaviour
         m_Strength = m_PlayerBaseStats.m_BaseStrength;
         m_Defense = m_PlayerBaseStats.m_BaseDefense;
         m_AttackTime = m_PlayerBaseStats.m_BaseAttackTime;
+ 
     }
+    private void initMovementAbility() {
+        movement.Add("Dash");
+   
+    }
+    private void initParryAbility()
+    {
+        movement.Add("Invincible");
+
+    }
+
 
     public void AlternarEstado(EstadosAlterados estado) {
         switch (estado)
@@ -182,7 +214,7 @@ public class PJSMB : MonoBehaviour
     }
     IEnumerator SpeedRoutine() {
         Speedy = true;
-        m_VelocityModifier = Random.Range(10f, 21f);
+        m_VelocityModifier = Random.Range(50f, 71f);
         velocityBefore = m_Velocity;
         m_Velocity += (m_Velocity * m_VelocityModifier) / 100;
         yield return new WaitForSeconds(m_playerTimes.m_VelocityTime);
@@ -249,6 +281,43 @@ public class PJSMB : MonoBehaviour
         Stuck = false;
         m_Velocity = velocityBefore;
         PararCorrutina("StuckRoutine");
+    }
+
+    IEnumerator MovementCooldown() {
+        m_canMove = false;
+        yield return new WaitForSeconds(1f);
+        m_canMove = true;
+        PararCorrutina("MovementCooldown");
+
+    }
+    public void initCoolDown()
+    {
+        StartCoroutine(MovementCooldown());
+    }
+    public void changeMovement(int movementAction) {
+        if (movement.Contains(movement[movementAction])) {
+            m_actualMovement = movement[movementAction];
+        }
+       
+    }
+    public void changeParry(int parry)
+    {
+        if (parrys.Contains(parrys[parry]))
+        {
+            m_actualParry = parrys[parry];
+        }
+
+    }
+    public void learnMovement(string movementAction) { 
+        movement.Add(movementAction);
+    }
+    public void learnParry(string parry)
+    {
+        parrys.Add(parry);
+    }
+    public void learnAttack(string attack)
+    {
+        attacks.Add(attack);
     }
     public void recibirDaño(float Daño)
     {

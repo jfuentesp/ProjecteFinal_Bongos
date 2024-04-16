@@ -30,8 +30,6 @@ public class SMBChaseState : SMState
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
         m_NavMeshAgent= GetComponent<NavMeshAgent>();
-        m_NavMeshAgent.updateRotation = false;
-        m_NavMeshAgent.updateUpAxis = false;
         m_Boss.OnPlayerInSala += GetTarget;
     }
 
@@ -56,8 +54,8 @@ public class SMBChaseState : SMState
     private void Update()
     {
         //To face the target
-        if (m_Target != null)
-            transform.up = m_Target.position - transform.position;
+        /*if (m_Target != null)
+            transform.up = m_Target.position - transform.position;*/
     }
 
     private void FixedUpdate()

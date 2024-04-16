@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 381550402287924794}
   - component: {fileID: 7666055721077843030}
   - component: {fileID: 3695081022772842145}
-  - component: {fileID: 2190492955980375730}
-  - component: {fileID: 8501002364408535606}
   - component: {fileID: 9128040923127699903}
   - component: {fileID: 3245761355330876705}
   - component: {fileID: 7066447904249526736}
@@ -21,6 +19,10 @@ GameObject:
   - component: {fileID: 8608290859044319820}
   - component: {fileID: -395386619402931416}
   - component: {fileID: 859335749596409412}
+  - component: {fileID: 6424155079669158476}
+  - component: {fileID: 1105561501552978541}
+  - component: {fileID: -6853699741854656427}
+  - component: {fileID: 8212142229689438265}
   m_Layer: 9
   m_Name: Altea
   m_TagString: Untagged
@@ -41,7 +43,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &381550402287924794
 SpriteRenderer:
@@ -167,46 +169,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2190492955980375730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1425193616162931063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HP: 100
---- !u!114 &8501002364408535606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1425193616162931063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 502797d31347f5c42b992438fdf8d358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BossName: Altea
-  m_Description: Psssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-  m_Target: {fileID: 0}
-  m_PlayerAttackDetectionAreaType: 0
-  m_AreaLength: 3
-  m_AreaWideness: 3
-  m_AreaRadius: 3
-  m_CheckingPlayerTimelapse: 0.2
-  m_LayersToCheck:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_HuevosLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Pool: {fileID: 0}
 --- !u!114 &9128040923127699903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,3 +283,67 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IdleAnimationName: 
+--- !u!114 &6424155079669158476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425193616162931063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502797d31347f5c42b992438fdf8d358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BossName: Altea
+  m_Description: Ps
+  m_Target: {fileID: 0}
+  m_PlayerAttackDetectionAreaType: 0
+  m_AreaLength: 3
+  m_AreaWideness: 3
+  m_AreaRadius: 3
+  m_CheckingPlayerTimelapse: 0.2
+  m_LayersToCheck:
+    serializedVersion: 2
+    m_Bits: 128
+  m_HuevosLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Pool: {fileID: 0}
+--- !u!114 &1105561501552978541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425193616162931063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MAXHP: 100
+--- !u!114 &-6853699741854656427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425193616162931063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e39f6090724e4a4a8aadeb042afa2bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8212142229689438265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425193616162931063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8550f034611a06e4f88fc261204d8a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

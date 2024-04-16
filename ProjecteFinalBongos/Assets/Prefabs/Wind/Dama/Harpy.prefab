@@ -12,13 +12,17 @@ GameObject:
   - component: {fileID: 8462074901358245330}
   - component: {fileID: 5884107250900702141}
   - component: {fileID: 6589539230309884959}
-  - component: {fileID: 8061723217153146449}
   - component: {fileID: 815698300243707662}
   - component: {fileID: 3032153663322112330}
   - component: {fileID: 5096283783416473512}
   - component: {fileID: 5779588992722725201}
   - component: {fileID: 4270568068235055974}
   - component: {fileID: 9059754093083020899}
+  - component: {fileID: -8369908615242991042}
+  - component: {fileID: 3068817185432870674}
+  - component: {fileID: -578530582925190797}
+  - component: {fileID: 5282036825532460603}
+  - component: {fileID: -274922059993911915}
   m_Layer: 9
   m_Name: Harpy
   m_TagString: Untagged
@@ -156,29 +160,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &8061723217153146449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2175183814778568638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4a2dfbe064e9ad41b29809e06231376, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BossName: Harpy
-  m_Description: minion
-  m_Target: {fileID: 6149780447150567725}
-  m_PlayerAttackDetectionAreaType: 0
-  m_AreaLength: 1
-  m_AreaWideness: 1
-  m_AreaRadius: 1
-  m_CheckingPlayerTimelapse: 0.2
-  m_LayersToCheck:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!114 &815698300243707662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +273,88 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-8369908615242991042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175183814778568638}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e39f6090724e4a4a8aadeb042afa2bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3068817185432870674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175183814778568638}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8550f034611a06e4f88fc261204d8a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &-578530582925190797
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175183814778568638}
+  m_Enabled: 0
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &5282036825532460603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175183814778568638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MAXHP: 100
+--- !u!114 &-274922059993911915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175183814778568638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a2dfbe064e9ad41b29809e06231376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BossName: Harpy
+  m_Description: Pajarraco
+  m_Target: {fileID: 0}
+  m_PlayerAttackDetectionAreaType: 0
+  m_AreaLength: 1.5
+  m_AreaWideness: 1.5
+  m_AreaRadius: 1.5
+  m_CheckingPlayerTimelapse: 0.2
+  m_LayersToCheck:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &4513034500936218330
 GameObject:
   m_ObjectHideFlags: 0

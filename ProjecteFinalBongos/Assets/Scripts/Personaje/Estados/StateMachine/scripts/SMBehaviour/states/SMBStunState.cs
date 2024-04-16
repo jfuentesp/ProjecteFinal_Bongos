@@ -15,6 +15,7 @@ public class SMBStunState : SMState
     private GameEvent m_event;
     [SerializeField]
     private TimesScriptable playerTimes;
+    private float m_Time;
     private new void Awake()
     {
         base.Awake();
@@ -33,7 +34,7 @@ public class SMBStunState : SMState
         
     }
     IEnumerator StunSeconds() { 
-        yield return new WaitForSeconds(playerTimes.m_StunTime);
+        yield return new WaitForSeconds(m_Time);
         m_event.Raise();
         m_StateMachine.ChangeState<SMBPlayerIdleState>();
     }
@@ -41,5 +42,10 @@ public class SMBStunState : SMState
     {
         base.ExitState();
         StopAllCoroutines();
+        print("aaa ");
+    }
+
+    public void ChangeTime(float time) { 
+        m_Time = time;
     }
 }
