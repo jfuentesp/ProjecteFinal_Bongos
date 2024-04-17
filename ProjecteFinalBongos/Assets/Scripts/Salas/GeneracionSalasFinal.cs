@@ -5,6 +5,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.WSA;
 using static SaveGame;
 using Random = UnityEngine.Random;
 
@@ -39,14 +40,6 @@ namespace GeneracionSalas
         [SerializeField] private GameObject m_PuertaAbajoPasillo;
         [SerializeField] private GameObject m_PuertaIzquierdaPasillo;
 
-        [Header("Color Sala")]
-        [SerializeField] private Color m_SalaInicialColor;
-        [SerializeField] private Color m_SalaBossInicialColor;
-        [SerializeField] private Color m_SalaBossColor;
-        [SerializeField] private Color m_PasilloBichosColor;
-        [SerializeField] private Color m_PasilloObjetosColor;
-        [SerializeField] private Color m_PasilloTiendaColor;
-
         [Header("GameObject Sala")]
         [SerializeField] GameObject m_SalaInicial;
         [SerializeField] private GameObject m_SalaBossInicial;
@@ -56,10 +49,8 @@ namespace GeneracionSalas
         [SerializeField] private GameObject m_PasilloTienda;
 
         private List<ListaSalas> m_ListaSalasPadre = new List<ListaSalas>();
-        [SerializeField]
-        private List<ListaSalasConHijos> m_ListaSalasPadreConHijos = new List<ListaSalasConHijos>();
-        [SerializeField]
-        private List<ListaSalasConHijos> m_ListaPasillosConSalas = new List<ListaSalasConHijos>();
+        private List<ListaSalasConHijos> m_ListaSalasPadreConHijos = new();
+        private List<ListaSalasConHijos> m_ListaPasillosConSalas = new();
 
         public Action onMapaFinalized;
 
@@ -72,6 +63,9 @@ namespace GeneracionSalas
         [SerializeField] private Tilemap m_Tilemap;
         [SerializeField] private TileBase m_TileSalas;
         [SerializeField] private TileBase m_TilePared;
+        private List<Vector2> m_TilesSala = new();
+        private List<Vector2> m_TilesPared = new();
+
         // Start is called before the first frame update
         void Start()
         {
@@ -90,6 +84,7 @@ namespace GeneracionSalas
                 {
                     GenSalasBoss();
                     GenPasillos();
+                    PintarTilemap();
                     onMapaFinalized.Invoke();
                 }
             }
@@ -268,45 +263,6 @@ namespace GeneracionSalas
                 {
                     InstanciarSalaJefes(salaPadre.m_HabitacionesHijas[i].x + 50, salaPadre.m_HabitacionesHijas[i].y + 50, salaPadre.m_HabitacionesHijas);
                 }
-                /*foreach (ListaSalas salaHija in salaPadre.m_HabitacionesHijas)
-                    InstanciarSalaJefes(salaHija.x + 50, salaHija.y + 50, salaPadre.m_HabitacionesHijas);*/
-            }
-        }
-        private void PintarSalas(int tipoSala, List<GameObject> estructuras)
-        {
-            switch (tipoSala)
-            {
-                case 1:
-                    PintaSalaConColor(estructuras, m_SalaInicialColor);
-                    break;
-                case 2:
-                    PintaSalaConColor(estructuras, m_SalaBossInicialColor);
-                    break;
-                case 3:
-                    PintaSalaConColor(estructuras, m_PasilloBichosColor);
-                    break;
-                case 4:
-                    PintaSalaConColor(estructuras, m_PasilloTiendaColor);
-                    break;
-                case 5:
-                    PintaSalaConColor(estructuras, m_PasilloObjetosColor);
-                    break;
-                case 9:
-                    PintaSalaConColor(estructuras, m_SalaBossColor);
-                    break;
-            }
-        }
-        private void PintaSalaConColor(List<GameObject> estructuras, Color _ColorSala)
-        {
-            foreach (GameObject estructura in estructuras)
-            {
-                if (estructura.transform.childCount > 0)
-                {
-                    estructura.transform.GetChild(0).GetComponent<SpriteRenderer>().color = _ColorSala;
-                    estructura.transform.GetChild(1).GetComponent<SpriteRenderer>().color = _ColorSala;
-                }
-                else
-                    estructura.GetComponent<SpriteRenderer>().color = _ColorSala;
             }
         }
         private void InstanciarPasillo(int x, int y, List<ListaSalas> habitacionesHijas)
@@ -333,15 +289,11 @@ namespace GeneracionSalas
             if (sala != null)
             {
                 sala.transform.position = new Vector3(posicionX, posicionY, 0);
-                PintarPasillo(posicionX, posicionY);
-                InstanciarParedesAndPuertasPasillo(x, y, sala.transform, matrix[x, y], habitacionesHijas);
+                
+                InstanciarParedesAndPuertasPasillo(x, y, sala.transform, matrix[x, y], habitacionesHijas, posicionX, posicionY);
             }
         }
 
-        private void PintarPasillo(float posicionX, float posicionY)
-        {
-            
-        }
 
         private void InstanciarSalaJefes(int x, int y, List<ListaSalas> salasHijas)
         {
@@ -373,38 +325,55 @@ namespace GeneracionSalas
 
         private void PintarSalaBoss(float posicionX, float posicionY)
         {
-            List<Vector2> tilesParedes = new();
-
             for (int i = (int)posicionX - 10; i < posicionX + 10; i++)
             {
                 for (int j = (int)posicionY - 10; j < posicionY + 10; j++)
                 {
-                    tilesParedes.Add(new Vector2(i, j));
+                    m_TilesSala.Add(new Vector2(i, j));
                 }
             }
-            PintarTilemap(tilesParedes, m_TileSalas);
         }
 
-        private void InstanciarParedesAndPuertasPasillo(int posicionX, int posicionY, Transform transformSala, int tipoSala, List<ListaSalas> salasHijas)
+        private void InstanciarParedesAndPuertasPasillo(int posicionX, int posicionY, Transform transformSala, int tipoSala, List<ListaSalas> salasHijas, float posMundoX, float posMundoY)
         {
             GameObject estructuraArriba;
             GameObject estructuraDerecha;
             GameObject estructuraAbajo;
             GameObject estructuraIzquierda;
-            List<GameObject> estructuras = new List<GameObject>();
+            List<GameObject> estructuras = new();
+            bool horizontal;
+
             if (!EstaENLaListaDeSalas(posicionX - 50, posicionY + 1 - 50, salasHijas))
             {
                 estructuraArriba = Instantiate(m_ParedArribaPasillo, transformSala);
                 estructuras.Add(estructuraArriba);
+                for (int i = 0; i < 22; i++)
+                {
+                    m_TilesPared.Add(new Vector2(posMundoX - 11 + i, posMundoY + 6));
+                }
+                for (int i = 0; i < 22; i++)
+                {
+                    m_TilesPared.Add(new Vector2(posMundoX - 11 + i, posMundoY + 7));
+                }
+                horizontal = true;
             }
             else
             {
                 estructuraArriba = Instantiate(m_PuertaArribaPasillo, transformSala);
                 estructuras.Add(estructuraArriba);
+                horizontal = false;
             }
             if (!EstaENLaListaDeSalas(posicionX + 1 - 50, posicionY - 50, salasHijas))
             {
                 estructuraDerecha = Instantiate(m_ParedDerechaPasillo, transformSala);
+                for (int i = 0; i < 20; i++)
+                {
+                    m_TilesPared.Add(new Vector2(posMundoX + 7, posMundoY - 10 + i));
+                }
+                for (int i = 0; i < 20; i++)
+                {
+                    m_TilesPared.Add(new Vector2(posMundoX + 6, posMundoY - 10 + i));
+                }
                 estructuras.Add(estructuraDerecha);
             }
             else
@@ -416,6 +385,14 @@ namespace GeneracionSalas
             {
                 estructuraAbajo = Instantiate(m_ParedAbajoPasillo, transformSala);
                 estructuras.Add(estructuraAbajo);
+                for (int i = 0; i < 22; i++)
+                {
+                    m_TilesPared.Add(new Vector2(posMundoX - 11 + i, posMundoY - 7f));
+                }
+                for (int i = 0; i < 22; i++)
+                {
+                    m_TilesPared.Add(new Vector2(posMundoX - 11 + i, posMundoY - 8f));
+                }
             }
             else
             {
@@ -425,6 +402,14 @@ namespace GeneracionSalas
             if (!EstaENLaListaDeSalas(posicionX - 1 - 50, posicionY - 50, salasHijas))
             {
                 estructuraIzquierda = Instantiate(m_ParedIzquierdaPasillo, transformSala);
+                for (int i = 0; i < 20; i++)
+                {
+                    m_TilesPared.Add(new Vector2(posMundoX - 7, posMundoY - 10 + i));
+                }
+                for (int i = 0; i < 20; i++)
+                {
+                    m_TilesPared.Add(new Vector2(posMundoX - 8, posMundoY - 10 + i));
+                }
                 estructuras.Add(estructuraIzquierda);
             }
             else
@@ -432,7 +417,38 @@ namespace GeneracionSalas
                 estructuraIzquierda = Instantiate(m_PuertaIzquierdaPasillo, transformSala);
                 estructuras.Add(estructuraIzquierda);
             }
-            PintarSalas(tipoSala, estructuras);
+            PintarPasillo(posMundoX, posMundoY, horizontal);
+        }
+        private void PintarPasillo(float posicionX, float posicionY, bool horizontal)
+        {
+            if (horizontal)
+            {
+                for (int i = (int)posicionX - 9; i < posicionX + 9; i++)
+                {
+                    for (int j = (int)posicionY - 7; j < posicionY + 7; j++)
+                    {
+                        m_TilesSala.Add(new Vector2(i, j));
+                    }
+                }
+                m_TilesSala.Add(new Vector2(posicionX + 9, posicionY - 1));
+                m_TilesSala.Add(new Vector2(posicionX + 9, posicionY));
+                m_TilesSala.Add(new Vector2(posicionX - 10, posicionY - 1));
+                m_TilesSala.Add(new Vector2(posicionX - 10, posicionY));
+            }
+            else
+            {
+                for (int i = (int)posicionX - 7; i < posicionX + 7; i++)
+                {
+                    for (int j = (int)posicionY - 9; j < posicionY + 9; j++)
+                    {
+                        m_TilesSala.Add(new Vector2(i, j));
+                    }
+                }
+                m_TilesSala.Add(new Vector2(posicionX - 1, posicionY + 9.5f));
+                m_TilesSala.Add(new Vector2(posicionX, posicionY + 9.5f));
+                m_TilesSala.Add(new Vector2(posicionX - 1, posicionY - 9.5f));
+                m_TilesSala.Add(new Vector2(posicionX, posicionY - 9.5f));
+            }
         }
         private void InstanciarParedesAndPuertasBoss(int posicionX, int posicionY, Transform transformSala, int tipoSala, List<ListaSalas> salasHijas, float posMundoX, float posMundoY)
         {
@@ -441,30 +457,28 @@ namespace GeneracionSalas
             GameObject estructuraAbajo;
             GameObject estructuraIzquierda;
             List<GameObject> estructuras = new();
-            List<Vector2> tilesParedes = new();
-            List<Vector2> tilesPasillo = new();
 
             if (EstaEnLaListaDePasillosHijos(posicionX - 50, posicionY - 50, posicionX - 50, posicionY + 1 - 50))
             {
                 estructuraArriba = Instantiate(m_PuertaArribaSala, transformSala);
                 for (int i = 0; i < 10; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX - 11 + i, posMundoY + 9.5f));
+                    m_TilesPared.Add(new Vector2(posMundoX - 11 + i, posMundoY + 9.5f));
                 }
                 for (int i = 12; i < 22; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX - 11 + i, posMundoY + 9.5f));
+                    m_TilesPared.Add(new Vector2(posMundoX - 11 + i, posMundoY + 9.5f));
                 }
                 for (int i = 0; i < 10; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX - 11 + i, posMundoY + 10.5f));
+                    m_TilesPared.Add(new Vector2(posMundoX - 11 + i, posMundoY + 10.5f));
                 }
                 for (int i = 12; i < 22; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX - 11 + i, posMundoY + 10.5f));
+                    m_TilesPared.Add(new Vector2(posMundoX - 11 + i, posMundoY + 10.5f));
                 }
-                tilesPasillo.Add(new Vector2(posMundoX - 1, posMundoY + 9.5f));
-                tilesPasillo.Add(new Vector2(posMundoX, posMundoY + 9.5f));
+                m_TilesSala.Add(new Vector2(posMundoX - 1, posMundoY + 9.5f));
+                m_TilesSala.Add(new Vector2(posMundoX, posMundoY + 9.5f));
                 estructuras.Add(estructuraArriba);
             }
             else if (!EstaENLaListaDeSalas(posicionX - 50, posicionY + 1 - 50, salasHijas))
@@ -472,11 +486,11 @@ namespace GeneracionSalas
                 estructuraArriba = Instantiate(m_ParedArribaSala, transformSala);
                 for (int i = 0; i < 22; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX - 11 + i, posMundoY + 9.5f));
+                    m_TilesPared.Add(new Vector2(posMundoX - 11 + i, posMundoY + 9.5f));
                 }
                 for (int i = 0; i < 22; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX - 11 + i, posMundoY + 10.5f));
+                    m_TilesPared.Add(new Vector2(posMundoX - 11 + i, posMundoY + 10.5f));
                 }
                 estructuras.Add(estructuraArriba);
             }
@@ -484,7 +498,7 @@ namespace GeneracionSalas
             {
                 for (int i = 0; i < 19; i++)
                 {
-                    tilesPasillo.Add(new Vector2(posMundoX - 9 + i, posMundoY + 9.5f));
+                    m_TilesSala.Add(new Vector2(posMundoX - 9 + i, posMundoY + 9.5f));
                 }
             }
 
@@ -493,34 +507,34 @@ namespace GeneracionSalas
                 estructuraDerecha = Instantiate(m_PuertaDerechaSala, transformSala);
                 for (int i = 0; i < 9; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX + 9, posMundoY -10 +i));
+                    m_TilesPared.Add(new Vector2(posMundoX + 9, posMundoY -10 +i));
                 }
-                for (int i = 11; i < 20; i++)
+                for (int i = 11; i < 21; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX + 9, posMundoY - 10 + i));
+                    m_TilesPared.Add(new Vector2(posMundoX + 9, posMundoY - 10 + i));
                 }
                 for (int i = 0; i < 9; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX + 10, posMundoY - 10 + i));
+                    m_TilesPared.Add(new Vector2(posMundoX + 10, posMundoY - 10 + i));
                 }
-                for (int i = 11; i < 20; i++)
+                for (int i = 11; i < 21; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX + 10, posMundoY - 10 + i));
+                    m_TilesPared.Add(new Vector2(posMundoX + 10, posMundoY - 10 + i));
                 }
-                tilesPasillo.Add(new Vector2(posMundoX + 9, posMundoY -1));
-                tilesPasillo.Add(new Vector2(posMundoX + 9, posMundoY));
+                m_TilesSala.Add(new Vector2(posMundoX + 9, posMundoY -1));
+                m_TilesSala.Add(new Vector2(posMundoX + 9, posMundoY));
                 estructuras.Add(estructuraDerecha);
             }
             else if (!EstaENLaListaDeSalas(posicionX + 1 - 50, posicionY - 50, salasHijas))
             {
                 estructuraDerecha = Instantiate(m_ParedDerechaSala, transformSala);
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 21; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX + 10, posMundoY - 10 + i));
+                    m_TilesPared.Add(new Vector2(posMundoX + 10, posMundoY - 10 + i));
                 }
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 21; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX + 9, posMundoY - 10 + i));
+                    m_TilesPared.Add(new Vector2(posMundoX + 9, posMundoY - 10 + i));
                 }
                 estructuras.Add(estructuraDerecha);
             }
@@ -528,7 +542,7 @@ namespace GeneracionSalas
             {
                 for (int i = 0; i < 19; i++)
                 {
-                    tilesPasillo.Add(new Vector2(posMundoX + 9.5f, posMundoY - 9 + i));
+                    m_TilesSala.Add(new Vector2(posMundoX + 9.5f, posMundoY - 9 + i));
                 }
             }
 
@@ -537,22 +551,22 @@ namespace GeneracionSalas
                 estructuraAbajo = Instantiate(m_PuertaAbajoSala, transformSala);
                 for (int i = 0; i < 10; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX - 11 + i, posMundoY - 9.5f));
+                    m_TilesPared.Add(new Vector2(posMundoX - 11 + i, posMundoY - 9.5f));
                 }
                 for (int i = 12; i < 22; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX - 11 + i, posMundoY - 9.5f));
+                    m_TilesPared.Add(new Vector2(posMundoX - 11 + i, posMundoY - 9.5f));
                 }
                 for (int i = 0; i < 10; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX - 11 + i, posMundoY - 10.5f));
+                    m_TilesPared.Add(new Vector2(posMundoX - 11 + i, posMundoY - 10.5f));
                 }
                 for (int i = 12; i < 22; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX - 11 + i, posMundoY - 10.5f));
+                    m_TilesPared.Add(new Vector2(posMundoX - 11 + i, posMundoY - 10.5f));
                 }
-                tilesPasillo.Add(new Vector2(posMundoX - 1, posMundoY - 9.5f));
-                tilesPasillo.Add(new Vector2(posMundoX, posMundoY - 9.5f));
+                m_TilesSala.Add(new Vector2(posMundoX - 1, posMundoY - 9.5f));
+                m_TilesSala.Add(new Vector2(posMundoX, posMundoY - 9.5f));
                 estructuras.Add(estructuraAbajo);
             }
             else if (!EstaENLaListaDeSalas(posicionX - 50, posicionY - 1 - 50, salasHijas))
@@ -560,11 +574,11 @@ namespace GeneracionSalas
                 estructuraAbajo = Instantiate(m_ParedAbajoSala, transformSala);
                 for (int i = 0; i < 22; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX - 11 + i, posMundoY - 9.5f));
+                    m_TilesPared.Add(new Vector2(posMundoX - 11 + i, posMundoY - 9.5f));
                 }
                 for (int i = 0; i < 22; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX - 11 + i, posMundoY - 10.5f));
+                    m_TilesPared.Add(new Vector2(posMundoX - 11 + i, posMundoY - 10.5f));
                 }
                 estructuras.Add(estructuraAbajo);
             }
@@ -572,7 +586,7 @@ namespace GeneracionSalas
             {
                 for (int i = 0; i < 19; i++)
                 {
-                    tilesPasillo.Add(new Vector2(posMundoX - 9 + i, posMundoY - 9.5f));
+                    m_TilesSala.Add(new Vector2(posMundoX - 9 + i, posMundoY - 9.5f));
                 }
             }
 
@@ -581,34 +595,34 @@ namespace GeneracionSalas
                 estructuraIzquierda = Instantiate(m_PuertaIzquierdaSala, transformSala);
                 for (int i = 0; i < 9; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX - 10, posMundoY - 10 + i));
+                    m_TilesPared.Add(new Vector2(posMundoX - 10, posMundoY - 10 + i));
                 }
-                for (int i = 11; i < 20; i++)
+                for (int i = 11; i < 21; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX - 10, posMundoY - 10 + i));
+                    m_TilesPared.Add(new Vector2(posMundoX - 10, posMundoY - 10 + i));
                 }
                 for (int i = 0; i < 9; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX - 11, posMundoY - 10 + i));
+                    m_TilesPared.Add(new Vector2(posMundoX - 11, posMundoY - 10 + i));
                 }
-                for (int i = 11; i < 20; i++)
+                for (int i = 11; i < 21; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX - 11, posMundoY - 10 + i));
+                    m_TilesPared.Add(new Vector2(posMundoX - 11, posMundoY - 10 + i));
                 }
-                tilesPasillo.Add(new Vector2(posMundoX - 10, posMundoY - 1));
-                tilesPasillo.Add(new Vector2(posMundoX - 10, posMundoY));
+                m_TilesSala.Add(new Vector2(posMundoX - 10, posMundoY - 1));
+                m_TilesSala.Add(new Vector2(posMundoX - 10, posMundoY));
                 estructuras.Add(estructuraIzquierda);
             }
             else if (!EstaENLaListaDeSalas(posicionX - 1 - 50, posicionY - 50, salasHijas))
             {
                 estructuraIzquierda = Instantiate(m_ParedIzquierdaSala, transformSala);
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 21; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX - 10, posMundoY - 10 + i));
+                    m_TilesPared.Add(new Vector2(posMundoX - 10, posMundoY - 10 + i));
                 }
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 21; i++)
                 {
-                    tilesParedes.Add(new Vector2(posMundoX - 11, posMundoY - 10 + i));
+                    m_TilesPared.Add(new Vector2(posMundoX - 11, posMundoY - 10 + i));
                 }
                 estructuras.Add(estructuraIzquierda);
             }
@@ -616,21 +630,22 @@ namespace GeneracionSalas
             {
                 for (int i = 0; i < 19; i++)
                 {
-                    tilesPasillo.Add(new Vector2(posMundoX - 9.5f, posMundoY - 9 + i));
+                    m_TilesSala.Add(new Vector2(posMundoX - 9.5f, posMundoY - 9 + i));
                 }
             }
-
-            PintarSalas(tipoSala, estructuras);
-            PintarTilemap(tilesPasillo, m_TileSalas);
-            PintarTilemap(tilesParedes, m_TilePared);
         }
 
-        private void PintarTilemap(List<Vector2> tilesParedes, TileBase tile)
+        private void PintarTilemap()
         {
-            foreach (Vector2 posicion in tilesParedes)
+            foreach (Vector2 posicion in m_TilesSala)
             {
                 Vector3Int posicionInt = m_Tilemap.WorldToCell(posicion);
-                m_Tilemap.SetTile(posicionInt, tile);
+                m_Tilemap.SetTile(posicionInt, m_TileSalas);
+            }
+            foreach (Vector2 posicion in m_TilesPared)
+            {
+                Vector3Int posicionInt = m_Tilemap.WorldToCell(posicion);
+                m_Tilemap.SetTile(posicionInt, m_TilePared);
             }
         }
 
@@ -713,5 +728,4 @@ namespace GeneracionSalas
             }
         }
     }
-
 }
