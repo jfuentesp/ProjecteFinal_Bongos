@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldableItem : MonoBehaviour
+public class ShieldableItem : Consumable
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private float m_ShieldDuration;
+    public override void OnUse(GameObject usedBy)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        usedBy.TryGetComponent<IShieldable>(out IShieldable shieldable);
+        if (shieldable != null)
+            shieldable.Shield(usedBy, m_ShieldDuration);
     }
 }

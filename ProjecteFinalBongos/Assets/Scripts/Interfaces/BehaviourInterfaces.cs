@@ -27,9 +27,9 @@ public interface IBuffable
 
 public interface IDebuffable
 {
-    public void Debuff(List<GameObject> targets);
-    public void Debuff(GameObject target);
-    public void Debuff(float areaRadius, float duration);
+    public void AttackDebuff(float statAmount, float duration);
+    public void DefenseDebuff(float statAmount, float duration);
+    public void SpeedDebuff(float statAmount, float duration);
 }
 
 public interface IPlaceable
@@ -37,7 +37,7 @@ public interface IPlaceable
     public void Place(GameObject objectToPlace);
 }
 
-public interface IPShieldable
+public interface IShieldable
 {
     public void Shield(GameObject shieldObject, float duration);
 }

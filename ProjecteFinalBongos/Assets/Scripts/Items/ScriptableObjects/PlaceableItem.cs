@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaceableItem : MonoBehaviour
+public class PlaceableItem : Consumable
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private GameObject m_PrefabToInstantiateAndPlace;
+    public override void OnUse(GameObject usedBy)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameObject objectToPlace = Instantiate(m_PrefabToInstantiateAndPlace);
+        objectToPlace.transform.position = usedBy.transform.position;
     }
 }
