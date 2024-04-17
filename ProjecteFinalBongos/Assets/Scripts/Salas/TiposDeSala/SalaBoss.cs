@@ -2,30 +2,30 @@ using GeneracionSalas;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
+using static SaveGame.SaveGame;
 using Random = UnityEngine.Random;
 
-public class SalaBoss : TipoSala
+public class SalaBoss : TipoSala, ISaveableSalaBossData
 {
     [SerializeField]
     private GameObject m_JefeFinal;
     public Action OnPLayerInSala;
     [SerializeField]
-    GeneracionSalasFinal.ListaSalasConHijos m_ListaSalasPadreHijas;
-    private List<GeneracionSalasFinal.ListaSalas> m_ListaSalas;
+    GeneracionSalasMatriz.ListaSalasConHijos m_ListaSalasPadreHijas;
+    private List<GeneracionSalasMatriz.ListaSalas> m_ListaSalas;
     [SerializeField]
     private Transform m_Target;
     private float minX, minY, maxX, maxY;
 
-    public void Init(GeneracionSalasFinal.ListaSalasConHijos _ListaSalasPadreHijas)
+    public void Init(GeneracionSalasMatriz.ListaSalasConHijos _ListaSalasPadreHijas, int numeroBoss)
     {
         m_ListaSalasPadreHijas = _ListaSalasPadreHijas;
-        MaximosMinimosSala();
         TodasLasSalasEnUnaLista();
-        /*GameObject jefe = Instantiate(m_JefeFinal, transform);
+        MaximosMinimosSala();
+        GameObject jefe = Instantiate(LevelManager.Instance.GetBossToSpawn(numeroBoss), transform);
         jefe.transform.localPosition = Vector3.zero;
-        jefe.GetComponent<BossBehaviour>().Init(m_Target);*/
+        jefe.GetComponent<BossBehaviour>().Init(m_Target);
     }
     private void TodasLasSalasEnUnaLista()
     {
@@ -34,23 +34,20 @@ public class SalaBoss : TipoSala
 
     private void MaximosMinimosSala()
     {
-        minX = m_ListaSalasPadreHijas.m_HabitacionPadre.x;
-        minY = m_ListaSalasPadreHijas.m_HabitacionPadre.y;
-        maxX = m_ListaSalasPadreHijas.m_HabitacionPadre.x;
-        maxY = m_ListaSalasPadreHijas.m_HabitacionPadre.y;
-        if (m_ListaSalasPadreHijas.m_HabitacionesHijas.Count > 0)
+        minX = m_ListaSalas[0].x;
+        minY = m_ListaSalas[0].y;
+        maxX = m_ListaSalas[0].x;
+        maxY = m_ListaSalas[0].y;
+        foreach (GeneracionSalasMatriz.ListaSalas sala in m_ListaSalas)
         {
-            foreach (GeneracionSalasFinal.ListaSalas sala in m_ListaSalasPadreHijas.m_HabitacionesHijas)
-            {
-                if (sala.x < minX)
-                    minX = sala.x;
-                if (sala.y < minY)
-                    minY = sala.y;
-                if (sala.x > maxX)
-                    maxX = sala.x;
-                if (sala.y > maxY)
-                    maxY = sala.y;
-            }
+            if (sala.x < minX)
+                minX = sala.x;
+            if (sala.y < minY)
+                minY = sala.y;
+            if (sala.x > maxX)
+                maxX = sala.x;
+            if (sala.y > maxY)
+                maxY = sala.y;
         }
         minX = minX * 20 - 10f;
         minY = minY * 20 - 10f;
@@ -90,17 +87,17 @@ public class SalaBoss : TipoSala
 
     private bool EstaEnAlgunaSala(Vector2 posicion)
     {
-        float x = (int) posicion.x / 20;
+        float x = (int)posicion.x / 20;
         if (posicion.x % 20 > 10)
             x++;
         if (posicion.x % 20 < -10)
             x--;
-        float y = (int) posicion.y / 20;
+        float y = (int)posicion.y / 20;
         if (posicion.y % 20 > 10)
             y++;
         if (posicion.y % 20 < -10)
             y--;
-        foreach (GeneracionSalasFinal.ListaSalas sala in m_ListaSalas)
+        foreach (GeneracionSalasMatriz.ListaSalas sala in m_ListaSalas)
         {
             if (sala.x == x && sala.y == y)
             {
@@ -112,5 +109,15 @@ public class SalaBoss : TipoSala
         }
 
         return false;
+    }
+
+    public SalaBossData Save()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Load(SalaBossData _salaBossData)
+    {
+        throw new NotImplementedException();
     }
 }

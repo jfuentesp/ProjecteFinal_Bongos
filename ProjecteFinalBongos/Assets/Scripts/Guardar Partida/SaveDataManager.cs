@@ -3,48 +3,52 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using static SaveGame;
+using static SaveGame.SaveGame;
 
-public class SaveDataManager : MonoBehaviour
+namespace SaveGame
 {
-    private const string saveFileName = "savegame.json";
-
-    public void SaveData()
+    public class SaveDataManager : MonoBehaviour
     {
+        private const string saveFileName = "savegame.json";
 
-        ISaveableSalaData dataSalas = FindObjectOfType<GeneracionSalas.GeneracionSalasFinal>();
-        SaveGame data = new SaveGame();
-        data.PopulateDataSalas(dataSalas);
-        string jsonData = JsonUtility.ToJson(data);
+        public void SaveData()
+        {
 
-        try
-        {
-            Debug.Log("Saving: ");
-            Debug.Log(jsonData);
-
-            File.WriteAllText(saveFileName, jsonData);
-        }
-        catch (Exception e)
-        {
-            Debug.LogError($"Error while trying to save {Path.Combine(Application.persistentDataPath, saveFileName)} with exception {e}");
-        }
-    }
-    public void LoadData()
-    {
-        try
-        {
-            print("cargar");
-            string jsonData = File.ReadAllText(saveFileName);
-            print(jsonData);
+            ISaveableSalasData dataSalas = FindObjectOfType<GeneracionSalas.GeneracionSalasMatriz>();
             SaveGame data = new SaveGame();
-            JsonUtility.FromJsonOverwrite(jsonData, data);
+            data.PopulateDataSalas(dataSalas);
+            string jsonData = JsonUtility.ToJson(data);
 
-            FindObjectOfType<GeneracionSalas.GeneracionSalasFinal>().Load(data.matriz);
-            
+            try
+            {
+                Debug.Log("Saving: ");
+                Debug.Log(jsonData);
+
+                File.WriteAllText(saveFileName, jsonData);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Error while trying to save {Path.Combine(Application.persistentDataPath, saveFileName)} with exception {e}");
+            }
         }
-        catch (Exception e)
+        public void LoadData()
         {
-            Debug.LogError($"Error while trying to load {Path.Combine(Application.persistentDataPath, saveFileName)} with exception {e}");
+            try
+            {
+                print("cargar");
+                string jsonData = File.ReadAllText(saveFileName);
+                print(jsonData);
+                SaveGame data = new SaveGame();
+                JsonUtility.FromJsonOverwrite(jsonData, data);
+
+                FindObjectOfType<GeneracionSalas.GeneracionSalasMatriz>().Load(data.matriz);
+
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Error while trying to load {Path.Combine(Application.persistentDataPath, saveFileName)} with exception {e}");
+            }
         }
     }
+
 }
