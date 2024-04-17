@@ -13,6 +13,9 @@ public abstract class Equipable : ScriptableObject, IEquipable
     [SerializeField]
     protected Sprite m_Sprite = null;
     public Sprite Sprite { get => m_Sprite; set => m_Sprite = value; }
+    [SerializeField]
+    protected EstadosAlterados m_Estado = EstadosAlterados.Normal;
+    public EstadosAlterados Estado { get => m_Estado; set => m_Estado = value; }
 
     public abstract void ApplyStats();
 

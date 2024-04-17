@@ -10,7 +10,8 @@ public class SMBPlayerParryState : MBState
     private FiniteStateMachine m_StateMachine;
     private SMBStunState m_State;
     public bool parry;
-
+    private LayerMask m_BossHurtBox;
+    private LayerMask m_BossHitBox;
     private void Awake()
     {
         m_PJ = GetComponent<PJSMB>();
@@ -19,6 +20,8 @@ public class SMBPlayerParryState : MBState
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_State = GetComponent<SMBStunState>();
         m_Animator.speed = 1.0f;
+        m_BossHurtBox = LayerMask.NameToLayer("BossHurtBox");
+        m_BossHitBox = LayerMask.NameToLayer("BossHitBox");
     }
 
     public override void InitState()
@@ -59,12 +62,31 @@ public class SMBPlayerParryState : MBState
 
     }
 
-    public void OnCollisionExit(Collision collision)
+
+ 
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (this.enabled) {
-            if (parry)
+        if (enabled)
+        {
+            if (parry && m_BossHurtBox == collision.gameObject.layer || parry && m_BossHitBox == collision.gameObject.layer)
+            {
+                parry = false;
                 m_StateMachine.ChangeState<SMBPlayerSuccesfulParryState>();
+            }
+
         }
     }
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (enabled)
+        {
+            if (parry && m_BossHurtBox == collision.gameObject.layer || parry && m_BossHitBox == collision.gameObject.layer)
+            {
+                parry = false;
+                m_StateMachine.ChangeState<SMBPlayerSuccesfulParryState>();
+            }
+
+        }
+    }
+
 }
