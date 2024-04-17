@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Placeable Item", menuName = "Scriptables/Items/Placeable Item")]
 public class PlaceableItem : Consumable
 {
     [SerializeField]

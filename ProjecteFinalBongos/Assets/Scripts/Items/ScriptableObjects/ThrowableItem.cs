@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Throwable Item", menuName = "Scriptables/Items/Throwable Item")]
 public class ThrowableItem : Consumable
 {
     [SerializeField]

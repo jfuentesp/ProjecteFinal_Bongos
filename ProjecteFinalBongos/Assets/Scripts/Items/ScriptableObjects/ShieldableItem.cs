@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Shield Item", menuName = "Scriptables/Items/Shield Item")]
 public class ShieldableItem : Consumable
 {
     [SerializeField]
