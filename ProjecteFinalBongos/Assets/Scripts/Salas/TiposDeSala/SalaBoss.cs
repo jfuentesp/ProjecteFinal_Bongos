@@ -1,3 +1,4 @@
+using GeneracionSalas;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,34 +12,24 @@ public class SalaBoss : TipoSala
     private GameObject m_JefeFinal;
     public Action OnPLayerInSala;
     [SerializeField]
-    GeneracionSalas.GeneracionSalasFinal.ListaSalasConHijos m_ListaSalasPadreHijas;
-    private List<GeneracionSalas.GeneracionSalasFinal.ListaSalas> m_ListaSalas;
+    GeneracionSalasFinal.ListaSalasConHijos m_ListaSalasPadreHijas;
+    private List<GeneracionSalasFinal.ListaSalas> m_ListaSalas;
     [SerializeField]
     private Transform m_Target;
     private float minX, minY, maxX, maxY;
 
-    private void Start()
+    public void Init(GeneracionSalasFinal.ListaSalasConHijos _ListaSalasPadreHijas)
     {
+        m_ListaSalasPadreHijas = _ListaSalasPadreHijas;
         MaximosMinimosSala();
         TodasLasSalasEnUnaLista();
-        GameObject jefe = Instantiate(m_JefeFinal, transform);
+        /*GameObject jefe = Instantiate(m_JefeFinal, transform);
         jefe.transform.localPosition = Vector3.zero;
-        jefe.GetComponent<BossBehaviour>().Init(m_Target);
+        jefe.GetComponent<BossBehaviour>().Init(m_Target);*/
     }
-
     private void TodasLasSalasEnUnaLista()
     {
-        m_ListaSalas = new List<GeneracionSalas.GeneracionSalasFinal.ListaSalas>
-        {
-            m_ListaSalasPadreHijas.m_HabitacionPadre
-        };
-        if (m_ListaSalasPadreHijas.m_HabitacionesHijas.Count > 0)
-        {
-            foreach (GeneracionSalas.GeneracionSalasFinal.ListaSalas sala in m_ListaSalasPadreHijas.m_HabitacionesHijas)
-            {
-                m_ListaSalas.Add(sala);
-            }
-        }
+        m_ListaSalas = m_ListaSalasPadreHijas.m_HabitacionesHijas;
     }
 
     private void MaximosMinimosSala()
@@ -49,7 +40,7 @@ public class SalaBoss : TipoSala
         maxY = m_ListaSalasPadreHijas.m_HabitacionPadre.y;
         if (m_ListaSalasPadreHijas.m_HabitacionesHijas.Count > 0)
         {
-            foreach (GeneracionSalas.GeneracionSalasFinal.ListaSalas sala in m_ListaSalasPadreHijas.m_HabitacionesHijas)
+            foreach (GeneracionSalasFinal.ListaSalas sala in m_ListaSalasPadreHijas.m_HabitacionesHijas)
             {
                 if (sala.x < minX)
                     minX = sala.x;
@@ -109,7 +100,7 @@ public class SalaBoss : TipoSala
             y++;
         if (posicion.y % 20 < -10)
             y--;
-        foreach (GeneracionSalas.GeneracionSalasFinal.ListaSalas sala in m_ListaSalas)
+        foreach (GeneracionSalasFinal.ListaSalas sala in m_ListaSalas)
         {
             if (sala.x == x && sala.y == y)
             {

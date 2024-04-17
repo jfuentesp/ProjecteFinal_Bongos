@@ -258,13 +258,39 @@ namespace GeneracionSalas
             foreach (ListaSalasConHijos salaPadre in m_ListaSalasPadreConHijos)
             {
                 salaPadre.m_HabitacionesHijas.Add(salaPadre.m_HabitacionPadre);
-                InstanciarSalaJefes(salaPadre.m_HabitacionPadre.x + 50, salaPadre.m_HabitacionPadre.y + 50, salaPadre.m_HabitacionesHijas);
+                InstanciarSalaJefeInicial(salaPadre.m_HabitacionPadre.x + 50, salaPadre.m_HabitacionPadre.y + 50, salaPadre.m_HabitacionesHijas, salaPadre);
                 for (int i = 0; i < salaPadre.m_HabitacionesHijas.Count - 1; i++)
                 {
                     InstanciarSalaJefes(salaPadre.m_HabitacionesHijas[i].x + 50, salaPadre.m_HabitacionesHijas[i].y + 50, salaPadre.m_HabitacionesHijas);
                 }
             }
         }
+
+        private void InstanciarSalaJefeInicial(int x, int y, List<ListaSalas> salasHijas, ListaSalasConHijos salaPadre)
+        {
+            float posicionX = (x - 50) * 20;
+            float posicionY = (y - 50) * 20;
+            GameObject sala = null;
+
+            switch (matrix[x, y])
+            {
+                case 1:
+                    sala = Instantiate(m_SalaInicial, m_TransformParentMundo);
+                    sala.transform.position = new Vector3(posicionX, posicionY, 0);
+                    break;
+                case 2:
+                    sala = Instantiate(m_SalaBossInicial, m_TransformParentMundo);
+                    sala.transform.position = new Vector3(posicionX, posicionY, 0);
+                    sala.GetComponent<SalaBoss>().Init(salaPadre);
+                    break;
+            }
+            if (sala != null)
+            {
+                PintarSalaBoss(posicionX, posicionY);
+                InstanciarParedesAndPuertasBoss(x, y, sala.transform, matrix[x, y], salasHijas, posicionX, posicionY);
+            }
+        }
+
         private void InstanciarPasillo(int x, int y, List<ListaSalas> habitacionesHijas)
         {
             float posicionX = (x - 50) * 20;
@@ -303,12 +329,6 @@ namespace GeneracionSalas
 
             switch (matrix[x, y])
             {
-                case 1:
-                    sala = Instantiate(m_SalaInicial, m_TransformParentMundo);
-                    break;
-                case 2:
-                    sala = Instantiate(m_SalaBossInicial, m_TransformParentMundo);
-                    break;
                 case 9:
                     sala = Instantiate(m_SalaBoss, m_TransformParentMundo);
                     break;
