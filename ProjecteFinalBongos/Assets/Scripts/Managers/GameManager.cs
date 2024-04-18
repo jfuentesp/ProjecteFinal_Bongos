@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance => m_Instance;
 
     private bool m_NuevaPartida;
+    private bool m_MundoGenerado;
     public bool NuevaPartida => m_NuevaPartida;
     private void Awake()
     {
@@ -19,14 +20,16 @@ public class GameManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
+        m_MundoGenerado = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.G) && !m_MundoGenerado)
         {
             m_NuevaPartida = true;
+            m_MundoGenerado = true;
             LevelManager.Instance.Init();
         }
         if (Input.GetKeyDown(KeyCode.C))

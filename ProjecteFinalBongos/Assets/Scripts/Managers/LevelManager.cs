@@ -14,8 +14,11 @@ public class LevelManager : MonoBehaviour
     private GeneracionSalasMatriz m_GeneracionSalasMatriz;
 
     [SerializeField] private Pool m_SplashPool;
+    [HideInInspector] public Pool _SplashPool;
     [SerializeField] private Pool m_BulletPool;
+    [HideInInspector] public Pool _BulletPool;
     [SerializeField] private List<BossDisponible> m_ListaBossesDisponibles = new();
+    [SerializeField] private GameEvent m_GuardarPartidaEvent;
 
     private void Awake()
     {
@@ -33,7 +36,6 @@ public class LevelManager : MonoBehaviour
     {
         m_GeneracionSalasMatriz = GetComponent<GeneracionSalasMatriz>();
         TodosLosBossesDisponibles();
-
     }
 
     private void TodosLosBossesDisponibles()
@@ -68,6 +70,7 @@ public class LevelManager : MonoBehaviour
     public void Init()
     {
         m_GeneracionSalasMatriz.Init();
+        m_GuardarPartidaEvent.Raise();
     }
 
     [Serializable]

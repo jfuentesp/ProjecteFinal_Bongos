@@ -10,13 +10,46 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
 {
     [SerializeField]
     private GameObject m_JefeFinal;
-    public Action OnPLayerInSala;
-    [SerializeField]
-    GeneracionSalasMatriz.ListaSalasConHijos m_ListaSalasPadreHijas;
+    [SerializeField] GeneracionSalasMatriz.ListaSalasConHijos m_ListaSalasPadreHijas;
     private List<GeneracionSalasMatriz.ListaSalas> m_ListaSalas;
-    [SerializeField]
-    private Transform m_Target;
+    [SerializeField] private Transform m_Target;
     private float minX, minY, maxX, maxY;
+    private bool m_HaEntradoElPlayer;
+    [SerializeField]
+    private Vector2 m_BoxCastSize;
+    [SerializeField]
+    private float m_BoxCastRange;
+    [SerializeField]
+    private LayerMask m_BoxLayerMask;
+    [SerializeField]
+    private float m_TimeBetweenBoxCast;
+
+    public Action<Transform> OnPlayerIn;
+    private void Start()
+    {
+        m_HaEntradoElPlayer = false;
+        StartCoroutine(DeteccionPlayer());
+    }
+
+    private IEnumerator DeteccionPlayer()
+    {
+        while (!m_HaEntradoElPlayer)
+        {
+            RaycastHit2D hit = Physics2D.BoxCast(transform.position, m_BoxCastSize, 0, transform.position, m_BoxCastRange, m_BoxLayerMask);
+            if (hit.collider != null)
+            {
+                print("Player dentro");
+                OnPlayerIn?.Invoke(hit.transform);
+                m_HaEntradoElPlayer = true;
+            }
+            yield return new WaitForSeconds(m_TimeBetweenBoxCast);
+        }
+    }
+
+    private void Update()
+    {
+       
+    }
 
     public void Init(GeneracionSalasMatriz.ListaSalasConHijos _ListaSalasPadreHijas, int numeroBoss)
     {
@@ -25,7 +58,6 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
         MaximosMinimosSala();
         GameObject jefe = Instantiate(LevelManager.Instance.GetBossToSpawn(numeroBoss), transform);
         jefe.transform.localPosition = Vector3.zero;
-        jefe.GetComponent<BossBehaviour>().Init(m_Target);
     }
     private void TodasLasSalasEnUnaLista()
     {
@@ -71,7 +103,6 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
         {
             m_CanOpenDoor = false;
             cambioPuerta?.Invoke(false);
-            OnPLayerInSala?.Invoke();
         }
     }
 

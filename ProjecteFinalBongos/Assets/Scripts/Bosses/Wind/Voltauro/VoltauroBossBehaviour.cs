@@ -60,7 +60,6 @@ public class VoltauroBossBehaviour : BossBehaviour
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
-        OnPlayerInSala.Invoke();
     }
     private IEnumerator PlayerDetectionCoroutine()
     {

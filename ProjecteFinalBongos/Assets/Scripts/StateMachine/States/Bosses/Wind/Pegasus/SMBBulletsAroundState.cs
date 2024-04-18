@@ -32,7 +32,7 @@ public class SMBBulletsAroundState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
-        m_Pool = GameObject.Find("PoolBullet").GetComponent<Pool>();
+        m_Pool = LevelManager.Instance._BulletPool;
         //Initialize(); //Initializes parameters on a given bullet
     }
     public override void InitState()

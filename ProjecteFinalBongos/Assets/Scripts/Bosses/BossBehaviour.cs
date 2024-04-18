@@ -79,6 +79,7 @@ public class BossBehaviour : MonoBehaviour
         m_IsAlive = true;
         m_IsPlayerDetected = false;
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
+        GetComponentInParent<SalaBoss>().OnPlayerIn += Init;
         /* GetComponent<SMBPatrol>().OnPlayerEnter = (GameObject obj) =>
          {
              m_StateMachine.ChangeState<SMBAttack>();
@@ -114,6 +115,7 @@ public class BossBehaviour : MonoBehaviour
     public virtual void Init(Transform _Target)
     {
         m_Target = _Target;
+        OnPlayerInSala.Invoke();
     }
 
     public void SetBusy(bool status)
