@@ -11,6 +11,14 @@ public class InventoryController : MonoBehaviour
     private List<Consumable> m_Consumables = new List<Consumable>();
     //Otra lista para los equipables
 
+    [Header("Consumable Grid settings")]
+    [SerializeField]
+    private GridLayout m_ConsumableGrid;
+    [SerializeField]
+    private int m_ConsumableGridColumns;
+    [SerializeField]
+    private int m_ConsumableGridRows;
+
 
     private void Awake()
     {
@@ -26,4 +34,10 @@ public class InventoryController : MonoBehaviour
     {
         
     }
+
+    private void BuildConsumableGUI()
+    {
+
+    }
+
 }

@@ -18,4 +18,9 @@ public class ConsumableSlotController : MonoBehaviour
 
     private bool m_IsHighlighted;
 
+    private void Start()
+    {
+        m_QuantityText.text = m_Quantity.ToString();
+        m_SpriteImage.sprite = m_ConsumableItem.Sprite;
+    }
 }
