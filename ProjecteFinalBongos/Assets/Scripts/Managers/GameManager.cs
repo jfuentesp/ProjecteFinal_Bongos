@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             m_NuevaPartida = false;
-            //LevelManager.Instance.Init();
+            LevelManager.Instance.Init();
         }
     }
 }
