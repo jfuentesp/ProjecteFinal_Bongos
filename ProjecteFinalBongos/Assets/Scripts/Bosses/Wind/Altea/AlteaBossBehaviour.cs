@@ -80,6 +80,7 @@ public class AlteaBossBehaviour : BossBehaviour
     {
         base.VidaCero();
         m_IsAlive = false;
+        OnBossDeath?.Invoke();
         Destroy(gameObject);
     }
     protected override void Update()

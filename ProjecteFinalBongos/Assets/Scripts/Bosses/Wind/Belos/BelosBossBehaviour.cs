@@ -133,6 +133,7 @@ public class BelosBossBehaviour : BossBehaviour
     {
         base.VidaCero();
         m_IsAlive = false;
+        OnBossDeath?.Invoke();
         Destroy(gameObject);
     }
 }

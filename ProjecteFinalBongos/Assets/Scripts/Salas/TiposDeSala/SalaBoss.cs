@@ -9,13 +9,12 @@ using Random = UnityEngine.Random;
 
 public class SalaBoss : TipoSala, ISaveableSalaBossData
 {
-    [SerializeField]
-    private GameObject m_JefeFinal;
-    [SerializeField] GeneracionSalasMatriz.ListaSalasConHijos m_ListaSalasPadreHijas;
+    [Header("Listas salas hijas")]
+    GeneracionSalasMatriz.ListaSalasConHijos m_ListaSalasPadreHijas;
     private List<GeneracionSalasMatriz.ListaSalas> m_ListaSalas;
-    [SerializeField] private Transform m_Target;
     private float minX, minY, maxX, maxY;
-    private bool m_HaEntradoElPlayer;
+
+    [Header("Variables Boxcast")]
     [SerializeField]
     private Vector2 m_BoxCastSize;
     [SerializeField]
@@ -24,12 +23,16 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     private LayerMask m_BoxLayerMask;
     [SerializeField]
     private float m_TimeBetweenBoxCast;
-    private int m_NumeroBoss;
 
+    [Header("Variables sala")]
+    private int m_NumeroBoss;
+    private bool m_HaEntradoElPlayer;
     public Action<Transform> OnPlayerIn;
+
     private void Start()
     {
         m_HaEntradoElPlayer = false;
+        m_CanOpenDoor = true;
         StartCoroutine(DeteccionPlayer());
     }
 
@@ -40,17 +43,13 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
             RaycastHit2D hit = Physics2D.BoxCast(transform.position, m_BoxCastSize, 0, transform.position, m_BoxCastRange, m_BoxLayerMask);
             if (hit.collider != null)
             {
-                print("Player dentro");
+                m_CanOpenDoor = false;
+                cambioPuerta?.Invoke(false);
                 OnPlayerIn?.Invoke(hit.transform);
                 m_HaEntradoElPlayer = true;
             }
             yield return new WaitForSeconds(m_TimeBetweenBoxCast);
         }
-    }
-
-    private void Update()
-    {
-       
     }
 
     public void Init(GeneracionSalasMatriz.ListaSalasConHijos _ListaSalasPadreHijas, int numeroBoss)
@@ -60,8 +59,15 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
         TodasLasSalasEnUnaLista();
         MaximosMinimosSala();
         GameObject jefe = Instantiate(LevelManager.Instance.GetBossToSpawn(m_NumeroBoss), transform);
+        jefe.GetComponent<BossBehaviour>().OnBossDeath += DesbloquearPuertas;
         jefe.transform.localPosition = Vector3.zero;
     }
+
+    private void DesbloquearPuertas()
+    {
+        cambioPuerta?.Invoke(true);
+    }
+
     private void TodasLasSalasEnUnaLista()
     {
         m_ListaSalas = m_ListaSalasPadreHijas.m_HabitacionesHijas;
@@ -88,25 +94,6 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
         minY = minY * 20 - 10f;
         maxX = maxX * 20 + 10f;
         maxY = maxY * 20 + 10f;
-    }
-
-    protected override void SpawnerSala()
-    {
-        GameObject jefe = Instantiate(m_JefeFinal, transform.position, Quaternion.identity);
-        jefe.transform.parent = transform;
-
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!collision.CompareTag("Player"))
-        {
-            return;
-        }
-        else
-        {
-            m_CanOpenDoor = false;
-            cambioPuerta?.Invoke(false);
-        }
     }
 
     public Vector2 GetPosicionAleatoriaEnSala()

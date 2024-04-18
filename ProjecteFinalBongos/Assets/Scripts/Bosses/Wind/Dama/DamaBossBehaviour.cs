@@ -128,6 +128,7 @@ public class DamaBossBehaviour : BossBehaviour
     {
         base.VidaCero();
         m_IsAlive = false;
+        OnBossDeath?.Invoke();
         Destroy(gameObject);
     }
 }

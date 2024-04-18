@@ -123,6 +123,7 @@ public class PegasusBossBehaviour : BossBehaviour
     {
         base.VidaCero();
         m_IsAlive = false;
+        OnBossDeath?.Invoke();
         Destroy(gameObject);
     }
 }

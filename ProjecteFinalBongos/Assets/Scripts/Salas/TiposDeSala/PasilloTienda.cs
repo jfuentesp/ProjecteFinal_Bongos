@@ -16,8 +16,4 @@ public class PasilloTienda : TipoSala
     {
         
     }
-    protected override void SpawnerSala()
-    {
-        throw new System.NotImplementedException();
-    }
 }

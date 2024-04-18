@@ -36,6 +36,8 @@ public class BossBehaviour : MonoBehaviour
 
     public Action OnPlayerInSala;
 
+    public Action OnBossDeath;
+
     protected enum CollisionType { CIRCLE, BOX }
 
     [Header("Attack detection area settings (CircleCast collider)")]
