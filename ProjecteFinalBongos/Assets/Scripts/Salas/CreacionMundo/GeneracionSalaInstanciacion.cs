@@ -59,13 +59,14 @@ namespace GeneracionSalas
 
         public void InstanciarElMundo(int[,] _matrix, List<ListaSalasConHijos> _ListaSalasPadreConHijos, List<ListaSalasConHijos> _ListaPasillosConSalas)
         {
+            print("Generando mundo");
             matrix = _matrix;
             m_ListaSalasPadreConHijos = _ListaSalasPadreConHijos;
             m_ListaPasillosConSalas = _ListaPasillosConSalas;
             GenSalasBoss();
             GenPasillos();
             PintarTilemap();
-            onMapaFinalized.Invoke();
+            onMapaFinalized?.Invoke();
         }
 
         private void GenPasillos()

@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using static SaveGame.SaveGame;
+using static SaveLoadGame.SaveGame;
 
-namespace SaveGame
+namespace SaveLoadGame
 {
     public class SaveDataManager : MonoBehaviour
     {
@@ -15,8 +15,12 @@ namespace SaveGame
         {
 
             ISaveableSalasData dataSalas = FindObjectOfType<GeneracionSalas.GeneracionSalasMatriz>();
+            ISaveableSalaBossData[] dataBosses = FindObjectsByType<SalaBoss>(FindObjectsSortMode.None);
+            
             SaveGame data = new SaveGame();
-            data.PopulateDataSalas(dataSalas);
+            data.PopulateDataMapaSalas(dataSalas);
+            data.PopulateDataSalasBoss(dataBosses);
+            
             string jsonData = JsonUtility.ToJson(data);
 
             try
@@ -41,7 +45,7 @@ namespace SaveGame
                 SaveGame data = new SaveGame();
                 JsonUtility.FromJsonOverwrite(jsonData, data);
 
-                FindObjectOfType<GeneracionSalas.GeneracionSalasMatriz>().Load(data.matriz);
+                FindObjectOfType<GeneracionSalas.GeneracionSalasMatriz>().Load(data.m_Mapa);
 
             }
             catch (Exception e)

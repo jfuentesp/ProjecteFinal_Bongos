@@ -117,7 +117,7 @@ public class SMBFlyingState : SMState
         while(m_NumberOfHarpiesToSpawn > 0)
         {
             m_NumberOfHarpiesToSpawn--;
-            GameObject obj = Instantiate(m_Prefab);
+            GameObject obj = Instantiate(m_Prefab, transform.parent);
             HarpyBehaviour harpy = obj.GetComponent<HarpyBehaviour>();
             Vector3 spawnPos = new Vector3(Random.Range(transform.position.x - 5, transform.position.x + 5), transform.position.y + 7, 0);
             obj.transform.position = spawnPos;

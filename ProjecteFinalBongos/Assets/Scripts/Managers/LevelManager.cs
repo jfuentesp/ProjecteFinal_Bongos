@@ -50,16 +50,20 @@ public class LevelManager : MonoBehaviour
 
     public int GetAvailableBoss()
     {
-        int numero = Random.Range(0, 8);
+        int numero = Random.Range(0, m_ListaBossesDisponibles.Count);
         if (m_ListaBossesDisponibles[numero].m_BossDisponible)
         {
+            BossDisponible bossTemporal = m_ListaBossesDisponibles[numero];
+            bossTemporal.m_BossDisponible = false;
+            m_ListaBossesDisponibles[numero] = bossTemporal;
+
             return numero;
         }
         else
         {
-            return GetAvailableBoss();
+             numero = GetAvailableBoss();
         }
-
+        return numero;
     }
 
     public GameObject GetBossToSpawn(int numBoss)

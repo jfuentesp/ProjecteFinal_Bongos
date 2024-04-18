@@ -1,9 +1,10 @@
 using GeneracionSalas;
+using SaveLoadGame;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static SaveGame.SaveGame;
+using static SaveLoadGame.SaveGame;
 using Random = UnityEngine.Random;
 
 public class SalaBoss : TipoSala, ISaveableSalaBossData
@@ -23,6 +24,7 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     private LayerMask m_BoxLayerMask;
     [SerializeField]
     private float m_TimeBetweenBoxCast;
+    private int m_NumeroBoss;
 
     public Action<Transform> OnPlayerIn;
     private void Start()
@@ -53,10 +55,11 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
 
     public void Init(GeneracionSalasMatriz.ListaSalasConHijos _ListaSalasPadreHijas, int numeroBoss)
     {
+        m_NumeroBoss = numeroBoss;
         m_ListaSalasPadreHijas = _ListaSalasPadreHijas;
         TodasLasSalasEnUnaLista();
         MaximosMinimosSala();
-        GameObject jefe = Instantiate(LevelManager.Instance.GetBossToSpawn(numeroBoss), transform);
+        GameObject jefe = Instantiate(LevelManager.Instance.GetBossToSpawn(m_NumeroBoss), transform);
         jefe.transform.localPosition = Vector3.zero;
     }
     private void TodasLasSalasEnUnaLista()
@@ -144,7 +147,11 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
 
     public SalaBossData Save()
     {
-        throw new NotImplementedException();
+        SaveGame.SalaBossData salaBossData = new SalaBossData();
+        salaBossData.m_NumeroBoss = m_NumeroBoss;
+        salaBossData.m_SalasHijas = m_ListaSalasPadreHijas;
+
+        return salaBossData;
     }
 
     public void Load(SalaBossData _salaBossData)

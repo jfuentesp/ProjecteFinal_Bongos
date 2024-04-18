@@ -5,7 +5,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using static SaveGame.SaveGame;
+using static SaveLoadGame.SaveGame;
 using Random = UnityEngine.Random;
 
 namespace GeneracionSalas
@@ -248,8 +248,28 @@ namespace GeneracionSalas
         
         public SalasData Save()
         {
+            SalasData salasMapaData = new SalasData();
+            salasMapaData.m_ListaPasillos = m_ListaPasillosConSalas.ToArray();
+            salasMapaData.m_SalasBosses = m_ListaSalasPadreConHijos.ToArray();
 
-            return new SalasData(m_ListaSalasPadreConHijos.ToArray(), m_ListaPasillosConSalas.ToArray());
+            int[] matrixGuardar;
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+            matrixGuardar = new int[rows * cols];
+
+            int index = 0;
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    matrixGuardar[index] = matrix[i, j];
+                    index++;
+                }
+            }
+
+            salasMapaData.m_Matriz = matrixGuardar;
+
+            return salasMapaData;
         }
 
         public void Load(SalasData _salaData)
