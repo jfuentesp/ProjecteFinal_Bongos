@@ -73,7 +73,7 @@ public class AlteaBossBehaviour : BossBehaviour
             egg.transform.position = new Vector2(posicionHuevo.x, posicionHuevo.y);
             egg.SetActive(true);
             egg.GetComponent<EggAltea>().enabled = true;
-            egg.GetComponent<EggAltea>().Init(m_Target);
+            egg.GetComponent<EggAltea>().Init(m_Target, transform.parent);
         }
     }
     protected override void VidaCero()

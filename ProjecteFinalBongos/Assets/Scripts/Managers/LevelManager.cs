@@ -13,10 +13,18 @@ public class LevelManager : MonoBehaviour
 
     private GeneracionSalasMatriz m_GeneracionSalasMatriz;
 
+    public enum MundoActual
+    {
+        MUNDO_UNO, MUNDO_DOS, MUNDO_TRES
+    };
+    [SerializeField]
+    private MundoActual m_MundoActual;
+    public MundoActual MundoActualJugador => m_MundoActual;
+
     [SerializeField] private Pool m_SplashPool;
-    [HideInInspector] public Pool _SplashPool;
+    public Pool _SplashPool => m_SplashPool;
     [SerializeField] private Pool m_BulletPool;
-    [HideInInspector] public Pool _BulletPool;
+    public Pool _BulletPool => m_BulletPool;
     [SerializeField] private List<BossDisponible> m_ListaBossesDisponibles = new();
     [SerializeField] private GameEvent m_GuardarPartidaEvent;
 
