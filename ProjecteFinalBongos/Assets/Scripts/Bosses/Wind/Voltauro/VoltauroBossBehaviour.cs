@@ -113,7 +113,7 @@ public class VoltauroBossBehaviour : BossBehaviour
                 break;
             case > 0.51f:
                 m_NumberOfAttacksBeforeCharge--;
-                if (m_CurrentPhase == Phase.TWO && rng > 0.8f)
+                if (m_CurrentPhase == Phase.TWO && rng > 0.7f)
                 {
                     m_StateMachine.ChangeState<SMBLightningSummonState>();
                 }

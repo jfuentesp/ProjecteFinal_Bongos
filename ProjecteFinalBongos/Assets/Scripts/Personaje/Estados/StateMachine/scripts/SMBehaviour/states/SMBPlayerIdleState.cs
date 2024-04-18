@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,9 +9,10 @@ using UnityEngine.InputSystem;
         private Rigidbody2D m_Rigidbody;
         private Animator m_Animator;
         private FiniteStateMachine m_StateMachine;
+        [SerializeField]
+        private GameEvent coolDownMovement;
 
-
-        private new void Awake()
+    private new void Awake()
         {
             base.Awake();
             m_PJ = GetComponent<PJSMB>();
@@ -25,6 +27,7 @@ using UnityEngine.InputSystem;
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed += OnAttack1;
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed += OnAttack2;
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed += Parry;
+        m_PJ.Input.FindActionMap("PlayerActions").FindAction("MovementAction").performed += MovementAction;
         m_Rigidbody.velocity = Vector2.zero;
 
         if (m_PJ.direccion == 0)
@@ -48,9 +51,11 @@ using UnityEngine.InputSystem;
             base.ExitState();
             if (m_PJ.Input != null)
             {
-                m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed -= OnAttack1;
-                m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed -= OnAttack2;
+
+            m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed -= OnAttack1;
+            m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed -= OnAttack2;
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed -= Parry;
+            m_PJ.Input.FindActionMap("PlayerActions").FindAction("MovementAction").performed -= MovementAction;
         }
         }
 
@@ -66,6 +71,15 @@ using UnityEngine.InputSystem;
     private void Parry(InputAction.CallbackContext context)
     {
         m_StateMachine.ChangeState<SMBPlayerParryState>();
+    }
+    private void MovementAction(InputAction.CallbackContext context)
+    {
+        if (m_PJ.PlayerAbilitiesController.CanMove)
+        {
+            coolDownMovement.Raise();
+            m_StateMachine.ChangeState<HabilidadDeMovimientoState>();
+        }
+
     }
 
     private void Update()

@@ -11,6 +11,7 @@ public class SMBAdormitState : SMState
     private FiniteStateMachine m_StateMachine;
     [SerializeField]
     private GameEvent m_event;
+    private bool sleep;
     [SerializeField]
     private TimesScriptable playerTimes;
     private new void Awake()
@@ -31,15 +32,19 @@ public class SMBAdormitState : SMState
 
     }
 
-   private void OnTriggerEnter2D() {
-        if (this.enabled) {
+   /*private void OnTriggerEnter2D() {
+        if (sleep) {
             m_event.Raise();
+            Debug.Log(playerTimes.m_SleepTime);
             m_StateMachine.ChangeState<SMBPlayerIdleState>();
         }
-    }
+    }*/
     IEnumerator StunSeconds()
     {
+        sleep = true;
         yield return new WaitForSeconds(playerTimes.m_SleepTime);
+        Debug.Log(playerTimes.m_SleepTime);
+        sleep = false;
         m_event.Raise();
         m_StateMachine.ChangeState<SMBPlayerIdleState>();
 

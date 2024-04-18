@@ -11,6 +11,8 @@ public class SMBPlayerWalkState : SMState
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
+    [SerializeField]
+    private GameEvent coolDownMovement;
 
     private Vector2 m_Movement;
 
@@ -29,6 +31,7 @@ public class SMBPlayerWalkState : SMState
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed += OnAttack1;
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed += OnAttack2;
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed += Parry;
+        m_PJ.Input.FindActionMap("PlayerActions").FindAction("MovementAction").performed += MovementAction;
 
     }
 
@@ -38,7 +41,8 @@ public class SMBPlayerWalkState : SMState
         if (m_PJ.Input) {
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed -= OnAttack1;
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed -= OnAttack2;
-            m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed += Parry;
+            m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed -= Parry;
+            m_PJ.Input.FindActionMap("PlayerActions").FindAction("MovementAction").performed -= MovementAction;
         }
 
     }
@@ -54,6 +58,14 @@ public class SMBPlayerWalkState : SMState
     private void Parry(InputAction.CallbackContext context)
     {
         m_StateMachine.ChangeState<SMBPlayerParryState>();
+    }
+    private void MovementAction(InputAction.CallbackContext context)
+    {
+        if (m_PJ.PlayerAbilitiesController.CanMove) {  
+            coolDownMovement.Raise();
+            m_StateMachine.ChangeState<HabilidadDeMovimientoState>();
+        }
+
     }
 
     private void Update()
@@ -89,7 +101,7 @@ public class SMBPlayerWalkState : SMState
             m_Animator.Play("walkUp");
         }
 
-        m_Rigidbody.velocity = m_Movement * m_PJ.Velocity;
+        m_Rigidbody.velocity = m_Movement * m_PJ.PlayerStatsController.m_Velocity;
     }
 }
 

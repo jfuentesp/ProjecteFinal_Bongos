@@ -1,20 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SMBHit1x4State : SMBComboState
 {
+    [SerializeField]
+    private EstadoEvent m_ChangeEstado;
     public override void InitState()
     {
         base.InitState();
-        m_Animator.Play("attack1x4");
+        if (m_PJ.PlayerAbilitiesController.AtaquesMejoradosDisponibles.Contains("1x4better"))
+        {
+            m_Animator.Play("attack1x4Better");
+        }
+        else {
+            m_Animator.Play("attack1x4");
+        }
+        if (m_PJ.PlayerAbilitiesController.AtaquesMejoradosDisponibles.Contains("1x4Strong"))
+        {
+           m_ChangeEstado.Raise(EstadosAlterados.Forçut);
+        }
         StartCoroutine(AttackBehaviour());
         SetDamage();
     }
     IEnumerator AttackBehaviour()
     {
+        
         if (m_PJ.direccion == 1) {
             m_Rigidbody.velocity = transform.up * -8;
         }

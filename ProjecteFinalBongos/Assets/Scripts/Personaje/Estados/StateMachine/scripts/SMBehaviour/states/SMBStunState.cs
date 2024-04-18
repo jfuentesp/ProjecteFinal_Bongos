@@ -15,6 +15,7 @@ public class SMBStunState : SMState
     private GameEvent m_event;
     [SerializeField]
     private TimesScriptable playerTimes;
+    private float m_Time;
     private new void Awake()
     {
         base.Awake();
@@ -22,18 +23,20 @@ public class SMBStunState : SMState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
+
     }
 
     public override void InitState()
     {
         base.InitState();
+        m_Time = playerTimes.m_StunTime;
         m_Animator.Play("stunnedPlayer");
         m_Rigidbody.velocity = Vector2.zero;
         StartCoroutine(StunSeconds());
         
     }
     IEnumerator StunSeconds() { 
-        yield return new WaitForSeconds(playerTimes.m_StunTime);
+        yield return new WaitForSeconds(m_Time);
         m_event.Raise();
         m_StateMachine.ChangeState<SMBPlayerIdleState>();
     }
@@ -41,5 +44,9 @@ public class SMBStunState : SMState
     {
         base.ExitState();
         StopAllCoroutines();
+    }
+
+    public void ChangeTime(float time) { 
+        m_Time = time;
     }
 }
