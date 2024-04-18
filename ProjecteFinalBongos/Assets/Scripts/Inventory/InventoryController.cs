@@ -19,6 +19,8 @@ public class InventoryController : MonoBehaviour
     [SerializeField]
     private int m_ConsumableGridRows;
 
+    private GameObject m_SelectedSlot;
+
 
     private void Awake()
     {
@@ -37,7 +39,10 @@ public class InventoryController : MonoBehaviour
 
     private void BuildConsumableGUI()
     {
-
+        foreach(Consumable consumable in m_Consumables) 
+        {
+            
+        }
     }
 
 }

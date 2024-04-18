@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1591906359193759214}
   - component: {fileID: 3040566737985882520}
   - component: {fileID: 2305821294727260339}
+  - component: {fileID: 5941659200087284716}
   m_Layer: 7
   m_Name: Grid
   m_TagString: Untagged
@@ -37,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 60, y: 60}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3040566737985882520
 CanvasRenderer:
@@ -77,6 +78,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5941659200087284716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241599414380940555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41adaf451ba5e0945804f28fb3cfb7fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ItemSprite: {fileID: 8897561492340708824}
+  m_Slot: {fileID: 4481524910891166063}
+  m_QuantityText: {fileID: 2788343784318331614}
 --- !u!1 &4481524910891166063
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +130,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4911632183168231657
 CanvasRenderer:
