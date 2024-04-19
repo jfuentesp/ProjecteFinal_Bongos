@@ -2,6 +2,7 @@ using GeneracionSalas;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -13,10 +14,17 @@ public class LevelManager : MonoBehaviour
 
     private GeneracionSalasMatriz m_GeneracionSalasMatriz;
 
+    [Header("Variables Piccolo Chad")]
+    [SerializeField] private GameObject dialoguePanel;
+    public GameObject DialoguePanel => dialoguePanel;
+    [SerializeField] private TextMeshProUGUI dialogueText;
+    public TextMeshProUGUI DialogueText => dialogueText;
+
     public enum MundoActual
     {
         MUNDO_UNO, MUNDO_DOS, MUNDO_TRES
     };
+    [Header("Variables Mundo")]
     [SerializeField]
     private MundoActual m_MundoActual;
     public MundoActual MundoActualJugador => m_MundoActual;
@@ -28,6 +36,13 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private List<BossDisponible> m_ListaBossesDisponibles = new();
     [SerializeField] private GameEvent m_GuardarPartidaEvent;
     [SerializeField] private GameEvent m_CargarPartidaEvent;
+
+    [Header("Lista de objetos")]
+    [SerializeField] private List<ObjetosDisponibles> m_ObjetosDisponiblesTienda;
+    [SerializeField] private List<ObjetosDisponibles> m_ObjetosDisponiblesSalas;
+    [SerializeField] private int numeroObjetosTienda;
+    [SerializeField] private int numeroObjetosSalaObjetos;
+
 
     private void Awake()
     {
@@ -93,6 +108,19 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public List<ObjetosDisponibles> GetObjetosTienda()
+    {
+        List<ObjetosDisponibles> objetitosParaPiccoloChad = new();
+
+        for(int i = 0; i < numeroObjetosTienda; i++)
+        {
+            float random = Random.Range(0.0f, 100.0f);
+
+        }
+
+        return objetitosParaPiccoloChad;
+    }
+
     [Serializable]
     public struct BossDisponible
     {
@@ -103,6 +131,18 @@ public class LevelManager : MonoBehaviour
         {
             m_BossDisponible = _BossDisponible;
             m_BossPrefab = _BossPrefab;
+        }
+    }
+    [Serializable]
+    public struct ObjetosDisponibles
+    {
+        public int m_NumberOfObject;
+        public float ratioAparicion;
+
+        public ObjetosDisponibles(int _numberOfObject,float _RatioAparicion)
+        {
+            m_NumberOfObject = _numberOfObject;
+            ratioAparicion = _RatioAparicion;
         }
     }
 }

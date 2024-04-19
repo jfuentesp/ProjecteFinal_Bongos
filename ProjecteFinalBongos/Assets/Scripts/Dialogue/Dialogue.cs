@@ -7,8 +7,8 @@ using Random = UnityEngine.Random;
 public class Dialogue : MonoBehaviour
 {
     [SerializeField] private GameObject m_DialogueMark;
-    [SerializeField] private GameObject dialoguePanel;
-    [SerializeField] private TextMeshProUGUI dialogueText;
+    private GameObject dialoguePanel;
+    private TextMeshProUGUI dialogueText;
     [SerializeField, TextArea(4, 6)] private string[] m_DialogueLines;
 
     [SerializeField] private float typingTime;
@@ -20,6 +20,12 @@ public class Dialogue : MonoBehaviour
 
     private int lineIndex;
 
+
+    private void Awake()
+    {
+        dialoguePanel = LevelManager.Instance.DialoguePanel;
+        dialogueText = LevelManager.Instance.DialogueText;
+    }
 
     // Update is called once per frame
     void Update()
@@ -37,7 +43,6 @@ public class Dialogue : MonoBehaviour
             else
             {
                 BreakCoroutine();
-
             }
         }
     }

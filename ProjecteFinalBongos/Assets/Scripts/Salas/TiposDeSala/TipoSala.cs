@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public abstract class TipoSala : MonoBehaviour
 {
     protected bool m_CanOpenDoor;
+    protected abstract void SpawnerSala();
     public bool CanOpenDoor => m_CanOpenDoor;
     public Action<bool> cambioPuerta;
 

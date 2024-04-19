@@ -58,9 +58,6 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
         m_ListaSalasPadreHijas = _ListaSalasPadreHijas;
         TodasLasSalasEnUnaLista();
         MaximosMinimosSala();
-        GameObject jefe = Instantiate(LevelManager.Instance.GetBossToSpawn(m_NumeroBoss), transform);
-        jefe.GetComponent<BossBehaviour>().OnBossDeath += DesbloquearPuertas;
-        jefe.transform.localPosition = Vector3.zero;
     }
 
     private void DesbloquearPuertas()
@@ -147,5 +144,12 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
         m_NumeroBoss = _salaBossData.m_NumeroBoss;
         m_ListaSalasPadreHijas = _salaBossData.m_SalasHijas;
         Init(m_ListaSalasPadreHijas, m_NumeroBoss);
+    }
+
+    protected override void SpawnerSala()
+    {
+        GameObject jefe = Instantiate(LevelManager.Instance.GetBossToSpawn(m_NumeroBoss), transform);
+        jefe.GetComponent<BossBehaviour>().OnBossDeath += DesbloquearPuertas;
+        jefe.transform.localPosition = Vector3.zero;
     }
 }

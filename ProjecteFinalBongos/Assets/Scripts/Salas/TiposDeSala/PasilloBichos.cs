@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class PasilloBichos : TipoSala
 {
-    
+    protected override void SpawnerSala()
+    {
+        throw new System.NotImplementedException();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
