@@ -9,7 +9,9 @@ public class PasilloTienda : TipoSala
     private GameObject m_Vendedor;
     protected override void SpawnerSala()
     {
-        GameObject vendedor = Instantiate(m_Vendedor, transform.position, Quaternion.identity);
+        GameObject vendedor = Instantiate(m_Vendedor, transform);
+        vendedor.transform.localPosition = Vector2.zero;
+        vendedor.GetComponent<PiccoloChadScript>().Init(LevelManager.Instance.GetObjetosTienda());
     }
 
     // Start is called before the first frame update

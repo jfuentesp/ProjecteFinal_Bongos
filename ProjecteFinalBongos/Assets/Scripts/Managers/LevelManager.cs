@@ -85,7 +85,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-             numero = GetAvailableBoss();
+            numero = GetAvailableBoss();
         }
         return numero;
     }
@@ -111,14 +111,50 @@ public class LevelManager : MonoBehaviour
     public List<ObjetosDisponibles> GetObjetosTienda()
     {
         List<ObjetosDisponibles> objetitosParaPiccoloChad = new();
+       
 
-        for(int i = 0; i < numeroObjetosTienda; i++)
+        for (int i = 0; i < numeroObjetosTienda; i++)
         {
+            float numeroMinimo = 0;
             float random = Random.Range(0.0f, 100.0f);
-
+            foreach (ObjetosDisponibles objeto in m_ObjetosDisponiblesTienda)
+            {
+                if (random >= numeroMinimo && random <= objeto.ratioAparicion + numeroMinimo)
+                {
+                    objetitosParaPiccoloChad.Add(objeto);
+                    break;
+                }
+                else
+                {
+                    numeroMinimo += objeto.ratioAparicion;
+                }
+            }
         }
-
         return objetitosParaPiccoloChad;
+    }
+    public List<ObjetosDisponibles> GetObjetosSalaObjetos()
+    {
+        List<ObjetosDisponibles> objetitosParaSalaObjetos = new();
+
+
+        for (int i = 0; i < numeroObjetosSalaObjetos; i++)
+        {
+            float numeroMinimo = 0;
+            float random = Random.Range(0.0f, 100.0f);
+            foreach (ObjetosDisponibles objeto in m_ObjetosDisponiblesSalas)
+            {
+                if (random >= numeroMinimo && random <= objeto.ratioAparicion + numeroMinimo)
+                {
+                    objetitosParaSalaObjetos.Add(objeto);
+                    break;
+                }
+                else
+                {
+                    numeroMinimo += objeto.ratioAparicion;
+                }
+            }
+        }
+        return objetitosParaSalaObjetos;
     }
 
     [Serializable]
@@ -139,7 +175,7 @@ public class LevelManager : MonoBehaviour
         public int m_NumberOfObject;
         public float ratioAparicion;
 
-        public ObjetosDisponibles(int _numberOfObject,float _RatioAparicion)
+        public ObjetosDisponibles(int _numberOfObject, float _RatioAparicion)
         {
             m_NumberOfObject = _numberOfObject;
             ratioAparicion = _RatioAparicion;

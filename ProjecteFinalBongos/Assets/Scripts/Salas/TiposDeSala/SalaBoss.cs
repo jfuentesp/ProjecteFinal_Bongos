@@ -58,6 +58,7 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
         m_ListaSalasPadreHijas = _ListaSalasPadreHijas;
         TodasLasSalasEnUnaLista();
         MaximosMinimosSala();
+        SpawnerSala();
     }
 
     private void DesbloquearPuertas()

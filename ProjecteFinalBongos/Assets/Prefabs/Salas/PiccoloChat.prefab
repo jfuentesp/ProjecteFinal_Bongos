@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 2687303299072123704}
   - component: {fileID: 4677028693164480887}
   - component: {fileID: 6452887010405753059}
+  - component: {fileID: -4314344526376615856}
   m_Layer: 0
   m_Name: PiccoloChat
   m_TagString: Untagged
@@ -275,8 +276,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DialogueMark: {fileID: 5117775869007671344}
-  dialoguePanel: {fileID: 0}
-  dialogueText: {fileID: 0}
   m_DialogueLines:
   - 'PICCOLO CHAD: "Si quieres odiarme debes empezar por odiar tu destino, asi como
     lo hago yo"'
@@ -286,3 +285,16 @@ MonoBehaviour:
   - 'PICCOLO CHAD: "No te molestes en luchar si tu habilidad no respalda tus palabras"'
   - 'PICCOLO CHAD: "Tu y yo amigos,no me hagas reir"'
   typingTime: 0.03
+--- !u!114 &-4314344526376615856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7112537873191832618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6072d6d3ceb304e9e50fcc56bbb47e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ObjetosDisponibles: []

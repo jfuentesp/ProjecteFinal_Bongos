@@ -1782,6 +1782,38 @@ MonoBehaviour:
     m_BossDisponible: 0
   m_GuardarPartidaEvent: {fileID: 11400000, guid: 0621630a1c7d1a949bc1c63b4833c396, type: 2}
   m_CargarPartidaEvent: {fileID: 11400000, guid: f7ea0370e72825c45b2c3968fb1d0ae2, type: 2}
+  m_ObjetosDisponiblesTienda:
+  - m_NumberOfObject: 1
+    ratioAparicion: 37.5
+  - m_NumberOfObject: 2
+    ratioAparicion: 12
+  - m_NumberOfObject: 3
+    ratioAparicion: 18
+  - m_NumberOfObject: 4
+    ratioAparicion: 9.5
+  - m_NumberOfObject: 5
+    ratioAparicion: 16
+  - m_NumberOfObject: 6
+    ratioAparicion: 7
+  m_ObjetosDisponiblesSalas:
+  - m_NumberOfObject: 1
+    ratioAparicion: 12
+  - m_NumberOfObject: 2
+    ratioAparicion: 10
+  - m_NumberOfObject: 3
+    ratioAparicion: 8
+  - m_NumberOfObject: 4
+    ratioAparicion: 4
+  - m_NumberOfObject: 5
+    ratioAparicion: 17
+  - m_NumberOfObject: 6
+    ratioAparicion: 11
+  - m_NumberOfObject: 7
+    ratioAparicion: 19
+  - m_NumberOfObject: 8
+    ratioAparicion: 19
+  numeroObjetosTienda: 4
+  numeroObjetosSalaObjetos: 4
 --- !u!1 &2049791577
 GameObject:
   m_ObjectHideFlags: 0
