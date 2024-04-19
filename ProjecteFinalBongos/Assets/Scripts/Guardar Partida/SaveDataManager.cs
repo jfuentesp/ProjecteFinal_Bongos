@@ -47,6 +47,16 @@ namespace SaveLoadGame
 
                 FindObjectOfType<GeneracionSalas.GeneracionSalasMatriz>().Load(data.m_Mapa);
 
+                SalaBoss[] salasLoot = FindObjectsByType<SalaBoss>(FindObjectsSortMode.None);
+                for (int i = 0; i < salasLoot.Length; i++)
+                {
+                    foreach (SaveGame.SalaBossData salita in data.m_Bosses)
+                    {
+                        if (salita.m_SalaTransform == salasLoot[i].transform.position)
+                            salasLoot[i].Load(salita);
+                    }
+                }
+
             }
             catch (Exception e)
             {

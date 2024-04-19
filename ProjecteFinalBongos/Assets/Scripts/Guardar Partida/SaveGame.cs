@@ -31,9 +31,11 @@ namespace SaveLoadGame
         {
             public int m_NumeroBoss;
             public GeneracionSalasMatriz.ListaSalasConHijos m_SalasHijas;
+            public Vector3 m_SalaTransform;
 
-            public SalaBossData(GeneracionSalasMatriz.ListaSalasConHijos _SalasHijas, int _NumeroBoss)
+            public SalaBossData(GeneracionSalasMatriz.ListaSalasConHijos _SalasHijas, int _NumeroBoss, Vector3 _SalaTransform)
             {
+                m_SalaTransform = _SalaTransform;
                 m_NumeroBoss = _NumeroBoss;
                 m_SalasHijas = _SalasHijas;
             }

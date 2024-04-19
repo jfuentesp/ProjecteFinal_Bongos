@@ -137,12 +137,15 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
         SaveGame.SalaBossData salaBossData = new SalaBossData();
         salaBossData.m_NumeroBoss = m_NumeroBoss;
         salaBossData.m_SalasHijas = m_ListaSalasPadreHijas;
+        salaBossData.m_SalaTransform = transform.position;
 
         return salaBossData;
     }
 
     public void Load(SalaBossData _salaBossData)
     {
-        throw new NotImplementedException();
+        m_NumeroBoss = _salaBossData.m_NumeroBoss;
+        m_ListaSalasPadreHijas = _salaBossData.m_SalasHijas;
+        Init(m_ListaSalasPadreHijas, m_NumeroBoss);
     }
 }

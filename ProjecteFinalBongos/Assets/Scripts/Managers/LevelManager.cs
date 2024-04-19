@@ -27,6 +27,7 @@ public class LevelManager : MonoBehaviour
     public Pool _BulletPool => m_BulletPool;
     [SerializeField] private List<BossDisponible> m_ListaBossesDisponibles = new();
     [SerializeField] private GameEvent m_GuardarPartidaEvent;
+    [SerializeField] private GameEvent m_CargarPartidaEvent;
 
     private void Awake()
     {
@@ -81,8 +82,15 @@ public class LevelManager : MonoBehaviour
 
     public void Init()
     {
-        m_GeneracionSalasMatriz.Init();
-        m_GuardarPartidaEvent.Raise();
+        if (GameManager.Instance.NuevaPartida)
+        {
+            m_GeneracionSalasMatriz.Init();
+            m_GuardarPartidaEvent.Raise();
+        }
+        else
+        {
+            m_CargarPartidaEvent.Raise();
+        }
     }
 
     [Serializable]

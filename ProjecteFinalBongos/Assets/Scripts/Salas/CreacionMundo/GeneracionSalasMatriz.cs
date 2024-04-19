@@ -274,7 +274,23 @@ namespace GeneracionSalas
 
         public void Load(SalasData _salaData)
         {
-            throw new NotImplementedException();
+            m_ListaPasillosConSalas = _salaData.m_ListaPasillos.ToList();
+            m_ListaSalasPadreConHijos = _salaData.m_SalasBosses.ToList();
+
+            int[,] reconstructedMatrix = new int[100, 100];
+
+            int index = 0;
+            for (int i = 0; i < 100; i++)
+            {
+                for (int j = 0; j < 100; j++)
+                {
+                    reconstructedMatrix[i, j] = _salaData.m_Matriz[index];
+                    index++;
+                }
+            }
+            matrix = reconstructedMatrix;
+
+            m_GeneracionSalasInstanciacion.InstanciarElMundo(matrix, m_ListaSalasPadreConHijos, m_ListaPasillosConSalas);
         }
 
         [Serializable]

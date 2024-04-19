@@ -32,9 +32,10 @@ public class GameManager : MonoBehaviour
             m_MundoGenerado = true;
             LevelManager.Instance.Init();
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && !m_MundoGenerado)
         {
             m_NuevaPartida = false;
+            m_MundoGenerado = true;
             LevelManager.Instance.Init();
         }
     }
