@@ -94,10 +94,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4556216697052295141}
   - component: {fileID: 2315792570641281172}
-  - component: {fileID: 2687303299072123704}
   - component: {fileID: 4677028693164480887}
-  - component: {fileID: 6452887010405753059}
   - component: {fileID: -4314344526376615856}
+  - component: {fileID: 2031237481553692337}
   m_Layer: 0
   m_Name: PiccoloChat
   m_TagString: Untagged
@@ -162,7 +161,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -604181873, guid: 8676e364657776f41b9cd6f2cff35bf0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -173,51 +172,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2687303299072123704
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7112537873191832618}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!61 &4677028693164480887
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -254,7 +208,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -263,28 +217,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6, y: 6}
   m_EdgeRadius: 0
---- !u!114 &6452887010405753059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7112537873191832618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6324c7fbd82d5a64ea1edb8e4490d84e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_DialogueMark: {fileID: 5117775869007671344}
-  m_DialogueLines:
-  - 'PICCOLO CHAD: "Si quieres odiarme debes empezar por odiar tu destino, asi como
-    lo hago yo"'
-  - 'PICCOLO CHAD: "Este es un color ecologico y no te hagas el listo o te ira muy
-    mal"'
-  - 'PICCOLO CHAD: "Dejenme en paz,el que este verde no significa que no este maduro"'
-  - 'PICCOLO CHAD: "No te molestes en luchar si tu habilidad no respalda tus palabras"'
-  - 'PICCOLO CHAD: "Tu y yo amigos,no me hagas reir"'
-  typingTime: 0.03
 --- !u!114 &-4314344526376615856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,3 +230,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ObjetosDisponibles: []
+  m_DialogueMark: {fileID: 5117775869007671344}
+  m_DialogueLines:
+  - 'PICCOLO CHAD: "Si quieres odiarme debes empezar por odiar tu destino, asi como
+    lo hago yo"'
+  - 'PICCOLO CHAD: "Este es un color ecologico y no te hagas el listo o te ira muy
+    mal"'
+  - 'PICCOLO CHAD: "Dejenme en paz,el que este verde no significa que no este maduro"'
+  - 'PICCOLO CHAD: "No te molestes en luchar si tu habilidad no respalda tus palabras"'
+  - 'PICCOLO CHAD: "Tu y yo amigos,no me hagas reir"'
+  typingTime: 0.03
+--- !u!95 &2031237481553692337
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7112537873191832618}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 827bbd6ea5d8bbb47b638f8a18b882d3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
