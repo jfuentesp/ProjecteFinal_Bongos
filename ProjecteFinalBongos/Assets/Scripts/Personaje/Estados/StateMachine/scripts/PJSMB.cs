@@ -45,10 +45,10 @@ public class PJSMB : MonoBehaviour
     public PlayerAbilitiesController PlayerAbilitiesController => m_playerAbilitiesController;
     private PlayerEstadosController m_playerEstadosController;
     private PlayerStatsController m_playersStatsController;
-    public PlayerStatsController PlayerStatsController => m_playersStatsController; 
+    public PlayerStatsController PlayerStatsController => m_playersStatsController;
 
     public PJSMB instance;
- 
+
 
     private void Awake()
     {
@@ -71,40 +71,38 @@ public class PJSMB : MonoBehaviour
     {
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_StateMachine.ChangeState<SMBPlayerIdleState>();
- 
+
     }
 
-   public void recibirDaño(float Daño)
+    public void recibirDaño(float Daño)
     {
         if (m_playerEstadosController.Invencible)
             return;
-        if (m_playerEstadosController.Burn) {
+        if (m_playerEstadosController.Burn)
+        {
             m_HealthController.Damage(Daño);
-            m_playersStatsController.m_BurntModifier = Random.Range(10, 31);
-            m_playerEstadosController.burntDamage = (Daño * m_playersStatsController.m_BurntModifier) / 100;
+            m_playerEstadosController.burntDamage = (Daño * m_playersStatsController.getModifier("Burnt")) / 100;
             m_HealthController.Damage(m_playerEstadosController.burntDamage);
         }
         if (m_playerEstadosController.Wrath && m_playerEstadosController.Paralized)
         {
-            Daño += Daño * m_playersStatsController.m_ParalizedLifeModifier;
+            Daño += Daño * m_playersStatsController.getModifier("Paralized");
             m_HealthController.Damage(Daño);
         }
         else if (m_playerEstadosController.Wrath)
         {
-            Daño += Daño * m_playersStatsController.m_WrathLifeModifier;
+            Daño += Daño * m_playersStatsController.getModifier("WrathLife");
             m_HealthController.Damage(Daño);
         }
         else if (m_playerEstadosController.Paralized)
         {
-            Daño += Daño * m_playersStatsController.m_ParalizedLifeModifier;
+            Daño += Daño * m_playersStatsController.getModifier("Paralized");
             m_HealthController.Damage(Daño);
         }
-        else {
+        else
+        {
             m_HealthController.Damage(Daño);
         }
     }
 
 }
-
- 
-
