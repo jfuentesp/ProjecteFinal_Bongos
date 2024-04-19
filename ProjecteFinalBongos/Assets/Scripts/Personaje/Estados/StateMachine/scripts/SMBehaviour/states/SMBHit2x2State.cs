@@ -28,7 +28,7 @@ public class SMBHit2x2State : SMBComboState
     }
     IEnumerator AttackBehaviour()
     {
-        if (m_PJ.Attacks.Contains("2x2better"))
+        if (m_PJ.PlayerAbilitiesController.AtaquesMejoradosDisponibles.Contains("2x2better"))
         {
             if (m_PJ.direccion == 1)
             {

@@ -51,8 +51,9 @@ using UnityEngine.InputSystem;
             base.ExitState();
             if (m_PJ.Input != null)
             {
-                m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed -= OnAttack1;
-                m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed -= OnAttack2;
+
+            m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed -= OnAttack1;
+            m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed -= OnAttack2;
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed -= Parry;
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("MovementAction").performed -= MovementAction;
         }
@@ -73,7 +74,7 @@ using UnityEngine.InputSystem;
     }
     private void MovementAction(InputAction.CallbackContext context)
     {
-        if (m_PJ.CanMove)
+        if (m_PJ.PlayerAbilitiesController.CanMove)
         {
             coolDownMovement.Raise();
             m_StateMachine.ChangeState<HabilidadDeMovimientoState>();

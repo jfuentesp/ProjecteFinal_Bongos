@@ -20,12 +20,13 @@ public class SMBPlayerSuccesfulParryState : MBState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
-        m_parry = m_PJ.Parry;
+       
     }
 
     public override void InitState()
     {
         base.InitState();
+        m_parry = m_PJ.PlayerAbilitiesController.Parry;
         parryAction();
     }
     private void parryAction() {

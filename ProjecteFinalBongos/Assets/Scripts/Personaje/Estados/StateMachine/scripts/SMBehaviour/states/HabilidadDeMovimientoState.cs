@@ -10,8 +10,8 @@ public class HabilidadDeMovimientoState : SMState
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
     private string m_habilidad;
-    private float dashSpeed = 10f;
-    private float dashSpeedInvicible = 5f;
+    private float dashSpeed = 15f;
+    private float dashSpeedInvicible = 10f;
     [SerializeField]
     private GameObject m_SlowDownZone;
     [SerializeField]
@@ -23,13 +23,14 @@ public class HabilidadDeMovimientoState : SMState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
-        m_habilidad = m_PJ.Movement;
+      
 
     }
 
     public override void InitState()
     {
         base.InitState();
+        m_habilidad = m_PJ.PlayerAbilitiesController.Movement;
         StartCoroutine(habilidad());
     }
 
@@ -38,41 +39,80 @@ public class HabilidadDeMovimientoState : SMState
         switch (m_habilidad)
         {
             case "Dash":
-                print("a");
-                if (m_PJ.direccion == 0)
+                if (m_PJ.MovementAction.ReadValue<Vector2>() == Vector2.zero)
                 {
-                    m_Animator.Play("Dash");
+                    if (m_PJ.direccion == 0)
+                    {
+                        m_Animator.Play("Dash");
+                        m_Rigidbody.velocity = transform.right * dashSpeed;
+                    }
+                    else if (m_PJ.direccion == 1)
+                    {
+                        m_Animator.Play("DashDown");
+                        m_Rigidbody.velocity = -transform.up * dashSpeed;
+                    }
+                    else if (m_PJ.direccion == 2)
+                    {
+                        m_Animator.Play("DashUp");
+                        m_Rigidbody.velocity = transform.up * dashSpeed;
+                    }
                 }
-                else if (m_PJ.direccion == 1)
-                {
-                    m_Animator.Play("DashDown");
+                else {
+                    if (m_PJ.direccion == 0)
+                    {
+                        m_Animator.Play("Dash");
+                    }
+                    else if (m_PJ.direccion == 1)
+                    {
+                        m_Animator.Play("DashDown");
+                    }
+                    else if (m_PJ.direccion == 2)
+                    {
+                        m_Animator.Play("DashUp");
+                    }
+                    m_Rigidbody.velocity = m_PJ.MovementAction.ReadValue<Vector2>() * dashSpeed;
                 }
-                else if (m_PJ.direccion == 2)
-                {
-                    m_Animator.Play("DashUp");
-                }
-                m_Rigidbody.velocity = Vector3.zero;
-                m_Rigidbody.velocity = m_PJ.MovementAction.ReadValue<Vector2>() * dashSpeed;
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.4f);
                 Exit();
                 break;
-            case "InvinvibleDash":
-                if (m_PJ.direccion == 0)
+            case "InvincibleDash":
+                GetComponent<CircleCollider2D>().enabled = false;
+                if (m_PJ.MovementAction.ReadValue<Vector2>() == Vector2.zero)
                 {
-                    m_Animator.Play("Dash");
+                    if (m_PJ.direccion == 0)
+                    {
+                        m_Animator.Play("Dash");
+                        m_Rigidbody.velocity = transform.right * dashSpeedInvicible;
+                    }
+                    else if (m_PJ.direccion == 1)
+                    {
+                        m_Animator.Play("DashDown");
+                        m_Rigidbody.velocity = -transform.up * dashSpeedInvicible;
+                    }
+                    else if (m_PJ.direccion == 2)
+                    {
+                        m_Animator.Play("DashUp");
+                        m_Rigidbody.velocity = transform.up * dashSpeedInvicible;
+                    }
                 }
-                else if (m_PJ.direccion == 1)
+                else
                 {
-                    m_Animator.Play("DashDown");
+                    if (m_PJ.direccion == 0)
+                    {
+                        m_Animator.Play("Dash");
+                    }
+                    else if (m_PJ.direccion == 1)
+                    {
+                        m_Animator.Play("DashDown");
+                    }
+                    else if (m_PJ.direccion == 2)
+                    {
+                        m_Animator.Play("DashUp");
+                    }
+                    m_Rigidbody.velocity = m_PJ.MovementAction.ReadValue<Vector2>() * dashSpeedInvicible;
                 }
-                else if (m_PJ.direccion == 2)
-                {
-                    m_Animator.Play("DashUp");
-                }
-                m_Rigidbody.velocity = Vector3.zero;
-                m_Rigidbody.velocity = m_PJ.MovementAction.ReadValue<Vector2>() * dashSpeedInvicible;
-                changeEstado.Raise(EstadosAlterados.Invencible);
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.4f);
+                GetComponent<CircleCollider2D>().enabled = true;
                 Exit();
                 break;
             case "SlowDown":

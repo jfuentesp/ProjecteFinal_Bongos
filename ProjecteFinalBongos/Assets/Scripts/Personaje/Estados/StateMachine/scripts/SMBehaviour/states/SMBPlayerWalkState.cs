@@ -61,7 +61,7 @@ public class SMBPlayerWalkState : SMState
     }
     private void MovementAction(InputAction.CallbackContext context)
     {
-        if (m_PJ.CanMove) {  
+        if (m_PJ.PlayerAbilitiesController.CanMove) {  
             coolDownMovement.Raise();
             m_StateMachine.ChangeState<HabilidadDeMovimientoState>();
         }
@@ -101,7 +101,7 @@ public class SMBPlayerWalkState : SMState
             m_Animator.Play("walkUp");
         }
 
-        m_Rigidbody.velocity = m_Movement * m_PJ.Velocity;
+        m_Rigidbody.velocity = m_Movement * m_PJ.PlayerStatsController.m_Velocity;
     }
 }
 
