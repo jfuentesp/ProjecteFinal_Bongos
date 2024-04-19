@@ -8,7 +8,4 @@ public interface IEquipable
     public string Description { get; set; }
     public Sprite Sprite { get; set; }
     public EstadosAlterados Estado { get; set; }
-
-    public void ApplyStats();
-    public void UnapplyStats();
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
@@ -52,18 +53,17 @@ public class PlayerStatsController : MonoBehaviour
     [SerializeField]
     public float m_Defense;
     [SerializeField]
-    private Equipable m_Sword;
+    private Sword m_Sword;
     [SerializeField]
-    private Equipable m_Armor;
-
+    private Armor m_Armor;
     private void Start()
     {
         m_Velocity = m_PlayerBaseStats.m_BaseVelocity;
         m_AttackTime = m_PlayerBaseStats.m_BaseAttackTime;
         m_Strength = m_PlayerBaseStats.m_BaseStrength;
         m_Defense = m_PlayerBaseStats.m_BaseDefense;
+        
     }
-
     public float getModifier(string modifier)
     {
         switch (modifier)
@@ -97,5 +97,32 @@ public class PlayerStatsController : MonoBehaviour
                 return 0;
         }
 
+    }
+
+    public void EquipArmor(Armor armor) { 
+        m_Armor = armor;
+        m_Defense += armor.defense;
+        m_Velocity += armor.speed;
+    }
+    public void UnequipArmor(Armor armor)
+    {
+        m_Armor = null;
+        m_Defense -= armor.defense;
+        m_Velocity -= armor.speed;
+    }
+
+    public void EquipSword(Sword sword)
+    {
+        m_Sword = sword;
+        m_Strength += sword.attack;
+        m_Velocity += sword.speed;
+        m_AttackTime += sword.speedAttack;
+    }
+    public void UnequipSword(Sword sword)
+    {
+        m_Sword = null;
+        m_Strength -= sword.attack;
+        m_Velocity -= sword.speed;
+        m_AttackTime -= sword.speedAttack;
     }
 }
