@@ -16,119 +16,134 @@ public class PiccoloChadScript : MonoBehaviour
     [SerializeField, TextArea(4, 6)] private string[] m_DialogueLines;
     [SerializeField, TextArea(4, 6)] private string[] m_FinalLine;
 
+    private Queue<string> m_FrasesParaDecir = new Queue<string>();
+
     [SerializeField] private float typingTime;
 
     private bool isPlayerInRange;
     private bool didDialogueStart;
-    private bool isInFirstDialogues;
+    private bool isInFirstMessage;
+    private bool canInteract;
 
-    private Coroutine m_TypeCoroutine;
+    private Coroutine m_FirstCoroutine;
     private Coroutine m_FinalTypeCoroutine;
 
+    private string m_FraseActual;
+
     private int lineIndex;
+
+    private int id;
 
     private void Awake()
     {
         m_Animator = GetComponent<Animator>();
         dialoguePanel = LevelManager.Instance.DialoguePanel;
         dialogueText = LevelManager.Instance.DialogueText;
+        LevelManager.Instance.onCloseShopOfPiccolo += SegundoDialogo;
     }
+
 
     public void Init(List<LevelManager.ObjetosDisponibles> _ObjetosDisponibles)
     {
         m_ObjetosDisponibles = _ObjetosDisponibles;
         m_Animator.Play("Idle");
+        id = LevelManager.Instance.GiveIdToPiccoloChad();
+        canInteract = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerInRange && Input.GetKeyDown(KeyCode.Space))
+        if (canInteract)
         {
-            if (!didDialogueStart)
+            if (isPlayerInRange && Input.GetKeyDown(KeyCode.Space))
             {
-                m_Animator.Play("Treballar");
-            }
-            else if (isInFirstDialogues)
-            {
-                if (dialogueText.text == m_DialogueLines[lineIndex])
+                if (!didDialogueStart)
                 {
-                    CloseDialogue();
-                    FinalPhrase();
+                    m_Animator.Play("Treballar");
                 }
-                else
+                else if (isInFirstMessage && dialogueText.text == m_FraseActual)
+                {
+                    LevelManager.Instance.OpenShop(id);
+                    canInteract = false;
+                }
+                else if (isInFirstMessage && dialogueText.text != m_FraseActual)
                 {
                     BreakCoroutineDialogueInicial();
                 }
-            }
-            else if (!isInFirstDialogues)
-            {
-                if (lineIndex == m_FinalLine.Length - 1)
+                else if (!isInFirstMessage && dialogueText.text != m_FraseActual)
                 {
-                    if (dialogueText.text == m_FinalLine[lineIndex])
-                    {
-                        CloseDialogue();
-                    }
-                    else
-                    {
-
-                    }
+                    BreakCoroutineDialogueFinall();
                 }
                 else
                 {
-
+                    if (m_FrasesParaDecir.Count == 0)
+                        CloseDialogue();
+                    else
+                        SegundoDialogo(id);
                 }
-
             }
         }
     }
-
-    private void FinalPhrase()
+    private void SegundoDialogo(int obj)
     {
-        throw new System.NotImplementedException();
+        if(obj == id)
+        {
+            canInteract = true;
+            m_FinalTypeCoroutine = StartCoroutine(ShowLastLine());
+        }
     }
-
     private void CloseDialogue()
     {
         dialogueText.text = string.Empty;
-        if (isInFirstDialogues)
-        {
-            isInFirstDialogues = false;
-        }
-        else
-        {
-            m_DialogueMark.SetActive(true);
-            didDialogueStart = false;
-            dialoguePanel.SetActive(false);
-        }
+        m_Animator.Play("Idle");
+        didDialogueStart = false;
+        m_DialogueMark.SetActive(true);
+        dialoguePanel.SetActive(false);
     }
 
     private void BreakCoroutineDialogueInicial()
     {
-        StopCoroutine(m_TypeCoroutine);
-        dialogueText.text = m_DialogueLines[lineIndex];
+        StopCoroutine(m_FirstCoroutine);
+        dialogueText.text = m_FraseActual;
     }
     private void BreakCoroutineDialogueFinall()
     {
         StopCoroutine(m_FinalTypeCoroutine);
-        dialogueText.text = m_FinalLine[lineIndex];
+        dialogueText.text = m_FraseActual;
     }
 
     private void StartDialogue()
     {
-        isInFirstDialogues = true;
-        didDialogueStart = true;
+        canInteract = true;
+        isInFirstMessage = true;
         dialoguePanel.SetActive(true);
         m_DialogueMark.SetActive(false);
+        didDialogueStart = true;
         lineIndex = Random.Range(0, m_DialogueLines.Length);
-        m_TypeCoroutine = StartCoroutine(ShowLine());
+        m_FrasesParaDecir.Enqueue(m_DialogueLines[lineIndex]);
+        m_FrasesParaDecir.Enqueue(m_FinalLine[0]);
+        m_FrasesParaDecir.Enqueue(m_FinalLine[1]);
+
+        m_FirstCoroutine = StartCoroutine(ShowFirstLine());
     }
 
-    private IEnumerator ShowLine()
+    private IEnumerator ShowLastLine()
+    {
+        isInFirstMessage = false;
+        dialogueText.text = string.Empty;
+        m_FraseActual = m_FrasesParaDecir.Dequeue();
+        foreach (char ch in m_FraseActual)
+        {
+            dialogueText.text += ch;
+            yield return new WaitForSeconds(typingTime);
+        }
+    }
+    private IEnumerator ShowFirstLine()
     {
         dialogueText.text = string.Empty;
-
-        foreach (char ch in m_DialogueLines[lineIndex])
+        m_FraseActual = m_FrasesParaDecir.Dequeue();
+        foreach (char ch in m_FraseActual)
         {
             dialogueText.text += ch;
             yield return new WaitForSeconds(typingTime);

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class LevelManager : MonoBehaviour
@@ -19,6 +20,11 @@ public class LevelManager : MonoBehaviour
     public GameObject DialoguePanel => dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
     public TextMeshProUGUI DialogueText => dialogueText;
+    [SerializeField] private GameObject m_TiendaPanel;
+    [SerializeField] private Button m_CloseShopButton;
+    private int idPiccolo;
+    public Action<int> onCloseShopOfPiccolo;
+    private int piccoloConTiendaAbierta;
 
     public enum MundoActual
     {
@@ -59,7 +65,21 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         m_GeneracionSalasMatriz = GetComponent<GeneracionSalasMatriz>();
+        if (m_CloseShopButton) m_CloseShopButton.onClick.AddListener(CloseShop);
         TodosLosBossesDisponibles();
+        m_TiendaPanel.SetActive(false);
+    }
+
+    public void OpenShop(int id)
+    {
+        piccoloConTiendaAbierta = id;
+        m_TiendaPanel.SetActive(true);
+    }
+
+    private void CloseShop()
+    {
+        m_TiendaPanel.SetActive(false);
+        onCloseShopOfPiccolo?.Invoke(piccoloConTiendaAbierta);
     }
 
     private void TodosLosBossesDisponibles()
@@ -72,6 +92,11 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public int GiveIdToPiccoloChad()
+    {
+        idPiccolo++;
+        return idPiccolo - 1;
+    }
     public int GetAvailableBoss()
     {
         int numero = Random.Range(0, m_ListaBossesDisponibles.Count);
