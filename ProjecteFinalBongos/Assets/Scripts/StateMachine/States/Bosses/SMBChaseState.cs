@@ -54,8 +54,13 @@ public class SMBChaseState : SMState
     private void Update()
     {
         //To face the target
-        /*if (m_Target != null)
-            transform.up = m_Target.position - transform.position;*/
+        if (m_Target != null)
+        {
+            Vector2 posicionPlayer = m_Target.position - transform.position;
+            float angulo = Mathf.Atan2(posicionPlayer.y, posicionPlayer.x);
+            angulo = Mathf.Rad2Deg * angulo - 90;
+            transform.localEulerAngles = new Vector3(0, 0, angulo);
+        }
     }
 
     private void FixedUpdate()

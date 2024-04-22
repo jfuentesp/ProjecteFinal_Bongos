@@ -97,7 +97,6 @@ public class LevelManager : MonoBehaviour
 
     public int GiveIdToPiccoloChad()
     {
-        print("EOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEO " + idPiccolo);
         idPiccolo++;
         return idPiccolo;
     }

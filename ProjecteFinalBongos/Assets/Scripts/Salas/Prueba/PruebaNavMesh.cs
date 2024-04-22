@@ -15,7 +15,6 @@ public class PruebaNavMesh : MonoBehaviour
     {
         surface = GetComponent<NavMeshSurface>();
         m_Mapa.onMapaFinalized += ConstruirMapa;
-
     }
 
     // Start is called before the first frame update

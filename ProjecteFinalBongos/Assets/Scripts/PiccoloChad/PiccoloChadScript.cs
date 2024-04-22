@@ -122,8 +122,8 @@ public class PiccoloChadScript : MonoBehaviour
         didDialogueStart = true;
         lineIndex = Random.Range(0, m_DialogueLines.Length);
         m_FrasesParaDecir.Enqueue(m_DialogueLines[lineIndex]);
-        m_FrasesParaDecir.Enqueue(m_FinalLine[0]);
-        m_FrasesParaDecir.Enqueue(m_FinalLine[1]);
+        foreach(string frase in m_FinalLine)
+            m_FrasesParaDecir.Enqueue(frase);
 
         m_FirstCoroutine = StartCoroutine(ShowFirstLine());
     }

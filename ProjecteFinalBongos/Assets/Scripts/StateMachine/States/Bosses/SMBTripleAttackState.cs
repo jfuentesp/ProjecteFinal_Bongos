@@ -35,7 +35,10 @@ public class SMBTripleAttackState : SMBBasicAttackState
         {
             m_Rigidbody.velocity = Vector3.zero;
             m_AttackHitbox.transform.position = position;
-            transform.up = m_Target.position - transform.position;
+            Vector2 posicionPlayer = m_Target.position - transform.position;
+            float angulo = Mathf.Atan2(posicionPlayer.y, posicionPlayer.x);
+            angulo = Mathf.Rad2Deg * angulo - 90;
+            transform.localEulerAngles = new Vector3(0, 0, angulo);
             m_AttackHitbox.gameObject.SetActive(true);
             yield return new WaitForSeconds(attack1Delay);
             m_AttackHitbox.gameObject.SetActive(false);
