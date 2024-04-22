@@ -28,6 +28,12 @@ public class GUIBossManager : MonoBehaviour
         StartCoroutine(ActivarFlecha());
     }
 
+    public void UploadFlecha(float degrees)
+    {
+        if(m_TritonPanel.activeSelf)
+            m_FlechaTriton.transform.localEulerAngles = new Vector3(0, 0, degrees);
+    }
+
     private IEnumerator ActivarFlecha()
     {
         m_TritonPanel.SetActive(true);

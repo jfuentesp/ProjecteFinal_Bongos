@@ -15,10 +15,13 @@ public class TritoArrowSummoningState : SMState
     private Transform m_Target;
     private BossBehaviour m_Boss;
 
+    private Pool m_Pool;
+
     protected override void Awake()
     {
         base.Awake();
         m_Boss = GetComponent<BossBehaviour>();
+        m_Pool = LevelManager.Instance._BulletPool;
         m_Boss.OnPlayerInSala += GetTarget;
     }
 
@@ -32,8 +35,12 @@ public class TritoArrowSummoningState : SMState
         m_TimeSummoning = 0;
         if (m_Target != null)
         {
-            Vector2 posicionAleatoria = Random.insideUnitCircle;
-            Vector2 posicionPlayer = m_Target.position - transform.position;
+            Vector2 posicionAleatoria = Random.insideUnitCircle.normalized;
+            GameObject arrow = m_Pool.GetElement();
+            arrow.transform.position = m_Target.transform.position + 20 * new Vector3(posicionAleatoria.x, posicionAleatoria.y, 0);
+            arrow.SetActive(true);
+            arrow.GetComponent<TritoArrow>().enabled = true;
+            arrow.GetComponent<TritoArrow>().Init(m_Target.position - arrow.transform.position, m_Target);
             float angulo = Mathf.Atan2(posicionAleatoria.y, posicionAleatoria.x);
             angulo = Mathf.Rad2Deg * angulo - 90;
 
