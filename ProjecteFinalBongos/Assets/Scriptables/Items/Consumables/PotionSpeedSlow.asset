@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c63581f43f05a348aee02c926fcba46, type: 3}
+  m_Name: PotionSpeedSlow
+  m_EditorClassIdentifier: 
+  m_ItemId: 4
+  m_ItemName: Pocion de lentitud
+  m_ItemDescription: La gente se mueve mas lenta
+  m_ItemSprite: {fileID: 0}
+  m_ShopPrice: 10
+  m_Layermask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_AreaRadius: 4
+  m_AmountToDebuff: 4
+  m_Duration: 4
+  m_StatType: 2

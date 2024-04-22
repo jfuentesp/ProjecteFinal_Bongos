@@ -16,10 +16,14 @@ namespace SaveLoadGame
 
             ISaveableSalasData dataSalas = FindObjectOfType<GeneracionSalas.GeneracionSalasMatriz>();
             ISaveableSalaBossData[] dataBosses = FindObjectsByType<SalaBoss>(FindObjectsSortMode.None);
-            
+            ISaveableTiendasData[] dataTiendas = FindObjectsByType<PasilloTienda>(FindObjectsSortMode.None);
+            ISaveableObjetosData[] dataPasilloObjetos = FindObjectsByType<PasilloObjetos>(FindObjectsSortMode.None);
+
             SaveGame data = new SaveGame();
             data.PopulateDataMapaSalas(dataSalas);
             data.PopulateDataSalasBoss(dataBosses);
+            data.PopulateDataPasilloTienda(dataTiendas);
+            data.PopulateDataPasilloObjetos(dataPasilloObjetos);
             
             string jsonData = JsonUtility.ToJson(data);
 
@@ -57,6 +61,27 @@ namespace SaveLoadGame
                     }
                 }
 
+                PasilloTienda[] pasillosTienda = FindObjectsByType<PasilloTienda>(FindObjectsSortMode.None);
+
+                for (int i = 0; i < pasillosTienda.Length; i++)
+                {
+                    foreach (SaveGame.PasilloTiendaData pasillito in data.m_PiccolosChad)
+                    {
+                        if (pasillito.m_SalaTransform == pasillosTienda[i].transform.position)
+                            pasillosTienda[i].Load(pasillito);
+                    }
+                }
+
+                PasilloObjetos[] pasillosObjetos = FindObjectsByType<PasilloObjetos>(FindObjectsSortMode.None);
+
+                for (int i = 0; i < pasillosObjetos.Length; i++)
+                {
+                    foreach (SaveGame.PasilloObjetosData pasillito in data.m_PasilloObjetos)
+                    {
+                        if (pasillito.m_SalaTransform == pasillosObjetos[i].transform.position)
+                            pasillosObjetos[i].Load(pasillito);
+                    }
+                }
             }
             catch (Exception e)
             {

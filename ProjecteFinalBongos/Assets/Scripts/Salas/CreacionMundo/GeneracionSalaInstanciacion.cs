@@ -130,9 +130,13 @@ namespace GeneracionSalas
                     break;
                 case 4:
                     sala = Instantiate(m_PasilloTienda, m_TransformParentMundo);
+                    if (GameManager.Instance.NuevaPartida)
+                        sala.GetComponent<PasilloTienda>().Init();
                     break;
                 case 5:
                     sala = Instantiate(m_PasilloObjetos, m_TransformParentMundo);
+                    if (GameManager.Instance.NuevaPartida)
+                        sala.GetComponent<PasilloObjetos>().Init(LevelManager.Instance.GetObjetosSalaObjetos());
                     break;
                 default:
                     sala = null;

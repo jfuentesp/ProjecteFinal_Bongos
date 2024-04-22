@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static SaveLoadGame.SaveGame;
 
 
 namespace SaveLoadGame
@@ -27,6 +28,34 @@ namespace SaveLoadGame
         }
 
         [Serializable]
+        public struct PasilloTiendaData
+        {
+            public string[] m_ObjetosId;
+            public Vector3 m_SalaTransform;
+            public int m_PiccoloId;
+
+            public PasilloTiendaData(string[] _ObjetosId, Vector3 _SalaTransform, int _PiccoloId)
+            {
+                m_ObjetosId = _ObjetosId;
+                m_SalaTransform = _SalaTransform;
+                m_PiccoloId = _PiccoloId;
+            }
+        }
+
+        [Serializable]
+        public struct PasilloObjetosData
+        {
+            public string[] m_ObjetosId;
+            public Vector3 m_SalaTransform;
+
+            public PasilloObjetosData(string[] _ObjetosId, Vector3 _SalaTransform)
+            {
+                m_ObjetosId = _ObjetosId;
+                m_SalaTransform = _SalaTransform;
+            }
+        }
+
+        [Serializable]
         public struct SalaBossData
         {
             public int m_NumeroBoss;
@@ -45,8 +74,8 @@ namespace SaveLoadGame
         //Variables de guardado
         public SalasData m_Mapa;
         public SalaBossData[] m_Bosses;
-
-
+        public PasilloTiendaData[] m_PiccolosChad;
+        public PasilloObjetosData[] m_PasilloObjetos;
 
 
         //Populates
@@ -62,6 +91,20 @@ namespace SaveLoadGame
                 m_Bosses[i] = _SalasBossData[i].Save();
         }
 
+        public void PopulateDataPasilloTienda(ISaveableTiendasData[] _TiendaData)
+        {
+            m_PiccolosChad = new PasilloTiendaData[_TiendaData.Length];
+            for (int i = 0; i < _TiendaData.Length; i++)
+                m_PiccolosChad[i] = _TiendaData[i].Save();
+        }
+
+        public void PopulateDataPasilloObjetos(ISaveableObjetosData[] _PasilloObjetosData)
+        {
+            m_PasilloObjetos = new PasilloObjetosData[_PasilloObjetosData.Length];
+            for (int i = 0; i < _PasilloObjetosData.Length; i++)
+                m_PasilloObjetos[i] = _PasilloObjetosData[i].Save();
+        }
+
         public interface ISaveableSalasData
         {
             public SalasData Save();
@@ -72,6 +115,17 @@ namespace SaveLoadGame
         {
             public SalaBossData Save();
             public void Load(SalaBossData _salaBossData);
+        }
+
+        public interface ISaveableTiendasData
+        {
+            public PasilloTiendaData Save();
+            public void Load(PasilloTiendaData _pasilloTiendaData);
+        }
+        public interface ISaveableObjetosData
+        {
+            public PasilloObjetosData Save();
+            public void Load(PasilloObjetosData _pasilloTiendaData);
         }
     }
 }

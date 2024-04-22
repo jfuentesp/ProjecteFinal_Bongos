@@ -14,6 +14,8 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance => m_Instance;
 
     private GeneracionSalasMatriz m_GeneracionSalasMatriz;
+    [SerializeField] private ConsumablesDataBase m_ConsumableDataBase;
+    public ConsumablesDataBase ConsumableDataBase => m_ConsumableDataBase;
 
     [Header("Variables Piccolo Chad")]
     [SerializeField] private GameObject dialoguePanel;
@@ -68,6 +70,7 @@ public class LevelManager : MonoBehaviour
         if (m_CloseShopButton) m_CloseShopButton.onClick.AddListener(CloseShop);
         TodosLosBossesDisponibles();
         m_TiendaPanel.SetActive(false);
+        idPiccolo = 0;
     }
 
     public void OpenShop(int id)
@@ -94,8 +97,9 @@ public class LevelManager : MonoBehaviour
 
     public int GiveIdToPiccoloChad()
     {
+        print("EOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEO " + idPiccolo);
         idPiccolo++;
-        return idPiccolo - 1;
+        return idPiccolo;
     }
     public int GetAvailableBoss()
     {
@@ -133,9 +137,9 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public List<ObjetosDisponibles> GetObjetosTienda()
+    public List<Consumable> GetObjetosTienda()
     {
-        List<ObjetosDisponibles> objetitosParaPiccoloChad = new();
+        List<Consumable> objetitosParaPiccoloChad = new();
        
 
         for (int i = 0; i < numeroObjetosTienda; i++)
@@ -146,7 +150,7 @@ public class LevelManager : MonoBehaviour
             {
                 if (random >= numeroMinimo && random <= objeto.ratioAparicion + numeroMinimo)
                 {
-                    objetitosParaPiccoloChad.Add(objeto);
+                    objetitosParaPiccoloChad.Add(objeto.m_Object);
                     break;
                 }
                 else
@@ -157,9 +161,9 @@ public class LevelManager : MonoBehaviour
         }
         return objetitosParaPiccoloChad;
     }
-    public List<ObjetosDisponibles> GetObjetosSalaObjetos()
+    public List<Consumable> GetObjetosSalaObjetos()
     {
-        List<ObjetosDisponibles> objetitosParaSalaObjetos = new();
+        List<Consumable> objetitosParaSalaObjetos = new();
 
 
         for (int i = 0; i < numeroObjetosSalaObjetos; i++)
@@ -170,7 +174,7 @@ public class LevelManager : MonoBehaviour
             {
                 if (random >= numeroMinimo && random <= objeto.ratioAparicion + numeroMinimo)
                 {
-                    objetitosParaSalaObjetos.Add(objeto);
+                    objetitosParaSalaObjetos.Add(objeto.m_Object);
                     break;
                 }
                 else
@@ -197,12 +201,12 @@ public class LevelManager : MonoBehaviour
     [Serializable]
     public struct ObjetosDisponibles
     {
-        public int m_NumberOfObject;
+        public Consumable m_Object;
         public float ratioAparicion;
 
-        public ObjetosDisponibles(int _numberOfObject, float _RatioAparicion)
+        public ObjetosDisponibles(Consumable _Object, float _RatioAparicion)
         {
-            m_NumberOfObject = _numberOfObject;
+            m_Object = _Object;
             ratioAparicion = _RatioAparicion;
         }
     }

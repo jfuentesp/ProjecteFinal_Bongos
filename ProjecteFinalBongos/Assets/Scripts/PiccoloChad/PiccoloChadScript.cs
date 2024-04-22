@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static SaveLoadGame.SaveGame;
 
 public class PiccoloChadScript : MonoBehaviour
 {
-    [Header("Variables tienda")]
-    [SerializeField] private List<LevelManager.ObjetosDisponibles> m_ObjetosDisponibles = new();
     private Animator m_Animator;
-
+    private int id;
+    [SerializeField] private List<Consumable> m_ObjetosDisponibles = new();
     [Header("Variables Dialogo")]
     [SerializeField] private GameObject m_DialogueMark;
     private GameObject dialoguePanel;
@@ -32,7 +32,7 @@ public class PiccoloChadScript : MonoBehaviour
 
     private int lineIndex;
 
-    private int id;
+    
 
     private void Awake()
     {
@@ -43,11 +43,11 @@ public class PiccoloChadScript : MonoBehaviour
     }
 
 
-    public void Init(List<LevelManager.ObjetosDisponibles> _ObjetosDisponibles)
-    {
-        m_ObjetosDisponibles = _ObjetosDisponibles;
+    public void Init()
+    {   
+        m_ObjetosDisponibles = GetComponentInParent<PasilloTienda>().ObjetosDisponibles;
+        id = GetComponentInParent<PasilloTienda>().PiccoloId;
         m_Animator.Play("Idle");
-        id = LevelManager.Instance.GiveIdToPiccoloChad();
         canInteract = true;
     }
 
@@ -87,7 +87,7 @@ public class PiccoloChadScript : MonoBehaviour
     }
     private void SegundoDialogo(int obj)
     {
-        if(obj == id)
+        if (obj == id)
         {
             canInteract = true;
             m_FinalTypeCoroutine = StartCoroutine(ShowLastLine());

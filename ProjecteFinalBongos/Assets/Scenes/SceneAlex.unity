@@ -1960,6 +1960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43eb1c30fb5819c48a5993f8b0b0e133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ConsumableDataBase: {fileID: 11400000, guid: 3695245b911850942b8fb981337f43ac, type: 2}
   dialoguePanel: {fileID: 1409349356}
   dialogueText: {fileID: 1465691647}
   m_TiendaPanel: {fileID: 895008677}
@@ -1985,34 +1986,34 @@ MonoBehaviour:
   m_GuardarPartidaEvent: {fileID: 11400000, guid: 0621630a1c7d1a949bc1c63b4833c396, type: 2}
   m_CargarPartidaEvent: {fileID: 11400000, guid: f7ea0370e72825c45b2c3968fb1d0ae2, type: 2}
   m_ObjetosDisponiblesTienda:
-  - m_NumberOfObject: 1
+  - m_Object: {fileID: 11400000, guid: e8f2dd32d2cb30848a8d8c136760d8c0, type: 2}
     ratioAparicion: 37.5
-  - m_NumberOfObject: 2
+  - m_Object: {fileID: 11400000, guid: ee95c77d74759734c9786c65cf02d805, type: 2}
     ratioAparicion: 12
-  - m_NumberOfObject: 3
+  - m_Object: {fileID: 11400000, guid: d022554a08150874292ec65859f27914, type: 2}
     ratioAparicion: 18
-  - m_NumberOfObject: 4
+  - m_Object: {fileID: 11400000, guid: f8ca605b31604d94fb4f091532452401, type: 2}
     ratioAparicion: 9.5
-  - m_NumberOfObject: 5
+  - m_Object: {fileID: 11400000, guid: 3eef494f1c5b4894b8fba321d89a7223, type: 2}
     ratioAparicion: 16
-  - m_NumberOfObject: 6
+  - m_Object: {fileID: 11400000, guid: dfd837fbb9fa33a49afec11c5db60274, type: 2}
     ratioAparicion: 7
   m_ObjetosDisponiblesSalas:
-  - m_NumberOfObject: 1
+  - m_Object: {fileID: 11400000, guid: ee95c77d74759734c9786c65cf02d805, type: 2}
     ratioAparicion: 12
-  - m_NumberOfObject: 2
+  - m_Object: {fileID: 11400000, guid: d022554a08150874292ec65859f27914, type: 2}
     ratioAparicion: 10
-  - m_NumberOfObject: 3
+  - m_Object: {fileID: 11400000, guid: e8f2dd32d2cb30848a8d8c136760d8c0, type: 2}
     ratioAparicion: 8
-  - m_NumberOfObject: 4
+  - m_Object: {fileID: 11400000, guid: f8ca605b31604d94fb4f091532452401, type: 2}
     ratioAparicion: 4
-  - m_NumberOfObject: 5
+  - m_Object: {fileID: 11400000, guid: 3eef494f1c5b4894b8fba321d89a7223, type: 2}
     ratioAparicion: 17
-  - m_NumberOfObject: 6
+  - m_Object: {fileID: 11400000, guid: dfd837fbb9fa33a49afec11c5db60274, type: 2}
     ratioAparicion: 11
-  - m_NumberOfObject: 7
+  - m_Object: {fileID: 11400000, guid: 807ac79aab10dc8478940e09421a4ba8, type: 2}
     ratioAparicion: 19
-  - m_NumberOfObject: 8
+  - m_Object: {fileID: 11400000, guid: 13ec684e021db094181b38681de57b44, type: 2}
     ratioAparicion: 19
   numeroObjetosTienda: 4
   numeroObjetosSalaObjetos: 4
