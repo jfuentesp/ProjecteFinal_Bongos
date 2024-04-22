@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
@@ -82,6 +83,13 @@ public class InventoryController : MonoBehaviour
             }
             slot.RefreshSlot();
         }
+    }
+
+    private void OnUse(string itemID)
+    {
+        Consumable itemToUse = m_InventoryBackpack.ConsumableSlots.FirstOrDefault(item => item.Consumable.id == itemID).Consumable;
+        itemToUse.OnUse(transform.root.gameObject);
+        RefreshConsumableGUI();
     }
 
 }
