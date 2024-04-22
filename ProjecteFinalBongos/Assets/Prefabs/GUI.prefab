@@ -2157,13 +2157,14 @@ GameObject:
   - component: {fileID: 6272283338657876098}
   - component: {fileID: 6953655682006229420}
   - component: {fileID: 2547457135479938388}
+  - component: {fileID: -3551111455132506853}
   m_Layer: 7
   m_Name: GUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6697000753569438142
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2248,6 +2249,26 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &-3551111455132506853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852771324150178000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726762056f0562c449c4c63053d46610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InventoryHUD: {fileID: 6593631181552465264}
+  m_InventorySlotPrefab: {fileID: 233002584950805081}
+  m_InventoryBackpack: {fileID: 11400000, guid: 1b262f08a44ceea4f8dc35542be633a0, type: 2}
+  m_ConsumableToAdd: {fileID: 11400000, guid: 4c8ac7b15a95b654a8735bb991fe4e1d, type: 2}
+  m_ConsumableToAdd2: {fileID: 11400000, guid: ee95c77d74759734c9786c65cf02d805, type: 2}
+  m_ConsumableGrid: {fileID: 1556643036881028290}
+  m_ConsumableGridColumns: 5
+  m_ConsumableGridRows: 5
 --- !u!1 &4958514089491706404
 GameObject:
   m_ObjectHideFlags: 0
@@ -2849,7 +2870,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5434223213953680785
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3361,6 +3382,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3467,6 +3492,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3573,6 +3602,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3679,6 +3712,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EquippedConsumableSlot (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7034402712521116494, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 3423453120177277150}
     - target: {fileID: 7038838093803843805, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3768,6 +3805,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+--- !u!114 &3423453120177277150 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3331596093256609259, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+  m_PrefabInstance: {fileID: 125740732609537333}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6922104594819929576 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7038838093803843805, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
@@ -3785,6 +3833,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3971,6 +4023,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 3367713707485838028}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (6)
@@ -3980,6 +4036,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &3367713707485838028 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 602219743134229720}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4500955913043610406 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -4077,6 +4144,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 3226249885011889656}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (3)
@@ -4086,6 +4157,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &3226249885011889656 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 730417948620051436}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4327940985029393426 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -4103,6 +4185,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4209,6 +4295,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4315,6 +4405,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4501,6 +4595,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 3797105511960352125}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (20)
@@ -4515,6 +4613,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 1320963388867939177}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3797105511960352125 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 1320963388867939177}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1772328580166410109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4527,6 +4636,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4713,6 +4826,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 4540901439738167104}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (15)
@@ -4727,6 +4844,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 1865479396940390740}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4540901439738167104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 1865479396940390740}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2180402799692721558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4819,6 +4947,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 4081772708820792194}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (22)
@@ -4833,6 +4965,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 2180402799692721558}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4081772708820792194 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 2180402799692721558}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2203792266185486753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4845,6 +4988,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4951,6 +5098,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5137,6 +5288,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 479793957995311501}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (17)
@@ -5146,6 +5301,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &479793957995311501 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 2328242793784700825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1613005927797014631 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -5243,6 +5409,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 307853658984414573}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (9)
@@ -5252,6 +5422,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &307853658984414573 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 2495751936914482041}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1481588680019758215 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -5349,6 +5530,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 221054104512679043}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (13)
@@ -5358,6 +5543,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &221054104512679043 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 2735463868238713495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1430818399945915753 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -5375,6 +5571,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5561,6 +5761,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 124159454463528069}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (19)
@@ -5570,6 +5774,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &124159454463528069 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 2836735816348734097}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1257353212957998447 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -5777,6 +5992,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 785771184815013888}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (1)
@@ -5786,6 +6005,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &785771184815013888 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 3170702186660568596}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1886305599380238826 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -5803,6 +6033,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5909,6 +6143,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6095,6 +6333,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 1310480829755195227}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (11)
@@ -6109,6 +6351,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 3803506709680513359}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1310480829755195227 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 3803506709680513359}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4053706660790912029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6121,6 +6374,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6227,6 +6484,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6333,6 +6594,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6422,6 +6687,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+--- !u!1 &233002584950805081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4619066549009266811, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+  m_PrefabInstance: {fileID: 4837413627389258274}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3748661907080777658 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
@@ -6519,6 +6789,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 7340591269381153560}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (2)
@@ -6528,6 +6802,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &7340591269381153560 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 4843624363856641292}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8436678710132511474 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -6625,6 +6910,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 7128854569197929006}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (10)
@@ -6634,6 +6923,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &7128854569197929006 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 4902661984931060794}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8224937678474720196 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -6651,6 +6951,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6837,6 +7141,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 6948939030410330727}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot
@@ -6846,6 +7154,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &6948939030410330727 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 5082471984024165491}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8117045031563703181 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -6863,6 +7182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EquippedConsumableSlot
       objectReference: {fileID: 0}
+    - target: {fileID: 7034402712521116494, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 7311890013714944945}
     - target: {fileID: 7038838093803843805, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6957,6 +7280,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7038838093803843805, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
   m_PrefabInstance: {fileID: 5423804844267224666}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7311890013714944945 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3331596093256609259, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+  m_PrefabInstance: {fileID: 5423804844267224666}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5512524476965647991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6969,6 +7303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EquippedConsumableSlot (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7034402712521116494, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 7114666175003188124}
     - target: {fileID: 7038838093803843805, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7063,6 +7401,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7038838093803843805, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
   m_PrefabInstance: {fileID: 5512524476965647991}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7114666175003188124 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3331596093256609259, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+  m_PrefabInstance: {fileID: 5512524476965647991}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5607002008491282606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7075,6 +7424,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7181,6 +7534,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7367,6 +7724,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 8641189332092504188}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (14)
@@ -7381,6 +7742,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 5840233609668253288}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8641189332092504188 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 5840233609668253288}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5932288878005378251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7473,6 +7845,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 8409556554865754847}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (8)
@@ -7487,6 +7863,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 5932288878005378251}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8409556554865754847 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 5932288878005378251}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6270988147063472977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7579,6 +7966,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 8205558602366278981}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (5)
@@ -7593,6 +7984,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 6270988147063472977}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8205558602366278981 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 6270988147063472977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6458297038740198740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7685,6 +8087,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 9171436176656501568}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (12)
@@ -7699,6 +8105,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 6458297038740198740}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9171436176656501568 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 6458297038740198740}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6516229475909140894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7711,6 +8128,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7897,6 +8318,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 8903807516945442581}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (23)
@@ -7911,6 +8336,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 6735040537711769857}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8903807516945442581 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 6735040537711769857}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6843928711813532795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8003,6 +8439,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 8655217593904796271}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (18)
@@ -8017,6 +8457,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 6843928711813532795}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8655217593904796271 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 6843928711813532795}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6963089604779084412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8109,6 +8560,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 5063976134329537640}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (21)
@@ -8118,6 +8573,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &5063976134329537640 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 6963089604779084412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6236576456772953474 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -8215,6 +8681,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 5155229745699209726}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (24)
@@ -8224,6 +8694,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &5155229745699209726 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 7019995057012596714}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6287324609531179028 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -8241,6 +8722,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8347,6 +8832,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8453,6 +8942,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8639,6 +9132,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 5638744752616348533}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (16)
@@ -8648,6 +9145,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &5638744752616348533 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 7541240288922928481}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6812475305669372575 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -8745,6 +9253,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 5962167359083353133}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (7)
@@ -8759,6 +9271,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 8384253296222767673}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5962167359083353133 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 8384253296222767673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8631724044861929510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8851,6 +9374,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 5849345945617524274}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (4)
@@ -8865,6 +9392,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 8631724044861929510}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5849345945617524274 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 8631724044861929510}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8640009004014920464
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8877,6 +9415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8983,6 +9525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

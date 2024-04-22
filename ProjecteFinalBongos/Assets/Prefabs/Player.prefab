@@ -619,7 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea96ae7cb4775114aa4d075c28bbe7bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerTimes: {fileID: 0}
+  m_playerTimes: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
   m_ParalizedLifeModifier: 0
   m_WrathLifeModifier: 0
   m_WrathSpeedModifier: 0
@@ -629,7 +629,7 @@ MonoBehaviour:
   m_PoisonModifier: 0
   m_BurntModifier: 0
   m_VelocityModifier: 0
-  m_PlayerBaseStats: {fileID: 0}
+  m_PlayerBaseStats: {fileID: 11400000, guid: fe6e42c4c219d03489147d28d3b95089, type: 2}
   m_Velocity: 0
   m_AttackTime: 0
   m_Strength: 0
