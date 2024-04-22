@@ -110,6 +110,7 @@ public class EolosBossBehaviour : BossBehaviour
         if (m_CurrentPhase == Phase.THREE)
         {
             m_IsAlive = false;
+            OnBossDeath?.Invoke();
             Destroy(gameObject);
         }
     }

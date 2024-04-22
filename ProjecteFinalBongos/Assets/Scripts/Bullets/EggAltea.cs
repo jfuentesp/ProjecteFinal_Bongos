@@ -8,10 +8,12 @@ public class EggAltea : Splash
     private GameObject m_SerpientePrefab;
 
     private Transform m_Target;
+    private Transform m_TransformSala;
     private bool m_Nacido;
 
-    public void Init(Transform _Target)
+    public void Init(Transform _Target, Transform parent)
     {
+        m_TransformSala = parent;
         m_Size = new Vector2(m_SizeWideness, m_SizeLength);
         transform.localScale = m_Size;
         m_Target = _Target;
@@ -34,7 +36,7 @@ public class EggAltea : Splash
     {
         if (m_Nacido)
         {
-            GameObject Serpiente = Instantiate(m_SerpientePrefab);
+            GameObject Serpiente = Instantiate(m_SerpientePrefab, m_TransformSala);
             Serpiente.transform.position = transform.position;
             Serpiente.GetComponent<EnemySnake>().Init(m_Target);
         }

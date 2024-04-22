@@ -120,4 +120,11 @@ public class GryphusBossBehaviour : BossBehaviour
             yield return new WaitForSeconds(m_CheckingPlayerTimelapse);
         }
     }
+    protected override void VidaCero()
+    {
+        base.VidaCero();
+        m_IsAlive = false;
+        OnBossDeath?.Invoke();
+        Destroy(gameObject);
+    }
 }

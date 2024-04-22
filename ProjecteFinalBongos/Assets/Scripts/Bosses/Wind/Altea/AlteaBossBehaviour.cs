@@ -33,7 +33,7 @@ public class AlteaBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBRunAwayState>();
         };
-        m_Pool = GameObject.Find("PoolSplash").GetComponent<Pool>();
+        m_Pool = LevelManager.Instance._SplashPool;
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
         m_StateMachine.ChangeState<SMBIdleState>();
     }
@@ -73,13 +73,14 @@ public class AlteaBossBehaviour : BossBehaviour
             egg.transform.position = new Vector2(posicionHuevo.x, posicionHuevo.y);
             egg.SetActive(true);
             egg.GetComponent<EggAltea>().enabled = true;
-            egg.GetComponent<EggAltea>().Init(m_Target);
+            egg.GetComponent<EggAltea>().Init(m_Target, transform.parent);
         }
     }
     protected override void VidaCero()
     {
         base.VidaCero();
         m_IsAlive = false;
+        OnBossDeath?.Invoke();
         Destroy(gameObject);
     }
     protected override void Update()

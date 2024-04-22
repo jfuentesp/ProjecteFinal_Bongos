@@ -60,7 +60,6 @@ public class VoltauroBossBehaviour : BossBehaviour
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
-        OnPlayerInSala.Invoke();
     }
     private IEnumerator PlayerDetectionCoroutine()
     {
@@ -155,6 +154,7 @@ public class VoltauroBossBehaviour : BossBehaviour
     {
         base.VidaCero();
         m_IsAlive = false;
+        OnBossDeath?.Invoke();
         Destroy(gameObject);
     }
     private void SetPhase(Phase phaseToSet)
