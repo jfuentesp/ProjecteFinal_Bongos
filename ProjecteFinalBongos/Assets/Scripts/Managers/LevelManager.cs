@@ -28,6 +28,9 @@ public class LevelManager : MonoBehaviour
     public Action<int> onCloseShopOfPiccolo;
     private int piccoloConTiendaAbierta;
 
+    private GUIBossManager m_GUIBossManager;
+    public GUIBossManager GUIBossManager => m_GUIBossManager;
+
     public enum MundoActual
     {
         MUNDO_UNO, MUNDO_DOS, MUNDO_TRES
@@ -67,6 +70,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         m_GeneracionSalasMatriz = GetComponent<GeneracionSalasMatriz>();
+        m_GUIBossManager = GetComponent<GUIBossManager>();
         if (m_CloseShopButton) m_CloseShopButton.onClick.AddListener(CloseShop);
         TodosLosBossesDisponibles();
         m_TiendaPanel.SetActive(false);
@@ -102,6 +106,19 @@ public class LevelManager : MonoBehaviour
     }
     public int GetAvailableBoss()
     {
+        //Testeo
+        int numero = Random.Range(0, m_ListaBossesDisponibles.Count);
+        if (m_ListaBossesDisponibles[numero].m_BossDisponible)
+        {
+            return numero;
+        }
+        else
+        {
+            numero = GetAvailableBoss();
+        }
+        return numero;
+        //Juego
+        /*
         int numero = Random.Range(0, m_ListaBossesDisponibles.Count);
         if (m_ListaBossesDisponibles[numero].m_BossDisponible)
         {
@@ -116,6 +133,7 @@ public class LevelManager : MonoBehaviour
             numero = GetAvailableBoss();
         }
         return numero;
+        */
     }
 
     public GameObject GetBossToSpawn(int numBoss)
@@ -139,7 +157,7 @@ public class LevelManager : MonoBehaviour
     public List<Consumable> GetObjetosTienda()
     {
         List<Consumable> objetitosParaPiccoloChad = new();
-       
+
 
         for (int i = 0; i < numeroObjetosTienda; i++)
         {

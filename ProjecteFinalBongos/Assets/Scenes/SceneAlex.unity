@@ -340,6 +340,7 @@ RectTransform:
   m_Children:
   - {fileID: 1409349357}
   - {fileID: 895008678}
+  - {fileID: 1454119496}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -495,6 +496,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &653986842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 653986843}
+  - component: {fileID: 653986845}
+  m_Layer: 5
+  m_Name: FlechaTriton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &653986843
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653986842}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1146001395}
+  m_Father: {fileID: 1454119496}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &653986845
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653986842}
+  m_CullTransparentMesh: 1
 --- !u!4 &665866784 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 154204765623582640, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
@@ -631,7 +678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &895008678
 RectTransform:
   m_ObjectHideFlags: 0
@@ -690,6 +737,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895008677}
+  m_CullTransparentMesh: 1
+--- !u!1 &1146001394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1146001395}
+  - component: {fileID: 1146001397}
+  - component: {fileID: 1146001396}
+  m_Layer: 5
+  m_Name: FlechitaDeVerdad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1146001395
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146001394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 653986843}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 490}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1146001396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146001394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -221396238, guid: 1bd844708b32c8a4c8d18dd3a8ae207b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1146001397
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146001394}
   m_CullTransparentMesh: 1
 --- !u!1 &1182793447
 GameObject:
@@ -1372,6 +1495,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409349356}
   m_CullTransparentMesh: 1
+--- !u!1 &1454119495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1454119496}
+  - component: {fileID: 1454119498}
+  - component: {fileID: 1454119497}
+  m_Layer: 5
+  m_Name: TritonPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1454119496
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454119495}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 653986843}
+  m_Father: {fileID: 368031959}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1454119497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454119495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1454119498
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454119495}
+  m_CullTransparentMesh: 1
 --- !u!1 &1465691645
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,6 +2074,7 @@ GameObject:
   - component: {fileID: 1798548679}
   - component: {fileID: 1798548678}
   - component: {fileID: 1798548680}
+  - component: {fileID: 1798548681}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1969,19 +2170,7 @@ MonoBehaviour:
   m_SplashPool: {fileID: 1313677181}
   m_BulletPool: {fileID: 781456562}
   m_ListaBossesDisponibles:
-  - m_BossPrefab: {fileID: 1425193616162931063, guid: 6f2566c93786db14598faf7c55c71d10, type: 3}
-    m_BossDisponible: 0
-  - m_BossPrefab: {fileID: 8425413129942869862, guid: 48b353e347bd60f46ae2d4dd39ca9640, type: 3}
-    m_BossDisponible: 0
-  - m_BossPrefab: {fileID: 6748304150830227311, guid: 9214ca88664d22c4c8830cc482cd8d66, type: 3}
-    m_BossDisponible: 0
-  - m_BossPrefab: {fileID: 217732930650622082, guid: 3d046f5b75d75ed43ac6d11d71f471f8, type: 3}
-    m_BossDisponible: 0
-  - m_BossPrefab: {fileID: 3588807802609925389, guid: a57d01a60ab4631439d671f0bb7d5723, type: 3}
-    m_BossDisponible: 0
-  - m_BossPrefab: {fileID: 5578168786395275385, guid: 936dd161c13d01f4f9c51d68d0c2fe60, type: 3}
-    m_BossDisponible: 0
-  - m_BossPrefab: {fileID: 5652317080108237547, guid: 267d9aac067c1c946ab3bea63261c6bd, type: 3}
+  - m_BossPrefab: {fileID: 8699538466360959486, guid: eb1903479f1738e41bf441b584f3c673, type: 3}
     m_BossDisponible: 0
   m_GuardarPartidaEvent: {fileID: 11400000, guid: 0621630a1c7d1a949bc1c63b4833c396, type: 2}
   m_CargarPartidaEvent: {fileID: 11400000, guid: f7ea0370e72825c45b2c3968fb1d0ae2, type: 2}
@@ -2017,6 +2206,20 @@ MonoBehaviour:
     ratioAparicion: 19
   numeroObjetosTienda: 4
   numeroObjetosSalaObjetos: 4
+--- !u!114 &1798548681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798548675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c02b4679c9b0e4da6cf4f3ead3a65e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TritonPanel: {fileID: 1454119495}
+  m_FlechaTriton: {fileID: 653986842}
 --- !u!1 &1845637979
 GameObject:
   m_ObjectHideFlags: 0
