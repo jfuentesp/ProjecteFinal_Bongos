@@ -16,9 +16,7 @@ GameObject:
   - component: {fileID: 1408490090857390596}
   - component: {fileID: 8624516405051555047}
   - component: {fileID: -2319403501278606938}
-  - component: {fileID: -7529973721447979446}
-  - component: {fileID: -7460394262136579477}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,8 +100,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e65b05a4459c6448bd57133b79a643a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!58 &483779402087256274
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -176,8 +174,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39c535d67e7c73049a9b41ff7f467817, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_TimeUntilDestroyed: 5
   m_SizeRadius: 0.5
   m_Speed: 7
@@ -191,8 +189,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96e0139a4d86ff04d93c69700b99ce83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_TimeUntilDestroyed: 5
   m_SizeRadius: 0.5
   m_Speed: 5
@@ -209,8 +207,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a55ee38cc4a1577408f94dc5eca4e325, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_TimeUntilDestroyed: 0
   m_SizeRadius: 1
   m_Speed: 50
@@ -224,8 +222,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b9220e847212e946b43b2902ff0a7f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_TimeUntilDestroyed: 3
   m_SizeRadius: 0.5
   m_Speed: 25
@@ -239,8 +237,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5a099fef6e1f874980e758b74648159, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_TimeUntilDestroyed: 4
   m_SizeRadius: 0.5
   m_Speed: 17

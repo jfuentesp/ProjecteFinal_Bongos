@@ -39,6 +39,7 @@ public abstract class SMBComboState : SMState
         m_Rigidbody.velocity = Vector2.zero;
         m_ComboHandler.enabled = true;
         m_ComboHandler.OnEndAction += OnEndAction;
+
     }
 
     public override void ExitState()

@@ -19,6 +19,7 @@ using UnityEngine.InputSystem;
             m_Rigidbody = GetComponent<Rigidbody2D>();
             m_Animator = GetComponent<Animator>();
             m_StateMachine = GetComponent<FiniteStateMachine>();
+            m_Animator.speed = 1.0f;
         }
 
         public override void InitState()
@@ -26,8 +27,8 @@ using UnityEngine.InputSystem;
             base.InitState();
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed += OnAttack1;
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed += OnAttack2;
-        m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed += Parry;
-        m_PJ.Input.FindActionMap("PlayerActions").FindAction("MovementAction").performed += MovementAction;
+            m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed += Parry;
+            m_PJ.Input.FindActionMap("PlayerActions").FindAction("MovementAction").performed += MovementAction;
         m_Rigidbody.velocity = Vector2.zero;
 
         if (m_PJ.direccion == 0)
