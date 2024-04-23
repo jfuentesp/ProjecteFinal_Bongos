@@ -20,12 +20,26 @@ public class SMBPlayerSuccesfulParryState : MBState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
-       
+        m_Animator.speed = 1.0f;
+
     }
 
     public override void InitState()
     {
         base.InitState();
+        if (m_PJ.direccion == 0)
+        {
+            m_Animator.Play("parriedPose");
+        }
+        else if (m_PJ.direccion == 1)
+        {
+            m_Animator.Play("parriedPoseDown");
+        }
+        else if (m_PJ.direccion == 2)
+        {
+            m_Animator.Play("parriedPoseUp");
+        }
+        m_Rigidbody.velocity = Vector2.zero;
         m_parry = m_PJ.PlayerAbilitiesController.Parry;
         parryAction();
     }
@@ -33,15 +47,12 @@ public class SMBPlayerSuccesfulParryState : MBState
         switch (m_parry) {
             case "Invincible":
                 m_ChangeEstado.Raise(EstadosAlterados.Invencible);
-                Exit();
                 break;
             case "Paralized":
                 m_ChangeEstadoEnemigo.Raise(EstadosAlterados.Paralitzat);
-                Exit();
                 break;
             case "Fast":
                 m_ChangeEstado.Raise(EstadosAlterados.Peus_Lleugers);
-                Exit();
                 break;
             default:
                 break;

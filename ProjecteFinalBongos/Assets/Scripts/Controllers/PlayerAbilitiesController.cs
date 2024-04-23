@@ -15,16 +15,18 @@ public class PlayerAbilitiesController : MonoBehaviour
     public bool CanMove => m_canMove;
     private List<string> m_AtaquesMejorados = new List<string>();
     public List<string> AtaquesMejoradosDisponibles => m_AtaquesMejorados;
-
+    [SerializeField]
+    private float m_CoolDown = 1f;
     private  void Awake()
     {
+        
         initMovementAbility();
         initParryAbility();
     }
 
     private void initMovementAbility()
     {
-        m_MovementActionsDisponibles.Add("Dash");
+        m_MovementActionsDisponibles.Add("InvincibleDash");
         m_actualMovement = m_MovementActionsDisponibles[0];
 
     }
@@ -70,7 +72,7 @@ public class PlayerAbilitiesController : MonoBehaviour
     IEnumerator MovementCooldown()
     {
         m_canMove = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(m_CoolDown);
         m_canMove = true;
         Exit();
     }

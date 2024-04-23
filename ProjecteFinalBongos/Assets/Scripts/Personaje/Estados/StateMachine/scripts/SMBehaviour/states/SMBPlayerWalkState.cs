@@ -32,6 +32,7 @@ public class SMBPlayerWalkState : SMState
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed += OnAttack2;
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed += Parry;
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("MovementAction").performed += MovementAction;
+        m_Animator.speed = 1.0f;
 
     }
 
