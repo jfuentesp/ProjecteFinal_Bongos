@@ -63,20 +63,15 @@ public class TritoBossBehaviour : BossBehaviour
         {
             m_LanzarRedCoroutine = StartCoroutine(TiempoLanzarRed());
         }
-        else
-        {
-            print("NULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULONULO ");
-            //m_LanzarRedCoroutine = StartCoroutine(TiempoLanzarRed());
-        }
-
-
     }
 
     private IEnumerator TiempoLanzarRed()
     {
-        print("LANZATE PEDAZO DE PUTA");
-        yield return new WaitForSeconds(m_TiempoParaRed);
-        m_StateMachine.ChangeState<TritoWaterChainsState>();
+        while (m_IsAlive)
+        {
+            yield return new WaitForSeconds(m_TiempoParaRed);
+            m_StateMachine.ChangeState<TritoWaterChainsState>();
+        }
     }
 
     private IEnumerator TiempoSpawneo()
@@ -128,9 +123,12 @@ public class TritoBossBehaviour : BossBehaviour
     }
     private void SetAttack()
     {
+        if(m_LanzarRedCoroutine != null)
+        {
+            StopCoroutine(m_LanzarRedCoroutine);
+            m_LanzarRedCoroutine = null;
+        }
 
-        StopCoroutine(m_LanzarRedCoroutine);
-        m_LanzarRedCoroutine = null;
         float rng = Random.value;
 
         switch (rng)
@@ -145,6 +143,17 @@ public class TritoBossBehaviour : BossBehaviour
                 m_StateMachine.ChangeState<SMBTripleAttackState>();
                 break;
         }
+    }
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+    }
+    protected override void VidaCero()
+    {
+        base.VidaCero();
+        m_IsAlive = false;
+        OnBossDeath?.Invoke();
+        Destroy(gameObject);
     }
 
 }
