@@ -107,6 +107,7 @@ public class PegasusBossBehaviour : BossBehaviour
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
+        print("Hijo");
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision)

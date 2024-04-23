@@ -74,8 +74,6 @@ public class SMBChargeState : SMState
     Vector3 m_Direction;
     private void Update()
     {
-        print($"Tas parao bro?: {m_IsCharging}");
-        print($"Cual es tu destino lil blud?: {m_NavMeshAgent.destination}");
         if (m_IsAiming)
         {
             m_Direction = (m_Target.transform.position - transform.position).normalized;

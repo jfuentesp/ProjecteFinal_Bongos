@@ -69,7 +69,7 @@ public abstract class SMBComboState : SMState
     }
     protected virtual void SetDamage()
     {
-        float damageFinal = m_Damage+((Strength * Random.Range(50,101))/100);
+        float damageFinal = m_Damage+((m_PJ.PlayerStatsController.m_Strength * Random.Range(50,101))/100);
         GetComponentInChildren<AttackDamage>().ChangeAttack(damageFinal);
     }
     protected abstract void OnComboSuccessAction();

@@ -23,16 +23,9 @@ public class BossEstadosController : MonoBehaviour
     }
     public void AlternarEstado(EstadosAlterados estado)
     {
-        print(estado);
+      
         switch (estado)
         {
-            case EstadosAlterados.Adormit:
-                if (!Stun)
-                {
-                    Stun = true;
-                    m_StateMachine.ChangeState<SMBAdormitState>();
-                }
-                break;
             case EstadosAlterados.Atordit:
                 if (!Stun)
                 {
@@ -69,18 +62,11 @@ public class BossEstadosController : MonoBehaviour
                     StartCoroutine(PoisonRoutine());
                 }
 
-                break;
-            case EstadosAlterados.Invencible:
-                if (!Invencible)
-                    StartCoroutine(InvencibleRoutine());
+       
                 break;
             case EstadosAlterados.Ira:
                 if (!Wrath)
                     StartCoroutine(WrathRoutine());
-                break;
-            case EstadosAlterados.Atrapat:
-                if (!Stuck)
-                    StartCoroutine(StuckRoutine());
                 break;
             default:
                 break;
@@ -120,6 +106,7 @@ public class BossEstadosController : MonoBehaviour
     }
     IEnumerator BurntRoutine()
     {
+        print("CuloQuemado");
         Burn = true;
         yield return new WaitForSeconds(m_Stats.m_bossTimes.m_BurnTime);
         Burn = false;
@@ -139,13 +126,6 @@ public class BossEstadosController : MonoBehaviour
         poisonCount = poisonNum;
         PararCorrutina("PoisonRoutine");
     }
-    IEnumerator InvencibleRoutine()
-    {
-        Invencible = true;
-        yield return new WaitForSeconds(m_Stats.m_bossTimes.m_InvencibleTime);
-        Invencible = false;
-        PararCorrutina("InvencibleRoutine");
-    }
     IEnumerator WrathRoutine()
     {
         Wrath = true;
@@ -159,16 +139,6 @@ public class BossEstadosController : MonoBehaviour
         m_Stats.m_Velocity = velocityBefore;
         PararCorrutina("WrathRoutine");
 
-    }
-    IEnumerator StuckRoutine()
-    {
-        Stuck = true;
-        velocityBefore = m_Stats.m_Velocity;
-        m_Stats.m_Velocity = 0;
-        yield return new WaitForSeconds(m_Stats.m_bossTimes.m_StuckTime);
-        Stuck = false;
-        m_Stats.m_Velocity = velocityBefore;
-        PararCorrutina("StuckRoutine");
     }
 
     private void PararCorrutina(string rutina)
