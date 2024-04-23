@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TritoWaterChainsState : SMState
 {
-    public Action onArrowSummoned;
+    public Action onChainSummoned;
     [SerializeField]
     private float m_DurationOfSummoning;
     private float m_TimeSummoning;
@@ -30,6 +30,7 @@ public class TritoWaterChainsState : SMState
     {
         base.InitState();
         m_TimeSummoning = 0;
+        m_Boss.SetBusy(true);
         if (m_Target != null)
         {
             GameObject arrow = m_Pool.GetElement();
@@ -46,7 +47,7 @@ public class TritoWaterChainsState : SMState
         m_TimeSummoning += Time.deltaTime;
         if (m_TimeSummoning >= m_DurationOfSummoning)
         {
-            onArrowSummoned?.Invoke();
+            onChainSummoned?.Invoke();
         }
     }
 }
