@@ -23,6 +23,7 @@ public class BossEstadosController : MonoBehaviour
     }
     public void AlternarEstado(EstadosAlterados estado)
     {
+        print(estado);
         switch (estado)
         {
             case EstadosAlterados.Adormit:
@@ -90,10 +91,9 @@ public class BossEstadosController : MonoBehaviour
     IEnumerator WetRoutine()
     {
         Wet = true;
-        m_Stats.m_WetModifier = Random.Range(10f, 21f);
         velocityBefore = m_Stats.m_Velocity;
-        m_Stats.m_Velocity -= (m_Stats.m_Velocity * m_Stats.m_WetModifier) / 100;
-        yield return new WaitForSeconds(m_Stats.m_BossTimes.m_WetTime);
+        m_Stats.m_Velocity -= (m_Stats.m_Velocity * m_Stats.getModifier("Wet")) / 100;
+        yield return new WaitForSeconds(m_Stats.m_bossTimes.m_WetTime);
         Wet = false;
         m_Stats.m_Velocity = velocityBefore;
         PararCorrutina("WetRoutine");
@@ -101,10 +101,9 @@ public class BossEstadosController : MonoBehaviour
     IEnumerator SpeedRoutine()
     {
         Speedy = true;
-        m_Stats.m_VelocityModifier = Random.Range(50f, 71f);
         velocityBefore = m_Stats.m_Velocity;
-        m_Stats.m_Velocity += (m_Stats.m_Velocity * m_Stats.m_VelocityModifier) / 100;
-        yield return new WaitForSeconds(m_Stats.m_BossTimes.m_VelocityTime);
+        m_Stats.m_Velocity += (m_Stats.m_Velocity * m_Stats.getModifier("Fast")) / 100;
+        yield return new WaitForSeconds(m_Stats.m_bossTimes.m_VelocityTime);
         Speedy = false;
         m_Stats.m_Velocity = velocityBefore;
         PararCorrutina("SpeedRoutine");
@@ -112,10 +111,9 @@ public class BossEstadosController : MonoBehaviour
     IEnumerator StrongRoutine()
     {
         StrongMan = true;
-        m_Stats.m_Strength = Random.Range(5f, 16f);
         strengthBefore = m_Stats.m_Strength;
-        m_Stats.m_Strength += (m_Stats.m_Strength * m_Stats.m_StrengthModifier) / 100;
-        yield return new WaitForSeconds(m_Stats.m_BossTimes.m_StrengthTime);
+        m_Stats.m_Strength += (m_Stats.m_Strength * m_Stats.getModifier("Strength")) / 100;
+        yield return new WaitForSeconds(m_Stats.m_bossTimes.m_StrengthTime);
         StrongMan = false;
         m_Stats.m_Strength = strengthBefore;
         PararCorrutina("StrongRoutine");
@@ -123,7 +121,7 @@ public class BossEstadosController : MonoBehaviour
     IEnumerator BurntRoutine()
     {
         Burn = true;
-        yield return new WaitForSeconds(m_Stats.m_BossTimes.m_BurnTime);
+        yield return new WaitForSeconds(m_Stats.m_bossTimes.m_BurnTime);
         Burn = false;
         PararCorrutina("BurntRoutine");
     }
@@ -132,9 +130,8 @@ public class BossEstadosController : MonoBehaviour
         Poison = true;
         while (poisonCount > 0)
         {
-            yield return new WaitForSeconds(m_Stats.m_BossTimes.m_PoisonTime);
-            m_Stats.m_PoisonModifier = Random.Range(2, 5);
-            poisonDamage = (m_HealthController.HP * m_Stats.m_PoisonModifier) / 100;
+            yield return new WaitForSeconds(m_Stats.m_bossTimes.m_PoisonTime);
+            poisonDamage = (m_HealthController.HP * m_Stats.getModifier("Poison")) / 100;
             m_HealthController.Damage(poisonDamage);
             poisonCount--;
         }
@@ -145,20 +142,18 @@ public class BossEstadosController : MonoBehaviour
     IEnumerator InvencibleRoutine()
     {
         Invencible = true;
-        yield return new WaitForSeconds(m_Stats.m_BossTimes.m_InvencibleTime);
+        yield return new WaitForSeconds(m_Stats.m_bossTimes.m_InvencibleTime);
         Invencible = false;
         PararCorrutina("InvencibleRoutine");
     }
     IEnumerator WrathRoutine()
     {
         Wrath = true;
-        m_Stats.m_WrathSpeedModifier = Random.Range(15f, 26f);
         velocityBefore = m_Stats.m_Velocity;
-        m_Stats.m_Velocity += (m_Stats.m_Velocity * m_Stats.m_WrathSpeedModifier) / 100;
-        m_Stats.m_WrathStrengthModifier = Random.Range(10f, 21f);
+        m_Stats.m_Velocity += (m_Stats.m_Velocity * m_Stats.getModifier("WrathSpeed")) / 100;
         strengthBefore = m_Stats.m_Strength;
-        m_Stats.m_Strength += (m_Stats.m_Strength * m_Stats.m_WrathStrengthModifier) / 100;
-        yield return new WaitForSeconds(m_Stats.m_BossTimes.m_WrathTime);
+        m_Stats.m_Strength += (m_Stats.m_Strength * m_Stats.getModifier("WrathStrength")) / 100;
+        yield return new WaitForSeconds(m_Stats.m_bossTimes.m_WrathTime);
         Wrath = false;
         m_Stats.m_Strength = strengthBefore;
         m_Stats.m_Velocity = velocityBefore;
@@ -170,7 +165,7 @@ public class BossEstadosController : MonoBehaviour
         Stuck = true;
         velocityBefore = m_Stats.m_Velocity;
         m_Stats.m_Velocity = 0;
-        yield return new WaitForSeconds(m_Stats.m_BossTimes.m_StuckTime);
+        yield return new WaitForSeconds(m_Stats.m_bossTimes.m_StuckTime);
         Stuck = false;
         m_Stats.m_Velocity = velocityBefore;
         PararCorrutina("StuckRoutine");

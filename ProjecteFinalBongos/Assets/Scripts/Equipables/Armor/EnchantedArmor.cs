@@ -6,4 +6,6 @@ public class EnchantedArmor : Armor
 {
     public float regenMin;
     public float regenMax;
+    public float RegenTime;
+
 }

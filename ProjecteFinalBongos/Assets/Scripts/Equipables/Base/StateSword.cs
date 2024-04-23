@@ -17,6 +17,7 @@ public class StateSword : Sword, IStateChanger
         {
             bec.AlternarEstado(Estado);
         }
+        Debug.Log("pingo");
 
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerStatsController : MonoBehaviour
 {
+    private HealthController m_HealthController;
     [Header("Tiempos")]
     [SerializeField]
     public TimesScriptable m_playerTimes;
@@ -54,6 +55,9 @@ public class PlayerStatsController : MonoBehaviour
     public float m_Defense;
     [SerializeField]
     private Sword m_Sword;
+    public Sword Sword => m_Sword;
+    [SerializeField]
+    private Sword m_SwordPrueba;
     [SerializeField]
     private Armor m_Armor;
     private void Start()
@@ -62,7 +66,10 @@ public class PlayerStatsController : MonoBehaviour
         m_AttackTime = m_PlayerBaseStats.m_BaseAttackTime;
         m_Strength = m_PlayerBaseStats.m_BaseStrength;
         m_Defense = m_PlayerBaseStats.m_BaseDefense;
-        
+        m_HealthController = GetComponent<HealthController>();
+        EquipSword(m_SwordPrueba);
+        Debug.Log(m_Sword.Estado);
+
     }
     public float getModifier(string modifier)
     {
@@ -103,12 +110,19 @@ public class PlayerStatsController : MonoBehaviour
         m_Armor = armor;
         m_Defense += armor.defense;
         m_Velocity += armor.speed;
+        if (armor is EnchantedArmor) {
+            StartCoroutine(RegenLife(armor.GetComponent<EnchantedArmor>())) ;
+        }
     }
     public void UnequipArmor(Armor armor)
     {
         m_Armor = null;
         m_Defense -= armor.defense;
         m_Velocity -= armor.speed;
+        if (armor is EnchantedArmor)
+        {
+            StopCoroutine(RegenLife(armor.GetComponent<EnchantedArmor>()));
+        }
     }
 
     public void EquipSword(Sword sword)
@@ -117,6 +131,7 @@ public class PlayerStatsController : MonoBehaviour
         m_Strength += sword.attack;
         m_Velocity += sword.speed;
         m_AttackTime += sword.speedAttack;
+      
     }
     public void UnequipSword(Sword sword)
     {
@@ -124,5 +139,13 @@ public class PlayerStatsController : MonoBehaviour
         m_Strength -= sword.attack;
         m_Velocity -= sword.speed;
         m_AttackTime -= sword.speedAttack;
+    }
+
+    IEnumerator RegenLife(EnchantedArmor armor) {
+        yield return new WaitForSeconds(armor.RegenTime);
+        float lifeRegen = Random.Range(armor.regenMin, armor.regenMax);
+        m_HealthController.Heal(lifeRegen);
+
+        
     }
 }

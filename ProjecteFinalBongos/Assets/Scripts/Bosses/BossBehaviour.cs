@@ -6,7 +6,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Android;
 using static UnityEngine.GraphicsBuffer;
-
+[RequireComponent(typeof(BossEstadosController))]
+[RequireComponent(typeof(BossStatsController))]
 [RequireComponent(typeof(FiniteStateMachine))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
@@ -105,9 +106,11 @@ public class BossBehaviour : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("PlayerHitBox"))
+        print(collision.gameObject?.GetComponent<AttackDamage>().Damage);
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHitBox"))
         {
-            m_HealthController.Damage(50);
+            m_HealthController.Damage(collision.gameObject.GetComponent<AttackDamage>().Damage);
+           
         }
     }
 
