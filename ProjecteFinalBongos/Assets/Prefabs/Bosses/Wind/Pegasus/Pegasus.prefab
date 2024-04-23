@@ -27,6 +27,9 @@ GameObject:
   - component: {fileID: 2411395426008292672}
   - component: {fileID: -2504800261490869880}
   - component: {fileID: -9008480982053916253}
+  - component: {fileID: 2349389050857038823}
+  - component: {fileID: 4671150772417282311}
+  - component: {fileID: 4958031672399655640}
   m_Layer: 9
   m_Name: Pegasus
   m_TagString: Untagged
@@ -183,8 +186,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ffffcba53bd5cc140b776f6890a428fe, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7313588617200263524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,9 +198,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60aee5c8230df4f49ae73db6a2eb0766, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  m_IdleAnimationName:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IdleAnimationName: 
 --- !u!114 &3804332730328838451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,8 +211,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c95fcad212f9a846a53614aab35d8aa, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_ParryDuration: 2
 --- !u!95 &7840665840602484523
 Animator:
@@ -227,7 +230,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -242,10 +245,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe3f8f95414136945818e9d39b233177, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_ChaseSpeed: 5
-  m_ChaseAnimationName:
+  m_ChaseAnimationName: 
 --- !u!114 &2968547876822888234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,13 +259,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed55b1b0673a9e24a98ce8d9413e3f9a, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_AttackHitbox: {fileID: 0}
   m_HitboxLength: 2
   m_HitboxWideness: 2
   m_HitboxRadius: 0.2
-  m_SingleAttackAnimationName:
+  m_SingleAttackAnimationName: 
 --- !u!114 &7439815252516766770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,8 +276,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d03f062997d23bf46a50d2fa12d157ab, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_ChargeSpeed: 20
   m_ChargeForce: 2
 --- !u!114 &4405917579707727485
@@ -287,8 +290,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a589a5694c2dbc429eb54366e9d94e3, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_BossName: Pegasus
   m_Description: Caballo cabalga rayos
   m_Target: {fileID: 0}
@@ -310,8 +313,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d5e8d4986c7e4f4f87b63564cc2ac48, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_SummoningDuration: 3
   m_Pool: {fileID: 0}
 --- !u!114 &580332229534710706
@@ -324,8 +327,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c95fcad212f9a846a53614aab35d8aa, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_ParryDuration: 1
 --- !u!114 &1228011986976466924
 MonoBehaviour:
@@ -337,8 +340,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0f3c3d81b8c72f4e9369780a8a90f26, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_WalkSpeed: 2
   m_minimumWalkingDuration: 0
   m_maximumWalkingDuration: 0
@@ -352,8 +355,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2df0422e5b9f6d840bc368b06c48aa2d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_OndaExpansiva: {fileID: 1457768912843992884, guid: 5e229082a6ef3a8488c6006ed6356b67, type: 3}
   m_GroundHitDuration: 2
 --- !u!114 &2411395426008292672
@@ -366,8 +369,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   MAXHP: 1000
 --- !u!195 &-2504800261490869880
 NavMeshAgent:
@@ -401,8 +404,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e39f6090724e4a4a8aadeb042afa2bc, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2349389050857038823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5578168786395275385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c862eb733f111414daa1cc87977a7bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bossTimes: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
+  m_ParalizedLifeModifier: 2
+  m_WrathLifeModifier: 1.5
+  m_WaterResistance: 5
+  m_FireResistance: 5
+  m_ElectricResistance: 5
+  m_bossBaseStats: {fileID: 11400000, guid: 2ed16064ca0caa64a94df5785d23f5c8, type: 2}
+  m_Velocity: 0
+  m_AttackTime: 1
+  m_Strength: 0
+  m_Defense: 0
 --- !u!114 &4671150772417282311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,8 +439,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8550f034611a06e4f88fc261204d8a7b, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4958031672399655640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,8 +451,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83c8b096c741d3344bcc550c5c033407, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   Invencible: 0
   Stun: 0
   Poison: 0
@@ -442,26 +468,3 @@ MonoBehaviour:
   poisonCount: 4
   poisonDamage: 0
   burntDamage: 0
---- !u!114 &2349389050857038823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5578168786395275385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c862eb733f111414daa1cc87977a7bd0, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  m_bossTimes: {fileID: 0}
-  m_ParalizedLifeModifier: 2
-  m_WrathLifeModifier: 1.5
-  m_WaterResistance: 5
-  m_FireResistance: 5
-  m_ElectricResistance: 5
-  m_bossBaseStats: {fileID: 11400000, guid: 2ed16064ca0caa64a94df5785d23f5c8, type: 2}
-  m_Velocity: 0
-  m_AttackTime: 1
-  m_Strength: 0
-  m_Defense: 0

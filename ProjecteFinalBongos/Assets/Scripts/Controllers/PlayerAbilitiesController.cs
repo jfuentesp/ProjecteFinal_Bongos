@@ -16,12 +16,15 @@ public class PlayerAbilitiesController : MonoBehaviour
     private List<string> m_AtaquesMejorados = new List<string>();
     public List<string> AtaquesMejoradosDisponibles => m_AtaquesMejorados;
     [SerializeField]
-    private float m_CoolDown = 1f;
+    private float m_CoolDown;
     private  void Awake()
     {
         
         initMovementAbility();
         initParryAbility();
+        m_AtaquesMejorados.Add("1x4better");
+        m_AtaquesMejorados.Add("2x1better");
+        m_AtaquesMejorados.Add("2x2better");
     }
 
     private void initMovementAbility()
