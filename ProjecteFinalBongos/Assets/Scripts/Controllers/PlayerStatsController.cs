@@ -60,6 +60,8 @@ public class PlayerStatsController : MonoBehaviour
     private Sword m_SwordPrueba;
     [SerializeField]
     private Armor m_Armor;
+    [SerializeField]
+    private Armor prueba;
     private void Start()
     {
         m_Velocity = m_PlayerBaseStats.m_BaseVelocity;
@@ -68,6 +70,7 @@ public class PlayerStatsController : MonoBehaviour
         m_Defense = m_PlayerBaseStats.m_BaseDefense;
         m_HealthController = GetComponent<HealthController>();
         EquipSword(m_SwordPrueba);
+        EquipArmor(prueba);
 
     }
     public float getModifier(string modifier)
@@ -107,21 +110,23 @@ public class PlayerStatsController : MonoBehaviour
 
     public void EquipArmor(Armor armor) { 
         m_Armor = armor;
-        m_Defense += armor.defense;
-        m_Velocity += armor.speed;
-        if (armor is EnchantedArmor) {
-            StartCoroutine(RegenLife(armor.GetComponent<EnchantedArmor>())) ;
+        m_Defense += m_Armor.defense;
+        m_Velocity += m_Armor.speed;
+        if (m_Armor.propiedades.Contains("Enchanted"))
+        {
+            StartCoroutine(m_Armor.Regen(gameObject));
         }
     }
-    public void UnequipArmor(Armor armor)
+    public void UnequipArmor()
     {
-        m_Armor = null;
-        m_Defense -= armor.defense;
-        m_Velocity -= armor.speed;
-        if (armor is EnchantedArmor)
+
+        m_Defense -= m_Armor.defense;
+        m_Velocity -= m_Armor.speed;
+        if (m_Armor.propiedades.Contains("Enchanted"))
         {
-            StopCoroutine(RegenLife(armor.GetComponent<EnchantedArmor>()));
+            StopCoroutine(m_Armor.Regen(gameObject));
         }
+        m_Armor = null;
     }
 
     public void EquipSword(Sword sword)
@@ -138,13 +143,5 @@ public class PlayerStatsController : MonoBehaviour
         m_Strength -= sword.attack;
         m_Velocity -= sword.speed;
         m_AttackTime -= sword.speedAttack;
-    }
-
-    IEnumerator RegenLife(EnchantedArmor armor) {
-        yield return new WaitForSeconds(armor.RegenTime);
-        float lifeRegen = Random.Range(armor.regenMin, armor.regenMax);
-        m_HealthController.Heal(lifeRegen);
-
-        
     }
 }

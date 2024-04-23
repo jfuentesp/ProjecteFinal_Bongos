@@ -9,7 +9,8 @@ public class AttackDamage : MonoBehaviour
     private float m_Damage;
     [SerializeField]
     private PlayerStatsController m_StatsController;
-
+    [SerializeField]
+    private GameObject m_player;
     public float Damage => m_Damage;
 
     private void Start()
@@ -31,7 +32,7 @@ public class AttackDamage : MonoBehaviour
                         m_StatsController.Sword.ChangeState(collision.gameObject);
                         break;
                     case "Vampiro":
-                        m_StatsController.Sword.Regenerate(collision.gameObject, GetComponentInParent<GameObject>());
+                        m_StatsController.Sword.Regenerate(collision.gameObject, m_player);
                         break;
                 }
             }

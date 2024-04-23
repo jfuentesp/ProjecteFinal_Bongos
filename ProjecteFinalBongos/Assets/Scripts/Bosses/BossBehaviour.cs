@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Android;
 using static UnityEngine.GraphicsBuffer;
+[RequireComponent(typeof(SMBParalized))]
+[RequireComponent(typeof(SMBBossStunState))]
 [RequireComponent(typeof(BossEstadosController))]
 [RequireComponent(typeof(BossStatsController))]
 [RequireComponent(typeof(FiniteStateMachine))]
@@ -138,8 +140,6 @@ public class BossBehaviour : MonoBehaviour
     }
     public void recibirDaño(float Daño)
     {
-        if (m_EstadosController.Invencible)
-            return;
         if (m_EstadosController.Burn)
         {
             m_HealthController.Damage(Daño);

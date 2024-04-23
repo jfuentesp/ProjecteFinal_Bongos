@@ -30,7 +30,7 @@ public class BossEstadosController : MonoBehaviour
                 if (!Stun)
                 {
                     Stun = true;
-                    m_StateMachine.ChangeState<SMBStunState>();
+                    m_StateMachine.ChangeState<SMBBossStunState>();
                 }
                 break;
             case EstadosAlterados.Mullat:
@@ -49,7 +49,7 @@ public class BossEstadosController : MonoBehaviour
                 if (!Stun)
                 {
                     Stun = true;
-                    m_StateMachine.ChangeState<SMBParalitzatState>();
+                    m_StateMachine.ChangeState<SMBParalized>();
                 }
                 break;
             case EstadosAlterados.Cremat:
@@ -61,8 +61,6 @@ public class BossEstadosController : MonoBehaviour
                 {
                     StartCoroutine(PoisonRoutine());
                 }
-
-       
                 break;
             case EstadosAlterados.Ira:
                 if (!Wrath)

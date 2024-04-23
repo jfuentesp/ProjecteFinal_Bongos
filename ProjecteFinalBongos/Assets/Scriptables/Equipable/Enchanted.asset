@@ -9,22 +9,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cc2fcd2d3052d045a780a9d850afe6b, type: 3}
-  m_Name: FireSword
+  m_Script: {fileID: 11500000, guid: d6de1bcec777ca149a5578f0d465f964, type: 3}
+  m_Name: Enchanted
   m_EditorClassIdentifier: 
   m_Id: 
   m_Description: 
   m_Sprite: {fileID: 0}
-  m_Estado: 3
+  m_Estado: 11
   propiedades:
-  - Estado
-  - Vampiro
-  attack: 1
+  - Enchanted
+  defense: 50
   speed: 10
-  speedAttack: 0
-  maxRatio: 50
+  ElementalResistance: 0
+  stateResistance: 0
+  stateResistanceMin: 0
+  stateResistanceMax: 0
+  maxRatio: 0
   minRatio: 0
-  minPosibilty: 20
-  maxPosibilty: 36
-  lifeMin: 100
-  lifeMax: 120
+  minPosibilty: 0
+  maxPosibilty: 0
+  regenMin: 5
+  regenMax: 9
+  RegenTime: 0.1
+  spikeDamageMin: 0
+  spikeDamageMax: 0

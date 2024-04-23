@@ -9,10 +9,7 @@ public class SMBPlayerSuccesfulParryState : MBState
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
     private string m_parry;
-    [SerializeField]
-    private EstadoEvent m_ChangeEstado;
-    [SerializeField]
-    private EstadoEvent m_ChangeEstadoEnemigo;
+
 
     private void Awake()
     {
@@ -41,23 +38,8 @@ public class SMBPlayerSuccesfulParryState : MBState
         }
         m_Rigidbody.velocity = Vector2.zero;
         m_parry = m_PJ.PlayerAbilitiesController.Parry;
-        parryAction();
     }
-    private void parryAction() {
-        switch (m_parry) {
-            case "Invincible":
-                m_ChangeEstado.Raise(EstadosAlterados.Invencible);
-                break;
-            case "Paralized":
-                m_ChangeEstadoEnemigo.Raise(EstadosAlterados.Paralitzat);
-                break;
-            case "Fast":
-                m_ChangeEstado.Raise(EstadosAlterados.Peus_Lleugers);
-                break;
-            default:
-                break;
-        }
-    }
+
     public void Exit()
     {
         m_StateMachine.ChangeState<SMBPlayerIdleState>();
