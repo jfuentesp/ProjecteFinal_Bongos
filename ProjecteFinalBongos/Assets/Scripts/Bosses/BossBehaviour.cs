@@ -106,7 +106,6 @@ public class BossBehaviour : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.gameObject?.GetComponent<AttackDamage>().Damage);
         if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHitBox"))
         {
             m_HealthController.Damage(collision.gameObject.GetComponent<AttackDamage>().Damage);

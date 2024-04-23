@@ -68,7 +68,6 @@ public class PlayerStatsController : MonoBehaviour
         m_Defense = m_PlayerBaseStats.m_BaseDefense;
         m_HealthController = GetComponent<HealthController>();
         EquipSword(m_SwordPrueba);
-        Debug.Log(m_Sword.Estado);
 
     }
     public float getModifier(string modifier)

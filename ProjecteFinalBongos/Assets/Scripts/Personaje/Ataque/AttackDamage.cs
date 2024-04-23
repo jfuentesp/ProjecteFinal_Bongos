@@ -22,7 +22,6 @@ public class AttackDamage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("Hola");
         if (collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox"))
         {
             StateSword stateSword = (StateSword)m_StatsController.Sword;
