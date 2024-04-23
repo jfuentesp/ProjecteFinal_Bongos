@@ -97,7 +97,6 @@ MonoBehaviour:
   m_SlotButton: {fileID: 6558426485004322438}
   m_InventoryController: {fileID: -3551111455132506853, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
   m_Backpack: {fileID: 11400000, guid: 1b262f08a44ceea4f8dc35542be633a0, type: 2}
-  AssignedConsumable: {fileID: 0}
 --- !u!114 &6558426485004322438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +120,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0.254717, g: 0.23416968, b: 0.20785868, a: 0.6666667}
     m_HighlightedColor: {r: 0.9825802, g: 1, b: 0, a: 1}
-    m_PressedColor: {r: 0.47741795, g: 0.8773585, b: 0.15312389, a: 1}
+    m_PressedColor: {r: 0.627451, g: 0.25882354, b: 0.61960787, a: 1}
     m_SelectedColor: {r: 0.4784314, g: 0.87843144, b: 0.15294118, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1

@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class GridSlotBehaviour : MonoBehaviour
 {
+    //Igual habría que mirarse esto https://docs.unity3d.com/es/2018.4/Manual/SupportedEvents.html
+
     [SerializeField]
     private Image m_ItemSprite;
     [SerializeField]
@@ -39,6 +42,8 @@ public class GridSlotBehaviour : MonoBehaviour
             });
         }
     }
+
+    
 
     public void SetConsumable(Consumable consumableToSet)
     {
