@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c51e0ba53c47e429c22a8a0d4e6704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DurationOfSummoning: 2
+  m_DurationOfSummoning: 0.3
 --- !u!114 &4651967297514028792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 363fedf7bfe75094c8e33ab9adcbec14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_DurationOfSummoning: 0
 --- !u!114 &-6312628357339103398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,7 +365,7 @@ MonoBehaviour:
   m_LayersToCheck:
     serializedVersion: 2
     m_Bits: 128
-  m_TiempoEntreSpawn: 2
+  m_TiempoEntreSpawn: 5
 --- !u!114 &5579819627284910758
 MonoBehaviour:
   m_ObjectHideFlags: 0
