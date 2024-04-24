@@ -19,8 +19,10 @@ using Random = UnityEngine.Random;
 public class TritoBossBehaviour : BossBehaviour
 {
     [SerializeField] private float m_TiempoEntreSpawn;
+    [SerializeField] private float m_TiempoParaRed;
     private Coroutine m_TiempoSpawneoCoroutine;
     private Coroutine m_DeteccionJugadorCoroutine;
+    private Coroutine m_LanzarRedCoroutine;
     private new void Awake()
     {
         base.Awake();
@@ -33,29 +35,52 @@ public class TritoBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
-        GetComponent<TritoArrowSummoningState>().onArrowSummoned += EmpezarCuentaAtras;
-        GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarSpawnFlechas;
+        GetComponent<TritoWaterChainsState>().onChainSummoned = () =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBSingleAttackState>().OnStopDetectingPlayer = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+
+        GetComponent<SMBChaseState>().OnStartChase += EmpezarCuentaAtras;
         m_StateMachine.ChangeState<SMBIdleState>();
     }
 
-    private void EmpezarSpawnFlechas(GameObject @object)
-    {
-        m_TiempoSpawneoCoroutine = StartCoroutine(TiempoSpawneo());
-    }
 
-    private void Start()
-    {
-    }
     private void EmpezarCuentaAtras()
     {
-        m_DeteccionJugadorCoroutine ??= StartCoroutine(PlayerDetectionCoroutine());
-        m_TiempoSpawneoCoroutine = StartCoroutine(TiempoSpawneo());
+        if (m_DeteccionJugadorCoroutine == null)
+        {
+            m_DeteccionJugadorCoroutine = StartCoroutine(PlayerDetectionCoroutine());
+        }
+        if (m_TiempoSpawneoCoroutine == null)
+        {
+            m_TiempoSpawneoCoroutine = StartCoroutine(TiempoSpawneo());
+        }
+        if (m_LanzarRedCoroutine == null)
+        {
+            m_LanzarRedCoroutine = StartCoroutine(TiempoLanzarRed());
+        }
+    }
+
+    private IEnumerator TiempoLanzarRed()
+    {
+        while (m_IsAlive)
+        {
+            yield return new WaitForSeconds(m_TiempoParaRed);
+            m_StateMachine.ChangeState<TritoWaterChainsState>();
+        }
     }
 
     private IEnumerator TiempoSpawneo()
     {
-        yield return new WaitForSeconds(m_TiempoEntreSpawn);
-        m_StateMachine.ChangeState<TritoArrowSummoningState>();
+        while (m_IsAlive)
+        {
+            yield return new WaitForSeconds(m_TiempoEntreSpawn);
+            m_StateMachine.ChangeState<TritoArrowSummoningState>();
+        }
     }
 
     public override void Init(Transform _Target)
@@ -98,6 +123,12 @@ public class TritoBossBehaviour : BossBehaviour
     }
     private void SetAttack()
     {
+        if(m_LanzarRedCoroutine != null)
+        {
+            StopCoroutine(m_LanzarRedCoroutine);
+            m_LanzarRedCoroutine = null;
+        }
+
         float rng = Random.value;
 
         switch (rng)
@@ -112,6 +143,17 @@ public class TritoBossBehaviour : BossBehaviour
                 m_StateMachine.ChangeState<SMBTripleAttackState>();
                 break;
         }
+    }
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+    }
+    protected override void VidaCero()
+    {
+        base.VidaCero();
+        m_IsAlive = false;
+        OnBossDeath?.Invoke();
+        Destroy(gameObject);
     }
 
 }

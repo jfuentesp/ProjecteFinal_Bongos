@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,8 @@ public class SMBChaseState : SMState
 
     private NavMeshAgent m_NavMeshAgent;
 
+    public Action OnStartChase;
+
     private new void Awake()
     {
         base.Awake();
@@ -43,6 +46,7 @@ public class SMBChaseState : SMState
         base.InitState();
         m_Boss.SetBusy(false);
         m_NavMeshAgent.isStopped = false;
+        OnStartChase?.Invoke();
     }
 
     public override void ExitState()

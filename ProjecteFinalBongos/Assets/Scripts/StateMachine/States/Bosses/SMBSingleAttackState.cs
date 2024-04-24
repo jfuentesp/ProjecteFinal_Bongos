@@ -49,7 +49,7 @@ public class SMBSingleAttackState : SMBBasicAttackState
             yield return new WaitForSeconds(0.5f);
             if (!m_Boss.IsPlayerDetected)
             {
-                OnStopDetectingPlayer.Invoke(gameObject);
+                OnStopDetectingPlayer?.Invoke(gameObject);
             }
                 //m_StateMachine.ChangeState<SMBChaseState>();
         }

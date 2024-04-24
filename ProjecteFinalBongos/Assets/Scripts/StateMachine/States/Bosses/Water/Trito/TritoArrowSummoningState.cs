@@ -33,6 +33,7 @@ public class TritoArrowSummoningState : SMState
     {
         base.InitState();
         m_TimeSummoning = 0;
+        m_Boss.SetBusy(true);
         if (m_Target != null)
         {
             Vector2 posicionAleatoria = Random.insideUnitCircle.normalized;
