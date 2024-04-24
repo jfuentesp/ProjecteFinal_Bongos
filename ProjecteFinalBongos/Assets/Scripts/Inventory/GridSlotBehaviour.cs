@@ -66,6 +66,7 @@ public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     public void OnDeselect(BaseEventData eventData)
     {
         m_InventoryController.SetSelectedItem(null);
+        //m_ActionPanel.SetActive(false);
     }
 
     public void OnSubmit(BaseEventData eventData) 
@@ -79,8 +80,8 @@ public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     }
 
     public void OnCancel(BaseEventData eventData) 
-    { 
-    
+    {
+        m_ActionPanel.SetActive(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)

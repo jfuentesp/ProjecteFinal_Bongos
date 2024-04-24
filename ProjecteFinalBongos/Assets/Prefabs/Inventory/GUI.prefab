@@ -2179,7 +2179,7 @@ RectTransform:
   m_Children:
   - {fileID: 5434223213953680785}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3387,6 +3387,10 @@ PrefabInstance:
       value: ConsumableInventorySlot (9)
       objectReference: {fileID: 0}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
       objectReference: {fileID: -3551111455132506853}
@@ -3497,6 +3501,10 @@ PrefabInstance:
       value: ConsumableInventorySlot (13)
       objectReference: {fileID: 0}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
       objectReference: {fileID: -3551111455132506853}
@@ -3606,6 +3614,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
@@ -3837,6 +3849,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
@@ -4190,6 +4206,10 @@ PrefabInstance:
       value: ConsumableInventorySlot (8)
       objectReference: {fileID: 0}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
       objectReference: {fileID: -3551111455132506853}
@@ -4300,6 +4320,10 @@ PrefabInstance:
       value: ConsumableInventorySlot (11)
       objectReference: {fileID: 0}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
       objectReference: {fileID: -3551111455132506853}
@@ -4409,6 +4433,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
@@ -4640,6 +4668,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
@@ -4993,6 +5025,10 @@ PrefabInstance:
       value: ConsumableInventorySlot (7)
       objectReference: {fileID: 0}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
       objectReference: {fileID: -3551111455132506853}
@@ -5102,6 +5138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
@@ -5576,6 +5616,10 @@ PrefabInstance:
       value: ConsumableInventorySlot (6)
       objectReference: {fileID: 0}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
       objectReference: {fileID: -3551111455132506853}
@@ -6038,6 +6082,10 @@ PrefabInstance:
       value: ConsumableInventorySlot (12)
       objectReference: {fileID: 0}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
       objectReference: {fileID: -3551111455132506853}
@@ -6147,6 +6195,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
@@ -6379,6 +6431,10 @@ PrefabInstance:
       value: ConsumableInventorySlot (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
       objectReference: {fileID: -3551111455132506853}
@@ -6489,6 +6545,10 @@ PrefabInstance:
       value: ConsumableInventorySlot (4)
       objectReference: {fileID: 0}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
       objectReference: {fileID: -3551111455132506853}
@@ -6598,6 +6658,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
@@ -6955,6 +7019,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
@@ -7429,6 +7497,10 @@ PrefabInstance:
       value: ConsumableInventorySlot (3)
       objectReference: {fileID: 0}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
       objectReference: {fileID: -3551111455132506853}
@@ -7538,6 +7610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
@@ -8133,6 +8209,10 @@ PrefabInstance:
       value: ConsumableInventorySlot (18)
       objectReference: {fileID: 0}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
       objectReference: {fileID: -3551111455132506853}
@@ -8727,6 +8807,10 @@ PrefabInstance:
       value: ConsumableInventorySlot (16)
       objectReference: {fileID: 0}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
       objectReference: {fileID: -3551111455132506853}
@@ -8837,6 +8921,10 @@ PrefabInstance:
       value: ConsumableInventorySlot (14)
       objectReference: {fileID: 0}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
       objectReference: {fileID: -3551111455132506853}
@@ -8946,6 +9034,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
@@ -9420,6 +9512,10 @@ PrefabInstance:
       value: ConsumableInventorySlot (24)
       objectReference: {fileID: 0}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
       objectReference: {fileID: -3551111455132506853}
@@ -9529,6 +9625,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
     - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_InventoryController
       value: 
@@ -9918,6 +10018,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+--- !u!1 &2238760179042495632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7320041529918900992, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+  m_PrefabInstance: {fileID: 8829217431394346896}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5320879862554549410 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
