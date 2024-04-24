@@ -7,9 +7,12 @@ public class AgullaDeCoralCoralBullet : Bullet
 {
     private Transform m_BossTransform;
     [SerializeField] private float m_TimeUntilReturn;
-    public void Init(Vector2 destino, Transform _BossTransform)
+    [SerializeField] private float m_ReturnSpeed;
+    public float m_Damage;
+    public void Init(Vector2 destino, Transform _BossTransform, float _Damage)
     {
         m_BossTransform = _BossTransform;
+        m_Damage = _Damage; 
 
         m_Size = new Vector2(m_SizeRadius, m_SizeRadius);
         transform.localScale = m_Size;
@@ -27,6 +30,7 @@ public class AgullaDeCoralCoralBullet : Bullet
             transform.position = nuevaPosicion;
         }
         transform.position = destino;
+        GetComponent<CircleCollider2D>().enabled = true;
         StartCoroutine(WaitToMove());
     }
 
@@ -35,13 +39,20 @@ public class AgullaDeCoralCoralBullet : Bullet
         yield return new WaitForSeconds(m_TimeUntilReturn);
         while(Vector2.Distance(transform.position, m_BossTransform.position) > 0.5f)
         {
-            m_Rigidbody.velocity = (m_BossTransform.position - transform.position).normalized * m_Speed;
+            m_Rigidbody.velocity = (m_BossTransform.position - transform.position).normalized * m_ReturnSpeed;
             yield return new WaitForSeconds(0.2f);
         }
+        transform.position = m_BossTransform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("Galileo");
+        if (!enabled)
+            return;
+
+        if(collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox"))
+        {
+            DisableBullet();
+        }
     }
 }

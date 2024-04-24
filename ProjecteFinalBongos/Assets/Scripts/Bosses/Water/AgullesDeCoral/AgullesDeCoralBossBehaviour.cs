@@ -4,40 +4,68 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(AgentOverride2d))]
 [RequireComponent(typeof(SMBIdleState))]
-[RequireComponent(typeof(SMBChargeState))]
+[RequireComponent(typeof(AgullaChargeState))]
 [RequireComponent(typeof(AgullaDeCoralFlipState))]
-[RequireComponent(typeof(SMBChaseState))]
-[RequireComponent(typeof(SMBTripleAttackState))]
-[RequireComponent(typeof(SMBSingleAttackState))]
-[RequireComponent(typeof(SMBDoubleAttackState))]
+[RequireComponent(typeof(AgullaCoralAreaAttack))]
+[RequireComponent(typeof(SMBParriedState))]
 [RequireComponent(typeof(HealthController))]
 public class AgullesDeCoralBossBehaviour : BossBehaviour
 {
     private Pool m_Pool;
+    [Header("Coral Summoning")]
+    [SerializeField] LayerMask m_LayerParaElCircleCast;
+    [SerializeField] private float m_RangeCoralCircleCast;
+    [SerializeField] private int m_RangeForCoralSummoning;
+    [SerializeField, Range(0.0f, 1.0f)] private float m_HealingReduction;
     private new void Awake()
     {
         base.Awake();
         m_SalaPadre = GetComponentInParent<SalaBoss>();
-        /*GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
+        GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
         {
-            m_StateMachine.ChangeState<SMBChaseState>();
+            m_StateMachine.ChangeState<AgullaChargeState>();
         };
-        GetComponent<TritoArrowSummoningState>().onArrowSummoned = () =>
+        GetComponent<AgullaChargeState>().OnChargeMissed = (GameObject obj) =>
         {
-            m_StateMachine.ChangeState<SMBChaseState>();
+            m_StateMachine.ChangeState<AgullaDeCoralFlipState>();
         };
-        GetComponent<TritoWaterChainsState>().onChainSummoned = () =>
+        GetComponent<AgullaChargeState>().OnChargePlayer = (GameObject obj) =>
         {
-            m_StateMachine.ChangeState<SMBChaseState>();
+            m_StateMachine.ChangeState<AgullaDeCoralFlipState>();
         };
-        GetComponent<SMBSingleAttackState>().OnStopDetectingPlayer = (GameObject obj) =>
+        GetComponent<AgullaDeCoralFlipState>().OnAttackHitted = () =>
         {
-            m_StateMachine.ChangeState<SMBChaseState>();
-        };*/
+            m_StateMachine.ChangeState<AgullaCoralAreaAttack>();
+        };
+        GetComponent<AgullaDeCoralFlipState>().OnAttackParried = () =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<AgullaDeCoralFlipState>().OnAttackMissed = () =>
+        {
+            m_StateMachine.ChangeState<AgullaChargeState>();
+        };
+        GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<AgullaChargeState>();
+        };
+        GetComponent<AgullaCoralAreaAttack>().OnPlayerHitted = () =>
+        {
+            m_StateMachine.ChangeState<AgullaChargeState>();
+        };
+        GetComponent<AgullaCoralAreaAttack>().OnStopDetectingPlayer = () =>
+        {
+            m_StateMachine.ChangeState<AgullaChargeState>();
+        };
+        GetComponent<AgullaCoralAreaAttack>().OnParriedAttack = () =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
 
         m_Pool = LevelManager.Instance._BulletPool;
 
@@ -53,24 +81,49 @@ public class AgullesDeCoralBossBehaviour : BossBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHitBox"))
         {
-
-            recibirDaño(collision.gameObject.GetComponent<AttackDamage>().Damage);
-            SoltarCoral(collision.gameObject.GetComponent<AttackDamage>().Damage);
+            AttackDamage Damage;
+            if(collision.gameObject.TryGetComponent<AttackDamage>(out Damage))
+            {
+                recibirDaño(Damage.Damage);
+                SoltarCoral(Damage.Damage);
+            }
+        }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("BossHitBox"))
+        {
+            AgullaDeCoralCoralBullet coralBullet;
+            if (collision.gameObject.TryGetComponent<AgullaDeCoralCoralBullet>(out coralBullet))
+            {
+                if (coralBullet.enabled)
+                {
+                    m_HealthController.Heal(coralBullet.m_Damage * m_HealingReduction);
+                }
+            }
         }
     }
 
     private void SoltarCoral(float damage)
     {
-        print("SoltandoCoral");
         Vector2 posicionHuevo = m_SalaPadre.GetPosicionAleatoriaEnSala();
-        if (m_Target != null)
+        RaycastHit2D hit = Physics2D.CircleCast(posicionHuevo, m_RangeCoralCircleCast, posicionHuevo, m_RangeCoralCircleCast, m_LayerParaElCircleCast);
+        if (Vector2.Distance(transform.position, posicionHuevo) > m_RangeForCoralSummoning || hit.collider != null)
+        {
+            SoltarCoral(damage);
+        }
+        else
         {
             GameObject arrow = m_Pool.GetElement();
             arrow.transform.position = transform.position;
+            arrow.GetComponent<CircleCollider2D>().enabled = false;
             arrow.SetActive(true);
             arrow.GetComponent<AgullaDeCoralCoralBullet>().enabled = true;
-            arrow.GetComponent<AgullaDeCoralCoralBullet>().Init(posicionHuevo, transform);
+            arrow.GetComponent<AgullaDeCoralCoralBullet>().Init(posicionHuevo, transform, damage);
         }
-
+    }
+    protected override void VidaCero()
+    {
+        base.VidaCero();
+        m_IsAlive = false;
+        OnBossDeath?.Invoke();
+        Destroy(gameObject);
     }
 }
