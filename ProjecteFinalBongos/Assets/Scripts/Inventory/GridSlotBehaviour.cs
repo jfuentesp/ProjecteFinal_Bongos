@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GridSlotBehaviour : MonoBehaviour
+public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, IDeselectHandler, ICancelHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     //Igual habría que mirarse esto https://docs.unity3d.com/es/2018.4/Manual/SupportedEvents.html
-
+    [Header("Slot settings")]
     [SerializeField]
     private Image m_ItemSprite;
     [SerializeField]
@@ -26,24 +27,12 @@ public class GridSlotBehaviour : MonoBehaviour
     private Consumable m_AssignedConsumable;
     public Consumable AssignedConsumable => m_AssignedConsumable;
 
+    [Header("Action Menu")]
+    [SerializeField]
+    private GameObject m_ActionPanel;
+
     //private Equipable m_AssignedEquipable;
     //public Equipable AssignedEquipable;
-
-    private void Awake()
-    {
-        if(m_SlotButton)
-        {
-            m_SlotButton.onClick.RemoveAllListeners();
-            m_SlotButton.onClick.AddListener(() =>
-            {
-                m_InventoryController.SetSelectedItem(gameObject);
-                if(m_AssignedConsumable != null)
-                    m_InventoryController.OnUse(m_AssignedConsumable.id);
-            });
-        }
-    }
-
-    
 
     public void SetConsumable(Consumable consumableToSet)
     {
@@ -67,5 +56,50 @@ public class GridSlotBehaviour : MonoBehaviour
             m_ItemSprite.sprite = m_AssignedConsumable.Sprite;
             m_QuantityText.text = m_Backpack.ConsumableSlots.FirstOrDefault(slot => slot?.Consumable == m_AssignedConsumable).Quantity.ToString();
         }
+    }
+
+    public void OnSelect(BaseEventData eventData)
+    {
+        m_InventoryController.SetSelectedItem(gameObject);
+    }
+
+    public void OnDeselect(BaseEventData eventData)
+    {
+        m_InventoryController.SetSelectedItem(null);
+    }
+
+    public void OnSubmit(BaseEventData eventData) 
+    {
+        if (m_AssignedConsumable != null)
+        {
+            //m_InventoryController.OnUse(m_AssignedConsumable.id);
+            m_ActionPanel.SetActive(true);
+            m_ActionPanel.transform.position = transform.position;
+        }
+    }
+
+    public void OnCancel(BaseEventData eventData) 
+    { 
+    
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (m_AssignedConsumable != null)
+        {
+            //m_InventoryController.OnUse(m_AssignedConsumable.id);
+            m_ActionPanel.SetActive(true);
+            m_ActionPanel.transform.position = transform.position;
+        }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        m_InventoryController.SetSelectedItem(gameObject);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        m_InventoryController.SetSelectedItem(null);
     }
 }
