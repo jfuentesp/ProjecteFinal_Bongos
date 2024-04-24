@@ -27,7 +27,7 @@ public class SMBIdleState : SMState
 
     private void GetTarget()
     {
-        OnPlayerEnter.Invoke(gameObject);
+        OnPlayerEnter?.Invoke(gameObject);
     }
     private void Update()
     {
