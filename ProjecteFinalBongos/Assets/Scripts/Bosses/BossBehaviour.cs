@@ -6,7 +6,10 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Android;
 using static UnityEngine.GraphicsBuffer;
-
+[RequireComponent(typeof(SMBParalized))]
+[RequireComponent(typeof(SMBBossStunState))]
+[RequireComponent(typeof(BossEstadosController))]
+[RequireComponent(typeof(BossStatsController))]
 [RequireComponent(typeof(FiniteStateMachine))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
@@ -25,6 +28,9 @@ public class BossBehaviour : MonoBehaviour
     protected FiniteStateMachine m_StateMachine;
     protected Rigidbody2D m_Rigidbody;
     protected Animator m_Animator;
+    private BossStatsController m_Stats;
+    private BossEstadosController m_EstadosController;
+    public BossEstadosController EstadosController => m_EstadosController;
 
     protected SalaBoss m_SalaPadre;
     public SalaBoss SalaPadre => m_SalaPadre;
@@ -74,6 +80,8 @@ public class BossBehaviour : MonoBehaviour
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_HealthController = GetComponent<HealthController>();
+        m_Stats = GetComponent<BossStatsController>();
+        m_EstadosController = GetComponent<BossEstadosController>();
         m_HealthController.onDeath += VidaCero;
         if(m_PlayerAttackDetectionAreaType == CollisionType.BOX)
             m_BoxArea = new Vector2(m_AreaWideness, m_AreaLength);
@@ -108,9 +116,15 @@ public class BossBehaviour : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("PlayerHitBox"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHitBox"))
         {
-            m_HealthController.Damage(50);
+            if (collision.gameObject.GetComponent<AttackDamage>()) {
+                recibirDaño(collision.gameObject.GetComponent<AttackDamage>().Damage);
+            } else if (collision.gameObject.GetComponent<Player2x2BulletBehaviour>()) {
+                recibirDaño(collision.gameObject.GetComponent<Player2x2BulletBehaviour>().damage);
+            }
+            
+
         }
     }
 
@@ -128,5 +142,33 @@ public class BossBehaviour : MonoBehaviour
     public void CurarBoss(float _Heal)
     {
         m_HealthController.Heal(_Heal);
+    }
+    public void recibirDaño(float Daño)
+    {
+        if (m_EstadosController.Burn)
+        {
+            m_HealthController.Damage(Daño);
+            m_EstadosController.burntDamage = (Daño * m_Stats.getModifier("Burnt")) / 100;
+            m_HealthController.Damage(m_EstadosController.burntDamage);
+        }
+        if (m_EstadosController.Wrath && m_EstadosController.Paralized)
+        {
+            Daño += Daño * m_Stats.getModifier("Paralized");
+            m_HealthController.Damage(Daño);
+        }
+        else if (m_EstadosController.Wrath)
+        {
+            Daño += Daño * m_Stats.getModifier("WrathLife");
+            m_HealthController.Damage(Daño);
+        }
+        else if (m_EstadosController.Paralized)
+        {
+            Daño += Daño * m_Stats.getModifier("Paralized");
+            m_HealthController.Damage(Daño);
+        }
+        else
+        {
+            m_HealthController.Damage(Daño);
+        }
     }
 }

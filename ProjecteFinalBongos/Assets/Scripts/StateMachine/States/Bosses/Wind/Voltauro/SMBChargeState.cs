@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SMBChargeState : SMState
 {
@@ -9,6 +10,8 @@ public class SMBChargeState : SMState
     private FiniteStateMachine m_StateMachine;
     private Animator m_Animator;
     private BossBehaviour m_Boss;
+    private NavMeshAgent m_NavMeshAgent;
+        
 
     [Header("Charge speed")]
     [SerializeField]
@@ -35,6 +38,7 @@ public class SMBChargeState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_NavMeshAgent = GetComponent<NavMeshAgent>();
         m_Boss.OnPlayerInSala += GetTarget;
     }
 
@@ -50,11 +54,13 @@ public class SMBChargeState : SMState
         m_IsCharging = false;
         m_Boss.SetBusy(true);
         StartCoroutine(ChargeCoroutine());
+        m_NavMeshAgent.ResetPath();
     }
 
     public override void ExitState()
     {
         base.ExitState();
+        m_NavMeshAgent.isStopped = true;
     }
 
     private IEnumerator ChargeCoroutine()
@@ -72,14 +78,21 @@ public class SMBChargeState : SMState
         {
             m_Direction = (m_Target.transform.position - transform.position).normalized;
             m_Rigidbody.velocity = Vector3.zero;
-            transform.up = m_Target.transform.position - transform.position;
+            Vector2 posicionPlayer = m_Target.position - transform.position;
+            float angulo = Mathf.Atan2(posicionPlayer.y, posicionPlayer.x);
+            angulo = Mathf.Rad2Deg * angulo - 90;
+            transform.localEulerAngles = new Vector3(0, 0, angulo);
         }
     }
 
     private void FixedUpdate()
     {
         if (m_IsCharging)
-            m_Rigidbody.velocity = m_Direction * m_ChargeSpeed;
+        {
+            m_NavMeshAgent.isStopped = false;
+            m_NavMeshAgent.velocity = m_Direction * m_ChargeSpeed;
+        }
+        //m_Rigidbody.velocity = m_Direction * m_ChargeSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -88,8 +101,9 @@ public class SMBChargeState : SMState
         {
             if (m_IsCharging)
             {
+                print("Choque");
                 m_IsCharging = false;
-                m_Rigidbody.velocity = Vector3.zero;
+                m_NavMeshAgent.velocity = Vector3.zero;
                 if (collision.gameObject.CompareTag("MechanicObstacle"))
                 {
                     OnChargeMissed.Invoke(gameObject);

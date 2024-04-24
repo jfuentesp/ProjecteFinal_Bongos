@@ -10,7 +10,13 @@ public class SMBPlayerParryState : MBState
     private FiniteStateMachine m_StateMachine;
     private SMBStunState m_State;
     public bool parry;
-
+    private string m_parry;
+    private LayerMask m_BossHurtBox;
+    private LayerMask m_BossHitBox;
+    [SerializeField]
+    private EstadoEvent m_ChangeEstado;
+    [SerializeField]
+    private EstadoEvent m_ChangeEstadoEnemigo;
     private void Awake()
     {
         m_PJ = GetComponent<PJSMB>();
@@ -18,7 +24,9 @@ public class SMBPlayerParryState : MBState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_State = GetComponent<SMBStunState>();
-
+        m_Animator.speed = 1.0f;
+        m_BossHurtBox = LayerMask.NameToLayer("BossHurtBox");
+        m_BossHitBox = LayerMask.NameToLayer("BossHitBox");
     }
 
     public override void InitState()
@@ -37,6 +45,8 @@ public class SMBPlayerParryState : MBState
             m_Animator.Play("parryPoseUp");
         }
         m_Rigidbody.velocity = Vector3.zero;
+        m_parry = m_PJ.PlayerAbilitiesController.Parry;
+ 
     }
     public void InitWindow() { 
         parry = true;
@@ -59,12 +69,49 @@ public class SMBPlayerParryState : MBState
 
     }
 
-    public void OnCollisionExit(Collision collision)
+    private void parryAction(GameObject boss)
     {
-        if (this.enabled) {
-            if (parry)
-                m_StateMachine.ChangeState<SMBPlayerSuccesfulParryState>();
+        switch (m_parry)
+        {
+            case "Invincible":
+                m_ChangeEstado.Raise(EstadosAlterados.Invencible);
+                break;
+            case "Paralized":
+                boss.GetComponent<BossEstadosController>().AlternarEstado(EstadosAlterados.Paralitzat);
+                break;
+            case "Fast":
+                m_ChangeEstado.Raise(EstadosAlterados.Peus_Lleugers);
+                break;
+            default:
+                break;
         }
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (enabled)
+        {
+            if (parry && m_BossHurtBox == collision.gameObject.layer || parry && m_BossHitBox == collision.gameObject.layer)
+            {
+                parry = false;
+                parryAction(collision.gameObject);
+                m_StateMachine.ChangeState<SMBPlayerSuccesfulParryState>();
+            }
+
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (enabled)
+        {
+            if (parry && m_BossHurtBox == collision.gameObject.layer || parry && m_BossHitBox == collision.gameObject.layer)
+            {
+                parry = false;
+                parryAction(collision.gameObject);
+                m_StateMachine.ChangeState<SMBPlayerSuccesfulParryState>();
+            }
+
+        }
+    }
+
 }

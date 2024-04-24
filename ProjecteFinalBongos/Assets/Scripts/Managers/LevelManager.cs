@@ -4,12 +4,17 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class LevelManager : MonoBehaviour
 {
+    [Header("Testing")]
+    [SerializeField] private bool m_Testing;
     private static LevelManager m_Instance;
     public static LevelManager Instance => m_Instance;
 
@@ -27,6 +32,9 @@ public class LevelManager : MonoBehaviour
     private int idPiccolo;
     public Action<int> onCloseShopOfPiccolo;
     private int piccoloConTiendaAbierta;
+
+    private GUIBossManager m_GUIBossManager;
+    public GUIBossManager GUIBossManager => m_GUIBossManager;
 
     public enum MundoActual
     {
@@ -51,7 +59,10 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private int numeroObjetosTienda;
     [SerializeField] private int numeroObjetosSalaObjetos;
 
-
+    private EventSystem m_eventSystem;
+    public EventSystem EventSystem => m_eventSystem;
+    private InputSystemUIInputModule m_InputSystemUIInputModule;
+    public InputSystemUIInputModule InputSystemUIInputModule => m_InputSystemUIInputModule;
     private void Awake()
     {
         if (m_Instance == null)
@@ -67,6 +78,10 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         m_GeneracionSalasMatriz = GetComponent<GeneracionSalasMatriz>();
+        m_GUIBossManager = GetComponent<GUIBossManager>();
+        m_eventSystem = GetComponent<EventSystem>();
+        m_InputSystemUIInputModule = GetComponent<InputSystemUIInputModule>();
+        
         if (m_CloseShopButton) m_CloseShopButton.onClick.AddListener(CloseShop);
         TodosLosBossesDisponibles();
         m_TiendaPanel.SetActive(false);
@@ -97,26 +112,41 @@ public class LevelManager : MonoBehaviour
 
     public int GiveIdToPiccoloChad()
     {
-        print("EOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEOEO " + idPiccolo);
         idPiccolo++;
         return idPiccolo;
     }
     public int GetAvailableBoss()
     {
-        int numero = Random.Range(0, m_ListaBossesDisponibles.Count);
-        if (m_ListaBossesDisponibles[numero].m_BossDisponible)
+        if (m_Testing)
         {
-            BossDisponible bossTemporal = m_ListaBossesDisponibles[numero];
-            bossTemporal.m_BossDisponible = false;
-            m_ListaBossesDisponibles[numero] = bossTemporal;
-
+            int numero = Random.Range(0, m_ListaBossesDisponibles.Count);
+            if (m_ListaBossesDisponibles[numero].m_BossDisponible)
+            {
+                return numero;
+            }
+            else
+            {
+                numero = GetAvailableBoss();
+            }
             return numero;
         }
         else
         {
-            numero = GetAvailableBoss();
+            int numero = Random.Range(0, m_ListaBossesDisponibles.Count);
+            if (m_ListaBossesDisponibles[numero].m_BossDisponible)
+            {
+                BossDisponible bossTemporal = m_ListaBossesDisponibles[numero];
+                bossTemporal.m_BossDisponible = false;
+                m_ListaBossesDisponibles[numero] = bossTemporal;
+
+                return numero;
+            }
+            else
+            {
+                numero = GetAvailableBoss();
+            }
+            return numero;
         }
-        return numero;
     }
 
     public GameObject GetBossToSpawn(int numBoss)
@@ -140,7 +170,7 @@ public class LevelManager : MonoBehaviour
     public List<Consumable> GetObjetosTienda()
     {
         List<Consumable> objetitosParaPiccoloChad = new();
-       
+
 
         for (int i = 0; i < numeroObjetosTienda; i++)
         {

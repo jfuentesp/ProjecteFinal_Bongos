@@ -40,6 +40,7 @@ public class Bullet : MonoBehaviour
     {
         if (!enabled)
             return;
+        print("eo");
         if (collision.gameObject.CompareTag("MechanicObstacle"))
         {
             StopCoroutine(ReturnToPoolCoroutine());

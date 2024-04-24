@@ -23,6 +23,7 @@ public class SMBHit1State : SMBComboState
         else if (m_PJ.direccion == 0) {
             m_Animator.Play("attack1x1");
         }
+        m_Animator.speed = m_PJ.PlayerStatsController.m_AttackTime;
         SetDamage();
         
     }

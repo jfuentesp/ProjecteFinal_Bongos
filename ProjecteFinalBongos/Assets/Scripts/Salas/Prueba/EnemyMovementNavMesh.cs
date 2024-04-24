@@ -23,6 +23,7 @@ public class EnemyMovementNavMesh : MonoBehaviour
         if (target != null)
         {
             agent.SetDestination(target.position);
+           
         }
     }
 }

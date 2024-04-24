@@ -76,7 +76,8 @@ public class HabilidadDeMovimientoState : SMState
                 Exit();
                 break;
             case "InvincibleDash":
-                GetComponent<CircleCollider2D>().enabled = false;
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerHurtBox"), LayerMask.NameToLayer("BossHurtBox"), true);
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerHurtBox"), LayerMask.NameToLayer("BossHitBox"), true);
                 if (m_PJ.MovementAction.ReadValue<Vector2>() == Vector2.zero)
                 {
                     if (m_PJ.direccion == 0)
@@ -112,7 +113,8 @@ public class HabilidadDeMovimientoState : SMState
                     m_Rigidbody.velocity = m_PJ.MovementAction.ReadValue<Vector2>() * dashSpeedInvicible;
                 }
                 yield return new WaitForSeconds(0.4f);
-                GetComponent<CircleCollider2D>().enabled = true;
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerHurtBox"), LayerMask.NameToLayer("BossHurtBox"), false);
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerHurtBox"), LayerMask.NameToLayer("BossHitBox"), false);
                 Exit();
                 break;
             case "SlowDown":

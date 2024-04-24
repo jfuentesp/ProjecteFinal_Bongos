@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using static UnityEngine.GraphicsBuffer;
 
 public class SMBRunAwayState : SMState
 {
@@ -33,6 +35,8 @@ public class SMBRunAwayState : SMState
     [SerializeField]
     private LayerMask m_LayerMask;
 
+    private NavMeshAgent m_NavMeshAgent;
+
     public delegate void OnStopRunning(GameObject obj);
     public OnStopRunning onStoppedRunningAway;
 
@@ -43,6 +47,7 @@ public class SMBRunAwayState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_NavMeshAgent = GetComponent<NavMeshAgent>();
         m_Boss.OnPlayerInSala += GetTarget;
     }
 
@@ -55,6 +60,7 @@ public class SMBRunAwayState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
+        m_NavMeshAgent.isStopped = false;
         m_WalkingDuration = Random.Range(m_minimumWalkingDuration, m_maximumWalkingDuration);
         m_TimeChangeDirection = 0;
         m_TimeCaminar = 0;
@@ -64,6 +70,7 @@ public class SMBRunAwayState : SMState
     public override void ExitState()
     {
         base.ExitState();
+        m_NavMeshAgent.isStopped = true;
     }
 
     private void Update()
@@ -71,7 +78,12 @@ public class SMBRunAwayState : SMState
         m_TimeCaminar += Time.deltaTime;
         //To face the target
         if (m_Target != null)
-            transform.up = m_Target.position - transform.position;
+        {
+            Vector2 posicionPlayer = m_Target.position - transform.position;
+            float angulo = Mathf.Atan2(posicionPlayer.y, posicionPlayer.x);
+            angulo = Mathf.Rad2Deg * angulo - 90;
+            transform.localEulerAngles = new Vector3(0, 0, angulo);
+        }
     }
     private void AVerKittea()
     {
@@ -89,7 +101,8 @@ public class SMBRunAwayState : SMState
             }
             else
             {
-                m_Rigidbody.velocity = direccion.normalized * m_RunSpeed;
+                m_NavMeshAgent.SetDestination(transform.position + direccion.normalized * 8);
+                //m_Rigidbody.velocity = direccion.normalized * m_RunSpeed;
             }
         }
     }

@@ -19,6 +19,7 @@ public class SMBHit1AplastanteState : SMBComboState
         {
             m_Animator.Play("attack1Aplastante");
         }
+        m_Animator.speed = m_PJ.PlayerStatsController.m_AttackTime;
         SetDamage();
     }
 

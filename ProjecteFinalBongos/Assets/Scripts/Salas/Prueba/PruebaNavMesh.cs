@@ -23,7 +23,7 @@ public class PruebaNavMesh : MonoBehaviour
     {
         if (surface == null)
         {
-            Debug.LogError("NavMeshSurface no está asignado en el inspector.");
+            Debug.LogError("NavMeshSurface no estï¿½ asignado en el inspector.");
             return;
         }
     }

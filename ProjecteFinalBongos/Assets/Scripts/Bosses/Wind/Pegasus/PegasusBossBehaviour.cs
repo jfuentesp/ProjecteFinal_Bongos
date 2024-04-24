@@ -22,6 +22,14 @@ public class PegasusBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        GetComponent<SMBParalized>().OnStopParalized = () =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBBossStunState>().OnStopStun = () =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
         GetComponent<SMBChargeState>().OnChargeMissed = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBBulletsAroundState>();

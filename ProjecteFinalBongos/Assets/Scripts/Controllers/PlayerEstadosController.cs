@@ -7,6 +7,7 @@ public class PlayerEstadosController : MonoBehaviour
     private FiniteStateMachine m_StateMachine;
     private HealthController m_HealthController;
     private PlayerStatsController m_Stats;
+    private PJSMB m_PJ;
     public bool Invencible, Stun, Poison, Wet, Burn, Wrath, Speedy, StrongMan, Stuck, Paralized;
     public float velocityBefore;
     public float strengthBefore;
@@ -19,6 +20,7 @@ public class PlayerEstadosController : MonoBehaviour
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_HealthController = GetComponent<HealthController>();
         m_Stats = GetComponent<PlayerStatsController>();
+        m_PJ = GetComponent<PJSMB>();
         Stun = false;
     }
     public void AlternarEstado(EstadosAlterados estado)
@@ -55,6 +57,7 @@ public class PlayerEstadosController : MonoBehaviour
                 if (!Stun)
                 {
                     Stun = true;
+                    Paralized = true;
                     m_StateMachine.ChangeState<SMBParalitzatState>();
                 }
                 break;
@@ -90,9 +93,8 @@ public class PlayerEstadosController : MonoBehaviour
     IEnumerator WetRoutine()
     {
         Wet = true;
-        m_Stats.m_WetModifier = Random.Range(10f, 21f);
         velocityBefore = m_Stats.m_Velocity;
-        m_Stats.m_Velocity -= (m_Stats.m_Velocity * m_Stats.m_WetModifier) / 100;
+        m_Stats.m_Velocity -= (m_Stats.m_Velocity * m_Stats.getModifier("Wet")) / 100;
         yield return new WaitForSeconds(m_Stats.m_playerTimes.m_WetTime);
         Wet = false;
         m_Stats.m_Velocity = velocityBefore;
@@ -101,9 +103,8 @@ public class PlayerEstadosController : MonoBehaviour
     IEnumerator SpeedRoutine()
     {
         Speedy = true;
-        m_Stats.m_VelocityModifier = Random.Range(50f, 71f);
         velocityBefore = m_Stats.m_Velocity;
-        m_Stats.m_Velocity += (m_Stats.m_Velocity * m_Stats.m_VelocityModifier) / 100;
+        m_Stats.m_Velocity += (m_Stats.m_Velocity * m_Stats.getModifier("Fast")) / 100;
         yield return new WaitForSeconds(m_Stats.m_playerTimes.m_VelocityTime);
         Speedy = false;
         m_Stats.m_Velocity = velocityBefore;
@@ -112,9 +113,8 @@ public class PlayerEstadosController : MonoBehaviour
     IEnumerator StrongRoutine()
     {
         StrongMan = true;
-        m_Stats.m_Strength = Random.Range(5f, 16f);
         strengthBefore = m_Stats.m_Strength;
-        m_Stats.m_Strength += (m_Stats.m_Strength * m_Stats.m_StrengthModifier) / 100;
+        m_Stats.m_Strength += (m_Stats.m_Strength * m_Stats.getModifier("Strength")) / 100;
         yield return new WaitForSeconds(m_Stats.m_playerTimes.m_StrengthTime);
         StrongMan = false;
         m_Stats.m_Strength = strengthBefore;
@@ -133,9 +133,8 @@ public class PlayerEstadosController : MonoBehaviour
         while (poisonCount > 0)
         {
             yield return new WaitForSeconds(m_Stats.m_playerTimes.m_PoisonTime);
-            m_Stats.m_PoisonModifier = Random.Range(2, 5);
-            poisonDamage = (m_HealthController.HP * m_Stats.m_PoisonModifier) / 100;
-            m_HealthController.Damage(poisonDamage);
+            poisonDamage = (m_HealthController.HP * m_Stats.getModifier("Poison")) / 100;
+            m_PJ.recibirDaño(poisonDamage);
             poisonCount--;
         }
         Poison = false;
@@ -152,12 +151,10 @@ public class PlayerEstadosController : MonoBehaviour
     IEnumerator WrathRoutine()
     {
         Wrath = true;
-        m_Stats.m_WrathSpeedModifier = Random.Range(15f, 26f);
         velocityBefore = m_Stats.m_Velocity;
-        m_Stats.m_Velocity += (m_Stats.m_Velocity * m_Stats.m_WrathSpeedModifier) / 100;
-        m_Stats.m_WrathStrengthModifier = Random.Range(10f, 21f);
+        m_Stats.m_Velocity += (m_Stats.m_Velocity * m_Stats.getModifier("WrathSpeed")) / 100;
         strengthBefore = m_Stats.m_Strength;
-        m_Stats.m_Strength += (m_Stats.m_Strength * m_Stats.m_WrathStrengthModifier) / 100;
+        m_Stats.m_Strength += (m_Stats.m_Strength * m_Stats.getModifier("WrathStrength")) / 100;
         yield return new WaitForSeconds(m_Stats.m_playerTimes.m_WrathTime);
         Wrath = false;
         m_Stats.m_Strength = strengthBefore;
@@ -183,6 +180,7 @@ public class PlayerEstadosController : MonoBehaviour
     public void StopStun()
     {
         Stun = false;
+        Paralized = false;
     }
 
 }

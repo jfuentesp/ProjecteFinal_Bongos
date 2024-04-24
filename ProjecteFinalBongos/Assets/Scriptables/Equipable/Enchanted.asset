@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6de1bcec777ca149a5578f0d465f964, type: 3}
+  m_Name: Enchanted
+  m_EditorClassIdentifier: 
+  m_Id: 
+  m_Description: 
+  m_Sprite: {fileID: 0}
+  m_Estado: 11
+  propiedades:
+  - Enchanted
+  defense: 50
+  speed: 10
+  ElementalResistance: 0
+  stateResistance: 0
+  stateResistanceMin: 0
+  stateResistanceMax: 0
+  maxRatio: 0
+  minRatio: 0
+  minPosibilty: 0
+  maxPosibilty: 0
+  regenMin: 5
+  regenMax: 9
+  RegenTime: 10
+  spikeDamageMin: 0
+  spikeDamageMax: 0

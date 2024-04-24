@@ -34,7 +34,7 @@ public class SMBParalitzatState : SMState
     {
         yield return new WaitForSeconds(playerTimes.m_ParalizedTime);
         m_event.Raise();
-        m_StateMachine.ChangeState<SMBPlayerIdleState>();
+        m_StateMachine.ChangeState<SMBIdleState>();
     }
     public override void ExitState()
     {
