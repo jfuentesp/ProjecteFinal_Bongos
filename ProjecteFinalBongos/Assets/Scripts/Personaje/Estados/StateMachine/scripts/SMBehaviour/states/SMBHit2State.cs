@@ -24,6 +24,7 @@ public class SMBHit2State : SMBComboState
             m_Animator.Play("attack2x1");
           
         }
+        m_Animator.speed = m_PJ.PlayerStatsController.m_AttackTime;
         SetDamage();
         StartCoroutine(AttackBehaviour());
   

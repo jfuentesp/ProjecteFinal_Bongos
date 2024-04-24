@@ -420,7 +420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parry: 0
-  m_ChangeEstado: {fileID: 0}
+  m_ChangeEstado: {fileID: 11400000, guid: 7dee44011633db24cb52c6d3b774ba0e, type: 2}
   m_ChangeEstadoEnemigo: {fileID: 0}
 --- !u!114 &8134516989510292965
 MonoBehaviour:
@@ -478,8 +478,8 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2740482035974031851}
-        m_TargetAssemblyTypeName: PJSMB, Assembly-CSharp
+      - m_Target: {fileID: 5937614574480471992}
+        m_TargetAssemblyTypeName: PlayerEstadosController, Assembly-CSharp
         m_MethodName: AlternarEstado
         m_Mode: 0
         m_Arguments:
@@ -506,8 +506,8 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2740482035974031851}
-        m_TargetAssemblyTypeName: PJSMB, Assembly-CSharp
+      - m_Target: {fileID: 5937614574480471992}
+        m_TargetAssemblyTypeName: PlayerEstadosController, Assembly-CSharp
         m_MethodName: StopStun
         m_Mode: 1
         m_Arguments:

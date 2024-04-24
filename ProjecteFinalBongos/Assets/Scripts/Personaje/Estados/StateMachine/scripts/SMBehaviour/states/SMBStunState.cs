@@ -38,7 +38,7 @@ public class SMBStunState : SMState
     IEnumerator StunSeconds() { 
         yield return new WaitForSeconds(m_Time);
         m_event.Raise();
-        m_StateMachine.ChangeState<SMBIdleState>();
+        m_StateMachine.ChangeState<SMBPlayerIdleState>();
     }
     public override void ExitState()
     {

@@ -640,17 +640,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &682473018 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 858568505054062628, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
-  m_PrefabInstance: {fileID: 1556108648}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1801460888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e32841b480521c94d97c826078a2652c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &682473048 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 154204765623582640, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
@@ -1589,57 +1578,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 268229367134758429, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 858568505054062628, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
-      propertyPath: m_CoolDown
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 1922464185457733035, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1980065515140614815, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1998354536362223173, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
-      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 682473018}
-    - target: {fileID: 1998354536362223173, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
-      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerAbilitiesController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2911194341157425955, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4521474275093461444, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
-      propertyPath: prueba
-      value: 
-      objectReference: {fileID: 11400000, guid: b43d6eaa8027ea34fbf28839b152ecc5, type: 2}
-    - target: {fileID: 4521474275093461444, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
-      propertyPath: m_SwordPrueba
-      value: 
-      objectReference: {fileID: 11400000, guid: 4e945af3435e29546851a7071fb5ca8e, type: 2}
-    - target: {fileID: 4521474275093461444, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
-      propertyPath: m_playerTimes
-      value: 
-      objectReference: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
-    - target: {fileID: 4521474275093461444, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
-      propertyPath: m_PlayerBaseStats
-      value: 
-      objectReference: {fileID: 11400000, guid: fe6e42c4c219d03489147d28d3b95089, type: 2}
-    - target: {fileID: 4656910268298382116, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
-      propertyPath: m_player
-      value: 
-      objectReference: {fileID: 1801460888}
-    - target: {fileID: 8172132771318513708, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1823,11 +1764,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1801460888 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1922464185457733035, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
-  m_PrefabInstance: {fileID: 1556108648}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1828241236
 GameObject:
   m_ObjectHideFlags: 0

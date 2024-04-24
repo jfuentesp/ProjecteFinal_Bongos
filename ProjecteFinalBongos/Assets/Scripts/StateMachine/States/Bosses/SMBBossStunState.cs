@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SMBBossStunState : SMState
 {
+    private BossBehaviour m_BossBehaviour;
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
@@ -12,12 +14,14 @@ public class SMBBossStunState : SMState
     [SerializeField]
     private TimesScriptable times;
     private float m_Time;
+    public Action OnStopStun;
     private new void Awake()
     {
         base.Awake();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
+        m_BossBehaviour = GetComponent<BossBehaviour>();
 
     }
 
@@ -33,8 +37,8 @@ public class SMBBossStunState : SMState
     IEnumerator StunSeconds()
     {
         yield return new WaitForSeconds(m_Time);
-        m_event.Raise();
-        m_StateMachine.ChangeState<SMBPlayerIdleState>();
+        m_BossBehaviour.EstadosController.StopStun();
+       OnStopStun?.Invoke();
     }
     public override void ExitState()
     {

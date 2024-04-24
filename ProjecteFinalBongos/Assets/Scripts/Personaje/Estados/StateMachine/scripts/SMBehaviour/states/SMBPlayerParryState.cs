@@ -107,6 +107,7 @@ public class SMBPlayerParryState : MBState
             if (parry && m_BossHurtBox == collision.gameObject.layer || parry && m_BossHitBox == collision.gameObject.layer)
             {
                 parry = false;
+                parryAction(collision.gameObject);
                 m_StateMachine.ChangeState<SMBPlayerSuccesfulParryState>();
             }
 

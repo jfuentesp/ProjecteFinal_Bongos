@@ -18,13 +18,12 @@ MonoBehaviour:
   m_Estado: 3
   propiedades:
   - Estado
-  - Vampiro
   attack: 1
   speed: 10
-  speedAttack: 0
-  maxRatio: 50
+  speedAttack: 10
+  maxRatio: 100
   minRatio: 0
   minPosibilty: 20
-  maxPosibilty: 36
+  maxPosibilty: 90
   lifeMin: 100
   lifeMax: 120

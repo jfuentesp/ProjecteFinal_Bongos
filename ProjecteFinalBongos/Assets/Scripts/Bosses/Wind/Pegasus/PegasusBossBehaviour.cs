@@ -22,6 +22,14 @@ public class PegasusBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        GetComponent<SMBParalized>().OnStopParalized = () =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBBossStunState>().OnStopStun = () =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
         GetComponent<SMBChargeState>().OnChargeMissed = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBBulletsAroundState>();
@@ -107,7 +115,6 @@ public class PegasusBossBehaviour : BossBehaviour
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
-        print("Hijo");
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision)

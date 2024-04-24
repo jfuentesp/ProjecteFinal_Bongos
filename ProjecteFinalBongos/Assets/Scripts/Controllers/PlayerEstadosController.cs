@@ -57,6 +57,7 @@ public class PlayerEstadosController : MonoBehaviour
                 if (!Stun)
                 {
                     Stun = true;
+                    Paralized = true;
                     m_StateMachine.ChangeState<SMBParalitzatState>();
                 }
                 break;
@@ -179,6 +180,7 @@ public class PlayerEstadosController : MonoBehaviour
     public void StopStun()
     {
         Stun = false;
+        Paralized = false;
     }
 
 }

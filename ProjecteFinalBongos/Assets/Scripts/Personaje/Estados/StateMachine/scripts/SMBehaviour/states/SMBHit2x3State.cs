@@ -19,6 +19,7 @@ public class SMBHit2x3State : SMBComboState
         {
             m_Animator.Play("attack2x3");
         }
+        m_Animator.speed = m_PJ.PlayerStatsController.m_AttackTime;
         StartCoroutine(AttackBehaviour());
         SetDamage();
    

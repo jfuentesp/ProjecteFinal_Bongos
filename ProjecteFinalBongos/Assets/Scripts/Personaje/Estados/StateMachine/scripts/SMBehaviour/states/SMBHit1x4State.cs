@@ -23,6 +23,7 @@ public class SMBHit1x4State : SMBComboState
         {
            m_ChangeEstado.Raise(EstadosAlterados.Forçut);
         }
+        m_Animator.speed = m_PJ.PlayerStatsController.m_AttackTime;
         StartCoroutine(AttackBehaviour());
         SetDamage();
     }

@@ -1,29 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SMBParalized : SMState
 {
+    private BossBehaviour m_BossBehaviour;
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
-    private FiniteStateMachine m_StateMachine;
-    [SerializeField]
-    private GameEvent m_event;
     [SerializeField]
     private TimesScriptable times;
+    public Action OnStopParalized;
     private new void Awake()
     {
         base.Awake();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
-        m_StateMachine = GetComponent<FiniteStateMachine>();
+        m_BossBehaviour = GetComponent<BossBehaviour>();
     }
 
     public override void InitState()
     {
         base.InitState();
-
-        m_Animator.Play("paralized");
         m_Rigidbody.velocity = Vector2.zero;
         StartCoroutine(StunSeconds());
 
@@ -31,8 +29,9 @@ public class SMBParalized : SMState
     IEnumerator StunSeconds()
     {
         yield return new WaitForSeconds(times.m_ParalizedTime);
-        m_event.Raise();
-        m_StateMachine.ChangeState<SMBPlayerIdleState>();
+        m_BossBehaviour.EstadosController.StopStun();
+        OnStopParalized?.Invoke();
+        //m_StateMachine.ChangeState<SMBIdleState>();
     }
     public override void ExitState()
     {

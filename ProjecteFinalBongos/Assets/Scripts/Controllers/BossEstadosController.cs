@@ -49,6 +49,7 @@ public class BossEstadosController : MonoBehaviour
                 if (!Stun)
                 {
                     Stun = true;
+                    Paralized = true;
                     m_StateMachine.ChangeState<SMBParalized>();
                 }
                 break;
@@ -146,5 +147,6 @@ public class BossEstadosController : MonoBehaviour
     public void StopStun()
     {
         Stun = false;
+        Paralized = false;
     }
 }
