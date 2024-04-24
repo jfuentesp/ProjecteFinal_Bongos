@@ -10,9 +10,9 @@ public class AgullaCoralAreaAttack : SMBBasicAttackState
     [SerializeField]
     private string m_AgullaCoralAreaAttackAnimationName;
 
-    public Action OnStopDetectingPlayer;
-    public Action OnPlayerHitted;
-    public Action OnParriedAttack;
+    public Action<GameObject> OnStopDetectingPlayer;
+    public Action<GameObject> OnPlayerHitted;
+    public Action<GameObject> OnParriedAttack;
 
     private Coroutine m_SingleAttackCoroutine;
 
@@ -53,7 +53,7 @@ public class AgullaCoralAreaAttack : SMBBasicAttackState
             yield return new WaitForSeconds(0.5f);
             if (!m_Boss.IsPlayerDetected)
             {
-                OnStopDetectingPlayer?.Invoke();
+                OnStopDetectingPlayer?.Invoke(gameObject);
             }
             //m_StateMachine.ChangeState<SMBChaseState>();
         }
@@ -71,11 +71,11 @@ public class AgullaCoralAreaAttack : SMBBasicAttackState
         {
             if (collision.gameObject.GetComponent<SMBPlayerParryState>().parry)
             {
-                OnParriedAttack?.Invoke();
+                OnParriedAttack?.Invoke(gameObject);
             }
             else
             {
-                OnPlayerHitted?.Invoke();
+                OnPlayerHitted?.Invoke(gameObject);
                 Rigidbody2D target;
                 collision.gameObject.TryGetComponent<Rigidbody2D>(out target);
                 if (target != null)

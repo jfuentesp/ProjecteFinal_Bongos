@@ -12,14 +12,13 @@ public class AgullaChargeState : SMState
     private BossBehaviour m_Boss;
     private NavMeshAgent m_NavMeshAgent;
 
+    [Header("AnimationName")]
+    [SerializeField] private string m_AnimationName;
 
     [Header("Charge speed")]
     [SerializeField]
     private float m_ChargeSpeed;
 
-    [Header("Charge force to apply on impact")]
-    [SerializeField]
-    private float m_ChargeForce;
 
     private bool m_IsAiming;
     private bool m_IsCharging;
@@ -51,6 +50,7 @@ public class AgullaChargeState : SMState
     public override void InitState()
     {
         base.InitState();
+        m_NavMeshAgent.isStopped = false;
         m_IsAiming = false;
         m_IsCharging = false;
         m_Boss.SetBusy(true);
@@ -93,6 +93,8 @@ public class AgullaChargeState : SMState
             float angulo = Mathf.Atan2(posicionPlayer.y, posicionPlayer.x);
             angulo = Mathf.Rad2Deg * angulo - 90;
             transform.localEulerAngles = new Vector3(0, 0, angulo);
+            if(Vector2.Distance(destino, transform.position) < 0.2f)
+                OnChargeMissed.Invoke(gameObject);
         }
     }
 
@@ -114,11 +116,6 @@ public class AgullaChargeState : SMState
                     collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
                     OnChargePlayer.Invoke(gameObject);
-                    Rigidbody2D target;
-                    collision.gameObject.TryGetComponent<Rigidbody2D>(out target);
-                    if (target != null)
-                        target.AddForce(transform.up * m_ChargeSpeed, ForceMode2D.Impulse);
-
                 }
             }
         }

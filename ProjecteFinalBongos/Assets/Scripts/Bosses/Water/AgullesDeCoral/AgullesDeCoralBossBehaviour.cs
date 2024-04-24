@@ -38,15 +38,15 @@ public class AgullesDeCoralBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<AgullaDeCoralFlipState>();
         };
-        GetComponent<AgullaDeCoralFlipState>().OnAttackHitted = () =>
+        GetComponent<AgullaDeCoralFlipState>().OnAttackHitted = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<AgullaCoralAreaAttack>();
         };
-        GetComponent<AgullaDeCoralFlipState>().OnAttackParried = () =>
+        GetComponent<AgullaDeCoralFlipState>().OnAttackParried = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBParriedState>();
         };
-        GetComponent<AgullaDeCoralFlipState>().OnAttackMissed = () =>
+        GetComponent<AgullaDeCoralFlipState>().OnAttackMissed = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<AgullaChargeState>();
         };
@@ -54,15 +54,15 @@ public class AgullesDeCoralBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<AgullaChargeState>();
         };
-        GetComponent<AgullaCoralAreaAttack>().OnPlayerHitted = () =>
+        GetComponent<AgullaCoralAreaAttack>().OnPlayerHitted = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<AgullaChargeState>();
         };
-        GetComponent<AgullaCoralAreaAttack>().OnStopDetectingPlayer = () =>
+        GetComponent<AgullaCoralAreaAttack>().OnStopDetectingPlayer = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<AgullaChargeState>();
         };
-        GetComponent<AgullaCoralAreaAttack>().OnParriedAttack = () =>
+        GetComponent<AgullaCoralAreaAttack>().OnParriedAttack = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBParriedState>();
         };
