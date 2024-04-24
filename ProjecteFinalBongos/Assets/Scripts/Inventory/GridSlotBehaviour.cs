@@ -27,12 +27,12 @@ public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     private Consumable m_AssignedConsumable;
     public Consumable AssignedConsumable => m_AssignedConsumable;
 
+    private Equipable m_AssignedEquipable;
+    public Equipable AssignedEquipable => m_AssignedEquipable;
+
     [Header("Action Menu")]
     [SerializeField]
     private GameObject m_ActionPanel;
-
-    //private Equipable m_AssignedEquipable;
-    //public Equipable AssignedEquipable;
 
     public void SetConsumable(Consumable consumableToSet)
     {
@@ -44,7 +44,17 @@ public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
         m_AssignedConsumable = null;
     }
 
-    public void RefreshSlot()
+    public void SetEquipable(Equipable equipableToSet)
+    {
+        m_AssignedEquipable = equipableToSet;
+    }
+
+    public void RemoveEquipable()
+    {
+        m_AssignedEquipable = null;
+    }
+
+    public void RefreshConsumableSlot()
     {
         if (m_AssignedConsumable == null)
         {
@@ -55,6 +65,20 @@ public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
             m_Slot.SetActive(true);
             m_ItemSprite.sprite = m_AssignedConsumable.Sprite;
             m_QuantityText.text = m_Backpack.ConsumableSlots.FirstOrDefault(slot => slot?.Consumable == m_AssignedConsumable).Quantity.ToString();
+        }
+    }
+
+    public void RefreshEquipableSlot()
+    {
+        if (m_AssignedEquipable == null)
+        {
+            m_Slot.SetActive(false);
+        }
+        else
+        {
+            m_Slot.SetActive(true);
+            m_ItemSprite.sprite = m_AssignedEquipable.Sprite;
+            m_QuantityText.text = "";
         }
     }
 

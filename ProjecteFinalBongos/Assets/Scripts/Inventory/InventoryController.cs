@@ -24,6 +24,10 @@ public class InventoryController : MonoBehaviour
     private Consumable m_ConsumableToAdd;
     [SerializeField]
     private Consumable m_ConsumableToAdd2;
+    [SerializeField]
+    private Equipable m_EquipableSword;
+    [SerializeField]
+    private Equipable m_EquipableArmor;
     
 
     [Header("Consumable Grid settings")]
@@ -33,6 +37,14 @@ public class InventoryController : MonoBehaviour
     private int m_ConsumableGridColumns;
     [SerializeField]
     private int m_ConsumableGridRows;
+
+    [Header("Equipable Grid settings")]
+    [SerializeField]
+    private GridLayoutGroup m_EquipableGrid;
+    [SerializeField]
+    private int m_EquipableGridColumns;
+    [SerializeField]
+    private int m_EquipableGridRows;
 
     [Header("Description section settings")]
     [SerializeField]
@@ -47,10 +59,11 @@ public class InventoryController : MonoBehaviour
 
     private void Start()
     {
-        //testing purposes
         m_InventoryBackpack.AddConsumable(m_ConsumableToAdd);
         m_InventoryBackpack.AddConsumable(m_ConsumableToAdd);
         m_InventoryBackpack.AddConsumable(m_ConsumableToAdd2);
+        m_InventoryBackpack.AddEquipable(m_EquipableSword);
+        m_InventoryBackpack.AddEquipable(m_EquipableArmor);
         RefreshInventoryGUI();
     }
 
@@ -62,9 +75,21 @@ public class InventoryController : MonoBehaviour
         }
     }
 
+    public void OnUse(string itemID)
+    {
+        Consumable itemToUse = m_InventoryBackpack.ConsumableSlots.FirstOrDefault(item => item?.Consumable.id == itemID).Consumable;
+        if (itemToUse != null)
+        {
+            itemToUse.OnUse(transform.root.gameObject);
+            m_InventoryBackpack.RemoveConsumable(itemToUse);
+        }
+        RefreshInventoryGUI();
+    }
+
     private void RefreshInventoryGUI()
     {
         RefreshConsumableGUI();
+        RefreshEquipableGUI();
         RefreshDescriptionGUI();
     }
 
@@ -82,19 +107,26 @@ public class InventoryController : MonoBehaviour
             {
                 slot.RemoveConsumable();
             }
-            slot.RefreshSlot();
+            slot.RefreshConsumableSlot();
         }
     }
 
-    public void OnUse(string itemID)
+    private void RefreshEquipableGUI()
     {
-        Consumable itemToUse = m_InventoryBackpack.ConsumableSlots.FirstOrDefault(item => item?.Consumable.id == itemID).Consumable;
-        if(itemToUse != null) 
+        for (int items = 0; items < m_InventoryBackpack.EquipableSlots.Length; items++)
         {
-            itemToUse.OnUse(transform.root.gameObject);
-            m_InventoryBackpack.RemoveConsumable(itemToUse);
+            GridSlotBehaviour slot = m_EquipableGrid.transform.GetChild(items).GetComponentInChildren<GridSlotBehaviour>();
+            if (m_InventoryBackpack.EquipableSlots[items] != null)
+            {
+                Debug.Log("Seteando el objeto " + m_InventoryBackpack.EquipableSlots[items].Equipable.itemName + " en el inventario.");
+                slot.SetEquipable(m_InventoryBackpack.EquipableSlots[items].Equipable);
+            }
+            else
+            {
+                slot.RemoveEquipable();
+            }
+            slot.RefreshEquipableSlot();
         }
-        RefreshInventoryGUI();
     }
 
     public void SetSelectedItem(GameObject slot)
@@ -125,6 +157,16 @@ public class InventoryController : MonoBehaviour
             m_DescriptionName.text = slot.AssignedConsumable.itemName;
             m_DescriptionText.text = slot.AssignedConsumable.description;
             m_DescriptionImage.sprite = slot.AssignedConsumable.Sprite;
+        }
+
+        if(slot.AssignedEquipable != null)
+        {
+            m_DescriptionImage.gameObject.SetActive(true);
+            m_DescriptionName.gameObject.SetActive(true);
+            m_DescriptionText.gameObject.SetActive(true);
+            m_DescriptionName.text = slot.AssignedEquipable.itemName;
+            m_DescriptionText.text = slot.AssignedEquipable.description;
+            m_DescriptionImage.sprite = slot.AssignedEquipable.Sprite;
         }
     }
 }

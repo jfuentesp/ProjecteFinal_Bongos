@@ -23,7 +23,12 @@ public class Backpack : ScriptableObject
 
     public class EquipableSlot
     {
-        //Lo mismo que arriba
+        public Equipable Equipable;
+
+        public EquipableSlot(Equipable item)
+        {
+            Equipable = item;
+        }
     }
 
     private ConsumableSlot[] m_ConsumableSlots = new ConsumableSlot[25];
@@ -66,29 +71,29 @@ public class Backpack : ScriptableObject
         return Array.Find(m_ConsumableSlots, slot => slot?.Consumable == item); //Importante el interrogante para que compruebe si no es null
     }
 
-    public void AddEquipable(/*Equipable item*/)
+    public void AddEquipable(Equipable item)
     {
-        EquipableSlot itemSlot = GetEquipable(/*item*/);
-        //if (itemSlot == null)
-            //m_EquipableSlots.Add(new EquipableSlot(item));
-        //else
-            //itemSlot.Quantity++;
+        EquipableSlot itemSlot = GetEquipable(item);
+        if (itemSlot == null)
+        {
+            int index = Array.FindIndex(m_EquipableSlots, i => i == null);
+            m_EquipableSlots[index] = new EquipableSlot(item);
+            Debug.Log("Añadido equipable " + item.itemName + " || Item => " + m_EquipableSlots[index].Equipable.itemName);
+        }
     }
 
-    public void RemoveEquipable(/*Equipable item*/)
+    public void RemoveEquipable(Equipable item)
     {
-        EquipableSlot itemSlot = GetEquipable(/*item*/);
+        EquipableSlot itemSlot = GetEquipable(item);
         if (itemSlot == null)
             return;
 
-        //itemSlot.Quantity--;
-        //if (itemSlot.Quantity <= 0)
-            //m_EquipableSlots.Remove(itemSlot);
+        int index = Array.FindIndex(m_EquipableSlots, i => i == itemSlot);
+        m_EquipableSlots[index] = null;
     }
 
-    public EquipableSlot GetEquipable(/*Equipable item*/)
+    public EquipableSlot GetEquipable(Equipable item)
     {
-        //return m_EquipableSlots.FirstOrDefault(slot => slot.Equipable == item);
-        return null;
+        return Array.Find(m_EquipableSlots, slot => slot?.Equipable == item); //Importante el interrogante para que compruebe si no es null
     }
 }

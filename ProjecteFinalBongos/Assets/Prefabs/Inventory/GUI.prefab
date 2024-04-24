@@ -2266,9 +2266,14 @@ MonoBehaviour:
   m_InventoryBackpack: {fileID: 11400000, guid: 1b262f08a44ceea4f8dc35542be633a0, type: 2}
   m_ConsumableToAdd: {fileID: 11400000, guid: 4c8ac7b15a95b654a8735bb991fe4e1d, type: 2}
   m_ConsumableToAdd2: {fileID: 11400000, guid: ee95c77d74759734c9786c65cf02d805, type: 2}
+  m_EquipableSword: {fileID: 11400000, guid: 4e945af3435e29546851a7071fb5ca8e, type: 2}
+  m_EquipableArmor: {fileID: 11400000, guid: b43d6eaa8027ea34fbf28839b152ecc5, type: 2}
   m_ConsumableGrid: {fileID: 1556643036881028290}
   m_ConsumableGridColumns: 5
   m_ConsumableGridRows: 5
+  m_EquipableGrid: {fileID: 6992259152593329201}
+  m_EquipableGridColumns: 0
+  m_EquipableGridRows: 0
   m_DescriptionImage: {fileID: 4957159986026076524}
   m_DescriptionName: {fileID: 7700521253995123319}
   m_DescriptionText: {fileID: 5706397679484550355}
@@ -4043,6 +4048,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -4164,6 +4177,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -4627,6 +4648,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -4862,6 +4891,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -4983,6 +5020,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -5332,6 +5377,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -5453,6 +5506,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -5574,6 +5635,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -5809,6 +5878,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -6040,6 +6117,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -6389,6 +6474,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -6857,6 +6950,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -6978,6 +7079,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -7213,6 +7322,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -7804,6 +7921,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -7925,6 +8050,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -8046,6 +8179,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -8167,6 +8308,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -8402,6 +8551,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -8523,6 +8680,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -8644,6 +8809,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -8765,6 +8938,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -9228,6 +9409,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -9349,6 +9538,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -9470,6 +9667,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_TargetGraphic
       value: 

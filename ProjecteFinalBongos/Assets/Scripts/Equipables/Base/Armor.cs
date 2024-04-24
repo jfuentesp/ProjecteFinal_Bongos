@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="Armor", menuName ="Equipable/Armor")]
 public class Armor : Equipable
 {
-    public List<string> propiedades;
+    public List<EquipablePropertiesEnum> propiedades;
     public float defense;
     public float speed;
     public float ElementalResistance;
@@ -49,5 +49,28 @@ public class Armor : Equipable
             bec.AlternarEstado(Estado);
         }
 
+    }
+
+    public override void OnEquip(GameObject equipedBy)
+    {
+        equipedBy.TryGetComponent<PlayerStatsController>(out PlayerStatsController playerController);
+        if (playerController != null)
+        {
+            playerController.EquipArmor(this);
+            Debug.Log("Equipada la armadura " + this.itemName);
+        }
+
+        //Actualizo inventario
+        //Hago cosas
+    }
+
+    public override void OnWithdraw(GameObject equipedBy)
+    {
+        equipedBy.TryGetComponent<PlayerStatsController>(out PlayerStatsController playerController);
+        if (playerController != null)
+        {
+            playerController.UnequipArmor();
+            Debug.Log("Retirada la armadura " + this.itemName);
+        }
     }
 }
