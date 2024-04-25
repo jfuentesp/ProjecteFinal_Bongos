@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Android;
 using static UnityEngine.GraphicsBuffer;
+[RequireComponent(typeof(SMBParalized))]
+[RequireComponent(typeof(SMBBossStunState))]
 [RequireComponent(typeof(BossEstadosController))]
 [RequireComponent(typeof(BossStatsController))]
 [RequireComponent(typeof(FiniteStateMachine))]
@@ -28,6 +30,7 @@ public class BossBehaviour : MonoBehaviour
     protected Animator m_Animator;
     private BossStatsController m_Stats;
     private BossEstadosController m_EstadosController;
+    public BossEstadosController EstadosController => m_EstadosController;
 
     protected SalaBoss m_SalaPadre;
     public SalaBoss SalaPadre => m_SalaPadre;
@@ -115,9 +118,13 @@ public class BossBehaviour : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHitBox"))
         {
-  
-            recibirDaño(collision.gameObject.GetComponent<AttackDamage>().Damage);
-           
+            if (collision.gameObject.GetComponent<AttackDamage>()) {
+                recibirDaño(collision.gameObject.GetComponent<AttackDamage>().Damage);
+            } else if (collision.gameObject.GetComponent<Player2x2BulletBehaviour>()) {
+                recibirDaño(collision.gameObject.GetComponent<Player2x2BulletBehaviour>().damage);
+            }
+            
+
         }
     }
 
@@ -138,8 +145,6 @@ public class BossBehaviour : MonoBehaviour
     }
     public void recibirDaño(float Daño)
     {
-        if (m_EstadosController.Invencible)
-            return;
         if (m_EstadosController.Burn)
         {
             m_HealthController.Damage(Daño);

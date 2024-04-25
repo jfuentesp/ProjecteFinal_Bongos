@@ -30,6 +30,9 @@ GameObject:
   - component: {fileID: 2349389050857038823}
   - component: {fileID: 4671150772417282311}
   - component: {fileID: 4958031672399655640}
+  - component: {fileID: 5147723450086483658}
+  - component: {fileID: 7288981906074113650}
+  - component: {fileID: -5115236751226555552}
   m_Layer: 9
   m_Name: Pegasus
   m_TagString: Untagged
@@ -468,3 +471,59 @@ MonoBehaviour:
   poisonCount: 4
   poisonDamage: 0
   burntDamage: 0
+--- !u!114 &5147723450086483658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5578168786395275385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cca67139dff3dd488cb7cce9fe6c87c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event: {fileID: 11400000, guid: 0934ad3906010854589bca17fba3ed79, type: 2}
+  times: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
+--- !u!114 &7288981906074113650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5578168786395275385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event: {fileID: 11400000, guid: 0934ad3906010854589bca17fba3ed79, type: 2}
+  times: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
+--- !u!114 &-5115236751226555552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5578168786395275385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0640d428ac906c2459218b66878fd018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 0934ad3906010854589bca17fba3ed79, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4958031672399655640}
+        m_TargetAssemblyTypeName: BossEstadosController, Assembly-CSharp
+        m_MethodName: StopStun
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

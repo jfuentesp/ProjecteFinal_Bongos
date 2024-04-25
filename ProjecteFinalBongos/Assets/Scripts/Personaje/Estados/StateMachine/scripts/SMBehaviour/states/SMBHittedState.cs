@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SMBPlayerSuccesfulParryState : MBState
+public class SMBHittedState : SMState
 {
     private PJSMB m_PJ;
     private Rigidbody2D m_Rigidbody;
@@ -45,5 +45,4 @@ public class SMBPlayerSuccesfulParryState : MBState
         m_StateMachine.ChangeState<SMBPlayerIdleState>();
         GetComponent<DañoEnemigoListener>().enabled = true;
     }
-
 }

@@ -1,7 +1,0 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-[CreateAssetMenu(fileName = "Sword", menuName = "Equipable/Armor/SunArmor")]
-public class SunArmor : ResistanceArmor
-{ }
