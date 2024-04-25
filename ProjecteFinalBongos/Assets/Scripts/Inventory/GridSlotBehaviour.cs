@@ -94,6 +94,24 @@ public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
 
     public void OnSubmit(BaseEventData eventData) 
     {
+        if (m_InventoryController.MoveConsumableSlot != null)
+        {
+            int index1 = m_InventoryController.LastSelection.transform.parent.GetSiblingIndex();
+            int index2 = gameObject.transform.parent.GetSiblingIndex();
+            Debug.Log(string.Format("Cambiando el slot {0} por {1}", index1, index2));
+            m_InventoryController.OnMoveConsumable(index1, index2);
+            return;
+        }
+
+        if (m_InventoryController.MoveEquipableSlot != null)
+        {
+            int index1 = m_InventoryController.LastSelection.transform.parent.GetSiblingIndex();
+            int index2 = gameObject.transform.parent.GetSiblingIndex();
+            Debug.Log(string.Format("Cambiando el slot {0} por {1}", index1, index2));
+            m_InventoryController.OnMoveEquipable(index1, index2);
+            return;
+        }
+
         if (m_AssignedConsumable != null || m_AssignedEquipable != null)
         {
             m_ActionPanel.SetActive(true);
@@ -105,10 +123,38 @@ public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     public void OnCancel(BaseEventData eventData) 
     {
         m_ActionPanel.SetActive(false);
+        if (m_InventoryController.MoveConsumableSlot != null)
+        {
+            m_InventoryController.SetMoveConsumableSlot(null);
+            m_InventoryController.ClearCanvasGroupBlockages();
+        }
+        if (m_InventoryController.MoveEquipableSlot != null)
+        {
+            m_InventoryController.SetMoveEquipableSlot(null);
+            m_InventoryController.ClearCanvasGroupBlockages();
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (m_InventoryController.MoveConsumableSlot != null)
+        {
+            int index1 = m_InventoryController.LastSelection.transform.parent.GetSiblingIndex();
+            int index2 = gameObject.transform.parent.GetSiblingIndex();
+            Debug.Log(string.Format("Cambiando el slot {0} por {1}", index1, index2));
+            m_InventoryController.OnMoveConsumable(index1, index2);
+            return;
+        }
+
+        if (m_InventoryController.MoveEquipableSlot != null)
+        {
+            int index1 = m_InventoryController.LastSelection.transform.parent.GetSiblingIndex();
+            int index2 = gameObject.transform.parent.GetSiblingIndex();
+            Debug.Log(string.Format("Cambiando el slot {0} por {1}", index1, index2));
+            m_InventoryController.OnMoveEquipable(index1, index2);
+            return;
+        }
+
         if (m_AssignedConsumable != null || m_AssignedEquipable != null)
         {
             m_ActionPanel.SetActive(true);

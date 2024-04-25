@@ -20,6 +20,7 @@ public class ActionButtonBehaviour : MonoBehaviour, ISubmitHandler, ICancelHandl
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        m_ActionButtons.SetActive(false);
         m_InventoryController.LastSelection.TryGetComponent<GridSlotBehaviour>(out GridSlotBehaviour lastSelection);
         if(lastSelection != null)
             switch (m_ButtonActionsEnum)
@@ -43,7 +44,10 @@ public class ActionButtonBehaviour : MonoBehaviour, ISubmitHandler, ICancelHandl
                     }
                     break;
                 case ButtonActionsEnum.MOVE:
-                    m_InventoryController.SetMoveSelected(gameObject);
+                    if (lastSelection.AssignedConsumable != null)
+                        m_InventoryController.SetMoveConsumables(lastSelection.gameObject);
+                    if (lastSelection.AssignedEquipable != null)
+                        m_InventoryController.SetMoveEquipables(lastSelection.gameObject);
                     break;
                 case ButtonActionsEnum.DROP:
 
@@ -51,7 +55,6 @@ public class ActionButtonBehaviour : MonoBehaviour, ISubmitHandler, ICancelHandl
                 case ButtonActionsEnum.CANCEL:
                     break;
             }
-        m_ActionButtons.SetActive(false);
     }
 
     public void OnSubmit(BaseEventData eventData)
@@ -79,7 +82,10 @@ public class ActionButtonBehaviour : MonoBehaviour, ISubmitHandler, ICancelHandl
                     }
                     break;
                 case ButtonActionsEnum.MOVE:
-                    m_InventoryController.SetMoveSelected(gameObject);
+                    if (lastSelection.AssignedConsumable != null)
+                        m_InventoryController.SetMoveConsumables(lastSelection.gameObject);
+                    if (lastSelection.AssignedEquipable != null)
+                        m_InventoryController.SetMoveEquipables(lastSelection.gameObject);
                     break;
                 case ButtonActionsEnum.DROP:
 

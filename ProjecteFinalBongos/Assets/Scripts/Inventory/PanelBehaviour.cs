@@ -16,7 +16,6 @@ public class PanelBehaviour : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("Object name: " + m_InventoryController.LastSelection.name);
         LevelManager.Instance.EventSystem.SetSelectedGameObject(m_InventoryController.LastSelection);
     }
 

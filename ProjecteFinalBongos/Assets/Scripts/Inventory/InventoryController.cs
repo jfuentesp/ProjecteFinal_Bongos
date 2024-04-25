@@ -55,7 +55,11 @@ public class InventoryController : MonoBehaviour
 
     private GameObject m_SelectedSlot;
 
-    private GameObject m_MoveSelectedSlot;
+    private GameObject m_MoveConsumableSlot;
+    public GameObject MoveConsumableSlot => m_MoveConsumableSlot;
+
+    private GameObject m_MoveEquipableSlot;
+    public GameObject MoveEquipableSlot => m_MoveEquipableSlot;
     private GameObject m_MoveTargetSlot;
 
     [SerializeField]
@@ -123,11 +127,17 @@ public class InventoryController : MonoBehaviour
     public void OnMoveConsumable(int indexSelected, int indexTarget)
     {
         m_InventoryBackpack.MoveConsumable(indexSelected, indexTarget);
+        m_MoveConsumableSlot = null;
+        ClearCanvasGroupBlockages();
+        RefreshConsumableGUI();
     }
 
     public void OnMoveEquipable(int indexSelected, int indexTarget)
     {
         m_InventoryBackpack.MoveEquipable(indexSelected, indexTarget);
+        m_MoveEquipableSlot = null;
+        ClearCanvasGroupBlockages();
+        RefreshEquipableGUI();
     }
 
     public void OnMoveConsumables(int indexSelected, int indexTarget)
@@ -156,7 +166,6 @@ public class InventoryController : MonoBehaviour
             GridSlotBehaviour slot = m_ConsumableGrid.transform.GetChild(items).GetComponentInChildren<GridSlotBehaviour>();
             if (m_InventoryBackpack.ConsumableSlots[items] != null)
             {
-                Debug.Log("Seteando el objeto " + m_InventoryBackpack.ConsumableSlots[items].Consumable.itemName + " en el inventario.");
                 slot.SetConsumable(m_InventoryBackpack.ConsumableSlots[items].Consumable);
             }
             else
@@ -174,7 +183,6 @@ public class InventoryController : MonoBehaviour
             GridSlotBehaviour slot = m_EquipableGrid.transform.GetChild(items).GetComponentInChildren<GridSlotBehaviour>();
             if (m_InventoryBackpack.EquipableSlots[items] != null)
             {
-                Debug.Log("Seteando el objeto " + m_InventoryBackpack.EquipableSlots[items].Equipable.itemName + " en el inventario.");
                 slot.SetEquipable(m_InventoryBackpack.EquipableSlots[items].Equipable);
             }
             else
@@ -197,10 +205,8 @@ public class InventoryController : MonoBehaviour
 
         GridSlotBehaviour slot = m_SelectedSlot.GetComponent<GridSlotBehaviour>();
         Debug.Log(slot.AssignedConsumable == null ? true : false);
-        //Debug.Log("Paso por aquí." + slot.AssignedConsumable.itemName);
         if (slot.AssignedConsumable != null)
         {
-            //Debug.Log("Paso por aquí.");
             m_DescriptionImage.gameObject.SetActive(true);
             m_DescriptionName.gameObject.SetActive(true);
             m_DescriptionText.gameObject.SetActive(true);
@@ -233,28 +239,10 @@ public class InventoryController : MonoBehaviour
         m_LastSelection = slot;
     }
 
-    public void SetMoveSelected(GameObject slot)
+    public void SetMoveConsumables(GameObject consumable)
     {
-        m_MoveSelectedSlot = slot;
-        slot.TryGetComponent<GridSlotBehaviour>(out GridSlotBehaviour slotSelected);
-        if(slotSelected != null)
-        {
-            Debug.Log("Entro aquí");
-            if (slotSelected.AssignedConsumable != null)
-            {
-                m_MovingConsumable = true;
-                SetMoveConsumables();
-            }
-            if (slotSelected.AssignedEquipable != null)
-            {
-                m_MovingEquipable = true;
-                SetMoveEquipables();
-            }
-        }
-    }
-
-    public void SetMoveConsumables()
-    {
+        m_MoveConsumableSlot = consumable;
+        m_MovingConsumable = true;
         m_ConsumableCanvasGroup.interactable = true;
         m_ConsumableCanvasGroup.blocksRaycasts = true;
         m_EquipableCanvasGroup.interactable = false;
@@ -265,8 +253,10 @@ public class InventoryController : MonoBehaviour
         m_EquippedConsumablesCanvasGroup.blocksRaycasts = false;
     }
 
-    public void SetMoveEquipables()
+    public void SetMoveEquipables(GameObject equipable)
     {
+        m_MoveEquipableSlot = equipable;
+        m_MovingEquipable = true;
         m_EquipableCanvasGroup.interactable = true;
         m_EquipableCanvasGroup.blocksRaycasts = true;
         m_ConsumableCanvasGroup.interactable = false;
@@ -276,4 +266,27 @@ public class InventoryController : MonoBehaviour
         m_EquippedConsumablesCanvasGroup.interactable = false;
         m_EquippedConsumablesCanvasGroup.blocksRaycasts = false;
     }
+
+    public void ClearCanvasGroupBlockages()
+    {
+        m_EquipableCanvasGroup.interactable = true;
+        m_EquipableCanvasGroup.blocksRaycasts = true;
+        m_ConsumableCanvasGroup.interactable = true;
+        m_ConsumableCanvasGroup.blocksRaycasts = true;
+        m_EquippedGearCanvasGroup.interactable = true;
+        m_EquippedGearCanvasGroup.blocksRaycasts = true;
+        m_EquippedConsumablesCanvasGroup.interactable = true;
+        m_EquippedConsumablesCanvasGroup.blocksRaycasts = true;
+    }
+
+    public void SetMoveConsumableSlot(GameObject slot)
+    {
+        m_MoveConsumableSlot = slot;
+    }
+
+    public void SetMoveEquipableSlot(GameObject slot)
+    {
+        m_MoveEquipableSlot = slot;
+    }
+
 }
