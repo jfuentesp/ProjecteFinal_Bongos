@@ -45,6 +45,13 @@ public class InventoryController : MonoBehaviour
     [SerializeField]
     private int m_EquipableGridRows;
 
+    [Header("Equipment HUD settings")]
+    [SerializeField]
+    private GridLayoutGroup m_EquipmentGrid;
+
+    [Header("QuickItems HUD Settings")]
+    private GridLayoutGroup m_QuickConsumablesGrid;
+
     [Header("Description section settings")]
     [SerializeField]
     private Image m_DescriptionImage;
@@ -224,6 +231,16 @@ public class InventoryController : MonoBehaviour
             m_DescriptionText.text = slot.AssignedEquipable.description;
             m_DescriptionImage.sprite = slot.AssignedEquipable.Sprite;
         }
+    }
+
+    public void RefreshEquippedGearGUI()
+    {
+        //m_EquipmentGrid.transform.GetChild(0).GetComponentInChildren<>
+    }
+
+    public void RefreshQuickConsumablesGUI()
+    {
+
     }
 
     /* SETTERS */
