@@ -10,11 +10,16 @@ using UnityEngine.AI;
 [RequireComponent(typeof(SMBIdleState))]
 [RequireComponent(typeof(SMBChaseState))]
 [RequireComponent(typeof(SMBChargeState))]
+[RequireComponent(typeof(LeviatanCrashWaveState))]
 [RequireComponent(typeof(SMBSingleAttackState))]
 [RequireComponent(typeof(HealthController))]
 [RequireComponent(typeof(SMBParriedState))]
 public class LeviatanBossBehaviour : BossBehaviour
 {
+    private Coroutine m_DeteccionPlayerCoroutine;
+    [Header("Variables mordisco")]
+    [SerializeField] private float m_RadioMeleMordisco;
+    [SerializeField] private LayerMask m_DeteccionMordisco;
     private new void Awake()
     {
         base.Awake();
@@ -42,17 +47,20 @@ public class LeviatanBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
-        GetComponent<SMBLightningSummonState>().OnEndSummoning = (GameObject obj) =>
-        {
-            m_StateMachine.ChangeState<SMBChaseState>();
-        };
+        GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorrutina;
         m_StateMachine.ChangeState<SMBIdleState>();
+    }
+
+    private void EmpezarCorrutina(GameObject @object)
+    {
+        m_DeteccionPlayerCoroutine = StartCoroutine(PlayerDetectionCoroutine());
     }
 
     private void ComprobarSiMorder()
     {
-        RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
-        if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
+        RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_RadioMeleMordisco, transform.position, m_RadioMeleMordisco, m_DeteccionMordisco);
+        
+        if (hitInfo.collider != null )
         {
             m_StateMachine.ChangeState<SMBSingleAttackState>();
         }
