@@ -66,6 +66,13 @@ public class Backpack : ScriptableObject
         }
     }
 
+    public void MoveConsumable(int indexSelected, int indexTarget)
+    {
+        ConsumableSlot temp = m_ConsumableSlots[indexSelected];
+        m_ConsumableSlots[indexSelected] = m_ConsumableSlots[indexTarget];
+        m_ConsumableSlots[indexTarget] = temp;
+    }
+
     public ConsumableSlot GetConsumable(Consumable item)
     {
         return Array.Find(m_ConsumableSlots, slot => slot?.Consumable == item); //Importante el interrogante para que compruebe si no es null
@@ -90,6 +97,13 @@ public class Backpack : ScriptableObject
 
         int index = Array.FindIndex(m_EquipableSlots, i => i == itemSlot);
         m_EquipableSlots[index] = null;
+    }
+
+    public void MoveEquipable(int indexSelected, int indexTarget)
+    {
+        EquipableSlot temp = m_EquipableSlots[indexSelected];
+        m_EquipableSlots[indexSelected] = m_EquipableSlots[indexTarget];
+        m_EquipableSlots[indexTarget] = temp;
     }
 
     public EquipableSlot GetEquipable(Equipable item)

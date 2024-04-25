@@ -55,7 +55,16 @@ public class InventoryController : MonoBehaviour
     private TextMeshProUGUI m_DescriptionText;
 
     private GameObject m_SelectedSlot;
-    private GameObject m_TargetSlot;
+
+    private GameObject m_MoveSelectedSlot;
+    private GameObject m_MoveTargetSlot;
+
+    [SerializeField]
+    private GameObject m_InitialButton;
+    private GameObject m_LastSelection;
+    public GameObject LastSelection => m_LastSelection;
+
+
 
     private void Start()
     {
@@ -84,6 +93,32 @@ public class InventoryController : MonoBehaviour
             m_InventoryBackpack.RemoveConsumable(itemToUse);
         }
         RefreshInventoryGUI();
+    }
+
+    public void OnEquip(string itemID)
+    {
+        Equipable itemToUse = m_InventoryBackpack.EquipableSlots.FirstOrDefault(item => item?.Equipable.id == itemID).Equipable;
+        if(itemToUse != null) 
+        { 
+            itemToUse.OnEquip(transform.root.gameObject);
+            m_InventoryBackpack.RemoveEquipable(itemToUse);
+        }
+        RefreshEquipableGUI();
+    }
+
+    public void OnMoveConsumable(int indexSelected, int indexTarget)
+    {
+        m_InventoryBackpack.MoveConsumable(indexSelected, indexTarget);
+    }
+
+    public void OnMoveEquipalbe(int indexSelected, int indexTarget)
+    {
+        m_InventoryBackpack.MoveEquipable(indexSelected, indexTarget);
+    }
+
+    public void OnWithdraw()
+    {
+
     }
 
     private void RefreshInventoryGUI()
@@ -133,6 +168,16 @@ public class InventoryController : MonoBehaviour
     {
         m_SelectedSlot = slot;
         RefreshDescriptionGUI();
+    }
+
+    public void SetLastSelection(GameObject slot)
+    {
+        m_LastSelection = slot;
+    }
+
+    public void SetMoveSelected(GameObject slot)
+    {
+        m_MoveSelectedSlot = slot;
     }
 
     public void RefreshDescriptionGUI()

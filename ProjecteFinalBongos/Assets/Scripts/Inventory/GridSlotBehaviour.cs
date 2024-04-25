@@ -100,6 +100,7 @@ public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
             //m_InventoryController.OnUse(m_AssignedConsumable.id);
             m_ActionPanel.SetActive(true);
             m_ActionPanel.transform.position = transform.position;
+            m_InventoryController.SetLastSelection(gameObject);
         }
     }
 
@@ -112,9 +113,9 @@ public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     {
         if (m_AssignedConsumable != null || m_AssignedEquipable != null)
         {
-            //m_InventoryController.OnUse(m_AssignedConsumable.id);
             m_ActionPanel.SetActive(true);
             m_ActionPanel.transform.position = transform.position;
+            m_InventoryController.SetLastSelection(gameObject);
         }
     }
 
