@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, IDeselectHandler, ICancelHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, IDeselectHandler, ICancelHandler, IPointerClickHandler, IPointerEnterHandler
 {
     //Igual habría que mirarse esto https://docs.unity3d.com/es/2018.4/Manual/SupportedEvents.html
     [Header("Slot settings")]
@@ -90,14 +90,12 @@ public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     public void OnDeselect(BaseEventData eventData)
     {
         m_InventoryController.SetSelectedItem(null);
-        //m_ActionPanel.SetActive(false);
     }
 
     public void OnSubmit(BaseEventData eventData) 
     {
         if (m_AssignedConsumable != null || m_AssignedEquipable != null)
         {
-            //m_InventoryController.OnUse(m_AssignedConsumable.id);
             m_ActionPanel.SetActive(true);
             m_ActionPanel.transform.position = transform.position;
             m_InventoryController.SetLastSelection(gameObject);
@@ -122,10 +120,5 @@ public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     public void OnPointerEnter(PointerEventData eventData)
     {
         m_InventoryController.SetSelectedItem(gameObject);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        m_InventoryController.SetSelectedItem(null);
     }
 }

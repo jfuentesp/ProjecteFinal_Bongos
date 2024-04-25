@@ -10,12 +10,11 @@ using UnityEngine.UI;
 
 public class InventoryController : MonoBehaviour
 {
+    [Header("Inventory components")]
     [SerializeField]
     private GameObject m_InventoryHUD;
-
     [SerializeField]
     private GameObject m_InventorySlotPrefab;
-
     [SerializeField]
     private Backpack m_InventoryBackpack;
 
@@ -64,10 +63,25 @@ public class InventoryController : MonoBehaviour
     private GameObject m_LastSelection;
     public GameObject LastSelection => m_LastSelection;
 
+    [Header("Canvas groups")]
+    [SerializeField]
+    private CanvasGroup m_ConsumableCanvasGroup;
+    [SerializeField]
+    private CanvasGroup m_EquipableCanvasGroup;
+    [SerializeField]
+    private CanvasGroup m_EquippedGearCanvasGroup;
+    [SerializeField]
+    private CanvasGroup m_EquippedConsumablesCanvasGroup;
+
+    private bool m_MovingConsumable;
+    private bool m_MovingEquipable;
 
 
     private void Start()
     {
+        m_MovingConsumable = false;
+        m_MovingEquipable = false;
+        m_LastSelection = m_InitialButton;
         m_InventoryBackpack.AddConsumable(m_ConsumableToAdd);
         m_InventoryBackpack.AddConsumable(m_ConsumableToAdd);
         m_InventoryBackpack.AddConsumable(m_ConsumableToAdd2);
@@ -111,15 +125,22 @@ public class InventoryController : MonoBehaviour
         m_InventoryBackpack.MoveConsumable(indexSelected, indexTarget);
     }
 
-    public void OnMoveEquipalbe(int indexSelected, int indexTarget)
+    public void OnMoveEquipable(int indexSelected, int indexTarget)
     {
         m_InventoryBackpack.MoveEquipable(indexSelected, indexTarget);
+    }
+
+    public void OnMoveConsumables(int indexSelected, int indexTarget)
+    {
+        
     }
 
     public void OnWithdraw()
     {
 
     }
+
+    /* GUI COMPONENTS */
 
     private void RefreshInventoryGUI()
     {
@@ -164,6 +185,43 @@ public class InventoryController : MonoBehaviour
         }
     }
 
+    public void RefreshDescriptionGUI()
+    {
+        if (m_SelectedSlot == null)
+        {
+            m_DescriptionImage.gameObject.SetActive(false);
+            m_DescriptionName.gameObject.SetActive(false);
+            m_DescriptionText.gameObject.SetActive(false);
+            return;
+        }
+
+        GridSlotBehaviour slot = m_SelectedSlot.GetComponent<GridSlotBehaviour>();
+        Debug.Log(slot.AssignedConsumable == null ? true : false);
+        //Debug.Log("Paso por aquí." + slot.AssignedConsumable.itemName);
+        if (slot.AssignedConsumable != null)
+        {
+            //Debug.Log("Paso por aquí.");
+            m_DescriptionImage.gameObject.SetActive(true);
+            m_DescriptionName.gameObject.SetActive(true);
+            m_DescriptionText.gameObject.SetActive(true);
+            m_DescriptionName.text = slot.AssignedConsumable.itemName;
+            m_DescriptionText.text = slot.AssignedConsumable.description;
+            m_DescriptionImage.sprite = slot.AssignedConsumable.Sprite;
+        }
+
+        if (slot.AssignedEquipable != null)
+        {
+            m_DescriptionImage.gameObject.SetActive(true);
+            m_DescriptionName.gameObject.SetActive(true);
+            m_DescriptionText.gameObject.SetActive(true);
+            m_DescriptionName.text = slot.AssignedEquipable.itemName;
+            m_DescriptionText.text = slot.AssignedEquipable.description;
+            m_DescriptionImage.sprite = slot.AssignedEquipable.Sprite;
+        }
+    }
+
+    /* SETTERS */
+
     public void SetSelectedItem(GameObject slot)
     {
         m_SelectedSlot = slot;
@@ -178,40 +236,44 @@ public class InventoryController : MonoBehaviour
     public void SetMoveSelected(GameObject slot)
     {
         m_MoveSelectedSlot = slot;
+        slot.TryGetComponent<GridSlotBehaviour>(out GridSlotBehaviour slotSelected);
+        if(slotSelected != null)
+        {
+            Debug.Log("Entro aquí");
+            if (slotSelected.AssignedConsumable != null)
+            {
+                m_MovingConsumable = true;
+                SetMoveConsumables();
+            }
+            if (slotSelected.AssignedEquipable != null)
+            {
+                m_MovingEquipable = true;
+                SetMoveEquipables();
+            }
+        }
     }
 
-    public void RefreshDescriptionGUI()
+    public void SetMoveConsumables()
     {
-        if (m_SelectedSlot == null)
-        {
-            m_DescriptionImage.gameObject.SetActive(false);
-            m_DescriptionName.gameObject.SetActive(false);
-            m_DescriptionText.gameObject.SetActive(false);
-            return;
-        }
+        m_ConsumableCanvasGroup.interactable = true;
+        m_ConsumableCanvasGroup.blocksRaycasts = true;
+        m_EquipableCanvasGroup.interactable = false;
+        m_EquipableCanvasGroup.blocksRaycasts = false;
+        m_EquippedGearCanvasGroup.interactable = false;
+        m_EquippedGearCanvasGroup.blocksRaycasts = false;
+        m_EquippedConsumablesCanvasGroup.interactable = false;
+        m_EquippedConsumablesCanvasGroup.blocksRaycasts = false;
+    }
 
-        GridSlotBehaviour slot = m_SelectedSlot.GetComponent<GridSlotBehaviour>();
-        Debug.Log(slot.AssignedConsumable == null ? true : false);
-        //Debug.Log("Paso por aquí." + slot.AssignedConsumable.itemName);
-        if(slot.AssignedConsumable != null)
-        {
-            //Debug.Log("Paso por aquí.");
-            m_DescriptionImage.gameObject.SetActive(true);
-            m_DescriptionName.gameObject.SetActive(true);
-            m_DescriptionText.gameObject.SetActive(true);
-            m_DescriptionName.text = slot.AssignedConsumable.itemName;
-            m_DescriptionText.text = slot.AssignedConsumable.description;
-            m_DescriptionImage.sprite = slot.AssignedConsumable.Sprite;
-        }
-
-        if(slot.AssignedEquipable != null)
-        {
-            m_DescriptionImage.gameObject.SetActive(true);
-            m_DescriptionName.gameObject.SetActive(true);
-            m_DescriptionText.gameObject.SetActive(true);
-            m_DescriptionName.text = slot.AssignedEquipable.itemName;
-            m_DescriptionText.text = slot.AssignedEquipable.description;
-            m_DescriptionImage.sprite = slot.AssignedEquipable.Sprite;
-        }
+    public void SetMoveEquipables()
+    {
+        m_EquipableCanvasGroup.interactable = true;
+        m_EquipableCanvasGroup.blocksRaycasts = true;
+        m_ConsumableCanvasGroup.interactable = false;
+        m_ConsumableCanvasGroup.blocksRaycasts = false;
+        m_EquippedGearCanvasGroup.interactable = false;
+        m_EquippedGearCanvasGroup.blocksRaycasts = false;
+        m_EquippedConsumablesCanvasGroup.interactable = false;
+        m_EquippedConsumablesCanvasGroup.blocksRaycasts = false;
     }
 }
