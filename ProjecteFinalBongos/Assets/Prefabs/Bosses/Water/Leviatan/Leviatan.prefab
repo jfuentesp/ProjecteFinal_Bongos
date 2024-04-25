@@ -473,7 +473,7 @@ MonoBehaviour:
   m_LayersToCheck:
     serializedVersion: 2
     m_Bits: 128
-  m_RadioMeleMordisco: 1
+  m_RadioMeleMordisco: 2
   m_DeteccionMordisco:
     serializedVersion: 2
     m_Bits: 128
@@ -502,6 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31aad942560380c47874cf5311cb5dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Wave: {fileID: 1834099681989965223, guid: 0ff331b46d00e3143811018a7c069df4, type: 3}
 --- !u!61 &4769884209024554463
 BoxCollider2D:
   m_ObjectHideFlags: 0

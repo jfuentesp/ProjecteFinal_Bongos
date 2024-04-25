@@ -37,6 +37,7 @@ public class SMBSingleAttackState : SMBBasicAttackState
     {
         while(true)
         {
+            print("Mordida");
             m_Rigidbody.velocity = Vector3.zero;
             m_AttackHitbox.transform.position = position;
             Vector2 posicionPlayer = m_Target.position - transform.position;

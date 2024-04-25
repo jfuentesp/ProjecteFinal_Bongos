@@ -25,7 +25,7 @@ public class LeviatanBossBehaviour : BossBehaviour
         base.Awake();
         GetComponent<SMBChargeState>().OnChargeMissed = (GameObject obj) =>
         {
-            ComprobarSiMorder();
+            m_StateMachine.ChangeState<LeviatanCrashWaveState>();
         };
         GetComponent<SMBChargeState>().OnChargeParried = (GameObject obj) =>
         {
@@ -33,15 +33,19 @@ public class LeviatanBossBehaviour : BossBehaviour
         };
         GetComponent<SMBChargeState>().OnChargePlayer = (GameObject obj) =>
         {
-            m_StateMachine.ChangeState<SMBChaseState>();
+            m_StateMachine.ChangeState<LeviatanCrashWaveState>();
         };
         GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
         {
-            m_StateMachine.ChangeState<SMBChaseState>();
+            m_StateMachine.ChangeState<LeviatanCrashWaveState>();
         };
         GetComponent<SMBSingleAttackState>().OnStopDetectingPlayer = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<LeviatanCrashWaveState>().OnSpawnedWave = (GameObject obj) =>
+        {
+            ComprobarSiMorder();
         };
         GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
         {
@@ -74,6 +78,8 @@ public class LeviatanBossBehaviour : BossBehaviour
     {
         base.Init(_Target);
     }
+
+
     private IEnumerator PlayerDetectionCoroutine()
     {
         while (m_IsAlive)

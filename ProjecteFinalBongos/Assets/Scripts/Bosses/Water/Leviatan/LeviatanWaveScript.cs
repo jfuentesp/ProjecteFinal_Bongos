@@ -4,16 +4,30 @@ using UnityEngine;
 
 public class LeviatanWaveScript : MonoBehaviour
 {
-    [SerializeField] private float m_minimumDistance;
-    // Start is called before the first frame update
-    void OnTriggerEnter2D(Collider2D other)
+    [SerializeField] EstadoEvent changeEstado;
+    [SerializeField] private float scaleSpeed = 3f;
+    [SerializeField] private float fadeOutSpeed = 0.2f;
+    private SpriteRenderer spriteRenderer;
+    private Color fadeOut;
+    private void Start()
     {
-        float distance = Vector3.Distance(other.transform.position, transform.position);
-
-        if (distance >= m_minimumDistance)
-        {
-            //Do stuff here
-        }
-
-
+        transform.localScale = Vector3.zero;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        changeEstado.Raise(EstadosAlterados.Mullat);
+    }
+
+    private void Update()
+    {
+        transform.localScale += Vector3.one * Time.deltaTime * scaleSpeed;
+        fadeOut = spriteRenderer.material.color;
+        spriteRenderer.material.color = new Color(fadeOut.r, fadeOut.g, fadeOut.b, (fadeOut.a - (fadeOutSpeed * Time.deltaTime)));
+        if (fadeOut.a <= 0)
+        {
+            Destroy(gameObject);
+            
+        }
+    }
+}
