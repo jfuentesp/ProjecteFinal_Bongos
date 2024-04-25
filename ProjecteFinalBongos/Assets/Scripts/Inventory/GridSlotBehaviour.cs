@@ -95,7 +95,7 @@ public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
 
     public void OnSubmit(BaseEventData eventData) 
     {
-        if (m_AssignedConsumable != null)
+        if (m_AssignedConsumable != null || m_AssignedEquipable != null)
         {
             //m_InventoryController.OnUse(m_AssignedConsumable.id);
             m_ActionPanel.SetActive(true);
@@ -110,7 +110,7 @@ public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (m_AssignedConsumable != null)
+        if (m_AssignedConsumable != null || m_AssignedEquipable != null)
         {
             //m_InventoryController.OnUse(m_AssignedConsumable.id);
             m_ActionPanel.SetActive(true);

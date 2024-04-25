@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class ActionButtonBehaviour : MonoBehaviour
+public class ActionButtonBehaviour : MonoBehaviour, ISubmitHandler, ICancelHandler, IPointerClickHandler
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private GameObject m_ActionButtons;
+
+    public void OnCancel(BaseEventData eventData)
     {
-        
+        m_ActionButtons.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        
+        m_ActionButtons.SetActive(false);
+    }
+
+    public void OnSubmit(BaseEventData eventData)
+    {
+        m_ActionButtons.SetActive(false);
     }
 }

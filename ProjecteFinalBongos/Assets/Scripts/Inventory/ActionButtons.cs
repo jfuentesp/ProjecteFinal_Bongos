@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ActionButtons : MonoBehaviour
 {
@@ -24,5 +25,6 @@ public class ActionButtons : MonoBehaviour
         m_InventoryCanvasGroup.blocksRaycasts = true;
         m_ActionButtonsCanvasGroup.interactable = false;
         m_ActionButtonsCanvasGroup.blocksRaycasts = false;
+        //EventSystem.current.SetSelectedGameObject();
     }
 }
