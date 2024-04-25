@@ -9,6 +9,7 @@ public class SMBRangedAttack : SMState
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
     private BossBehaviour m_Boss;
+    [SerializeField] private float m_TiempoAutoAtaque;
 
     [Header("Pool of projectiles/splats")]
     [SerializeField]
@@ -39,12 +40,13 @@ public class SMBRangedAttack : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        Disparar();
+        StartCoroutine(Disparar());
         m_Rigidbody.velocity = Vector3.zero;
     }
 
-    private void Disparar()
+    private IEnumerator Disparar()
     {
+        yield return new WaitForSeconds(m_TiempoAutoAtaque);
         GameObject lightning = m_Pool.GetElement();
         lightning.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
         lightning.SetActive(true);
