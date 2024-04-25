@@ -8251,6 +8251,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5596402348826455623, guid: ff07fb2dc7be898489a2db2b0b01482f, type: 3}
+      propertyPath: m_bossBaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 2ed16064ca0caa64a94df5785d23f5c8, type: 2}
     - target: {fileID: 4064604338268544201, guid: ff07fb2dc7be898489a2db2b0b01482f, type: 3}
       propertyPath: m_Name
       value: Square
@@ -8316,6 +8320,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Circle
       objectReference: {fileID: 0}
+    - target: {fileID: 8258507792295198647, guid: 6f49b336379f22a47808770114e77055, type: 3}
+      propertyPath: m_bossBaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 2ed16064ca0caa64a94df5785d23f5c8, type: 2}
     - target: {fileID: 9189856838369014228, guid: 6f49b336379f22a47808770114e77055, type: 3}
       propertyPath: m_RootOrder
       value: 16
