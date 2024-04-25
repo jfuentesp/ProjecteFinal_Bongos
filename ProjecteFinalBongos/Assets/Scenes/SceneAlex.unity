@@ -876,6 +876,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2453236697947667836, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2453236697947667836, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2911194341157425955, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -883,11 +891,15 @@ PrefabInstance:
     - target: {fileID: 4521474275093461444, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
       propertyPath: m_SwordPrueba
       value: 
-      objectReference: {fileID: 11400000, guid: ea47046cfdd3ed44685a3a1e7fde4f29, type: 2}
+      objectReference: {fileID: 11400000, guid: 4e945af3435e29546851a7071fb5ca8e, type: 2}
     - target: {fileID: 4521474275093461444, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
       propertyPath: m_PlayerBaseStats
       value: 
       objectReference: {fileID: 11400000, guid: fe6e42c4c219d03489147d28d3b95089, type: 2}
+    - target: {fileID: 4656910268298382116, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
+      propertyPath: m_parent
+      value: 
+      objectReference: {fileID: 587440089}
     - target: {fileID: 8172132771318513708, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -2495,6 +2507,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583515209}
   m_CullTransparentMesh: 1
+--- !u!1 &587440089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1922464185457733035, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
+  m_PrefabInstance: {fileID: 212705635}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &603764453
 GameObject:
   m_ObjectHideFlags: 0
@@ -6651,7 +6668,7 @@ MonoBehaviour:
   m_SplashPool: {fileID: 1313677181}
   m_BulletPool: {fileID: 781456562}
   m_ListaBossesDisponibles:
-  - m_BossPrefab: {fileID: 8699538466360959486, guid: eb1903479f1738e41bf441b584f3c673, type: 3}
+  - m_BossPrefab: {fileID: 1790994148621288474, guid: 6cfd5907e0f684143b938b9e7452b224, type: 3}
     m_BossDisponible: 0
   m_GuardarPartidaEvent: {fileID: 11400000, guid: 0621630a1c7d1a949bc1c63b4833c396, type: 2}
   m_CargarPartidaEvent: {fileID: 11400000, guid: f7ea0370e72825c45b2c3968fb1d0ae2, type: 2}
@@ -7553,7 +7570,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

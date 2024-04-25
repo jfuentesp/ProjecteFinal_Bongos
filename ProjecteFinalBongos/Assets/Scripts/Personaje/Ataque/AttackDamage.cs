@@ -19,13 +19,13 @@ public class AttackDamage : MonoBehaviour
     }
     public void ChangeAttack(float damage) {
         m_Damage = damage;
-    
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox"))
-        {   foreach (EquipablePropertiesEnum propiedad in m_StatsController.Sword.propiedades) { 
+        {   foreach (EquipablePropertiesEnum propiedad in m_StatsController.Sword.propiedades) {
                 switch (propiedad)
                 {
                     case EquipablePropertiesEnum.ESTADO:

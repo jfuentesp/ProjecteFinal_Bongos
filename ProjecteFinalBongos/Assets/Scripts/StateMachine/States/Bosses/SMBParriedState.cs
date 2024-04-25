@@ -30,7 +30,10 @@ public class SMBParriedState : SMState
         m_Boss.SetBusy(true);
         StartCoroutine(ParriedCoroutine());
     }
-
+    private void Update()
+    {
+        
+    }
     public override void ExitState()
     {
         base.ExitState();
