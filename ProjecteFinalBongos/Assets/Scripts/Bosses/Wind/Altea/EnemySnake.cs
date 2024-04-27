@@ -63,7 +63,7 @@ public class EnemySnake : BossBehaviour
                 else
                 {
                     m_IsPlayerDetected = false;
-                }
+                }   
             }
             yield return new WaitForSeconds(m_CheckingPlayerTimelapse);
         }

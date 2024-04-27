@@ -31,6 +31,14 @@ public class LeviatanBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<LeviatanCrashWaveState>();
         };
+        GetComponent<SMBParalized>().OnStopParalized = () =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBBossStunState>().OnStopStun = () =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
         GetComponent<SMBChargeState>().OnChargeParried = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBParriedState>();
@@ -92,7 +100,7 @@ public class LeviatanBossBehaviour : BossBehaviour
         while (m_IsAlive) {
             yield return new WaitForSeconds(1f);
             count++;
-            if (count >= 10 && !m_IsBusy) {
+            if (count >= 2 && !m_IsBusy) {
                 count = 0;
                 m_StateMachine.ChangeState<LeviatanMinionsSpawnState>();
             }

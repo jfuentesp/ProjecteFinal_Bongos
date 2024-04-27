@@ -71,6 +71,8 @@ public class SMBChaseState : SMState
     {
         if (m_Target != null)
         {
+            print(m_Target.position +"aaaaaaaaaaaaaaaaaaaaaaa");
+            print(m_NavMeshAgent + "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
             m_NavMeshAgent.SetDestination(m_Target.position);
             /*m_Rigidbody.velocity = Vector3.zero;
             Vector3 direction = (m_Target.position - transform.position).normalized;
