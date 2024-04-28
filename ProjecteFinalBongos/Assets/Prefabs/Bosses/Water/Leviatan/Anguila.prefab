@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 274293736579305027}
   - component: {fileID: -3823566409614175490}
   - component: {fileID: 1980141330646716020}
-  - component: {fileID: -6758277943179235149}
   - component: {fileID: 3444513996647262057}
   - component: {fileID: 345658056298562550}
   - component: {fileID: 3509754752358705117}
@@ -289,23 +288,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ChaseSpeed: 5
   m_ChaseAnimationName: 
---- !u!114 &-6758277943179235149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4064604338268544201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed55b1b0673a9e24a98ce8d9413e3f9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AttackHitbox: {fileID: 8612672696726242882}
-  m_HitboxLength: 0
-  m_HitboxWideness: 0
-  m_HitboxRadius: 0
-  m_SingleAttackAnimationName: 
 --- !u!114 &3444513996647262057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,8 +345,8 @@ MonoBehaviour:
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 2
   m_AreaWideness: 2
-  m_AreaRadius: 0
-  m_CheckingPlayerTimelapse: 0
+  m_AreaRadius: 5
+  m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
     m_Bits: 128

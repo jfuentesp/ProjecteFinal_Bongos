@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(AgentOverride2d))]
@@ -24,6 +25,10 @@ public class PiranaBehaviour : BossBehaviour
             m_StateMachine.ChangeState<SMBChaseState>();
         };
         GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBSingleAttackState>().OnStopDetectingPlayer = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
@@ -48,7 +53,7 @@ public class PiranaBehaviour : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    m_StateMachine.ChangeState<SMBSingleAttackState>();
+                    SetAttack();
                 }
                 else
                 {
@@ -61,7 +66,7 @@ public class PiranaBehaviour : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    m_StateMachine.ChangeState<SMBSingleAttackState>();
+                    SetAttack() ;
                 }
                 else
                 {
@@ -76,5 +81,22 @@ public class PiranaBehaviour : BossBehaviour
         base.VidaCero();
         m_IsAlive = false;
         Destroy(gameObject);
+    }
+    private void SetAttack()
+    {
+        float rng = Random.value;
+
+        switch (rng)
+        {
+            case < 0.5f:
+                m_StateMachine.ChangeState<SMBSingleAttackState>();
+                break;
+            case < 0.65f:
+                m_StateMachine.ChangeState<SMBDoubleAttackState>();
+                break;
+            case > 0.8f:
+                m_StateMachine.ChangeState<SMBTripleAttackState>();
+                break;
+        }
     }
 }

@@ -8,12 +8,11 @@ using UnityEngine.AI;
 [RequireComponent(typeof(AgentOverride2d))]
 [RequireComponent(typeof(SMBIdleState))]
 [RequireComponent(typeof(SMBChaseState))]
-[RequireComponent(typeof(SMBSingleAttackState))]
 [RequireComponent(typeof(HealthController))]
 [RequireComponent(typeof(SMBParriedState))]
 public class AnguilaBehaviour : BossBehaviour
-{ 
-       private new void Awake()
+{
+    private new void Awake()
     {
         base.Awake();
         GetComponent<SMBChargeState>().OnChargeMissed = (GameObject obj) =>
@@ -77,6 +76,14 @@ public class AnguilaBehaviour : BossBehaviour
         base.VidaCero();
         m_IsAlive = false;
         Destroy(gameObject);
+    }
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox"))
+        {
+            collision.GetComponent<PlayerEstadosController>().AlternarEstado(EstadosAlterados.Paralitzat);
+        }
     }
 }
 
