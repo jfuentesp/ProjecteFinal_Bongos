@@ -2,8 +2,10 @@ using NavMeshPlus.Extensions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(AgentOverride2d))]
@@ -16,6 +18,11 @@ public class MedusaBossBehaviour : BossBehaviour
 {
     [SerializeField] private int m_RangoHuirPerseguir;
     private Coroutine m_PlayerDetectionCoroutine;
+    [Header("Variables medusita")]
+    [SerializeField] private GameObject m_Medusita;
+    [SerializeField] private int m_NumeroMinimoMedusas;
+    [SerializeField] private LayerMask m_MedusitaLayerMask;
+    [SerializeField] private float m_TiempoEntreMedusas;
     private new void Awake()
     {
         base.Awake();
@@ -39,6 +46,73 @@ public class MedusaBossBehaviour : BossBehaviour
     private void EmpezarCorutina(GameObject obj)
     {
         m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
+        GenerarMedusitas();
+        StartCoroutine(IniciaMedusas());
+    }
+
+    private IEnumerator IniciaMedusas()
+    {
+        while (m_IsAlive)
+        {
+            yield return new WaitForSeconds(m_TiempoEntreMedusas);
+            float numero = m_HealthController.HP / m_HealthController.HPMAX * 100;
+            int numerinSuma;
+            if (numero >= 0 && numero < 25)
+                numerinSuma = 1;
+            else if (numero >= 25 && numero < 50)
+                numerinSuma = 2;
+            else if (numero >= 50 && numero < 75)
+                numerinSuma = 3;
+            else
+                numerinSuma = 4;
+
+            int numerinPlusMedusas = 1 + numerinSuma;
+
+            for (int i = 0; i < numerinPlusMedusas; i++)
+            {
+                int random = Random.Range(0, transform.childCount);
+                GameObject medusita = transform.GetChild(random).gameObject;
+                medusita.transform.localPosition = new Vector2(1,1);
+                medusita.transform.parent = transform.parent;
+                medusita.GetComponent<MedusitaBehaviour>().PlayerHoming();
+            }
+            GenerarMedusitas();
+        }
+    }
+    private void GenerarMedusitas()
+    {
+        int numerinPlusMedusas = 10 - (int)(m_HealthController.HP / m_HealthController.HPMAX * 10);
+        int numeroMaximoMedusitas = m_NumeroMinimoMedusas + numerinPlusMedusas;
+        print(numeroMaximoMedusitas);
+        while (transform.childCount < numeroMaximoMedusitas)
+        {
+            GameObject medusa = Instantiate(m_Medusita, transform);
+            //medusa.GetComponent<CircleCollider2D>().enabled = false;
+            
+            medusa.transform.localPosition = GetRandomPosition();
+            medusa.GetComponent<MedusitaBehaviour>().Init(Random.Range(1,4), m_Target);
+        }
+    }
+    private Vector2 GetRandomPosition()
+    {
+        Vector2 posicion = Random.insideUnitCircle.normalized* Random.Range(0.65f, 1f);
+        if (posicion.x > -0.6 && posicion.x < 0.6 && posicion.y > 0.6)
+        {
+            return GetRandomPosition();
+        }
+        else
+        {
+            RaycastHit2D hit = Physics2D.CircleCast(posicion,0.25f, transform.position, 0.25f, m_MedusitaLayerMask);
+            if (hit.collider != null)
+            {
+                return GetRandomPosition();
+            }
+            else
+            {
+                return posicion;
+            }
+            
+        }
     }
     private IEnumerator PlayerDetectionCoroutine()
     {
@@ -76,10 +150,18 @@ public class MedusaBossBehaviour : BossBehaviour
     }
     private void PerseguirHuir()
     {
-        if(Vector2.Distance(transform.position, m_Target.position) > m_RangoHuirPerseguir)
+
+        if (Vector2.Distance(transform.position, m_Target.position) > m_RangoHuirPerseguir)
+        {
+            print("Me acerco " + Vector2.Distance(transform.position, m_Target.position));
             m_StateMachine.ChangeState<SMBChaseState>();
+        }
         else
+        {
+            print("Me alejo " + Vector2.Distance(transform.position, m_Target.position));
             m_StateMachine.ChangeState<SMBRunAwayState>();
+        }
+            
     }
 
     public override void Init(Transform _Target)
