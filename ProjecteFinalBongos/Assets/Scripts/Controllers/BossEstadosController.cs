@@ -23,54 +23,56 @@ public class BossEstadosController : MonoBehaviour
     }
     public void AlternarEstado(EstadosAlterados estado)
     {
-      
-        switch (estado)
-        {
-            case EstadosAlterados.Atordit:
-                if (!Stun)
-                {
-                    Stun = true;
-                    m_StateMachine.ChangeState<SMBBossStunState>();
-                }
-                break;
-            case EstadosAlterados.Mullat:
-                if (!Wet)
-                    StartCoroutine(WetRoutine());
-                break;
-            case EstadosAlterados.Peus_Lleugers:
-                if (!Speedy)
-                    StartCoroutine(SpeedRoutine());
-                break;
-            case EstadosAlterados.Forçut:
-                if (!StrongMan)
-                    StartCoroutine(StrongRoutine());
-                break;
-            case EstadosAlterados.Paralitzat:
-                if (!Stun)
-                {
-                    Stun = true;
-                    Paralized = true;
-                    m_StateMachine.ChangeState<SMBParalized>();
-                }
-                break;
-            case EstadosAlterados.Cremat:
-                if (!Burn)
-                    StartCoroutine(BurntRoutine());
-                break;
-            case EstadosAlterados.Enverinat:
-                if (!Poison)
-                {
-                    StartCoroutine(PoisonRoutine());
-                }
-                break;
-            case EstadosAlterados.Ira:
-                if (!Wrath)
-                    StartCoroutine(WrathRoutine());
-                break;
-            default:
-                break;
+        if (!Invencible) {
+            switch (estado)
+            {
+                case EstadosAlterados.Atordit:
+                    if (!Stun)
+                    {
+                        Stun = true;
+                        m_StateMachine.ChangeState<SMBBossStunState>();
+                    }
+                    break;
+                case EstadosAlterados.Mullat:
+                    if (!Wet)
+                        StartCoroutine(WetRoutine());
+                    break;
+                case EstadosAlterados.Peus_Lleugers:
+                    if (!Speedy)
+                        StartCoroutine(SpeedRoutine());
+                    break;
+                case EstadosAlterados.Forçut:
+                    if (!StrongMan)
+                        StartCoroutine(StrongRoutine());
+                    break;
+                case EstadosAlterados.Paralitzat:
+                    if (!Stun)
+                    {
+                        Stun = true;
+                        Paralized = true;
+                        m_StateMachine.ChangeState<SMBParalized>();
+                    }
+                    break;
+                case EstadosAlterados.Cremat:
+                    if (!Burn)
+                        StartCoroutine(BurntRoutine());
+                    break;
+                case EstadosAlterados.Enverinat:
+                    if (!Poison)
+                    {
+                        StartCoroutine(PoisonRoutine());
+                    }
+                    break;
+                case EstadosAlterados.Ira:
+                    if (!Wrath)
+                        StartCoroutine(WrathRoutine());
+                    break;
+                default:
+                    break;
 
+            }
         }
+      
     }
 
     IEnumerator WetRoutine()
