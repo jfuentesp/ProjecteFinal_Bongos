@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class MedusitaBehaviour : MonoBehaviour
 {
@@ -28,17 +29,17 @@ public class MedusitaBehaviour : MonoBehaviour
             case 1:
                 m_SpriteRenderer.color = Color.green;
                 m_Speed *= 1;
-                m_UpdateDirectonTime /= 1;
+                m_UpdateDirectonTime = 1;
                 break;
             case 2:
                 m_SpriteRenderer.color = Color.yellow;
                 m_Speed *= 2;
-                m_UpdateDirectonTime /= 2;
+                m_UpdateDirectonTime = 2;
                 break;
             case 3:
                 m_SpriteRenderer.color = Color.red;
                 m_Speed *= 3;
-                m_UpdateDirectonTime /= 3;
+                m_UpdateDirectonTime = 3;
                 break;
             default:
                 break;
@@ -51,12 +52,22 @@ public class MedusitaBehaviour : MonoBehaviour
 
     private IEnumerator Homing()
     {
-        UpdateRotacion(1);
+        m_Inmolando = true;
+        //UpdateRotacion(1);
         while (true)
         {
-            m_RigidBody.velocity = transform.up * m_Speed;
-            UpdateRotacion(0.8f);
-            yield return new WaitForSeconds(m_UpdateDirectonTime);
+            /*m_RigidBody.velocity = transform.up * m_Speed;
+            UpdateRotacion(0.87f);*/
+            // Dirección hacia el objetivo
+            Vector3 direction = (m_Target.position - transform.position).normalized;
+
+            // Rotación gradual hacia la dirección del objetivo solo en el eje Z
+            Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, direction);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, m_UpdateDirectonTime * Time.deltaTime);
+
+            // Movimiento hacia adelante en la dirección local del misil (su up)
+            transform.Translate(Vector3.up * m_Speed * 2 * Time.deltaTime);
+            yield return new WaitForFixedUpdate();
         }
     }
 
@@ -72,7 +83,7 @@ public class MedusitaBehaviour : MonoBehaviour
     {
         if (m_Inmolando)
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox"))
+            if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox") || collision.gameObject.layer == LayerMask.NameToLayer("Default"))
             {
                 Destroy(gameObject);
             }
