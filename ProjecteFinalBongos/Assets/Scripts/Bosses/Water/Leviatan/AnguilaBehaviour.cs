@@ -33,10 +33,9 @@ public class AnguilaBehaviour : BossBehaviour
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
-        OnPlayerInSala?.Invoke();
+        OnPlayerInSala.Invoke();
         StartCoroutine(PlayerDetectionCoroutine());
     }
-
     private IEnumerator PlayerDetectionCoroutine()
     {
         while (m_IsAlive)

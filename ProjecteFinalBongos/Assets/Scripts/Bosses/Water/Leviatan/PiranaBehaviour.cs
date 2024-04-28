@@ -27,20 +27,14 @@ public class PiranaBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
-        GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorrutina;
         m_StateMachine.ChangeState<SMBIdleState>();
-    }
-
-    private void EmpezarCorrutina(GameObject @object)
-    {
-        StartCoroutine(PlayerDetectionCoroutine());
     }
 
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
-        OnPlayerInSala?.Invoke();
-    
+        OnPlayerInSala.Invoke();
+        StartCoroutine(PlayerDetectionCoroutine());
     }
 
     private IEnumerator PlayerDetectionCoroutine()
@@ -54,8 +48,7 @@ public class PiranaBehaviour : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    m_StateMachine.ChangeState<SMBChaseState>();
-
+                    m_StateMachine.ChangeState<SMBSingleAttackState>();
                 }
                 else
                 {
@@ -68,8 +61,7 @@ public class PiranaBehaviour : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    m_StateMachine.ChangeState<SMBChaseState>();
-
+                    m_StateMachine.ChangeState<SMBSingleAttackState>();
                 }
                 else
                 {

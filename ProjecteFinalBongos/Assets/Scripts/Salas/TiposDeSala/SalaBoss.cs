@@ -11,7 +11,7 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
 {
     [Header("Listas salas hijas")]
     GeneracionSalasMatriz.ListaSalasConHijos m_ListaSalasPadreHijas;
-    private List<GeneracionSalasMatriz.ListaSalas> m_ListaSalas;
+    [SerializeField] private List<GeneracionSalasMatriz.ListaSalas> m_ListaSalas;
     private float minX, minY, maxX, maxY;
 
     [Header("Variables Boxcast")]

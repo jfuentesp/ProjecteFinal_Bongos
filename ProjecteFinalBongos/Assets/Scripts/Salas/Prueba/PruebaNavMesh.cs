@@ -11,9 +11,11 @@ public class PruebaNavMesh : MonoBehaviour
     [SerializeField]
     GeneracionSalaInstanciacion m_Mapa;
     private NavMeshSurface surface;
+    private bool canUpdate;
     private void Awake()
     {
         surface = GetComponent<NavMeshSurface>();
+        canUpdate = false;
         m_Mapa.onMapaFinalized += ConstruirMapa;
     }
 
@@ -26,15 +28,22 @@ public class PruebaNavMesh : MonoBehaviour
             return;
         }
     }
-
+    private void Update()
+    {
+        if (canUpdate)
+        {
+            BakeNavMesh();
+        }
+    }
     private void ConstruirMapa()
     {
+        canUpdate = true;
         BakeNavMesh();
     }
 
     void BakeNavMesh()
     {
-        NavMesh.RemoveAllNavMeshData();
+        //NavMesh.RemoveAllNavMeshData();
         surface.BuildNavMesh();
     }
 }

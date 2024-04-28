@@ -8,14 +8,16 @@ public class LeviatanMinionsSpawnState : SMState
 {
     [SerializeField] private GameObject m_piranha;
     [SerializeField] private GameObject m_anguila;
+    [SerializeField] private LayerMask m_LayerCannotInteractInSpawn;
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
     private BossBehaviour m_Boss;
-    private LeviatanBossBehaviour a;
     public Action<GameObject> OnSpawnFinished;
     private Transform m_Target;
     private SalaBoss m_SalaPadre;
+    private Pool m_Pool;
+
     private new void Awake()
     {
         base.Awake();
@@ -23,8 +25,8 @@ public class LeviatanMinionsSpawnState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
-        a= GetComponent<LeviatanBossBehaviour>();
         m_SalaPadre = GetComponentInParent<SalaBoss>();
+        m_Pool = LevelManager.Instance._SplashPool;
         m_Boss.OnPlayerInSala += GetTarget;
     }
 
@@ -50,27 +52,50 @@ public class LeviatanMinionsSpawnState : SMState
         int rng = Random.Range(0,2);
         if (rng == 0)
         {
-            float pirañaNumber = Random.Range(6, 16);
+            float pirañaNumber = Random.Range(4, 8);
             for (int p = 0; p < pirañaNumber; p++) {
-                Vector2 posicionPiranha = m_SalaPadre.GetPosicionAleatoriaEnSala();
-                GameObject piranha = Instantiate(m_piranha, transform.parent);
-                piranha.transform.position = posicionPiranha;
-                piranha.GetComponent<PiranaBehaviour>().Init(m_Target);
+                SpawnBicho(0);
             }
-
         }
         else {
-            float anguilaNumber = Random.Range(4, 6);
+            float anguilaNumber = Random.Range(2, 4);
             for (int p = 0; p < anguilaNumber; p++)
             {
-                Vector2 posicionAnguila = m_SalaPadre.GetPosicionAleatoriaEnSala();
-                GameObject anguila = Instantiate(m_anguila, transform.parent);
-                anguila.transform.position = posicionAnguila;
-                anguila.GetComponent<AnguilaBehaviour>().Init(m_Target);
+                SpawnBicho(1);
             }
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(5f);
         OnSpawnFinished?.Invoke(gameObject);
     }
-    
+
+    private void SpawnBicho(int numBicho)
+    {
+        Vector2 posicionBicho = m_SalaPadre.GetPosicionAleatoriaEnSala();
+        RaycastHit2D hit = Physics2D.CircleCast(posicionBicho, 1, posicionBicho, 1, m_LayerCannotInteractInSpawn);
+        if (hit.collider != null)
+        {
+            SpawnBicho(numBicho);
+        }
+        else
+        {
+            if(numBicho == 0)
+            {
+                //print("Posicion AAAAAAA " + posicionBicho);
+                GameObject bicho = m_Pool.GetElement();
+                bicho.transform.position = new Vector2(posicionBicho.x, posicionBicho.y);
+                bicho.SetActive(true);
+                bicho.GetComponent<LeviatanEggs>().enabled = true;
+                bicho.GetComponent<LeviatanEggs>().Init(m_Target, transform.parent,0);
+            }
+            else
+            {
+                //print("Posicion AAAAAAA " + posicionBicho);
+                GameObject bicho = m_Pool.GetElement();
+                bicho.transform.position = new Vector2(posicionBicho.x, posicionBicho.y);
+                bicho.SetActive(true);
+                bicho.GetComponent<LeviatanEggs>().enabled = true;
+                bicho.GetComponent<LeviatanEggs>().Init(m_Target, transform.parent, 1);
+            }
+        }
+    }
 }
