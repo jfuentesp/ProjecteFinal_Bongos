@@ -9,7 +9,8 @@ public class GUIBossManager : MonoBehaviour
     [Header("Variables Boss Triton")]
     [SerializeField] private GameObject m_TritonPanel;
     [SerializeField] private GameObject m_FlechaTriton;
-
+    [SerializeField] private GameObject m_KrakenPanel;
+    [SerializeField] private GameObject m_TintaKraken;
     [SerializeField] private GameObject m_ButtonPadre;
     [SerializeField] private GameObject m_ButtonHijo;
     //[SerializeField] private Button
@@ -42,7 +43,9 @@ public class GUIBossManager : MonoBehaviour
             }
         }
     }
-
+    public void SpawnTinta() {
+        StartCoroutine(TintaFadeOut());
+    }
     public void SpawnFlecha(float degrees)
     {
         m_FlechaTriton.transform.localEulerAngles = new Vector3(0, 0, degrees);
@@ -61,5 +64,13 @@ public class GUIBossManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         m_TritonPanel.SetActive(false);
         m_FlechaTriton.transform.localEulerAngles = new Vector3(0, 0, 0);
+    }
+
+    private IEnumerator TintaFadeOut() { 
+        m_KrakenPanel.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        while (m_TintaKraken.GetComponent<Image>().color.a > 0) { 
+            
+        }
     }
 }
