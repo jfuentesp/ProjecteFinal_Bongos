@@ -34,22 +34,26 @@ public class SubMergeState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        m_Animator.Play("Submerge");
         m_Rigidbody.velocity = Vector3.zero;
+        StartCoroutine(Teletransporte()); 
     }
-    public void ChangePosition()
-    {
+
+    private IEnumerator Teletransporte() {
+        print("Submerge");
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(4f);
         transform.position = m_Boss.SalaPadre.GetPosicionAleatoriaEnSala();
-        m_Animator.Play("Merge");
-    }
-    public void Finished() {
+        print("Merge");
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
         onAttackStopped.Invoke(gameObject);
-    }
-        
+    }  
 
     public override void ExitState()
     {
         base.ExitState();
+        StopAllCoroutines();
     }
     // Update is called once per frame
     void Update()

@@ -36,9 +36,16 @@ public class KrakenBossBehaviour : BossBehaviour
         };
         GetComponent<SubMergeState>().onAttackStopped = (GameObject obj) =>
         {
-            m_Animator.Play("idle");
             PerseguirHuir();
           
+        };
+        GetComponent<SMBParalized>().OnStopParalized = () =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBBossStunState>().OnStopStun = () =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
         };
 
         m_StateMachine.ChangeState<SMBIdleState>();
