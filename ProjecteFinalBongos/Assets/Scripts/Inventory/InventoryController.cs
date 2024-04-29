@@ -144,9 +144,10 @@ public class InventoryController : MonoBehaviour
         GridSlotBehaviour slot = m_LastSelection.GetComponent<GridSlotBehaviour>();
         if (slot.AssignedEquipable != null)
         {
-            m_InventoryBackpack.AddEquipable(m_PlayerStats.Sword);
+            m_InventoryBackpack.AddEquipable(slot.AssignedEquipable);
             slot.AssignedEquipable.OnRemove(transform.root.gameObject);
             slot.RefreshEquipment();
+            RefreshInventoryGUI();
         }
     }
 
@@ -178,6 +179,7 @@ public class InventoryController : MonoBehaviour
         {
             slot.RemoveConsumable();
             slot.RefreshEquippedSlot();
+            RefreshInventoryGUI();
         }
     }
 
