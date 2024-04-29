@@ -17,27 +17,32 @@ public class AttackDamage : MonoBehaviour
     {
         m_StatsController = GetComponentInParent<PlayerStatsController>();
     }
-    public void ChangeAttack(float damage) {
+    public void ChangeAttack(float damage)
+    {
         m_Damage = damage;
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox"))
-        {   foreach (string propiedad in m_StatsController.Sword.propiedades) {
-                switch (propiedad)
+        if (m_StatsController != null)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox"))
+            {
+                foreach (string propiedad in m_StatsController.Sword.propiedades)
                 {
-                    case "Estado":
-                        m_StatsController.Sword.ChangeState(collision.gameObject);
-                        break;
-                    case "Vampiro":
-                        m_StatsController.Sword.Regenerate(collision.gameObject, m_player);
-                        break;
+                    switch (propiedad)
+                    {
+                        case "Estado":
+                            m_StatsController.Sword.ChangeState(collision.gameObject);
+                            break;
+                        case "Vampiro":
+                            m_StatsController.Sword.Regenerate(collision.gameObject, m_player);
+                            break;
+                    }
                 }
             }
-
-
         }
+
     }
 }
