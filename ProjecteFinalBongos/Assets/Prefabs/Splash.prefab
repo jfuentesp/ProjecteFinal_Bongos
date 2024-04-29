@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -6490426775595885310}
   - component: {fileID: 5670117082845216299}
   - component: {fileID: 2460941521321669748}
+  - component: {fileID: 6680870749267416029}
   m_Layer: 0
   m_Name: Splash
   m_TagString: Splash
@@ -35,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5308115729871838875
 SpriteRenderer:
@@ -196,3 +197,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &6680870749267416029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8564957952386650585}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d0578bc1d3caf4c97b4c259272b324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TimeUntilDestroyed: 5
+  m_SizeLength: 1
+  m_SizeWideness: 1
+  m_SplashEffectState: 0

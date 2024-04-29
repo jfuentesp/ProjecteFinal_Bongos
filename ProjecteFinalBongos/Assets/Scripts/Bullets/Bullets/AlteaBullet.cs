@@ -22,7 +22,7 @@ public class AlteaBullet : Bullet
         if (!enabled)
             return;
 
-        if (collision.gameObject.layer != LayerMask.NameToLayer("BossHurtBox"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox"))
                 DisableBullet();
     }
 }

@@ -17,7 +17,8 @@ public class AttackDamage : MonoBehaviour
     {
         m_StatsController = GetComponentInParent<PlayerStatsController>();
     }
-    public void ChangeAttack(float damage) {
+    public void ChangeAttack(float damage)
+    {
         m_Damage = damage;
 
     }
@@ -37,5 +38,6 @@ public class AttackDamage : MonoBehaviour
                 }
             }
         }
+
     }
 }

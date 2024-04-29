@@ -25,69 +25,72 @@ public class PlayerEstadosController : MonoBehaviour
     }
     public void AlternarEstado(EstadosAlterados estado)
     {
-        switch (estado)
-        {
-            case EstadosAlterados.Adormit:
-                if (!Stun)
-                {
-                    Stun = true;
-                    m_StateMachine.ChangeState<SMBAdormitState>();
-                }
-                break;
-            case EstadosAlterados.Atordit:
-                if (!Stun)
-                {
-                    Stun = true;
-                    m_StateMachine.ChangeState<SMBStunState>();
-                }
-                break;
-            case EstadosAlterados.Mullat:
-                if (!Wet)
-                    StartCoroutine(WetRoutine());
-                break;
-            case EstadosAlterados.Peus_Lleugers:
-                if (!Speedy)
-                    StartCoroutine(SpeedRoutine());
-                break;
-            case EstadosAlterados.Forçut:
-                if (!StrongMan)
-                    StartCoroutine(StrongRoutine());
-                break;
-            case EstadosAlterados.Paralitzat:
-                if (!Stun)
-                {
-                    Stun = true;
-                    Paralized = true;
-                    m_StateMachine.ChangeState<SMBParalitzatState>();
-                }
-                break;
-            case EstadosAlterados.Cremat:
-                if (!Burn)
-                    StartCoroutine(BurntRoutine());
-                break;
-            case EstadosAlterados.Enverinat:
-                if (!Poison)
-                {
-                    StartCoroutine(PoisonRoutine());
-                }
+        if (!GetComponent<SMBPlayerParryState>().parry && !Invencible) {
+            switch (estado)
+            {
+                case EstadosAlterados.Adormit:
+                    if (!Stun)
+                    {
+                        Stun = true;
+                        m_StateMachine.ChangeState<SMBAdormitState>();
+                    }
+                    break;
+                case EstadosAlterados.Atordit:
+                    if (!Stun)
+                    {
+                        Stun = true;
+                        m_StateMachine.ChangeState<SMBStunState>();
+                    }
+                    break;
+                case EstadosAlterados.Mullat:
+                    if (!Wet)
+                        StartCoroutine(WetRoutine());
+                    break;
+                case EstadosAlterados.Peus_Lleugers:
+                    if (!Speedy)
+                        StartCoroutine(SpeedRoutine());
+                    break;
+                case EstadosAlterados.Forçut:
+                    if (!StrongMan)
+                        StartCoroutine(StrongRoutine());
+                    break;
+                case EstadosAlterados.Paralitzat:
+                    if (!Stun)
+                    {
+                        Stun = true;
+                        Paralized = true;
+                        m_StateMachine.ChangeState<SMBParalitzatState>();
+                    }
+                    break;
+                case EstadosAlterados.Cremat:
+                    if (!Burn)
+                        StartCoroutine(BurntRoutine());
+                    break;
+                case EstadosAlterados.Enverinat:
+                    if (!Poison)
+                    {
+                        StartCoroutine(PoisonRoutine());
+                    }
 
-                break;
-            case EstadosAlterados.Invencible:
-                if (!Invencible)
-                    StartCoroutine(InvencibleRoutine());
-                break;
-            case EstadosAlterados.Ira:
-                if (!Wrath)
-                    StartCoroutine(WrathRoutine());
-                break;
-            case EstadosAlterados.Atrapat:
-                if (!Stuck)
-                    StartCoroutine(StuckRoutine());
-                break;
-            default:
-                break;
+                    break;
+                case EstadosAlterados.Invencible:
+                    if (!Invencible)
+                        StartCoroutine(InvencibleRoutine());
+                    break;
+                case EstadosAlterados.Ira:
+                    if (!Wrath)
+                        StartCoroutine(WrathRoutine());
+                    break;
+                case EstadosAlterados.Atrapat:
+                    if (!Stuck)
+                        StartCoroutine(StuckRoutine());
+                    break;
+                default:
+                    break;
 
+            }
         }
+       
     }
 
     IEnumerator WetRoutine()

@@ -144,7 +144,8 @@ public class BossBehaviour : MonoBehaviour
         m_HealthController.Heal(_Heal);
     }
     public void recibirDaño(float Daño)
-    {
+    {   if (EstadosController.Invencible)
+            return;
         if (m_EstadosController.Burn)
         {
             m_HealthController.Damage(Daño);
