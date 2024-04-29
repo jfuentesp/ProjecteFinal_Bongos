@@ -17,6 +17,7 @@ public class ParalazingTentacleBehaviour : MonoBehaviour
             if (collision.gameObject.GetComponent<SMBPlayerParryState>().parry) {
                 return;
             }
+                GetComponentInParent<KrakenRangedAttackState>().trapped = true;
                 collision.gameObject.GetComponent<PlayerEstadosController>().AlternarEstado(EstadosAlterados.Atrapat);
         }
     }

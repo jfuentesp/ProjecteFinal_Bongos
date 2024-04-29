@@ -260,7 +260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &78914734
 RectTransform:
   m_ObjectHideFlags: 0
@@ -608,7 +608,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 2000, y: 2600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &454233250
 MonoBehaviour:
@@ -623,7 +623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -920,6 +920,7 @@ GameObject:
   - component: {fileID: 898752326}
   - component: {fileID: 898752328}
   - component: {fileID: 898752327}
+  - component: {fileID: 898752331}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -979,6 +980,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TritonPanel: {fileID: 1891930019}
   m_FlechaTriton: {fileID: 232532466}
+  m_KrakenPanel: {fileID: 0}
+  m_TintaKraken: {fileID: 0}
   m_ButtonPadre: {fileID: 0}
   m_ButtonHijo: {fileID: 0}
 --- !u!114 &898752328
@@ -1068,6 +1071,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &898752331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898752325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0640d428ac906c2459218b66878fd018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: e908a15e8547afd43977d43ce24f98a5, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 898752327}
+        m_TargetAssemblyTypeName: GUIBossManager, Assembly-CSharp
+        m_MethodName: SpawnTinta
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &949325055
 GameObject:
   m_ObjectHideFlags: 0

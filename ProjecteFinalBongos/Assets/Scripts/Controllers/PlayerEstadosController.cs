@@ -185,5 +185,12 @@ public class PlayerEstadosController : MonoBehaviour
         Stun = false;
         Paralized = false;
     }
+    public void StopStuck()
+    {
+        StopCoroutine(StuckRoutine());
+        Stuck = false;
+        if(m_Stats.m_Velocity == 0)
+            m_Stats.m_Velocity = velocityBefore;
+    }
 
 }

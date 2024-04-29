@@ -9,6 +9,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(SMBIdleState))]
 [RequireComponent(typeof(SMBChaseState))]
 [RequireComponent(typeof(SMBRunAwayState))]
+[RequireComponent(typeof(KrakenRangedAttackState))]
 [RequireComponent(typeof(HealthController))]
 public class KrakenBossBehaviour : BossBehaviour
 {
@@ -21,9 +22,13 @@ public class KrakenBossBehaviour : BossBehaviour
         m_SalaPadre = GetComponentInParent<SalaBoss>();
         GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
         {
-            PerseguirHuir();
+            m_StateMachine.ChangeState<SMBChaseState>();
         };
         GetComponent<SMBRunAwayState>().onStoppedRunningAway = (GameObject obj) =>
+        {
+            PerseguirHuir();
+        };
+        GetComponent<KrakenRangedAttackState>().onAttackStopped = (GameObject obj) =>
         {
             PerseguirHuir();
         };
@@ -49,7 +54,7 @@ public class KrakenBossBehaviour : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    PerseguirHuir();
+                    m_StateMachine.ChangeState<KrakenRangedAttackState>();
                 }
                 else
                 {
@@ -62,7 +67,7 @@ public class KrakenBossBehaviour : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    PerseguirHuir();
+                    m_StateMachine.ChangeState<KrakenRangedAttackState>();
                 }
                 else
                 {
@@ -75,7 +80,7 @@ public class KrakenBossBehaviour : BossBehaviour
 
     private IEnumerator SpawnTentacles() {
         while (m_IsAlive) {
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(2f);
             GameObject tentacle = Instantiate(m_tentacle, transform.parent);
             tentacle.transform.position = m_SalaPadre.GetPosicionAleatoriaEnSala();
         }

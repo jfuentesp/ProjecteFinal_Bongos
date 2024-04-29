@@ -27,43 +27,49 @@ public class DracMBullet : Bullet
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("MechanicObstacle"))
-        {
-            GameObject vaporCrash = m_pool.GetElement();
-            vaporCrash.transform.position = transform.position;
-            vaporCrash.SetActive(true);
-            DracMVaporSplash vaporsplash = vaporCrash.GetComponent<DracMVaporSplash>();
-            vaporsplash.enabled = true;
-            vaporCrash.GetComponent<DracMVaporSplash>().Init();
-            DisableBullet();
-        }
-        else if (collision.gameObject.CompareTag("Player")) {
-            if (collision.gameObject.GetComponent<SMBPlayerParryState>().parry)
+        if (enabled) {
+            if (collision.gameObject.CompareTag("MechanicObstacle"))
             {
-                gameObject.tag = "DracPlayerBullet";
-                m_Rigidbody.velocity = -transform.up * (m_Speed * 2);
-                boss = true;
-            }
-            else {
-                collision.GetComponent<PJSMB>().recibirDaño(m_damage);
                 GameObject vaporCrash = m_pool.GetElement();
                 vaporCrash.transform.position = transform.position;
                 vaporCrash.SetActive(true);
                 DracMVaporSplash vaporsplash = vaporCrash.GetComponent<DracMVaporSplash>();
                 vaporsplash.enabled = true;
                 vaporCrash.GetComponent<DracMVaporSplash>().Init();
-                DisableBullet();    
+                DisableBullet();
+            }
+            else if (collision.gameObject.CompareTag("Player"))
+            {
+                if (collision.gameObject.GetComponent<SMBPlayerParryState>().parry)
+                {
+                    gameObject.tag = "DracPlayerBullet";
+                    m_Rigidbody.velocity = -transform.up * (m_Speed * 2);
+                    boss = true;
+                }
+                else
+                {
+                    collision.GetComponent<PJSMB>().recibirDaño(m_damage);
+                    GameObject vaporCrash = m_pool.GetElement();
+                    vaporCrash.transform.position = transform.position;
+                    vaporCrash.SetActive(true);
+                    DracMVaporSplash vaporsplash = vaporCrash.GetComponent<DracMVaporSplash>();
+                    vaporsplash.enabled = true;
+                    vaporCrash.GetComponent<DracMVaporSplash>().Init();
+                    DisableBullet();
+                }
+            }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox") && boss)
+            {
+                GameObject vaporCrash = m_pool.GetElement();
+                vaporCrash.transform.position = transform.position;
+                vaporCrash.SetActive(true);
+                DracMVaporSplash vaporsplash = vaporCrash.GetComponent<DracMVaporSplash>();
+                vaporsplash.enabled = true;
+                vaporCrash.GetComponent<DracMVaporSplash>().Init();
+                vaporCrash.tag = "DracPlayerSplash";
+                DisableBullet();
             }
         }
-        else if (collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox") && boss) {
-            GameObject vaporCrash = m_pool.GetElement();
-            vaporCrash.transform.position = transform.position;
-            vaporCrash.SetActive(true);
-            DracMVaporSplash vaporsplash = vaporCrash.GetComponent<DracMVaporSplash>();
-            vaporsplash.enabled = true;
-            vaporCrash.GetComponent<DracMVaporSplash>().Init();
-            vaporCrash.tag = "DracPlayerSplash";
-            DisableBullet();
-        }
+     
     }
 }

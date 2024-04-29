@@ -16,6 +16,7 @@ public class HabilidadDeMovimientoState : SMState
     private GameObject m_SlowDownZone;
     [SerializeField]
     private EstadoEvent changeEstado;
+    [SerializeField] private GameEvent invencibleTitleCard;
     private new void Awake()
     {
         base.Awake();
@@ -75,7 +76,8 @@ public class HabilidadDeMovimientoState : SMState
                 yield return new WaitForSeconds(0.4f);
                 Exit();
                 break;
-            case "InvincibleDash":
+                case "InvincibleDash":
+                invencibleTitleCard.Raise();
                 Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerHurtBox"), LayerMask.NameToLayer("BossHurtBox"), true);
                 Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerHurtBox"), LayerMask.NameToLayer("BossHitBox"), true);
                 if (m_PJ.MovementAction.ReadValue<Vector2>() == Vector2.zero)
