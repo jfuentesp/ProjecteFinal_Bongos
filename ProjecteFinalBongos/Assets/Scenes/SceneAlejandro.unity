@@ -980,8 +980,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TritonPanel: {fileID: 1891930019}
   m_FlechaTriton: {fileID: 232532466}
-  m_KrakenPanel: {fileID: 0}
-  m_TintaKraken: {fileID: 0}
+  m_KrakenPanel: {fileID: 78914733}
+  m_TintaKraken: {fileID: 454233248}
   m_ButtonPadre: {fileID: 0}
   m_ButtonHijo: {fileID: 0}
 --- !u!114 &898752328
@@ -1729,6 +1729,10 @@ PrefabInstance:
     - target: {fileID: 1922464185457733035, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045137239713239704, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

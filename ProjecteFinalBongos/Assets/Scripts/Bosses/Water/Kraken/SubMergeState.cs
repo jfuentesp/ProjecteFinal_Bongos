@@ -5,16 +5,11 @@ using UnityEngine;
 
 public class SubMergeState : SMState
 {
-    public bool trapped;
+
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
     private BossBehaviour m_Boss;
-    [SerializeField] private GameObject m_Tentacle;
-    [Header("Pool of projectiles/splats")]
-    [SerializeField]
-    private Pool m_Pool;
-
     private Transform m_Target;
 
     public Action<GameObject> onAttackStopped;
@@ -22,13 +17,12 @@ public class SubMergeState : SMState
     private new void Awake()
     {
         base.Awake();
+        transform.up = Vector3.up;
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
-        m_Pool = LevelManager.Instance._BulletPool;
         m_Boss.OnPlayerInSala += GetTarget;
-        trapped = false;
     }
 
     private void GetTarget()
@@ -40,38 +34,22 @@ public class SubMergeState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        StartCoroutine(Disparar());
+        m_Animator.Play("Submerge");
         m_Rigidbody.velocity = Vector3.zero;
     }
-
-    private IEnumerator Disparar()
+    public void ChangePosition()
     {
-        m_Tentacle.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        if (trapped)
-        {
-            Debug.Log("Hola");
-            m_Tentacle.SetActive(false);
-            GameObject lightning = m_Pool.GetElement();
-            lightning.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-            lightning.SetActive(true);
-            lightning.GetComponent<TintaBullet>().enabled = true;
-            lightning.GetComponent<TintaBullet>().Init(m_Target.position - transform.position);
-            yield return new WaitForSeconds(1f);
-            trapped = false;
-            onAttackStopped.Invoke(gameObject);
-        }
-        else
-        {
-            trapped = false;
-            onAttackStopped.Invoke(gameObject);
-        }
+        transform.position = m_Boss.SalaPadre.GetPosicionAleatoriaEnSala();
+        m_Animator.Play("Merge");
     }
+    public void Finished() {
+        onAttackStopped.Invoke(gameObject);
+    }
+        
 
     public override void ExitState()
     {
         base.ExitState();
-        StopCoroutine(Disparar());
     }
     // Update is called once per frame
     void Update()

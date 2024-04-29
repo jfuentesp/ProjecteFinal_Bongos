@@ -10,6 +10,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(SMBChaseState))]
 [RequireComponent(typeof(SMBRunAwayState))]
 [RequireComponent(typeof(KrakenRangedAttackState))]
+[RequireComponent(typeof(SubMergeState))]
 [RequireComponent(typeof(HealthController))]
 public class KrakenBossBehaviour : BossBehaviour
 {
@@ -19,6 +20,7 @@ public class KrakenBossBehaviour : BossBehaviour
     private new void Awake()
     {
         base.Awake();
+      
         m_SalaPadre = GetComponentInParent<SalaBoss>();
         GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
         {
@@ -31,6 +33,12 @@ public class KrakenBossBehaviour : BossBehaviour
         GetComponent<KrakenRangedAttackState>().onAttackStopped = (GameObject obj) =>
         {
             PerseguirHuir();
+        };
+        GetComponent<SubMergeState>().onAttackStopped = (GameObject obj) =>
+        {
+            m_Animator.Play("idle");
+            PerseguirHuir();
+          
         };
 
         m_StateMachine.ChangeState<SMBIdleState>();
@@ -54,7 +62,7 @@ public class KrakenBossBehaviour : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    m_StateMachine.ChangeState<KrakenRangedAttackState>();
+                    SetAttack();                
                 }
                 else
                 {
@@ -98,7 +106,20 @@ public class KrakenBossBehaviour : BossBehaviour
         }
 
     }
-    
+    private void SetAttack()
+    {
+        float rng = Random.value;
+        switch (rng)
+        {
+            case < 0.5f:
+                m_StateMachine.ChangeState<KrakenRangedAttackState>();
+                break;
+            case < 0.8f:
+                m_StateMachine.ChangeState<SubMergeState>();
+                break;
+
+        }
+    }
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
