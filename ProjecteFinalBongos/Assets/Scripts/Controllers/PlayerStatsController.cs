@@ -60,6 +60,7 @@ public class PlayerStatsController : MonoBehaviour
     private Sword m_SwordPrueba;
     [SerializeField]
     private Armor m_Armor;
+    public Armor Armor => m_Armor;
     [SerializeField]
     private Armor prueba;
     private void Start()

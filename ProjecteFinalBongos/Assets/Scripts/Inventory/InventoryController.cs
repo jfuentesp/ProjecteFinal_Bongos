@@ -48,8 +48,15 @@ public class InventoryController : MonoBehaviour
     [Header("Equipment HUD settings")]
     [SerializeField]
     private GridLayoutGroup m_EquipmentGrid;
+    [SerializeField]
+    private GridSlotBehaviour m_Weapon;
+    [SerializeField]
+    private GridSlotBehaviour m_Armor;
+    [SerializeField]
+    private PlayerStatsController m_PlayerStats;
 
-    [Header("QuickItems HUD Settings")]
+    [Header("QuickItems HUD settings")]
+    [SerializeField]
     private GridLayoutGroup m_QuickConsumablesGrid;
 
     [Header("Description section settings")]
@@ -98,13 +105,13 @@ public class InventoryController : MonoBehaviour
         m_InventoryBackpack.AddConsumable(m_ConsumableToAdd2);
         m_InventoryBackpack.AddEquipable(m_EquipableSword);
         m_InventoryBackpack.AddEquipable(m_EquipableArmor);
-        RefreshInventoryGUI();
     }
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.B))
         {
+            RefreshInventoryGUI();
             m_InventoryHUD.SetActive(!m_InventoryHUD.activeSelf);
         }
     }
@@ -129,6 +136,60 @@ public class InventoryController : MonoBehaviour
             m_InventoryBackpack.RemoveEquipable(itemToUse);
         }
         RefreshEquipableGUI();
+        RefreshEquippedGearGUI();
+    }
+
+    public void OnEquipmentRemove()
+    {
+        GridSlotBehaviour slot = m_LastSelection.GetComponent<GridSlotBehaviour>();
+        if (slot.AssignedEquipable != null)
+        {
+            m_InventoryBackpack.AddEquipable(m_PlayerStats.Sword);
+            slot.AssignedEquipable.OnRemove(transform.root.gameObject);
+            slot.RefreshEquipment();
+        }
+    }
+
+    public void OnQuickItemEquip(string itemID)
+    {
+        Consumable itemToEquip = m_InventoryBackpack.ConsumableSlots.FirstOrDefault(item => item?.Consumable.id == itemID).Consumable;
+        if (itemToEquip != null)
+        {
+            bool exists = CheckIfQuickItemIsAlreadyEquipped(itemToEquip);
+            if (exists)
+                return;
+            for (int index = 0; index < m_QuickConsumablesGrid.transform.childCount; index++)
+            {
+                GridSlotBehaviour slot = m_QuickConsumablesGrid.transform.GetChild(index).GetComponentInChildren<GridSlotBehaviour>();
+                if (slot.AssignedConsumable == null)
+                {        
+                    slot.SetConsumable(itemToEquip);
+                    slot.RefreshEquippedSlot();
+                    return;
+                }
+            }
+        }
+    }
+
+    public void OnQuickItemRemove()
+    {
+        m_LastSelection.TryGetComponent<GridSlotBehaviour>(out GridSlotBehaviour slot);
+        if (slot?.AssignedConsumable != null)
+        {
+            slot.RemoveConsumable();
+            slot.RefreshEquippedSlot();
+        }
+    }
+
+    public bool CheckIfQuickItemIsAlreadyEquipped(Consumable consumable)
+    {
+        for (int index = 0; index < m_QuickConsumablesGrid.transform.childCount; index++)
+        {
+            GridSlotBehaviour slot = m_QuickConsumablesGrid.transform.GetChild(index).GetComponentInChildren<GridSlotBehaviour>();
+            if (slot.AssignedConsumable == consumable)
+                return true;
+        }
+        return false;
     }
 
     public void OnMoveConsumable(int indexSelected, int indexTarget)
@@ -149,12 +210,8 @@ public class InventoryController : MonoBehaviour
 
     public void OnMoveConsumables(int indexSelected, int indexTarget)
     {
-        
-    }
-
-    public void OnWithdraw()
-    {
-
+        m_InventoryBackpack.MoveConsumable(indexSelected, indexTarget);
+        m_MoveConsumableSlot = null;
     }
 
     /* GUI COMPONENTS */
@@ -164,6 +221,7 @@ public class InventoryController : MonoBehaviour
         RefreshConsumableGUI();
         RefreshEquipableGUI();
         RefreshDescriptionGUI();
+        RefreshEquippedGearGUI();
     }
 
     private void RefreshConsumableGUI()
@@ -235,12 +293,10 @@ public class InventoryController : MonoBehaviour
 
     public void RefreshEquippedGearGUI()
     {
-        //m_EquipmentGrid.transform.GetChild(0).GetComponentInChildren<>
-    }
-
-    public void RefreshQuickConsumablesGUI()
-    {
-
+        m_Weapon.SetEquipable(m_PlayerStats.Sword);
+        m_Armor.SetEquipable(m_PlayerStats.Armor);
+        m_Weapon.RefreshEquipment();
+        m_Armor.RefreshEquipment();
     }
 
     /* SETTERS */

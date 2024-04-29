@@ -45,7 +45,7 @@ public class Sword : Equipable
             playerController.EquipSword(this);
     }
 
-    public override void OnWithdraw(GameObject equipedBy)
+    public override void OnRemove(GameObject equipedBy)
     {
         equipedBy.TryGetComponent<PlayerStatsController>(out PlayerStatsController playerController);
         if (playerController != null)

@@ -33,8 +33,11 @@ public class Backpack : ScriptableObject
 
     private ConsumableSlot[] m_ConsumableSlots = new ConsumableSlot[25];
     private EquipableSlot[] m_EquipableSlots = new EquipableSlot[25];
+    private ConsumableSlot[] m_QuickConsumableSlots = new ConsumableSlot[3];
     public ConsumableSlot[] ConsumableSlots => m_ConsumableSlots;
     public EquipableSlot[] EquipableSlots => m_EquipableSlots;
+
+
 
     public void AddConsumable(Consumable item)
     {

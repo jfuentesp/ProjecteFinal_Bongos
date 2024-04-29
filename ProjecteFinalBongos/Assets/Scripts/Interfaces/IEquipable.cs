@@ -12,4 +12,5 @@ public interface IEquipable
     public EstadosAlterados Estado { get; set; }
 
     public void OnEquip(GameObject usedBy);
+    public void OnRemove(GameObject usedBy);
 }

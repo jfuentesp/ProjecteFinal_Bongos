@@ -24,5 +24,5 @@ public abstract class Equipable : ScriptableObject, IEquipable
     public EstadosAlterados Estado { get => m_Estado; set => m_Estado = value; }
 
     public abstract void OnEquip(GameObject equipedBy);
-    public abstract void OnWithdraw(GameObject equipedBy);
+    public abstract void OnRemove(GameObject equipedBy);
 }

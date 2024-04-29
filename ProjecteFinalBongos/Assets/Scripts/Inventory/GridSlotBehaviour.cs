@@ -82,6 +82,32 @@ public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
         }
     }
 
+    public void RefreshEquippedSlot()
+    {
+        if (m_AssignedConsumable == null)
+        {
+            m_ItemSprite.gameObject.SetActive(false);
+        }
+        else
+        {
+            m_ItemSprite.gameObject.SetActive(true);
+            m_ItemSprite.sprite = m_AssignedConsumable.Sprite;
+        }
+    }
+
+    public void RefreshEquipment()
+    {
+        if (m_AssignedEquipable == null)
+        {
+            m_ItemSprite.gameObject.SetActive(false);
+        }
+        else 
+        { 
+            m_ItemSprite.gameObject.SetActive(true);
+            m_ItemSprite.sprite = m_AssignedEquipable.Sprite;
+        }
+    }
+
     public void OnSelect(BaseEventData eventData)
     {
         m_InventoryController.SetSelectedItem(gameObject);

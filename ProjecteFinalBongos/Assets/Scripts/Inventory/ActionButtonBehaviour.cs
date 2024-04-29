@@ -9,7 +9,7 @@ public class ActionButtonBehaviour : MonoBehaviour, ISubmitHandler, ICancelHandl
     private GameObject m_ActionButtons;
     [SerializeField]
     private InventoryController m_InventoryController;
-    private enum ButtonActionsEnum { USE, EQUIP, MOVE, DROP, CANCEL }
+    private enum ButtonActionsEnum { USE, EQUIP, MOVE, DROP, CANCEL}
     [SerializeField]
     private ButtonActionsEnum m_ButtonActionsEnum;
 
@@ -22,7 +22,7 @@ public class ActionButtonBehaviour : MonoBehaviour, ISubmitHandler, ICancelHandl
     {
         m_ActionButtons.SetActive(false);
         m_InventoryController.LastSelection.TryGetComponent<GridSlotBehaviour>(out GridSlotBehaviour lastSelection);
-        if(lastSelection != null)
+        if (lastSelection != null)
             switch (m_ButtonActionsEnum)
             {
                 case ButtonActionsEnum.USE:
@@ -36,7 +36,10 @@ public class ActionButtonBehaviour : MonoBehaviour, ISubmitHandler, ICancelHandl
                     break;
                 case ButtonActionsEnum.EQUIP:
                     if (lastSelection.AssignedConsumable != null)
-                        Debug.Log("Este objeto es un consumible, no puedes equiparlo.");
+                    {
+                        Debug.Log("Equipando objeto " + lastSelection.AssignedConsumable.itemName);
+                        m_InventoryController.OnQuickItemEquip(lastSelection.AssignedConsumable.id);
+                    }
                     if (lastSelection.AssignedEquipable != null)
                     {
                         Debug.Log("Equipando objeto " + lastSelection.AssignedEquipable.itemName);
@@ -50,10 +53,13 @@ public class ActionButtonBehaviour : MonoBehaviour, ISubmitHandler, ICancelHandl
                         m_InventoryController.SetMoveEquipables(lastSelection.gameObject);
                     break;
                 case ButtonActionsEnum.DROP:
-
+                    if (lastSelection.AssignedConsumable != null)
+                        Debug.Log("Soltado objeto " + lastSelection.AssignedConsumable.itemName);
+                    if (lastSelection.AssignedEquipable != null)
+                        Debug.Log("Soltado equipo " + lastSelection.AssignedEquipable.itemName);
                     break;
                 case ButtonActionsEnum.CANCEL:
-                    break;
+                    break;       
             }
     }
 
@@ -74,7 +80,10 @@ public class ActionButtonBehaviour : MonoBehaviour, ISubmitHandler, ICancelHandl
                     break;
                 case ButtonActionsEnum.EQUIP:
                     if (lastSelection.AssignedConsumable != null)
-                        Debug.Log("Este objeto es un consumible, no puedes equiparlo.");
+                    {
+                        Debug.Log("Equipando objeto " + lastSelection.AssignedConsumable.itemName);
+                        m_InventoryController.OnQuickItemEquip(lastSelection.AssignedConsumable.id);
+                    }
                     if (lastSelection.AssignedEquipable != null)
                     {
                         Debug.Log("Equipando objeto " + lastSelection.AssignedEquipable.itemName);
@@ -88,7 +97,10 @@ public class ActionButtonBehaviour : MonoBehaviour, ISubmitHandler, ICancelHandl
                         m_InventoryController.SetMoveEquipables(lastSelection.gameObject);
                     break;
                 case ButtonActionsEnum.DROP:
-
+                    if (lastSelection.AssignedConsumable != null)
+                        Debug.Log("Soltado objeto " + lastSelection.AssignedConsumable.itemName);
+                    if (lastSelection.AssignedEquipable != null)
+                        Debug.Log("Soltado equipo " + lastSelection.AssignedEquipable.itemName);
                     break;
                 case ButtonActionsEnum.CANCEL:
                     break;

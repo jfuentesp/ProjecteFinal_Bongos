@@ -59,12 +59,9 @@ public class Armor : Equipable
             playerController.EquipArmor(this);
             Debug.Log("Equipada la armadura " + this.itemName);
         }
-
-        //Actualizo inventario
-        //Hago cosas
     }
 
-    public override void OnWithdraw(GameObject equipedBy)
+    public override void OnRemove(GameObject equipedBy)
     {
         equipedBy.TryGetComponent<PlayerStatsController>(out PlayerStatsController playerController);
         if (playerController != null)
