@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class KrakenMergeState : SMState
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
     private BossBehaviour m_Boss;
-
+    public Action<GameObject> OnMergeFinish;
     private Transform m_Target;
 
     [Header("Merge animation")]
@@ -31,7 +32,11 @@ public class KrakenMergeState : SMState
         m_Rigidbody.velocity = Vector3.zero;
         m_Animator.Play(m_MergeAnimationName);
         print("aaMerge");
-        m_Boss.SetBusy(false);
+        m_Boss.SetBusy(true);
+    }
+
+    public void FinishMerge() {
+        OnMergeFinish?.Invoke(gameObject);
     }
 
     public override void ExitState()

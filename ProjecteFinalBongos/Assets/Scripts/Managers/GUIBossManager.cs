@@ -75,7 +75,7 @@ public class GUIBossManager : MonoBehaviour
             yield return new WaitForSeconds(0.0075f);
         }
         m_KrakenPanel.SetActive(false);
-        m_TintaKraken.GetComponent<Image>().color = new Color(m_TintaKraken.GetComponent<Image>().color.r, m_TintaKraken.GetComponent<Image>().color.g, m_TintaKraken.GetComponent<Image>().color.b,0.8f) ;
+        m_TintaKraken.GetComponent<Image>().color = new Color(m_TintaKraken.GetComponent<Image>().color.r, m_TintaKraken.GetComponent<Image>().color.g, m_TintaKraken.GetComponent<Image>().color.b,1f) ;
         Finalizar("TintaFadeOut");
     }
 

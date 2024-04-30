@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 3483066483069717437}
   - component: {fileID: 6687272222611885241}
   - component: {fileID: 1796825339172437790}
-  - component: {fileID: 7709030497106910616}
   m_Layer: 8
-  m_Name: ParalizingTentacle
+  m_Name: Tentacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,18 +158,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7709030497106910616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2098182744709005789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e40a89b395aa0724d83e2fb414c4a5d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3617482799438960166
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7932770180038117891
 Transform:
   m_ObjectHideFlags: 0
@@ -352,7 +339,6 @@ GameObject:
   - component: {fileID: 2696438157233493604}
   - component: {fileID: -11465032342909015}
   - component: {fileID: 5390957296066793260}
-  - component: {fileID: 710051293297780217}
   - component: {fileID: -3128271491494714962}
   - component: {fileID: -3736712926749499588}
   - component: {fileID: 4449570395813551865}
@@ -368,6 +354,7 @@ GameObject:
   - component: {fileID: 2941879610102495830}
   - component: {fileID: 8960559691613222281}
   - component: {fileID: 8475113299944557031}
+  - component: {fileID: 4844373721741066641}
   m_Layer: 9
   m_Name: Kraken
   m_TagString: Untagged
@@ -454,25 +441,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ChaseSpeed: 5
   m_ChaseAnimationName: 
---- !u!114 &710051293297780217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4831098368659947342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52a1fb1b91a4cc48937893edd4abee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RunSpeed: 5
-  m_minimumWalkingDuration: 3
-  m_maximumWalkingDuration: 4
-  m_ChaseAnimationName: 
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!114 &-3128271491494714962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,12 +609,11 @@ MonoBehaviour:
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 0
   m_AreaWideness: 0
-  m_AreaRadius: 4
+  m_AreaRadius: 3
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
     m_Bits: 128
-  m_RangoHuirPerseguir: 1
   m_tentacle: {fileID: 7718859505142421878, guid: aaf4e78d9df55b4448dcab306b3282ef, type: 3}
 --- !u!114 &7988971145222638730
 MonoBehaviour:
@@ -661,7 +628,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trapped: 0
-  m_Tentacle: {fileID: 2098182744709005789}
   m_Pool: {fileID: 0}
 --- !u!114 &3986194509085481938
 MonoBehaviour:
@@ -678,7 +644,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 1
-  m_SubmergeSpeed: 0
+  m_SubmergeSpeed: 10
   m_DirectionTime: 1
   Steps: 5
   m_SubmergeAnimationName: ShadowSubmerge
@@ -718,7 +684,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -734,7 +700,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4831098368659947342}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -768,8 +734,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 144803512, guid: 5c3a276b3f9622e4cbaf87b41c91c4e4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 1cf35e76a32c87c4da15e964cea769b2, type: 3}
+  m_Color: {r: 0, g: 0.7176471, b: 0.39215687, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -805,3 +771,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MergeAnimationName: Merge
+--- !u!114 &4844373721741066641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4831098368659947342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b0655a6d83f677459111a8c5092234b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpinAnimation: Spin
+  trapped: 0

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 public class SubMergeState : SMState
@@ -22,16 +23,17 @@ public class SubMergeState : SMState
     private int Steps = 5;
     [SerializeField]
     private string m_SubmergeAnimationName;
+    private NavMeshAgent m_NavmeshAgent;
 
     private new void Awake()
     {
         base.Awake();
-        transform.up = Vector3.up;
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
         m_Boss.OnPlayerInSala += GetTarget;
+        m_NavmeshAgent = GetComponent<NavMeshAgent>();
     }
 
     private void GetTarget()
@@ -43,28 +45,30 @@ public class SubMergeState : SMState
     {
         
         Vector3 direccion = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direccion, 7, m_LayerMask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direccion, 5, m_LayerMask);
         if (hit.collider != null)
         {
+
+            print("Me choco");
             RandomWalk();
         }
         else
         {
-            
-            m_Rigidbody.velocity = direccion.normalized * m_SubmergeSpeed;
-       
-       
+
+            m_NavmeshAgent.velocity = direccion.normalized * m_SubmergeSpeed;
+           
+
+
         }
     }
     private IEnumerator Merge() {
         while (Steps > 0) {
             Steps--;
+            yield return new WaitForSeconds(1f);
             if (Steps <= 0)
             {
                 m_StateMachine.ChangeState<KrakenMergeState>();
             }
-            print("aaSubmerge");
-            yield return new WaitForSeconds(1f);
         }
     
     }
@@ -72,8 +76,8 @@ public class SubMergeState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
+        Steps = 20;
         m_Animator.Play(m_SubmergeAnimationName);
-        m_Rigidbody.velocity = Vector3.zero;
         StartCoroutine(Merge());
     }
     private float m_TimeChangeDirection = 0;

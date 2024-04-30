@@ -23,7 +23,13 @@ public class KrakenSetSubMergeState : SMState
     public override void InitState()
     {
         base.InitState();
+        transform.up = Vector3.zero;
         m_Animator.Play(m_SetSubmergeAnimationName);
+    }
+
+    public void SetSubmergeMode()
+    {
+        m_StateMachine.ChangeState<SubMergeState>();
     }
 
     public override void ExitState()

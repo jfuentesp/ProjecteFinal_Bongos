@@ -1,6 +1,7 @@
 using NavMeshPlus.Extensions;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,35 +9,40 @@ using UnityEngine.AI;
 [RequireComponent(typeof(AgentOverride2d))]
 [RequireComponent(typeof(SMBIdleState))]
 [RequireComponent(typeof(SMBChaseState))]
-[RequireComponent(typeof(SMBRunAwayState))]
 [RequireComponent(typeof(KrakenRangedAttackState))]
+[RequireComponent(typeof(KrakenSpinState))]
 [RequireComponent(typeof(KrakenSetSubMergeState))]
 [RequireComponent(typeof(KrakenMergeState))]
 [RequireComponent(typeof(SubMergeState))]
 [RequireComponent(typeof(HealthController))]
 public class KrakenBossBehaviour : BossBehaviour
 {
-    [SerializeField] private int m_RangoHuirPerseguir;
     private Coroutine m_PlayerDetectionCoroutine;
     [SerializeField] private GameObject m_tentacle;
     private bool m_submerge;
+    private bool canSubmerge = true;
 
     private new void Awake()
     {
         base.Awake();
-      
         m_SalaPadre = GetComponentInParent<SalaBoss>();
         GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
-        GetComponent<SMBRunAwayState>().onStoppedRunningAway = (GameObject obj) =>
-        {
-            PerseguirHuir();
-        };
         GetComponent<KrakenRangedAttackState>().onAttackStopped = (GameObject obj) =>
         {
-            PerseguirHuir();
+            m_StateMachine.ChangeState<SubMergeState>();
+        };
+        GetComponent<KrakenSpinState>().onAttackStopped = (GameObject obj) =>
+        {
+            m_Animator.Play("idle");
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<KrakenMergeState>().OnMergeFinish = (GameObject obj) =>
+        {
+            m_Animator.Play("idle");
+            m_StateMachine.ChangeState<SMBChaseState>();
         };
         GetComponent<SMBParalized>().OnStopParalized = () =>
         {
@@ -57,9 +63,7 @@ public class KrakenBossBehaviour : BossBehaviour
         
     }
 
-    public void SetSubmergeMode() { 
-        m_StateMachine.ChangeState<SubMergeState>();
-    }
+  
     private IEnumerator PlayerDetectionCoroutine()
     {
         while (m_IsAlive)
@@ -72,7 +76,7 @@ public class KrakenBossBehaviour : BossBehaviour
                 {
                     m_IsPlayerDetected = true;
                     SetAttack();                
-                }
+                }   
                 else
                 {
                     m_IsPlayerDetected = false;
@@ -84,7 +88,7 @@ public class KrakenBossBehaviour : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    m_StateMachine.ChangeState<KrakenRangedAttackState>();
+                    SetAttack();
                 }
                 else
                 {
@@ -97,55 +101,27 @@ public class KrakenBossBehaviour : BossBehaviour
 
     private IEnumerator SpawnTentacles() {
         while (m_IsAlive) {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             GameObject tentacle = Instantiate(m_tentacle, transform.parent);
             tentacle.transform.position = m_SalaPadre.GetPosicionAleatoriaEnSala();
         }
-    }
-    private void PerseguirHuir()
-    {
-
-        if (Vector2.Distance(transform.position, m_Target.position) > m_RangoHuirPerseguir)
-        {
-            m_StateMachine.ChangeState<SMBChaseState>();
-        }
-        else
-        { 
-            m_StateMachine.ChangeState<SMBRunAwayState>();
-        }
-
     }
     private void SetAttack()
     {
         float rng = Random.value;
         switch (rng)
         {
-            case < 0.2f:
-                if(!m_submerge)
+            case < 0.5f:
                 m_StateMachine.ChangeState<KrakenRangedAttackState>();
                 break;
-            case < 0.8f:
-                SetSubmerge();
+            case > 0.6f:
+                    m_StateMachine.ChangeState<KrakenSpinState>();
                 break;
 
         }
     }
 
-    private void SetSubmerge() {
-        m_submerge = true;
-        m_Rigidbody.velocity = Vector3.zero;
-        transform.up = Vector3.zero;
-        if (m_PlayerDetectionCoroutine != null)
-            StopCoroutine(m_PlayerDetectionCoroutine);
-        m_StateMachine.ChangeState<KrakenSetSubMergeState>();
-    }
-    public void SetChase()
-    {
-        m_Animator.Play("idle");
-        m_submerge=false;
-        m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
-        m_StateMachine.ChangeState<SMBChaseState>();
-    }
+
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
@@ -154,6 +130,7 @@ public class KrakenBossBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         Destroy(gameObject);
