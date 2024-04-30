@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cc2fcd2d3052d045a780a9d850afe6b, type: 3}
-  m_Name: FireSword
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  m_Id: 101
-  m_ItemName: Fire Sword
-  m_Description: Una espada de foc que crema al enemic
+  m_Id: 100
+  m_ItemName: Sword
+  m_Description: Una espada simple
   m_Sprite: {fileID: 0}
-  m_ShopPrice: 150
-  m_Estado: 5
-  propiedades: 0100000003000000
+  m_ShopPrice: 100
+  m_Estado: 11
+  propiedades: 0000000000000000
   attack: 1
   speed: 1
   speedAttack: 1

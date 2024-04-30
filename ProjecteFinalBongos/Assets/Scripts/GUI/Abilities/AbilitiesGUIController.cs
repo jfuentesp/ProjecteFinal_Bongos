@@ -10,11 +10,11 @@ public class AbilitiesGUIController : MonoBehaviour
 
     [Header("Listed Abilities")]
     [SerializeField]
-    private List<string> m_Tier1Abilities;
+    private List<Ability> m_Tier1Abilities;
     [SerializeField]
-    private List<string> m_Tier2Abilities;
+    private List<Ability> m_Tier2Abilities;
     [SerializeField]
-    private List<string> m_Tier3Abilities;
+    private List<Ability> m_Tier3Abilities;
 
 
 
@@ -33,10 +33,10 @@ public class AbilitiesGUIController : MonoBehaviour
         }
     }
 
-    public string GetRandomAbilityByTier(AbilityTierEnum tier)
+    public Ability GetRandomAbilityByTier(AbilityTierEnum tier)
     {
         int random = 0;
-        string ability = null;
+        Ability ability = null;
         switch (tier)
         {
             case AbilityTierEnum.TIER1:
@@ -52,6 +52,6 @@ public class AbilitiesGUIController : MonoBehaviour
                 ability = m_Tier3Abilities[random];
                 return ability;
         }
-        return null;
+        return ability;
     }
 }
