@@ -14,7 +14,7 @@ public class PruebaNavMesh : MonoBehaviour
     private void Awake()
     {
         surface = GetComponent<NavMeshSurface>();
-        //m_Mapa.onMapaFinalized += ConstruirMapa;
+        m_Mapa.onMapaFinalized += ConstruirMapa;
 
     }
 

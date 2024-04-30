@@ -27,6 +27,8 @@ public class DracMBullet : Bullet
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(!enabled)
+            return;
         if (collision.gameObject.CompareTag("MechanicObstacle"))
         {
             GameObject vaporCrash = m_pool.GetElement();
