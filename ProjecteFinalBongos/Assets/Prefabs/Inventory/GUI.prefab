@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 4968548398831264118}
   - component: {fileID: 3060137119775488691}
   - component: {fileID: 2071456213039685309}
+  - component: {fileID: 769707094198483634}
   m_Layer: 7
   m_Name: ImagePanel
   m_TagString: Untagged
@@ -210,6 +211,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &769707094198483634
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170680358840320001}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &220536535916826865
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,6 +494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7856204497021080504}
   - component: {fileID: 3257520051055654005}
+  - component: {fileID: 9194833626061249652}
   m_Layer: 7
   m_Name: EquippedItems
   m_TagString: Untagged
@@ -536,6 +550,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &9194833626061249652
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174749289191691393}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1892194851580612149
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,6 +837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2309045067385544706}
   - component: {fileID: 2588576248515225784}
+  - component: {fileID: 5514442568080993776}
   m_Layer: 7
   m_Name: Consumables
   m_TagString: Untagged
@@ -866,6 +893,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &5514442568080993776
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2368819327343836481}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2389711736426047096
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,6 +1557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2639045943249857404}
   - component: {fileID: 2778967016640000847}
+  - component: {fileID: 5748284020133251507}
   m_Layer: 7
   m_Name: Equipment
   m_TagString: Untagged
@@ -1573,6 +1613,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &5748284020133251507
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3566412637731863696}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3894793295532993940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,6 +1635,7 @@ GameObject:
   m_Component:
   - component: {fileID: 837121507933674970}
   - component: {fileID: 7921006625706583904}
+  - component: {fileID: 5581923041000041708}
   m_Layer: 7
   m_Name: Equipables
   m_TagString: Untagged
@@ -1638,6 +1691,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &5581923041000041708
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894793295532993940}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4170113724137978860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2157,13 +2222,14 @@ GameObject:
   - component: {fileID: 6272283338657876098}
   - component: {fileID: 6953655682006229420}
   - component: {fileID: 2547457135479938388}
+  - component: {fileID: -3551111455132506853}
   m_Layer: 7
   m_Name: GUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6697000753569438142
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2178,7 +2244,7 @@ RectTransform:
   m_Children:
   - {fileID: 5434223213953680785}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2248,6 +2314,43 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &-3551111455132506853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852771324150178000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726762056f0562c449c4c63053d46610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InventoryHUD: {fileID: 6593631181552465264}
+  m_InventorySlotPrefab: {fileID: 233002584950805081}
+  m_InventoryBackpack: {fileID: 11400000, guid: 1b262f08a44ceea4f8dc35542be633a0, type: 2}
+  m_ConsumableToAdd: {fileID: 11400000, guid: 4c8ac7b15a95b654a8735bb991fe4e1d, type: 2}
+  m_ConsumableToAdd2: {fileID: 11400000, guid: ee95c77d74759734c9786c65cf02d805, type: 2}
+  m_EquipableSword: {fileID: 11400000, guid: 4e945af3435e29546851a7071fb5ca8e, type: 2}
+  m_EquipableArmor: {fileID: 11400000, guid: b43d6eaa8027ea34fbf28839b152ecc5, type: 2}
+  m_ConsumableGrid: {fileID: 1556643036881028290}
+  m_ConsumableGridColumns: 5
+  m_ConsumableGridRows: 5
+  m_EquipableGrid: {fileID: 6992259152593329201}
+  m_EquipableGridColumns: 0
+  m_EquipableGridRows: 0
+  m_EquipmentGrid: {fileID: 4880289816650584667}
+  m_Weapon: {fileID: 1366634306977806019}
+  m_Armor: {fileID: 4835134044226086980}
+  m_QuickConsumablesGrid: {fileID: 400832155231394846}
+  m_DescriptionImage: {fileID: 4957159986026076524}
+  m_DescriptionName: {fileID: 7700521253995123319}
+  m_DescriptionText: {fileID: 5706397679484550355}
+  m_InitialButton: {fileID: 5916320365242083113}
+  m_ConsumableCanvasGroup: {fileID: 5514442568080993776}
+  m_EquipableCanvasGroup: {fileID: 5581923041000041708}
+  m_EquippedGearCanvasGroup: {fileID: 5748284020133251507}
+  m_EquippedConsumablesCanvasGroup: {fileID: 9194833626061249652}
 --- !u!1 &4958514089491706404
 GameObject:
   m_ObjectHideFlags: 0
@@ -2314,7 +2417,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Equipped Gear
+  m_text: Quick Items
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 75470b8663acc304d88e210a91710a1e, type: 2}
   m_sharedMaterial: {fileID: 19553924707208361, guid: 75470b8663acc304d88e210a91710a1e, type: 2}
@@ -2665,7 +2768,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 1024
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2800,7 +2903,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 1024
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2843,13 +2946,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5434223213953680785}
+  - component: {fileID: 2688856233522419553}
   m_Layer: 7
   m_Name: InventoryHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5434223213953680785
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2863,6 +2967,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1180214937181901440}
+  - {fileID: 5320879862554549410}
+  - {fileID: 7954725178682762249}
   m_Father: {fileID: 6697000753569438142}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2871,6 +2977,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1200, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2688856233522419553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6593631181552465264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d076da1ec258774499cf7bd561b142f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ActionButtons: {fileID: 2238760179042495632}
 --- !u!1 &6836535112171020888
 GameObject:
   m_ObjectHideFlags: 0
@@ -2888,7 +3007,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &997154538405911077
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3230,7 +3349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2817787278250686878
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3361,6 +3480,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3467,6 +3594,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3573,6 +3708,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3675,10 +3818,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5112822693030977153}
     m_Modifications:
+    - target: {fileID: 2390301977432460770, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 4081071504693138491}
+    - target: {fileID: 2390301977432460770, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 5484063210386649469, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
       propertyPath: m_Name
       value: EquippedConsumableSlot (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7034402712521116494, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 3423453120177277150}
     - target: {fileID: 7038838093803843805, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3768,6 +3923,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+--- !u!114 &3423453120177277150 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3331596093256609259, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+  m_PrefabInstance: {fileID: 125740732609537333}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6922104594819929576 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7038838093803843805, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
@@ -3785,6 +3951,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3971,6 +4145,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 3367713707485838028}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (6)
@@ -3980,6 +4166,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &3367713707485838028 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 602219743134229720}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4500955913043610406 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -4077,6 +4274,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 3226249885011889656}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (3)
@@ -4086,6 +4295,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &3226249885011889656 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 730417948620051436}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4327940985029393426 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -4103,6 +4323,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4209,6 +4437,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4315,6 +4551,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4501,6 +4745,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 3797105511960352125}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (20)
@@ -4515,6 +4771,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 1320963388867939177}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3797105511960352125 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 1320963388867939177}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1772328580166410109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4527,6 +4794,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4713,6 +4988,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 4540901439738167104}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (15)
@@ -4727,6 +5014,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 1865479396940390740}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4540901439738167104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 1865479396940390740}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2180402799692721558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4819,6 +5117,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 4081772708820792194}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (22)
@@ -4833,6 +5143,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 2180402799692721558}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4081772708820792194 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 2180402799692721558}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2203792266185486753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4845,6 +5166,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4951,6 +5280,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5137,6 +5474,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 479793957995311501}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (17)
@@ -5146,6 +5495,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &479793957995311501 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 2328242793784700825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1613005927797014631 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -5243,6 +5603,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 307853658984414573}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (9)
@@ -5252,6 +5624,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &307853658984414573 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 2495751936914482041}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1481588680019758215 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -5349,6 +5732,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 221054104512679043}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (13)
@@ -5358,6 +5753,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &221054104512679043 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 2735463868238713495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1430818399945915753 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -5375,6 +5781,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5561,6 +5975,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 124159454463528069}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (19)
@@ -5570,6 +5996,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &124159454463528069 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 2836735816348734097}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1257353212957998447 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -5678,13 +6115,62 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8961558071911148792, guid: 3a291629e73ff0a4c9dcb7c77b620191, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4835134044226086980}
   m_SourcePrefab: {fileID: 100100000, guid: 3a291629e73ff0a4c9dcb7c77b620191, type: 3}
+--- !u!114 &1225947566227986946 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4262338459084709684, guid: 3a291629e73ff0a4c9dcb7c77b620191, type: 3}
+  m_PrefabInstance: {fileID: 3037025861099111734}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6230861441984932302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2526518482934432190 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 660430191674836104, guid: 3a291629e73ff0a4c9dcb7c77b620191, type: 3}
   m_PrefabInstance: {fileID: 3037025861099111734}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3191988739777463082 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 462065599095719452, guid: 3a291629e73ff0a4c9dcb7c77b620191, type: 3}
+  m_PrefabInstance: {fileID: 3037025861099111734}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &6230861441984932302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8961558071911148792, guid: 3a291629e73ff0a4c9dcb7c77b620191, type: 3}
+  m_PrefabInstance: {fileID: 3037025861099111734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4835134044226086980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6230861441984932302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41adaf451ba5e0945804f28fb3cfb7fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ItemSprite: {fileID: 3191988739777463082}
+  m_Slot: {fileID: 6230861441984932302}
+  m_QuantityText: {fileID: 0}
+  m_SlotButton: {fileID: 1225947566227986946}
+  m_InventoryController: {fileID: -3551111455132506853}
+  m_Backpack: {fileID: 11400000, guid: 1b262f08a44ceea4f8dc35542be633a0, type: 2}
+  m_ActionPanel: {fileID: 4081071504693138491}
 --- !u!1001 &3170702186660568596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5777,6 +6263,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 785771184815013888}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (1)
@@ -5786,6 +6284,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &785771184815013888 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 3170702186660568596}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1886305599380238826 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -5803,6 +6312,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5909,6 +6426,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6095,6 +6620,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 1310480829755195227}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (11)
@@ -6109,6 +6646,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 3803506709680513359}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1310480829755195227 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 3803506709680513359}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4053706660790912029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6121,6 +6669,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6227,6 +6783,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6333,6 +6897,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6422,9 +6994,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+--- !u!1 &233002584950805081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4619066549009266811, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+  m_PrefabInstance: {fileID: 4837413627389258274}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3748661907080777658 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+  m_PrefabInstance: {fileID: 4837413627389258274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5916320365242083113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1241599414380940555, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
   m_PrefabInstance: {fileID: 4837413627389258274}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4843624363856641292
@@ -6519,6 +7101,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 7340591269381153560}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (2)
@@ -6528,6 +7122,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &7340591269381153560 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 4843624363856641292}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8436678710132511474 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -6625,6 +7230,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 7128854569197929006}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (10)
@@ -6634,10 +7251,271 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &7128854569197929006 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 4902661984931060794}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8224937678474720196 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 4902661984931060794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4943946985413388934
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5434223213953680785}
+    m_Modifications:
+    - target: {fileID: 2706557414709607367, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 4081071504693138491}
+    - target: {fileID: 2706557414709607367, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ButtonActionsEnum
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706557414709607367, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 4804736004192761726, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 4081071504693138491}
+    - target: {fileID: 4804736004192761726, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 6795101143430082635, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 4081071504693138491}
+    - target: {fileID: 6795101143430082635, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7383711189088630217, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383711189088630217, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383711189088630217, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383711189088630217, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624798561387803700, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624798561387803700, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624798561387803700, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624798561387803700, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794638481096866049, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_text
+      value: REMOVE
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259405504182633940, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 4081071504693138491}
+    - target: {fileID: 8259405504182633940, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ButtonActionsEnum
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259405504182633940, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 9072063027308604918, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9072063027308604918, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9072063027308604918, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9072063027308604918, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 881463162146122821, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 881463162146122821, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_InventoryCanvasGroup
+      value: 
+      objectReference: {fileID: 769707094198483634}
+    - target: {fileID: 1403890153837328953, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403890153837328953, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403890153837328953, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403890153837328953, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649578592720823719, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649578592720823719, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649578592720823719, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649578592720823719, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728671755576889471, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 3096420395630218895, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096420395630218895, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096420395630218895, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096420395630218895, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096420395630218895, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096420395630218895, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096420395630218895, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096420395630218895, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096420395630218895, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096420395630218895, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096420395630218895, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096420395630218895, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096420395630218895, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096420395630218895, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096420395630218895, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854355788247018740, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 6292578644021299216, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 4081071504693138491}
+    - target: {fileID: 6292578644021299216, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_ButtonActionsEnum
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292578644021299216, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7130495804581821976, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8952748689917066941, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_Name
+      value: ActionEquippedPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8952748689917066941, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2263398230913389351, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+    - {fileID: 2656269566745949972, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+    - {fileID: 8109648213059015535, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+--- !u!1 &4081071504693138491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8952748689917066941, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+  m_PrefabInstance: {fileID: 4943946985413388934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &7954725178682762249 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3096420395630218895, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
+  m_PrefabInstance: {fileID: 4943946985413388934}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5031728360022638745
 PrefabInstance:
@@ -6651,6 +7529,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6837,6 +7723,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 6948939030410330727}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot
@@ -6846,6 +7744,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &6948939030410330727 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 5082471984024165491}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8117045031563703181 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -6859,10 +7768,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5112822693030977153}
     m_Modifications:
+    - target: {fileID: 2390301977432460770, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+      propertyPath: m_Backpack
+      value: 
+      objectReference: {fileID: 11400000, guid: 1b262f08a44ceea4f8dc35542be633a0, type: 2}
+    - target: {fileID: 2390301977432460770, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 4081071504693138491}
+    - target: {fileID: 2390301977432460770, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 5484063210386649469, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
       propertyPath: m_Name
       value: EquippedConsumableSlot
       objectReference: {fileID: 0}
+    - target: {fileID: 7034402712521116494, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 7311890013714944945}
     - target: {fileID: 7038838093803843805, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6957,6 +7882,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7038838093803843805, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
   m_PrefabInstance: {fileID: 5423804844267224666}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7311890013714944945 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3331596093256609259, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+  m_PrefabInstance: {fileID: 5423804844267224666}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5512524476965647991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6965,10 +7901,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5112822693030977153}
     m_Modifications:
+    - target: {fileID: 2390301977432460770, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 4081071504693138491}
+    - target: {fileID: 2390301977432460770, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 5484063210386649469, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
       propertyPath: m_Name
       value: EquippedConsumableSlot (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7034402712521116494, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 7114666175003188124}
     - target: {fileID: 7038838093803843805, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7063,6 +8011,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7038838093803843805, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
   m_PrefabInstance: {fileID: 5512524476965647991}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7114666175003188124 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3331596093256609259, guid: 95b172ee61078bb48aa22d7a6f62ad6b, type: 3}
+  m_PrefabInstance: {fileID: 5512524476965647991}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5607002008491282606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7075,6 +8034,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7181,6 +8148,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7367,6 +8342,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 8641189332092504188}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (14)
@@ -7381,6 +8368,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 5840233609668253288}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8641189332092504188 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 5840233609668253288}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5932288878005378251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7473,6 +8471,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 8409556554865754847}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (8)
@@ -7487,6 +8497,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 5932288878005378251}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8409556554865754847 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 5932288878005378251}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6270988147063472977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7579,6 +8600,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 8205558602366278981}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (5)
@@ -7593,6 +8626,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 6270988147063472977}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8205558602366278981 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 6270988147063472977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6458297038740198740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7685,6 +8729,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 9171436176656501568}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (12)
@@ -7699,6 +8755,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 6458297038740198740}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9171436176656501568 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 6458297038740198740}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6516229475909140894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7711,6 +8778,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7897,6 +8972,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 8903807516945442581}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (23)
@@ -7911,6 +8998,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 6735040537711769857}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8903807516945442581 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 6735040537711769857}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6843928711813532795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8003,6 +9101,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 8655217593904796271}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (18)
@@ -8017,6 +9127,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 6843928711813532795}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8655217593904796271 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 6843928711813532795}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6963089604779084412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8109,6 +9230,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 5063976134329537640}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (21)
@@ -8118,6 +9251,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &5063976134329537640 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 6963089604779084412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6236576456772953474 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -8215,6 +9359,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 5155229745699209726}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (24)
@@ -8224,6 +9380,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &5155229745699209726 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 7019995057012596714}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6287324609531179028 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -8241,6 +9408,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8347,6 +9522,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8453,6 +9636,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8639,6 +9830,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 5638744752616348533}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (16)
@@ -8648,6 +9851,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+--- !u!114 &5638744752616348533 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 7541240288922928481}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6812475305669372575 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
@@ -8745,6 +9959,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 5962167359083353133}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (7)
@@ -8759,6 +9985,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 8384253296222767673}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5962167359083353133 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 8384253296222767673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8631724044861929510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8851,6 +10088,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 3974557628030003325, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7715662301198763218, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 5849345945617524274}
     - target: {fileID: 8541688905201171907, guid: 9c484503e349b1048b735974942ed10b, type: 3}
       propertyPath: m_Name
       value: EquipableInventorySlot (4)
@@ -8865,6 +10114,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3903802995444723710, guid: 9c484503e349b1048b735974942ed10b, type: 3}
   m_PrefabInstance: {fileID: 8631724044861929510}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5849345945617524274 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803216355293535764, guid: 9c484503e349b1048b735974942ed10b, type: 3}
+  m_PrefabInstance: {fileID: 8631724044861929510}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8640009004014920464
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8877,6 +10137,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8983,6 +10251,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableInventorySlot (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_ActionPanel
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5941659200087284716, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
     - target: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9176,10 +10452,318 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8961558071911148792, guid: 3a291629e73ff0a4c9dcb7c77b620191, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1366634306977806019}
   m_SourcePrefab: {fileID: 100100000, guid: 3a291629e73ff0a4c9dcb7c77b620191, type: 3}
+--- !u!1 &437248958582714859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8961558071911148792, guid: 3a291629e73ff0a4c9dcb7c77b620191, type: 3}
+  m_PrefabInstance: {fileID: 8812614328771878163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1366634306977806019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437248958582714859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41adaf451ba5e0945804f28fb3cfb7fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ItemSprite: {fileID: 8945596077809097487}
+  m_Slot: {fileID: 437248958582714859}
+  m_QuantityText: {fileID: 0}
+  m_SlotButton: {fileID: 4713698933120811559}
+  m_InventoryController: {fileID: -3551111455132506853}
+  m_Backpack: {fileID: 11400000, guid: 1b262f08a44ceea4f8dc35542be633a0, type: 2}
+  m_ActionPanel: {fileID: 4081071504693138491}
+--- !u!114 &4713698933120811559 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4262338459084709684, guid: 3a291629e73ff0a4c9dcb7c77b620191, type: 3}
+  m_PrefabInstance: {fileID: 8812614328771878163}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437248958582714859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8315584214100597147 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 660430191674836104, guid: 3a291629e73ff0a4c9dcb7c77b620191, type: 3}
   m_PrefabInstance: {fileID: 8812614328771878163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8945596077809097487 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 462065599095719452, guid: 3a291629e73ff0a4c9dcb7c77b620191, type: 3}
+  m_PrefabInstance: {fileID: 8812614328771878163}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &8829217431394346896
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5434223213953680785}
+    m_Modifications:
+    - target: {fileID: 779986037535510404, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 779986037535510404, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 779986037535510404, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 779986037535510404, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554614404458879480, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 1554614404458879480, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_InventoryCanvasGroup
+      value: 
+      objectReference: {fileID: 769707094198483634}
+    - target: {fileID: 2706557414709607367, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 2706557414709607367, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ButtonActionsEnum
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706557414709607367, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426403131499171866, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426403131499171866, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426403131499171866, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426403131499171866, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804736004192761726, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 4804736004192761726, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ButtonActionsEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804736004192761726, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 5691201295913631149, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 5691201295913631149, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ButtonActionsEnum
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691201295913631149, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 6795101143430082635, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 6795101143430082635, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 7320041529918900992, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_Name
+      value: ActionPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320041529918900992, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383711189088630217, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383711189088630217, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383711189088630217, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383711189088630217, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624798561387803700, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624798561387803700, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624798561387803700, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624798561387803700, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259405504182633940, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 2238760179042495632}
+    - target: {fileID: 8259405504182633940, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ButtonActionsEnum
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259405504182633940, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853}
+    - target: {fileID: 9072063027308604918, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9072063027308604918, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9072063027308604918, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9072063027308604918, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+--- !u!1 &2238760179042495632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7320041529918900992, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+  m_PrefabInstance: {fileID: 8829217431394346896}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &5320879862554549410 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3697523956486880050, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+  m_PrefabInstance: {fileID: 8829217431394346896}
   m_PrefabAsset: {fileID: 0}

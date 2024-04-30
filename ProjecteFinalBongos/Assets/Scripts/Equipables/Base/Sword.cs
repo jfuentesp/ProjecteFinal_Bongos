@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Sword", menuName = "Equipable/Sword")]
 public class Sword : Equipable
 {
-    public List<string> propiedades;
+    public List<EquipablePropertiesEnum> propiedades;
     public float attack;
     public float speed;
     public float speedAttack;
@@ -36,5 +36,19 @@ public class Sword : Equipable
             bec.AlternarEstado(Estado);
         }
 
+    }
+
+    public override void OnEquip(GameObject equipedBy)
+    {
+        equipedBy.TryGetComponent<PlayerStatsController>(out PlayerStatsController playerController);
+        if (playerController != null)
+            playerController.EquipSword(this);
+    }
+
+    public override void OnRemove(GameObject equipedBy)
+    {
+        equipedBy.TryGetComponent<PlayerStatsController>(out PlayerStatsController playerController);
+        if (playerController != null)
+            playerController.UnequipSword();
     }
 }

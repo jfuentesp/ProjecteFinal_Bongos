@@ -14,7 +14,8 @@ public class PruebaNavMesh : MonoBehaviour
     private void Awake()
     {
         surface = GetComponent<NavMeshSurface>();
-        m_Mapa.onMapaFinalized += ConstruirMapa;
+        //m_Mapa.onMapaFinalized += ConstruirMapa;
+
     }
 
     // Start is called before the first frame update
@@ -22,7 +23,7 @@ public class PruebaNavMesh : MonoBehaviour
     {
         if (surface == null)
         {
-            Debug.LogError("NavMeshSurface no está asignado en el inspector.");
+            Debug.LogError("NavMeshSurface no estï¿½ asignado en el inspector.");
             return;
         }
     }

@@ -25,21 +25,16 @@ public class AttackDamage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (m_StatsController != null)
-        {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox"))
-            {
-                foreach (string propiedad in m_StatsController.Sword.propiedades)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox"))
+        {   foreach (EquipablePropertiesEnum propiedad in m_StatsController.Sword.propiedades) {
+                switch (propiedad)
                 {
-                    switch (propiedad)
-                    {
-                        case "Estado":
-                            m_StatsController.Sword.ChangeState(collision.gameObject);
-                            break;
-                        case "Vampiro":
-                            m_StatsController.Sword.Regenerate(collision.gameObject, m_player);
-                            break;
-                    }
+                    case EquipablePropertiesEnum.ESTADO:
+                        m_StatsController.Sword.ChangeState(collision.gameObject);
+                        break;
+                    case EquipablePropertiesEnum.VAMPIRO:
+                        m_StatsController.Sword.Regenerate(collision.gameObject, m_player);
+                        break;
                 }
             }
         }
