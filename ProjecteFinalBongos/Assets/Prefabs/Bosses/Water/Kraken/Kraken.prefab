@@ -582,7 +582,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 66e14dd8daa11214d84ab7915f745069, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -785,3 +785,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SpinAnimation: Spin
   trapped: 0
+  tentacle: {fileID: 2098182744709005789}

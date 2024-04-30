@@ -17,29 +17,30 @@ public class TintaBullet : Bullet
        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            if (collision.gameObject.GetComponent<SMBPlayerParryState>().parry)
+        if (enabled) {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                if (collision.gameObject.GetComponent<SMBPlayerParryState>().parry)
+                {
+                    DisableBullet();
+
+                }
+                else
+                {
+                    TintaEvent.Raise();
+                    DisableBullet();
+                }
+
+            }
+            else if (collision.gameObject.CompareTag("MechanicObstacle"))
             {
                 DisableBullet();
-
             }
-            else {
-                TintaEvent.Raise();
-                DisableBullet();
-            }
-
-        } else if (collision.gameObject.CompareTag("MechanicObstacle")) {
-            DisableBullet();
         }
+
      
     }
 }

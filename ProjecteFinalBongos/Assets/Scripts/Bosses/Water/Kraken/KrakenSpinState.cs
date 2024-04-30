@@ -12,7 +12,6 @@ public class KrakenSpinState : SMState
     private FiniteStateMachine m_StateMachine;
     private BossBehaviour m_Boss;
     private Transform m_Target;
-
     public Action<GameObject> onAttackStopped;
 
     private new void Awake()
@@ -28,8 +27,8 @@ public class KrakenSpinState : SMState
     private void GetTarget()
     {
         m_Target = m_Boss.Target;
+        
     }
-
     public override void InitState()
     {
         base.InitState();

@@ -18,7 +18,7 @@ using UnityEngine.AI;
 public class KrakenBossBehaviour : BossBehaviour
 {
     private Coroutine m_PlayerDetectionCoroutine;
-    [SerializeField] private GameObject m_tentacle;
+   [SerializeField] private GameObject m_tentacle;
     private bool m_submerge;
     private bool canSubmerge = true;
 
@@ -75,7 +75,7 @@ public class KrakenBossBehaviour : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    SetAttack();                
+                   SetAttack();                
                 }   
                 else
                 {
@@ -111,7 +111,7 @@ public class KrakenBossBehaviour : BossBehaviour
         float rng = Random.value;
         switch (rng)
         {
-            case < 0.5f:
+            case < 0.3f:
                 m_StateMachine.ChangeState<KrakenRangedAttackState>();
                 break;
             case > 0.6f:
