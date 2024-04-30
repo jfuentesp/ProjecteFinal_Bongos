@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SubMergeState : SMState
 {
@@ -11,8 +12,16 @@ public class SubMergeState : SMState
     private FiniteStateMachine m_StateMachine;
     private BossBehaviour m_Boss;
     private Transform m_Target;
-
-    public Action<GameObject> onAttackStopped;
+    [SerializeField]
+    private LayerMask m_LayerMask;
+    [SerializeField]
+    private float m_SubmergeSpeed;
+    [SerializeField]
+    private float m_DirectionTime;
+    [SerializeField]
+    private int Steps = 5;
+    [SerializeField]
+    private string m_SubmergeAnimationName;
 
     private new void Awake()
     {
@@ -30,34 +39,58 @@ public class SubMergeState : SMState
         m_Target = m_Boss.Target;
     }
 
+    private void RandomWalk()
+    {
+        
+        Vector3 direccion = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direccion, 7, m_LayerMask);
+        if (hit.collider != null)
+        {
+            RandomWalk();
+        }
+        else
+        {
+            
+            m_Rigidbody.velocity = direccion.normalized * m_SubmergeSpeed;
+       
+       
+        }
+    }
+    private IEnumerator Merge() {
+        while (Steps > 0) {
+            Steps--;
+            if (Steps <= 0)
+            {
+                m_StateMachine.ChangeState<KrakenMergeState>();
+            }
+            print("aaSubmerge");
+            yield return new WaitForSeconds(1f);
+        }
+    
+    }
     public override void InitState()
     {
         base.InitState();
         m_Boss.SetBusy(true);
+        m_Animator.Play(m_SubmergeAnimationName);
         m_Rigidbody.velocity = Vector3.zero;
-        StartCoroutine(Teletransporte()); 
+        StartCoroutine(Merge());
     }
-
-    private IEnumerator Teletransporte() {
-        print("Submerge");
-        GetComponent<SpriteRenderer>().enabled = false;
-        GetComponent<BoxCollider2D>().enabled = false;
-        yield return new WaitForSeconds(4f);
-        transform.position = m_Boss.SalaPadre.GetPosicionAleatoriaEnSala();
-        print("Merge");
-        GetComponent<SpriteRenderer>().enabled = false;
-        GetComponent<BoxCollider2D>().enabled = false;
-        onAttackStopped.Invoke(gameObject);
-    }  
+    private float m_TimeChangeDirection = 0;
+    private void FixedUpdate()
+    {
+        m_TimeChangeDirection += Time.fixedDeltaTime;
+        if (m_TimeChangeDirection > m_DirectionTime)
+        {
+            RandomWalk();
+            m_TimeChangeDirection = 0;
+        }
+    }
 
     public override void ExitState()
     {
         base.ExitState();
         StopAllCoroutines();
     }
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
 }

@@ -366,6 +366,8 @@ GameObject:
   - component: {fileID: 3986194509085481938}
   - component: {fileID: 3541838711100300314}
   - component: {fileID: 2941879610102495830}
+  - component: {fileID: 8960559691613222281}
+  - component: {fileID: 8475113299944557031}
   m_Layer: 9
   m_Name: Kraken
   m_TagString: Untagged
@@ -673,6 +675,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94caddbb55a63a9418b6f631b6a3f031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_SubmergeSpeed: 0
+  m_DirectionTime: 1
+  Steps: 5
+  m_SubmergeAnimationName: ShadowSubmerge
 --- !u!61 &3541838711100300314
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -759,14 +768,40 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 144803512, guid: 5c3a276b3f9622e4cbaf87b41c91c4e4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8960559691613222281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4831098368659947342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd58c06bdd58b2c45a8df7c4d4b30548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SetSubmergeAnimationName: Submerge
+--- !u!114 &8475113299944557031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4831098368659947342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae5332230a009b448260bb0e696d23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MergeAnimationName: Merge

@@ -10,6 +10,8 @@ using UnityEngine.AI;
 [RequireComponent(typeof(SMBChaseState))]
 [RequireComponent(typeof(SMBRunAwayState))]
 [RequireComponent(typeof(KrakenRangedAttackState))]
+[RequireComponent(typeof(KrakenSetSubMergeState))]
+[RequireComponent(typeof(KrakenMergeState))]
 [RequireComponent(typeof(SubMergeState))]
 [RequireComponent(typeof(HealthController))]
 public class KrakenBossBehaviour : BossBehaviour
@@ -17,6 +19,8 @@ public class KrakenBossBehaviour : BossBehaviour
     [SerializeField] private int m_RangoHuirPerseguir;
     private Coroutine m_PlayerDetectionCoroutine;
     [SerializeField] private GameObject m_tentacle;
+    private bool m_submerge;
+
     private new void Awake()
     {
         base.Awake();
@@ -33,11 +37,6 @@ public class KrakenBossBehaviour : BossBehaviour
         GetComponent<KrakenRangedAttackState>().onAttackStopped = (GameObject obj) =>
         {
             PerseguirHuir();
-        };
-        GetComponent<SubMergeState>().onAttackStopped = (GameObject obj) =>
-        {
-            PerseguirHuir();
-          
         };
         GetComponent<SMBParalized>().OnStopParalized = () =>
         {
@@ -58,6 +57,9 @@ public class KrakenBossBehaviour : BossBehaviour
         
     }
 
+    public void SetSubmergeMode() { 
+        m_StateMachine.ChangeState<SubMergeState>();
+    }
     private IEnumerator PlayerDetectionCoroutine()
     {
         while (m_IsAlive)
@@ -118,14 +120,31 @@ public class KrakenBossBehaviour : BossBehaviour
         float rng = Random.value;
         switch (rng)
         {
-            case < 0.5f:
+            case < 0.2f:
+                if(!m_submerge)
                 m_StateMachine.ChangeState<KrakenRangedAttackState>();
                 break;
             case < 0.8f:
-                m_StateMachine.ChangeState<SubMergeState>();
+                SetSubmerge();
                 break;
 
         }
+    }
+
+    private void SetSubmerge() {
+        m_submerge = true;
+        m_Rigidbody.velocity = Vector3.zero;
+        transform.up = Vector3.zero;
+        if (m_PlayerDetectionCoroutine != null)
+            StopCoroutine(m_PlayerDetectionCoroutine);
+        m_StateMachine.ChangeState<KrakenSetSubMergeState>();
+    }
+    public void SetChase()
+    {
+        m_Animator.Play("idle");
+        m_submerge=false;
+        m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
+        m_StateMachine.ChangeState<SMBChaseState>();
     }
     public override void Init(Transform _Target)
     {
