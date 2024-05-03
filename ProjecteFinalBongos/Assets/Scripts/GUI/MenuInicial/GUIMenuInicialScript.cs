@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using SaveLoadGame;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -84,13 +85,13 @@ namespace GUIScripts
                 }
             }
 
-            foreach (GameManager.SavePlayerAndWorld.NameAndWorld playerAndWorld in GameManager.Instance.PlayersAndTheirWorldsList)
+            foreach (SaveGame playerAndWorld in GameManager.Instance.PlayersAndTheirWorldsList)
             {
                 GameObject savedGamePlayer = Instantiate(m_SavedPlayerPrefab, m_SavedGamesGridParent);
-                savedGamePlayer.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = playerAndWorld.m_Name;
-                savedGamePlayer.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = playerAndWorld.m_Mundo.ToString();
-                savedGamePlayer.transform.GetChild(2).GetComponent<LoadDeleteGame>().Init(false, playerAndWorld.m_Name, playerAndWorld.m_Mundo);
-                savedGamePlayer.transform.GetChild(3).GetComponent<LoadDeleteGame>().Init(true, playerAndWorld.m_Name, playerAndWorld.m_Mundo);
+                savedGamePlayer.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = playerAndWorld.m_NameAndWorld.m_Name;
+                savedGamePlayer.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = playerAndWorld.m_NameAndWorld.m_Mundo.ToString();
+                savedGamePlayer.transform.GetChild(2).GetComponent<LoadDeleteGame>().Init(false, playerAndWorld.m_NameAndWorld.m_Name, playerAndWorld.m_NameAndWorld.m_Mundo);
+                savedGamePlayer.transform.GetChild(3).GetComponent<LoadDeleteGame>().Init(true, playerAndWorld.m_NameAndWorld.m_Name, playerAndWorld.m_NameAndWorld.m_Mundo);
             }
         }
 

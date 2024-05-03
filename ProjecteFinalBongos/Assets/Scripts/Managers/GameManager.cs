@@ -23,10 +23,15 @@ public class GameManager : MonoBehaviour
     [Header("Variables Ficheros")]
     public Action OnPlayerDeleted;
     private string m_PlayerName;
+    public string PlayerName => m_PlayerName;
     private const string playerAndWorldFile = "JugadoresGuardados.txt";
+    private string rutaCompletaHastaCarpeta;
+    public string RutaCompletaHastaCarpeta => rutaCompletaHastaCarpeta;
+    private string rutaCompleta;
+    public string RutaCompleta => rutaCompleta;
     [SerializeField]
-    private List<SavePlayerAndWorld.NameAndWorld> m_PlayersAndTheirWorldsList = new();
-    public List<SavePlayerAndWorld.NameAndWorld> PlayersAndTheirWorldsList => m_PlayersAndTheirWorldsList;
+    private List<SaveGame> m_PlayersAndTheirWorldsList = new();
+    public List<SaveGame> PlayersAndTheirWorldsList => m_PlayersAndTheirWorldsList;
 
     [Header("Variables Mundo Generado")]
     private bool m_NuevaPartida;
@@ -47,6 +52,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        rutaCompletaHastaCarpeta = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame");
+        rutaCompleta = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame", playerAndWorldFile);
         GetPlayersAndTheirWorld();
     }
     void OnEnable()
@@ -86,17 +93,15 @@ public class GameManager : MonoBehaviour
     }
     private void GetPlayersAndTheirWorld()
     {
-        string rutaCompletaHastaCarpeta = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame");
-        string rutaCompleta = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame", playerAndWorldFile);
         if (!Directory.Exists(rutaCompletaHastaCarpeta))
         {
             // Crea la carpeta si no existe
             Directory.CreateDirectory(rutaCompletaHastaCarpeta);
             File.WriteAllText(rutaCompleta, "{}");
             string jsonData = File.ReadAllText(rutaCompleta);
-            SavePlayerAndWorld playerAndWorld = new();
+            SaveAllGames playerAndWorld = new();
             JsonUtility.FromJsonOverwrite(jsonData, playerAndWorld);
-            m_PlayersAndTheirWorldsList ??= playerAndWorld.m_NameAndWorld.ToList();
+            m_PlayersAndTheirWorldsList ??= playerAndWorld.m_SavedGames.ToList();
             Debug.Log("Carpeta creada en: " + rutaCompletaHastaCarpeta);
         }
         else
@@ -104,12 +109,13 @@ public class GameManager : MonoBehaviour
             if (!File.Exists(rutaCompleta))
                 File.WriteAllText(rutaCompleta, "{}");
 
+
             string jsonData = File.ReadAllText(rutaCompleta);
-            SavePlayerAndWorld playerAndWorld = new();
+            SaveAllGames playerAndWorld = new();
             JsonUtility.FromJsonOverwrite(jsonData, playerAndWorld);
-            if(playerAndWorld.m_NameAndWorld != null)
+            if(playerAndWorld.m_SavedGames != null)
             {
-                m_PlayersAndTheirWorldsList = playerAndWorld.m_NameAndWorld.ToList();
+                m_PlayersAndTheirWorldsList = playerAndWorld.m_SavedGames.ToList();
                 Debug.Log("La carpeta ya existe en: " + rutaCompletaHastaCarpeta);
             }
         }
@@ -117,9 +123,9 @@ public class GameManager : MonoBehaviour
 
     public bool PlayerExists(string _PlayerName)
     {
-        foreach (SavePlayerAndWorld.NameAndWorld playerAndWorld in m_PlayersAndTheirWorldsList)
+        foreach (SaveGame playerAndWorld in m_PlayersAndTheirWorldsList)
         {
-            if (playerAndWorld.m_Name == _PlayerName)
+            if (playerAndWorld.m_NameAndWorld.m_Name == _PlayerName)
                 return true;
         }
         return false;
@@ -129,12 +135,13 @@ public class GameManager : MonoBehaviour
     {
 
         // Combinar la ruta de la carpeta con el nombre del archivo
-        SavePlayerAndWorld playerAndWorld = new();
-        m_PlayersAndTheirWorldsList.Add(new SavePlayerAndWorld.NameAndWorld(_PlayerName, Mundo.MUNDO_UNO));
-        playerAndWorld.m_NameAndWorld = m_PlayersAndTheirWorldsList.ToArray();
+        SaveAllGames playerAndWorld = new();
+        SaveGame saveGame = new SaveGame();
+        saveGame.m_NameAndWorld = new SaveGame.NameAndWorld(_PlayerName, MundoEnum.MUNDO_UNO);
+        m_PlayersAndTheirWorldsList.Add(saveGame);
+        playerAndWorld.m_SavedGames = m_PlayersAndTheirWorldsList.ToArray();
 
         string jsonData = JsonUtility.ToJson(playerAndWorld);
-        string rutaCompleta = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame", playerAndWorldFile);
 
         print(jsonData);
 
@@ -157,50 +164,24 @@ public class GameManager : MonoBehaviour
     public void DeletePlayerGame(string _PlayerName)
     {
         int i = 0;
-        foreach(SavePlayerAndWorld.NameAndWorld jugador in m_PlayersAndTheirWorldsList)
+        foreach(SaveGame jugador in m_PlayersAndTheirWorldsList)
         {
-            if (jugador.m_Name == _PlayerName)
+            if (jugador.m_NameAndWorld.m_Name == _PlayerName)
             {
                 break;
             }
             i++;
         }
-        print($"Borrando la partida del jugador: {m_PlayersAndTheirWorldsList[i].m_Name}");
+        print($"Borrando la partida del jugador: {m_PlayersAndTheirWorldsList[i].m_NameAndWorld.m_Name}");
         m_PlayersAndTheirWorldsList.RemoveAt(i);
-        SavePlayerAndWorld playerAndWorld = new();
-        playerAndWorld.m_NameAndWorld = m_PlayersAndTheirWorldsList.ToArray();
+        SaveAllGames playerAndWorld = new();
+        playerAndWorld.m_SavedGames = m_PlayersAndTheirWorldsList.ToArray();
 
         string jsonData = JsonUtility.ToJson(playerAndWorld);
-        string rutaCompleta = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame", playerAndWorldFile);
 
         print(jsonData);
 
         File.WriteAllText(rutaCompleta, jsonData);
         OnPlayerDeleted?.Invoke();
     }
-
-    [Serializable]
-    public class SavePlayerAndWorld
-    {
-        public NameAndWorld[] m_NameAndWorld;
-
-        public void PopulatePlayerAndWorld(NameAndWorld[] _NameAndWorld)
-        {
-            m_NameAndWorld = _NameAndWorld;
-        }
-
-        [Serializable]
-        public struct NameAndWorld
-        {
-            public string m_Name;
-            public Mundo m_Mundo;
-
-            public NameAndWorld(string _Name, Mundo _Mundo)
-            {
-                m_Name = _Name;
-                m_Mundo = _Mundo;
-            }
-        }
-    }
-    public enum Mundo { MUNDO_UNO, MUNDO_DOS };
 }

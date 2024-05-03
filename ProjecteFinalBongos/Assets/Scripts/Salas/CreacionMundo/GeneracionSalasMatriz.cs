@@ -47,9 +47,8 @@ namespace GeneracionSalas
                         m_GeneracionSalasInstanciacion.InstanciarElMundo(matrix, m_ListaSalasPadreConHijos, m_ListaPasillosConSalas);
                     }
                 }
-                catch (Exception er)
+                catch (Exception)
                 {
-                    print(er);
                     Start();
                 }
             }

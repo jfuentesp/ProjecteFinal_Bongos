@@ -17,15 +17,15 @@ namespace GUIScripts
             m_ActionButton = GetComponent<Button>();    
         }
 
-        public void Init(bool _Load, string namePlayer, GameManager.Mundo _Mundo)
+        public void Init(bool _Load, string namePlayer, MundoEnum _Mundo)
         {
             m_Name = namePlayer;
             switch (_Mundo)
             {
-                case GameManager.Mundo.MUNDO_UNO:
+                case MundoEnum.MUNDO_UNO:
                     m_Mundo = "Mundo1";
                     break;
-                case GameManager.Mundo.MUNDO_DOS:
+                case MundoEnum.MUNDO_DOS:
                     m_Mundo = "Mundo2";
                     break;
             }

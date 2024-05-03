@@ -9,8 +9,6 @@ namespace SaveLoadGame
 {
     public class SaveDataManager : MonoBehaviour
     {
-        private const string saveFileName = "savegame.json";
-
         public void SaveData()
         {
 
@@ -29,18 +27,28 @@ namespace SaveLoadGame
 
             try
             {
-                File.WriteAllText(saveFileName, jsonData);
+                string jsonDataLectura = File.ReadAllText(GameManager.Instance.RutaCompleta);
+                SaveAllGames dataLectura = new SaveAllGames();
+                JsonUtility.FromJsonOverwrite(jsonDataLectura, dataLectura);
+
+                for(int i = 0; i < dataLectura.m_SavedGames.Length; i++)
+                {
+                    dataLectura.m_SavedGames[i] = data;
+                    dataLectura.m_SavedGames[i].m_NameAndWorld.m_Name = GameManager.Instance.PlayerName;
+                }
+
+                File.WriteAllText(GameManager.Instance.RutaCompleta, jsonData);
             }
             catch (Exception e)
             {
-                Debug.LogError($"Error while trying to save {Path.Combine(Application.persistentDataPath, saveFileName)} with exception {e}");
+                Debug.LogError($"Error while trying to save {Path.Combine(Application.persistentDataPath, GameManager.Instance.RutaCompleta)} with exception {e}");
             }
         }
         public void LoadData()
         {
             try
             {
-                string jsonData = File.ReadAllText(saveFileName);
+                string jsonData = File.ReadAllText(GameManager.Instance.RutaCompleta);
                 SaveGame data = new SaveGame();
                 JsonUtility.FromJsonOverwrite(jsonData, data);
 
@@ -80,7 +88,7 @@ namespace SaveLoadGame
             }
             catch (Exception e)
             {
-                Debug.LogError($"Error while trying to load {Path.Combine(Application.persistentDataPath, saveFileName)} with exception {e}");
+                Debug.LogError($"Error while trying to load {Path.Combine(Application.persistentDataPath, GameManager.Instance.RutaCompleta)} with exception {e}");
             }
         }
     }
