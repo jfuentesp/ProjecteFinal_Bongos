@@ -71,16 +71,17 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        m_GeneracionSalasMatriz = GetComponent<GeneracionSalasMatriz>();
+        m_GUIBossManager = GetComponent<GUIBossManager>();
+        m_eventSystem = GetComponent<EventSystem>();
+        m_InputSystemUIInputModule = GetComponent<InputSystemUIInputModule>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        m_GeneracionSalasMatriz = GetComponent<GeneracionSalasMatriz>();
-        m_GUIBossManager = GetComponent<GUIBossManager>();
-        m_eventSystem = GetComponent<EventSystem>();
-        m_InputSystemUIInputModule = GetComponent<InputSystemUIInputModule>();
         
+        print("Start Level Manager");
         if (m_CloseShopButton) m_CloseShopButton.onClick.AddListener(CloseShop);
         TodosLosBossesDisponibles();
         m_TiendaPanel.SetActive(false);
@@ -155,15 +156,20 @@ public class LevelManager : MonoBehaviour
 
     public void Init()
     {
-        if (GameManager.Instance.NuevaPartida)
+        if (!GameManager.Instance.NuevaPartida)
         {
-            m_GeneracionSalasMatriz.Init();
-            m_GuardarPartidaEvent.Raise();
+            print("Init Level Manager");
+            //m_GuardarPartidaEvent.Raise();
         }
         else
         {
             m_CargarPartidaEvent.Raise();
         }
+    }
+
+    public void GuardarPartida()
+    {
+        m_GuardarPartidaEvent.Raise();
     }
 
     public List<Consumable> GetObjetosTienda()

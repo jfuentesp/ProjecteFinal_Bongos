@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         {
             m_PlayerInGame = Instantiate(m_PlayerPrefab);
             m_PlayerInGame.transform.position = Vector3.zero;
-            LevelManager.Instance.Init();
+          
         }
         if(scene.name == "Mundo2")
         {
