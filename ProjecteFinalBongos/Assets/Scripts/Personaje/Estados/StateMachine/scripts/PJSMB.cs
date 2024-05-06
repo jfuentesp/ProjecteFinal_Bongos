@@ -73,7 +73,7 @@ public class PJSMB : MonoBehaviour
 
     }
 
-    public void recibirDaño(float Daño)
+    public void recibirDamage(float Daño)
     {
         if (m_playerEstadosController.Invencible)
             return;
