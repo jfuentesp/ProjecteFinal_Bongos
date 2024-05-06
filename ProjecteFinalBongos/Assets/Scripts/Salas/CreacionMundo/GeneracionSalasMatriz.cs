@@ -12,7 +12,7 @@ namespace GeneracionSalas
 {
     public class GeneracionSalasMatriz : MonoBehaviour, ISaveableSalasData
     {
-        private List<ListaSalas> m_ListaSalasPadre = new List<ListaSalas>();
+        private List<ListaSalas> m_ListaSalasPadre = new();
         private List<ListaSalasConHijos> m_ListaSalasPadreConHijos = new();
         private List<ListaSalasConHijos> m_ListaPasillosConSalas = new();
 
@@ -27,8 +27,7 @@ namespace GeneracionSalas
         {
             m_GeneracionSalasInstanciacion = GetComponent<GeneracionSalaInstanciacion>();
         }
-
-        public void Init()
+        private void Start()
         {
             if (GameManager.Instance.NuevaPartida)
             {
@@ -42,7 +41,7 @@ namespace GeneracionSalas
                     GenerarMapa(50, 50, 0, new ListaSalas(50, 50));
                     matrix[m_ListaSalasPadre[m_ListaSalasPadre.Count - 1].x + 50, m_ListaSalasPadre[m_ListaSalasPadre.Count - 1].y + 50] = 2;
                     if (numSala != 0)
-                        Init();
+                        Start();
                     else
                     {
                         m_GeneracionSalasInstanciacion.InstanciarElMundo(matrix, m_ListaSalasPadreConHijos, m_ListaPasillosConSalas);
@@ -50,14 +49,9 @@ namespace GeneracionSalas
                 }
                 catch (Exception)
                 {
-                    Init();
+                    Start();
                 }
             }
-            else
-            {
-
-            }
-           
         }
 
         private void RellenarMatriz()

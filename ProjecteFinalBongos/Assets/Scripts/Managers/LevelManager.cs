@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
@@ -36,14 +35,11 @@ public class LevelManager : MonoBehaviour
     private GUIBossManager m_GUIBossManager;
     public GUIBossManager GUIBossManager => m_GUIBossManager;
 
-    public enum MundoActual
-    {
-        MUNDO_UNO, MUNDO_DOS, MUNDO_TRES
-    };
     [Header("Variables Mundo")]
     [SerializeField]
-    private MundoActual m_MundoActual;
-    public MundoActual MundoActualJugador => m_MundoActual;
+    private MundoEnum m_MundoActual;
+    public MundoEnum MundoActualJugador => m_MundoActual;
+    private int m_BossesMuertos;
 
     [SerializeField] private Pool m_SplashPool;
     public Pool _SplashPool => m_SplashPool;
@@ -72,20 +68,27 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        m_GeneracionSalasMatriz = GetComponent<GeneracionSalasMatriz>();
+        m_GUIBossManager = GetComponent<GUIBossManager>();
+        m_eventSystem = GetComponent<EventSystem>();
+        m_InputSystemUIInputModule = GetComponent<InputSystemUIInputModule>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        m_GeneracionSalasMatriz = GetComponent<GeneracionSalasMatriz>();
-        m_GUIBossManager = GetComponent<GUIBossManager>();
-        m_eventSystem = GetComponent<EventSystem>();
-        m_InputSystemUIInputModule = GetComponent<InputSystemUIInputModule>();
         
+        print("Start Level Manager");
         if (m_CloseShopButton) m_CloseShopButton.onClick.AddListener(CloseShop);
         TodosLosBossesDisponibles();
         m_TiendaPanel.SetActive(false);
         idPiccolo = 0;
+        m_BossesMuertos = 0;
+        if (!GameManager.Instance.NuevaPartida)
+        {
+            print("Cargando partida");
+            m_CargarPartidaEvent.Raise();
+        }
     }
 
     public void OpenShop(int id)
@@ -154,17 +157,9 @@ public class LevelManager : MonoBehaviour
         return m_ListaBossesDisponibles[numBoss].m_BossPrefab;
     }
 
-    public void Init()
+    public void GuardarPartida()
     {
-        if (GameManager.Instance.NuevaPartida)
-        {
-            m_GeneracionSalasMatriz.Init();
-            m_GuardarPartidaEvent.Raise();
-        }
-        else
-        {
-            m_CargarPartidaEvent.Raise();
-        }
+        m_GuardarPartidaEvent.Raise();
     }
 
     public List<Consumable> GetObjetosTienda()
@@ -214,6 +209,21 @@ public class LevelManager : MonoBehaviour
             }
         }
         return objetitosParaSalaObjetos;
+    }
+
+    public void BossMuerto()
+    {
+        m_BossesMuertos++;
+        print(m_BossesMuertos);
+
+        if (m_BossesMuertos == 1)
+        {
+            GameManager.Instance.AlCargarMundo();
+        }
+        if (m_BossesMuertos == 7)
+        {
+            GameManager.Instance.AvanzarMundo(m_MundoActual);
+        }
     }
 
     [Serializable]

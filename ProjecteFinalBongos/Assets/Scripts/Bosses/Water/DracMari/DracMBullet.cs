@@ -22,7 +22,7 @@ public class DracMBullet : Bullet
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -48,7 +48,7 @@ public class DracMBullet : Bullet
                 }
                 else
                 {
-                    collision.GetComponent<PJSMB>().recibirDaño(m_damage);
+                    collision.GetComponent<PJSMB>().recibirDaï¿½o(m_damage);
                     GameObject vaporCrash = m_pool.GetElement();
                     vaporCrash.transform.position = transform.position;
                     vaporCrash.SetActive(true);
@@ -70,6 +70,6 @@ public class DracMBullet : Bullet
                 DisableBullet();
             }
         }
-     
+
     }
 }

@@ -60,6 +60,7 @@ public class PlayerStatsController : MonoBehaviour
     private Sword m_SwordPrueba;
     [SerializeField]
     private Armor m_Armor;
+    public Armor Armor => m_Armor;
     [SerializeField]
     private Armor prueba;
     private void Start()
@@ -112,7 +113,7 @@ public class PlayerStatsController : MonoBehaviour
         m_Armor = armor;
         m_Defense += m_Armor.defense;
         m_Velocity += m_Armor.speed;
-        if (m_Armor.propiedades.Contains("Enchanted"))
+        if (m_Armor.propiedades.Contains(EquipablePropertiesEnum.ESTADO))
         {
             StartCoroutine(m_Armor.Regen(gameObject));
         }
@@ -122,7 +123,7 @@ public class PlayerStatsController : MonoBehaviour
 
         m_Defense -= m_Armor.defense;
         m_Velocity -= m_Armor.speed;
-        if (m_Armor.propiedades.Contains("Enchanted"))
+        if (m_Armor.propiedades.Contains(EquipablePropertiesEnum.ENCHANTED))
         {
             StopCoroutine(m_Armor.Regen(gameObject));
         }
@@ -137,11 +138,11 @@ public class PlayerStatsController : MonoBehaviour
         m_AttackTime += sword.speedAttack;
       
     }
-    public void UnequipSword(Sword sword)
+    public void UnequipSword()
     {
+        m_Strength -= m_Sword.attack;
+        m_Velocity -= m_Sword.speed;
+        m_AttackTime -= m_Sword.speedAttack;
         m_Sword = null;
-        m_Strength -= sword.attack;
-        m_Velocity -= sword.speed;
-        m_AttackTime -= sword.speedAttack;
     }
 }

@@ -9,8 +9,6 @@ namespace SaveLoadGame
 {
     public class SaveDataManager : MonoBehaviour
     {
-        private const string saveFileName = "savegame.json";
-
         public void SaveData()
         {
 
@@ -24,25 +22,45 @@ namespace SaveLoadGame
             data.PopulateDataSalasBoss(dataBosses);
             data.PopulateDataPasilloTienda(dataTiendas);
             data.PopulateDataPasilloObjetos(dataPasilloObjetos);
+            data.m_NameAndWorld = new NameAndWorld(GameManager.Instance.PlayerName, LevelManager.Instance.MundoActualJugador);
             
-            string jsonData = JsonUtility.ToJson(data);
 
             try
             {
-                File.WriteAllText(saveFileName, jsonData);
+                string jsonDataLectura = File.ReadAllText(GameManager.Instance.RutaCompleta);
+                SaveAllGames dataLectura = new SaveAllGames();
+                JsonUtility.FromJsonOverwrite(jsonDataLectura, dataLectura);
+
+                for(int i = 0; i < dataLectura.m_SavedGames.Length; i++)
+                {
+                    if (dataLectura.m_SavedGames[i].m_NameAndWorld.m_Name == GameManager.Instance.PlayerName)
+                        dataLectura.m_SavedGames[i] = data;
+                }
+
+                string jsonData = JsonUtility.ToJson(dataLectura);
+                File.WriteAllText(GameManager.Instance.RutaCompleta, jsonData);
             }
             catch (Exception e)
             {
-                Debug.LogError($"Error while trying to save {Path.Combine(Application.persistentDataPath, saveFileName)} with exception {e}");
+                Debug.LogError($"Error while trying to save {Path.Combine(Application.persistentDataPath, GameManager.Instance.RutaCompleta)} with exception {e}");
             }
         }
         public void LoadData()
         {
             try
             {
-                string jsonData = File.ReadAllText(saveFileName);
                 SaveGame data = new SaveGame();
-                JsonUtility.FromJsonOverwrite(jsonData, data);
+                string jsonDataLectura = File.ReadAllText(GameManager.Instance.RutaCompleta);
+                SaveAllGames dataLectura = new SaveAllGames();
+                JsonUtility.FromJsonOverwrite(jsonDataLectura, dataLectura);
+
+                for (int i = 0; i < dataLectura.m_SavedGames.Length; i++)
+                {
+                    if (dataLectura.m_SavedGames[i].m_NameAndWorld.m_Name == GameManager.Instance.PlayerName)
+                        data = dataLectura.m_SavedGames[i];
+                }
+                
+                JsonUtility.FromJsonOverwrite(jsonDataLectura, data);
 
                 FindObjectOfType<GeneracionSalas.GeneracionSalasMatriz>().Load(data.m_Mapa);
 
@@ -77,10 +95,11 @@ namespace SaveLoadGame
                             pasillosObjetos[i].Load(pasillito);
                     }
                 }
+                GameManager.Instance.SetNamePlayer(data.m_NameAndWorld.m_Name);
             }
             catch (Exception e)
             {
-                Debug.LogError($"Error while trying to load {Path.Combine(Application.persistentDataPath, saveFileName)} with exception {e}");
+                Debug.LogError($"Error while trying to load {Path.Combine(Application.persistentDataPath, GameManager.Instance.RutaCompleta)} with exception {e}");
             }
         }
     }

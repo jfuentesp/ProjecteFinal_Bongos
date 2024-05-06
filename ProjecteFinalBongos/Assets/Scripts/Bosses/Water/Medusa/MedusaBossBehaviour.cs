@@ -2,7 +2,6 @@ using NavMeshPlus.Extensions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -174,6 +173,7 @@ public class MedusaBossBehaviour : BossBehaviour
         base.VidaCero();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
+        m_BossMuertoEvent.Raise();
         Destroy(gameObject);
     }
 }

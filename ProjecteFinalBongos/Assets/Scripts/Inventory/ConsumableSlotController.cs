@@ -16,8 +16,6 @@ public class ConsumableSlotController : MonoBehaviour
     [SerializeField]
     private Image m_SpriteImage;
 
-    private bool m_IsHighlighted;
-
     private void Start()
     {
         m_QuantityText.text = m_Quantity.ToString();

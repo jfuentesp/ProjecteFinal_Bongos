@@ -45,7 +45,8 @@ namespace GeneracionSalas
         [SerializeField] private GameObject m_PasilloTienda;
 
         [Header("Tiles y Tilemap")]
-        [SerializeField] private Tilemap m_Tilemap;
+        [SerializeField] private Tilemap m_TilemapSuelo;
+        [SerializeField] private Tilemap m_TilemapPared;
         [SerializeField] private TileBase m_TileSalas;
         [SerializeField] private TileBase m_TilePared;
         private List<Vector2> m_TilesSala = new();
@@ -66,6 +67,10 @@ namespace GeneracionSalas
             GenPasillos();
             PintarTilemap();
             onMapaFinalized?.Invoke();
+            if (GameManager.Instance.NuevaPartida)
+            {
+                LevelManager.Instance.GuardarPartida();
+            }
         }
 
         private void GenPasillos()
@@ -272,7 +277,7 @@ namespace GeneracionSalas
         {
             if (horizontal)
             {
-                for (int i = (int)posicionX - 9; i < posicionX + 9; i++)
+                for (int i = (int)posicionX - 10; i < posicionX + 10; i++)
                 {
                     for (int j = (int)posicionY - 7; j < posicionY + 7; j++)
                     {
@@ -288,7 +293,7 @@ namespace GeneracionSalas
             {
                 for (int i = (int)posicionX - 7; i < posicionX + 7; i++)
                 {
-                    for (int j = (int)posicionY - 9; j < posicionY + 9; j++)
+                    for (int j = (int)posicionY - 10; j < posicionY + 10; j++)
                     {
                         m_TilesSala.Add(new Vector2(i, j));
                     }
@@ -489,13 +494,13 @@ namespace GeneracionSalas
         {
             foreach (Vector2 posicion in m_TilesSala)
             {
-                Vector3Int posicionInt = m_Tilemap.WorldToCell(posicion);
-                m_Tilemap.SetTile(posicionInt, m_TileSalas);
+                Vector3Int posicionInt = m_TilemapSuelo.WorldToCell(posicion);
+                m_TilemapSuelo.SetTile(posicionInt, m_TileSalas);
             }
             foreach (Vector2 posicion in m_TilesPared)
             {
-                Vector3Int posicionInt = m_Tilemap.WorldToCell(posicion);
-                m_Tilemap.SetTile(posicionInt, m_TilePared);
+                Vector3Int posicionInt = m_TilemapSuelo.WorldToCell(posicion);
+                m_TilemapPared.SetTile(posicionInt, m_TilePared);
             }
         }
 

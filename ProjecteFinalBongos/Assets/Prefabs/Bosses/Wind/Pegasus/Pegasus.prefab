@@ -306,6 +306,7 @@ MonoBehaviour:
   m_LayersToCheck:
     serializedVersion: 2
     m_Bits: 128
+  m_BossMuertoEvent: {fileID: 11400000, guid: a68c2e2d0411f4242b3bfb77d6d424f3, type: 2}
 --- !u!114 &5640569680253866471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,7 +484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cca67139dff3dd488cb7cce9fe6c87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_event: {fileID: 11400000, guid: 0934ad3906010854589bca17fba3ed79, type: 2}
   times: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
 --- !u!114 &7288981906074113650
 MonoBehaviour:
