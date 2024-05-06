@@ -9,8 +9,7 @@ using UnityEngine.InputSystem;
         private Rigidbody2D m_Rigidbody;
         private Animator m_Animator;
         private FiniteStateMachine m_StateMachine;
-        [SerializeField]
-        private GameEvent coolDownMovement;
+    
 
     private new void Awake()
         {
@@ -77,7 +76,6 @@ using UnityEngine.InputSystem;
     {
         if (m_PJ.PlayerAbilitiesController.CanMove)
         {
-            coolDownMovement.Raise();
             m_StateMachine.ChangeState<HabilidadDeMovimientoState>();
         }
 

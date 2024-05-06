@@ -83,7 +83,10 @@ public class PlayerEstadosController : MonoBehaviour
                     break;
                 case EstadosAlterados.Atrapat:
                     if (!Stuck)
-                        StartCoroutine(StuckRoutine());
+                        StuckFunction();              
+                    break;
+                case EstadosAlterados.Escapar:
+                        UnStuckFunction();
                     break;
                 default:
                     break;
@@ -165,7 +168,7 @@ public class PlayerEstadosController : MonoBehaviour
         PararCorrutina("WrathRoutine");
 
     }
-    IEnumerator StuckRoutine()
+    /*IEnumerator StuckRoutine()
     {
         Stuck = true;
         velocityBefore = m_Stats.m_Velocity;
@@ -174,8 +177,14 @@ public class PlayerEstadosController : MonoBehaviour
         Stuck = false;
         m_Stats.m_Velocity = velocityBefore;
         PararCorrutina("StuckRoutine");
+    }*/
+    public void StuckFunction() {
+        velocityBefore = m_Stats.m_Velocity;
+        m_Stats.m_Velocity = 0;
     }
-
+    public void UnStuckFunction() {
+        m_Stats.m_Velocity = velocityBefore;
+    }
     private void PararCorrutina(string rutina)
     {
         StopCoroutine(rutina);
@@ -184,6 +193,11 @@ public class PlayerEstadosController : MonoBehaviour
     {
         Stun = false;
         Paralized = false;
+    }
+    public void StopStuck()
+    {
+        if(m_Stats.m_Velocity == 0)
+            m_Stats.m_Velocity = velocityBefore;
     }
 
 }

@@ -11,8 +11,6 @@ public class SMBPlayerWalkState : SMState
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
-    [SerializeField]
-    private GameEvent coolDownMovement;
 
     private Vector2 m_Movement;
 
@@ -63,7 +61,6 @@ public class SMBPlayerWalkState : SMState
     private void MovementAction(InputAction.CallbackContext context)
     {
         if (m_PJ.PlayerAbilitiesController.CanMove) {  
-            coolDownMovement.Raise();
             m_StateMachine.ChangeState<HabilidadDeMovimientoState>();
         }
 
