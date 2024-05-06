@@ -1,3 +1,4 @@
+using multilanguaje;
 using SaveLoadGame;
 using System;
 using System.Collections;
@@ -37,7 +38,13 @@ public class GameManager : MonoBehaviour
     [Header("Variables Mundo Generado")]
     private bool m_NuevaPartida;
     private bool m_MundoGenerado;
+    [SerializeField] private IdiomaEnum m_IdiomaJuego;
+    public IdiomaEnum IdiomaJuego => m_IdiomaJuego;
     public bool NuevaPartida => m_NuevaPartida;
+
+    [Header("Variables Idioma")]
+    private MultiLanguageManager m_LanguageManager;
+    public MultiLanguageManager LanguageManager => m_LanguageManager;
 
     private void Awake()
     {
@@ -53,6 +60,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        m_LanguageManager = GetComponent<MultiLanguageManager>();
         rutaCompletaHastaCarpeta = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame");
         rutaCompleta = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame", playerAndWorldFile);
         GetPlayersAndTheirWorld();
