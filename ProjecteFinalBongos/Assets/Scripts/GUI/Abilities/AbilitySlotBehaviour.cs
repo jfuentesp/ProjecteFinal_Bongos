@@ -75,12 +75,18 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
 
     public void OnSubmit(BaseEventData eventData)
     {
-
+        if (m_AbilitiesGUI.AbilityPoints <= 0)
+            return;
+        m_IsChosen = true;
+        m_AbilitiesGUI.SetAbility(AssignedAbility);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-
+        if (m_AbilitiesGUI.AbilityPoints <= 0)
+            return;
+        m_IsChosen = true;
+        m_AbilitiesGUI.SetAbility(AssignedAbility);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -55,12 +55,15 @@ public class AbilitiesGUIController : MonoBehaviour
     private List<AbilitySlotBehaviour> m_Slots;
 
     private int m_AbilityPoints;
+    public int AbilityPoints => m_AbilityPoints;
+
+    private PlayerAbilitiesController m_PlayerAbilities;
 
     // Start is called before the first frame update
     void Awake()
     {
         m_LastSelectedSlot = m_InitialButton;
-        m_AbilityPoints = 0;
+        m_AbilityPoints = 2;
     }
 
     // Update is called once per frame
@@ -188,6 +191,21 @@ public class AbilitiesGUIController : MonoBehaviour
 
     public void SetAbility(Ability ability)
     {
+        m_AbilityPoints--;
+        //Falta asignar la habilidad
 
+        switch(ability.Category)
+        {
+            case AbilityCategoryEnum.OFFENSIVE:
+                m_CurrentOffensiveTier = ability.Tier == AbilityTierEnum.TIER1 ? AbilityTierEnum.TIER2 : AbilityTierEnum.TIER3;
+                break;
+            case AbilityCategoryEnum.DEFENSIVE:
+                m_CurrentDefensiveTier = ability.Tier == AbilityTierEnum.TIER1 ? AbilityTierEnum.TIER2 : AbilityTierEnum.TIER3;
+                break;
+            case AbilityCategoryEnum.AGILITY:
+                m_CurrentAgilityTier = ability.Tier == AbilityTierEnum.TIER1 ? AbilityTierEnum.TIER2 : AbilityTierEnum.TIER3;
+                break;
+        }
+        RefreshAbilityGUI();
     }
 }
