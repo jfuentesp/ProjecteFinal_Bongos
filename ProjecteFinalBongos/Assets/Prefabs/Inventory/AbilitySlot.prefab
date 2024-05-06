@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 8729381383478354930}
   - component: {fileID: 8400824120946036693}
   - component: {fileID: 2574026717865560927}
+  - component: {fileID: 3728873604203824546}
   m_Layer: 0
   m_Name: SkillButton
   m_TagString: Untagged
@@ -235,3 +236,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3728873604203824546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035436882903170831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02b26f8497bf33e4d9c2be79a75c70bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SlotTier: 0
+  m_SlotCategory: 0
+  m_AbilitiesGUI: {fileID: 0}
+  m_AbilityImage: {fileID: 2409021843076098021}
+  m_Slot: {fileID: 2574026717865560927}
+  m_SlotImage: {fileID: 8400824120946036693}
+  m_ChosenColor: {r: 0, g: 0, b: 0, a: 0}

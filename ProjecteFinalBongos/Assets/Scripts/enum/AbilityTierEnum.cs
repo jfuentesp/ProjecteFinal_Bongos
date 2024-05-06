@@ -7,7 +7,12 @@ public enum AbilityTierEnum
     TIER1, TIER2, TIER3
 }
 
-public enum AbilityTypeEnum
+public enum AbilityCategoryEnum
 {
     OFFENSIVE, DEFENSIVE, AGILITY
+}
+
+public enum AbilityTypeEnum
+{
+    ABILITY, DAMAGEUP, DEFENSEUP, ATTACKSPEEDUP, HITPOINTSUP, SPEEDUP
 }

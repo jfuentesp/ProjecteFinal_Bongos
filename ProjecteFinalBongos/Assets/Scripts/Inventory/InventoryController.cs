@@ -271,7 +271,7 @@ public class InventoryController : MonoBehaviour
         }
 
         GridSlotBehaviour slot = m_SelectedSlot.GetComponent<GridSlotBehaviour>();
-        Debug.Log(slot.AssignedConsumable == null ? true : false);
+        //Debug.Log(slot.AssignedConsumable == null ? true : false);
         if (slot.AssignedConsumable != null)
         {
             m_DescriptionImage.gameObject.SetActive(true);
