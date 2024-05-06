@@ -8,7 +8,7 @@ public class ClonBehaviour : MonoBehaviour
 
     private Animator m_Animator;
     private Rigidbody2D m_rb;
-    [SerializeField] private float m_ClonSpeed = 5f;
+    [SerializeField] private float m_ClonSpeed = 10f;
     [SerializeField] private LayerMask m_LayerMask;
     [SerializeField] private float m_DirectionTime;
     [SerializeField] private int Steps = 5;
@@ -27,10 +27,16 @@ public class ClonBehaviour : MonoBehaviour
         {
             m_Animator.Play("walkDown");
         }
-        else if(direction == Vector2.left || direction == Vector2.right || direction == new Vector2(1,1) || direction == new Vector2(-1, -1) || direction == new Vector2(-1, 1) || direction == new Vector2(1, -1)) {
+        else if(direction == Vector2.left ||  direction == new Vector2(-1, -1) || direction == new Vector2(-1, 1)) {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
             m_Animator.Play("walkPlayer");
         }
-        m_rb.velocity = direction * m_ClonSpeed;
+        else if (direction == Vector2.right || direction == new Vector2(1, 1) ||  direction == new Vector2(1, -1))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            m_Animator.Play("walkPlayer");
+        }
+        m_rb.velocity = direction.normalized * m_ClonSpeed;
         StartCoroutine(Merge());
         
     }
@@ -54,19 +60,26 @@ public class ClonBehaviour : MonoBehaviour
         }
         else
         {
-            if (direction == Vector2.up)
+            print(direccion);
+            if (direccion.y > 0 && direccion.x == 0)
             {
                 m_Animator.Play("walkUp");
             }
-            else if (direction == Vector2.down)
+            else if (direccion.y < 0 && direccion.x == 0)
             {
                 m_Animator.Play("walkDown");
             }
-            else if (direction == Vector2.left || direction == Vector2.right || direction == new Vector2(1, 1) || direction == new Vector2(-1, -1) || direction == new Vector2(-1, 1) || direction == new Vector2(1, -1))
+            else if (direccion.x < 0)
             {
+                transform.rotation = Quaternion.Euler(0, 180, 0);
                 m_Animator.Play("walkPlayer");
             }
-            m_rb.velocity = direccion * m_ClonSpeed;
+            else if (direccion.x > 0)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                m_Animator.Play("walkPlayer");
+            }
+            m_rb.velocity = direccion.normalized * m_ClonSpeed;
 
 
         }

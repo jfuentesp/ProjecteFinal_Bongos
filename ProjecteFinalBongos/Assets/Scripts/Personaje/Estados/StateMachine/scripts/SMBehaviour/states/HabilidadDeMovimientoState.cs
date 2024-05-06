@@ -23,6 +23,8 @@ public class HabilidadDeMovimientoState : SMState
     [SerializeField] private GameObject m_RecallZone;
     private GameObject RecallZone;
     [SerializeField] private GameObject m_Clon;
+    private GameObject Clon;
+    private Vector2 m_Movement;
 
     private new void Awake()
     {
@@ -31,7 +33,8 @@ public class HabilidadDeMovimientoState : SMState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
-      
+        m_Movement = m_PJ.MovementAction.ReadValue<Vector2>();
+
 
     }
 
@@ -169,22 +172,81 @@ public class HabilidadDeMovimientoState : SMState
                 }
                 break;
             case "Clon":
-                if (m_RecallPosition == Vector2.zero)
+                coolDownMovement.Raise();
+                if (m_Movement == Vector2.zero)
                 {
-                    RecallZone = Instantiate(m_RecallZone);
-                    RecallZone.transform.position = transform.position;
-                    m_RecallPosition = transform.position;
-                    Exit();
+                    if (m_PJ.direccion == 0)
+                    {
+                        Clon = Instantiate(m_Clon);
+                        Clon.transform.position = transform.position;
+                        Clon.GetComponent<ClonBehaviour>().Init(transform.right);
+                    }
+                    else if (m_PJ.direccion == 1)
+                    {
+                        Clon = Instantiate(m_Clon);
+                        Clon.transform.position = transform.position;
+                        Clon.GetComponent<ClonBehaviour>().Init(Vector2.down);
+                    }
+                    else if (m_PJ.direccion == 2)
+                    {
+                        Clon = Instantiate(m_Clon);
+                        Clon.transform.position = transform.position;
+                        Clon.GetComponent<ClonBehaviour>().Init(Vector2.up);
+                    }
                 }
-                else
-                {
-                    invencibleTitleCard.Raise();
-                    coolDownMovement.Raise();
-                    transform.position = m_RecallPosition;
-                    Destroy(RecallZone.gameObject);
-                    m_RecallPosition = Vector2.zero;
-                    Exit();
+                else {
+                    if (m_Movement.x > 0)
+                    {
+                        Clon = Instantiate(m_Clon);
+                        Clon.transform.position = transform.position;
+                        Clon.GetComponent<ClonBehaviour>().Init(Vector2.right);
+
+                    }
+                    else if (m_Movement.x < 0)
+                    {
+                        Clon = Instantiate(m_Clon);
+                        Clon.transform.position = transform.position;
+                        Clon.GetComponent<ClonBehaviour>().Init(Vector2.left);
+                    }
+                    if (m_Movement.y < 0 && m_Movement.x == 0)
+                    {
+                        Clon = Instantiate(m_Clon);
+                        Clon.transform.position = transform.position;
+                        Clon.GetComponent<ClonBehaviour>().Init(Vector2.down);
+                    }
+                    else if (m_Movement.y > 0 && m_Movement.x == 0)
+                    {
+                        Clon = Instantiate(m_Clon);
+                        Clon.transform.position = transform.position;
+                        Clon.GetComponent<ClonBehaviour>().Init(Vector2.up);
+                    }
+                    else if (m_Movement.y > 0 && m_Movement.x > 0)
+                    {
+                        Clon = Instantiate(m_Clon);
+                        Clon.transform.position = transform.position;
+                        Clon.GetComponent<ClonBehaviour>().Init(new Vector2(1, 1));
+                    }
+                    else if (m_Movement.y < 0 && m_Movement.x > 0)
+                    {
+                        Clon = Instantiate(m_Clon);
+                        Clon.transform.position = transform.position;
+                        Clon.GetComponent<ClonBehaviour>().Init(new Vector2(1, -1));
+                    }
+                    else if (m_Movement.y > 0 && m_Movement.x < 0)
+                    {
+                        Clon = Instantiate(m_Clon);
+                        Clon.transform.position = transform.position;
+                        Clon.GetComponent<ClonBehaviour>().Init(new Vector2(-1, 1));
+                    }
+                    else if (m_Movement.y < 0 && m_Movement.x < 0)
+                    {
+                        Clon = Instantiate(m_Clon);
+                        Clon.transform.position = transform.position;
+                        Clon.GetComponent<ClonBehaviour>().Init(new Vector2(-1, -1));
+                    }
                 }
+                
+                Exit();
                 break;
 
 
