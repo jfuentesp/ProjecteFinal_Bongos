@@ -28,6 +28,7 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     private int m_NumeroBoss;
     private bool m_HaEntradoElPlayer;
     public Action<Transform> OnPlayerIn;
+    [SerializeField] private GameEvent m_JugadorEnSalaEvent;
 
     private void Start()
     {
@@ -46,6 +47,7 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
                 m_CanOpenDoor = false;
                 cambioPuerta?.Invoke(false);
                 OnPlayerIn?.Invoke(hit.transform);
+                m_JugadorEnSalaEvent.Raise();
                 m_HaEntradoElPlayer = true;
             }
             yield return new WaitForSeconds(m_TimeBetweenBoxCast);

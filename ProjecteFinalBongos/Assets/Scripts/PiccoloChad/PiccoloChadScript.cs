@@ -15,6 +15,7 @@ public class PiccoloChadScript : MonoBehaviour
     private TextMeshProUGUI dialogueText;
     [SerializeField, TextArea(4, 6)] private string[] m_DialogueLines;
     [SerializeField, TextArea(4, 6)] private string[] m_FinalLine;
+    private multilanguaje.Multilanguage.PiccoloChanFrases m_PiccoloChanFrases;
 
     private Queue<string> m_FrasesParaDecir = new Queue<string>();
 
@@ -41,7 +42,12 @@ public class PiccoloChadScript : MonoBehaviour
         dialogueText = LevelManager.Instance.DialogueText;
         LevelManager.Instance.onCloseShopOfPiccolo += SegundoDialogo;
     }
-
+    private void Start()
+    {
+        m_PiccoloChanFrases = GameManager.Instance.LanguageManager.GetPiccoloChadFrases();
+        m_DialogueLines = m_PiccoloChanFrases.frasesIniciales;
+        m_FinalLine = m_PiccoloChanFrases.frasesFinales;
+    }
 
     public void Init()
     {   

@@ -2006,6 +2006,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1047910045}
   - component: {fileID: 1047910044}
+  - component: {fileID: 1047910046}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2026,7 +2027,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerPrefab: {fileID: 1922464185457733035, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
+  m_PlayerName: 
   m_PlayersAndTheirWorldsList: []
+  m_IdiomaJuego: 3
 --- !u!4 &1047910045
 Transform:
   m_ObjectHideFlags: 0
@@ -2042,6 +2045,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1047910046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047910043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b31908260e7a58c4fb8305be5177ae15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IdiomaActual:
+    id: 
+    frasesPiccoloChan:
+      frasesIniciales: []
+      frasesFinales: []
+    consumiblesDatos: []
+    equipablesDatos: []
 --- !u!1 &1071544727
 GameObject:
   m_ObjectHideFlags: 0
