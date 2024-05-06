@@ -157,19 +157,6 @@ public class LevelManager : MonoBehaviour
         return m_ListaBossesDisponibles[numBoss].m_BossPrefab;
     }
 
-    public void Init()
-    {
-        if (!GameManager.Instance.NuevaPartida)
-        {
-            print("Init Level Manager");
-            //m_GuardarPartidaEvent.Raise();
-        }
-        else
-        {
-            m_CargarPartidaEvent.Raise();
-        }
-    }
-
     public void GuardarPartida()
     {
         m_GuardarPartidaEvent.Raise();
@@ -227,7 +214,13 @@ public class LevelManager : MonoBehaviour
     public void BossMuerto()
     {
         m_BossesMuertos++;
-        if(m_BossesMuertos == 7)
+        print(m_BossesMuertos);
+
+        if (m_BossesMuertos == 1)
+        {
+            GameManager.Instance.AlCargarMundo();
+        }
+        if (m_BossesMuertos == 7)
         {
             GameManager.Instance.AvanzarMundo(m_MundoActual);
         }

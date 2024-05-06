@@ -49,7 +49,6 @@ namespace SaveLoadGame
         {
             try
             {
-                print("Hola?");
                 SaveGame data = new SaveGame();
                 string jsonDataLectura = File.ReadAllText(GameManager.Instance.RutaCompleta);
                 SaveAllGames dataLectura = new SaveAllGames();
@@ -96,6 +95,7 @@ namespace SaveLoadGame
                             pasillosObjetos[i].Load(pasillito);
                     }
                 }
+                GameManager.Instance.SetNamePlayer(data.m_NameAndWorld.m_Name);
             }
             catch (Exception e)
             {

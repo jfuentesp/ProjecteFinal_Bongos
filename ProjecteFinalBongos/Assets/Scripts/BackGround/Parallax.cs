@@ -9,6 +9,7 @@ public class Parallax : MonoBehaviour
     private float singleTextureWidth;
     bool scrollLeft;
     [SerializeField] private float speed;
+    private Camera m_Camara;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class Parallax : MonoBehaviour
 
     private void SetupTexture()
     {
+        m_Camara = Camera.main;
         Sprite sprite = GetComponent<SpriteRenderer>().sprite;
         singleTextureWidth = sprite.texture.width / sprite.pixelsPerUnit;
     }
@@ -27,14 +29,14 @@ public class Parallax : MonoBehaviour
     void Scroll()
     {
         float delta = speed * Time.deltaTime;
-        transform.position += new Vector3(delta, 0, 0);
+        transform.localPosition += new Vector3(delta, 0, 0);
     }
 
     void CheckReset()
     {
-        if((Math.Abs(transform.position.x) - singleTextureWidth) > 0)
+        if((Math.Abs(transform.localPosition.x) - singleTextureWidth) > 0)
         {
-            transform.position = new Vector3(0, transform.position.y, transform.position.z);
+            transform.localPosition = new Vector3(0, transform.localPosition.y, transform.localPosition.z);
         }
     }
     private void Update()

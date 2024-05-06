@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     [Header("Variables Ficheros")]
     public Action OnPlayerDeleted;
     public Action onGetPlayers;
-    private string m_PlayerName;
+    [SerializeField] private string m_PlayerName;
     public string PlayerName => m_PlayerName;
     private const string playerAndWorldFile = "JugadoresGuardados.txt";
     private string rutaCompletaHastaCarpeta;
@@ -62,6 +62,11 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    public void SetNamePlayer(string _NamePlayer)
+    {
+        m_PlayerName = _NamePlayer;
+    }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
     {
         if(scene.name == "Mundo1")
@@ -72,6 +77,8 @@ public class GameManager : MonoBehaviour
         }
         if(scene.name == "Mundo2")
         {
+            if(!m_NuevaPartida)
+                m_PlayerInGame = Instantiate(m_PlayerPrefab);
             m_PlayerInGame.transform.position = Vector3.zero;
         }
     }
@@ -87,7 +94,10 @@ public class GameManager : MonoBehaviour
             print("Te lo pasaste bro!");
         }
     }
-
+    public void AlCargarMundo()
+    {
+        m_NuevaPartida = true;
+    }
     // Update is called once per frame
     void Update()
     {

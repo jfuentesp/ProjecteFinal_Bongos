@@ -54,41 +54,6 @@ namespace GeneracionSalas
             }
         }
 
-        public void Init()
-        {
-            if (GameManager.Instance.NuevaPartida)
-            {
-                try
-                {
-                    m_ListaSalasPadre.Clear();
-                    m_ListaSalasPadreConHijos.Clear();
-                    m_ListaPasillosConSalas.Clear();
-                    numSala = numSalaMaxima;
-                    RellenarMatriz();
-                    GenerarMapa(50, 50, 0, new ListaSalas(50, 50));
-                    print(m_ListaSalasPadre.Count);
-                    print(m_ListaSalasPadre[m_ListaSalasPadre.Count - 1].x + 50 + " " + m_ListaSalasPadre[m_ListaSalasPadre.Count - 1].y + 50);
-                    matrix[m_ListaSalasPadre[m_ListaSalasPadre.Count - 1].x + 50, m_ListaSalasPadre[m_ListaSalasPadre.Count - 1].y + 50] = 2;
-                    if (numSala != 0)
-                        Init();
-                    else
-                    {
-                        m_GeneracionSalasInstanciacion.InstanciarElMundo(matrix, m_ListaSalasPadreConHijos, m_ListaPasillosConSalas);
-                    }
-                }
-                catch (Exception er)
-                {
-                    print(er);
-                    Start();
-                }
-            }
-            else
-            {
-
-            }
-           
-        }
-
         private void RellenarMatriz()
         {
             for (int i = 0; i < matrix.GetLength(0); i++)
