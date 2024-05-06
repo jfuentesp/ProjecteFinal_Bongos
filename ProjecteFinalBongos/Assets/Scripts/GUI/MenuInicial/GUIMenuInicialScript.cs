@@ -50,6 +50,7 @@ namespace GUIScripts
         void Start()
         {
             GameManager.Instance.OnPlayerDeleted += RefreshPlayersFromLoadGame;
+            GameManager.Instance.onGetPlayers += RefreshPrincipalButtons;
             if (m_NewGameButton) m_NewGameButton.onClick.AddListener(NewGame);
             if (m_LoadGameButton) m_LoadGameButton.onClick.AddListener(LoadGame);
             if (m_OptionsButton) m_OptionsButton.onClick.AddListener(Options);
@@ -64,15 +65,27 @@ namespace GUIScripts
             m_StartNewGameButton.interactable = false;
 
             m_PanelsList = new()
-        {
-            m_MenuInicialPanel,
-            m_MenuNewGamePanel,
-            m_MenuLoadGamePanel,
-            m_MenuOptionsPanel,
-            m_MenuRankingPanel
-        };
+            {
+                m_MenuInicialPanel,
+                m_MenuNewGamePanel,
+                m_MenuLoadGamePanel,
+                m_MenuOptionsPanel,
+                m_MenuRankingPanel
+            };
 
             ClosePanelsInsteadOf(TypeOfPanels.INICIAL);
+        }
+
+        void RefreshPrincipalButtons()
+        {
+            if (GameManager.Instance.PlayersAndTheirWorldsList.Count > 2)
+                m_NewGameButton.interactable = (false);
+            else
+                m_NewGameButton.interactable = (true);
+            if(GameManager.Instance.PlayersAndTheirWorldsList.Count == 0)
+                m_LoadGameButton.interactable = (false);
+            else
+                m_LoadGameButton.interactable = (true);
         }
 
         private void RefreshPlayersFromLoadGame()
@@ -85,13 +98,13 @@ namespace GUIScripts
                 }
             }
 
-            foreach (SaveGame playerAndWorld in GameManager.Instance.PlayersAndTheirWorldsList)
+            foreach (SaveGame.NameAndWorld playerAndWorld in GameManager.Instance.PlayersAndTheirWorldsList)
             {
                 GameObject savedGamePlayer = Instantiate(m_SavedPlayerPrefab, m_SavedGamesGridParent);
-                savedGamePlayer.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = playerAndWorld.m_NameAndWorld.m_Name;
-                savedGamePlayer.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = playerAndWorld.m_NameAndWorld.m_Mundo.ToString();
-                savedGamePlayer.transform.GetChild(2).GetComponent<LoadDeleteGame>().Init(false, playerAndWorld.m_NameAndWorld.m_Name, playerAndWorld.m_NameAndWorld.m_Mundo);
-                savedGamePlayer.transform.GetChild(3).GetComponent<LoadDeleteGame>().Init(true, playerAndWorld.m_NameAndWorld.m_Name, playerAndWorld.m_NameAndWorld.m_Mundo);
+                savedGamePlayer.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = playerAndWorld.m_Name;
+                savedGamePlayer.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = playerAndWorld.m_Mundo.ToString();
+                savedGamePlayer.transform.GetChild(2).GetComponent<LoadDeleteGame>().Init(false, playerAndWorld.m_Name, playerAndWorld.m_Mundo);
+                savedGamePlayer.transform.GetChild(3).GetComponent<LoadDeleteGame>().Init(true, playerAndWorld.m_Name, playerAndWorld.m_Mundo);
             }
         }
 
@@ -134,6 +147,7 @@ namespace GUIScripts
             {
                 case TypeOfPanels.INICIAL:
                     m_MenuInicialPanel.SetActive(true);
+                    RefreshPrincipalButtons();
                     break;
                 case TypeOfPanels.NEW_GAME:
                     m_MenuNewGamePanel.SetActive(true);

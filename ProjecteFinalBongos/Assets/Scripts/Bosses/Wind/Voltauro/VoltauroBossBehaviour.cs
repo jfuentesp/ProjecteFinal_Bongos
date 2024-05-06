@@ -155,6 +155,7 @@ public class VoltauroBossBehaviour : BossBehaviour
         base.VidaCero();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
+        m_BossMuertoEvent.Raise();
         Destroy(gameObject);
     }
     private void SetPhase(Phase phaseToSet)

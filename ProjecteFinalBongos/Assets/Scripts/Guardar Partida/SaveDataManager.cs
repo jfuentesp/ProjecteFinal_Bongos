@@ -22,8 +22,8 @@ namespace SaveLoadGame
             data.PopulateDataSalasBoss(dataBosses);
             data.PopulateDataPasilloTienda(dataTiendas);
             data.PopulateDataPasilloObjetos(dataPasilloObjetos);
+            data.m_NameAndWorld = new NameAndWorld(GameManager.Instance.PlayerName, LevelManager.Instance.MundoActualJugador);
             
-            string jsonData = JsonUtility.ToJson(data);
 
             try
             {
@@ -33,10 +33,11 @@ namespace SaveLoadGame
 
                 for(int i = 0; i < dataLectura.m_SavedGames.Length; i++)
                 {
-                    dataLectura.m_SavedGames[i] = data;
-                    dataLectura.m_SavedGames[i].m_NameAndWorld.m_Name = GameManager.Instance.PlayerName;
+                    if (dataLectura.m_SavedGames[i].m_NameAndWorld.m_Name == GameManager.Instance.PlayerName)
+                        dataLectura.m_SavedGames[i] = data;
                 }
 
+                string jsonData = JsonUtility.ToJson(dataLectura);
                 File.WriteAllText(GameManager.Instance.RutaCompleta, jsonData);
             }
             catch (Exception e)
@@ -48,9 +49,19 @@ namespace SaveLoadGame
         {
             try
             {
-                string jsonData = File.ReadAllText(GameManager.Instance.RutaCompleta);
+                print("Hola?");
                 SaveGame data = new SaveGame();
-                JsonUtility.FromJsonOverwrite(jsonData, data);
+                string jsonDataLectura = File.ReadAllText(GameManager.Instance.RutaCompleta);
+                SaveAllGames dataLectura = new SaveAllGames();
+                JsonUtility.FromJsonOverwrite(jsonDataLectura, dataLectura);
+
+                for (int i = 0; i < dataLectura.m_SavedGames.Length; i++)
+                {
+                    if (dataLectura.m_SavedGames[i].m_NameAndWorld.m_Name == GameManager.Instance.PlayerName)
+                        data = dataLectura.m_SavedGames[i];
+                }
+                
+                JsonUtility.FromJsonOverwrite(jsonDataLectura, data);
 
                 FindObjectOfType<GeneracionSalas.GeneracionSalasMatriz>().Load(data.m_Mapa);
 

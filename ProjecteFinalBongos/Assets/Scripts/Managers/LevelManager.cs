@@ -35,14 +35,11 @@ public class LevelManager : MonoBehaviour
     private GUIBossManager m_GUIBossManager;
     public GUIBossManager GUIBossManager => m_GUIBossManager;
 
-    public enum MundoActual
-    {
-        MUNDO_UNO, MUNDO_DOS, MUNDO_TRES
-    };
     [Header("Variables Mundo")]
     [SerializeField]
-    private MundoActual m_MundoActual;
-    public MundoActual MundoActualJugador => m_MundoActual;
+    private MundoEnum m_MundoActual;
+    public MundoEnum MundoActualJugador => m_MundoActual;
+    private int m_BossesMuertos;
 
     [SerializeField] private Pool m_SplashPool;
     public Pool _SplashPool => m_SplashPool;
@@ -86,6 +83,12 @@ public class LevelManager : MonoBehaviour
         TodosLosBossesDisponibles();
         m_TiendaPanel.SetActive(false);
         idPiccolo = 0;
+        m_BossesMuertos = 0;
+        if (!GameManager.Instance.NuevaPartida)
+        {
+            print("Cargando partida");
+            m_CargarPartidaEvent.Raise();
+        }
     }
 
     public void OpenShop(int id)
@@ -219,6 +222,15 @@ public class LevelManager : MonoBehaviour
             }
         }
         return objetitosParaSalaObjetos;
+    }
+
+    public void BossMuerto()
+    {
+        m_BossesMuertos++;
+        if(m_BossesMuertos == 7)
+        {
+            GameManager.Instance.AvanzarMundo(m_MundoActual);
+        }
     }
 
     [Serializable]

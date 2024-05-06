@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Variables Ficheros")]
     public Action OnPlayerDeleted;
+    public Action onGetPlayers;
     private string m_PlayerName;
     public string PlayerName => m_PlayerName;
     private const string playerAndWorldFile = "JugadoresGuardados.txt";
@@ -30,8 +31,8 @@ public class GameManager : MonoBehaviour
     private string rutaCompleta;
     public string RutaCompleta => rutaCompleta;
     [SerializeField]
-    private List<SaveGame> m_PlayersAndTheirWorldsList = new();
-    public List<SaveGame> PlayersAndTheirWorldsList => m_PlayersAndTheirWorldsList;
+    private List<SaveGame.NameAndWorld> m_PlayersAndTheirWorldsList = new();
+    public List<SaveGame.NameAndWorld> PlayersAndTheirWorldsList => m_PlayersAndTheirWorldsList;
 
     [Header("Variables Mundo Generado")]
     private bool m_NuevaPartida;
@@ -75,6 +76,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void AvanzarMundo(MundoEnum mundoEnum)
+    {
+        if(mundoEnum == MundoEnum.MUNDO_UNO)
+        {
+            SceneManager.LoadScene("Mundo2");
+        }
+        else
+        {
+            print("Te lo pasaste bro!");
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -97,35 +110,49 @@ public class GameManager : MonoBehaviour
         {
             // Crea la carpeta si no existe
             Directory.CreateDirectory(rutaCompletaHastaCarpeta);
-            File.WriteAllText(rutaCompleta, "{}");
-            string jsonData = File.ReadAllText(rutaCompleta);
-            SaveAllGames playerAndWorld = new();
-            JsonUtility.FromJsonOverwrite(jsonData, playerAndWorld);
-            m_PlayersAndTheirWorldsList ??= playerAndWorld.m_SavedGames.ToList();
+            File.WriteAllText(rutaCompleta, "");
+            SaveAllGames playerAndWorld = GetPlayersFromFile();
+            if (playerAndWorld.m_SavedGames != null)
+            {
+                foreach (SaveGame partida in playerAndWorld.m_SavedGames)
+                {
+                    m_PlayersAndTheirWorldsList.Add(partida.m_NameAndWorld);
+                }
+            }
             Debug.Log("Carpeta creada en: " + rutaCompletaHastaCarpeta);
         }
         else
         {
             if (!File.Exists(rutaCompleta))
-                File.WriteAllText(rutaCompleta, "{}");
+                File.WriteAllText(rutaCompleta, "");
 
-
-            string jsonData = File.ReadAllText(rutaCompleta);
-            SaveAllGames playerAndWorld = new();
-            JsonUtility.FromJsonOverwrite(jsonData, playerAndWorld);
-            if(playerAndWorld.m_SavedGames != null)
+            SaveAllGames playerAndWorld = GetPlayersFromFile();
+            if (playerAndWorld.m_SavedGames != null)
             {
-                m_PlayersAndTheirWorldsList = playerAndWorld.m_SavedGames.ToList();
-                Debug.Log("La carpeta ya existe en: " + rutaCompletaHastaCarpeta);
+                foreach (SaveGame partida in playerAndWorld.m_SavedGames)
+                {
+                    m_PlayersAndTheirWorldsList.Add(partida.m_NameAndWorld);
+                }
             }
+            onGetPlayers?.Invoke();
+            Debug.Log("La carpeta ya existe en: " + rutaCompletaHastaCarpeta);
         }
+    }
+
+    private SaveAllGames GetPlayersFromFile()
+    {
+        string jsonData = File.ReadAllText(rutaCompleta);
+        SaveAllGames playerAndWorld = new();
+        JsonUtility.FromJsonOverwrite(jsonData, playerAndWorld);
+        //print(playerAndWorld.m_SavedGames[0].m_NameAndWorld.m_Name);
+        return playerAndWorld;
     }
 
     public bool PlayerExists(string _PlayerName)
     {
-        foreach (SaveGame playerAndWorld in m_PlayersAndTheirWorldsList)
+        foreach (SaveGame.NameAndWorld playerAndWorld in m_PlayersAndTheirWorldsList)
         {
-            if (playerAndWorld.m_NameAndWorld.m_Name == _PlayerName)
+            if (playerAndWorld.m_Name == _PlayerName)
                 return true;
         }
         return false;
@@ -135,17 +162,34 @@ public class GameManager : MonoBehaviour
     {
 
         // Combinar la ruta de la carpeta con el nombre del archivo
-        SaveAllGames playerAndWorld = new();
+        SaveAllGames saveAllGames = new SaveAllGames();
         SaveGame saveGame = new SaveGame();
         saveGame.m_NameAndWorld = new SaveGame.NameAndWorld(_PlayerName, MundoEnum.MUNDO_UNO);
-        m_PlayersAndTheirWorldsList.Add(saveGame);
-        playerAndWorld.m_SavedGames = m_PlayersAndTheirWorldsList.ToArray();
 
-        string jsonData = JsonUtility.ToJson(playerAndWorld);
 
-        print(jsonData);
+        m_PlayersAndTheirWorldsList.Add(saveGame.m_NameAndWorld);
+        if(GetPlayersFromFile().m_SavedGames == null)
+        {
+            List<SaveGame> playerAndWorld = new List<SaveGame> { saveGame };
+            saveAllGames.m_SavedGames = playerAndWorld.ToArray();
+            string jsonData = JsonUtility.ToJson(saveAllGames);
 
-        File.WriteAllText(rutaCompleta, jsonData);
+            print(jsonData);
+
+            File.WriteAllText(rutaCompleta, jsonData);
+        }
+        else
+        {
+            List<SaveGame> playerAndWorld = GetPlayersFromFile().m_SavedGames.ToList();
+            
+            playerAndWorld.Add(saveGame);
+            saveAllGames.m_SavedGames = playerAndWorld.ToArray();
+            string jsonData = JsonUtility.ToJson(saveAllGames);
+
+            print(jsonData);
+
+            File.WriteAllText(rutaCompleta, jsonData);
+        }
     }
 
     public void CreateNewGameOfPlayer(string _PlayerName, string mundo)
@@ -164,18 +208,20 @@ public class GameManager : MonoBehaviour
     public void DeletePlayerGame(string _PlayerName)
     {
         int i = 0;
-        foreach(SaveGame jugador in m_PlayersAndTheirWorldsList)
+        foreach(SaveGame.NameAndWorld jugador in m_PlayersAndTheirWorldsList)
         {
-            if (jugador.m_NameAndWorld.m_Name == _PlayerName)
+            if (jugador.m_Name == _PlayerName)
             {
                 break;
             }
             i++;
         }
-        print($"Borrando la partida del jugador: {m_PlayersAndTheirWorldsList[i].m_NameAndWorld.m_Name}");
+        print($"Borrando la partida del jugador: {m_PlayersAndTheirWorldsList[i].m_Name}");
         m_PlayersAndTheirWorldsList.RemoveAt(i);
+        List<SaveGame> playerAndWorldList = GetPlayersFromFile().m_SavedGames.ToList();
+        playerAndWorldList.RemoveAt(i);
         SaveAllGames playerAndWorld = new();
-        playerAndWorld.m_SavedGames = m_PlayersAndTheirWorldsList.ToArray();
+        playerAndWorld.m_SavedGames = playerAndWorldList.ToArray();
 
         string jsonData = JsonUtility.ToJson(playerAndWorld);
 

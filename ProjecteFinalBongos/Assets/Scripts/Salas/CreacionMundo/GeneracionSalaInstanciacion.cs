@@ -67,7 +67,8 @@ namespace GeneracionSalas
             GenPasillos();
             PintarTilemap();
             onMapaFinalized?.Invoke();
-            LevelManager.Instance.GuardarPartida();
+            if(GameManager.Instance.NuevaPartida)
+                LevelManager.Instance.GuardarPartida();
         }
 
         private void GenPasillos()

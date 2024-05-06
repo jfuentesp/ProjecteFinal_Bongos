@@ -111,6 +111,7 @@ public class EolosBossBehaviour : BossBehaviour
         {
             m_IsAlive = false;
             OnBossDeath?.Invoke();
+            m_BossMuertoEvent.Raise();
             Destroy(gameObject);
         }
     }
