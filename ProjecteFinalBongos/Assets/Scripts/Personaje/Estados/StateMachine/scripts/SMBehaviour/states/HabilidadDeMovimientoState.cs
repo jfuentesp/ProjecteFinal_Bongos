@@ -22,6 +22,7 @@ public class HabilidadDeMovimientoState : SMState
     private Vector2 m_RecallPosition = Vector2.zero;
     [SerializeField] private GameObject m_RecallZone;
     private GameObject RecallZone;
+    [SerializeField] private GameObject m_Clon;
 
     private new void Awake()
     {
@@ -165,6 +166,24 @@ public class HabilidadDeMovimientoState : SMState
                     Destroy(RecallZone.gameObject);
                     m_RecallPosition = Vector2.zero;
                     Exit(); 
+                }
+                break;
+            case "Clon":
+                if (m_RecallPosition == Vector2.zero)
+                {
+                    RecallZone = Instantiate(m_RecallZone);
+                    RecallZone.transform.position = transform.position;
+                    m_RecallPosition = transform.position;
+                    Exit();
+                }
+                else
+                {
+                    invencibleTitleCard.Raise();
+                    coolDownMovement.Raise();
+                    transform.position = m_RecallPosition;
+                    Destroy(RecallZone.gameObject);
+                    m_RecallPosition = Vector2.zero;
+                    Exit();
                 }
                 break;
 
