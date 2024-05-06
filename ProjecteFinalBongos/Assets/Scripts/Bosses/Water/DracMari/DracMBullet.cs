@@ -48,7 +48,7 @@ public class DracMBullet : Bullet
                 }
                 else
                 {
-                    collision.GetComponent<PJSMB>().recibirDaño(m_damage);
+                    collision.GetComponent<PJSMB>().recibirDamage(m_damage);
                     GameObject vaporCrash = m_pool.GetElement();
                     vaporCrash.transform.position = transform.position;
                     vaporCrash.SetActive(true);

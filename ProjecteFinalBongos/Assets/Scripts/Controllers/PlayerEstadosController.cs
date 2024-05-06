@@ -140,7 +140,7 @@ public class PlayerEstadosController : MonoBehaviour
         {
             yield return new WaitForSeconds(m_Stats.m_playerTimes.m_PoisonTime);
             poisonDamage = (m_HealthController.HP * m_Stats.getModifier("Poison")) / 100;
-            m_PJ.recibirDaño(poisonDamage);
+            m_PJ.recibirDamage(poisonDamage);
             poisonCount--;
         }
         Poison = false;
