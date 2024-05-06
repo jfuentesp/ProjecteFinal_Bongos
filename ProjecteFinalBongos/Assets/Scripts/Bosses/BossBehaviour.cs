@@ -77,6 +77,8 @@ public class BossBehaviour : MonoBehaviour
 
     protected NavMeshAgent m_NavMeshAgent;
 
+    [SerializeField] private LayerMask m_layerMask;
+
     protected void Awake()
     {
         m_StateMachine = GetComponent<FiniteStateMachine>();
@@ -175,4 +177,14 @@ public class BossBehaviour : MonoBehaviour
             m_HealthController.Damage(Daño);
         }
     }
+
+    public void ReTarget()
+    {
+        RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, 50, transform.position, 50, m_LayersToCheck);
+        if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
+        {
+            m_Target = hitInfo.collider.gameObject.transform;
+        }
+    }
+
 }
