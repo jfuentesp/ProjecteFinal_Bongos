@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3483066483069717437}
   - component: {fileID: 6687272222611885241}
   - component: {fileID: 1796825339172437790}
+  - component: {fileID: 1245021939120538817}
   m_Layer: 8
   m_Name: Tentacle
   m_TagString: Untagged
@@ -158,6 +159,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1245021939120538817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098182744709005789}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e40a89b395aa0724d83e2fb414c4a5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 1
 --- !u!1 &3617482799438960166
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +369,7 @@ GameObject:
   - component: {fileID: 8960559691613222281}
   - component: {fileID: 8475113299944557031}
   - component: {fileID: 4844373721741066641}
+  - component: {fileID: 382252330121775507}
   m_Layer: 9
   m_Name: Kraken
   m_TagString: Untagged
@@ -615,6 +630,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   m_tentacle: {fileID: 7718859505142421878, guid: aaf4e78d9df55b4448dcab306b3282ef, type: 3}
+  paralizingTenacleCount: 0
 --- !u!114 &7988971145222638730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,4 +801,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SpinAnimation: Spin
   trapped: 0
-  tentacle: {fileID: 2098182744709005789}
+--- !u!114 &382252330121775507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4831098368659947342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f470e7bf1375c74c88af2e56853b75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpinAnimation: 
+  m_tentacle: {fileID: 2098182744709005789}

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class HabilidadDeMovimientoState : SMState
 {
+    [SerializeField]
+    private GameEvent coolDownMovement;
     private PJSMB m_PJ;
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
@@ -17,6 +19,10 @@ public class HabilidadDeMovimientoState : SMState
     [SerializeField]
     private EstadoEvent changeEstado;
     [SerializeField] private GameEvent invencibleTitleCard;
+    private Vector2 m_RecallPosition = Vector2.zero;
+    [SerializeField] private GameObject m_RecallZone;
+    private GameObject RecallZone;
+
     private new void Awake()
     {
         base.Awake();
@@ -40,6 +46,7 @@ public class HabilidadDeMovimientoState : SMState
         switch (m_habilidad)
         {
             case "Dash":
+                coolDownMovement.Raise();
                 if (m_PJ.MovementAction.ReadValue<Vector2>() == Vector2.zero)
                 {
                     if (m_PJ.direccion == 0)
@@ -77,6 +84,7 @@ public class HabilidadDeMovimientoState : SMState
                 Exit();
                 break;
                 case "InvincibleDash":
+                coolDownMovement.Raise();
                 invencibleTitleCard.Raise();
                 Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerHurtBox"), LayerMask.NameToLayer("BossHurtBox"), true);
                 Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerHurtBox"), LayerMask.NameToLayer("BossHitBox"), true);
@@ -120,6 +128,7 @@ public class HabilidadDeMovimientoState : SMState
                 Exit();
                 break;
             case "SlowDown":
+                coolDownMovement.Raise();
                 if (m_PJ.direccion == 0)
                 {
                     m_Animator.Play("Dash");
@@ -139,6 +148,24 @@ public class HabilidadDeMovimientoState : SMState
             case "Fast":
                 changeEstado.Raise(EstadosAlterados.Peus_Lleugers);
                 Exit(); 
+                break;
+            case "Recall":
+                if (m_RecallPosition == Vector2.zero)
+                {
+                    RecallZone = Instantiate(m_RecallZone);
+                    RecallZone.transform.position = transform.position;
+                    m_RecallPosition = transform.position;
+                    Exit();
+                }
+                else
+                {
+                    invencibleTitleCard.Raise();
+                    coolDownMovement.Raise();
+                    transform.position = m_RecallPosition;
+                    Destroy(RecallZone.gameObject);
+                    m_RecallPosition = Vector2.zero;
+                    Exit(); 
+                }
                 break;
 
 

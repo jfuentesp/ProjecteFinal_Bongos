@@ -29,10 +29,10 @@ public class KrakenMergeState : SMState
     public override void InitState()
     {
         base.InitState();
+        m_Boss.SetBusy(true);
         m_Rigidbody.velocity = Vector3.zero;
         m_Animator.Play(m_MergeAnimationName);
-        print("aaMerge");
-        m_Boss.SetBusy(true);
+      
     }
 
     public void FinishMerge() {
@@ -42,5 +42,6 @@ public class KrakenMergeState : SMState
     public override void ExitState()
     {
         base.ExitState();
+        m_Animator.Play("idle");
     }
 }

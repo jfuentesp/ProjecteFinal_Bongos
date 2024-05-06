@@ -11,6 +11,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(SMBChaseState))]
 [RequireComponent(typeof(KrakenRangedAttackState))]
 [RequireComponent(typeof(KrakenSpinState))]
+[RequireComponent(typeof(KrakenParalizingAttack))]
 [RequireComponent(typeof(KrakenSetSubMergeState))]
 [RequireComponent(typeof(KrakenMergeState))]
 [RequireComponent(typeof(SubMergeState))]
@@ -19,8 +20,7 @@ public class KrakenBossBehaviour : BossBehaviour
 {
     private Coroutine m_PlayerDetectionCoroutine;
    [SerializeField] private GameObject m_tentacle;
-    private bool m_submerge;
-    private bool canSubmerge = true;
+   [SerializeField] private int paralizingTenacleCount = 0;
 
     private new void Awake()
     {
@@ -30,18 +30,23 @@ public class KrakenBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        GetComponent<KrakenParalizingAttack>().onAttackStopped = (GameObject obj) =>
+        {
+            StartCoroutine(WaitPTentacleCoroutine());
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
         GetComponent<KrakenRangedAttackState>().onAttackStopped = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SubMergeState>();
         };
         GetComponent<KrakenSpinState>().onAttackStopped = (GameObject obj) =>
         {
-            m_Animator.Play("idle");
+          
             m_StateMachine.ChangeState<SMBChaseState>();
         };
         GetComponent<KrakenMergeState>().OnMergeFinish = (GameObject obj) =>
         {
-            m_Animator.Play("idle");
+          
             m_StateMachine.ChangeState<SMBChaseState>();
         };
         GetComponent<SMBParalized>().OnStopParalized = () =>
@@ -62,9 +67,15 @@ public class KrakenBossBehaviour : BossBehaviour
         StartCoroutine(SpawnTentacles());
         
     }
+    private IEnumerator WaitPTentacleCoroutine()
+    {
+        while (paralizingTenacleCount > 0) { 
+            yield return new WaitForSeconds(1f);
+            paralizingTenacleCount--;
+        }
+    }
 
-  
-    private IEnumerator PlayerDetectionCoroutine()
+        private IEnumerator PlayerDetectionCoroutine()
     {
         while (m_IsAlive)
         {
@@ -114,8 +125,9 @@ public class KrakenBossBehaviour : BossBehaviour
             case < 0.3f:
                 m_StateMachine.ChangeState<KrakenRangedAttackState>();
                 break;
-            case > 0.6f:
+            case > 0.8f:
                     m_StateMachine.ChangeState<KrakenSpinState>();
+                
                 break;
 
         }

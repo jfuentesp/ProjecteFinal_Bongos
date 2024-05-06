@@ -146,7 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23eab01753b25e743ab28eadd5379106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coolDownMovement: {fileID: 11400000, guid: 3ca8744fe37c9af4a972919409de2f35, type: 2}
 --- !u!114 &6747336941785001189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e581e477fbe8a346bd5ed0a1a8a78c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coolDownMovement: {fileID: 11400000, guid: 3ca8744fe37c9af4a972919409de2f35, type: 2}
 --- !u!114 &3685589495410041527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,9 +529,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39dc3653a1c7ab4380ae1a104316ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coolDownMovement: {fileID: 11400000, guid: 3ca8744fe37c9af4a972919409de2f35, type: 2}
   m_SlowDownZone: {fileID: 8163108934130072781, guid: da726738c5a0a3c49821c995ff98cb4e, type: 3}
   changeEstado: {fileID: 11400000, guid: 7dee44011633db24cb52c6d3b774ba0e, type: 2}
   invencibleTitleCard: {fileID: 11400000, guid: 480f573a25fba04468fb2ea19311cf25, type: 2}
+  m_RecallZone: {fileID: 1807532598847481375, guid: 59cc10fba96409f48b8eb3dffd210d30, type: 3}
 --- !u!58 &5045137239713239704
 CircleCollider2D:
   m_ObjectHideFlags: 0
