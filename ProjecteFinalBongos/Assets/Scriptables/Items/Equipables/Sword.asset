@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc2fcd2d3052d045a780a9d850afe6b, type: 3}
+  m_Name: Sword
+  m_EditorClassIdentifier: 
+  m_Id: 100
+  m_ItemName: Espada Basica
+  m_Description: Es una espada normal y corriente, no tiene ningun efecto especial.
+  m_Sprite: {fileID: 0}
+  m_ShopPrice: 0
+  m_Estado: 12
+  propiedades: 
+  attack: 0
+  speed: 0
+  speedAttack: 0
+  maxRatio: 0
+  minRatio: 0
+  minPosibilty: 0
+  maxPosibilty: 0
+  lifeMin: 0
+  lifeMax: 0
