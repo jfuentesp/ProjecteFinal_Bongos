@@ -36,8 +36,14 @@ namespace multilanguaje
                     m_IdiomaActual = multilanguage.m_Idiomas[i];
                 }
             }
-            Consumable consumable = m_ConsumablesList.GetItemByID("0");
-            consumable.itemName = m_IdiomaActual.consumiblesDatos[0].name;
+
+            for(int i = 0; i < m_IdiomaActual.consumiblesDatos.Length; i++)
+            {
+                Consumable consumableScriptable = m_ConsumablesList.GetItemByID(m_IdiomaActual.consumiblesDatos[i].id);
+                consumableScriptable.itemName = m_IdiomaActual.consumiblesDatos[i].name;
+                consumableScriptable.description = m_IdiomaActual.consumiblesDatos[i].descripcion;
+            }
+
             cambioIdiomaEvent.Raise();
 
             //GameManager.Instance.IdiomaJuego;

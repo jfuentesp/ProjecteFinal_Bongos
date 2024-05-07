@@ -11,6 +11,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Testing")]
+    [SerializeField] private bool m_Testing;
+    public bool Testing => m_Testing;
+
     [Header("Variables GameManager")]
     private static GameManager m_Instance;
     public static GameManager Instance => m_Instance;
@@ -60,10 +64,19 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        m_LanguageManager = GetComponent<MultiLanguageManager>();
-        rutaCompletaHastaCarpeta = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame");
-        rutaCompleta = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame", playerAndWorldFile);
-        GetPlayersAndTheirWorld();
+        if (!m_Testing)
+        {
+            m_LanguageManager = GetComponent<MultiLanguageManager>();
+            rutaCompletaHastaCarpeta = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame");
+            rutaCompleta = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame", playerAndWorldFile);
+            GetPlayersAndTheirWorld();
+        }
+        else
+        {
+            m_LanguageManager = GetComponent<MultiLanguageManager>();
+            m_PlayerInGame = Instantiate(m_PlayerPrefab);
+            m_PlayerInGame.transform.position = Vector3.zero;
+        }
     }
     void OnEnable()
     {
@@ -114,18 +127,21 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.G) && !m_MundoGenerado)
+        if (m_Testing)
         {
-            m_NuevaPartida = true;
-            m_MundoGenerado = true;
-            LevelManager.Instance.Init();
+            if (Input.GetKeyDown(KeyCode.G) && !m_MundoGenerado)
+            {
+                m_NuevaPartida = true;
+                m_MundoGenerado = true;
+                LevelManager.Instance.Init();
+            }
+            if (Input.GetKeyDown(KeyCode.C) && !m_MundoGenerado)
+            {
+                m_NuevaPartida = false;
+                m_MundoGenerado = true;
+                LevelManager.Instance.Init();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.C) && !m_MundoGenerado)
-        {
-            m_NuevaPartida = false;
-            m_MundoGenerado = true;
-            LevelManager.Instance.Init();
-        }*/
     }
     private void GetPlayersAndTheirWorld()
     {

@@ -29,9 +29,42 @@ namespace GeneracionSalas
         }
         private void Start()
         {
-            if (GameManager.Instance.NuevaPartida)
+            if (!GameManager.Instance.Testing)
             {
-                try
+                if (GameManager.Instance.NuevaPartida)
+                {
+                    try
+                    {
+                        m_ListaSalasPadre.Clear();
+                        m_ListaSalasPadreConHijos.Clear();
+                        m_ListaPasillosConSalas.Clear();
+                        numSala = numSalaMaxima;
+                        RellenarMatriz();
+                        GenerarMapa(50, 50, 0, new ListaSalas(50, 50));
+                        matrix[m_ListaSalasPadre[m_ListaSalasPadre.Count - 1].x + 50, m_ListaSalasPadre[m_ListaSalasPadre.Count - 1].y + 50] = 2;
+                        if (numSala != 0)
+                            Start();
+                        else
+                        {
+                            m_GeneracionSalasInstanciacion.InstanciarElMundo(matrix, m_ListaSalasPadreConHijos, m_ListaPasillosConSalas);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        Start();
+                    }
+                }
+            }
+        }
+
+        public void Init()
+        {
+            print("INIIIT");
+            int i = 0;
+            try
+            {
+                i++;
+                if (i < 10)
                 {
                     m_ListaSalasPadre.Clear();
                     m_ListaSalasPadreConHijos.Clear();
@@ -41,16 +74,17 @@ namespace GeneracionSalas
                     GenerarMapa(50, 50, 0, new ListaSalas(50, 50));
                     matrix[m_ListaSalasPadre[m_ListaSalasPadre.Count - 1].x + 50, m_ListaSalasPadre[m_ListaSalasPadre.Count - 1].y + 50] = 2;
                     if (numSala != 0)
-                        Start();
+                        Init();
                     else
                     {
                         m_GeneracionSalasInstanciacion.InstanciarElMundo(matrix, m_ListaSalasPadreConHijos, m_ListaPasillosConSalas);
                     }
                 }
-                catch (Exception)
-                {
-                    Start();
-                }
+                print("FIN del INIIIT");
+            }
+            catch (Exception)
+            {
+                Init();
             }
         }
 
@@ -239,7 +273,7 @@ namespace GeneracionSalas
             }
             return false;
         }
-        
+
         public SalasData Save()
         {
             SalasData salasMapaData = new SalasData();
