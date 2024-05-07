@@ -12,6 +12,7 @@ public class FiniteStateMachine : MonoBehaviour
 
     IState m_CurrentState = null;
 
+    public IState CurrentState => m_CurrentState;
     private void Awake()
     {
         m_States = GetComponents<IState>();

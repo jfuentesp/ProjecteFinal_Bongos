@@ -335,7 +335,11 @@ MonoBehaviour:
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1152
+  m_BossMuertoEvent: {fileID: 0}
+  m_layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   m_TimeBetwwenAttacksSecondPhase: 2
 --- !u!61 &-5362671443315938704
 BoxCollider2D:

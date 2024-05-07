@@ -12,6 +12,7 @@ public class ClonBehaviour : MonoBehaviour
     [SerializeField] private LayerMask m_LayerMask;
     [SerializeField] private float m_DirectionTime;
     [SerializeField] private int Steps = 5;
+    [SerializeField] private GameEvent ClonEvent;
     private void Awake()
     {
         m_rb = GetComponent<Rigidbody2D>();
@@ -20,6 +21,7 @@ public class ClonBehaviour : MonoBehaviour
 
     public void Init(Vector2 direction)
     {
+        ClonEvent.Raise();
         if (direction == Vector2.up) {
             m_Animator.Play("walkUp");
         }
@@ -53,7 +55,7 @@ public class ClonBehaviour : MonoBehaviour
     private void RandomWalk()
     {
         Vector2 direccion = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direccion, 5, m_LayerMask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direccion, 7, m_LayerMask);
         if (hit.collider != null)
         {
             RandomWalk();
@@ -100,6 +102,7 @@ public class ClonBehaviour : MonoBehaviour
     }
 
     public void Finish() {
+        ClonEvent.Raise();
         StopAllCoroutines();
         Destroy(gameObject);
     }
@@ -109,5 +112,10 @@ public class ClonBehaviour : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("BossHitBox")) {
             Finish();
         }
+    }
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
     }
 }

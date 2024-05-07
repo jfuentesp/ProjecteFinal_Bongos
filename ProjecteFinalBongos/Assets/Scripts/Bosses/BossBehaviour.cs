@@ -177,14 +177,20 @@ public class BossBehaviour : MonoBehaviour
             m_HealthController.Damage(Daño);
         }
     }
-
-    public void ReTarget()
+    
+    public  void ReTarget()
     {
-        RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, 50, transform.position, 50, m_LayersToCheck);
-        if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
-        {
-            m_Target = hitInfo.collider.gameObject.transform;
+        if (!typeof(SMBIdleState).IsInstanceOfType(m_StateMachine.CurrentState)) {
+            print("aqaa");
+            RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, 50, transform.position, 50, m_LayersToCheck);
+            if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
+            {
+                m_Target = hitInfo.collider.gameObject.transform;
+  
+               
+            }
         }
+    
     }
 
 }
