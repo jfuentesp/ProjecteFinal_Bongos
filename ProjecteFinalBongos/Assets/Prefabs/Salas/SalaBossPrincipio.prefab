@@ -45,19 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a2742fcb3f36ba4da60e304ccc85c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JefeFinal: {fileID: 0}
-  m_ListaSalasPadreHijas:
-    m_HabitacionPadre:
-      x: 0
-      y: 0
-    m_HabitacionesHijas: []
-  m_Target: {fileID: 0}
   m_BoxCastSize: {x: 16, y: 16}
   m_BoxCastRange: 16
   m_BoxLayerMask:
     serializedVersion: 2
     m_Bits: 128
   m_TimeBetweenBoxCast: 0.4
+  m_JugadorEnSalaEvent: {fileID: 11400000, guid: 1e46ef1f1b1268343a2fd391f09d0a49, type: 2}
 --- !u!1 &5920626219881764530
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +127,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.13679248, b: 0.83080715, a: 0.33333334}
+  m_Color: {r: 1, g: 0.13679248, b: 0.83080715, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

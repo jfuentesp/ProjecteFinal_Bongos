@@ -57,6 +57,7 @@ public class SMBChaseState : SMState
 
     private void Update()
     {
+      
         //To face the target
         if (m_Target != null)
         {

@@ -155,6 +155,8 @@ GameObject:
   - component: {fileID: 7097273112155195239}
   - component: {fileID: 2905931466895042818}
   - component: {fileID: 7186442222533686356}
+  - component: {fileID: 743677561731547254}
+  - component: {fileID: 1178398290571427504}
   m_Layer: 9
   m_Name: AgullesDeCoral
   m_TagString: Untagged
@@ -445,7 +447,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_RangeCoralCircleCast: 0.5
   m_RangeForCoralSummoning: 10
-  m_HealingReduction: 1
+  m_HealingReduction: 0.4
 --- !u!61 &-2640234265907651043
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -536,3 +538,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AnimationName: Idle
   m_ChargeSpeed: 10
+--- !u!114 &743677561731547254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6867675123589539445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cca67139dff3dd488cb7cce9fe6c87c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: {fileID: 0}
+--- !u!114 &1178398290571427504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6867675123589539445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event: {fileID: 0}
+  times: {fileID: 0}

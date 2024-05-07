@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: -7460394262136579477}
   - component: {fileID: -7477882118727333508}
   - component: {fileID: -153499668933461521}
+  - component: {fileID: 6484961490468896115}
   m_Layer: 8
   m_Name: Bullet
   m_TagString: Untagged
@@ -281,3 +282,19 @@ MonoBehaviour:
   m_Speed: 10
   m_pool: {fileID: 0}
   m_damage: 10
+--- !u!114 &6484961490468896115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7332060548842877283}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17191588d7e11ac42a2a80e1ba6fd2b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TimeUntilDestroyed: 0
+  m_SizeRadius: 1
+  m_Speed: 10
+  TintaEvent: {fileID: 11400000, guid: e908a15e8547afd43977d43ce24f98a5, type: 2}

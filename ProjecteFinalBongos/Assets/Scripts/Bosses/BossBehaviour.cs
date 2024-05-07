@@ -68,6 +68,9 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField]
     protected LayerMask m_LayersToCheck;
 
+    [Header("Event when boss dies")]
+    [SerializeField] protected GameEvent m_BossMuertoEvent;
+
     //en el meu estat--
     public delegate void OnPlayerEnter(GameObject obj);
     private OnPlayerEnter onPlayerEnter;

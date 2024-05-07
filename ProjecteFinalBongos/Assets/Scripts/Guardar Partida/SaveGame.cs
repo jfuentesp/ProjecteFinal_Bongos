@@ -10,6 +10,12 @@ using static SaveLoadGame.SaveGame;
 namespace SaveLoadGame
 {
     [Serializable]
+    public class SaveAllGames
+    {
+        public SaveGame[] m_SavedGames;
+    }
+
+    [Serializable]
     public class SaveGame
     {
         [Serializable]
@@ -69,6 +75,18 @@ namespace SaveLoadGame
                 m_SalasHijas = _SalasHijas;
             }
         }
+        [Serializable]
+        public struct NameAndWorld
+        {
+            public string m_Name;
+            public MundoEnum m_Mundo;
+
+            public NameAndWorld(string _Name, MundoEnum _Mundo)
+            {
+                m_Name = _Name;
+                m_Mundo = _Mundo;
+            }
+        }
 
 
         //Variables de guardado
@@ -76,6 +94,7 @@ namespace SaveLoadGame
         public SalaBossData[] m_Bosses;
         public PasilloTiendaData[] m_PiccolosChad;
         public PasilloObjetosData[] m_PasilloObjetos;
+        public NameAndWorld m_NameAndWorld;
 
 
         //Populates
