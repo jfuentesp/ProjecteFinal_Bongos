@@ -1223,7 +1223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &664410681
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2582,6 +2582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acab45200c8688f4da9d846f0908122b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Testing: 0
   m_PlayerPrefab: {fileID: 1922464185457733035, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
   m_PlayerName: 
   m_PlayersAndTheirWorldsList: []
