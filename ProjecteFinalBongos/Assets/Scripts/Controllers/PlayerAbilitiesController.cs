@@ -29,7 +29,7 @@ public class PlayerAbilitiesController : MonoBehaviour
 
     private void initMovementAbility()
     {
-        m_MovementActionsDisponibles.Add("Recall");
+        m_MovementActionsDisponibles.Add("Clon");
         m_actualMovement = m_MovementActionsDisponibles[0];
 
     }

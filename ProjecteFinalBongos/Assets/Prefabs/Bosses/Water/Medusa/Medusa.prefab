@@ -339,7 +339,11 @@ MonoBehaviour:
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1152
+  m_BossMuertoEvent: {fileID: 0}
+  m_layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   m_RangoHuirPerseguir: 7
   m_Medusita: {fileID: 3546253546742326696, guid: ddecd668be39c524f8220b194d91ab71, type: 3}
   m_NumeroMinimoMedusas: 6

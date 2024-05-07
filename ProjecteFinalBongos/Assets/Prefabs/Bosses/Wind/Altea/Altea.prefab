@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 4648036377313968554}
   - component: {fileID: 5298570761958592134}
   - component: {fileID: 7514688383603143232}
+  - component: {fileID: 709367431668354571}
   m_Layer: 9
   m_Name: Altea
   m_TagString: Untagged
@@ -294,8 +295,11 @@ MonoBehaviour:
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1152
   m_BossMuertoEvent: {fileID: 11400000, guid: a68c2e2d0411f4242b3bfb77d6d424f3, type: 2}
+  m_layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   m_HuevosLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -402,3 +406,31 @@ MonoBehaviour:
   m_AttackTime: 1
   m_Strength: 0
   m_Defense: 0
+--- !u!114 &709367431668354571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425193616162931063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0640d428ac906c2459218b66878fd018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: bb20dec7d7e3e0a46b3f3eafed4e37a8, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6424155079669158476}
+        m_TargetAssemblyTypeName: BossBehaviour, Assembly-CSharp
+        m_MethodName: ReTarget
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
