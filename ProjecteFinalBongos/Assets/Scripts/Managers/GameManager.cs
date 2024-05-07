@@ -75,6 +75,11 @@ public class GameManager : MonoBehaviour
         m_PlayerName = _NamePlayer;
     }
 
+    public void ChangeLanguage(IdiomaEnum idioma)
+    {
+        m_IdiomaJuego = idioma;
+        m_LanguageManager.getIdioma();  
+    }
     private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
     {
         if(scene.name == "Mundo1")

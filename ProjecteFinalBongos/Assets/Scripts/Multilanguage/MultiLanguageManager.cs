@@ -13,6 +13,7 @@ namespace multilanguaje
         private string rutaCompleta;
         private string rutaCompletaHastaCarpeta;
         [SerializeField] private Multilanguage.Idioma m_IdiomaActual;
+        [SerializeField] private GameEvent cambioIdiomaEvent;
 
 
         void Start()
@@ -21,7 +22,7 @@ namespace multilanguaje
             getIdioma();
         }
 
-        private void getIdioma()
+        public void getIdioma()
         {
             string jsonDataLectura = File.ReadAllText(rutaCompleta);
             Multilanguage multilanguage = new Multilanguage();
@@ -34,6 +35,8 @@ namespace multilanguaje
                     m_IdiomaActual = multilanguage.m_Idiomas[i];
                 }
             }
+            
+            cambioIdiomaEvent.Raise();
 
             //GameManager.Instance.IdiomaJuego;
             /*Multilanguage multilanguage = new Multilanguage();

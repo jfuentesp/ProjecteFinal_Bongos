@@ -44,6 +44,11 @@ public class PiccoloChadScript : MonoBehaviour
     }
     private void Start()
     {
+        GetFrases();
+    }
+
+    public void GetFrases()
+    {
         m_PiccoloChanFrases = GameManager.Instance.LanguageManager.GetPiccoloChadFrases();
         m_DialogueLines = m_PiccoloChanFrases.frasesIniciales;
         m_FinalLine = m_PiccoloChanFrases.frasesFinales;
