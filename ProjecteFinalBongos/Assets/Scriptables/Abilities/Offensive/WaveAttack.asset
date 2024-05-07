@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce562ca1e324674469e81bc5db144a65, type: 3}
+  m_Name: WaveAttack
+  m_EditorClassIdentifier: 
+  m_AbilityId: 1
+  m_AbilityName: "Arco S\xF3nico"
+  m_AbilityDescription: Tus ataques fuertes son tan poderosos que lanzan proyectiles
+    en un arco.
+  m_AbilitySprite: {fileID: 21300000, guid: e3c123cc52f6ef54dbfe23b81ad79280, type: 3}
+  m_AbilityTier: 1
+  m_AbilityCategory: 0
+  m_AbilityType: 0
+  m_PowerUpAmount: 0
