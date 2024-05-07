@@ -13,6 +13,7 @@ public class HabilidadDeMovimientoState : SMState
     private FiniteStateMachine m_StateMachine;
     private string m_habilidad;
     private float dashSpeed = 15f;
+    private float ForcedashSpeed = 40f;
     private float dashSpeedInvicible = 10f;
     [SerializeField]
     private GameObject m_SlowDownZone;
@@ -24,6 +25,7 @@ public class HabilidadDeMovimientoState : SMState
     private GameObject RecallZone = null;
     [SerializeField] private GameObject m_Clon;
     private GameObject Clon = null;
+    [SerializeField] private GameObject ForceField;
     private Vector2 m_Movement;
     [SerializeField] private GameEvent ClonEvent;
     private new void Awake()
@@ -149,8 +151,46 @@ public class HabilidadDeMovimientoState : SMState
                 slowDown.transform.position = transform.position;
                 Exit();
                 break;
-            case "Fast":
-                changeEstado.Raise(EstadosAlterados.Peus_Lleugers);
+            case "ForceDash":
+              
+                ForceField.SetActive(true);
+                if (m_PJ.MovementAction.ReadValue<Vector2>() == Vector2.zero)
+                {
+                    if (m_PJ.direccion == 0)
+                    {
+                        m_Animator.Play("Dash");
+                        m_Rigidbody.velocity = transform.right * ForcedashSpeed;
+                    }
+                    else if (m_PJ.direccion == 1)
+                    {
+                        m_Animator.Play("DashDown");
+                        m_Rigidbody.velocity = -transform.up * ForcedashSpeed;
+                    }
+                    else if (m_PJ.direccion == 2)
+                    {
+                        m_Animator.Play("DashUp");
+                        m_Rigidbody.velocity = transform.up * ForcedashSpeed;
+                    }
+                }
+                else
+                {
+                    if (m_PJ.direccion == 0)
+                    {
+                        m_Animator.Play("Dash");
+                    }
+                    else if (m_PJ.direccion == 1)
+                    {
+                        m_Animator.Play("DashDown");
+                    }
+                    else if (m_PJ.direccion == 2)
+                    {
+                        m_Animator.Play("DashUp");
+                    }
+                    m_Rigidbody.velocity = m_PJ.MovementAction.ReadValue<Vector2>() * ForcedashSpeed;
+                }
+                yield return new WaitForSeconds(1f);
+                coolDownMovement.Raise();
+                ForceField.SetActive(false);
                 Exit(); 
                 break;
             case "Recall":
