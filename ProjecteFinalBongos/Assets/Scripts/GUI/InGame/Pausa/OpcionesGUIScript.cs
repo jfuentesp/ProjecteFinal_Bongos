@@ -3,19 +3,67 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class OpcionesGUIScript : MonoBehaviour
 {
-    [SerializeField] private TMP_Dropdown m_DropDown;
+    [SerializeField] private TMP_Dropdown m_IdiomasDropDown;
     [SerializeField] private Font m_Font;
+    [SerializeField] private Toggle m_FullScreenToggle;
+    [SerializeField] private TMP_Dropdown m_ResolucionesDropDown;
+
+    Resolution[] resoluciones;
     List<IdiomaEnum> m_IdiomaList = new();
     // Start is called before the first frame update
     void Start()
     {
         SettearIdiomasDropDown();
         SetDropDownValue();
-        m_DropDown.onValueChanged.AddListener(LanguageChanged);
+        m_IdiomasDropDown.onValueChanged.AddListener(LanguageChanged);
+        m_FullScreenToggle.onValueChanged.AddListener(CheckFullScreen);
+        m_ResolucionesDropDown.onValueChanged.AddListener(CambiarResolucion);
+        CheckResolutions();
+    }
+
+    private void CheckResolutions()
+    {
+        resoluciones = Screen.resolutions;
+        m_ResolucionesDropDown.ClearOptions();
+        List<string> opciones = new();
+        int resolucionActual = 0;
+
+        for(int i = 0; i < resoluciones.Length; i++)
+        {
+            string opcion = resoluciones[i].width + "x" + resoluciones[i].height;
+            opciones.Add(opcion);
+
+            if(Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height)
+            {
+                resolucionActual = i;
+            }
+        }
+
+        m_ResolucionesDropDown.AddOptions(opciones);
+        m_ResolucionesDropDown.value = resolucionActual;
+        m_ResolucionesDropDown.RefreshShownValue();
+    }
+
+    private void CambiarResolucion(int indiceResolucion)
+    {
+        Resolution resolucion = resoluciones[indiceResolucion];
+        Screen.SetResolution(resolucion.width, resolucion.height, Screen.fullScreen);
+    }
+
+    private void CheckFullScreen(bool fullScreen)
+    {
+        if (fullScreen)
+        {
+            Screen.fullScreen = true;
+        }
+        else
+        {
+            Screen.fullScreen = false;
+        }
     }
 
     private void LanguageChanged(int idioma)
@@ -25,13 +73,13 @@ public class OpcionesGUIScript : MonoBehaviour
 
     private void SettearIdiomasDropDown()
     {
-        m_DropDown.options.Clear();
+        m_IdiomasDropDown.options.Clear();
         foreach (IdiomaEnum idioma in Enum.GetValues(typeof(IdiomaEnum)))
         {
             TMP_Dropdown.OptionData opcion = new TMP_Dropdown.OptionData();
             opcion.text = TranslateEnumLanguage(idioma);
             m_IdiomaList.Add(idioma);
-            m_DropDown.options.Add(opcion);
+            m_IdiomasDropDown.options.Add(opcion);
         }
     }
 
@@ -41,7 +89,7 @@ public class OpcionesGUIScript : MonoBehaviour
         {
             if (m_IdiomaList[i] == GameManager.Instance.IdiomaJuego)
             {
-                m_DropDown.value = i;
+                m_IdiomasDropDown.value = i;
                 break;
             }
         }
