@@ -46,14 +46,18 @@ public class PJSMB : MonoBehaviour
     private PlayerStatsController m_playersStatsController;
     public PlayerStatsController PlayerStatsController => m_playersStatsController;
 
-    public PJSMB instance;
+    private static PJSMB m_Instance;
+    public static PJSMB Instance => m_Instance;
 
 
     private void Awake()
     {
-        if (instance == null)
+        if (m_Instance == null)
+            m_Instance = this;
+        else
         {
-            instance = this;
+            Destroy(gameObject);
+            return;
         }
         Assert.IsNotNull(m_InputAsset);
         m_Input = Instantiate(m_InputAsset);

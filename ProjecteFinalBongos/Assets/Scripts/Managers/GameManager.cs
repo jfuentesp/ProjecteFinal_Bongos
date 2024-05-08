@@ -88,6 +88,17 @@ public class GameManager : MonoBehaviour
         m_PlayerName = _NamePlayer;
     }
 
+    public void PauseGame(bool juegoPausado)
+    {
+        if (juegoPausado)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
+    }
     public void ChangeLanguage(IdiomaEnum idioma)
     {
         m_IdiomaJuego = idioma;
