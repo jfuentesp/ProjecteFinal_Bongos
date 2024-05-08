@@ -155,7 +155,7 @@ Transform:
   m_Children:
   - {fileID: 4184196825029427761}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &216798083535141752
 SpriteRenderer:
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
-    m_Bits: 1152
+    m_Bits: 128
   m_BossMuertoEvent: {fileID: 11400000, guid: a68c2e2d0411f4242b3bfb77d6d424f3, type: 2}
   m_layerMask:
     serializedVersion: 2
