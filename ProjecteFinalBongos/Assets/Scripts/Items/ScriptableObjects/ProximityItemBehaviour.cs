@@ -7,7 +7,19 @@ public class ProximityItemBehaviour : Interactuable
 {
     [SerializeField] private Consumable m_Consumible;
     [SerializeField] private Equipable m_Equipable;
-
+    private SpriteRenderer m_SpriteRenderer;
+    private void Awake()
+    {
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        if (m_Consumible != null)
+        {
+            m_SpriteRenderer.sprite = m_Consumible.Sprite;
+        }
+        else if (m_Equipable != null)
+        {
+           m_SpriteRenderer.sprite = m_Equipable.Sprite;
+        }
+    }
     public override void Interact(InputAction.CallbackContext context)
     {
         if (inRange) {
