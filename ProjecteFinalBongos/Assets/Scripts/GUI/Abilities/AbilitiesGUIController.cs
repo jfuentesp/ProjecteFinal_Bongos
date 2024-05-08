@@ -10,6 +10,8 @@ public class AbilitiesGUIController : MonoBehaviour
     [Header("Ability GUI components")]
     [SerializeField]
     private GameObject m_AbilityHUD;
+    [SerializeField]
+    private PlayerStatsController m_PlayerStats;
 
     [Header("Listed Abilities")]
     [SerializeField]
@@ -57,6 +59,7 @@ public class AbilitiesGUIController : MonoBehaviour
     private int m_AbilityPoints;
     public int AbilityPoints => m_AbilityPoints;
 
+    [SerializeField]
     private PlayerAbilitiesController m_PlayerAbilities;
 
     // Start is called before the first frame update
@@ -192,7 +195,32 @@ public class AbilitiesGUIController : MonoBehaviour
     public void SetAbility(Ability ability)
     {
         m_AbilityPoints--;
-        //Falta asignar la habilidad
+        switch(ability.TypeEnum)
+        {
+            case AbilityTypeEnum.ABILITY:
+                if (ability.Category == AbilityCategoryEnum.OFFENSIVE)
+                    m_PlayerAbilities.learnAttack(ability.AbilityEnum);
+                if (ability.Category == AbilityCategoryEnum.DEFENSIVE)
+                    m_PlayerAbilities.learnParry(ability.AbilityEnum);
+                if (ability.Category == AbilityCategoryEnum.AGILITY)
+                    m_PlayerAbilities.learnMovement(ability.AbilityEnum);
+                break;
+            case AbilityTypeEnum.SPEEDUP:
+                m_PlayerStats.IncreaseSpeed(ability.PowerUpAmount);
+                break;
+            case AbilityTypeEnum.HITPOINTSUP:
+                m_PlayerStats.IncreaseHealth(ability.PowerUpAmount);
+                break;
+            case AbilityTypeEnum.ATTACKSPEEDUP:
+                m_PlayerStats.IncreaseAttackSpeed(ability.PowerUpAmount);
+                break;
+            case AbilityTypeEnum.DEFENSEUP:
+                m_PlayerStats.IncreaseDefense(ability.PowerUpAmount);
+                break;
+            case AbilityTypeEnum.DAMAGEUP:
+                m_PlayerStats.IncreaseDamage(ability.PowerUpAmount);
+                break;
+        }
 
         switch(ability.Category)
         {

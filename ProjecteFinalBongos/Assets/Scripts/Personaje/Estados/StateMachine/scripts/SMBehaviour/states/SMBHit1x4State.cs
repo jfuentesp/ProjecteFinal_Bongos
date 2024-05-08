@@ -12,14 +12,14 @@ public class SMBHit1x4State : SMBComboState
     public override void InitState()
     {
         base.InitState();
-        if (m_PJ.PlayerAbilitiesController.AtaquesMejoradosDisponibles.Contains("1x4better"))
+        if (m_PJ.PlayerAbilitiesController.AtaquesMejoradosDisponibles.Contains(AbilityEnum.WHIRLWINDATTACK))
         {
             m_Animator.Play("attack1x4Better");
         }
         else {
             m_Animator.Play("attack1x4");
         }
-        if (m_PJ.PlayerAbilitiesController.AtaquesMejoradosDisponibles.Contains("1x4Strong"))
+        if (m_PJ.PlayerAbilitiesController.AtaquesMejoradosDisponibles.Contains(AbilityEnum.FRENZYATTACK))
         {
            m_ChangeEstado.Raise(EstadosAlterados.Forçut);
         }

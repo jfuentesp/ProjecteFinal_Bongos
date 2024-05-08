@@ -44,5 +44,11 @@ public class HealthController : MonoBehaviour, IHealable, IDamageable
     {
         throw new NotImplementedException();
     }
+
+    public void IncreaseHP(float amount)
+    {
+        MAXHP += amount;
+        m_HP += amount;
+    }
 }
 

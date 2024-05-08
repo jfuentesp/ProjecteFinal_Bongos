@@ -18,7 +18,9 @@ public class Ability : ScriptableObject
     [SerializeField]
     private AbilityCategoryEnum m_AbilityCategory;
     [SerializeField]
-    private AbilityCategoryEnum m_AbilityType;
+    private AbilityTypeEnum m_AbilityType;
+    [SerializeField]
+    private AbilityEnum m_AbilityEnum;
     [SerializeField]
     private float m_PowerUpAmount;
 
@@ -28,6 +30,7 @@ public class Ability : ScriptableObject
     public Sprite Sprite { get => m_AbilitySprite; set => m_AbilitySprite = value; }
     public AbilityTierEnum Tier { get => m_AbilityTier; set => m_AbilityTier = value; }
     public AbilityCategoryEnum Category { get => m_AbilityCategory; set => m_AbilityCategory = value; }
-    public AbilityCategoryEnum TypeEnum { get => m_AbilityType; set => m_AbilityType = value; }
+    public AbilityTypeEnum TypeEnum { get => m_AbilityType; set => m_AbilityType = value; }
+    public AbilityEnum AbilityEnum { get => m_AbilityEnum; set => m_AbilityEnum = value; }
     public float PowerUpAmount { get => m_PowerUpAmount; set => m_PowerUpAmount = value; }
 }

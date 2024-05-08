@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class InventoryController : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class InventoryController : MonoBehaviour
     private GameObject m_InventorySlotPrefab;
     [SerializeField]
     private Backpack m_InventoryBackpack;
+    public Backpack BackPack => m_InventoryBackpack;
 
     [Header("For testing")]
     [SerializeField]
@@ -93,7 +95,7 @@ public class InventoryController : MonoBehaviour
 
     private bool m_MovingConsumable;
     private bool m_MovingEquipable;
-
+    [SerializeField] private GameObject m_ItemPrefab;
 
     private void Start()
     {
@@ -215,10 +217,34 @@ public class InventoryController : MonoBehaviour
         m_InventoryBackpack.MoveConsumable(indexSelected, indexTarget);
         m_MoveConsumableSlot = null;
     }
+    public void OnDropEquipable(string itemID) {
+        Equipable itemToUse = m_InventoryBackpack.EquipableSlots.FirstOrDefault(item => item?.Equipable.id == itemID).Equipable;
+        if (itemToUse != null)
+        {
+            GameObject equipable = Instantiate(m_ItemPrefab);
+            equipable.GetComponent<ProximityItemBehaviour>().SetEquipable(itemToUse);
+            equipable.transform.position = transform.parent.position;
+            m_InventoryBackpack.RemoveEquipable(itemToUse);
+        }
+        RefreshEquipableGUI();
+        RefreshEquippedGearGUI();
+    }
 
+    public void OnDropConsumable(string itemID)
+    {
+        Consumable itemToUse = m_InventoryBackpack.ConsumableSlots.FirstOrDefault(item => item?.Consumable.id == itemID).Consumable;
+        if (itemToUse != null)
+        {
+            GameObject consumable = Instantiate(m_ItemPrefab);
+            consumable.GetComponent<ProximityItemBehaviour>().SetConsumable(itemToUse);
+            consumable.transform.position = transform.parent.position;
+            m_InventoryBackpack.RemoveConsumable(itemToUse);
+        }
+        RefreshInventoryGUI();
+    }
     /* GUI COMPONENTS */
 
-    private void RefreshInventoryGUI()
+    public void RefreshInventoryGUI()
     {
         RefreshConsumableGUI();
         RefreshEquipableGUI();

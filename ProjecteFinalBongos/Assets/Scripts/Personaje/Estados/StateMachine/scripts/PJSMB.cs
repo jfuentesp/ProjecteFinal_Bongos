@@ -50,7 +50,8 @@ public class PJSMB : MonoBehaviour
 
     private static PJSMB m_Instance;
     public static PJSMB Instance => m_Instance;
-
+    [SerializeField] private InventoryController m_Inventory;
+    public InventoryController Inventory { get => m_Inventory; set => m_Inventory = value; } 
 
     private void Awake()
     {

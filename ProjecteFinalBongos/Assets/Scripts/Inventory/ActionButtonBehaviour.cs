@@ -54,9 +54,15 @@ public class ActionButtonBehaviour : MonoBehaviour, ISubmitHandler, ICancelHandl
                     break;
                 case ButtonActionsEnum.DROP:
                     if (lastSelection.AssignedConsumable != null)
+                    {
                         Debug.Log("Soltado objeto " + lastSelection.AssignedConsumable.itemName);
+                        m_InventoryController.OnDropConsumable(lastSelection.AssignedEquipable.id);
+                    }
                     if (lastSelection.AssignedEquipable != null)
+                    {
                         Debug.Log("Soltado equipo " + lastSelection.AssignedEquipable.itemName);
+                        m_InventoryController.OnDropEquipable(lastSelection.AssignedEquipable.id);
+                    }
                     break;
                 case ButtonActionsEnum.CANCEL:
                     break;       
