@@ -5,16 +5,16 @@ using UnityEngine;
 public class PlayerAbilitiesController : MonoBehaviour
 {
     [Header("Habilidades")]
-    private List<string> m_ParriesDisponibles = new List<string>();
-    private string m_actualParry;
-    public string Parry => m_actualParry;
-    private List<string> m_MovementActionsDisponibles = new List<string>();
-    private string m_actualMovement;
-    public string Movement => m_actualMovement;
+    private List<AbilityEnum> m_ParriesDisponibles = new List<AbilityEnum>();
+    private AbilityEnum m_actualParry;
+    public AbilityEnum Parry => m_actualParry;
+    private List<AbilityEnum> m_MovementActionsDisponibles = new List<AbilityEnum>();
+    private AbilityEnum m_actualMovement;
+    public AbilityEnum Movement => m_actualMovement;
     private bool m_canMove = true;
     public bool CanMove => m_canMove;
-    private List<string> m_AtaquesMejorados = new List<string>();
-    public List<string> AtaquesMejoradosDisponibles => m_AtaquesMejorados;
+    private List<AbilityEnum> m_AtaquesMejorados = new List<AbilityEnum>();
+    public List<AbilityEnum> AtaquesMejoradosDisponibles => m_AtaquesMejorados;
     [SerializeField]
     private float m_CoolDown;
     private  void Awake()
@@ -22,20 +22,20 @@ public class PlayerAbilitiesController : MonoBehaviour
         
         initMovementAbility();
         initParryAbility();
-        m_AtaquesMejorados.Add("1x4better");
-        m_AtaquesMejorados.Add("2x1better");
-        m_AtaquesMejorados.Add("2x2better");
+        m_AtaquesMejorados.Add(AbilityEnum.WHIRLWINDATTACK);
+        m_AtaquesMejorados.Add(AbilityEnum.STABATTACK);
+        m_AtaquesMejorados.Add(AbilityEnum.WAVEATTACK);
     }
 
     private void initMovementAbility()
     {
-        m_MovementActionsDisponibles.Add("Clon");
+        m_MovementActionsDisponibles.Add(AbilityEnum.RECALL);
         m_actualMovement = m_MovementActionsDisponibles[0];
 
     }
     private void initParryAbility()
     {
-        m_ParriesDisponibles.Add("Invincible");
+        m_ParriesDisponibles.Add(AbilityEnum.INVULNERABLEPARRY);
         m_actualParry = m_ParriesDisponibles[0];
 
     }
@@ -59,17 +59,20 @@ public class PlayerAbilitiesController : MonoBehaviour
         }
 
     }
-    public void learnMovement(string movementAction)
+    public void learnMovement(AbilityEnum movementAction)
     {
         m_MovementActionsDisponibles.Add(movementAction);
+        Debug.Log("Aprendido el movimiento " + movementAction);
     }
-    public void learnParry(string parry)
+    public void learnParry(AbilityEnum parry)
     {
         m_ParriesDisponibles.Add(parry);
+        Debug.Log("Aprendido el bloqueo " + parry);
     }
-    public void learnAttack(string attack)
+    public void learnAttack(AbilityEnum attack)
     {
         m_AtaquesMejorados.Add(attack);
+        Debug.Log("Aprendido el ataque " + attack);
     }
 
     IEnumerator MovementCooldown()

@@ -10,7 +10,7 @@ public class SMBPlayerParryState : MBState
     private FiniteStateMachine m_StateMachine;
     private SMBStunState m_State;
     public bool parry;
-    private string m_parry;
+    private AbilityEnum m_parry;
     private LayerMask m_BossHurtBox;
     private LayerMask m_BossHitBox;
     [SerializeField]
@@ -73,13 +73,13 @@ public class SMBPlayerParryState : MBState
     {
         switch (m_parry)
         {
-            case "Invincible":
+            case AbilityEnum.INVULNERABLEPARRY:
                 m_ChangeEstado.Raise(EstadosAlterados.Invencible);
                 break;
-            case "Paralized":
+            case AbilityEnum.PARALIZATIONPARRY:
                 boss.GetComponent<BossEstadosController>().AlternarEstado(EstadosAlterados.Paralitzat);
                 break;
-            case "Fast":
+            case AbilityEnum.PARRYSPEED:
                 m_ChangeEstado.Raise(EstadosAlterados.Peus_Lleugers);
                 break;
             default:

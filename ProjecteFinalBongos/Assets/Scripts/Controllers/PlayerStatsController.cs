@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerStatsController : MonoBehaviour
 {
     private HealthController m_HealthController;
+    public HealthController Health => m_HealthController;
     [Header("Tiempos")]
     [SerializeField]
     public TimesScriptable m_playerTimes;
@@ -144,5 +145,35 @@ public class PlayerStatsController : MonoBehaviour
         m_Velocity -= m_Sword.speed;
         m_AttackTime -= m_Sword.speedAttack;
         m_Sword = null;
+    }
+
+    public void IncreaseDamage(float damageUp)
+    {
+        m_Strength += damageUp;
+        Debug.Log(string.Format("El valor de daño ha cambiado de {0} a {1}", m_Strength - damageUp, m_Strength));
+    }
+
+    public void IncreaseDefense(float defenseUp)
+    {
+        m_Defense += defenseUp;
+        Debug.Log(string.Format("El valor de defensa ha cambiado de {0} a {1}", m_Defense - defenseUp, m_Defense));
+    }
+
+    public void IncreaseHealth(float healthUp)
+    {
+        m_HealthController.IncreaseHP(healthUp);
+        Debug.Log(string.Format("El valor de vida ha cambiado de {0} a {1}", m_HealthController.HPMAX - healthUp, m_HealthController.HPMAX));
+    }
+
+    public void IncreaseSpeed(float speedUp)
+    {
+        m_Velocity += speedUp;
+        Debug.Log(string.Format("El valor de velocidad ha cambiado de {0} a {1}", m_Velocity - speedUp, m_Velocity));
+    }
+
+    public void IncreaseAttackSpeed(float atkspeedUp)
+    {
+        m_AttackTime += atkspeedUp;
+        Debug.Log(string.Format("El valor de velocidad de ataque ha cambiado de {0} a {1}", m_AttackTime - atkspeedUp, m_AttackTime));
     }
 }
