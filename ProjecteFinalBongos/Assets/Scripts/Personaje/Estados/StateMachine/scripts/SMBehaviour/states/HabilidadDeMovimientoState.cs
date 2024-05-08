@@ -11,7 +11,7 @@ public class HabilidadDeMovimientoState : SMState
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
-    private string m_habilidad;
+    private AbilityEnum m_habilidad;
     private float dashSpeed = 15f;
     private float dashSpeedInvicible = 10f;
     [SerializeField]
@@ -45,7 +45,7 @@ public class HabilidadDeMovimientoState : SMState
     {
         switch (m_habilidad)
         {
-            case "Dash":
+            case AbilityEnum.DASH:
                 coolDownMovement.Raise();
                 if (m_PJ.MovementAction.ReadValue<Vector2>() == Vector2.zero)
                 {
@@ -83,7 +83,7 @@ public class HabilidadDeMovimientoState : SMState
                 yield return new WaitForSeconds(0.4f);
                 Exit();
                 break;
-                case "InvincibleDash":
+                case AbilityEnum.INVULNERABLEDASH:
                 coolDownMovement.Raise();
                 invencibleTitleCard.Raise();
                 Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerHurtBox"), LayerMask.NameToLayer("BossHurtBox"), true);
@@ -127,7 +127,7 @@ public class HabilidadDeMovimientoState : SMState
                 Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerHurtBox"), LayerMask.NameToLayer("BossHitBox"), false);
                 Exit();
                 break;
-            case "SlowDown":
+            case AbilityEnum.SLOW:
                 coolDownMovement.Raise();
                 if (m_PJ.direccion == 0)
                 {
@@ -145,11 +145,11 @@ public class HabilidadDeMovimientoState : SMState
                 slowDown.transform.position = transform.position;
                 Exit();
                 break;
-            case "Fast":
+            case AbilityEnum.SPEED:
                 changeEstado.Raise(EstadosAlterados.Peus_Lleugers);
                 Exit(); 
                 break;
-            case "Recall":
+            case AbilityEnum.RECALL:
                 if (m_RecallPosition == Vector2.zero)
                 {
                     RecallZone = Instantiate(m_RecallZone);
