@@ -8,7 +8,7 @@ using UnityEngine;
 public class ConsumablesDataBase : ScriptableObject
 {
     [SerializeField]
-    List<Consumable> consumables = new List<Consumable>();
+    public List<Consumable> consumables = new List<Consumable>();
 
     public Consumable GetItemByID(string id) => consumables.FirstOrDefault<Consumable>(consumbable => consumbable.id == id);
 }

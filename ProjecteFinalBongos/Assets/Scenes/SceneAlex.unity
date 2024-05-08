@@ -411,8 +411,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acab45200c8688f4da9d846f0908122b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Testing: 1
   m_PlayerPrefab: {fileID: 1922464185457733035, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
+  m_PlayerName: 
   m_PlayersAndTheirWorldsList: []
+  m_IdiomaJuego: 0
 --- !u!1 &154665630
 GameObject:
   m_ObjectHideFlags: 0
@@ -6537,6 +6540,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TritonPanel: {fileID: 1454119495}
   m_FlechaTriton: {fileID: 653986842}
+  m_KrakenPanel: {fileID: 0}
+  m_TintaKraken: {fileID: 0}
   m_ButtonPadre: {fileID: 784220209}
   m_ButtonHijo: {fileID: 970428937}
 --- !u!114 &1798548682

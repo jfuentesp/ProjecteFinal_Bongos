@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc2fcd2d3052d045a780a9d850afe6b, type: 3}
+  m_Name: WaterSword
+  m_EditorClassIdentifier: 
+  m_Id: 2
+  m_ItemName: Espada de agua
+  m_Description: Espada envuelta en agua magica que entorpecera los movimientos de
+    los enemigos con cada golpe recibido. Aplica mojado a los enemigos.
+  m_Sprite: {fileID: 0}
+  m_ShopPrice: 0
+  m_Estado: 12
+  propiedades: 
+  attack: 0
+  speed: 0
+  speedAttack: 0
+  maxRatio: 0
+  minRatio: 0
+  minPosibilty: 0
+  maxPosibilty: 0
+  lifeMin: 0
+  lifeMax: 0
