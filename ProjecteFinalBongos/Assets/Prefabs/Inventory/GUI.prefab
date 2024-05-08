@@ -6831,6 +6831,7 @@ GameObject:
   - component: {fileID: 2547457135479938388}
   - component: {fileID: -3551111455132506853}
   - component: {fileID: 1250968505331611707}
+  - component: {fileID: 1776125995091294974}
   m_Layer: 7
   m_Name: GUI
   m_TagString: Untagged
@@ -6975,6 +6976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AbilityHUD: {fileID: 5301117958893253670}
+  m_PlayerStats: {fileID: 0}
   m_Tier1Abilities:
   - {fileID: 11400000, guid: 4b860a142700b4847b35b3367519f2b3, type: 2}
   - {fileID: 11400000, guid: 13ba420deb9adc646b93986c83d582bd, type: 2}
@@ -7034,6 +7036,29 @@ MonoBehaviour:
   - {fileID: 9114671421847058777}
   - {fileID: 5000095029060086255}
   - {fileID: 3477416324120182918}
+  m_PlayerAbilities: {fileID: 0}
+--- !u!114 &1776125995091294974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852771324150178000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35dc273919bfe6f4f917dbee9e22ad54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlayerStats: {fileID: 0}
+  m_PlayerAbilities: {fileID: 0}
+  m_HPBar: {fileID: 770466678152347734}
+  m_BackgroundHP: {fileID: 9129874216299099005}
+  m_PlayerMiniature: {fileID: 7757003677096801900}
+  m_BuffsPanel: {fileID: 0}
+  m_AbilityPanel: {fileID: 0}
+  m_TimerPanel: {fileID: 0}
+  m_QuickItemsPanel: {fileID: 0}
+  m_SmoothSpeed: 3
 --- !u!1 &4958514089491706404
 GameObject:
   m_ObjectHideFlags: 0
