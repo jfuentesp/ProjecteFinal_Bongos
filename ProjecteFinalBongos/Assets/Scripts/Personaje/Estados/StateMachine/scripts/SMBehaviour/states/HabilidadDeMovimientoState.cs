@@ -171,7 +171,7 @@ public class HabilidadDeMovimientoState : SMState
                     Exit(); 
                 }
                 break;
-            case "Clon":
+            case AbilityEnum.CLONE:
                 coolDownMovement.Raise();
                 if (m_Movement == Vector2.zero)
                 {
