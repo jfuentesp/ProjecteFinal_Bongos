@@ -8,7 +8,7 @@ public class AgullaDeCoralCoralBullet : Bullet
     private Transform m_BossTransform;
     [SerializeField] private float m_TimeUntilReturn;
     [SerializeField] private float m_ReturnSpeed;
-    public float m_Damage;
+    public float Damage => m_Damage;
     private bool m_Returning;
     public void Init(Vector2 destino, Transform _BossTransform, float _Damage)
     {

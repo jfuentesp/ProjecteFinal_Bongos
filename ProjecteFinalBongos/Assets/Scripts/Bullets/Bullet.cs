@@ -10,12 +10,16 @@ public class Bullet : MonoBehaviour
     protected float m_SizeRadius;
     [SerializeField]
     protected float m_Speed;
+    [SerializeField]
+    protected float m_Damage;
     protected Vector2 m_Size;
     protected Rigidbody2D m_Rigidbody;
+    protected BossAttackDamage m_AttackDamage;
 
     protected void Awake()
     {
         m_Rigidbody = GetComponent<Rigidbody2D>();
+        m_AttackDamage = GetComponent<BossAttackDamage>();
     }
 
     public virtual void Init(Vector2 direction)
@@ -24,6 +28,7 @@ public class Bullet : MonoBehaviour
         m_Size = new Vector2(m_SizeRadius, m_SizeRadius);
         transform.localScale = m_Size;
         m_Rigidbody.velocity = transform.up * m_Speed;
+        m_AttackDamage.SetDamage(m_Damage);
         StartCoroutine(ReturnToPoolCoroutine());
     }
     private void Update()
