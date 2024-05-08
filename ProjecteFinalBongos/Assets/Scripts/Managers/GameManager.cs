@@ -13,7 +13,14 @@ public class GameManager : MonoBehaviour
 {
     [Header("Testing")]
     [SerializeField] private bool m_Testing;
+    [SerializeField] private string m_NombreDeTuEscena;
+    public string NombreDeTuEscena => m_NombreDeTuEscena;
     public bool Testing => m_Testing;
+
+    public void setTesting()
+    {
+        m_Testing = false;
+    }
 
     [Header("Variables GameManager")]
     private static GameManager m_Instance;
@@ -116,6 +123,11 @@ public class GameManager : MonoBehaviour
         {
             if(!m_NuevaPartida)
                 m_PlayerInGame = Instantiate(m_PlayerPrefab);
+            m_PlayerInGame.transform.position = Vector3.zero;
+        }
+        if(scene.name == m_NombreDeTuEscena)
+        {
+            m_PlayerInGame = Instantiate(m_PlayerPrefab);
             m_PlayerInGame.transform.position = Vector3.zero;
         }
     }

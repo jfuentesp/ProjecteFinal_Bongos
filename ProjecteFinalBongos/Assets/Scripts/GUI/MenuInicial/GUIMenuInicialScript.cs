@@ -129,7 +129,7 @@ namespace GUIScripts
             else
             {
                 GameManager.Instance.SavePlayersAndTheirWorld(m_NewNameInput.text);
-                GameManager.Instance.CreateNewGameOfPlayer(m_NewNameInput.text, "Mundo1");
+                GameManager.Instance.CreateNewGameOfPlayer(m_NewNameInput.text, GameManager.Instance.NombreDeTuEscena);
             }
         }
 
