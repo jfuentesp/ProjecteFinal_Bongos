@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 4677028693164480887}
   - component: {fileID: -4314344526376615856}
   - component: {fileID: 2031237481553692337}
+  - component: {fileID: 147302781997712890}
   m_Layer: 0
   m_Name: PiccoloChat
   m_TagString: Untagged
@@ -268,3 +269,31 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &147302781997712890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7112537873191832618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0640d428ac906c2459218b66878fd018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: c937e8c8da1c3ca4fb045e605a293a38, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4314344526376615856}
+        m_TargetAssemblyTypeName: PiccoloChadScript, Assembly-CSharp
+        m_MethodName: GetFrases
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -8,7 +8,7 @@ public class SMBPlayerSuccesfulParryState : MBState
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
-    private string m_parry;
+    private AbilityEnum m_parry;
 
 
     private void Awake()

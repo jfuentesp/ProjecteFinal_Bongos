@@ -15,8 +15,8 @@ namespace multilanguaje
         {
             public string id;
             public PiccoloChanFrases frasesPiccoloChan;
-            public ConsumiblesDatos[] consumiblesDatos;
-            public EquipablesDatos[] equipablesDatos;
+            public ObjetosDatos[] consumiblesDatos;
+            public ObjetosDatos[] equipablesDatos;
         }
 
         [Serializable]
@@ -27,16 +27,10 @@ namespace multilanguaje
         }
 
         [Serializable]
-        public struct ConsumiblesDatos
+        public struct ObjetosDatos
         {
-            public int id;
-            public string descripcion;
-        }
-
-        [Serializable]
-        public struct EquipablesDatos
-        {
-            public int id;
+            public string id;
+            public string name;
             public string descripcion;
         }
     }

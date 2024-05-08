@@ -13,6 +13,8 @@ namespace multilanguaje
         private string rutaCompleta;
         private string rutaCompletaHastaCarpeta;
         [SerializeField] private Multilanguage.Idioma m_IdiomaActual;
+        [SerializeField] private GameEvent cambioIdiomaEvent;
+        [SerializeField] private ConsumablesDataBase m_ConsumablesList;
 
 
         void Start()
@@ -21,19 +23,28 @@ namespace multilanguaje
             getIdioma();
         }
 
-        private void getIdioma()
+        public void getIdioma()
         {
             string jsonDataLectura = File.ReadAllText(rutaCompleta);
             Multilanguage multilanguage = new Multilanguage();
             JsonUtility.FromJsonOverwrite(jsonDataLectura, multilanguage);
 
-            for(int i = 0; i < multilanguage.m_Idiomas.Length; i++)
+            for (int i = 0; i < multilanguage.m_Idiomas.Length; i++)
             {
                 if (multilanguage.m_Idiomas[i].id == GameManager.Instance.IdiomaJuego.ToString())
                 {
                     m_IdiomaActual = multilanguage.m_Idiomas[i];
                 }
             }
+
+            for(int i = 0; i < m_IdiomaActual.consumiblesDatos.Length; i++)
+            {
+                Consumable consumableScriptable = m_ConsumablesList.GetItemByID(m_IdiomaActual.consumiblesDatos[i].id);
+                consumableScriptable.itemName = m_IdiomaActual.consumiblesDatos[i].name;
+                consumableScriptable.description = m_IdiomaActual.consumiblesDatos[i].descripcion;
+            }
+
+            cambioIdiomaEvent.Raise();
 
             //GameManager.Instance.IdiomaJuego;
             /*Multilanguage multilanguage = new Multilanguage();

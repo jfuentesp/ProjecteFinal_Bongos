@@ -77,16 +77,29 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        print("Start Level Manager");
         if (m_CloseShopButton) m_CloseShopButton.onClick.AddListener(CloseShop);
         TodosLosBossesDisponibles();
         m_TiendaPanel.SetActive(false);
         idPiccolo = 0;
         m_BossesMuertos = 0;
-        if (!GameManager.Instance.NuevaPartida)
+
+        if (!GameManager.Instance.Testing)
         {
-            print("Cargando partida");
+            if (!GameManager.Instance.NuevaPartida)
+            {
+                m_CargarPartidaEvent.Raise();
+            }
+        }
+    }
+
+    public void Init()
+    {
+        if (GameManager.Instance.NuevaPartida)
+        {
+            m_GeneracionSalasMatriz.Init();
+        }
+        else
+        {
             m_CargarPartidaEvent.Raise();
         }
     }
