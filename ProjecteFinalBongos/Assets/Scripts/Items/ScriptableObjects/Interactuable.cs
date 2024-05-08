@@ -31,5 +31,11 @@ public abstract class Interactuable : MonoBehaviour
             yield return new WaitForSeconds(checkTime);
         }
     }
-    public abstract void Interact(InputAction.CallbackContext context);
+    protected abstract void Interact(InputAction.CallbackContext context);
+
+    private void OnDestroy()
+    {
+        StopCoroutine(check());
+        PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("Interact").performed -= Interact;
+    }
 }

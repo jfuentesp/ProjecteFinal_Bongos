@@ -20,7 +20,7 @@ public class ProximityItemBehaviour : Interactuable
            m_SpriteRenderer.sprite = m_Equipable.Sprite;
         }
     }
-    public override void Interact(InputAction.CallbackContext context)
+    protected override void Interact(InputAction.CallbackContext context)
     {
         if (inRange) {
            if (m_Consumible != null)
@@ -46,9 +46,10 @@ public class ProximityItemBehaviour : Interactuable
     { 
         m_Consumible = consumable;
     }
-    private void OnDestroy()
+    public void SetSprite(Sprite sprite)
     {
-        StopCoroutine(check());
-        PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("Interact").performed -= Interact;
+        m_SpriteRenderer.sprite = sprite;
     }
+
+ 
 }

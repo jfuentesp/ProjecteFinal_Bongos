@@ -223,6 +223,7 @@ public class InventoryController : MonoBehaviour
         {
             GameObject equipable = Instantiate(m_ItemPrefab);
             equipable.GetComponent<ProximityItemBehaviour>().SetEquipable(itemToUse);
+            equipable.GetComponent<ProximityItemBehaviour>().SetSprite(itemToUse.Sprite);
             equipable.transform.position = transform.parent.position;
             m_InventoryBackpack.RemoveEquipable(itemToUse);
         }
@@ -237,6 +238,7 @@ public class InventoryController : MonoBehaviour
         {
             GameObject consumable = Instantiate(m_ItemPrefab);
             consumable.GetComponent<ProximityItemBehaviour>().SetConsumable(itemToUse);
+            consumable.GetComponent<ProximityItemBehaviour>().SetSprite(itemToUse.Sprite);
             consumable.transform.position = transform.parent.position;
             m_InventoryBackpack.RemoveConsumable(itemToUse);
         }
