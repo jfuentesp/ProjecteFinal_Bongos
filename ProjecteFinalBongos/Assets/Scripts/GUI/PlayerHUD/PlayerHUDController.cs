@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +18,8 @@ public class PlayerHUDController : MonoBehaviour
     private Image m_BackgroundHP;
     [SerializeField]
     private Image m_PlayerMiniature;
+    [SerializeField]
+    private TextMeshProUGUI m_Timer;
     [SerializeField]
     private BuffsPanelController m_BuffsPanel;
     [SerializeField]
@@ -47,27 +50,16 @@ public class PlayerHUDController : MonoBehaviour
             m_PlayerStats.Health.Damage(10);
         if (Input.GetKeyDown(KeyCode.R))
             m_PlayerStats.Health.Heal(10);
+
+        if (m_HPBar.fillAmount <= 0.3f)
+            m_BackgroundHP.color = Color.Lerp(Color.white, Color.red, Mathf.PingPong(Time.time * 1f, 1f));
+        else
+            m_BackgroundHP.color = Color.white;
     }
 
     private Coroutine m_BlinkCoroutine;
     private void OnHPBarGUIUpdate()
     {
-        //m_HPBar.fillAmount = m_PlayerStats.Health.HP / m_PlayerStats.Health.HPMAX;
         m_HPBar.fillAmount = Mathf.Lerp(m_HPBar.fillAmount, m_PlayerStats.Health.HP / m_PlayerStats.Health.HPMAX, lerpSpeed);
-        if (m_HPBar.fillAmount <= 0.3f)
-            if(m_BlinkCoroutine == null)
-                m_BlinkCoroutine = StartCoroutine(BlinkCoroutine());
-    }
-
-    private IEnumerator BlinkCoroutine()
-    {
-        while(m_HPBar.fillAmount <= 0.3f)
-        {
-            m_BackgroundHP.color = Color.Lerp(m_BackgroundHP.color, Color.red, lerpSpeed);
-            yield return new WaitForSeconds(0.8f);
-            m_BackgroundHP.color = Color.Lerp(m_BackgroundHP.color, Color.white, lerpSpeed);
-            yield return new WaitForSeconds(0.8f);
-        }
-        m_BackgroundHP.color = Color.white;
     }
 }
