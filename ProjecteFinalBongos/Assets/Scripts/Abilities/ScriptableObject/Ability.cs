@@ -23,6 +23,8 @@ public class Ability : ScriptableObject
     private AbilityEnum m_AbilityEnum;
     [SerializeField]
     private float m_PowerUpAmount;
+    [SerializeField]
+    private float m_Cooldown;
 
     public string id { get => m_AbilityId; set => m_AbilityId = value; }
     public string abilityName { get => m_AbilityName; set => m_AbilityName = value; }
@@ -33,4 +35,5 @@ public class Ability : ScriptableObject
     public AbilityTypeEnum TypeEnum { get => m_AbilityType; set => m_AbilityType = value; }
     public AbilityEnum AbilityEnum { get => m_AbilityEnum; set => m_AbilityEnum = value; }
     public float PowerUpAmount { get => m_PowerUpAmount; set => m_PowerUpAmount = value; }
+    public float Cooldown { get => m_Cooldown; set => m_Cooldown = value; }
 }

@@ -18,16 +18,11 @@ public class PlayerHUDController : MonoBehaviour
     private Image m_BackgroundHP;
     [SerializeField]
     private Image m_PlayerMiniature;
+
     [SerializeField]
     private TextMeshProUGUI m_Timer;
     [SerializeField]
     private BuffsPanelController m_BuffsPanel;
-    [SerializeField]
-    private AbilityPanelController m_AbilityPanel;
-    [SerializeField]
-    private TimerPanelController m_TimerPanel;
-    [SerializeField]
-    private QuickItemsController m_QuickItemsPanel;
 
     [Header("HP Panel settings")]
     [SerializeField]
@@ -50,6 +45,14 @@ public class PlayerHUDController : MonoBehaviour
             m_PlayerStats.Health.Damage(10);
         if (Input.GetKeyDown(KeyCode.R))
             m_PlayerStats.Health.Heal(10);
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            m_PlayerAbilities.SelectPreviousAbility();
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            m_PlayerAbilities.SelectNextAbility();
+        }
 
         if (m_HPBar.fillAmount <= 0.3f)
             m_BackgroundHP.color = Color.Lerp(Color.white, Color.red, Mathf.PingPong(Time.time * 1f, 1f));
@@ -61,5 +64,20 @@ public class PlayerHUDController : MonoBehaviour
     private void OnHPBarGUIUpdate()
     {
         m_HPBar.fillAmount = Mathf.Lerp(m_HPBar.fillAmount, m_PlayerStats.Health.HP / m_PlayerStats.Health.HPMAX, lerpSpeed);
+    }
+
+    private void UpdateTimerGUI()
+    {
+        
+    }
+
+    private void BuffUpdateGUI()
+    {
+        
+    }
+
+    private void QuickItemsUpdateGUI()
+    {
+
     }
 }
