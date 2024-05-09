@@ -45,10 +45,13 @@ public class PJSMB : MonoBehaviour
     private PlayerEstadosController m_playerEstadosController;
     private PlayerStatsController m_playersStatsController;
     public PlayerStatsController PlayerStatsController => m_playersStatsController;
+    private PlayerEstadosController m_PlayerEstadosController;
+    public PlayerEstadosController PlayerEstadosController => m_playerEstadosController;
 
     private static PJSMB m_Instance;
     public static PJSMB Instance => m_Instance;
-
+    [SerializeField] private InventoryController m_Inventory;
+    public InventoryController Inventory { get => m_Inventory; set => m_Inventory = value; } 
 
     private void Awake()
     {
@@ -67,6 +70,7 @@ public class PJSMB : MonoBehaviour
         m_playerAbilitiesController = GetComponent<PlayerAbilitiesController>();
         m_playerEstadosController = GetComponent<PlayerEstadosController>();
         m_playersStatsController = GetComponent<PlayerStatsController>();
+        m_PlayerEstadosController = GetComponent<PlayerEstadosController>();
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -110,7 +114,14 @@ public class PJSMB : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("BossHitBox"))
+        {
+            if (TryGetComponent<BossAttackDamage>(out BossAttackDamage damageBoss))
+            {
+                m_HealthController.Damage(damageBoss.Damage);
+                m_PlayerEstadosController.AlternarEstado(damageBoss.EstadoAlterado);
+            }
 
-
+        }
     }
 }

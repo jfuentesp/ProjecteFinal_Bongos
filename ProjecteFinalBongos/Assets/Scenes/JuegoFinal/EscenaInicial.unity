@@ -1019,6 +1019,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426000766}
   m_CullTransparentMesh: 1
+--- !u!1 &450120433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 450120436}
+  - component: {fileID: 450120435}
+  - component: {fileID: 450120434}
+  m_Layer: 0
+  m_Name: GameManagerJose
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &450120434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450120433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b31908260e7a58c4fb8305be5177ae15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IdiomaActual:
+    id: 
+    frasesPiccoloChan:
+      frasesIniciales: []
+      frasesFinales: []
+    consumiblesDatos: []
+    equipablesDatos: []
+  cambioIdiomaEvent: {fileID: 11400000, guid: c937e8c8da1c3ca4fb045e605a293a38, type: 2}
+  m_ConsumablesList: {fileID: 11400000, guid: 3695245b911850942b8fb981337f43ac, type: 2}
+--- !u!114 &450120435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450120433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acab45200c8688f4da9d846f0908122b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Testing: 0
+  m_NombreDeTuEscena: 
+  m_PlayerPrefab: {fileID: 1922464185457733035, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
+  m_PlayerName: 
+  m_PlayersAndTheirWorldsList: []
+  m_IdiomaJuego: 1
+--- !u!4 &450120436
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450120433}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &524562589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,7 +1396,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &556643078
 MonoBehaviour:
@@ -1689,7 +1761,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &664410680
 GameObject:
@@ -2460,7 +2532,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &845929505
 MonoBehaviour:
@@ -3169,7 +3241,7 @@ RectTransform:
   - {fileID: 664410681}
   - {fileID: 796874785}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3188,12 +3260,12 @@ GameObject:
   - component: {fileID: 1047910044}
   - component: {fileID: 1047910046}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: GameManagerAlex
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1047910044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3207,6 +3279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Testing: 0
+  m_NombreDeTuEscena: Mundo1
   m_PlayerPrefab: {fileID: 1922464185457733035, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
   m_PlayerName: 
   m_PlayersAndTheirWorldsList: []
@@ -4271,6 +4344,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1288797061}
   m_CullTransparentMesh: 1
+--- !u!1 &1293194149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1293194152}
+  - component: {fileID: 1293194151}
+  - component: {fileID: 1293194150}
+  m_Layer: 0
+  m_Name: GameManagerAlejandro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1293194150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293194149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b31908260e7a58c4fb8305be5177ae15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IdiomaActual:
+    id: 
+    frasesPiccoloChan:
+      frasesIniciales: []
+      frasesFinales: []
+    consumiblesDatos: []
+    equipablesDatos: []
+  cambioIdiomaEvent: {fileID: 11400000, guid: c937e8c8da1c3ca4fb045e605a293a38, type: 2}
+  m_ConsumablesList: {fileID: 11400000, guid: 3695245b911850942b8fb981337f43ac, type: 2}
+--- !u!114 &1293194151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293194149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acab45200c8688f4da9d846f0908122b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Testing: 0
+  m_NombreDeTuEscena: 
+  m_PlayerPrefab: {fileID: 1922464185457733035, guid: 0fb2f925c98fe2647a694fbc967b273f, type: 3}
+  m_PlayerName: 
+  m_PlayersAndTheirWorldsList: []
+  m_IdiomaJuego: 1
+--- !u!4 &1293194152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293194149}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1302268201
 GameObject:
   m_ObjectHideFlags: 0
