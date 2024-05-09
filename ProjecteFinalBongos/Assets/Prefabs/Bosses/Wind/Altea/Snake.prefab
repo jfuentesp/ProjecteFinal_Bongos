@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: -4314693184176647709}
   - component: {fileID: -8486497787577258188}
   - component: {fileID: -8294847842510679009}
-  - component: {fileID: 287740523414561870}
   - component: {fileID: 3004680032213913450}
   - component: {fileID: -4123083335491497801}
   - component: {fileID: -7265579158016937546}
@@ -26,7 +25,9 @@ GameObject:
   - component: {fileID: 9154980146482813755}
   - component: {fileID: 3814501471000115121}
   - component: {fileID: 6820416017922397756}
-  m_Layer: 0
+  - component: {fileID: 5688764440318092493}
+  - component: {fileID: 6474592647941441239}
+  m_Layer: 9
   m_Name: Snake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +47,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &291266612546379421
 SpriteRenderer:
@@ -90,7 +91,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -137,7 +138,7 @@ Animator:
   m_GameObject: {fileID: 5513851930493740377}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 78ef7db8e63a5984eafb4442e6e78fc0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -210,20 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ChaseSpeed: 5
   m_ChaseAnimationName: 
---- !u!114 &287740523414561870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5513851930493740377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d03f062997d23bf46a50d2fa12d157ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ChargeSpeed: 5
-  m_ChargeForce: 0
+  m_TwoDirections: 1
 --- !u!114 &3004680032213913450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +268,7 @@ MonoBehaviour:
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 5
   m_AreaWideness: 5
-  m_AreaRadius: 0
+  m_AreaRadius: 3
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
@@ -400,3 +388,36 @@ MonoBehaviour:
   m_AttackTime: 1
   m_Strength: 0
   m_Defense: 0
+--- !u!114 &5688764440318092493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5513851930493740377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3705b7a045dce4488aa2017422848a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 10
+  m_StatsController: {fileID: 0}
+  m_player: {fileID: 0}
+  m_EstadoAlterado: 0
+--- !u!114 &6474592647941441239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5513851930493740377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed55b1b0673a9e24a98ce8d9413e3f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AttackHitbox: {fileID: 0}
+  m_HitboxLength: 0
+  m_HitboxWideness: 0
+  m_HitboxRadius: 0
+  m_SingleAttackAnimationName: 

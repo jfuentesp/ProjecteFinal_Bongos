@@ -24,14 +24,17 @@ public class VoltauroBossBehaviour : BossBehaviour
         m_NumberOfAttacksBeforeCharge = Random.Range(1, 6);
         GetComponent<SMBChargeState>().OnChargeMissed = (GameObject obj) =>
         {
+            m_HurtBoxAttacking = false;
             m_StateMachine.ChangeState<SMBParriedState>();
         };
         GetComponent<SMBChargeState>().OnChargeParried = (GameObject obj) =>
         {
+            m_HurtBoxAttacking = false;
             m_StateMachine.ChangeState<SMBParriedState>();
         };
         GetComponent<SMBChargeState>().OnChargePlayer = (GameObject obj) =>
         {
+            m_HurtBoxAttacking = false;
             m_StateMachine.ChangeState<SMBChaseState>();
         };
         GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
@@ -134,6 +137,7 @@ public class VoltauroBossBehaviour : BossBehaviour
     {
         m_NumberOfAttacksBeforeCharge = Random.Range(1, 6);
         m_StateMachine.ChangeState<SMBChargeState>();
+        m_HurtBoxAttacking = true;
     }
 
     private void SetLightningSummon()

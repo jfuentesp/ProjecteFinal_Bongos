@@ -26,6 +26,7 @@ public class BossBehaviour : MonoBehaviour
 
     protected HealthController m_HealthController;
     protected FiniteStateMachine m_StateMachine;
+    public FiniteStateMachine StateMachine => m_StateMachine;
     protected Rigidbody2D m_Rigidbody;
     protected Animator m_Animator;
     private BossStatsController m_Stats;
@@ -95,6 +96,7 @@ public class BossBehaviour : MonoBehaviour
             m_BoxArea = new Vector2(m_AreaWideness, m_AreaLength);
         m_IsBusy = false;
         m_IsAlive = true;
+        m_HurtBoxAttacking = false;
         m_IsPlayerDetected = false;
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
         GetComponentInParent<SalaBoss>().OnPlayerIn += Init;
@@ -196,4 +198,8 @@ public class BossBehaviour : MonoBehaviour
     
     }
 
+    internal void SetAttackingHurtBox(bool v)
+    {
+        m_HurtBoxAttacking = v;
+    }
 }

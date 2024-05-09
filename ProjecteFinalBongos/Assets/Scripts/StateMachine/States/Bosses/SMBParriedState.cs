@@ -28,6 +28,7 @@ public class SMBParriedState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
+        m_Boss.SetAttackingHurtBox(false);
         StartCoroutine(ParriedCoroutine());
     }
     private void Update()
