@@ -43,7 +43,7 @@ public class EnemySnake : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    m_StateMachine.ChangeState<SMBChaseState>();
+                    m_StateMachine.ChangeState<SMBChargeState>();
 
                 }
                 else
@@ -57,7 +57,7 @@ public class EnemySnake : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    m_StateMachine.ChangeState<SMBChaseState>();
+                    m_StateMachine.ChangeState<SMBChargeState>();
 
                 }
                 else
