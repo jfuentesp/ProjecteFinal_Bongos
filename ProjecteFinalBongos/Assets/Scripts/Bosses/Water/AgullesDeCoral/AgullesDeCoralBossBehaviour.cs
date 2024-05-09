@@ -95,7 +95,7 @@ public class AgullesDeCoralBossBehaviour : BossBehaviour
             {
                 if (coralBullet.enabled)
                 {
-                    m_HealthController.Heal(coralBullet.m_Damage * m_HealingReduction);
+                    m_HealthController.Heal(coralBullet.Damage * m_HealingReduction);
                 }
             }
         }

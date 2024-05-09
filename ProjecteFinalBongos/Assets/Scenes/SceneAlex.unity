@@ -160,6 +160,7 @@ RectTransform:
   - {fileID: 2058170002}
   - {fileID: 265296841}
   - {fileID: 2044502330}
+  - {fileID: 1311136729}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7697,6 +7698,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311030845}
   m_CullTransparentMesh: 1
+--- !u!1 &1311136728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1311136729}
+  - component: {fileID: 1311136731}
+  - component: {fileID: 1311136730}
+  m_Layer: 5
+  m_Name: FundidoNegroPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1311136729
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311136728}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 27952384}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1311136730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311136728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1311136731
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311136728}
+  m_CullTransparentMesh: 1
 --- !u!1 &1349848004
 GameObject:
   m_ObjectHideFlags: 0
@@ -7862,7 +7939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43eb1c30fb5819c48a5993f8b0b0e133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Testing: 0
+  m_Testing: 1
   m_ConsumableDataBase: {fileID: 11400000, guid: 3695245b911850942b8fb981337f43ac, type: 2}
   dialoguePanel: {fileID: 1543375511}
   dialogueText: {fileID: 424767151}
@@ -7874,22 +7951,10 @@ MonoBehaviour:
   m_ListaBossesDisponibles:
   - m_BossPrefab: {fileID: 1425193616162931063, guid: 6f2566c93786db14598faf7c55c71d10, type: 3}
     m_BossDisponible: 0
-  - m_BossPrefab: {fileID: 8425413129942869862, guid: 48b353e347bd60f46ae2d4dd39ca9640, type: 3}
-    m_BossDisponible: 0
-  - m_BossPrefab: {fileID: 6748304150830227311, guid: 9214ca88664d22c4c8830cc482cd8d66, type: 3}
-    m_BossDisponible: 0
-  - m_BossPrefab: {fileID: 217732930650622082, guid: 3d046f5b75d75ed43ac6d11d71f471f8, type: 3}
-    m_BossDisponible: 0
-  - m_BossPrefab: {fileID: 3588807802609925389, guid: a57d01a60ab4631439d671f0bb7d5723, type: 3}
-    m_BossDisponible: 0
-  - m_BossPrefab: {fileID: 5578168786395275385, guid: 936dd161c13d01f4f9c51d68d0c2fe60, type: 3}
-    m_BossDisponible: 0
-  - m_BossPrefab: {fileID: 5652317080108237547, guid: 267d9aac067c1c946ab3bea63261c6bd, type: 3}
-    m_BossDisponible: 0
   m_GuardarPartidaEvent: {fileID: 11400000, guid: 0621630a1c7d1a949bc1c63b4833c396, type: 2}
   m_CargarPartidaEvent: {fileID: 11400000, guid: f7ea0370e72825c45b2c3968fb1d0ae2, type: 2}
   m_ObjetosDisponiblesTienda:
-  - m_Object: {fileID: 11400000, guid: e8f2dd32d2cb30848a8d8c136760d8c0, type: 2}
+  - m_Object: {fileID: 11400000, guid: 4c8ac7b15a95b654a8735bb991fe4e1d, type: 2}
     ratioAparicion: 37.5
   - m_Object: {fileID: 11400000, guid: ee95c77d74759734c9786c65cf02d805, type: 2}
     ratioAparicion: 12
@@ -7906,7 +7971,7 @@ MonoBehaviour:
     ratioAparicion: 12
   - m_Object: {fileID: 11400000, guid: d022554a08150874292ec65859f27914, type: 2}
     ratioAparicion: 10
-  - m_Object: {fileID: 11400000, guid: e8f2dd32d2cb30848a8d8c136760d8c0, type: 2}
+  - m_Object: {fileID: 11400000, guid: 4c8ac7b15a95b654a8735bb991fe4e1d, type: 2}
     ratioAparicion: 8
   - m_Object: {fileID: 11400000, guid: f8ca605b31604d94fb4f091532452401, type: 2}
     ratioAparicion: 4
@@ -7920,6 +7985,7 @@ MonoBehaviour:
     ratioAparicion: 19
   numeroObjetosTienda: 4
   numeroObjetosSalaObjetos: 4
+  m_FundidoNegroPanel: {fileID: 1311136728}
 --- !u!114 &1349848011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9218,7 +9284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1583879534

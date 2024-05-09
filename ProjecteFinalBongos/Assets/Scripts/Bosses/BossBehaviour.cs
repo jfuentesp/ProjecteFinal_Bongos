@@ -32,6 +32,9 @@ public class BossBehaviour : MonoBehaviour
     private BossEstadosController m_EstadosController;
     public BossEstadosController EstadosController => m_EstadosController;
 
+    protected bool m_HurtBoxAttacking;
+    public bool HurtBoxAttacking => m_HurtBoxAttacking;
+
     protected SalaBoss m_SalaPadre;
     public SalaBoss SalaPadre => m_SalaPadre;
     protected bool m_IsBusy;

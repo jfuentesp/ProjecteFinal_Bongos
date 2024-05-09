@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,19 @@ public class BossAttackDamage : MonoBehaviour
     private void Start()
     {
         m_StatsController = GetComponentInParent<BossStatsController>();
-        m_Damage += (m_StatsController.m_Strength * Random.Range(50, 101) / 100);
+
+        SetDamage();
     }
 
+    private void SetDamage()
+    {
+        if (m_StatsController)
+            m_Damage += (m_StatsController.m_Strength * UnityEngine.Random.Range(50, 101) / 100);
+    }
+
+    public void SetDamage(float _damage)
+    {
+        m_Damage = _damage;
+        SetDamage();
+    }
 }
