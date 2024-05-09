@@ -10,11 +10,9 @@ public class SMBBossStunState : SMState
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
     [SerializeField]
-    private GameEvent m_event;
-    [SerializeField]
     private TimesScriptable times;
     private float m_Time;
-    public Action OnStopStun;
+    public Action<GameObject> OnStopStun;
     private new void Awake()
     {
         base.Awake();
@@ -38,7 +36,7 @@ public class SMBBossStunState : SMState
     {
         yield return new WaitForSeconds(m_Time);
         m_BossBehaviour.EstadosController.StopStun();
-       OnStopStun?.Invoke();
+       OnStopStun?.Invoke(gameObject);
     }
     public override void ExitState()
     {

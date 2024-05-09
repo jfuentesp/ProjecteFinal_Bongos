@@ -151,7 +151,9 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
 
     protected override void SpawnerSala()
     {
+        print(LevelManager.Instance.GetBossToSpawn(m_NumeroBoss));
         GameObject jefe = Instantiate(LevelManager.Instance.GetBossToSpawn(m_NumeroBoss), transform);
+
         jefe.GetComponent<BossBehaviour>().OnBossDeath += DesbloquearPuertas;
         jefe.transform.localPosition = Vector3.zero;
     }
