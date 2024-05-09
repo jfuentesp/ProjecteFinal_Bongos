@@ -12,6 +12,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(SMBChargeState))]
 [RequireComponent(typeof(HealthController))]
 [RequireComponent(typeof(SMBGroundHitState))]
+[RequireComponent(typeof(SMBWalkAroundState))]
 public class MiniPegasusBehaviour : BossBehaviour
 {
     private Coroutine m_PlayerDetectionCoroutine;

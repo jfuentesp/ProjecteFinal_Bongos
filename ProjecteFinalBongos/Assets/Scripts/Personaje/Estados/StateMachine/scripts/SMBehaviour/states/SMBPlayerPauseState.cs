@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class SMBPlayerSuccesfulParryState : MBState
+public class SMBPlayerPauseState : SMState
 {
     private PJSMB m_PJ;
     private Rigidbody2D m_Rigidbody;
@@ -12,7 +12,7 @@ public class SMBPlayerSuccesfulParryState : MBState
     private AbilityEnum m_parry;
 
 
-    private void Awake()
+    private new void Awake()
     {
         m_PJ = GetComponent<PJSMB>();
         m_Rigidbody = GetComponent<Rigidbody2D>();
@@ -25,7 +25,6 @@ public class SMBPlayerSuccesfulParryState : MBState
     public override void InitState()
     {
         base.InitState();
-        m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed += Parry;
         if (m_PJ.direccion == 0)
         {
             m_Animator.Play("parriedPose");
@@ -39,20 +38,15 @@ public class SMBPlayerSuccesfulParryState : MBState
             m_Animator.Play("parriedPoseUp");
         }
         m_Rigidbody.velocity = Vector2.zero;
-        m_parry = m_PJ.PlayerAbilitiesController.Parry;
     }
     public override void ExitState()
     {
         base.ExitState();
-        m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed -= Parry;
     }
     public void Exit()
     {
         m_StateMachine.ChangeState<SMBPlayerIdleState>();
         GetComponent<DañoEnemigoListener>().enabled = true;
     }
-    private void Parry(InputAction.CallbackContext context)
-    {
-        m_StateMachine.ChangeState<SMBPlayerParryState>();
-    }
+    public voi
 }

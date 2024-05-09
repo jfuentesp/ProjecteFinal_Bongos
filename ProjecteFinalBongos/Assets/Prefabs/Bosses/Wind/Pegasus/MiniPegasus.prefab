@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: -8746048520257163402}
   - component: {fileID: -2042318096521767388}
   - component: {fileID: -8868033771294296155}
+  - component: {fileID: 4304728740585702880}
   m_Layer: 9
   m_Name: MiniPegasus
   m_TagString: Untagged
@@ -247,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAXHP: 100
+  MAXHP: 100000
 --- !u!114 &1190220192860337479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,6 +426,21 @@ MonoBehaviour:
   m_layerMask:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &4304728740585702880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186185797598942992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f3c3d81b8c72f4e9369780a8a90f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_WalkSpeed: 10
+  m_minimumWalkingDuration: 2
+  m_maximumWalkingDuration: 6
 --- !u!1 &1808595707494533218
 GameObject:
   m_ObjectHideFlags: 0

@@ -39,7 +39,7 @@ public class PlayerAbilitiesController : MonoBehaviour
         m_actualParry = m_ParriesDisponibles[0];
 
     }
-    public void initCoolDown()
+    public void initCoolDown(float cooldown)
     {
         StartCoroutine(MovementCooldown());
     }
