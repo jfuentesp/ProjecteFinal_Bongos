@@ -7,8 +7,20 @@ public class ProximityItemBehaviour : Interactuable
 {
     [SerializeField] private Consumable m_Consumible;
     [SerializeField] private Equipable m_Equipable;
-
-    public override void Interact(InputAction.CallbackContext context)
+    private SpriteRenderer m_SpriteRenderer;
+    private void Awake()
+    {
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        if (m_Consumible != null)
+        {
+            m_SpriteRenderer.sprite = m_Consumible.Sprite;
+        }
+        else if (m_Equipable != null)
+        {
+           m_SpriteRenderer.sprite = m_Equipable.Sprite;
+        }
+    }
+    protected override void Interact(InputAction.CallbackContext context)
     {
         if (inRange) {
            if (m_Consumible != null)
@@ -34,9 +46,10 @@ public class ProximityItemBehaviour : Interactuable
     { 
         m_Consumible = consumable;
     }
-    private void OnDestroy()
+    public void SetSprite(Sprite sprite)
     {
-        StopCoroutine(check());
-        PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("Interact").performed -= Interact;
+        m_SpriteRenderer.sprite = sprite;
     }
+
+ 
 }

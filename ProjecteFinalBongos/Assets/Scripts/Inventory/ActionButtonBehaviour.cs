@@ -56,7 +56,7 @@ public class ActionButtonBehaviour : MonoBehaviour, ISubmitHandler, ICancelHandl
                     if (lastSelection.AssignedConsumable != null)
                     {
                         Debug.Log("Soltado objeto " + lastSelection.AssignedConsumable.itemName);
-                        m_InventoryController.OnDropConsumable(lastSelection.AssignedEquipable.id);
+                        m_InventoryController.OnDropConsumable(lastSelection.AssignedConsumable.id);
                     }
                     if (lastSelection.AssignedEquipable != null)
                     {
