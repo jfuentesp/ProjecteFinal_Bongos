@@ -29,6 +29,12 @@ namespace GeneracionSalas
         }
         private void Start()
         {
+            StartCoroutine(IniciarMundo());
+        }
+
+        private IEnumerator IniciarMundo()
+        {
+            yield return new WaitForEndOfFrame();
             if (!GameManager.Instance.Testing)
             {
                 if (GameManager.Instance.NuevaPartida)
