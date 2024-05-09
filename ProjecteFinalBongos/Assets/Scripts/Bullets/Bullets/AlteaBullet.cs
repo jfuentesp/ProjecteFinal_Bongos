@@ -8,6 +8,7 @@ public class AlteaBullet : Bullet
     {
         transform.up = direction;
         m_Size = new Vector2(m_SizeRadius, m_SizeRadius);
+        m_AttackDamage.SetDamage(m_Damage);
         transform.localScale = m_Size;
         m_Rigidbody.velocity = transform.up * m_Speed;
     }

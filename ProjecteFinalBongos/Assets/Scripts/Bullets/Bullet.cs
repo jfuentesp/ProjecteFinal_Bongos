@@ -55,8 +55,8 @@ public class Bullet : MonoBehaviour
 
     protected void DisableBullet()
     {
-        MonoBehaviour[] comps = gameObject.GetComponents<MonoBehaviour>();
-        foreach (MonoBehaviour comp in comps)
+        Bullet[] comps = gameObject.GetComponents<Bullet>();
+        foreach (Bullet comp in comps)
         {
             comp.enabled = false;
         }

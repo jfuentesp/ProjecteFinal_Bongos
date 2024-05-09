@@ -116,7 +116,7 @@ public class PJSMB : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("BossHitBox"))
         {
-            if (TryGetComponent<BossAttackDamage>(out BossAttackDamage damageBoss))
+            if (collision.gameObject.TryGetComponent<BossAttackDamage>(out BossAttackDamage damageBoss))
             {
                 m_HealthController.Damage(damageBoss.Damage);
                 m_PlayerEstadosController.AlternarEstado(damageBoss.EstadoAlterado);
