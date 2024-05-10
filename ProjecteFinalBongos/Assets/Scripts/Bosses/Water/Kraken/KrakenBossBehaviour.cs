@@ -49,11 +49,11 @@ public class KrakenBossBehaviour : BossBehaviour
           
             m_StateMachine.ChangeState<SMBChaseState>();
         };
-        GetComponent<SMBParalized>().OnStopParalized = () =>
+        GetComponent<SMBParalized>().OnStopParalized = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
-        GetComponent<SMBBossStunState>().OnStopStun = () =>
+        GetComponent<SMBBossStunState>().OnStopStun = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };

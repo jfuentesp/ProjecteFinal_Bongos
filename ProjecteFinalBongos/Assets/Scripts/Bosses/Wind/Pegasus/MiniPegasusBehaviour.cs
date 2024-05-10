@@ -1,17 +1,19 @@
-using System;
+using NavMeshPlus.Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(AgentOverride2d))]
 [RequireComponent(typeof(SMBIdleState))]
 [RequireComponent(typeof(SMBParriedState))]
 [RequireComponent(typeof(SMBChaseState))]
-[RequireComponent(typeof(SMBSingleAttackState))]
 [RequireComponent(typeof(SMBChargeState))]
+[RequireComponent(typeof(HealthController))]
+[RequireComponent(typeof(SMBGroundHitState))]
 [RequireComponent(typeof(SMBWalkAroundState))]
-
-public class PegasusBossBehaviour : BossBehaviour
+public class MiniPegasusBehaviour : BossBehaviour
 {
     private Coroutine m_PlayerDetectionCoroutine;
     private int m_NumberOfAttacksBeforeCharge;
@@ -33,7 +35,7 @@ public class PegasusBossBehaviour : BossBehaviour
         };
         GetComponent<SMBChargeState>().OnChargeMissed = (GameObject obj) =>
         {
-            m_StateMachine.ChangeState<SMBBulletsAroundState>();
+            m_StateMachine.ChangeState<SMBChaseState>();
         };
         GetComponent<SMBChargeState>().OnChargeParried = (GameObject obj) =>
         {
@@ -47,10 +49,6 @@ public class PegasusBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBGroundHitState>();
         };
-        GetComponent<SMBBulletsAroundState>().onBulletsSpawned = (GameObject obj) =>
-        {
-            m_StateMachine.ChangeState<SMBChaseState>();
-        };
         m_StateMachine.ChangeState<SMBIdleState>();
     }
     public override void Init(Transform _Target)
@@ -59,12 +57,6 @@ public class PegasusBossBehaviour : BossBehaviour
         OnPlayerInSala.Invoke();
         m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
     }
-    void Start()
-    {
-       
-    }
-
-
     private IEnumerator PlayerDetectionCoroutine()
     {
         while (m_IsAlive)

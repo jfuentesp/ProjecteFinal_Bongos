@@ -28,14 +28,13 @@ public class SMBSingleAttackState : SMBBasicAttackState
     public override void ExitState()
     {
         base.ExitState();
-        if(m_SingleAttackCoroutine != null)
-            StopCoroutine(m_SingleAttackCoroutine);
+        StopCoroutine(m_SingleAttackCoroutine);
     }
 
     private Coroutine m_SingleAttackCoroutine;
     public IEnumerator AttackCoroutine(Vector2 position, float attackDelay)
     {
-        while(true)
+        while(m_Boss.IsPlayerDetected)
         {
             m_Rigidbody.velocity = Vector3.zero;
             m_AttackHitbox.transform.position = position;
@@ -47,12 +46,9 @@ public class SMBSingleAttackState : SMBBasicAttackState
             yield return new WaitForSeconds(attackDelay);
             m_AttackHitbox.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.5f);
-            if (!m_Boss.IsPlayerDetected)
-            {
-                OnStopDetectingPlayer?.Invoke(gameObject);
-            }
                 //m_StateMachine.ChangeState<SMBChaseState>();
         }
+        OnStopDetectingPlayer?.Invoke(gameObject);
     }
     private void Update()
     {

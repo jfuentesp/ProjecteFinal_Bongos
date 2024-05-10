@@ -38,7 +38,7 @@ public class PlayerAbilitiesController : MonoBehaviour
         if(m_ParriesDisponibles.Count > 0)
             m_actualParry = m_ParriesDisponibles[0];
     }
-    public void initCoolDown()
+    public void initCoolDown(float cooldown)
     {
         StartCoroutine(MovementCooldown());
     }
