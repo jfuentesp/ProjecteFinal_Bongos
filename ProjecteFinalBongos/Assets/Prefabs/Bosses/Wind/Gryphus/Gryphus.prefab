@@ -322,7 +322,7 @@ MonoBehaviour:
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
-    m_Bits: 1152
+    m_Bits: 128
   m_BossMuertoEvent: {fileID: 11400000, guid: a68c2e2d0411f4242b3bfb77d6d424f3, type: 2}
   m_layerMask:
     serializedVersion: 2
@@ -399,7 +399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_event: {fileID: 0}
   times: {fileID: 0}
 --- !u!114 &1630106362661267472
 MonoBehaviour:

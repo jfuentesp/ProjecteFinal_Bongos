@@ -611,6 +611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e32841b480521c94d97c826078a2652c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialDash: {fileID: 11400000, guid: 61aada6271c83224bb7f09337ebeff79, type: 2}
+  initialParry: {fileID: 11400000, guid: 4b73a32ac20d5ec45962aa8eb511fb01, type: 2}
   m_CoolDown: 3
 --- !u!114 &4521474275093461444
 MonoBehaviour:
