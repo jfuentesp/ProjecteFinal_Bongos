@@ -23,7 +23,7 @@ public class SMBHit1x3State : SMBComboState
 
         }
         m_Animator.speed = m_PJ.PlayerStatsController.m_AttackTime;
-        if (m_PJ.PlayerAbilitiesController.AtaquesMejoradosDisponibles.Contains(AbilityEnum.STUNATTACK)) {
+        if (m_PJ.PlayerAbilitiesController.AtaquesMejoradosDisponibles.Exists(ability => ability.AbilityEnum.Equals(AbilityEnum.STUNATTACK))) {
             int rnd = Random.Range(0, 11);
             if (rnd >= 5 && rnd <= 10)
             {

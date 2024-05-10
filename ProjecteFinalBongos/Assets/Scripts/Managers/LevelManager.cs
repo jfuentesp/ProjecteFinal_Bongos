@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance => m_Instance;
 
     private GeneracionSalasMatriz m_GeneracionSalasMatriz;
+    private GeneracionSalaInstanciacion m_GeneracionSalasInstanciacion;
     [SerializeField] private ConsumablesDataBase m_ConsumableDataBase;
     public ConsumablesDataBase ConsumableDataBase => m_ConsumableDataBase;
 
@@ -55,6 +56,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private int numeroObjetosTienda;
     [SerializeField] private int numeroObjetosSalaObjetos;
 
+    [Header("PanelCarga")]
+    [SerializeField] private GameObject m_FundidoNegroPanel;
+
     private EventSystem m_eventSystem;
     public EventSystem EventSystem => m_eventSystem;
     private InputSystemUIInputModule m_InputSystemUIInputModule;
@@ -70,8 +74,28 @@ public class LevelManager : MonoBehaviour
         }
         m_GeneracionSalasMatriz = GetComponent<GeneracionSalasMatriz>();
         m_GUIBossManager = GetComponent<GUIBossManager>();
+        m_GeneracionSalasInstanciacion = GetComponent<GeneracionSalaInstanciacion>();
         m_eventSystem = GetComponent<EventSystem>();
         m_InputSystemUIInputModule = GetComponent<InputSystemUIInputModule>();
+        m_GeneracionSalasInstanciacion.onMapaFinalized += DesfundirNegro;
+    }
+
+    private void DesfundirNegro()
+    {
+        StartCoroutine(DesfundirNegroCoroutine());
+    }
+
+    private IEnumerator DesfundirNegroCoroutine()
+    {
+        while (m_FundidoNegroPanel.GetComponent<Image>().color.a > 0)
+        {
+            Color colorin = m_FundidoNegroPanel.GetComponent<Image>().color;
+            colorin.a -= 0.01f;
+            m_FundidoNegroPanel.GetComponent<Image>().color = colorin;
+
+            yield return new WaitForSeconds(.03f);
+        }
+        m_FundidoNegroPanel.SetActive(false);
     }
 
     // Start is called before the first frame update

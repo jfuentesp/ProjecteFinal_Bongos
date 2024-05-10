@@ -114,4 +114,12 @@ public class Backpack : ScriptableObject
     {
         return Array.Find(m_EquipableSlots, slot => slot?.Equipable == item); //Importante el interrogante para que compruebe si no es null
     }
+
+    public int GetQuantity(Consumable consumable)
+    {
+        ConsumableSlot slot = Array.Find(m_ConsumableSlots, slot => slot?.Consumable == consumable);
+        if (slot == null) 
+            return 0;
+        return slot.Quantity;
+    }
 }

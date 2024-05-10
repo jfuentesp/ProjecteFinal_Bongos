@@ -47,7 +47,7 @@ public class PJSMB : MonoBehaviour
     public PlayerStatsController PlayerStatsController => m_playersStatsController;
     private PlayerEstadosController m_PlayerEstadosController;
     public PlayerEstadosController PlayerEstadosController => m_playerEstadosController;
-
+    private SMBPlayerParryState m_SMBPlayerParryState;
     private static PJSMB m_Instance;
     public static PJSMB Instance => m_Instance;
     [SerializeField] private InventoryController m_Inventory;
@@ -71,6 +71,7 @@ public class PJSMB : MonoBehaviour
         m_playerEstadosController = GetComponent<PlayerEstadosController>();
         m_playersStatsController = GetComponent<PlayerStatsController>();
         m_PlayerEstadosController = GetComponent<PlayerEstadosController>();
+        m_SMBPlayerParryState = GetComponent<SMBPlayerParryState>();
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -114,14 +115,24 @@ public class PJSMB : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("BossHitBox"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("BossHitBox") && !m_SMBPlayerParryState.parry)
         {
-            if (TryGetComponent<BossAttackDamage>(out BossAttackDamage damageBoss))
+            if (collision.gameObject.TryGetComponent<BossAttackDamage>(out BossAttackDamage damageBoss))
             {
                 m_HealthController.Damage(damageBoss.Damage);
                 m_PlayerEstadosController.AlternarEstado(damageBoss.EstadoAlterado);
             }
-
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("BossHitBox") && !m_SMBPlayerParryState.parry && collision.gameObject.GetComponent<BossBehaviour>().HurtBoxAttacking)
+        {
+            if (collision.gameObject.TryGetComponent<BossAttackDamage>(out BossAttackDamage damageBoss))
+            {
+                m_HealthController.Damage(damageBoss.Damage);
+                m_PlayerEstadosController.AlternarEstado(damageBoss.EstadoAlterado);
+            }
         }
     }
 }

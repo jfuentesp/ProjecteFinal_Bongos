@@ -10,7 +10,7 @@ public class SMBPlayerParryState : MBState
     private FiniteStateMachine m_StateMachine;
     private SMBStunState m_State;
     public bool parry;
-    private AbilityEnum m_parry;
+    private Ability m_parry;
     private LayerMask m_BossHurtBox;
     private LayerMask m_BossHitBox;
     [SerializeField]
@@ -71,7 +71,7 @@ public class SMBPlayerParryState : MBState
 
     private void parryAction(GameObject boss)
     {
-        switch (m_parry)
+        switch (m_parry.AbilityEnum)
         {
             case AbilityEnum.INVULNERABLEPARRY:
                 m_ChangeEstado.Raise(EstadosAlterados.Invencible);

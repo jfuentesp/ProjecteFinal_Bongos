@@ -66,7 +66,7 @@ public class AbilitiesGUIController : MonoBehaviour
     void Awake()
     {
         m_LastSelectedSlot = m_InitialButton;
-        m_AbilityPoints = 2;
+        m_AbilityPoints = 3;
     }
 
     // Update is called once per frame
@@ -199,11 +199,11 @@ public class AbilitiesGUIController : MonoBehaviour
         {
             case AbilityTypeEnum.ABILITY:
                 if (ability.Category == AbilityCategoryEnum.OFFENSIVE)
-                    m_PlayerAbilities.learnAttack(ability.AbilityEnum);
+                    m_PlayerAbilities.learnAttack(ability);
                 if (ability.Category == AbilityCategoryEnum.DEFENSIVE)
-                    m_PlayerAbilities.learnParry(ability.AbilityEnum);
+                    m_PlayerAbilities.learnParry(ability);
                 if (ability.Category == AbilityCategoryEnum.AGILITY)
-                    m_PlayerAbilities.learnMovement(ability.AbilityEnum);
+                    m_PlayerAbilities.learnMovement(ability);
                 break;
             case AbilityTypeEnum.SPEEDUP:
                 m_PlayerStats.IncreaseSpeed(ability.PowerUpAmount);

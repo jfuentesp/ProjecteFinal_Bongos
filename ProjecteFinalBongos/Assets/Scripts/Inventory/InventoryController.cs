@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,10 @@ public class InventoryController : MonoBehaviour
     [SerializeField]
     private Backpack m_InventoryBackpack;
     public Backpack BackPack => m_InventoryBackpack;
+
+    public Action OnEquipQuickConsumable;
+    public Action OnUseQuickConsumable;
+    public Action OnRemoveQuickConsumable;
 
     [Header("For testing")]
     [SerializeField]
@@ -127,6 +132,7 @@ public class InventoryController : MonoBehaviour
             m_InventoryBackpack.RemoveConsumable(itemToUse);
         }
         RefreshInventoryGUI();
+        OnUseQuickConsumable.Invoke();
     }
 
     public void OnEquip(string itemID)
@@ -168,6 +174,7 @@ public class InventoryController : MonoBehaviour
                 {        
                     slot.SetConsumable(itemToEquip);
                     slot.RefreshEquippedSlot();
+                    OnEquipQuickConsumable.Invoke();
                     return;
                 }
             }
@@ -182,6 +189,7 @@ public class InventoryController : MonoBehaviour
             slot.RemoveConsumable();
             slot.RefreshEquippedSlot();
             RefreshInventoryGUI();
+            OnRemoveQuickConsumable.Invoke();
         }
     }
 
