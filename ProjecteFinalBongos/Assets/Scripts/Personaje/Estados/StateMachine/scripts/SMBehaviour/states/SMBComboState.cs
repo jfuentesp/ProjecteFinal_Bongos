@@ -36,6 +36,7 @@ public abstract class SMBComboState : SMState
         base.InitState();
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed += OnAttack1;
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed += OnAttack2;
+        m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed += Parry;
         m_Rigidbody.velocity = Vector2.zero;
         m_ComboHandler.enabled = true;
         m_ComboHandler.OnEndAction += OnEndAction;
@@ -49,10 +50,14 @@ public abstract class SMBComboState : SMState
         if (m_PJ.Input != null) {
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed -= OnAttack1;
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed -= OnAttack2;
+            m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed -= Parry;
         }
         m_ComboHandler.OnEndAction -= OnEndAction;
     }
-
+    private void Parry(InputAction.CallbackContext context)
+    {
+        m_StateMachine.ChangeState<SMBPlayerParryState>();
+    }
     private void OnAttack1(InputAction.CallbackContext context)
     {
         if (m_ComboHandler.ComboAvailable)

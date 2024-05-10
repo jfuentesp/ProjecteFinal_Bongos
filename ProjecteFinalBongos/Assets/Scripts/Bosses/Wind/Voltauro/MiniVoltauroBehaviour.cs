@@ -1,25 +1,28 @@
-using System;
+using NavMeshPlus.Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(AgentOverride2d))]
 [RequireComponent(typeof(SMBIdleState))]
 [RequireComponent(typeof(SMBParriedState))]
 [RequireComponent(typeof(SMBChaseState))]
 [RequireComponent(typeof(SMBSingleAttackState))]
 [RequireComponent(typeof(SMBChargeState))]
-[RequireComponent(typeof(SMBWalkAroundState))]
+[RequireComponent (typeof(HealthController))]
 
-public class PegasusBossBehaviour : BossBehaviour
+public class MiniVoltauroBehaviour : BossBehaviour
 {
-    private Coroutine m_PlayerDetectionCoroutine;
     private int m_NumberOfAttacksBeforeCharge;
+    private Coroutine m_PlayerDetectionCoroutine;
     private new void Awake()
     {
         base.Awake();
-        m_NumberOfAttacksBeforeCharge = Random.Range(5, 7);
-        GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
+        m_NumberOfAttacksBeforeCharge = Random.Range(1, 4);
+
+        GetComponent<SMBBossStunState>().OnStopStun = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
@@ -27,13 +30,9 @@ public class PegasusBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
-        GetComponent<SMBBossStunState>().OnStopStun = (GameObject obj) =>
-        {
-            m_StateMachine.ChangeState<SMBChaseState>();
-        };
         GetComponent<SMBChargeState>().OnChargeMissed = (GameObject obj) =>
         {
-            m_StateMachine.ChangeState<SMBBulletsAroundState>();
+            m_StateMachine.ChangeState<SMBParriedState>();
         };
         GetComponent<SMBChargeState>().OnChargeParried = (GameObject obj) =>
         {
@@ -45,26 +44,28 @@ public class PegasusBossBehaviour : BossBehaviour
         };
         GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
         {
-            m_StateMachine.ChangeState<SMBGroundHitState>();
+            m_StateMachine.ChangeState<SMBChaseState>();
         };
-        GetComponent<SMBBulletsAroundState>().onBulletsSpawned = (GameObject obj) =>
+        GetComponent<SMBSingleAttackState>().OnStopDetectingPlayer = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
         m_StateMachine.ChangeState<SMBIdleState>();
+    }
+    private void EmpezarCorutina(GameObject obj)
+    {
+        m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
     }
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
-        OnPlayerInSala.Invoke();
-        m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
+        OnPlayerInSala?.Invoke();
     }
-    void Start()
-    {
-       
-    }
-
-
     private IEnumerator PlayerDetectionCoroutine()
     {
         while (m_IsAlive)
@@ -73,7 +74,6 @@ public class PegasusBossBehaviour : BossBehaviour
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
                 RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
-
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
@@ -87,7 +87,7 @@ public class PegasusBossBehaviour : BossBehaviour
             else
             {
                 RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position, m_BoxArea, transform.rotation.z, transform.position);
-                if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
+                if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
                     SetAttack();
@@ -100,34 +100,24 @@ public class PegasusBossBehaviour : BossBehaviour
             yield return new WaitForSeconds(m_CheckingPlayerTimelapse);
         }
     }
+
     private void SetAttack()
     {
-
         if (m_NumberOfAttacksBeforeCharge <= 0)
         {
-            WalkAround();
+            SetCharge();
             return;
         }
-        m_NumberOfAttacksBeforeCharge--;
+            m_NumberOfAttacksBeforeCharge--;
+            m_StateMachine.ChangeState<SMBSingleAttackState>();
+        
+  
+    }
+    private void SetCharge()
+    {
+        m_NumberOfAttacksBeforeCharge = Random.Range(1, 6);
         m_StateMachine.ChangeState<SMBChargeState>();
-
-
     }
-    protected override void OnTriggerEnter2D(Collider2D collision)
-    {
-        base.OnTriggerEnter2D(collision);
-    }
-
-    protected override void OnCollisionEnter2D(Collision2D collision)
-    {
-        base.OnCollisionEnter2D(collision);
-    }
-    private void WalkAround()
-    {
-        m_NumberOfAttacksBeforeCharge = Random.Range(5, 7);
-        m_StateMachine.ChangeState<SMBWalkAroundState>();
-    }
-
     protected override void VidaCero()
     {
         base.VidaCero();

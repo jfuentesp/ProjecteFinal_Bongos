@@ -86,6 +86,7 @@ public class SMBSingleAttackState : SMBBasicAttackState
             }
             //m_StateMachine.ChangeState<SMBChaseState>();
         }
+        OnStopDetectingPlayer?.Invoke(gameObject);
     }
     private void Update()
     {

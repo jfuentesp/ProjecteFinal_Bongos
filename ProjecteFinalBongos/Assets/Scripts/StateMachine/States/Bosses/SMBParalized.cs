@@ -10,7 +10,7 @@ public class SMBParalized : SMState
     private Animator m_Animator;
     [SerializeField]
     private TimesScriptable times;
-    public Action OnStopParalized;
+    public Action<GameObject> OnStopParalized;
     private new void Awake()
     {
         base.Awake();
@@ -30,7 +30,7 @@ public class SMBParalized : SMState
     {
         yield return new WaitForSeconds(times.m_ParalizedTime);
         m_BossBehaviour.EstadosController.StopStun();
-        OnStopParalized?.Invoke();
+        OnStopParalized?.Invoke(gameObject);
         //m_StateMachine.ChangeState<SMBIdleState>();
     }
     public override void ExitState()

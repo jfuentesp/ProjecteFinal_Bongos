@@ -31,7 +31,7 @@ public class SMBHit2State : SMBComboState
     }
     IEnumerator AttackBehaviour()
     {
-        if (m_PJ.PlayerAbilitiesController.AtaquesMejoradosDisponibles.Contains(AbilityEnum.STABATTACK))
+        if (m_PJ.PlayerAbilitiesController.AtaquesMejoradosDisponibles.Exists(ability => ability.AbilityEnum.Equals(AbilityEnum.STABATTACK)))
         {
             if (m_PJ.direccion == 1)
             {

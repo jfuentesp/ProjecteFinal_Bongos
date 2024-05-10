@@ -11,7 +11,7 @@ public class HabilidadDeMovimientoState : SMState
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
-    private AbilityEnum m_habilidad;
+    private Ability m_habilidad;
     private float dashSpeed = 15f;
     private float dashSpeedInvicible = 10f;
     [SerializeField]
@@ -47,7 +47,7 @@ public class HabilidadDeMovimientoState : SMState
 
     IEnumerator habilidad()
     {
-        switch (m_habilidad)
+        switch (m_habilidad.AbilityEnum)
         {
             case AbilityEnum.DASH:
                 coolDownMovement.Raise();

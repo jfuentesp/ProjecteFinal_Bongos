@@ -8,7 +8,7 @@ public class SMBHittedState : SMState
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
-    private AbilityEnum m_parry;
+    private Ability m_parry;
 
 
     private void Awake()
