@@ -24,17 +24,14 @@ public class VoltauroBossBehaviour : BossBehaviour
         m_NumberOfAttacksBeforeCharge = Random.Range(1, 6);
         GetComponent<SMBChargeState>().OnChargeMissed = (GameObject obj) =>
         {
-            m_HurtBoxAttacking = false;
             m_StateMachine.ChangeState<SMBParriedState>();
         };
         GetComponent<SMBChargeState>().OnChargeParried = (GameObject obj) =>
         {
-            m_HurtBoxAttacking = false;
             m_StateMachine.ChangeState<SMBParriedState>();
         };
         GetComponent<SMBChargeState>().OnChargePlayer = (GameObject obj) =>
         {
-            m_HurtBoxAttacking = false;
             m_StateMachine.ChangeState<SMBChaseState>();
         };
         GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
@@ -44,6 +41,26 @@ public class VoltauroBossBehaviour : BossBehaviour
         GetComponent<SMBSingleAttackState>().OnStopDetectingPlayer = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBSingleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBSingleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<SMBTripleAttackState>().OnStopDetectingPlayer = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBTripleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBTripleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
         };
         GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
         {
@@ -137,7 +154,6 @@ public class VoltauroBossBehaviour : BossBehaviour
     {
         m_NumberOfAttacksBeforeCharge = Random.Range(1, 6);
         m_StateMachine.ChangeState<SMBChargeState>();
-        m_HurtBoxAttacking = true;
     }
 
     private void SetLightningSummon()

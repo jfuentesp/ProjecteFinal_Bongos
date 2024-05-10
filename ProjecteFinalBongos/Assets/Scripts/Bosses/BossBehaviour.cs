@@ -33,9 +33,6 @@ public class BossBehaviour : MonoBehaviour
     private BossEstadosController m_EstadosController;
     public BossEstadosController EstadosController => m_EstadosController;
 
-    protected bool m_HurtBoxAttacking;
-    public bool HurtBoxAttacking => m_HurtBoxAttacking;
-
     protected SalaBoss m_SalaPadre;
     public SalaBoss SalaPadre => m_SalaPadre;
     protected bool m_IsBusy;
@@ -96,7 +93,6 @@ public class BossBehaviour : MonoBehaviour
             m_BoxArea = new Vector2(m_AreaWideness, m_AreaLength);
         m_IsBusy = false;
         m_IsAlive = true;
-        m_HurtBoxAttacking = false;
         m_IsPlayerDetected = false;
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
         GetComponentInParent<SalaBoss>().OnPlayerIn += Init;
@@ -196,10 +192,5 @@ public class BossBehaviour : MonoBehaviour
             }
         }
     
-    }
-
-    internal void SetAttackingHurtBox(bool v)
-    {
-        m_HurtBoxAttacking = v;
     }
 }

@@ -47,7 +47,6 @@ public class SMBChaseState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(false);
-        m_Boss.SetAttackingHurtBox(false);
         m_NavMeshAgent.isStopped = false;
         OnStartChase?.Invoke();
         if(m_ChaseAnimationName != String.Empty)

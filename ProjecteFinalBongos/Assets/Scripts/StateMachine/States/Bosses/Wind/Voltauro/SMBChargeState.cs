@@ -55,7 +55,6 @@ public class SMBChargeState : SMState
         m_Boss.SetBusy(true);
         StartCoroutine(ChargeCoroutine());
         m_NavMeshAgent.ResetPath();
-        m_Boss.SetAttackingHurtBox(true);
     }
 
     public override void ExitState()

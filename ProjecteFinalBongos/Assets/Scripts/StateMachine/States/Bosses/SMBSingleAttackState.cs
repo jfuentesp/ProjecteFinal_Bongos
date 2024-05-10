@@ -15,7 +15,7 @@ public class SMBSingleAttackState : SMBBasicAttackState
     public Action<GameObject> OnAttackStopped;
     public Action<GameObject> OnAttackParried;
 
-    public bool derecha;
+    private bool derecha;
 
     protected override void Awake()
     {

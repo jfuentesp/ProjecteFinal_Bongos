@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,12 @@ public class SMBTripleAttackState : SMBBasicAttackState
     [SerializeField]
     private string m_TripleAttackAnimationName;
 
+    public Action<GameObject> OnStopDetectingPlayer;
+    public Action<GameObject> OnAttackStopped;
+    public Action<GameObject> OnAttackParried;
+
+    private bool derecha;
+
     protected override void Awake()
     {
         base.Awake();
@@ -18,7 +25,35 @@ public class SMBTripleAttackState : SMBBasicAttackState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        m_TripleAttackCoroutine = StartCoroutine(AttackCoroutine(transform.position + transform.up, 0.5f, 0.5f, 1f));
+        if (m_TripleAttackAnimationName == String.Empty)
+            m_TripleAttackCoroutine = StartCoroutine(AttackCoroutine(transform.position + transform.up, 0.5f, 0.5f, 1f));
+        else
+            AttackAnimation();
+    }
+
+    private void AttackAnimation()
+    {
+        if (m_TwoDirections)
+        {
+            m_Animator.Play(m_TripleAttackAnimationName);
+
+            if (m_Target.position.x - transform.position.x < 0)
+            {
+                derecha = false;
+            }
+            else
+            {
+                derecha = true;
+            }
+        }
+    }
+
+    private void EndTripleAttackAttack()
+    {
+        if (!m_Boss.IsPlayerDetected)
+        {
+            OnAttackStopped?.Invoke(gameObject);
+        }
     }
 
     public override void ExitState()
@@ -52,11 +87,14 @@ public class SMBTripleAttackState : SMBBasicAttackState
             m_AttackHitbox.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.5f);
             if (!m_Boss.IsPlayerDetected)
-                m_StateMachine.ChangeState<SMBChaseState>();
+                OnStopDetectingPlayer?.Invoke(gameObject);
         }
     }
     private void Update()
     {
-
+        if (derecha)
+            transform.localEulerAngles = Vector3.zero;
+        else
+            transform.localEulerAngles = new Vector3(0, 180, 0);
     }
 }
