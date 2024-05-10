@@ -10,13 +10,9 @@ using UnityEngine.AI;
 [RequireComponent(typeof(SMBParriedState))]
 [RequireComponent(typeof(SMBChaseState))]
 [RequireComponent(typeof(SMBSingleAttackState))]
-[RequireComponent(typeof(SMBDoubleAttackState))]
-[RequireComponent(typeof(SMBTripleAttackState))]
-public class GryphusBossBehaviour : BossBehaviour
+public class MiniGryphusBehaviour : BossBehaviour
 {
     private Coroutine m_PlayerDetectionCoroutine;
-    private enum Phase { ONE, TWO }
-    private Phase m_CurrentPhase;
 
     private new void Awake()
     {
@@ -35,7 +31,6 @@ public class GryphusBossBehaviour : BossBehaviour
         };
         m_StateMachine.ChangeState<SMBIdleState>();
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
-        m_CurrentPhase = Phase.ONE;
     }
     public override void Init(Transform _Target)
     {
@@ -50,44 +45,9 @@ public class GryphusBossBehaviour : BossBehaviour
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
-
-        if(collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox"))
-        {
-            if (m_CurrentPhase == Phase.ONE)
-                m_HealthController.Heal(20);
-        }
-        if (m_CurrentPhase == Phase.ONE && m_HealthController.HP <= m_HealthController.HPMAX / 2)
-        {
-            print("Cambio de fase");
-            m_CurrentPhase = Phase.TWO;
-        }
-    }
-
-    private void SetAttack()
-    {
-        float rng = Random.value;
-        /*if (si la vida cae al 50%)
-        {
-            m_CurrentPhase = Phase.TWO;
-            return;
-        }*/
-        switch (rng)
-        {
-            case < 0.5f:
-                m_StateMachine.ChangeState<SMBSingleAttackState>();
-                break;
-            case < 0.65f:
-                m_StateMachine.ChangeState<SMBDoubleAttackState>();
-                break;
-            case > 0.8f:
-                m_StateMachine.ChangeState<SMBTripleAttackState>();
-                break;
-        }
-    }
-
-    private void SetPhase(Phase phaseToSet)
-    {
-        m_CurrentPhase = phaseToSet;
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox"))
+              m_HealthController.Heal(20);
+  
     }
 
     private IEnumerator PlayerDetectionCoroutine()
@@ -101,7 +61,7 @@ public class GryphusBossBehaviour : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    SetAttack();
+                    m_StateMachine.ChangeState<SMBSingleAttackState>();
                 }
                 else
                 {
@@ -114,7 +74,7 @@ public class GryphusBossBehaviour : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    SetAttack();
+                    m_StateMachine.ChangeState<SMBSingleAttackState>();
                 }
                 else
                 {
