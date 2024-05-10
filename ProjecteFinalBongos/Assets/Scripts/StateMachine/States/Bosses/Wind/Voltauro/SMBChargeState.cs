@@ -11,7 +11,10 @@ public class SMBChargeState : SMState
     private Animator m_Animator;
     private BossBehaviour m_Boss;
     private NavMeshAgent m_NavMeshAgent;
-        
+
+    [Header("Time Before Charge")]
+    [SerializeField] private float m_TimeBeforeCharge;
+
 
     [Header("Charge speed")]
     [SerializeField]
@@ -21,6 +24,14 @@ public class SMBChargeState : SMState
     [SerializeField]
     private float m_ChargeForce;
 
+    [Header("Animation Name")]
+    [SerializeField] private string m_StartChargeAnimationName;
+    [SerializeField] private string m_ChargeAnimationName;
+    [SerializeField] private string m_EndChargeAnimationName;
+
+    [Header("Animation Two Directions")]
+    [SerializeField] protected bool m_TwoDirections;
+
     private bool m_IsAiming;
     private bool m_IsCharging;
 
@@ -29,6 +40,8 @@ public class SMBChargeState : SMState
     public Action<GameObject> OnChargeMissed;
     public Action<GameObject> OnChargeParried;
     public Action<GameObject> OnChargePlayer;
+
+    private bool derecha;
 
 
     private new void Awake()
@@ -66,22 +79,35 @@ public class SMBChargeState : SMState
     private IEnumerator ChargeCoroutine()
     {
         m_IsAiming = true;
-        yield return new WaitForSeconds(2f);
+        m_Animator.Play(m_StartChargeAnimationName);
+        yield return new WaitForSeconds(m_TimeBeforeCharge);
         m_IsAiming = false;
         m_IsCharging = true;
+        m_Animator.Play(m_ChargeAnimationName);
     }
 
     Vector3 m_Direction;
     private void Update()
     {
-        if (m_IsAiming)
+        if (m_TwoDirections)
         {
-            m_Direction = (m_Target.transform.position - transform.position).normalized;
-            m_Rigidbody.velocity = Vector3.zero;
-            Vector2 posicionPlayer = m_Target.position - transform.position;
-            float angulo = Mathf.Atan2(posicionPlayer.y, posicionPlayer.x);
-            angulo = Mathf.Rad2Deg * angulo - 90;
-            transform.localEulerAngles = new Vector3(0, 0, angulo);
+            if (m_IsAiming)
+            {
+
+                if (m_Target.position.x - transform.position.x < 0)
+                {
+                    derecha = false;
+                }
+                else
+                {
+                    derecha = true;
+                }
+                m_Direction = (m_Target.transform.position - transform.position).normalized;
+            }
+            if (derecha)
+                transform.localEulerAngles = Vector3.zero;
+            else
+                transform.localEulerAngles = new Vector3(0, 180, 0);
         }
     }
 
@@ -107,7 +133,7 @@ public class SMBChargeState : SMState
                 {
                     OnChargeMissed.Invoke(gameObject);
                 }
-                if(collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox"))
+                if (collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox"))
                 {
                     OnChargeMissed.Invoke(gameObject);
                 }
