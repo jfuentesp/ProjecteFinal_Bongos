@@ -15,6 +15,10 @@ public class SMBRangedAttack : SMState
     [SerializeField]
     private Pool m_Pool;
 
+    [SerializeField] private bool m_TwoDirections;
+    [SerializeField] private string m_RangedAttackAnimationName;
+    private bool derecha;
+
     private Transform m_Target;
 
     public delegate void OnStopAttacking(GameObject obj);
@@ -40,8 +44,45 @@ public class SMBRangedAttack : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        StartCoroutine(Disparar());
         m_Rigidbody.velocity = Vector3.zero;
+
+        if (m_RangedAttackAnimationName == String.Empty)
+            print("ay");
+        else
+            AttackAnimation();
+    }
+
+    private void AttackAnimation()
+    {
+        if (m_TwoDirections)
+        {
+            m_Animator.Play(m_RangedAttackAnimationName);
+
+            if (m_Target.position.x - transform.position.x < 0)
+            {
+                derecha = false;
+            }
+            else
+            {
+                derecha = true;
+            }
+        }
+    }
+
+
+
+    private void DispararAtaque()
+    {
+        GameObject lightning = m_Pool.GetElement();
+        lightning.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        lightning.SetActive(true);
+        lightning.GetComponent<AlteaBullet>().enabled = true;
+        lightning.GetComponent<AlteaBullet>().Init(m_Target.position - transform.position);
+    }
+
+    private void EndAttack()
+    {
+        onAttackStopped?.Invoke(gameObject);
     }
 
     private IEnumerator Disparar()
@@ -52,7 +93,6 @@ public class SMBRangedAttack : SMState
         lightning.SetActive(true);
         lightning.GetComponent<AlteaBullet>().enabled = true;
         lightning.GetComponent<AlteaBullet>().Init(m_Target.position - transform.position);
-        onAttackStopped.Invoke(gameObject);
     }
 
     public override void ExitState()
@@ -62,6 +102,9 @@ public class SMBRangedAttack : SMState
     // Update is called once per frame
     void Update()
     {
-        
+        if (derecha)
+            transform.localEulerAngles = Vector3.zero;
+        else
+            transform.localEulerAngles = new Vector3(0, 180, 0);
     }
 }
