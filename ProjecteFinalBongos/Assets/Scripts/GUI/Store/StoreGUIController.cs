@@ -11,19 +11,22 @@ public class StoreGUIController : MonoBehaviour
     [Header("Store GUI Components")]
     [SerializeField]
     private InventoryController m_PlayerInventory;
+    [SerializeField]
+    private GameObject m_StoreConsumableGrid;
+    [SerializeField]
+    private GameObject m_StoreEquipablesGrid;
+    [SerializeField]
+    private GameObject m_PlayerConsumableGrid;
+    [SerializeField]
+    private GameObject m_PlayerEquipableGrid;
+
     [Header("Arrays that represent each of Piccolo stores")]
     [SerializeField]
     private Consumable[] m_PiccoloStoreConsumables = new Consumable[10];
     [SerializeField]
     private Equipable[] m_PiccoloStoreEquipables = new Equipable[10];
-    [Header("Lists including all the possible objects that piccolo can show in its store")]
-    [SerializeField]
-    private List<Consumable> m_ConsumableList = new List<Consumable>();
-    [SerializeField]
-    private List<Equipable> m_EquipableList = new List<Equipable>();
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
         
     }
@@ -31,7 +34,7 @@ public class StoreGUIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     private void LoadStore()
@@ -41,8 +44,77 @@ public class StoreGUIController : MonoBehaviour
 
     private void LoadPlayerInventory()
     {
+        
+    }
+
+    public void OpenShop(List<Consumable> consumables, List<Equipable> equipables)
+    {
+        m_PiccoloStoreConsumables = consumables.ToArray();
+        m_PiccoloStoreEquipables = equipables.ToArray();
+        LoadStore();
+        LoadPlayerInventory();
+        RefreshGUI();
+    }
+
+    public void CloseShop() 
+    { 
+    
+    }
+
+    /* GUI */
+    public void RefreshGUI()
+    {
+        RefreshConsumablesStoreGUI();
+        RefreshEquipablesStoreGUI();
+        RefreshPlayerStoreConsumablesGUI();
+        RefreshPlayerStoreEquipablesGUI();
+    }
+
+    public void RefreshConsumablesStoreGUI()
+    {
+        for (int items = 0; items < m_StoreConsumableGrid.transform.childCount; items++) 
+        {
+            GridSlotBehaviour slot = m_StoreConsumableGrid.transform.GetChild(items).GetComponentInChildren<GridSlotBehaviour>();
+            //if()
+        }
+    }
+
+    public void RefreshEquipablesStoreGUI()
+    {
 
     }
 
-    
+    public void RefreshPlayerStoreConsumablesGUI()
+    {
+        for (int items = 0; items < m_PlayerInventory.BackPack.ConsumableSlots.Length; items++)
+        {
+            GridSlotBehaviour slot = m_PlayerConsumableGrid.transform.GetChild(items).GetComponentInChildren<GridSlotBehaviour>();
+            if (m_PlayerInventory.BackPack.ConsumableSlots[items] != null)
+            {
+                slot.SetConsumable(m_PlayerInventory.BackPack.ConsumableSlots[items].Consumable);
+            }
+            else
+            {
+                slot.RemoveConsumable();
+            }
+            slot.RefreshConsumableSlot();
+        }
+    }
+
+    public void RefreshPlayerStoreEquipablesGUI()
+    {
+        for (int items = 0; items < m_PlayerInventory.BackPack.EquipableSlots.Length; items++)
+        {
+            GridSlotBehaviour slot = m_PlayerEquipableGrid.transform.GetChild(items).GetComponentInChildren<GridSlotBehaviour>();
+            if (m_PlayerInventory.BackPack.EquipableSlots[items] != null)
+            {
+                slot.SetEquipable(m_PlayerInventory.BackPack.EquipableSlots[items].Equipable);
+            }
+            else
+            {
+                slot.RemoveEquipable();
+            }
+            slot.RefreshEquipableSlot();
+        }
+    }
 }

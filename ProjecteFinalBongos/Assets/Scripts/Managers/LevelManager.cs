@@ -59,6 +59,9 @@ public class LevelManager : MonoBehaviour
     [Header("PanelCarga")]
     [SerializeField] private GameObject m_FundidoNegroPanel;
 
+    private StoreGUIController m_StoreGUIController;
+    public StoreGUIController StoreGUIController => m_StoreGUIController;
+
     private EventSystem m_eventSystem;
     public EventSystem EventSystem => m_eventSystem;
     private InputSystemUIInputModule m_InputSystemUIInputModule;
@@ -77,6 +80,7 @@ public class LevelManager : MonoBehaviour
         m_GeneracionSalasInstanciacion = GetComponent<GeneracionSalaInstanciacion>();
         m_eventSystem = GetComponent<EventSystem>();
         m_InputSystemUIInputModule = GetComponent<InputSystemUIInputModule>();
+        m_StoreGUIController = GetComponent<StoreGUIController>();
         m_GeneracionSalasInstanciacion.onMapaFinalized += DesfundirNegro;
     }
 

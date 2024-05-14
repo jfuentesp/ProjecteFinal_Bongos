@@ -9,6 +9,7 @@ public class PiccoloChadScript : MonoBehaviour
     private Animator m_Animator;
     private int id;
     [SerializeField] private List<Consumable> m_ObjetosDisponibles = new();
+    [SerializeField] private List<Equipable> m_EquipablesDisponibles = new();
     [Header("Variables Dialogo")]
     [SerializeField] private GameObject m_DialogueMark;
     private GameObject dialoguePanel;
@@ -75,7 +76,7 @@ public class PiccoloChadScript : MonoBehaviour
                 }
                 else if (isInFirstMessage && dialogueText.text == m_FraseActual)
                 {
-                    LevelManager.Instance.OpenShop(id);
+                    LevelManager.Instance.StoreGUIController.OpenShop(m_ObjetosDisponibles, m_EquipablesDisponibles);
                     canInteract = false;
                 }
                 else if (isInFirstMessage && dialogueText.text != m_FraseActual)
