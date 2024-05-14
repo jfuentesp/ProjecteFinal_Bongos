@@ -5182,7 +5182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_event: {fileID: 11400000, guid: 2873db0081509554d827546e7d302d65, type: 2}
-  playerTimes: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
 --- !u!114 &4123619812283796905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11085,6 +11084,14 @@ PrefabInstance:
       propertyPath: m_PlayerAbilities
       value: 
       objectReference: {fileID: 858568505054062628}
+    - target: {fileID: 1250968505331611707, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
+      propertyPath: m_Tier1Abilities.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1250968505331611707, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
+      propertyPath: m_Tier1Abilities.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: aa8714c2a7af0ec40af8b78102950ce8, type: 2}
     - target: {fileID: 1257353212957998447, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class AbilitiesGUIController : MonoBehaviour
@@ -67,18 +68,19 @@ public class AbilitiesGUIController : MonoBehaviour
     {
         m_LastSelectedSlot = m_InitialButton;
         m_AbilityPoints = 3;
+
+    }
+    private void Start()
+    {
+        PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("OpenAbilities").performed += OpenAbilities;
     }
 
     // Update is called once per frame
-    void Update()
+    private void OpenAbilities(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            m_AbilityHUD.SetActive(!m_AbilityHUD.activeSelf);
-            RefreshAbilityGUI();
-        }
+        m_AbilityHUD.SetActive(!m_AbilityHUD.activeSelf);
+        RefreshAbilityGUI();
     }
-
     public Ability GetRandomAbilityByTierAndType(AbilityTierEnum tier, AbilityCategoryEnum category)
     {
         int random = 0;
