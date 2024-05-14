@@ -4871,6 +4871,7 @@ GameObject:
   - component: {fileID: 4521474275093461444}
   - component: {fileID: 5937614574480471992}
   - component: {fileID: 3912602046068204063}
+  - component: {fileID: 2877444579328802483}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -5518,6 +5519,34 @@ MonoBehaviour:
       - m_Target: {fileID: 5937614574480471992}
         m_TargetAssemblyTypeName: PlayerEstadosController, Assembly-CSharp
         m_MethodName: StopStuck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2877444579328802483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922464185457733035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0640d428ac906c2459218b66878fd018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 1e46ef1f1b1268343a2fd391f09d0a49, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4254670929691272808}
+        m_TargetAssemblyTypeName: HabilidadDeMovimientoState, Assembly-CSharp
+        m_MethodName: DestroyMovementElements
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
