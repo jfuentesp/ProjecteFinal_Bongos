@@ -27,7 +27,6 @@ public class LevelManager : MonoBehaviour
     public GameObject DialoguePanel => dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
     public TextMeshProUGUI DialogueText => dialogueText;
-    [SerializeField] private GameObject m_TiendaPanel;
     [SerializeField] private Button m_CloseShopButton;
     private int idPiccolo;
     public Action<int> onCloseShopOfPiccolo;
@@ -59,6 +58,9 @@ public class LevelManager : MonoBehaviour
     [Header("PanelCarga")]
     [SerializeField] private GameObject m_FundidoNegroPanel;
 
+    private StoreGUIController m_StoreGUIController;
+    public StoreGUIController StoreGUIController => m_StoreGUIController;
+
     private EventSystem m_eventSystem;
     public EventSystem EventSystem => m_eventSystem;
     private InputSystemUIInputModule m_InputSystemUIInputModule;
@@ -77,6 +79,7 @@ public class LevelManager : MonoBehaviour
         m_GeneracionSalasInstanciacion = GetComponent<GeneracionSalaInstanciacion>();
         m_eventSystem = GetComponent<EventSystem>();
         m_InputSystemUIInputModule = GetComponent<InputSystemUIInputModule>();
+        m_StoreGUIController = GetComponent<StoreGUIController>();
         m_GeneracionSalasInstanciacion.onMapaFinalized += DesfundirNegro;
     }
 
@@ -101,9 +104,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (m_CloseShopButton) m_CloseShopButton.onClick.AddListener(CloseShop);
         TodosLosBossesDisponibles();
-        m_TiendaPanel.SetActive(false);
         idPiccolo = 0;
         m_BossesMuertos = 0;
 
@@ -126,18 +127,6 @@ public class LevelManager : MonoBehaviour
         {
             m_CargarPartidaEvent.Raise();
         }
-    }
-
-    public void OpenShop(int id)
-    {
-        piccoloConTiendaAbierta = id;
-        m_TiendaPanel.SetActive(true);
-    }
-
-    private void CloseShop()
-    {
-        m_TiendaPanel.SetActive(false);
-        onCloseShopOfPiccolo?.Invoke(piccoloConTiendaAbierta);
     }
 
     private void TodosLosBossesDisponibles()
