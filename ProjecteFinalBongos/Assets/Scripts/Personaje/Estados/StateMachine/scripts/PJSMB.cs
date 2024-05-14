@@ -122,14 +122,14 @@ public class PJSMB : MonoBehaviour
             if (collision.gameObject.TryGetComponent<BossAttackDamage>(out BossAttackDamage damageBoss))
             {
                 m_HealthController.Damage(damageBoss.Damage);
-                m_PlayerEstadosController.AlternarEstado(damageBoss.EstadoAlterado);
+                m_PlayerEstadosController.AlternarEstado(damageBoss.EstadoAlterado, damageBoss.StateTime);
             }
         }
     }
 
-    public void GetDamage(float _Damage, EstadosAlterados estado)
+    public void GetDamage(float _Damage, EstadosAlterados estado, float time)
     {
         m_HealthController.Damage(_Damage);
-        m_PlayerEstadosController.AlternarEstado(estado);
+        m_PlayerEstadosController.AlternarEstado(estado, time);
     }
 }

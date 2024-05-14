@@ -150,7 +150,7 @@ public class SMBChargeState : SMState
                     else
                     {
                         OnChargePlayer.Invoke(gameObject);
-                        collision.gameObject.GetComponent<PJSMB>().GetDamage(GetComponent<BossAttackDamage>().Damage, GetComponent<BossAttackDamage>().EstadoAlterado);
+                        collision.gameObject.GetComponent<PJSMB>().GetDamage(GetComponent<BossAttackDamage>().Damage, GetComponent<BossAttackDamage>().EstadoAlterado, GetComponent<BossAttackDamage>().StateTime);
                         Rigidbody2D target;
                         collision.gameObject.TryGetComponent<Rigidbody2D>(out target);
                         if (target != null)
