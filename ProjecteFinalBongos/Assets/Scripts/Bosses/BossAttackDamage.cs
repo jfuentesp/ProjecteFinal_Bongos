@@ -21,6 +21,7 @@ public class BossAttackDamage : MonoBehaviour
 
     [SerializeField] private EstadosAlterados m_EstadoAlterado;
     public EstadosAlterados EstadoAlterado => m_EstadoAlterado;
+    [SerializeField]
     private float stateTime;
     public float StateTime => stateTime;
 
