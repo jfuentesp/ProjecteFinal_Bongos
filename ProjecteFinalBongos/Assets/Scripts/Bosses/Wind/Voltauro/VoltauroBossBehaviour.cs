@@ -10,6 +10,7 @@ using UnityEngine;
 [RequireComponent(typeof(SMBTripleAttackState))]
 [RequireComponent(typeof(SMBChargeState))]
 [RequireComponent(typeof(SMBLightningSummonState))]
+[RequireComponent(typeof(DeathState))]
 public class VoltauroBossBehaviour : BossBehaviour
 {
     private int m_NumberOfAttacksBeforeCharge;
@@ -70,9 +71,15 @@ public class VoltauroBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        transform.GetChild(0).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
         m_StateMachine.ChangeState<SMBIdleState>();
     }
+
     private void EmpezarCorutina(GameObject obj)
     {
         m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
@@ -83,22 +90,22 @@ public class VoltauroBossBehaviour : BossBehaviour
     }
     private IEnumerator PlayerDetectionCoroutine()
     {
-        while(m_IsAlive)
+        while (m_IsAlive)
         {
 
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
                 RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
-                if(hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
+                if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
                     SetAttack();
-                } 
+                }
                 else
                 {
                     m_IsPlayerDetected = false;
                 }
-            } 
+            }
             else
             {
                 RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position, m_BoxArea, transform.rotation.z, transform.position);
@@ -119,13 +126,13 @@ public class VoltauroBossBehaviour : BossBehaviour
     private void SetAttack()
     {
         float rng = Random.value;
-        if(m_NumberOfAttacksBeforeCharge <= 0)
+        if (m_NumberOfAttacksBeforeCharge <= 0)
         {
             SetCharge();
             return;
-        } 
+        }
 
-        switch(rng)
+        switch (rng)
         {
             case < 0.5f:
                 m_NumberOfAttacksBeforeCharge--;
@@ -170,13 +177,20 @@ public class VoltauroBossBehaviour : BossBehaviour
             m_CurrentPhase = Phase.TWO;
         }
     }
+
+    private void MatarBoss()
+    {
+        Destroy(gameObject);
+    }
+
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         m_BossMuertoEvent.Raise();
-        Destroy(gameObject);
     }
     private void SetPhase(Phase phaseToSet)
     {

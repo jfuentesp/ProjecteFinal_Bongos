@@ -11,10 +11,17 @@ public class BossAttackDamage : MonoBehaviour
     private BossStatsController m_StatsController;
     [SerializeField]
     private GameObject m_player;
+    [SerializeField]
+    private bool parreable;
+    [SerializeField]
+    private bool healable;
+    public Action<GameObject> OnAttackParried;
+    public Action<GameObject> OnAttackHealed;
     public float Damage => m_Damage;
 
     [SerializeField] private EstadosAlterados m_EstadoAlterado;
     public EstadosAlterados EstadoAlterado => m_EstadoAlterado;
+
     private void Start()
     {
         m_StatsController = GetComponentInParent<BossStatsController>();
@@ -32,5 +39,29 @@ public class BossAttackDamage : MonoBehaviour
     {
         m_Damage = _damage;
         SetDamage();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (parreable)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                if (collision.gameObject.GetComponent<SMBPlayerParryState>().parry)
+                {
+                    OnAttackParried?.Invoke(transform.parent.gameObject);
+                }
+            }
+        }
+        if (healable)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                if (!collision.gameObject.GetComponent<SMBPlayerParryState>().parry)
+                {
+                    OnAttackHealed?.Invoke(transform.parent.gameObject);
+                }
+            }
+        }
     }
 }

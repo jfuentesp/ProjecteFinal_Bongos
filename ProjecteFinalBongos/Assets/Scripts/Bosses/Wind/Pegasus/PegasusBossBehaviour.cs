@@ -7,7 +7,6 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(SMBIdleState))]
 [RequireComponent(typeof(SMBParriedState))]
 [RequireComponent(typeof(SMBChaseState))]
-[RequireComponent(typeof(SMBSingleAttackState))]
 [RequireComponent(typeof(SMBChargeState))]
 [RequireComponent(typeof(SMBWalkAroundState))]
 

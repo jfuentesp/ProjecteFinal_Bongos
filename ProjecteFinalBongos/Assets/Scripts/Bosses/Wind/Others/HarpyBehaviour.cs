@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(SMBIdleState))]
 [RequireComponent(typeof(SMBHarpyChaseState))]
 [RequireComponent(typeof(SMBSingleAttackState))]
+[RequireComponent(typeof(DeathState))]
+[RequireComponent(typeof(SMBParriedState))]
 public class HarpyBehaviour : BossBehaviour
 {
     protected new void Awake()
@@ -16,9 +18,25 @@ public class HarpyBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBHarpyChaseState>();
         };
+        GetComponent<SMBSingleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBHarpyChaseState>();
+        };
+        GetComponent<SMBSingleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBHarpyChaseState>();
+        };
         GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBHarpyChaseState>();
+        };
+        transform.GetChild(0).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
         };
 
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
@@ -71,11 +89,16 @@ public class HarpyBehaviour : BossBehaviour
             yield return new WaitForSeconds(m_CheckingPlayerTimelapse);
         }
     }
+    private void MatarBoss()
+    {
+        Destroy(gameObject);
+    }
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
-        Destroy(gameObject);
     }
     private void Attack()
     {

@@ -9,6 +9,12 @@ public class SMBDoubleAttackState : SMBBasicAttackState
     [SerializeField]
     private string m_DoubleAttackAnimationName;
 
+    public Action<GameObject> OnStopDetectingPlayer;
+    public Action<GameObject> OnAttackStopped;
+    public Action<GameObject> OnAttackParried;
+
+    private bool derecha;
+
     protected override void Awake()
     {
         base.Awake();
@@ -18,7 +24,34 @@ public class SMBDoubleAttackState : SMBBasicAttackState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        m_DoubleAttackCoroutine = StartCoroutine(AttackCoroutine(transform.position + transform.up, 0.5f, 0.5f));
+        if (m_DoubleAttackAnimationName != String.Empty)
+            m_DoubleAttackCoroutine = StartCoroutine(AttackCoroutine(transform.position + transform.up, 0.5f, 0.5f));
+        else
+            AttackAnimation();
+    }
+
+    private void AttackAnimation()
+    {
+        if (m_TwoDirections)
+        {
+            m_Animator.Play(m_DoubleAttackAnimationName);
+
+            if (m_Target.position.x - transform.position.x < 0)
+            {
+                derecha = false;
+            }
+            else
+            {
+                derecha = true;
+            }
+        }
+    }
+    private void EndSecondAttack()
+    {
+        if (!m_Boss.IsPlayerDetected)
+        {
+            OnAttackStopped?.Invoke(gameObject);
+        }
     }
 
     public override void ExitState()
@@ -29,7 +62,10 @@ public class SMBDoubleAttackState : SMBBasicAttackState
     }
     private void Update()
     {
-
+        if (derecha)
+            transform.localEulerAngles = Vector3.zero;
+        else
+            transform.localEulerAngles = new Vector3(0, 180, 0);
     }
     private Coroutine m_DoubleAttackCoroutine;
     public IEnumerator AttackCoroutine(Vector2 position, float attack1Delay, float attack2Delay)

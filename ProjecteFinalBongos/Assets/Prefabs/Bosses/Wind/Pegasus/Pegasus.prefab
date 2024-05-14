@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 3804332730328838451}
   - component: {fileID: 7840665840602484523}
   - component: {fileID: 2222296427785269261}
-  - component: {fileID: 2968547876822888234}
   - component: {fileID: 7439815252516766770}
   - component: {fileID: 4405917579707727485}
   - component: {fileID: 5640569680253866471}
@@ -28,12 +27,12 @@ GameObject:
   - component: {fileID: -2504800261490869880}
   - component: {fileID: -9008480982053916253}
   - component: {fileID: 2349389050857038823}
-  - component: {fileID: 4671150772417282311}
   - component: {fileID: 4958031672399655640}
   - component: {fileID: 5147723450086483658}
   - component: {fileID: 7288981906074113650}
   - component: {fileID: -5115236751226555552}
   - component: {fileID: 2238363034360222597}
+  - component: {fileID: 1101482408609079519}
   m_Layer: 9
   m_Name: Pegasus
   m_TagString: Untagged
@@ -97,8 +96,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1cf35e76a32c87c4da15e964cea769b2, type: 3}
-  m_Color: {r: 0.042452812, g: 0.5000217, b: 1, a: 1}
+  m_Sprite: {fileID: -1108709980, guid: a3233adf2e1c76443bb56aee26fecb99, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -170,8 +169,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.53092206, y: 0.45833996}
+    oldSize: {x: 0.87777776, y: 0.95555556}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -204,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee5c8230df4f49ae73db6a2eb0766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IdleAnimationName: 
+  m_IdleAnimationName: Charge
 --- !u!114 &3804332730328838451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ParryDuration: 2
+  m_AnimationParryName: Parried
 --- !u!95 &7840665840602484523
 Animator:
   serializedVersion: 5
@@ -228,7 +228,7 @@ Animator:
   m_GameObject: {fileID: 5578168786395275385}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3cd761fc0a3c4b47b04dfd36dc43c5f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -252,24 +252,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ChaseSpeed: 5
-  m_ChaseAnimationName: 
---- !u!114 &2968547876822888234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5578168786395275385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed55b1b0673a9e24a98ce8d9413e3f9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AttackHitbox: {fileID: 0}
-  m_HitboxLength: 2
-  m_HitboxWideness: 2
-  m_HitboxRadius: 0.2
-  m_SingleAttackAnimationName: 
+  m_ChaseAnimationName: Walk
+  m_TwoDirections: 1
 --- !u!114 &7439815252516766770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,8 +266,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03f062997d23bf46a50d2fa12d157ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TimeBeforeCharge: 2
   m_ChargeSpeed: 20
   m_ChargeForce: 2
+  m_StartChargeAnimationName: StartCharge
+  m_ChargeAnimationName: Charge
+  m_EndChargeAnimationName: 
+  m_TwoDirections: 1
 --- !u!114 &4405917579707727485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SummoningDuration: 3
   m_Pool: {fileID: 0}
+  m_AnimationSummoningName: BulleatArround
 --- !u!114 &580332229534710706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ParryDuration: 1
+  m_AnimationParryName: Parried
 --- !u!114 &1228011986976466924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,8 +342,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_WalkSpeed: 2
-  m_minimumWalkingDuration: 0
-  m_maximumWalkingDuration: 0
+  m_minimumWalkingDuration: 1
+  m_maximumWalkingDuration: 4
+  m_WalkAnimationName: Walk
+  m_TwoDirections: 1
 --- !u!114 &8473954721660126202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,6 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_OndaExpansiva: {fileID: 1457768912843992884, guid: 5e229082a6ef3a8488c6006ed6356b67, type: 3}
+  m_AnimationName: Summoning
   m_GroundHitDuration: 2
 --- !u!114 &2411395426008292672
 MonoBehaviour:
@@ -437,18 +431,6 @@ MonoBehaviour:
   m_AttackTime: 1
   m_Strength: 0
   m_Defense: 0
---- !u!114 &4671150772417282311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5578168786395275385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8550f034611a06e4f88fc261204d8a7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4958031672399655640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,8 +483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_event: {fileID: 11400000, guid: 0934ad3906010854589bca17fba3ed79, type: 2}
   times: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
+  m_NameAnimation: Parried
 --- !u!114 &-5115236751226555552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -559,3 +541,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1101482408609079519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5578168786395275385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3705b7a045dce4488aa2017422848a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 20
+  m_StatsController: {fileID: 0}
+  m_player: {fileID: 0}
+  parreable: 0
+  healable: 0
+  m_EstadoAlterado: 4

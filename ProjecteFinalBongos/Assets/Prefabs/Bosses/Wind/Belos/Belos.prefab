@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 4883039430118318516}
   - component: {fileID: 1451007800572313867}
   - component: {fileID: 4918355942035052815}
+  - component: {fileID: 4238187448912400560}
   m_Layer: 0
   m_Name: Belos
   m_TagString: Untagged
@@ -157,7 +158,7 @@ Transform:
   m_Children:
   - {fileID: 4693912150325434102}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7810808407024917417
 SpriteRenderer:
@@ -200,7 +201,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1cf35e76a32c87c4da15e964cea769b2, type: 3}
+  m_Sprite: {fileID: 1768078272, guid: c42d7feea8dabd44a9acaa0ddf3b3eda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -264,6 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ParryDuration: 2
+  m_AnimationParryName: 
 --- !u!114 &1046862929404926547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ChaseSpeed: 2
   m_ChaseAnimationName: 
+  m_TwoDirections: 1
 --- !u!114 &1551839015231933322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +297,7 @@ MonoBehaviour:
   m_HitboxLength: 2
   m_HitboxWideness: 2
   m_HitboxRadius: 2
+  m_TwoDirections: 0
   m_SingleAttackAnimationName: 
 --- !u!114 &1774389843798436801
 MonoBehaviour:
@@ -311,6 +315,7 @@ MonoBehaviour:
   m_HitboxLength: 2
   m_HitboxWideness: 2
   m_HitboxRadius: 2
+  m_TwoDirections: 0
   m_DoubleAttackAnimationName: 
 --- !u!114 &7563892893529071026
 MonoBehaviour:
@@ -328,6 +333,7 @@ MonoBehaviour:
   m_HitboxLength: 2
   m_HitboxWideness: 2
   m_HitboxRadius: 2
+  m_TwoDirections: 0
   m_TripleAttackAnimationName: 
 --- !u!114 &3592041333081363109
 MonoBehaviour:
@@ -351,7 +357,7 @@ Animator:
   m_GameObject: {fileID: 8425413129942869862}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d41db04708e0f3f40a5de25b3a8f923d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -384,7 +390,7 @@ MonoBehaviour:
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
-    m_Bits: 1152
+    m_Bits: 128
   m_BossMuertoEvent: {fileID: 11400000, guid: a68c2e2d0411f4242b3bfb77d6d424f3, type: 2}
   m_layerMask:
     serializedVersion: 2
@@ -451,11 +457,11 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.12}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2.3958333, y: 1.75}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -536,8 +542,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_event: {fileID: 0}
   times: {fileID: 0}
+  m_NameAnimation: 
 --- !u!114 &4883039430118318516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,3 +622,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4238187448912400560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8425413129942869862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8b048728a5a454191ff5fb5a4cf910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AnimationName: 

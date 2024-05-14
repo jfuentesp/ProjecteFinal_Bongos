@@ -46,6 +46,7 @@ public class SMBParriedState : SMState
     public override void ExitState()
     {
         base.ExitState();
+        StopAllCoroutines();
     }
 
     private IEnumerator ParriedCoroutine()

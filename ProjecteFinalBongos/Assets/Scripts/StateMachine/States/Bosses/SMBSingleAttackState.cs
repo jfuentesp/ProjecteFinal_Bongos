@@ -37,14 +37,16 @@ public class SMBSingleAttackState : SMBBasicAttackState
         if (m_TwoDirections)
         {
             m_Animator.Play(m_SingleAttackAnimationName);
-
-            if (m_Target.position.x - transform.position.x < 0)
+            if(m_Target != null)
             {
-                derecha = false;
-            }
-            else
-            {
-                derecha = true;
+                if (m_Target.position.x - transform.position.x < 0)
+                {
+                    derecha = false;
+                }
+                else
+                {
+                    derecha = true;
+                }
             }
         }
     }
@@ -86,7 +88,6 @@ public class SMBSingleAttackState : SMBBasicAttackState
             }
             //m_StateMachine.ChangeState<SMBChaseState>();
         }
-        OnStopDetectingPlayer?.Invoke(gameObject);
     }
     private void Update()
     {

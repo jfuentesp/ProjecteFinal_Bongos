@@ -39,7 +39,10 @@ public class GroundHit : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.GetComponent<Rigidbody2D>().AddForce((collision.transform.position - transform.position).normalized * m_FuerzaRepulsion, ForceMode2D.Impulse);
+            if (!collision.gameObject.GetComponent<SMBPlayerParryState>().parry)
+            {
+                collision.GetComponent<Rigidbody2D>().AddForce((collision.transform.position - transform.position).normalized * m_FuerzaRepulsion, ForceMode2D.Impulse);
+            }
         }
     }
 }

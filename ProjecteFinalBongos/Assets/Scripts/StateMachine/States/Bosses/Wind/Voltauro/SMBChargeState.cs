@@ -68,12 +68,15 @@ public class SMBChargeState : SMState
         m_Boss.SetBusy(true);
         StartCoroutine(ChargeCoroutine());
         m_NavMeshAgent.ResetPath();
+        m_NavMeshAgent.acceleration = m_ChargeSpeed;
+        m_NavMeshAgent.speed = m_ChargeSpeed;
     }
 
     public override void ExitState()
     {
         base.ExitState();
         m_NavMeshAgent.isStopped = true;
+        StopAllCoroutines();
     }
 
     private IEnumerator ChargeCoroutine()
@@ -131,18 +134,18 @@ public class SMBChargeState : SMState
                 m_NavMeshAgent.velocity = Vector3.zero;
                 if (collision.gameObject.CompareTag("MechanicObstacle"))
                 {
-                    OnChargeMissed.Invoke(gameObject);
+                    OnChargeMissed?.Invoke(gameObject);
                 }
                 if (collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox"))
                 {
-                    OnChargeMissed.Invoke(gameObject);
+                    OnChargeMissed?.Invoke(gameObject);
                 }
                 if (collision.gameObject.CompareTag("Player"))
                 {
                     collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                     if (collision.gameObject.GetComponent<SMBPlayerParryState>().parry)
                     {
-                        OnChargeParried.Invoke(gameObject);
+                        OnChargeParried?.Invoke(gameObject);
                     }
                     else
                     {
