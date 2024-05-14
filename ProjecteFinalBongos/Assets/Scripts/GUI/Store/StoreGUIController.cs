@@ -26,6 +26,8 @@ public class StoreGUIController : MonoBehaviour
     [SerializeField]
     private Equipable[] m_PiccoloStoreEquipables = new Equipable[10];
 
+    private GameObject m_LastSelectedConsumable;
+
     private void Start()
     {
         m_PlayerInventory = GameManager.Instance.PlayerInGame.transform.GetChild(2).GetComponent<InventoryController>();
@@ -65,6 +67,19 @@ public class StoreGUIController : MonoBehaviour
     public void CloseShop() 
     {
         m_GUIPanel.SetActive(false);
+    }
+
+    /* Setters */
+
+    public void SetSelectedItem(GameObject slot)
+    {
+        m_LastSelectedConsumable = slot;
+        RefreshDescriptionGUI();
+    }
+
+    public void SetLastSelection(GameObject slot)
+    {
+        m_LastSelectedConsumable = slot;
     }
 
     /* GUI */
@@ -122,5 +137,10 @@ public class StoreGUIController : MonoBehaviour
             }
             slot.RefreshEquipableSlot();
         }
+    }
+
+    public void RefreshDescriptionGUI()
+    {
+
     }
 }

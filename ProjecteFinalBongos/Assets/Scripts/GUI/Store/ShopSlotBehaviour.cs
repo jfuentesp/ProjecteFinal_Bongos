@@ -18,7 +18,7 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     [SerializeField]
     private Button m_SlotButton;
     [SerializeField]
-    private InventoryController m_InventoryController;
+    private StoreGUIController m_StoreController;
     [SerializeField]
     private Backpack m_Backpack;
 
@@ -87,7 +87,7 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
 
     public void OnDeselect(BaseEventData eventData)
     {
-        throw new System.NotImplementedException();
+        m_StoreController.SetSelectedItem(null);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -97,12 +97,12 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        m_StoreController.SetSelectedItem(gameObject);
     }
 
     public void OnSelect(BaseEventData eventData)
     {
-        m_InventoryController.SetSelectedItem(gameObject);
+        m_StoreController.SetSelectedItem(gameObject);
     }
 
     public void OnSubmit(BaseEventData eventData)
