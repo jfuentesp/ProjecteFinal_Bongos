@@ -111,6 +111,12 @@ public class GameManager : MonoBehaviour
         m_IdiomaJuego = idioma;
         m_LanguageManager.getIdioma();  
     }
+
+    public void AcabarJuego()
+    {
+        SceneManager.LoadScene("EscenaInicial");
+        Destroy(PlayerInGame);
+    }
     private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
     {
         if(scene.name == "Mundo1")

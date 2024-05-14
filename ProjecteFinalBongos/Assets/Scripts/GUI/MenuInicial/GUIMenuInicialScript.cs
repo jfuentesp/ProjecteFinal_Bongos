@@ -13,7 +13,7 @@ namespace GUIScripts
 {
     public class GUIMenuInicialScript : MonoBehaviour
     {
-        public enum TypeOfPanels { INICIAL, NEW_GAME, LOAD_GAME, OPTIONS, RANKING };
+        public enum TypeOfPanels { INICIAL, NEW_GAME, LOAD_GAME, OPTIONS, RANKING, START_GAME };
 
 
         [Header("Menu Inicial")]
@@ -23,6 +23,12 @@ namespace GUIScripts
         [SerializeField] private Button m_OptionsButton;
         [SerializeField] private Button m_RankingsButton;
         [SerializeField] private Button m_ExitButton;
+        [SerializeField] private Button m_StartButton;
+
+        [Header("Menu Start Slots")]
+        [SerializeField] private GameObject m_MenuSLotsGamesPanel;
+        [SerializeField] private GameObject[] m_PartidasSlots = new GameObject[3];
+
 
         [Header("Menu Nueva Partida")]
         [SerializeField] private GameObject m_MenuNewGamePanel;
@@ -56,6 +62,7 @@ namespace GUIScripts
             if (m_OptionsButton) m_OptionsButton.onClick.AddListener(Options);
             if (m_RankingsButton) m_RankingsButton.onClick.AddListener(Ranking);
             if (m_ExitButton) m_ExitButton.onClick.AddListener(CloseGame);
+            if (m_StartButton) m_StartButton.onClick.AddListener(SlotsGame);
             if (m_StartNewGameButton) m_StartNewGameButton.onClick.AddListener(GuardarJugador);
             if (m_BackNewGameButton) m_BackNewGameButton.onClick.AddListener(BackMainMenu);
             if (m_BackLoadGameButton) m_BackLoadGameButton.onClick.AddListener(BackMainMenu);
@@ -74,6 +81,11 @@ namespace GUIScripts
             };
 
             ClosePanelsInsteadOf(TypeOfPanels.INICIAL);
+        }
+
+        private void SlotsGame()
+        {
+            ClosePanelsInsteadOf(TypeOfPanels.START_GAME);
         }
 
         void RefreshPrincipalButtons()
@@ -161,6 +173,9 @@ namespace GUIScripts
                     break;
                 case TypeOfPanels.RANKING:
                     m_MenuRankingPanel.SetActive(true);
+                    break;
+                case TypeOfPanels.START_GAME:
+                    m_MenuSLotsGamesPanel.SetActive(true);
                     break;
             }
         }
