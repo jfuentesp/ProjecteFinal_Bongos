@@ -74,13 +74,13 @@ public class SMBPlayerParryState : MBState
         switch (m_parry.AbilityEnum)
         {
             case AbilityEnum.INVULNERABLEPARRY:
-                m_ChangeEstado.Raise(EstadosAlterados.Invencible);
+                m_PJ.GetComponent<PlayerEstadosController>().AlternarEstado(EstadosAlterados.Invencible, 0.2f);
                 break;
             case AbilityEnum.PARALIZATIONPARRY:
                 boss.GetComponent<BossEstadosController>().AlternarEstado(EstadosAlterados.Paralitzat);
                 break;
             case AbilityEnum.PARRYSPEED:
-                m_ChangeEstado.Raise(EstadosAlterados.Peus_Lleugers);
+                m_PJ.GetComponent<PlayerEstadosController>().AlternarEstado(EstadosAlterados.Peus_Lleugers, 5f); 
                 break;
             default:
                 break;
