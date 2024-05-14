@@ -26,6 +26,9 @@ public class SMBHarpyChaseState : SMState
     private GameEvent m_OnDeathEvent;
     private NavMeshAgent m_NavMeshAgent;
 
+    [SerializeField] private bool m_TwoDirections;
+
+
     protected override void Awake()
     {
         base.Awake();
@@ -45,6 +48,10 @@ public class SMBHarpyChaseState : SMState
     public override void InitState()
     {
         base.InitState();
+        m_Boss.SetBusy(false);
+        m_NavMeshAgent.acceleration = m_FlyingSpeed;
+        m_NavMeshAgent.speed = m_FlyingSpeed;
+        m_Animator.Play(m_FlyingHarpyAnimationname);
         
         //Esto en realidad tendrá que ir cuando el bicho muera
         m_OnDeathEvent.Raise();
@@ -59,10 +66,21 @@ public class SMBHarpyChaseState : SMState
     {
         if (m_Target != null)
         {
-            Vector2 posicionPlayer = m_Target.position - transform.position;
+            if (m_TwoDirections)
+            {
+                if (m_Target.position.x - transform.position.x < 0)
+                    transform.localEulerAngles = new Vector3(0, 180, 0);
+                else
+                    transform.localEulerAngles = Vector3.zero;
+            }
+            else
+            {
+
+            }
+            /*Vector2 posicionPlayer = m_Target.position - transform.position;
             float angulo = Mathf.Atan2(posicionPlayer.y, posicionPlayer.x);
             angulo = Mathf.Rad2Deg * angulo - 90;
-            transform.localEulerAngles = new Vector3(0, 0, angulo);
+            transform.localEulerAngles = new Vector3(0, 0, angulo);*/
         }
     }
 

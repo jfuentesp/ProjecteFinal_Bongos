@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: -153499668933461521}
   - component: {fileID: 6484961490468896115}
   - component: {fileID: 8371443194967632601}
+  - component: {fileID: 2530162861021700224}
   m_Layer: 8
   m_Name: Bullet
   m_TagString: Untagged
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.2971698, g: 0.43144086, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -186,6 +187,7 @@ MonoBehaviour:
   m_SizeRadius: 0.5
   m_Speed: 7
   m_Damage: 10
+  m_AnimationName: SinusBullet
 --- !u!114 &8624516405051555047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +204,7 @@ MonoBehaviour:
   m_SizeRadius: 0.5
   m_Speed: 5
   m_Damage: 10
+  m_AnimationName: BelosBullet
   m_CagePrefab: {fileID: 0}
   m_GrowthDuration: 4
   m_GrowthSize: 0.943
@@ -217,10 +220,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a55ee38cc4a1577408f94dc5eca4e325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TimeUntilDestroyed: 0
+  m_TimeUntilDestroyed: -0.06
   m_SizeRadius: 1
   m_Speed: 50
   m_Damage: 10
+  m_AnimationName: 
 --- !u!114 &-7529973721447979446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +241,7 @@ MonoBehaviour:
   m_SizeRadius: 0.5
   m_Speed: 25
   m_Damage: 10
+  m_AnimationName: 
 --- !u!114 &-7460394262136579477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +258,7 @@ MonoBehaviour:
   m_SizeRadius: 0.5
   m_Speed: 17
   m_Damage: 10
+  m_AnimationName: 
 --- !u!114 &-7477882118727333508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,9 +275,9 @@ MonoBehaviour:
   m_SizeRadius: 0.2
   m_Speed: 5
   m_Damage: 10
+  m_AnimationName: 
   m_TimeUntilReturn: 5
   m_ReturnSpeed: 15
-  m_Damage: 0
 --- !u!114 &-153499668933461521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +294,7 @@ MonoBehaviour:
   m_SizeRadius: 0.5
   m_Speed: 10
   m_Damage: 10
+  m_AnimationName: 
   m_pool: {fileID: 0}
   m_damage: 10
 --- !u!114 &6484961490468896115
@@ -306,6 +313,7 @@ MonoBehaviour:
   m_SizeRadius: 1
   m_Speed: 10
   m_Damage: 10
+  m_AnimationName: 
   TintaEvent: {fileID: 11400000, guid: e908a15e8547afd43977d43ce24f98a5, type: 2}
 --- !u!114 &8371443194967632601
 MonoBehaviour:
@@ -323,3 +331,24 @@ MonoBehaviour:
   m_StatsController: {fileID: 0}
   m_player: {fileID: 0}
   m_EstadoAlterado: 0
+--- !u!95 &2530162861021700224
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7332060548842877283}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9313c1c6643f6cc4b8f1584f9e259206, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

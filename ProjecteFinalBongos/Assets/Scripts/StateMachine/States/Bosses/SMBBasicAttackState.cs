@@ -21,6 +21,9 @@ public class SMBBasicAttackState : SMState
     [SerializeField]
     protected float m_HitboxRadius;
 
+    [Header("Animation Two Directions")]
+    [SerializeField] protected bool m_TwoDirections;
+
     protected Transform m_Target;
 
     protected override void Awake()

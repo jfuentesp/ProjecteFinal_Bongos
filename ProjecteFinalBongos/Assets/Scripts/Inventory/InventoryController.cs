@@ -6,7 +6,9 @@ using System.Security.Cryptography;
 using TMPro;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
 
@@ -112,17 +114,13 @@ public class InventoryController : MonoBehaviour
         m_InventoryBackpack.AddConsumable(m_ConsumableToAdd2);
         m_InventoryBackpack.AddEquipable(m_EquipableSword);
         m_InventoryBackpack.AddEquipable(m_EquipableArmor);
+        PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("OpenInventory").performed += OpenInventory;
     }
-
-    private void Update()
+    private void OpenInventory(InputAction.CallbackContext context)
     {
-        if(Input.GetKeyDown(KeyCode.B))
-        {
-            RefreshInventoryGUI();
-            m_InventoryHUD.SetActive(!m_InventoryHUD.activeSelf);
-        }
+        RefreshInventoryGUI();
+        m_InventoryHUD.SetActive(!m_InventoryHUD.activeSelf);
     }
-
     public void OnUse(string itemID)
     {
         Consumable itemToUse = m_InventoryBackpack.ConsumableSlots.FirstOrDefault(item => item?.Consumable.id == itemID).Consumable;

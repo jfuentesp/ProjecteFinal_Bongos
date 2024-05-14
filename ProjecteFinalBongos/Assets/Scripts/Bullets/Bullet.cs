@@ -12,18 +12,24 @@ public class Bullet : MonoBehaviour
     protected float m_Speed;
     [SerializeField]
     protected float m_Damage;
+    [SerializeField]
+    protected string m_AnimationName;
     protected Vector2 m_Size;
     protected Rigidbody2D m_Rigidbody;
     protected BossAttackDamage m_AttackDamage;
+    protected Animator m_Animator;
 
     protected void Awake()
     {
+        m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_AttackDamage = GetComponent<BossAttackDamage>();
     }
 
     public virtual void Init(Vector2 direction)
     {
+        if (m_AnimationName != string.Empty)
+            m_Animator.Play(m_AnimationName);
         transform.up = direction;
         m_Size = new Vector2(m_SizeRadius, m_SizeRadius);
         transform.localScale = m_Size;
@@ -45,7 +51,6 @@ public class Bullet : MonoBehaviour
     {
         if (!enabled)
             return;
-        print("eo");
         if (collision.gameObject.CompareTag("MechanicObstacle"))
         {
             StopCoroutine(ReturnToPoolCoroutine());

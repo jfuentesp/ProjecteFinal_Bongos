@@ -71,4 +71,5 @@ public class SMBHit1x4State : SMBComboState
     {
         base.SetDamage();
     }
+
 }

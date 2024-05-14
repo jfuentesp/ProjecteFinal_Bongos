@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerHUDController : MonoBehaviour
@@ -32,7 +33,16 @@ public class PlayerHUDController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("LeftAbility").performed += LeftAbility;
+        PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("RightAbility").performed += RightAbility;
+    }
+    private void LeftAbility(InputAction.CallbackContext context)
+    {
+        m_PlayerAbilities.SelectPreviousAbility();
+    }
+    private void RightAbility(InputAction.CallbackContext context)
+    {
+        m_PlayerAbilities.SelectNextAbility();
     }
 
     float lerpSpeed;
@@ -41,19 +51,6 @@ public class PlayerHUDController : MonoBehaviour
     {
         lerpSpeed = m_SmoothSpeed * Time.deltaTime;
         OnHPBarGUIUpdate();
-        if (Input.GetKeyDown(KeyCode.F))
-            m_PlayerStats.Health.Damage(10);
-        if (Input.GetKeyDown(KeyCode.R))
-            m_PlayerStats.Health.Heal(10);
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            m_PlayerAbilities.SelectPreviousAbility();
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            m_PlayerAbilities.SelectNextAbility();
-        }
-
         if (m_HPBar.fillAmount <= 0.3f)
             m_BackgroundHP.color = Color.Lerp(Color.white, Color.red, Mathf.PingPong(Time.time * 1f, 1f));
         else

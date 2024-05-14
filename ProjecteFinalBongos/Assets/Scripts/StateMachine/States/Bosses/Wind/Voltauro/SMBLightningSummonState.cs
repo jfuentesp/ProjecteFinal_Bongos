@@ -35,6 +35,9 @@ public class SMBLightningSummonState : SMState
     [SerializeField]
     private ProjectileInfo m_ScriptableInfo;
 
+    [Header("Nombre Animacion")]
+    [SerializeField] private string m_AnimationName;
+
     private string m_AttackName;
     private float m_AttackDamage;
     private float m_AttackRate;
@@ -67,6 +70,7 @@ public class SMBLightningSummonState : SMState
     public override void InitState()
     {
         base.InitState();
+        m_Animator.Play(m_AnimationName);
         m_Summoning = true;
         m_Boss.SetBusy(true);
         StartCoroutine(SpawnLightnings());
@@ -75,6 +79,7 @@ public class SMBLightningSummonState : SMState
     public override void ExitState()
     {
         base.ExitState();
+        StopAllCoroutines();
     }
 
     private void Initialize()
@@ -100,6 +105,6 @@ public class SMBLightningSummonState : SMState
             lightning.GetComponent<LightningSplash>().Init();
             yield return new WaitForSeconds(m_DelayTime);
         }
-        OnEndSummoning.Invoke(gameObject);
+        OnEndSummoning?.Invoke(gameObject);
     }
 }

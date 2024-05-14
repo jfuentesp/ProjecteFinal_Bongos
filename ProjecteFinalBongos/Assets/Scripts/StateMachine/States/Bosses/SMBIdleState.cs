@@ -42,5 +42,6 @@ public class SMBIdleState : SMState
     public override void ExitState()
     {
         base.ExitState();
+        StopAllCoroutines();
     }
 }

@@ -19,6 +19,9 @@ public class SMBBulletsAroundState : SMState
     [SerializeField]
     private Pool m_Pool;
 
+    [Header("Animation Name")]
+    [SerializeField] private string m_AnimationSummoningName;
+
     private Coroutine SpawnBulletsCoroutine;
 
     public Action<GameObject> onBulletsSpawned;
@@ -38,6 +41,7 @@ public class SMBBulletsAroundState : SMState
     public override void InitState()
     {
         base.InitState();
+        m_Animator.Play(m_AnimationSummoningName);
         m_CurrentDuration = 0;
         m_Boss.SetBusy(true);
         m_Rigidbody.velocity = Vector3.zero;
@@ -47,7 +51,7 @@ public class SMBBulletsAroundState : SMState
     private IEnumerator SpawnBullets()
     {
         yield return new WaitForSeconds(m_SummoningDuration / 2);
-        for(float i = -1; i < 2; i += 1f)
+        for (float i = -1; i < 2; i += 1f)
         {
             for (float j = -1; j < 2; j += 1f)
             {

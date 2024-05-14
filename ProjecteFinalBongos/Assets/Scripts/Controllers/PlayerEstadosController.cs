@@ -8,6 +8,7 @@ public class PlayerEstadosController : MonoBehaviour
     private HealthController m_HealthController;
     private PlayerStatsController m_Stats;
     private PJSMB m_PJ;
+    [SerializeField] private GameObject PoisonParticles;
     public bool Invencible, Stun, Poison, Wet, Burn, Wrath, Speedy, StrongMan, Stuck, Paralized;
     public float velocityBefore;
     public float strengthBefore;
@@ -23,7 +24,7 @@ public class PlayerEstadosController : MonoBehaviour
         m_PJ = GetComponent<PJSMB>();
         Stun = false;
     }
-    public void AlternarEstado(EstadosAlterados estado)
+    public void AlternarEstado(EstadosAlterados estado, float time)
     {
         if (!GetComponent<SMBPlayerParryState>().parry && !Invencible) {
             switch (estado)
@@ -39,47 +40,49 @@ public class PlayerEstadosController : MonoBehaviour
                     if (!Stun)
                     {
                         Stun = true;
+                        m_PJ.GetComponent<SMBStunState>().ChangeTime(time);
                         m_StateMachine.ChangeState<SMBStunState>();
                     }
                     break;
                 case EstadosAlterados.Mullat:
                     if (!Wet)
-                        StartCoroutine(WetRoutine());
+                        StartCoroutine(WetRoutine(time));
                     break;
                 case EstadosAlterados.Peus_Lleugers:
                     if (!Speedy)
-                        StartCoroutine(SpeedRoutine());
+                        StartCoroutine(SpeedRoutine(time));
                     break;
                 case EstadosAlterados.Forçut:
                     if (!StrongMan)
-                        StartCoroutine(StrongRoutine());
+                        StartCoroutine(StrongRoutine(time));
                     break;
                 case EstadosAlterados.Paralitzat:
                     if (!Stun)
                     {
                         Stun = true;
                         Paralized = true;
+                        m_PJ.GetComponent<SMBParalitzatState>().ChangeTime(time);
                         m_StateMachine.ChangeState<SMBParalitzatState>();
                     }
                     break;
                 case EstadosAlterados.Cremat:
                     if (!Burn)
-                        StartCoroutine(BurntRoutine());
+                        StartCoroutine(BurntRoutine(time));
                     break;
                 case EstadosAlterados.Enverinat:
                     if (!Poison)
                     {
-                        StartCoroutine(PoisonRoutine());
+                        StartCoroutine(PoisonRoutine(time));
                     }
 
                     break;
                 case EstadosAlterados.Invencible:
                     if (!Invencible)
-                        StartCoroutine(InvencibleRoutine());
+                        StartCoroutine(InvencibleRoutine(time));
                     break;
                 case EstadosAlterados.Ira:
                     if (!Wrath)
-                        StartCoroutine(WrathRoutine());
+                        StartCoroutine(WrathRoutine(time));
                     break;
                 case EstadosAlterados.Atrapat:
                     if (!Stuck)
@@ -96,72 +99,74 @@ public class PlayerEstadosController : MonoBehaviour
        
     }
 
-    IEnumerator WetRoutine()
+    IEnumerator WetRoutine(float time)
     {
         Wet = true;
         velocityBefore = m_Stats.m_Velocity;
         m_Stats.m_Velocity -= (m_Stats.m_Velocity * m_Stats.getModifier("Wet")) / 100;
-        yield return new WaitForSeconds(m_Stats.m_playerTimes.m_WetTime);
+        yield return new WaitForSeconds(time);
         Wet = false;
         m_Stats.m_Velocity = velocityBefore;
         PararCorrutina("WetRoutine");
     }
-    IEnumerator SpeedRoutine()
+    IEnumerator SpeedRoutine(float time)
     {
         Speedy = true;
         velocityBefore = m_Stats.m_Velocity;
         m_Stats.m_Velocity += (m_Stats.m_Velocity * m_Stats.getModifier("Fast")) / 100;
-        yield return new WaitForSeconds(m_Stats.m_playerTimes.m_VelocityTime);
+        yield return new WaitForSeconds(time);
         Speedy = false;
         m_Stats.m_Velocity = velocityBefore;
         PararCorrutina("SpeedRoutine");
     }
-    IEnumerator StrongRoutine()
+    IEnumerator StrongRoutine(float time)
     {
         StrongMan = true;
         strengthBefore = m_Stats.m_Strength;
         m_Stats.m_Strength += (m_Stats.m_Strength * m_Stats.getModifier("Strength")) / 100;
-        yield return new WaitForSeconds(m_Stats.m_playerTimes.m_StrengthTime);
+        yield return new WaitForSeconds(time);
         StrongMan = false;
         m_Stats.m_Strength = strengthBefore;
         PararCorrutina("StrongRoutine");
     }
-    IEnumerator BurntRoutine()
+    IEnumerator BurntRoutine(float time)
     {
         Burn = true;
-        yield return new WaitForSeconds(m_Stats.m_playerTimes.m_BurnTime);
+        yield return new WaitForSeconds(time);
         Burn = false;
         PararCorrutina("BurntRoutine");
     }
-    IEnumerator PoisonRoutine()
+    IEnumerator PoisonRoutine(float time)
     {
         Poison = true;
+        PoisonParticles.SetActive(true);
         while (poisonCount > 0)
         {
-            yield return new WaitForSeconds(m_Stats.m_playerTimes.m_PoisonTime);
+            yield return new WaitForSeconds(time);
             poisonDamage = (m_HealthController.HP * m_Stats.getModifier("Poison")) / 100;
             m_PJ.recibirDamage(poisonDamage);
             poisonCount--;
         }
         Poison = false;
+        PoisonParticles.SetActive(false);
         poisonCount = poisonNum;
         PararCorrutina("PoisonRoutine");
     }
-    IEnumerator InvencibleRoutine()
+    IEnumerator InvencibleRoutine(float time)
     {
         Invencible = true;
-        yield return new WaitForSeconds(m_Stats.m_playerTimes.m_InvencibleTime);
+        yield return new WaitForSeconds(time);
         Invencible = false;
         PararCorrutina("InvencibleRoutine");
     }
-    IEnumerator WrathRoutine()
+    IEnumerator WrathRoutine(float time)
     {
         Wrath = true;
         velocityBefore = m_Stats.m_Velocity;
         m_Stats.m_Velocity += (m_Stats.m_Velocity * m_Stats.getModifier("WrathSpeed")) / 100;
         strengthBefore = m_Stats.m_Strength;
         m_Stats.m_Strength += (m_Stats.m_Strength * m_Stats.getModifier("WrathStrength")) / 100;
-        yield return new WaitForSeconds(m_Stats.m_playerTimes.m_WrathTime);
+        yield return new WaitForSeconds(time);
         Wrath = false;
         m_Stats.m_Strength = strengthBefore;
         m_Stats.m_Velocity = velocityBefore;

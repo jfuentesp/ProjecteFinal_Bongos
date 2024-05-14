@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4184196825029427761}
   - component: {fileID: 2089343643153447442}
   - component: {fileID: 6160504162413243693}
-  m_Layer: 0
+  - component: {fileID: 6902660214196182652}
+  m_Layer: 8
   m_Name: AttackHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1581783216075114824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.87, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5328, y: 0.7762, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1840055057895262930}
@@ -95,16 +96,33 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.89, y: 1.13}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6902660214196182652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581783216075114824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3705b7a045dce4488aa2017422848a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 20
+  m_StatsController: {fileID: 0}
+  m_player: {fileID: 0}
+  parreable: 1
+  m_EstadoAlterado: 12
 --- !u!1 &5652317080108237547
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +152,8 @@ GameObject:
   - component: {fileID: 6049874292164840715}
   - component: {fileID: 5422407730244780150}
   - component: {fileID: 1983238748092987480}
+  - component: {fileID: 6431098446936519177}
+  - component: {fileID: 1370205420779961457}
   m_Layer: 0
   m_Name: Voltauro
   m_TagString: Untagged
@@ -150,12 +170,12 @@ Transform:
   m_GameObject: {fileID: 5652317080108237547}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4184196825029427761}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &216798083535141752
 SpriteRenderer:
@@ -177,7 +197,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -198,8 +218,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1cf35e76a32c87c4da15e964cea769b2, type: 3}
-  m_Color: {r: 0.9528302, g: 0.93633497, b: 0.24719654, a: 1}
+  m_Sprite: {fileID: 1098678050, guid: 814f588571802a8488eceeaf40805777, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -233,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee5c8230df4f49ae73db6a2eb0766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IdleAnimationName: 
+  m_IdleAnimationName: idleVoltauro
 --- !u!114 &4070031875209432463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +266,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c95fcad212f9a846a53614aab35d8aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParryDuration: 2
+  m_ParryDuration: 5
+  m_AnimationParryName: ParryVoltauro
 --- !u!50 &1995166033292200984
 Rigidbody2D:
   serializedVersion: 4
@@ -284,7 +305,7 @@ Animator:
   m_GameObject: {fileID: 5652317080108237547}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9ecfe048ea944d34ab1b934016f89ef1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -313,7 +334,7 @@ MonoBehaviour:
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 2
   m_AreaWideness: 2
-  m_AreaRadius: 2
+  m_AreaRadius: 2.2
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
@@ -334,8 +355,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3f8f95414136945818e9d39b233177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ChaseSpeed: 1
-  m_ChaseAnimationName: 
+  m_ChaseSpeed: 5
+  m_ChaseAnimationName: WalkVoltauro
+  m_TwoDirections: 1
 --- !u!114 &5062246643037628907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,7 +374,8 @@ MonoBehaviour:
   m_HitboxLength: 1
   m_HitboxWideness: 1
   m_HitboxRadius: 1
-  m_SingleAttackAnimationName: 
+  m_TwoDirections: 1
+  m_SingleAttackAnimationName: Attack1
 --- !u!114 &5674208956649352257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,7 +392,8 @@ MonoBehaviour:
   m_HitboxLength: 1
   m_HitboxWideness: 1
   m_HitboxRadius: 1
-  m_TripleAttackAnimationName: 
+  m_TwoDirections: 1
+  m_TripleAttackAnimationName: Attack3
 --- !u!114 &7781588974767550170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,8 +406,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03f062997d23bf46a50d2fa12d157ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TimeBeforeCharge: 2
   m_ChargeSpeed: 10
   m_ChargeForce: 2
+  m_StartChargeAnimationName: StartChargeVoltauro
+  m_ChargeAnimationName: ChargeVoltauro
+  m_EndChargeAnimationName: 
+  m_TwoDirections: 1
 --- !u!114 &2075526701291517141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +431,7 @@ MonoBehaviour:
   m_SummoningArea: 5
   m_Pool: {fileID: 0}
   m_ScriptableInfo: {fileID: 0}
+  m_AnimationName: SummoningVoltauro
 --- !u!61 &6295494223804693635
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -437,8 +467,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.3343794, y: 0.48004216}
+    oldSize: {x: 1.16, y: 0.95}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -519,8 +549,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_event: {fileID: 0}
   times: {fileID: 0}
+  m_NameAnimation: ParryVoltauro
 --- !u!114 &5422407730244780150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,3 +601,33 @@ MonoBehaviour:
   m_AttackTime: 1
   m_Strength: 0
   m_Defense: 0
+--- !u!114 &6431098446936519177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652317080108237547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3705b7a045dce4488aa2017422848a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 15
+  m_StatsController: {fileID: 0}
+  m_player: {fileID: 0}
+  parreable: 0
+  m_EstadoAlterado: 4
+--- !u!114 &1370205420779961457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652317080108237547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8b048728a5a454191ff5fb5a4cf910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AnimationName: DieVoltauro

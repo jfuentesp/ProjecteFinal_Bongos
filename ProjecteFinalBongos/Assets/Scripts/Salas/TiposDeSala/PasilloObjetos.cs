@@ -7,17 +7,21 @@ using static SaveLoadGame.SaveGame;
 public class PasilloObjetos : TipoSala, ISaveableObjetosData
 {
     [SerializeField] List<Consumable> m_ObjetosDisponibles = new();
+    [SerializeField] private GameObject m_CofrePrefab;
     protected override void SpawnerSala()
     {
         foreach (Consumable m_Objeto in m_ObjetosDisponibles)
         {
-            //SpawnObjeto
+            GameObject Barril = Instantiate(m_CofrePrefab, transform);
+            Barril.GetComponent<BarrelController>().SetConsumable(m_Objeto);
+            Barril.transform.position = GetPosicionSPawnear();
         }
     }
 
     public void Init(List<Consumable> objetosDisponibles)
     {
         m_ObjetosDisponibles = objetosDisponibles;
+        SpawnerSala();
     }
 
     PasilloObjetosData ISaveableObjetosData.Save()

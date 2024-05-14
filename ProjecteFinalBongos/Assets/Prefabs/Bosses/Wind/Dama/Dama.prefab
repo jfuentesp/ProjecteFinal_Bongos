@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1cf35e76a32c87c4da15e964cea769b2, type: 3}
-  m_Color: {r: 0.9339623, g: 0.47138664, b: 0.47138664, a: 1}
+  m_Sprite: {fileID: -2011775221, guid: 62d907651f3794c4c90dd808d8166e3e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,7 +95,8 @@ GameObject:
   - component: {fileID: 8029696609496103559}
   - component: {fileID: 2641304763754676198}
   - component: {fileID: 1850036243959448284}
-  m_Layer: 9
+  - component: {fileID: 910617248288018672}
+  m_Layer: 8
   m_Name: AttackHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,6 +190,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &910617248288018672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4233994909272094217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3705b7a045dce4488aa2017422848a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 20
+  m_StatsController: {fileID: 0}
+  m_player: {fileID: 0}
+  parreable: 1
+  healable: 0
+  m_EstadoAlterado: 12
 --- !u!1 &5202855413980197369
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +323,7 @@ GameObject:
   - component: {fileID: 7587059907414377630}
   - component: {fileID: 806080687833988104}
   - component: {fileID: 9025015226972243439}
+  - component: {fileID: 3300387146537718550}
   m_Layer: 9
   m_Name: Dama
   m_TagString: Untagged
@@ -391,9 +411,9 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 2, y: 2}
+    pivot: {x: 0.548932, y: 0.2709369}
+    oldSize: {x: 0.9375, y: 1.03125}
+    newSize: {x: 0.9375, y: 1.03125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -413,7 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee5c8230df4f49ae73db6a2eb0766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IdleAnimationName: 
+  m_IdleAnimationName: Walk
 --- !u!114 &5317096553760839428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,7 +447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ChaseSpeed: 3
-  m_ChaseAnimationName: 
+  m_ChaseAnimationName: Walk
+  m_TwoDirections: 1
 --- !u!114 &1895104169815684171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,11 +536,11 @@ MonoBehaviour:
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 2
   m_AreaWideness: 2
-  m_AreaRadius: 2
+  m_AreaRadius: 1.5
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
-    m_Bits: 1152
+    m_Bits: 128
   m_BossMuertoEvent: {fileID: 11400000, guid: a68c2e2d0411f4242b3bfb77d6d424f3, type: 2}
   m_layerMask:
     serializedVersion: 2
@@ -581,7 +602,8 @@ MonoBehaviour:
   m_HitboxLength: 2
   m_HitboxWideness: 2
   m_HitboxRadius: 2
-  m_SingleAttackAnimationName: 
+  m_TwoDirections: 1
+  m_SingleAttackAnimationName: SingleAttack
 --- !u!114 &5305564874632270149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -598,7 +620,8 @@ MonoBehaviour:
   m_HitboxLength: 2
   m_HitboxWideness: 2
   m_HitboxRadius: 2
-  m_DoubleAttackAnimationName: 
+  m_TwoDirections: 1
+  m_DoubleAttackAnimationName: DoubleAttack
 --- !u!114 &-6413206557660012146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,7 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAXHP: 100
+  MAXHP: 500
 --- !u!195 &-7130356904968205823
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -647,6 +670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ParryDuration: 1
+  m_AnimationParryName: Parried
 --- !u!114 &5844505329747726048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -684,8 +708,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_event: {fileID: 0}
   times: {fileID: 0}
+  m_NameAnimation: Parried
 --- !u!114 &7587059907414377630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -764,3 +788,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3300387146537718550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6748304150830227311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8b048728a5a454191ff5fb5a4cf910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AnimationName: Death

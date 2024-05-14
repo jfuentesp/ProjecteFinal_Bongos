@@ -40,6 +40,9 @@ public class SMBRunAwayState : SMState
     public delegate void OnStopRunning(GameObject obj);
     public OnStopRunning onStoppedRunningAway;
 
+    [Header("Sprite Two Sides")]
+    [SerializeField] private bool m_TwoDirections;
+
     private new void Awake()
     {
         base.Awake();
@@ -59,12 +62,13 @@ public class SMBRunAwayState : SMState
     public override void InitState()
     {
         base.InitState();
+        m_Animator.Play(m_ChaseAnimationName);
         m_Boss.SetBusy(true);
         m_NavMeshAgent.isStopped = false;
         m_WalkingDuration = Random.Range(m_minimumWalkingDuration, m_maximumWalkingDuration);
         m_TimeChangeDirection = 0;
         m_TimeCaminar = 0;
-        
+
     }
 
     public override void ExitState()
@@ -77,12 +81,12 @@ public class SMBRunAwayState : SMState
     {
         m_TimeCaminar += Time.deltaTime;
         //To face the target
-        if (m_Target != null)
+        if (m_TwoDirections)
         {
-            Vector2 posicionPlayer = m_Target.position - transform.position;
-            float angulo = Mathf.Atan2(posicionPlayer.y, posicionPlayer.x);
-            angulo = Mathf.Rad2Deg * angulo - 90;
-            transform.localEulerAngles = new Vector3(0, 0, angulo);
+            if(m_NavMeshAgent.velocity.x > 0)
+                transform.localEulerAngles = Vector3.zero;
+            else
+                transform.localEulerAngles = new Vector3(0, 180, 0);
         }
     }
     private void AVerKittea()
@@ -114,7 +118,7 @@ public class SMBRunAwayState : SMState
             AVerKittea();
             m_TimeChangeDirection = 0;
         }
-        if(m_TimeCaminar > m_WalkingDuration)
+        if (m_TimeCaminar > m_WalkingDuration)
         {
             onStoppedRunningAway.Invoke(gameObject);
         }

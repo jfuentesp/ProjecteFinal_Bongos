@@ -25,7 +25,7 @@ public class HealthController : MonoBehaviour, IHealable, IDamageable
         if (m_HP <= 0)
         {
             m_HP = 0;
-            onDeath.Invoke();
+            onDeath?.Invoke();
         }   
 
         Debug.Log(string.Format("Received {0} damage. Remaining HP: {1}", damageAmount, m_HP));

@@ -13,7 +13,7 @@ public class ParalazingTentacleBehaviour : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+  /*  private void OnTriggerEnter2D(Collider2D collision)
     {
        
             if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox"))
@@ -43,6 +43,6 @@ public class ParalazingTentacleBehaviour : MonoBehaviour
     public void Finish() {
         if (m_Player != null)
             m_Player.GetComponent<PlayerEstadosController>().AlternarEstado(EstadosAlterados.Escapar);
-    }
+    }*/
 
 }

@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static SaveLoadGame.SaveGame;
 
-public class PiccoloChadScript : MonoBehaviour
+public class PiccoloChadScript : Interactuable
 {
     private Animator m_Animator;
     private int id;
@@ -22,10 +23,8 @@ public class PiccoloChadScript : MonoBehaviour
 
     [SerializeField] private float typingTime;
 
-    private bool isPlayerInRange;
     private bool didDialogueStart;
     private bool isInFirstMessage;
-    private bool canInteract;
 
     private Coroutine m_FirstCoroutine;
     private Coroutine m_FinalTypeCoroutine;
@@ -34,8 +33,6 @@ public class PiccoloChadScript : MonoBehaviour
 
     private int lineIndex;
 
-    
-
     private void Awake()
     {
         m_Animator = GetComponent<Animator>();
@@ -43,8 +40,9 @@ public class PiccoloChadScript : MonoBehaviour
         dialogueText = LevelManager.Instance.DialogueText;
         LevelManager.Instance.onCloseShopOfPiccolo += SegundoDialogo;
     }
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         GetFrases();
     }
 
@@ -56,19 +54,17 @@ public class PiccoloChadScript : MonoBehaviour
     }
 
     public void Init()
-    {   
+    {
         m_ObjetosDisponibles = GetComponentInParent<PasilloTienda>().ObjetosDisponibles;
         id = GetComponentInParent<PasilloTienda>().PiccoloId;
         m_Animator.Play("Idle");
-        canInteract = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Interact(InputAction.CallbackContext context)
     {
-        if (canInteract)
+        if (inRange)
         {
-            if (isPlayerInRange && Input.GetKeyDown(KeyCode.Space))
+            if (!didDialogueStart)
             {
                 if (!didDialogueStart)
                 {
@@ -88,20 +84,16 @@ public class PiccoloChadScript : MonoBehaviour
                     BreakCoroutineDialogueFinall();
                 }
                 else
-                {
-                    if (m_FrasesParaDecir.Count == 0)
-                        CloseDialogue();
-                    else
-                        SegundoDialogo(id);
-                }
+                    SegundoDialogo(id);
             }
         }
     }
+
     private void SegundoDialogo(int obj)
     {
         if (obj == id)
         {
-            canInteract = true;
+            inRange = true;
             m_FinalTypeCoroutine = StartCoroutine(ShowLastLine());
         }
     }
@@ -127,14 +119,14 @@ public class PiccoloChadScript : MonoBehaviour
 
     private void StartDialogue()
     {
-        canInteract = true;
+        inRange = true;
         isInFirstMessage = true;
         dialoguePanel.SetActive(true);
         m_DialogueMark.SetActive(false);
         didDialogueStart = true;
         lineIndex = Random.Range(0, m_DialogueLines.Length);
         m_FrasesParaDecir.Enqueue(m_DialogueLines[lineIndex]);
-        foreach(string frase in m_FinalLine)
+        foreach (string frase in m_FinalLine)
             m_FrasesParaDecir.Enqueue(frase);
 
         m_FirstCoroutine = StartCoroutine(ShowFirstLine());
@@ -162,21 +154,7 @@ public class PiccoloChadScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            m_DialogueMark.SetActive(true);
-            isPlayerInRange = true;
-        }
-    }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            m_DialogueMark.SetActive(false);
-            isPlayerInRange = false;
-        }
-    }
+
+
 }

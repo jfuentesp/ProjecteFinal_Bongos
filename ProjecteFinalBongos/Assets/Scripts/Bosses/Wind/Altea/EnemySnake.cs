@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SMBChaseState))]
-[RequireComponent(typeof(SMBChargeState))]
+[RequireComponent(typeof(SMBSingleAttackState))]
 [RequireComponent(typeof(SMBParriedState))]
 [RequireComponent(typeof(SMBIdleState))]
 public class EnemySnake : BossBehaviour
@@ -11,9 +11,14 @@ public class EnemySnake : BossBehaviour
     private new void Awake()
     {
         base.Awake();
-        GetComponent<SMBChargeState>().OnChargeMissed = (GameObject obj) =>
+
+        GetComponent<SMBSingleAttackState>().OnStopDetectingPlayer = (GameObject obj) =>
         {
-            m_StateMachine.ChangeState<SMBParriedState>();
+            m_StateMachine.ChangeState<SMBChaseState>();
+        }; 
+        GetComponent<SMBSingleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
         };
         GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
         {
@@ -22,13 +27,18 @@ public class EnemySnake : BossBehaviour
         GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
+        }; 
+        transform.GetChild(0).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
         };
+
         m_StateMachine.ChangeState<SMBIdleState>();
     }
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
-        OnPlayerInSala.Invoke();
+        OnPlayerInSala?.Invoke();
         StartCoroutine(PlayerDetectionCoroutine());
     }
 
@@ -43,8 +53,8 @@ public class EnemySnake : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    m_StateMachine.ChangeState<SMBChaseState>();
-
+                    //print("eo");
+                    m_StateMachine.ChangeState<SMBSingleAttackState>();
                 }
                 else
                 {
@@ -57,8 +67,7 @@ public class EnemySnake : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    m_StateMachine.ChangeState<SMBChaseState>();
-
+                    m_StateMachine.ChangeState<SMBSingleAttackState>();
                 }
                 else
                 {

@@ -12,7 +12,10 @@ public class SMBGroundHitState : SMState
     private BossBehaviour m_Boss;
     [SerializeField]
     private GameObject m_OndaExpansiva;
-    
+    [Header("Chase animation")]
+    [SerializeField]
+    private string m_AnimationName;
+
     [SerializeField]
     float m_GroundHitDuration;
     float m_CurrentDuration;
@@ -29,6 +32,8 @@ public class SMBGroundHitState : SMState
         base.InitState();
         m_CurrentDuration = 0;
         m_Boss.SetBusy(true);
+        if (m_AnimationName != String.Empty)
+            m_Animator.Play(m_AnimationName);
         m_Rigidbody.velocity = Vector2.zero;
         HitGround();
     }

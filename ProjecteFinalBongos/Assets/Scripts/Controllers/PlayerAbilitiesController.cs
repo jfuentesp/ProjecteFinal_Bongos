@@ -7,7 +7,9 @@ public class PlayerAbilitiesController : MonoBehaviour
 {
     public Action OnLearnAbility;
 
-
+    [SerializeField] private Ability initialDash;
+    [SerializeField] private Ability initialParry;
+    [SerializeField] private Ability Cancel;
     [Header("Habilidades")]
     private List<Ability> m_ParriesDisponibles = new List<Ability>();
     private Ability m_actualParry;
@@ -26,16 +28,19 @@ public class PlayerAbilitiesController : MonoBehaviour
     {
         initMovementAbility();
         initParryAbility();
+        
     }
 
     private void initMovementAbility()
     {
+        learnMovement(initialDash);
         if(m_MovementActionsDisponibles.Count > 0)
             m_actualMovement = m_MovementActionsDisponibles[0];
     }
     private void initParryAbility()
     {
-        if(m_ParriesDisponibles.Count > 0)
+        learnParry(initialParry);
+        if (m_ParriesDisponibles.Count > 0)
             m_actualParry = m_ParriesDisponibles[0];
     }
     public void initCoolDown(float cooldown)
