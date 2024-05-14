@@ -97,6 +97,10 @@ public class SMBHit2x2State : SMBComboState
 
     protected override void OnComboSuccessAction()
     {
+        if (m_PJ.PlayerAbilitiesController.AtaquesMejoradosDisponibles.Exists(ability => ability.AbilityEnum.Equals(AbilityEnum.CANCEL)))
+        {
+            m_StateMachine.ChangeState<SMBHit1x4State>();
+        }
     }
 
     protected override void OnEndAction()

@@ -9,6 +9,7 @@ public class PlayerAbilitiesController : MonoBehaviour
 
     [SerializeField] private Ability initialDash;
     [SerializeField] private Ability initialParry;
+    [SerializeField] private Ability Cancel;
     [Header("Habilidades")]
     private List<Ability> m_ParriesDisponibles = new List<Ability>();
     private Ability m_actualParry;
@@ -27,6 +28,7 @@ public class PlayerAbilitiesController : MonoBehaviour
     {
         initMovementAbility();
         initParryAbility();
+        learnAttack(Cancel);
     }
 
     private void initMovementAbility()
