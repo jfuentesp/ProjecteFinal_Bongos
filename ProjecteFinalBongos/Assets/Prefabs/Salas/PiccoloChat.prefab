@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4556216697052295141}
   - component: {fileID: 2315792570641281172}
-  - component: {fileID: 4677028693164480887}
   - component: {fileID: -4314344526376615856}
   - component: {fileID: 2031237481553692337}
   - component: {fileID: 147302781997712890}
@@ -173,51 +172,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4677028693164480887
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7112537873191832618}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6, y: 6}
-  m_EdgeRadius: 0
 --- !u!114 &-4314344526376615856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +184,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6072d6d3ceb304e9e50fcc56bbb47e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layersToCheck:
+    serializedVersion: 2
+    m_Bits: 128
+  checkTime: 0.2
+  checkMark: {fileID: 5117775869007671344}
+  m_DefaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_OutlineMaterial: {fileID: 2100000, guid: 6886f5f87bfe4f0498d46ca919541064, type: 2}
   m_ObjetosDisponibles: []
   m_DialogueMark: {fileID: 5117775869007671344}
   m_DialogueLines:

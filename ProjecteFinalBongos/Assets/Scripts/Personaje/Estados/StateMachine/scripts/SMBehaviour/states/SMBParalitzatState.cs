@@ -10,8 +10,7 @@ public class SMBParalitzatState : SMState
     private FiniteStateMachine m_StateMachine;
     [SerializeField]
     private GameEvent m_event;
-    [SerializeField]
-    private TimesScriptable playerTimes;
+    private float m_time;
     private new void Awake()
     {
         base.Awake();   
@@ -32,7 +31,7 @@ public class SMBParalitzatState : SMState
     }   
     IEnumerator StunSeconds()
     {
-        yield return new WaitForSeconds(playerTimes.m_ParalizedTime);
+        yield return new WaitForSeconds(m_time);
         m_event.Raise();
         m_StateMachine.ChangeState<SMBIdleState>();
     }
@@ -40,5 +39,8 @@ public class SMBParalitzatState : SMState
     {
         base.ExitState();
         StopAllCoroutines();
+    }
+    public void ChangeTime(float time) { 
+        m_time = time;
     }
 }

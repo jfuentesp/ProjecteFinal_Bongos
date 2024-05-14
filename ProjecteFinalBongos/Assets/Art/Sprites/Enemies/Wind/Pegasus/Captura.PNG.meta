@@ -1,0 +1,866 @@
+fileFormatVersion: 2
+guid: a3233adf2e1c76443bb56aee26fecb99
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 90
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Captura_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 415
+        width: 79
+        height: 86
+      alignment: 9
+      pivot: {x: 0.53092206, y: 0.45833996}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64aac635d3c26d44bb3441a889d02c48
+      internalID: -1108709980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_1
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 415
+        width: 81
+        height: 86
+      alignment: 9
+      pivot: {x: 0.52814794, y: 0.46023348}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f50739a586b7f64dbe551fe4254a029
+      internalID: 1165032285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_2
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 415
+        width: 80
+        height: 85
+      alignment: 9
+      pivot: {x: 0.5183214, y: 0.4674295}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f978095d10da1944ea7c4fb108c8c239
+      internalID: -240482188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_3
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 415
+        width: 80
+        height: 85
+      alignment: 9
+      pivot: {x: 0.51832163, y: 0.46168178}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 354fcc43f57500844878facf591a7ccb
+      internalID: -1172522167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_4
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 419
+        width: 88
+        height: 82
+      alignment: 9
+      pivot: {x: 0.51850647, y: 0.4443914}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b469988a8a83f340b03649cdf63f9a2
+      internalID: 1413260903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_5
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 417
+        width: 84
+        height: 85
+      alignment: 9
+      pivot: {x: 0.5077558, y: 0.46359757}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 217e04be4162199449f7d700c3a1e417
+      internalID: 1032201462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_6
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 415
+        width: 83
+        height: 88
+      alignment: 9
+      pivot: {x: 0.5255083, y: 0.47039032}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8933771142b0e7248929b154d5cbc27f
+      internalID: 691284921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_7
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 415
+        width: 83
+        height: 88
+      alignment: 9
+      pivot: {x: 0.5000007, y: 0.48149422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc0fb2877b6f16d4ca8011f7f2cd5a06
+      internalID: -1740777273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_8
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 417
+        width: 85
+        height: 86
+      alignment: 9
+      pivot: {x: 0.51532847, y: 0.4715956}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36964d9e05ad4af4889df8be4c216f4f
+      internalID: -2067531069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_9
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 421
+        width: 94
+        height: 81
+      alignment: 9
+      pivot: {x: 0.5415805, y: 0.43164176}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48c8f4cec9fb46347a0af3481b9d5383
+      internalID: -1333764654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_10
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 298
+        width: 197
+        height: 98
+      alignment: 9
+      pivot: {x: 0.66120166, y: 0.4634412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df1b6acc5a401a4d98fe949f8ae9938
+      internalID: 1844910472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_11
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 295
+        width: 205
+        height: 105
+      alignment: 9
+      pivot: {x: 0.68033224, y: 0.45967436}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb0ff6aff67c3fc4983f7e691f78fe52
+      internalID: -113180473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_12
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 296
+        width: 212
+        height: 103
+      alignment: 9
+      pivot: {x: 0.6951187, y: 0.4525668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bb79657ad2f3c44b91b310a323bc4c0
+      internalID: -1841854359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_13
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 301
+        width: 83
+        height: 93
+      alignment: 9
+      pivot: {x: 0.5196217, y: 0.45271975}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c43c6db0c8640f6458b85a4310ccd0d0
+      internalID: -1246387184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_14
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 301
+        width: 84
+        height: 93
+      alignment: 9
+      pivot: {x: 0.49030703, y: 0.45271975}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d92fb0deec92a64f88ea629c21e4c02
+      internalID: -86377863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_15
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 301
+        width: 85
+        height: 89
+      alignment: 9
+      pivot: {x: 0.47317755, y: 0.46340358}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c4c118bcb7d5544eaa748da4b5c63bb
+      internalID: -1282940448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_16
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 386
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa5e5934cb697cb4792c416c3163e71f
+      internalID: -1723982745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_17
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 132
+        width: 83
+        height: 87
+      alignment: 9
+      pivot: {x: 0.5235456, y: 0.47379366}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef1978a943befd7459f296cf306d65c0
+      internalID: 1013020848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_18
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 132
+        width: 81
+        height: 101
+      alignment: 9
+      pivot: {x: 0.5120635, y: 0.45323983}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e96f9a2d902e57242987dfd72005f129
+      internalID: 305016863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_19
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 166
+        width: 84
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5310204, y: 0.46437564}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2cc16d1c9bd3224a84a2ca0de63ccef
+      internalID: -257023279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_20
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 202
+        width: 88
+        height: 81
+      alignment: 9
+      pivot: {x: 0.48334467, y: 0.4638103}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa620f6f7cdfd21408deed0516a63f2c
+      internalID: -237120091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_21
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 197
+        width: 94
+        height: 81
+      alignment: 9
+      pivot: {x: 0.5623708, y: 0.44370466}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08baccb2debc6bf4782b277dfa062038
+      internalID: 1809962393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_22
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 165
+        width: 96
+        height: 82
+      alignment: 9
+      pivot: {x: 0.51357204, y: 0.49205613}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aa031e5c1eb9474784b738318f8e0c0
+      internalID: -1247466421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_23
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 130
+        width: 90
+        height: 82
+      alignment: 9
+      pivot: {x: 0.48914388, y: 0.49205613}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18431fcd5d8919648b62d42db3501659
+      internalID: -1146232197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_24
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 8
+        width: 85
+        height: 96
+      alignment: 9
+      pivot: {x: 0.54789853, y: 0.42026898}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 965e3818fd4f47a4c9159c6c9171509e
+      internalID: 2069768863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_25
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 8
+        width: 85
+        height: 95
+      alignment: 9
+      pivot: {x: 0.54215086, y: 0.42114404}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56e2b267b44daf048b1cd3e6809c3a0d
+      internalID: 1621957018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_26
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 8
+        width: 85
+        height: 96
+      alignment: 9
+      pivot: {x: 0.544067, y: 0.4236618}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1b8d7f9706dac644b69643908d04406
+      internalID: -1940639140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_27
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 8
+        width: 85
+        height: 96
+      alignment: 9
+      pivot: {x: 0.54598284, y: 0.4219654}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eaf6bd297ef88c40a1537e73ecedf40
+      internalID: 1204373303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_28
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 10
+        width: 90
+        height: 93
+      alignment: 9
+      pivot: {x: 0.4800961, y: 0.4194481}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a45fe36929892349ba3d3fcc7677a76
+      internalID: -1990324961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_29
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 10
+        width: 92
+        height: 79
+      alignment: 9
+      pivot: {x: 0.47875842, y: 0.4278491}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77b0712a7f85ec04f9fd2ae59424b9c2
+      internalID: -755359362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_30
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 8
+        width: 92
+        height: 59
+      alignment: 9
+      pivot: {x: 0.59912974, y: 0.1522081}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 896b3d34b88979a49ba79a0714bae491
+      internalID: 994304151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_31
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 9
+        width: 97
+        height: 52
+      alignment: 9
+      pivot: {x: 0.5302212, y: 0.2024766}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 043f822c00a67ba4bb9c28be52cee021
+      internalID: 1819745050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Captura_32
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 9
+        width: 98
+        height: 51
+      alignment: 9
+      pivot: {x: 0.51329505, y: 0.225382}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea09fce6271df6c41b203520dc02ff0e
+      internalID: 318290924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Captura_0: -1108709980
+      Captura_1: 1165032285
+      Captura_10: 1844910472
+      Captura_11: -113180473
+      Captura_12: -1841854359
+      Captura_13: -1246387184
+      Captura_14: -86377863
+      Captura_15: -1282940448
+      Captura_16: -1723982745
+      Captura_17: 1013020848
+      Captura_18: 305016863
+      Captura_19: -257023279
+      Captura_2: -240482188
+      Captura_20: -237120091
+      Captura_21: 1809962393
+      Captura_22: -1247466421
+      Captura_23: -1146232197
+      Captura_24: 2069768863
+      Captura_25: 1621957018
+      Captura_26: -1940639140
+      Captura_27: 1204373303
+      Captura_28: -1990324961
+      Captura_29: -755359362
+      Captura_3: -1172522167
+      Captura_30: 994304151
+      Captura_31: 1819745050
+      Captura_32: 318290924
+      Captura_4: 1413260903
+      Captura_5: 1032201462
+      Captura_6: 691284921
+      Captura_7: -1740777273
+      Captura_8: -2067531069
+      Captura_9: -1333764654
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

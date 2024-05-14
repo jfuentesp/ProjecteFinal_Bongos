@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class SMBParriedState : SMState
@@ -12,8 +14,11 @@ public class SMBParriedState : SMState
     public OnRecomposition OnRecomposited;
 
     [Header("Parry duration")]
-    [SerializeField]
-    private float m_ParryDuration;
+    [SerializeField] private float m_ParryDuration;
+
+    [Header("Animation Name")]
+    [SerializeField] private string m_AnimationParryName;
+
 
     private new void Awake()
     {
@@ -28,6 +33,10 @@ public class SMBParriedState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
+        if (m_AnimationParryName != String.Empty)
+        {
+            m_Animator.Play(m_AnimationParryName);
+        }
         StartCoroutine(ParriedCoroutine());
     }
     private void Update()
@@ -37,12 +46,13 @@ public class SMBParriedState : SMState
     public override void ExitState()
     {
         base.ExitState();
+        StopAllCoroutines();
     }
 
     private IEnumerator ParriedCoroutine()
     {
         yield return new WaitForSeconds(m_ParryDuration);
         //m_StateMachine.ChangeState<SMBChaseState>();
-        OnRecomposited.Invoke(gameObject);
+        OnRecomposited?.Invoke(gameObject);
     }
 }

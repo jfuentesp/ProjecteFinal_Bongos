@@ -251,7 +251,6 @@ public class LevelManager : MonoBehaviour
     public void BossMuerto()
     {
         m_BossesMuertos++;
-        print(m_BossesMuertos);
 
         if (m_BossesMuertos == 1)
         {

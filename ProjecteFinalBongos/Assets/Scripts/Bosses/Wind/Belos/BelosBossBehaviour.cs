@@ -10,6 +10,7 @@ using UnityEngine;
 [RequireComponent(typeof(SMBTripleAttackState))]
 [RequireComponent(typeof(SMBBelosHealingState))]
 [RequireComponent(typeof(SMBBelosLighningChainsState))]
+[RequireComponent(typeof(DeathState))]
 public class BelosBossBehaviour : BossBehaviour
 {
     private int m_NumberOfAttacksBeforeTrap;
@@ -129,9 +130,16 @@ public class BelosBossBehaviour : BossBehaviour
             m_CurrentPhase = Phase.TWO;
         }
     }
+    private void MatarBoss()
+    {
+        Destroy(gameObject);
+    }
+
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         m_BossMuertoEvent.Raise();

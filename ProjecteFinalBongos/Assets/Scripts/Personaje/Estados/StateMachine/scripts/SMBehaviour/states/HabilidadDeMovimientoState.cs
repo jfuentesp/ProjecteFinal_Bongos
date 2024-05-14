@@ -150,7 +150,7 @@ public class HabilidadDeMovimientoState : SMState
                 Exit();
                 break;
             case AbilityEnum.SPEED:
-                changeEstado.Raise(EstadosAlterados.Peus_Lleugers);
+                m_PJ.GetComponent<PlayerEstadosController>().AlternarEstado(EstadosAlterados.Peus_Lleugers, 5f);
                 Exit(); 
                 break;
             case AbilityEnum.RECALL:
