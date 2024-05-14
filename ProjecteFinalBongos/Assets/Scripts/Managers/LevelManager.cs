@@ -27,7 +27,6 @@ public class LevelManager : MonoBehaviour
     public GameObject DialoguePanel => dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
     public TextMeshProUGUI DialogueText => dialogueText;
-    [SerializeField] private GameObject m_TiendaPanel;
     [SerializeField] private Button m_CloseShopButton;
     private int idPiccolo;
     public Action<int> onCloseShopOfPiccolo;
@@ -105,9 +104,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (m_CloseShopButton) m_CloseShopButton.onClick.AddListener(CloseShop);
         TodosLosBossesDisponibles();
-        m_TiendaPanel.SetActive(false);
         idPiccolo = 0;
         m_BossesMuertos = 0;
 
@@ -130,18 +127,6 @@ public class LevelManager : MonoBehaviour
         {
             m_CargarPartidaEvent.Raise();
         }
-    }
-
-    public void OpenShop(int id)
-    {
-        piccoloConTiendaAbierta = id;
-        m_TiendaPanel.SetActive(true);
-    }
-
-    private void CloseShop()
-    {
-        m_TiendaPanel.SetActive(false);
-        onCloseShopOfPiccolo?.Invoke(piccoloConTiendaAbierta);
     }
 
     private void TodosLosBossesDisponibles()

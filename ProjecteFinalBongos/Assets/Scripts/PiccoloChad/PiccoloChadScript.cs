@@ -64,27 +64,26 @@ public class PiccoloChadScript : Interactuable
     {
         if (inRange)
         {
+
             if (!didDialogueStart)
             {
-                if (!didDialogueStart)
-                {
-                    m_Animator.Play("Treballar");
-                }
-                else if (isInFirstMessage && dialogueText.text == m_FraseActual)
-                {
-                    LevelManager.Instance.StoreGUIController.OpenShop(m_ObjetosDisponibles, m_EquipablesDisponibles);
-                    canInteract = false;
-                }
-                else if (isInFirstMessage && dialogueText.text != m_FraseActual)
-                {
-                    BreakCoroutineDialogueInicial();
-                }
-                else if (!isInFirstMessage && dialogueText.text != m_FraseActual)
-                {
-                    BreakCoroutineDialogueFinall();
-                }
-                else
-                    SegundoDialogo(id);
+                m_Animator.Play("Treballar");
+            }
+            else if (isInFirstMessage && dialogueText.text == m_FraseActual)
+            {
+                LevelManager.Instance.StoreGUIController.OpenShop(m_ObjetosDisponibles, m_EquipablesDisponibles);
+            }
+            else if (isInFirstMessage && dialogueText.text != m_FraseActual)
+            {
+                BreakCoroutineDialogueInicial();
+            }
+            else if (!isInFirstMessage && dialogueText.text != m_FraseActual)
+            {
+                BreakCoroutineDialogueFinall();
+            }
+            else
+            { 
+                SegundoDialogo(id);
             }
         }
     }

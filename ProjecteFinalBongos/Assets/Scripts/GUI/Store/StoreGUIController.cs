@@ -26,6 +26,11 @@ public class StoreGUIController : MonoBehaviour
     [SerializeField]
     private Equipable[] m_PiccoloStoreEquipables = new Equipable[10];
 
+    private void Start()
+    {
+        m_PlayerInventory = GameManager.Instance.PlayerInGame.transform.GetChild(2).GetComponent<InventoryController>();
+    }
+
     private void OnEnable()
     {
         
@@ -54,11 +59,12 @@ public class StoreGUIController : MonoBehaviour
         LoadStore();
         LoadPlayerInventory();
         RefreshGUI();
+        m_GUIPanel.SetActive(true);
     }
 
     public void CloseShop() 
-    { 
-    
+    {
+        m_GUIPanel.SetActive(false);
     }
 
     /* GUI */
