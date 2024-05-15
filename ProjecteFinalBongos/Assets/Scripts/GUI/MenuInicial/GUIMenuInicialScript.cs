@@ -26,8 +26,9 @@ namespace GUIScripts
         [SerializeField] private Button m_StartButton;
 
         [Header("Menu Start Slots")]
-        [SerializeField] private GameObject m_MenuSLotsGamesPanel;
+        [SerializeField] private GameObject m_MenuSlotsGamesPanel;
         [SerializeField] private GameObject[] m_PartidasSlots = new GameObject[3];
+        [SerializeField] private Button m_BackSlotsButton;
 
 
         [Header("Menu Nueva Partida")]
@@ -55,7 +56,7 @@ namespace GUIScripts
         // Start is called before the first frame update
         void Start()
         {
-            GameManager.Instance.OnPlayerDeleted += RefreshPlayersFromLoadGame;
+            GameManager.Instance.OnPlayerDeleted += RefreshPlayersFromStartGame;
             GameManager.Instance.onGetPlayers += RefreshPrincipalButtons;
             if (m_NewGameButton) m_NewGameButton.onClick.AddListener(NewGame);
             if (m_LoadGameButton) m_LoadGameButton.onClick.AddListener(LoadGame);
@@ -64,6 +65,7 @@ namespace GUIScripts
             if (m_ExitButton) m_ExitButton.onClick.AddListener(CloseGame);
             if (m_StartButton) m_StartButton.onClick.AddListener(SlotsGame);
             if (m_StartNewGameButton) m_StartNewGameButton.onClick.AddListener(GuardarJugador);
+            if (m_BackSlotsButton) m_BackSlotsButton.onClick.AddListener(BackMainMenu);
             if (m_BackNewGameButton) m_BackNewGameButton.onClick.AddListener(BackMainMenu);
             if (m_BackLoadGameButton) m_BackLoadGameButton.onClick.AddListener(BackMainMenu);
             if (m_BackOptionsButton) m_BackOptionsButton.onClick.AddListener(BackMainMenu);
@@ -100,25 +102,7 @@ namespace GUIScripts
                 m_LoadGameButton.interactable = (true);
         }
 
-        private void RefreshPlayersFromLoadGame()
-        {
-            if (m_SavedGamesGridParent.childCount > 0)
-            {
-                foreach (Transform child in m_SavedGamesGridParent)
-                {
-                    Destroy(child.gameObject);
-                }
-            }
-
-            foreach (SaveGame.NameAndWorld playerAndWorld in GameManager.Instance.PlayersAndTheirWorldsList)
-            {
-                GameObject savedGamePlayer = Instantiate(m_SavedPlayerPrefab, m_SavedGamesGridParent);
-                savedGamePlayer.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = playerAndWorld.m_Name;
-                savedGamePlayer.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = playerAndWorld.m_Mundo.ToString();
-                savedGamePlayer.transform.GetChild(2).GetComponent<LoadDeleteGame>().Init(false, playerAndWorld.m_Name, playerAndWorld.m_Mundo);
-                savedGamePlayer.transform.GetChild(3).GetComponent<LoadDeleteGame>().Init(true, playerAndWorld.m_Name, playerAndWorld.m_Mundo);
-            }
-        }
+       
 
         private void ValidateIpInputField(string text)
         {
@@ -164,10 +148,6 @@ namespace GUIScripts
                 case TypeOfPanels.NEW_GAME:
                     m_MenuNewGamePanel.SetActive(true);
                     break;
-                case TypeOfPanels.LOAD_GAME:
-                    m_MenuLoadGamePanel.SetActive(true);
-                    RefreshPlayersFromLoadGame();
-                    break;
                 case TypeOfPanels.OPTIONS:
                     m_MenuOptionsPanel.SetActive(true);
                     break;
@@ -175,8 +155,19 @@ namespace GUIScripts
                     m_MenuRankingPanel.SetActive(true);
                     break;
                 case TypeOfPanels.START_GAME:
-                    m_MenuSLotsGamesPanel.SetActive(true);
+                    m_MenuSlotsGamesPanel.SetActive(true);
+                    RefreshPlayersFromStartGame();
                     break;
+            }
+        }
+        private void RefreshPlayersFromStartGame()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                m_PartidasSlots[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = GameManager.Instance.PlayersAndTheirWorldsList[i].m_Name;
+                m_PartidasSlots[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.Instance.PlayersAndTheirWorldsList[i].m_Mundo.ToString();
+                m_PartidasSlots[i].transform.GetChild(2).GetComponent<LoadDeleteGame>().Init(false, GameManager.Instance.PlayersAndTheirWorldsList[i].m_Name, GameManager.Instance.PlayersAndTheirWorldsList[i].m_Mundo);
+                m_PartidasSlots[i].transform.GetChild(3).GetComponent<LoadDeleteGame>().Init(true, GameManager.Instance.PlayersAndTheirWorldsList[i].m_Name, GameManager.Instance.PlayersAndTheirWorldsList[i].m_Mundo);
             }
         }
 

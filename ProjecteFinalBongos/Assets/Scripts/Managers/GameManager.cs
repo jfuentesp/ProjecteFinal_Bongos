@@ -270,7 +270,8 @@ public class GameManager : MonoBehaviour
     {
         m_PlayerName = _PlayerName;
         m_NuevaPartida = false;
-        SceneManager.LoadScene(mundo);
+        print(mundo);
+        //SceneManager.LoadScene(mundo);
     }
 
     public void DeletePlayerGame(string _PlayerName)
@@ -287,7 +288,10 @@ public class GameManager : MonoBehaviour
         print($"Borrando la partida del jugador: {m_PlayersAndTheirWorldsList[i].m_Name}");
         m_PlayersAndTheirWorldsList.RemoveAt(i);
         List<SaveGame> playerAndWorldList = GetPlayersFromFile().m_SavedGames.ToList();
-        playerAndWorldList.RemoveAt(i);
+        SaveGame partida = new();
+        partida.m_NameAndWorld.m_Mundo = MundoEnum.VACIO;
+        partida.m_NameAndWorld.m_Name = "EMPTY";
+        playerAndWorldList[i] = partida;
         SaveAllGames playerAndWorld = new();
         playerAndWorld.m_SavedGames = playerAndWorldList.ToArray();
 
