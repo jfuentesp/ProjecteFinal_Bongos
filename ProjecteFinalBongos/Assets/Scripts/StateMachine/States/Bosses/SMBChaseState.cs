@@ -46,6 +46,7 @@ public class SMBChaseState : SMState
     public override void InitState()
     {
         base.InitState();
+        print("asdada");
         m_Boss.SetBusy(false);
         m_NavMeshAgent.isStopped = false;
         OnStartChase?.Invoke();

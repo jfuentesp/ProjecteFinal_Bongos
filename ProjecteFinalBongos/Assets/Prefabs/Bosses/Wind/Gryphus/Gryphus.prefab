@@ -233,7 +233,7 @@ MonoBehaviour:
   m_AttackHitbox: {fileID: 3289971473851106786}
   m_HitboxLength: 2
   m_HitboxWideness: 2
-  m_HitboxRadius: 2
+  m_HitboxRadius: 1
   m_TwoDirections: 1
   m_SingleAttackAnimationName: chaseAttack
 --- !u!114 &4888106144925879745
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 1.5
   m_AreaWideness: 1.5
-  m_AreaRadius: 1.5
+  m_AreaRadius: 1
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
