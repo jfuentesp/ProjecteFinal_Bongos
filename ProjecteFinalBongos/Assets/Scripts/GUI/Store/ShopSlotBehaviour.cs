@@ -33,6 +33,7 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     private GameObject m_ActionPanel;
 
 
+
     private void Start()
     {
         m_StoreController = LevelManager.Instance.GetComponent<StoreGUIController>();
@@ -96,7 +97,7 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
 
     public void OnCancel(BaseEventData eventData)
     {
-        throw new System.NotImplementedException();
+        m_ActionPanel.SetActive(false);
     }
 
     public void OnDeselect(BaseEventData eventData)
@@ -106,7 +107,12 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        if (m_AssignedConsumable != null || m_AssignedEquipable != null)
+        {
+            m_ActionPanel.SetActive(true);
+            m_ActionPanel.transform.position = transform.position;
+            m_StoreController.SetLastSelection(gameObject);
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -121,6 +127,11 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
 
     public void OnSubmit(BaseEventData eventData)
     {
-        throw new System.NotImplementedException();
+        if (m_AssignedConsumable != null || m_AssignedEquipable != null)
+        {
+            m_ActionPanel.SetActive(true);
+            m_ActionPanel.transform.position = transform.position;
+            m_StoreController.SetLastSelection(gameObject);
+        }
     }
 }

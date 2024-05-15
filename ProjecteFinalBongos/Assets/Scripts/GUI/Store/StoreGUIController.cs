@@ -28,7 +28,11 @@ public class StoreGUIController : MonoBehaviour
     [SerializeField]
     private Equipable[] m_PiccoloStoreEquipables = new Equipable[10];
 
+    [Header("First item selected")]
+    [SerializeField]
+    private GameObject m_InitialButton;
     private GameObject m_LastSelectedConsumable;
+    public GameObject LastSelectedConsumable => m_LastSelectedConsumable;
 
     [Header("Description panel settings")]
     [SerializeField]
@@ -42,9 +46,17 @@ public class StoreGUIController : MonoBehaviour
     [SerializeField]
     private GameObject m_Cost;
 
+    private bool m_IsBuying;
+    public bool IsBuying => m_IsBuying;
+    private bool m_IsSelling;
+    public bool IsSelling => m_IsSelling;
+
+
+
     private void Start()
     {
         m_PlayerInventory = GameManager.Instance.PlayerInGame.transform.GetChild(2).GetComponent<InventoryController>();
+        m_LastSelectedConsumable = m_InitialButton;
     }
 
     private void OnEnable()
@@ -83,12 +95,42 @@ public class StoreGUIController : MonoBehaviour
         m_GUIPanel.SetActive(false);
     }
 
+    public void OnBuyConsumable(Consumable itemToBuy)
+    {
+
+    }
+
+    public void OnBuyEquipable(Equipable itemToBuy)
+    {
+
+    }
+
+    public void OnSellConsumable(Consumable itemToSell)
+    {
+
+    }
+
+    public void OnSellEquipable(Equipable itemToSell) 
+    { 
+    
+    }
+
     /* Setters */
 
     public void SetLastSelection(GameObject slot)
     {
         m_LastSelectedConsumable = slot;
         RefreshDescriptionGUI();
+    }
+
+    public void SetBuying(bool state)
+    {
+        m_IsBuying = state;
+    }
+
+    public void SetSelling(bool state)
+    {
+        m_IsSelling = state;
     }
 
     /* GUI */
