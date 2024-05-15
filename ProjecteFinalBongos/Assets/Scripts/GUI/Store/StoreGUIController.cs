@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class StoreGUIController : MonoBehaviour
 {
@@ -9,8 +11,6 @@ public class StoreGUIController : MonoBehaviour
     [SerializeField]
     private GameObject m_GUIPanel;
     [Header("Store GUI Components")]
-    [SerializeField]
-    private InventoryController m_PlayerInventory;
     [SerializeField]
     private GameObject m_StoreConsumableGrid;
     [SerializeField]
@@ -20,6 +20,8 @@ public class StoreGUIController : MonoBehaviour
     [SerializeField]
     private GameObject m_PlayerEquipableGrid;
 
+    private InventoryController m_PlayerInventory;
+
     [Header("Arrays that represent each of Piccolo stores")]
     [SerializeField]
     private Consumable[] m_PiccoloStoreConsumables = new Consumable[10];
@@ -27,6 +29,18 @@ public class StoreGUIController : MonoBehaviour
     private Equipable[] m_PiccoloStoreEquipables = new Equipable[10];
 
     private GameObject m_LastSelectedConsumable;
+
+    [Header("Description panel settings")]
+    [SerializeField]
+    private Image m_DescriptionImage;
+    [SerializeField]
+    private TextMeshProUGUI m_DescriptionName;
+    [SerializeField]
+    private TextMeshProUGUI m_DescriptionText;
+    [SerializeField]
+    private TextMeshProUGUI m_CostText;
+    [SerializeField]
+    private GameObject m_Cost;
 
     private void Start()
     {
@@ -71,15 +85,10 @@ public class StoreGUIController : MonoBehaviour
 
     /* Setters */
 
-    public void SetSelectedItem(GameObject slot)
-    {
-        m_LastSelectedConsumable = slot;
-        RefreshDescriptionGUI();
-    }
-
     public void SetLastSelection(GameObject slot)
     {
         m_LastSelectedConsumable = slot;
+        RefreshDescriptionGUI();
     }
 
     /* GUI */
@@ -95,7 +104,7 @@ public class StoreGUIController : MonoBehaviour
     {
         for (int items = 0; items < m_StoreConsumableGrid.transform.childCount; items++) 
         {
-            GridSlotBehaviour slot = m_StoreConsumableGrid.transform.GetChild(items).GetComponentInChildren<GridSlotBehaviour>();
+            ShopSlotBehaviour slot = m_StoreConsumableGrid.transform.GetChild(items).GetComponentInChildren<ShopSlotBehaviour>();
             //if()
         }
     }
@@ -109,7 +118,7 @@ public class StoreGUIController : MonoBehaviour
     {
         for (int items = 0; items < m_PlayerInventory.BackPack.ConsumableSlots.Length; items++)
         {
-            GridSlotBehaviour slot = m_PlayerConsumableGrid.transform.GetChild(items).GetComponentInChildren<GridSlotBehaviour>();
+            ShopSlotBehaviour slot = m_PlayerConsumableGrid.transform.GetChild(items).GetComponentInChildren<ShopSlotBehaviour>();
             if (m_PlayerInventory.BackPack.ConsumableSlots[items] != null)
             {
                 slot.SetConsumable(m_PlayerInventory.BackPack.ConsumableSlots[items].Consumable);
@@ -126,7 +135,7 @@ public class StoreGUIController : MonoBehaviour
     {
         for (int items = 0; items < m_PlayerInventory.BackPack.EquipableSlots.Length; items++)
         {
-            GridSlotBehaviour slot = m_PlayerEquipableGrid.transform.GetChild(items).GetComponentInChildren<GridSlotBehaviour>();
+            ShopSlotBehaviour slot = m_PlayerEquipableGrid.transform.GetChild(items).GetComponentInChildren<ShopSlotBehaviour>();
             if (m_PlayerInventory.BackPack.EquipableSlots[items] != null)
             {
                 slot.SetEquipable(m_PlayerInventory.BackPack.EquipableSlots[items].Equipable);
@@ -141,6 +150,38 @@ public class StoreGUIController : MonoBehaviour
 
     public void RefreshDescriptionGUI()
     {
+        if (m_LastSelectedConsumable == null)
+        {
+            m_DescriptionImage.gameObject.SetActive(false);
+            m_DescriptionName.gameObject.SetActive(false);
+            m_DescriptionText.gameObject.SetActive(false);
+            return;
+        }
 
+        ShopSlotBehaviour slot = m_LastSelectedConsumable.GetComponent<ShopSlotBehaviour>();
+
+        if (slot.AssignedConsumable != null)
+        {
+            m_DescriptionImage.gameObject.SetActive(true);
+            m_DescriptionName.gameObject.SetActive(true);
+            m_DescriptionText.gameObject.SetActive(true);
+            m_Cost.gameObject.SetActive(true);
+            m_DescriptionName.text = slot.AssignedConsumable.itemName;
+            m_DescriptionText.text = slot.AssignedConsumable.description;
+            m_DescriptionImage.sprite = slot.AssignedConsumable.Sprite;
+            m_CostText.text = slot.AssignedConsumable.shopPrice.ToString();
+        }
+
+        if (slot.AssignedEquipable != null)
+        {
+            m_DescriptionImage.gameObject.SetActive(true);
+            m_DescriptionName.gameObject.SetActive(true);
+            m_DescriptionText.gameObject.SetActive(true);
+            m_Cost.gameObject.SetActive(true);
+            m_DescriptionName.text = slot.AssignedEquipable.itemName;
+            m_DescriptionText.text = slot.AssignedEquipable.description;
+            m_DescriptionImage.sprite = slot.AssignedEquipable.Sprite;
+            m_CostText.text = slot.AssignedEquipable.shopPrice.ToString();
+        }
     }
 }

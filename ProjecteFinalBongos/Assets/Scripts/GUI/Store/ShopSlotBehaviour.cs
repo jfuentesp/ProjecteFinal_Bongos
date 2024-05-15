@@ -18,9 +18,9 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     [SerializeField]
     private Button m_SlotButton;
     [SerializeField]
-    private StoreGUIController m_StoreController;
-    [SerializeField]
     private Backpack m_Backpack;
+
+    private StoreGUIController m_StoreController;
 
     private Consumable m_AssignedConsumable;
     public Consumable AssignedConsumable => m_AssignedConsumable;
@@ -31,6 +31,12 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     [Header("Action Menu")]
     [SerializeField]
     private GameObject m_ActionPanel;
+
+
+    private void Start()
+    {
+        m_StoreController = LevelManager.Instance.GetComponent<StoreGUIController>();
+    }
 
     public void SetConsumable(Consumable consumableToSet)
     {
@@ -56,11 +62,15 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     {
         if (m_AssignedConsumable == null)
         {
-            m_Slot.SetActive(false);
+            m_ItemSprite.gameObject.SetActive(false);
+            m_QuantityText.gameObject.SetActive(false);
+            m_ItemSprite.sprite = null;
+            m_QuantityText.text = string.Empty;
         }
         else
         {
-            m_Slot.SetActive(true);
+            m_ItemSprite.gameObject.SetActive(true);
+            m_QuantityText.gameObject.SetActive(true);
             m_ItemSprite.sprite = m_AssignedConsumable.Sprite;
             m_QuantityText.text = m_Backpack.ConsumableSlots.FirstOrDefault(slot => slot?.Consumable == m_AssignedConsumable).Quantity.ToString();
         }
@@ -70,13 +80,17 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     {
         if (m_AssignedEquipable == null)
         {
-            m_Slot.SetActive(false);
+            m_ItemSprite.gameObject.SetActive(false);
+            m_QuantityText.gameObject.SetActive(false);
+            m_ItemSprite.sprite = null;
+            m_QuantityText.text = string.Empty;
         }
         else
         {
-            m_Slot.SetActive(true);
+            m_ItemSprite.gameObject.SetActive(true);
+            m_QuantityText.gameObject.SetActive(true);
             m_ItemSprite.sprite = m_AssignedEquipable.Sprite;
-            m_QuantityText.text = "";
+            m_QuantityText.text = string.Empty;
         }
     }
 
@@ -87,7 +101,7 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
 
     public void OnDeselect(BaseEventData eventData)
     {
-        m_StoreController.SetSelectedItem(null);
+        m_StoreController.SetLastSelection(null);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -97,12 +111,12 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        m_StoreController.SetSelectedItem(gameObject);
+        m_StoreController.SetLastSelection(gameObject);
     }
 
     public void OnSelect(BaseEventData eventData)
     {
-        m_StoreController.SetSelectedItem(gameObject);
+        m_StoreController.SetLastSelection(gameObject);
     }
 
     public void OnSubmit(BaseEventData eventData)

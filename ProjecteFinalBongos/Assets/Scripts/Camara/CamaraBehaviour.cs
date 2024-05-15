@@ -13,7 +13,8 @@ public class CamaraBehaviour : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
-        transform.position = new Vector3(m_Player.position.x, m_Player.position.y, -10);
+    {
+        if (m_Player != null)
+            transform.position = new Vector3(m_Player.position.x, m_Player.position.y, -10);
     }
 }
