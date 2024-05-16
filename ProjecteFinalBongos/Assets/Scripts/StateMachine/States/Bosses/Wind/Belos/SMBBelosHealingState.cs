@@ -29,6 +29,7 @@ public class SMBBelosHealingState : SMState
 
     private float m_HealingMultiplier;
 
+    [SerializeField] private GameObject HealthParticles;
     private new void Awake()
     {
         base.Awake();
@@ -58,6 +59,9 @@ public class SMBBelosHealingState : SMState
         m_Boss.CurarBoss(m_AmountToHeal * m_HealingMultiplier);
         //Current HP += m_AmountToheal * m_HealingMultiplier;
     }
+    public void HealParticles() { 
+        HealthParticles.SetActive(true);
+    }
     private void Update()
     {
 
@@ -72,10 +76,12 @@ public class SMBBelosHealingState : SMState
             //if(m_HealingMultiplier > 0)
             m_HealingMultiplier -= m_HealingMultiplierPenalization;
             // else se muere jjajajajaj
+            HealthParticles.SetActive(false);
             m_StateMachine.ChangeState<SMBChaseState>();
         } 
         else
         {
+            HealthParticles.SetActive(false);
             m_StateMachine.ChangeState<SMBDeathState>();
         }
     }
