@@ -13,13 +13,11 @@ namespace GUIScripts
 {
     public class GUIMenuInicialScript : MonoBehaviour
     {
-        public enum TypeOfPanels { INICIAL, NEW_GAME, LOAD_GAME, OPTIONS, RANKING, START_GAME };
+        public enum TypeOfPanels { INICIAL, NEW_GAME, OPTIONS, RANKING, START_GAME };
 
 
         [Header("Menu Inicial")]
         [SerializeField] private GameObject m_MenuInicialPanel;
-        [SerializeField] private Button m_NewGameButton;
-        [SerializeField] private Button m_LoadGameButton;
         [SerializeField] private Button m_OptionsButton;
         [SerializeField] private Button m_RankingsButton;
         [SerializeField] private Button m_ExitButton;
@@ -37,12 +35,6 @@ namespace GUIScripts
         [SerializeField] private Button m_BackNewGameButton;
         [SerializeField] private TMP_InputField m_NewNameInput;
 
-        [Header("Menu Cargar Partida")]
-        [SerializeField] private GameObject m_MenuLoadGamePanel;
-        [SerializeField] private Button m_BackLoadGameButton;
-        [SerializeField] private Transform m_SavedGamesGridParent;
-        [SerializeField] private GameObject m_SavedPlayerPrefab;
-
         [Header("Menu Opciones")]
         [SerializeField] private GameObject m_MenuOptionsPanel;
         [SerializeField] private Button m_BackOptionsButton;
@@ -52,14 +44,12 @@ namespace GUIScripts
         [SerializeField] private Button m_BackRankingButton;
 
         private List<GameObject> m_PanelsList;
+        private int m_IdPartidaNueva;
 
         // Start is called before the first frame update
         void Start()
         {
             GameManager.Instance.OnPlayerDeleted += RefreshPlayersFromStartGame;
-            GameManager.Instance.onGetPlayers += RefreshPrincipalButtons;
-            if (m_NewGameButton) m_NewGameButton.onClick.AddListener(NewGame);
-            if (m_LoadGameButton) m_LoadGameButton.onClick.AddListener(LoadGame);
             if (m_OptionsButton) m_OptionsButton.onClick.AddListener(Options);
             if (m_RankingsButton) m_RankingsButton.onClick.AddListener(Ranking);
             if (m_ExitButton) m_ExitButton.onClick.AddListener(CloseGame);
@@ -67,7 +57,6 @@ namespace GUIScripts
             if (m_StartNewGameButton) m_StartNewGameButton.onClick.AddListener(GuardarJugador);
             if (m_BackSlotsButton) m_BackSlotsButton.onClick.AddListener(BackMainMenu);
             if (m_BackNewGameButton) m_BackNewGameButton.onClick.AddListener(BackMainMenu);
-            if (m_BackLoadGameButton) m_BackLoadGameButton.onClick.AddListener(BackMainMenu);
             if (m_BackOptionsButton) m_BackOptionsButton.onClick.AddListener(BackMainMenu);
             if (m_BackRankingButton) m_BackRankingButton.onClick.AddListener(BackMainMenu);
             m_NewNameInput.onValueChanged.AddListener(ValidateIpInputField);
@@ -77,9 +66,9 @@ namespace GUIScripts
             {
                 m_MenuInicialPanel,
                 m_MenuNewGamePanel,
-                m_MenuLoadGamePanel,
                 m_MenuOptionsPanel,
-                m_MenuRankingPanel
+                m_MenuRankingPanel,
+                m_MenuSlotsGamesPanel 
             };
 
             ClosePanelsInsteadOf(TypeOfPanels.INICIAL);
@@ -90,20 +79,6 @@ namespace GUIScripts
             ClosePanelsInsteadOf(TypeOfPanels.START_GAME);
         }
 
-        void RefreshPrincipalButtons()
-        {
-            if (GameManager.Instance.PlayersAndTheirWorldsList.Count > 2)
-                m_NewGameButton.interactable = (false);
-            else
-                m_NewGameButton.interactable = (true);
-            if(GameManager.Instance.PlayersAndTheirWorldsList.Count == 0)
-                m_LoadGameButton.interactable = (false);
-            else
-                m_LoadGameButton.interactable = (true);
-        }
-
-       
-
         private void ValidateIpInputField(string text)
         {
             if (text.Length >= 2 && text.Length <= 10)
@@ -111,6 +86,10 @@ namespace GUIScripts
                 m_StartNewGameButton.interactable = true;
             }
             else
+            {
+                m_StartNewGameButton.interactable = false;
+            }
+            if(text.ToLower() == "empty")
             {
                 m_StartNewGameButton.interactable = false;
             }
@@ -124,7 +103,7 @@ namespace GUIScripts
             }
             else
             {
-                GameManager.Instance.SavePlayersAndTheirWorld(m_NewNameInput.text);
+                GameManager.Instance.SavePlayersAndTheirWorld(m_NewNameInput.text, m_IdPartidaNueva);
                 GameManager.Instance.CreateNewGameOfPlayer(m_NewNameInput.text, GameManager.Instance.NombreDeTuEscena);
             }
         }
@@ -143,7 +122,6 @@ namespace GUIScripts
             {
                 case TypeOfPanels.INICIAL:
                     m_MenuInicialPanel.SetActive(true);
-                    RefreshPrincipalButtons();
                     break;
                 case TypeOfPanels.NEW_GAME:
                     m_MenuNewGamePanel.SetActive(true);
@@ -164,20 +142,34 @@ namespace GUIScripts
         {
             for (int i = 0; i < 3; i++)
             {
-                m_PartidasSlots[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = GameManager.Instance.PlayersAndTheirWorldsList[i].m_Name;
-                m_PartidasSlots[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.Instance.PlayersAndTheirWorldsList[i].m_Mundo.ToString();
-                m_PartidasSlots[i].transform.GetChild(2).GetComponent<LoadDeleteGame>().Init(false, GameManager.Instance.PlayersAndTheirWorldsList[i].m_Name, GameManager.Instance.PlayersAndTheirWorldsList[i].m_Mundo);
-                m_PartidasSlots[i].transform.GetChild(3).GetComponent<LoadDeleteGame>().Init(true, GameManager.Instance.PlayersAndTheirWorldsList[i].m_Name, GameManager.Instance.PlayersAndTheirWorldsList[i].m_Mundo);
+                if(GameManager.Instance.PlayersAndTheirWorldsList[i].m_Name == "EMPTY")
+                {
+                    m_PartidasSlots[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = GameManager.Instance.PlayersAndTheirWorldsList[i].m_Name;
+                    m_PartidasSlots[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.Instance.PlayersAndTheirWorldsList[i].m_Mundo.ToString();
+                    m_PartidasSlots[i].transform.GetChild(2).GetComponent<LoadDeleteGame>().Init(TipoDeBotonCargarBorrarNuevaPartidaEnum.NUEVA, GameManager.Instance.PlayersAndTheirWorldsList[i].m_Name, GameManager.Instance.PlayersAndTheirWorldsList[i].m_Mundo, i);
+                    m_PartidasSlots[i].transform.GetChild(3).GetComponent<Button>().interactable = false;
+                    m_PartidasSlots[i].transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = "New Game";
+                }
+                else
+                {
+                    m_PartidasSlots[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = GameManager.Instance.PlayersAndTheirWorldsList[i].m_Name;
+                    m_PartidasSlots[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.Instance.PlayersAndTheirWorldsList[i].m_Mundo.ToString();
+                    m_PartidasSlots[i].transform.GetChild(2).GetComponent<LoadDeleteGame>().Init(TipoDeBotonCargarBorrarNuevaPartidaEnum.CARGAR, GameManager.Instance.PlayersAndTheirWorldsList[i].m_Name, GameManager.Instance.PlayersAndTheirWorldsList[i].m_Mundo, i);
+                    m_PartidasSlots[i].transform.GetChild(3).GetComponent<LoadDeleteGame>().Init(TipoDeBotonCargarBorrarNuevaPartidaEnum.BORRAR, GameManager.Instance.PlayersAndTheirWorldsList[i].m_Name, GameManager.Instance.PlayersAndTheirWorldsList[i].m_Mundo, i);
+                    m_PartidasSlots[i].transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = "Load Game";
+                }
             }
+        }
+
+        public void NewGameId(float id)
+        {
+            m_IdPartidaNueva = (int)id;
+            NewGame();
         }
 
         private void NewGame()
         {
             ClosePanelsInsteadOf(TypeOfPanels.NEW_GAME);
-        }
-        private void LoadGame()
-        {
-            ClosePanelsInsteadOf(TypeOfPanels.LOAD_GAME);
         }
         private void Options()
         {
