@@ -41,15 +41,6 @@ public class MiniGryphusBehaviour : BossBehaviour
     {
         m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
     }
-
-    protected override void OnTriggerEnter2D(Collider2D collision)
-    {
-        base.OnTriggerEnter2D(collision);
-        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox"))
-              m_HealthController.Heal(20);
-  
-    }
-
     private IEnumerator PlayerDetectionCoroutine()
     {
         while (m_IsAlive)

@@ -87,7 +87,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ChangeQuickItem",
+                    "name": "UseQuickItem2",
                     "type": "Button",
                     "id": "2448c476-386a-40fd-a206-beba1aef8e8e",
                     "expectedControlType": "Button",
@@ -117,6 +117,15 @@
                     "name": "OpenAbilities",
                     "type": "Button",
                     "id": "b7ed7d43-a346-4a00-9f73-686571070fb9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UseQuickItem3",
+                    "type": "Button",
+                    "id": "b90a9a8e-2484-4f32-b463-75e23919a303",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -270,18 +279,18 @@
                 {
                     "name": "",
                     "id": "711b967d-c346-4997-a113-8815d753baa0",
-                    "path": "<Keyboard>/1",
+                    "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ChangeQuickItem",
+                    "action": "UseQuickItem2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "34ea3e23-8107-4b06-8f08-5bd9d9ef1ffe",
-                    "path": "<Keyboard>/2",
+                    "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -308,6 +317,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "OpenAbilities",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a2f1180e-0b82-4e83-a66e-4a0dc872101a",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseQuickItem3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
