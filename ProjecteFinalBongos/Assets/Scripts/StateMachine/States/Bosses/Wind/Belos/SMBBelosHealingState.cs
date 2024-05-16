@@ -44,6 +44,7 @@ public class SMBBelosHealingState : SMState
         base.InitState();
         m_Boss.SetBusy(true);
         m_HealingCoroutine = StartCoroutine(HealingCoroutine());
+        m_Animator.Play(m_HealingAnimationName);
     }
 
     public override void ExitState()
