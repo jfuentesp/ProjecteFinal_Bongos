@@ -51,11 +51,15 @@ public class StoreGUIController : MonoBehaviour
     private bool m_IsSelling;
     public bool IsSelling => m_IsSelling;
 
+    private GoldController m_PlayerGold;
+    public GoldController PlayerGold => m_PlayerGold;
+
 
 
     private void Start()
     {
         m_PlayerInventory = GameManager.Instance.PlayerInGame.transform.GetChild(2).GetComponent<InventoryController>();
+        m_PlayerGold = GameManager.Instance.PlayerInGame.GetComponent<GoldController>();
         m_LastSelectedConsumable = m_InitialButton;
     }
 
@@ -67,7 +71,8 @@ public class StoreGUIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (Input.GetKeyDown(KeyCode.N))
+            Debug.Log("Dineros: " + PlayerGold.DINERO);
     }
 
     private void LoadStore()
