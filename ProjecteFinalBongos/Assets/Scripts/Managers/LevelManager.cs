@@ -316,12 +316,14 @@ public class LevelManager : MonoBehaviour
     public struct BossDisponible
     {
         public GameObject m_BossPrefab;
+        public GameObject[] m_HijosBosses;
         public bool m_BossDisponible;
 
-        public BossDisponible(GameObject _BossPrefab, bool _BossDisponible)
+        public BossDisponible(GameObject _BossPrefab, GameObject[] _HijosBosses, bool _BossDisponible)
         {
             m_BossDisponible = _BossDisponible;
             m_BossPrefab = _BossPrefab;
+            m_HijosBosses = _HijosBosses;
         }
     }
     [Serializable]

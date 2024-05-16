@@ -36,15 +36,6 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
         m_CanOpenDoor = true;
         StartCoroutine(DeteccionPlayer());
     }
-    private void Update()
-    {
-        
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawCube(transform.position, m_BoxCastSize);
-    }
 
     private IEnumerator DeteccionPlayer()
     {
