@@ -119,7 +119,7 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
 
     public void OnDeselect(BaseEventData eventData)
     {
-        m_StoreController.SetLastSelection(null);
+        //m_StoreController.SetLastSelection(null);
     }
 
     public void OnPointerClick(PointerEventData eventData)

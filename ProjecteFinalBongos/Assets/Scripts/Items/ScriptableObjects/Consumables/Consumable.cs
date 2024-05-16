@@ -20,6 +20,9 @@ public abstract class Consumable : ScriptableObject, IConsumable
     [SerializeField]
     protected int m_ShopPrice;
     public int shopPrice { get => m_ShopPrice; set => m_ShopPrice = value; }
+    [SerializeField]
+    protected int m_SellPrice;
+    public int sellPrice { get => m_SellPrice; set => m_SellPrice = value; }
 
     public abstract void OnUse(GameObject usedBy);
 }

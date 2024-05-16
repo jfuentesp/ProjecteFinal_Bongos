@@ -18,10 +18,14 @@ public class ActionButtonStore : MonoBehaviour, ISubmitHandler, ICancelHandler, 
 
     private Button m_Button;
 
+    private void Awake()
+    {
+        m_StoreController = LevelManager.Instance.StoreGUIController;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        m_StoreController = LevelManager.Instance.StoreGUIController;
         if (m_ButtonActionsEnum == ButtonActionsEnum.CONFIRM)
             m_Button = GetComponent<Button>();     
     }
@@ -54,6 +58,8 @@ public class ActionButtonStore : MonoBehaviour, ISubmitHandler, ICancelHandler, 
                     if(lastSelection.AssignedEquipable != null)
                     {
                         m_StoreController.OnBuyEquipable(lastSelection.AssignedEquipable);
+                        m_ActionButtons.SetActive(false);
+                        m_ConfirmationButtons.SetActive(false);
                     }
                     break;
                 case ButtonActionsEnum.SELL:
@@ -67,6 +73,8 @@ public class ActionButtonStore : MonoBehaviour, ISubmitHandler, ICancelHandler, 
                     if(lastSelection.AssignedEquipable != null)
                     {
                         m_StoreController.OnSellEquipable(lastSelection.AssignedEquipable);
+                        m_ActionButtons.SetActive(false);
+                        m_ConfirmationButtons.SetActive(false);
                     }
                     break;
                 case ButtonActionsEnum.CONFIRM:
@@ -75,10 +83,14 @@ public class ActionButtonStore : MonoBehaviour, ISubmitHandler, ICancelHandler, 
                         if (m_StoreController.IsBuying)
                         {
                             m_StoreController.OnBuyConsumable(lastSelection.AssignedConsumable);
+                            m_ActionButtons.SetActive(false);
+                            m_ConfirmationButtons.SetActive(false);
                         }
                         if (m_StoreController.IsSelling)
                         {
                             m_StoreController.OnSellConsumable(lastSelection.AssignedConsumable);
+                            m_ActionButtons.SetActive(false);
+                            m_ConfirmationButtons.SetActive(false);
                         }
                     }
                     if (lastSelection.AssignedEquipable != null)

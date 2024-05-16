@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -60,7 +61,7 @@ public class StoreGUIController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI m_CalculatedCostText;
     [SerializeField]
-    private TextMeshProUGUI m_QuantityStoreText;
+    private TMP_InputField m_QuantityStoreText;
 
 
 
@@ -88,12 +89,17 @@ public class StoreGUIController : MonoBehaviour
 
     public void OnBuyConsumable(Consumable itemToBuy)
     {
-
+       
     }
 
     public void OnBuyEquipable(Equipable itemToBuy)
     {
-
+        if(m_PlayerGold.DINERO >= itemToBuy.shopPrice)
+        {
+            m_PlayerGold.RemoveDinero(itemToBuy.shopPrice);
+            m_PlayerInventory.BackPack.AddEquipable(itemToBuy);
+            RefreshGUI();
+        }
     }
 
     public void OnSellConsumable(Consumable itemToSell)
@@ -102,22 +108,32 @@ public class StoreGUIController : MonoBehaviour
     }
 
     public void OnSellEquipable(Equipable itemToSell) 
-    { 
-    
+    {
+        m_PlayerGold.RemoveDinero(itemToSell.sellPrice);
+        m_PlayerInventory.BackPack.RemoveEquipable(itemToSell);
+        RefreshGUI();
     }
 
     public void OnIncreaseQuantity()
     {
-        int numberToSet = int.Parse(m_QuantityStoreText.text) + 1;
-        m_QuantityStoreText.text = numberToSet.ToString();
-        RefreshConfirmationGUI();
+        int numberToSet = int.Parse(m_QuantityStoreText.text);
+        if(numberToSet < 99)
+        {
+            numberToSet += 1;
+            m_QuantityStoreText.text = numberToSet.ToString();
+            RefreshConfirmationGUI();
+        }
     }
 
     public void OnDecreaseQuantity()
     {
-        int numberToSet = int.Parse(m_QuantityStoreText.text) - 1;
-        m_QuantityStoreText.text = numberToSet.ToString();
-        RefreshConfirmationGUI();
+        int numberToSet = int.Parse(m_QuantityStoreText.text);
+        if(numberToSet > 1)
+        {
+            numberToSet -= 1;
+            m_QuantityStoreText.text = numberToSet.ToString();
+            RefreshConfirmationGUI();
+        }
     }
 
     public bool CheckIfPurchasable()
@@ -154,6 +170,7 @@ public class StoreGUIController : MonoBehaviour
         RefreshPlayerStoreConsumablesGUI();
         RefreshPlayerStoreEquipablesGUI();
         RefreshGoldGUI();
+        RefreshConfirmationGUI();
     }
 
     public void RefreshConsumablesStoreGUI()

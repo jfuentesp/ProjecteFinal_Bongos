@@ -19,6 +19,9 @@ public abstract class Equipable : ScriptableObject, IEquipable
     [SerializeField]
     protected int m_ShopPrice;
     public int shopPrice { get => m_ShopPrice; set => m_ShopPrice = value; }
+    [SerializeField] 
+    protected int m_SellPrice;
+    public int sellPrice { get => m_SellPrice; set => m_SellPrice = value; }
     [SerializeField]
     protected EstadosAlterados m_Estado = EstadosAlterados.Normal;
     public EstadosAlterados Estado { get => m_Estado; set => m_Estado = value; }
