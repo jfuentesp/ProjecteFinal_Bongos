@@ -43,6 +43,6 @@ public class SMBHittedState : SMState
     public void Exit()
     {
         m_StateMachine.ChangeState<SMBPlayerIdleState>();
-        GetComponent<DañoEnemigoListener>().enabled = true;
+        GetComponent<FloatGameEventListener>().enabled = true;
     }
 }

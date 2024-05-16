@@ -74,7 +74,13 @@ public class PJSMB : MonoBehaviour
         m_playersStatsController = GetComponent<PlayerStatsController>();
         m_PlayerEstadosController = GetComponent<PlayerEstadosController>();
         m_SMBPlayerParryState = GetComponent<SMBPlayerParryState>();
+        m_HealthController.onDeath += AcabarJuego;
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void AcabarJuego()
+    {
+        GameManager.Instance.AcabarJuego();
     }
 
     private void Start()

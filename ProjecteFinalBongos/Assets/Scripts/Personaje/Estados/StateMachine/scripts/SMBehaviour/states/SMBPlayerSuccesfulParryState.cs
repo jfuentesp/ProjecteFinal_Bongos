@@ -49,7 +49,7 @@ public class SMBPlayerSuccesfulParryState : MBState
     public void Exit()
     {
         m_StateMachine.ChangeState<SMBPlayerIdleState>();
-        GetComponent<DañoEnemigoListener>().enabled = true;
+        GetComponent<FloatGameEventListener>().enabled = true;
     }
     private void Parry(InputAction.CallbackContext context)
     {
