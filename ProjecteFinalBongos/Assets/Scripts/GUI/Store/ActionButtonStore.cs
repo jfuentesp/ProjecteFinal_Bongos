@@ -100,7 +100,7 @@ public class ActionButtonStore : MonoBehaviour, ISubmitHandler, ICancelHandler, 
                     }
                     break;
                 case ButtonActionsEnum.QUANTITYUP:
-                    m_StoreController.OnIncreaseQuantity();
+                    m_StoreController.OnIncreaseQuantity(lastSelection.AssignedConsumable);
                     break;
                 case ButtonActionsEnum.QUANTITYDOWN:
                     m_StoreController.OnDecreaseQuantity();
@@ -129,6 +129,8 @@ public class ActionButtonStore : MonoBehaviour, ISubmitHandler, ICancelHandler, 
                     if (lastSelection.AssignedEquipable != null)
                     {
                         m_StoreController.OnBuyEquipable(lastSelection.AssignedEquipable);
+                        m_ActionButtons.SetActive(false);
+                        m_ConfirmationButtons.SetActive(false);
                     }
                     break;
                 case ButtonActionsEnum.SELL:
@@ -142,6 +144,8 @@ public class ActionButtonStore : MonoBehaviour, ISubmitHandler, ICancelHandler, 
                     if (lastSelection.AssignedEquipable != null)
                     {
                         m_StoreController.OnSellEquipable(lastSelection.AssignedEquipable);
+                        m_ActionButtons.SetActive(false);
+                        m_ConfirmationButtons.SetActive(false);
                     }
                     break;
                 case ButtonActionsEnum.CONFIRM:
@@ -150,10 +154,14 @@ public class ActionButtonStore : MonoBehaviour, ISubmitHandler, ICancelHandler, 
                         if (m_StoreController.IsBuying)
                         {
                             m_StoreController.OnBuyConsumable(lastSelection.AssignedConsumable);
+                            m_ActionButtons.SetActive(false);
+                            m_ConfirmationButtons.SetActive(false);
                         }
                         if (m_StoreController.IsSelling)
                         {
                             m_StoreController.OnSellConsumable(lastSelection.AssignedConsumable);
+                            m_ActionButtons.SetActive(false);
+                            m_ConfirmationButtons.SetActive(false);
                         }
                     }
                     if (lastSelection.AssignedEquipable != null)
@@ -163,7 +171,7 @@ public class ActionButtonStore : MonoBehaviour, ISubmitHandler, ICancelHandler, 
                     }
                     break;
                 case ButtonActionsEnum.QUANTITYUP:
-                    m_StoreController.OnIncreaseQuantity();
+                    m_StoreController.OnIncreaseQuantity(lastSelection.AssignedConsumable);
                     break;
                 case ButtonActionsEnum.QUANTITYDOWN:
                     m_StoreController.OnDecreaseQuantity();

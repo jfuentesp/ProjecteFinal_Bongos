@@ -62,7 +62,7 @@ public class StoreGUIController : MonoBehaviour
     private TextMeshProUGUI m_CalculatedCostText;
     [SerializeField]
     private TMP_InputField m_QuantityStoreText;
-
+    public TMP_InputField QuantityStoreText => m_QuantityStoreText;
 
 
     private void Start()
@@ -109,19 +109,32 @@ public class StoreGUIController : MonoBehaviour
 
     public void OnSellEquipable(Equipable itemToSell) 
     {
-        m_PlayerGold.RemoveDinero(itemToSell.sellPrice);
+        m_PlayerGold.AddDinero(itemToSell.sellPrice);
         m_PlayerInventory.BackPack.RemoveEquipable(itemToSell);
         RefreshGUI();
     }
 
-    public void OnIncreaseQuantity()
+    public void OnIncreaseQuantity(Consumable consumable)
     {
-        int numberToSet = int.Parse(m_QuantityStoreText.text);
-        if(numberToSet < 99)
+        if (IsBuying)
         {
-            numberToSet += 1;
-            m_QuantityStoreText.text = numberToSet.ToString();
-            RefreshConfirmationGUI();
+            int numberToSet = int.Parse(m_QuantityStoreText.text);
+            if (numberToSet < (99-m_PlayerInventory.BackPack.GetQuantity(consumable)))
+            {
+                numberToSet += 1;
+                m_QuantityStoreText.text = numberToSet.ToString();
+                RefreshConfirmationGUI();
+            }
+        }
+        if(IsSelling)
+        {
+            int numberToSet = int.Parse(m_QuantityStoreText.text);
+            if (numberToSet < m_PlayerInventory.BackPack.GetQuantity(consumable))
+            {
+                numberToSet += 1;
+                m_QuantityStoreText.text = numberToSet.ToString();
+                RefreshConfirmationGUI();
+            }
         }
     }
 
