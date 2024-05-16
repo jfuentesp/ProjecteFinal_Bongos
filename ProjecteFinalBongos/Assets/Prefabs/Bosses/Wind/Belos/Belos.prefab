@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4693912150325434102}
   - component: {fileID: 9109681896890243338}
   - component: {fileID: 5572228844098615027}
-  m_Layer: 0
+  - component: {fileID: 3926211236692222098}
+  m_Layer: 8
   m_Name: AttackHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,6 +106,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3926211236692222098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040769123782379497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3705b7a045dce4488aa2017422848a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 120
+  m_StatsController: {fileID: 0}
+  m_player: {fileID: 0}
+  parreable: 1
+  healable: 0
+  m_EstadoAlterado: 12
+  stateTime: 0
 --- !u!1 &8425413129942869862
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +157,7 @@ GameObject:
   - component: {fileID: 1451007800572313867}
   - component: {fileID: 4918355942035052815}
   - component: {fileID: 4238187448912400560}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Belos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +178,7 @@ Transform:
   m_Children:
   - {fileID: 4693912150325434102}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7810808407024917417
 SpriteRenderer:
@@ -251,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee5c8230df4f49ae73db6a2eb0766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IdleAnimationName: 
+  m_IdleAnimationName: Idle
 --- !u!114 &3350877970041598780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ParryDuration: 2
-  m_AnimationParryName: 
+  m_AnimationParryName: Parried
 --- !u!114 &1046862929404926547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,7 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ChaseSpeed: 2
-  m_ChaseAnimationName: 
+  m_ChaseAnimationName: Walk
   m_TwoDirections: 1
 --- !u!114 &1551839015231933322
 MonoBehaviour:
@@ -297,8 +317,8 @@ MonoBehaviour:
   m_HitboxLength: 2
   m_HitboxWideness: 2
   m_HitboxRadius: 2
-  m_TwoDirections: 0
-  m_SingleAttackAnimationName: 
+  m_TwoDirections: 1
+  m_SingleAttackAnimationName: SingleAttack
 --- !u!114 &1774389843798436801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,8 +335,8 @@ MonoBehaviour:
   m_HitboxLength: 2
   m_HitboxWideness: 2
   m_HitboxRadius: 2
-  m_TwoDirections: 0
-  m_DoubleAttackAnimationName: 
+  m_TwoDirections: 1
+  m_DoubleAttackAnimationName: DoubleAttack
 --- !u!114 &7563892893529071026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,8 +353,8 @@ MonoBehaviour:
   m_HitboxLength: 2
   m_HitboxWideness: 2
   m_HitboxRadius: 2
-  m_TwoDirections: 0
-  m_TripleAttackAnimationName: 
+  m_TwoDirections: 1
+  m_TripleAttackAnimationName: TripleAttack
 --- !u!114 &3592041333081363109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,7 +406,7 @@ MonoBehaviour:
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 2
   m_AreaWideness: 2
-  m_AreaRadius: 2
+  m_AreaRadius: 1
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
@@ -410,7 +430,7 @@ MonoBehaviour:
   m_AmountToHeal: 300
   m_HealingDelay: 4
   m_HealingMultiplierPenalization: 0.3
-  m_HealingAnimationName: 
+  m_HealingAnimationName: Heal
 --- !u!114 &2344460863948396034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,6 +445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Pool: {fileID: 0}
   m_ChainSpeed: 3
+  RayoAnimation: LightningSHot
 --- !u!61 &1712709235302099806
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -634,4 +655,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e8b048728a5a454191ff5fb5a4cf910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AnimationName: 
+  m_AnimationName: Death

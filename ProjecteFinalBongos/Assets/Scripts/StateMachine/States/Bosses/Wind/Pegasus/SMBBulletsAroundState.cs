@@ -41,6 +41,7 @@ public class SMBBulletsAroundState : SMState
     public override void InitState()
     {
         base.InitState();
+        print("Entro");
         m_Animator.Play(m_AnimationSummoningName);
         m_CurrentDuration = 0;
         m_Boss.SetBusy(true);

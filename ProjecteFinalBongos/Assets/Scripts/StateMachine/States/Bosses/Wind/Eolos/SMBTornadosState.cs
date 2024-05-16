@@ -44,6 +44,7 @@ public class SMBTornadosState : SMState
     public override void InitState()
     {
         base.InitState();
+        print("Tornado");
         m_CurrentDuration = 0;
         m_Boss.SetBusy(true);
         m_Rigidbody.velocity = Vector3.zero;

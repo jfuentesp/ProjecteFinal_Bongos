@@ -15,6 +15,7 @@ public class SMBBelosLighningChainsState : SMState
     [Header("Projectile speed")]
     [SerializeField]
     private float m_ChainSpeed;
+    [SerializeField] private string RayoAnimation;
 
     protected override void Awake()
     {
@@ -33,7 +34,7 @@ public class SMBBelosLighningChainsState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        ShootTrap();
+        m_Animator.Play(RayoAnimation);
     }
 
     public override void ExitState()
@@ -41,7 +42,7 @@ public class SMBBelosLighningChainsState : SMState
         base.ExitState();
     }
 
-    private void ShootTrap()
+    public void ShootTrap()
     {
         GameObject bulletObject = m_Pool.GetElement();
         bulletObject.transform.position = transform.position;
@@ -49,6 +50,10 @@ public class SMBBelosLighningChainsState : SMState
         trap.enabled = true;
         bulletObject.SetActive(true);
         trap.Init(m_Boss.Target.position);
+ 
+    }
+
+    public void Finish() {
         m_StateMachine.ChangeState<SMBChaseState>();
     }
 }
