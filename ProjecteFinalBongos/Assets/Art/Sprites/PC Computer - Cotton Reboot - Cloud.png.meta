@@ -1,0 +1,457 @@
+fileFormatVersion: 2
+guid: 4ac5005d613de224bbb84e56afb36721
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC Computer - Cotton Reboot - Cloud_0
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 541
+        width: 97
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19b086a9285460c49a665e97a19acdb2
+      internalID: 1727304616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Cotton Reboot - Cloud_1
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 539
+        width: 112
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5064654, y: 0.40272635}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6a423e5d47957042adb0c1194b35b19
+      internalID: 1503037316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Cotton Reboot - Cloud_2
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 537
+        width: 124
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5058397, y: 0.43610427}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 351ae0f2056351148a87a554f35f0ca8
+      internalID: -193099320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Cotton Reboot - Cloud_3
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 541
+        width: 111
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5, y: 0.43315524}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf6dc620fee08924a8fa381ff3feb105
+      internalID: 609112941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Cotton Reboot - Cloud_4
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 377
+        width: 131
+        height: 69
+      alignment: 9
+      pivot: {x: 0.45577723, y: 0.4895046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48072e9f0f931a241b5b0a8ba9549b5b
+      internalID: 1126318363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Cotton Reboot - Cloud_5
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 378
+        width: 116
+        height: 67
+      alignment: 9
+      pivot: {x: 0.48127195, y: 0.543232}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2dc992d91ba514438ec70667a2f8b67
+      internalID: 1562401191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Cotton Reboot - Cloud_6
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 375
+        width: 139
+        height: 83
+      alignment: 9
+      pivot: {x: 0.51562893, y: 0.49127492}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd47cd7153d491c4dbb5a177b1ab53b9
+      internalID: 54628360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Cotton Reboot - Cloud_7
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 368
+        width: 153
+        height: 96
+      alignment: 9
+      pivot: {x: 0.50946563, y: 0.40948138}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfeae0dbd7548bd48a8543dabb467f28
+      internalID: 808702711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Cotton Reboot - Cloud_8
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 183
+        width: 185
+        height: 134
+      alignment: 9
+      pivot: {x: 0.49608576, y: 0.47297955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 967bcec8613270048bc184fdfa297e55
+      internalID: -2076269700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Cotton Reboot - Cloud_9
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 181
+        width: 169
+        height: 134
+      alignment: 9
+      pivot: {x: 0.5514185, y: 0.49999976}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 685e8b9e135594740859dbbad035e4ca
+      internalID: -430977318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Cotton Reboot - Cloud_10
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 183
+        width: 160
+        height: 131
+      alignment: 9
+      pivot: {x: 0.51357746, y: 0.49999952}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5e5b54656fd17545b137df1a9ddb170
+      internalID: 541410497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Cotton Reboot - Cloud_11
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 200
+        width: 94
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 209078366a4ad384b8e35a1c5cafbf85
+      internalID: 453852446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Cotton Reboot - Cloud_12
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 83
+        width: 31
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0535c65b3759a84e9b36771e871dd6d
+      internalID: 1969183296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Cotton Reboot - Cloud_13
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 64
+        width: 63
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 361301bfce94e39468fb790db7737eaf
+      internalID: 1236994734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Cotton Reboot - Cloud_14
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 59
+        width: 81
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aff33eff1bf8414409a21fcdb3c678db
+      internalID: 1880674416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PC Computer - Cotton Reboot - Cloud_0: -1371528187
+      PC Computer - Cotton Reboot - Cloud_1: -1733733547
+      PC Computer - Cotton Reboot - Cloud_10: -1467383254
+      PC Computer - Cotton Reboot - Cloud_11: -483643732
+      PC Computer - Cotton Reboot - Cloud_12: 1399772535
+      PC Computer - Cotton Reboot - Cloud_13: 1458062654
+      PC Computer - Cotton Reboot - Cloud_14: 1441635945
+      PC Computer - Cotton Reboot - Cloud_2: -1938477791
+      PC Computer - Cotton Reboot - Cloud_3: -1530361936
+      PC Computer - Cotton Reboot - Cloud_4: 1294288254
+      PC Computer - Cotton Reboot - Cloud_5: 1678063136
+      PC Computer - Cotton Reboot - Cloud_6: 169392883
+      PC Computer - Cotton Reboot - Cloud_7: 1886336384
+      PC Computer - Cotton Reboot - Cloud_8: 1059704072
+      PC Computer - Cotton Reboot - Cloud_9: -990918058
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

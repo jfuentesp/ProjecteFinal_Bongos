@@ -28,7 +28,7 @@ public class PlayerAbilitiesController : MonoBehaviour
     {
         initMovementAbility();
         initParryAbility();
-        learnAttack(Cancel);
+        
     }
 
     private void initMovementAbility()

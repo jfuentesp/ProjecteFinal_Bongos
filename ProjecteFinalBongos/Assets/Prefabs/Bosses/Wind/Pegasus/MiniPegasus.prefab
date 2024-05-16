@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: -2042318096521767388}
   - component: {fileID: -8868033771294296155}
   - component: {fileID: 4304728740585702880}
+  - component: {fileID: -8632461810726162559}
   m_Layer: 9
   m_Name: MiniPegasus
   m_TagString: Untagged
@@ -49,7 +50,7 @@ Transform:
   m_Children:
   - {fileID: 7435671837783051895}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2671552933849336414
 SpriteRenderer:
@@ -93,7 +94,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1cf35e76a32c87c4da15e964cea769b2, type: 3}
-  m_Color: {r: 0.056737266, g: 0.26023793, b: 0.4811321, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -194,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee5c8230df4f49ae73db6a2eb0766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IdleAnimationName: 
+  m_IdleAnimationName: Walk
 --- !u!114 &2933977604974156707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ParryDuration: 3
+  m_AnimationParryName: Parried
 --- !u!114 &-3393616840070304392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ChaseSpeed: 5
-  m_ChaseAnimationName: 
+  m_ChaseAnimationName: Walk
+  m_TwoDirections: 1
 --- !u!114 &-6351707006110784400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,8 +237,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03f062997d23bf46a50d2fa12d157ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TimeBeforeCharge: 0
   m_ChargeSpeed: 10
   m_ChargeForce: 0
+  m_StartChargeAnimationName: StartCharge
+  m_ChargeAnimationName: Charge
+  m_EndChargeAnimationName: 
+  m_TwoDirections: 1
 --- !u!114 &-2768679057220102323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAXHP: 100000
+  MAXHP: 1
 --- !u!114 &1190220192860337479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_OndaExpansiva: {fileID: 1457768912843992884, guid: 5e229082a6ef3a8488c6006ed6356b67, type: 3}
+  m_AnimationName: Summoning
   m_GroundHitDuration: 2
 --- !u!114 &6409257747116047795
 MonoBehaviour:
@@ -289,6 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   times: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
+  m_NameAnimation: 
 --- !u!114 &3571787004812475491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,7 +398,7 @@ Animator:
   m_GameObject: {fileID: 1186185797598942992}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3cd761fc0a3c4b47b04dfd36dc43c5f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -441,6 +451,27 @@ MonoBehaviour:
   m_WalkSpeed: 10
   m_minimumWalkingDuration: 2
   m_maximumWalkingDuration: 6
+  m_WalkAnimationName: Walk
+  m_TwoDirections: 1
+--- !u!114 &-8632461810726162559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186185797598942992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3705b7a045dce4488aa2017422848a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 4
+  m_StatsController: {fileID: 0}
+  m_player: {fileID: 0}
+  parreable: 0
+  healable: 0
+  m_EstadoAlterado: 4
+  stateTime: 2
 --- !u!1 &1808595707494533218
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,1107 @@
+fileFormatVersion: 2
+guid: 484e2ccab160161499a4d15bc017150e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Gryphus_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 359
+        width: 65
+        height: 82
+      alignment: 9
+      pivot: {x: 0.4977882, y: 0.33654377}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2462986d8f3c0954b879d1222cbba22b
+      internalID: 1318794431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_1
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 359
+        width: 63
+        height: 82
+      alignment: 9
+      pivot: {x: 0.4804823, y: 0.3500493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a6d10515e032ae4ab699207122b58a4
+      internalID: 1791556624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_2
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 359
+        width: 62
+        height: 83
+      alignment: 9
+      pivot: {x: 0.48016775, y: 0.32222703}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e5ff0de2451f004b9a7664608d4fe92
+      internalID: -56111450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_3
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 359
+        width: 65
+        height: 82
+      alignment: 9
+      pivot: {x: 0.49999976, y: 0.32573533}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c755dfe14f06f744acbb6ba6f13edb6
+      internalID: -582348344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_4
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 359
+        width: 70
+        height: 82
+      alignment: 9
+      pivot: {x: 0.5284842, y: 0.32168245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efd8a6315de545242b8d61c4025d2112
+      internalID: -1977375807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_5
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 359
+        width: 70
+        height: 82
+      alignment: 9
+      pivot: {x: 0.5237366, y: 0.32168245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bb6e59224d25624a990bf091c6d9ba5
+      internalID: 1791955884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_6
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 359
+        width: 70
+        height: 82
+      alignment: 9
+      pivot: {x: 0.5237366, y: 0.3135774}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49871a032de9acb44b1c779b96da3d90
+      internalID: 1863384715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_7
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 359
+        width: 70
+        height: 82
+      alignment: 9
+      pivot: {x: 0.5189889, y: 0.32573533}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d223dec3287adda4ea29a886fb3e7080
+      internalID: -2143465134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_8
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 359
+        width: 70
+        height: 82
+      alignment: 9
+      pivot: {x: 0.52177906, y: 0.32525337}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5bf2e4f06311364bae37e0853fbdf81
+      internalID: -350408524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_9
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 274
+        width: 93
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e1045079dbfb04094ec4cf3a125aec
+      internalID: -1980176313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_10
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 274
+        width: 103
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6ad1611c603ba749a905231b051e8a1
+      internalID: 2108281556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_11
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 275
+        width: 108
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77e309d1ff858cf48b615b224fe82720
+      internalID: 777074520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_12
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 297
+        width: 111
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c503fe3150e0c8b48a61e3688183534a
+      internalID: -462684927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_13
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 269
+        width: 103
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59588fd77671739499b03dfc81858a5f
+      internalID: -202522205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_14
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 274
+        width: 84
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e235b4b07f27b84d9fe57ffc57462b1
+      internalID: 839340739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_15
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 274
+        width: 83
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7142d3050fe6e14ca3efe357e4e1af3
+      internalID: 1045180834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_16
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 286
+        width: 111
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7433c221bde880f44b2501d7ba16316b
+      internalID: -148278193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_17
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 166
+        width: 95
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9937a77e5385704abbcf31321f1d3dc
+      internalID: 138159560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_18
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 166
+        width: 111
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 487523b362f8bd249b8e167bd9706bd1
+      internalID: -844204374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_19
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 167
+        width: 87
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b3d8235d10f863469fbda20632ae42d
+      internalID: -445449856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_20
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 168
+        width: 90
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c473a1dcedf14b240b7d2fd0c8665462
+      internalID: 184152622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_21
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 153
+        width: 117
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76779bfb2da40e9469dbec36b18ff4af
+      internalID: 1708974844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_22
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 160
+        width: 85
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7413cf6600a219840953ff5e285b3ae2
+      internalID: 1254052865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_23
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 183
+        width: 77
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a3c6178b1c768c40b07e47842356262
+      internalID: -374097881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_43
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 8
+        width: 87
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bfc6fd9d109df6478e0d213100a2d20
+      internalID: -79598153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_44
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 8
+        width: 87
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9346813369b54274d90153ea7c37d4da
+      internalID: 2126961157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_45
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 9
+        width: 49
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fe3282745495474cbd057166daf1260
+      internalID: -856953725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_46
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 8
+        width: 49
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3494ea537b71b9d459616bd5192da771
+      internalID: -95611440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_47
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 9
+        width: 49
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8657ecb5d5d3ea46b6fe7594986322d
+      internalID: -1238232548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_48
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 8
+        width: 47
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59af126f355f46048bf55dc3f73f1401
+      internalID: -558988283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_49
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 8
+        width: 49
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 575b71469c855fa4a9c71d07ddf14a7b
+      internalID: -1149124601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_50
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 8
+        width: 46
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ede5e8d14a1d7e94691a56c2cfa10a65
+      internalID: -1759234304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_51
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 21
+        width: 43
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf2fce18ff03fe84183dd02ade5e4741
+      internalID: 1945686387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_52
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 21
+        width: 43
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ccd93d4ca875c243b885c614e647f0c
+      internalID: -1570309235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_53
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 6
+        width: 90
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ee70f07064b1d4488e78f765526be40
+      internalID: 965019989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_54
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 10
+        width: 46
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c48a045df1a15f48aec1725a29cfe9d
+      internalID: -82574876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_55
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 10
+        width: 52
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 313cfac42bd57284b8739df590ffc32b
+      internalID: 1142612875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_24
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 57
+        width: 96
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b99bbb7cce528429ea274f81a141ec
+      internalID: -1650112828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_25
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 50
+        width: 157
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf478d19e1c1b904a881c81431fff4a8
+      internalID: -344936525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_26
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 50
+        width: 105
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd0a77b051927d04aa3fe373eed3d2c9
+      internalID: 1254020026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_27
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 56
+        width: 108
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c4c2a9c3414fd8498b8c056a6a57b48
+      internalID: -1664797136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_28
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 61
+        width: 91
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f66530aef0e9a14399d3cf933dbc71f
+      internalID: -793399171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_29
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 58
+        width: 90
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eefd6b767a7c854fb182ff4f5edb768
+      internalID: 1886283205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gryphus_30
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 54
+        width: 91
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82160d10e0821364792c93f9f8b65e76
+      internalID: -752946934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Gryphus_0: 1318794431
+      Gryphus_1: 1791556624
+      Gryphus_10: 2108281556
+      Gryphus_11: 777074520
+      Gryphus_12: -462684927
+      Gryphus_13: -202522205
+      Gryphus_14: 839340739
+      Gryphus_15: 1045180834
+      Gryphus_16: -148278193
+      Gryphus_17: 138159560
+      Gryphus_18: -844204374
+      Gryphus_19: -445449856
+      Gryphus_2: -56111450
+      Gryphus_20: 184152622
+      Gryphus_21: 1708974844
+      Gryphus_22: 1254052865
+      Gryphus_23: -374097881
+      Gryphus_24: -1650112828
+      Gryphus_25: -344936525
+      Gryphus_26: 1254020026
+      Gryphus_27: -1664797136
+      Gryphus_28: -793399171
+      Gryphus_29: 1886283205
+      Gryphus_3: -582348344
+      Gryphus_30: -752946934
+      Gryphus_31: 1842439527
+      Gryphus_32: -1573478692
+      Gryphus_33: -1434485384
+      Gryphus_34: -1058511011
+      Gryphus_35: 870771779
+      Gryphus_36: 1671848390
+      Gryphus_37: 44390790
+      Gryphus_38: 552461389
+      Gryphus_39: -718505623
+      Gryphus_4: -1977375807
+      Gryphus_40: -1045085283
+      Gryphus_41: 1647620233
+      Gryphus_42: -1605108910
+      Gryphus_43: -79598153
+      Gryphus_44: 2126961157
+      Gryphus_45: -856953725
+      Gryphus_46: -95611440
+      Gryphus_47: -1238232548
+      Gryphus_48: -558988283
+      Gryphus_49: -1149124601
+      Gryphus_5: 1791955884
+      Gryphus_50: -1759234304
+      Gryphus_51: 1945686387
+      Gryphus_52: -1570309235
+      Gryphus_53: 965019989
+      Gryphus_54: -82574876
+      Gryphus_55: 1142612875
+      Gryphus_6: 1863384715
+      Gryphus_7: -2143465134
+      Gryphus_8: -350408524
+      Gryphus_9: -1980176313
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
