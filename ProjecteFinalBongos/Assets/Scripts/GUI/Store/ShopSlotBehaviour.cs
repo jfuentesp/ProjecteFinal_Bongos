@@ -77,6 +77,23 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
         }
     }
 
+    public void RefreshStoreConsumableSlot()
+    {
+        if (m_AssignedConsumable == null)
+        {
+            m_ItemSprite.gameObject.SetActive(false);
+            m_QuantityText.gameObject.SetActive(false);
+            m_ItemSprite.sprite = null;
+            m_QuantityText.text = string.Empty;
+        }
+        else
+        {
+            m_ItemSprite.gameObject.SetActive(true);
+            m_QuantityText.gameObject.SetActive(true);
+            m_ItemSprite.sprite = m_AssignedConsumable.Sprite;
+        }
+    }
+
     public void RefreshEquipableSlot()
     {
         if (m_AssignedEquipable == null)

@@ -28,6 +28,7 @@ public class PasilloTienda : TipoSala, ISaveableTiendasData
     {
         m_PiccoloId = LevelManager.Instance.GiveIdToPiccoloChad();
         m_ObjetosDisponibles = LevelManager.Instance.GetObjetosTienda();
+        m_EquipablesDisponibles = LevelManager.Instance.GetEquipoTienda();
         m_CanOpenDoor = true;
         SpawnerSala();
     }

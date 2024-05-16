@@ -19,6 +19,8 @@ public class StoreGUIController : MonoBehaviour
     private GameObject m_PlayerConsumableGrid;
     [SerializeField]
     private GameObject m_PlayerEquipableGrid;
+    [SerializeField]
+    private TextMeshProUGUI m_GoldQuantityText;
 
     private InventoryController m_PlayerInventory;
 
@@ -28,11 +30,9 @@ public class StoreGUIController : MonoBehaviour
     [SerializeField]
     private Equipable[] m_PiccoloStoreEquipables = new Equipable[10];
 
-    [Header("First item selected")]
-    [SerializeField]
     private GameObject m_InitialButton;
-    private GameObject m_LastSelectedConsumable;
-    public GameObject LastSelectedConsumable => m_LastSelectedConsumable;
+    private GameObject m_LastSelected;
+    public GameObject LastSelected => m_LastSelected;
 
     [Header("Description panel settings")]
     [SerializeField]
@@ -54,43 +54,29 @@ public class StoreGUIController : MonoBehaviour
     private GoldController m_PlayerGold;
     public GoldController PlayerGold => m_PlayerGold;
 
+    [Header("Confirmation panel settings")]
+    [SerializeField]
+    private TextMeshProUGUI m_CurrentGoldText;
+    [SerializeField]
+    private TextMeshProUGUI m_CalculatedCostText;
+    [SerializeField]
+    private TextMeshProUGUI m_QuantityStoreText;
+
 
 
     private void Start()
     {
         m_PlayerInventory = GameManager.Instance.PlayerInGame.transform.GetChild(2).GetComponent<InventoryController>();
         m_PlayerGold = GameManager.Instance.PlayerInGame.GetComponent<GoldController>();
-        m_LastSelectedConsumable = m_InitialButton;
-    }
-
-    private void OnEnable()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.N))
-            Debug.Log("Dineros: " + PlayerGold.DINERO);
-    }
-
-    private void LoadStore()
-    {
-
-    }
-
-    private void LoadPlayerInventory()
-    {
-        
+        m_InitialButton = m_StoreConsumableGrid.transform.GetChild(0).GetChild(0).gameObject;
+        m_LastSelected = m_InitialButton;
+        RefreshGUI();
     }
 
     public void OpenShop(List<Consumable> consumables, List<Equipable> equipables)
     {
         m_PiccoloStoreConsumables = consumables.ToArray();
         m_PiccoloStoreEquipables = equipables.ToArray();
-        LoadStore();
-        LoadPlayerInventory();
         RefreshGUI();
         m_GUIPanel.SetActive(true);
     }
@@ -120,11 +106,33 @@ public class StoreGUIController : MonoBehaviour
     
     }
 
+    public void OnIncreaseQuantity()
+    {
+        int numberToSet = int.Parse(m_QuantityStoreText.text) + 1;
+        m_QuantityStoreText.text = numberToSet.ToString();
+        RefreshConfirmationGUI();
+    }
+
+    public void OnDecreaseQuantity()
+    {
+        int numberToSet = int.Parse(m_QuantityStoreText.text) - 1;
+        m_QuantityStoreText.text = numberToSet.ToString();
+        RefreshConfirmationGUI();
+    }
+
+    public bool CheckIfPurchasable()
+    {
+        if (int.Parse(m_CurrentGoldText.text) < int.Parse(m_CalculatedCostText.text))
+            return false;
+        else
+            return true;
+    }
+
     /* Setters */
 
     public void SetLastSelection(GameObject slot)
     {
-        m_LastSelectedConsumable = slot;
+        m_LastSelected = slot;
         RefreshDescriptionGUI();
     }
 
@@ -145,20 +153,41 @@ public class StoreGUIController : MonoBehaviour
         RefreshEquipablesStoreGUI();
         RefreshPlayerStoreConsumablesGUI();
         RefreshPlayerStoreEquipablesGUI();
+        RefreshGoldGUI();
     }
 
     public void RefreshConsumablesStoreGUI()
     {
-        for (int items = 0; items < m_StoreConsumableGrid.transform.childCount; items++) 
+        for (int items = 0; items < m_PiccoloStoreConsumables.Length; items++) 
         {
             ShopSlotBehaviour slot = m_StoreConsumableGrid.transform.GetChild(items).GetComponentInChildren<ShopSlotBehaviour>();
-            //if()
+            if (m_PiccoloStoreConsumables[items] != null)
+            {
+                slot.SetConsumable(m_PiccoloStoreConsumables[items]);
+            }
+            else
+            {
+                slot.RemoveConsumable();
+            }
+            slot.RefreshStoreConsumableSlot();       
         }
     }
 
     public void RefreshEquipablesStoreGUI()
     {
-
+        for (int items = 0; items < m_PiccoloStoreEquipables.Length; items++)
+        {
+            ShopSlotBehaviour slot = m_StoreEquipablesGrid.transform.GetChild(items).GetComponentInChildren<ShopSlotBehaviour>();
+            if (m_PiccoloStoreEquipables[items] != null)
+            {
+                slot.SetEquipable(m_PiccoloStoreEquipables[items]);
+            }
+            else
+            {
+                slot.RemoveEquipable();
+            }
+            slot.RefreshEquipableSlot();
+        }
     }
 
     public void RefreshPlayerStoreConsumablesGUI()
@@ -197,7 +226,7 @@ public class StoreGUIController : MonoBehaviour
 
     public void RefreshDescriptionGUI()
     {
-        if (m_LastSelectedConsumable == null)
+        if (m_LastSelected == null)
         {
             m_DescriptionImage.gameObject.SetActive(false);
             m_DescriptionName.gameObject.SetActive(false);
@@ -205,7 +234,7 @@ public class StoreGUIController : MonoBehaviour
             return;
         }
 
-        ShopSlotBehaviour slot = m_LastSelectedConsumable.GetComponent<ShopSlotBehaviour>();
+        ShopSlotBehaviour slot = m_LastSelected.GetComponent<ShopSlotBehaviour>();
 
         if (slot.AssignedConsumable != null)
         {
@@ -230,5 +259,22 @@ public class StoreGUIController : MonoBehaviour
             m_DescriptionImage.sprite = slot.AssignedEquipable.Sprite;
             m_CostText.text = slot.AssignedEquipable.shopPrice.ToString();
         }
+    }
+
+    public void RefreshGoldGUI()
+    {
+        m_GoldQuantityText.text = m_PlayerGold.DINERO.ToString();
+    }
+
+    public void RefreshConfirmationGUI()
+    {
+        m_LastSelected.TryGetComponent<ShopSlotBehaviour>(out ShopSlotBehaviour slot);
+        m_CurrentGoldText.text = m_PlayerGold.DINERO.ToString();
+        if (slot?.AssignedConsumable != null)
+            m_CalculatedCostText.text = (slot?.AssignedConsumable.shopPrice * int.Parse(m_QuantityStoreText.text)).ToString();
+        if (int.Parse(m_CurrentGoldText.text) < int.Parse(m_CalculatedCostText.text))
+            m_CalculatedCostText.color = Color.red;
+        else
+            m_CalculatedCostText.color = Color.black;
     }
 }

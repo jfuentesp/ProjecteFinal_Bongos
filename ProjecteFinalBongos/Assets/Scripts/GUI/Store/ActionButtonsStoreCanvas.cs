@@ -25,6 +25,6 @@ public class ActionButtonsStoreCanvas : MonoBehaviour
         m_StoreCanvasGroup.blocksRaycasts = true;
         m_ActionButtonsCanvasGroup.interactable = false;
         m_ActionButtonsCanvasGroup.blocksRaycasts = false;
-        LevelManager.Instance.EventSystem.SetSelectedGameObject(LevelManager.Instance.StoreGUIController.LastSelectedConsumable);
+        LevelManager.Instance.EventSystem.SetSelectedGameObject(LevelManager.Instance.StoreGUIController.LastSelected);
     }
 }
