@@ -36,6 +36,7 @@ public class ActionButtonStore : MonoBehaviour, ISubmitHandler, ICancelHandler, 
                     if (lastSelection.AssignedConsumable != null || lastSelection.AssignedEquipable != null)
                     {
                         m_StoreController.SetBuying(true);
+                        m_ActionButtons.SetActive(false);
                         m_ConfirmationButtons.SetActive(true);
                     }
                     break;
@@ -43,6 +44,7 @@ public class ActionButtonStore : MonoBehaviour, ISubmitHandler, ICancelHandler, 
                     if (lastSelection.AssignedConsumable != null || lastSelection.AssignedEquipable != null)
                     {
                         m_StoreController.SetSelling(true);
+                        m_ActionButtons.SetActive(false);
                         m_ConfirmationButtons.SetActive(true);
                     }
                     break;
@@ -71,10 +73,10 @@ public class ActionButtonStore : MonoBehaviour, ISubmitHandler, ICancelHandler, 
                     }
                     break;
                 case ButtonActionsEnum.CANCEL:
+                    m_ActionButtons.SetActive(false);
+                    m_ConfirmationButtons.SetActive(false);
                     break;
             }
-        m_ActionButtons.SetActive(false);
-        m_ConfirmationButtons.SetActive(false);
     }
 
     public void OnSubmit(BaseEventData eventData)

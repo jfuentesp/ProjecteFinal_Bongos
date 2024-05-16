@@ -25948,10 +25948,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 657535601}
     m_Modifications:
+    - target: {fileID: 378003917396542742, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 1893120382405773732}
+    - target: {fileID: 378003917396542742, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
+      propertyPath: m_ButtonActionsEnum
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 378003917396542742, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
+      propertyPath: m_ConfirmationButtons
+      value: 
+      objectReference: {fileID: 1893120382405773732}
+    - target: {fileID: 1576764913968616708, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 1893120382405773732}
+    - target: {fileID: 1576764913968616708, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
+      propertyPath: m_ButtonActionsEnum
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576764913968616708, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
+      propertyPath: m_ConfirmationButtons
+      value: 
+      objectReference: {fileID: 1893120382405773732}
     - target: {fileID: 4378409084581784397, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
       propertyPath: m_StoreCanvasGroup
       value: 
       objectReference: {fileID: 1973018803}
+    - target: {fileID: 4842030431218295762, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842030431218295762, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842030431218295762, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
+      propertyPath: m_IgnoreParentGroups
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5470866362425896991, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
       propertyPath: m_ActionButtons
       value: 
@@ -26061,6 +26097,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
+--- !u!1 &1893120382405773732 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8879022563867530446, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
+  m_PrefabInstance: {fileID: 1893120382405773731}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5413146219112353663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26069,6 +26110,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 657535601}
     m_Modifications:
+    - target: {fileID: 2430179074996340863, guid: 2d9ee15741064b0409a9edf226364974, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 5413146219112353664}
+    - target: {fileID: 2430179074996340863, guid: 2d9ee15741064b0409a9edf226364974, type: 3}
+      propertyPath: m_ButtonActionsEnum
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430179074996340863, guid: 2d9ee15741064b0409a9edf226364974, type: 3}
+      propertyPath: m_ConfirmationButtons
+      value: 
+      objectReference: {fileID: 1893120382405773732}
     - target: {fileID: 2763411458407101970, guid: 2d9ee15741064b0409a9edf226364974, type: 3}
       propertyPath: m_Name
       value: ActionPanelShop
@@ -26077,10 +26130,18 @@ PrefabInstance:
       propertyPath: m_StoreCanvasGroup
       value: 
       objectReference: {fileID: 1973018803}
+    - target: {fileID: 5345502334858242632, guid: 2d9ee15741064b0409a9edf226364974, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 5413146219112353664}
+    - target: {fileID: 5345502334858242632, guid: 2d9ee15741064b0409a9edf226364974, type: 3}
+      propertyPath: m_ConfirmationButtons
+      value: 
+      objectReference: {fileID: 1893120382405773732}
     - target: {fileID: 5366780195231515956, guid: 2d9ee15741064b0409a9edf226364974, type: 3}
       propertyPath: m_ActionButtons
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1893120382405773732}
     - target: {fileID: 5366780195231515956, guid: 2d9ee15741064b0409a9edf226364974, type: 3}
       propertyPath: m_InventoryController
       value: 
@@ -26137,10 +26198,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6405575690862793739, guid: 2d9ee15741064b0409a9edf226364974, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 5413146219112353664}
+    - target: {fileID: 6405575690862793739, guid: 2d9ee15741064b0409a9edf226364974, type: 3}
+      propertyPath: m_ButtonActionsEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6405575690862793739, guid: 2d9ee15741064b0409a9edf226364974, type: 3}
+      propertyPath: m_ConfirmationButtons
+      value: 
+      objectReference: {fileID: 1893120382405773732}
+    - target: {fileID: 7471136244042766423, guid: 2d9ee15741064b0409a9edf226364974, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471136244042766423, guid: 2d9ee15741064b0409a9edf226364974, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471136244042766423, guid: 2d9ee15741064b0409a9edf226364974, type: 3}
+      propertyPath: m_IgnoreParentGroups
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8343774802544089018, guid: 2d9ee15741064b0409a9edf226364974, type: 3}
       propertyPath: m_ActionButtons
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1893120382405773732}
     - target: {fileID: 8343774802544089018, guid: 2d9ee15741064b0409a9edf226364974, type: 3}
       propertyPath: m_InventoryController
       value: 
@@ -26148,7 +26233,7 @@ PrefabInstance:
     - target: {fileID: 8823200893936261470, guid: 2d9ee15741064b0409a9edf226364974, type: 3}
       propertyPath: m_ActionButtons
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1893120382405773732}
     - target: {fileID: 8823200893936261470, guid: 2d9ee15741064b0409a9edf226364974, type: 3}
       propertyPath: m_InventoryController
       value: 

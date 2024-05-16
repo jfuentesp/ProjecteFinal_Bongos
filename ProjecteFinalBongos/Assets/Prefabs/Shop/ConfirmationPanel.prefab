@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6187178005515948209}
   - component: {fileID: 7911550319904265173}
   - component: {fileID: 2108023386094145573}
-  - component: {fileID: 8500662625252219211}
+  - component: {fileID: 1576764913968616708}
   m_Layer: 7
   m_Name: CancelButton
   m_TagString: Untagged
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8500662625252219211
+--- !u!114 &1576764913968616708
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,12 +132,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 786964025259229718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fa7d826e86151e439e91e449b0281c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 28500ee2937da814abbd64eb79881798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_ActionButtons: {fileID: 0}
-  m_InventoryController: {fileID: 0}
-  m_ButtonActionsEnum: 4
+  m_ConfirmationButtons: {fileID: 0}
+  m_ButtonActionsEnum: 0
 --- !u!1 &1246315431211242379
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,7 +871,7 @@ GameObject:
   - component: {fileID: 5625381911168524233}
   - component: {fileID: 1324431566609016340}
   - component: {fileID: 5104257429229610574}
-  - component: {fileID: 5470866362425896991}
+  - component: {fileID: 378003917396542742}
   m_Layer: 7
   m_Name: ConfirmButton
   m_TagString: Untagged
@@ -982,7 +982,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5470866362425896991
+--- !u!114 &378003917396542742
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -991,12 +991,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7124368635791414438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fa7d826e86151e439e91e449b0281c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 28500ee2937da814abbd64eb79881798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_ActionButtons: {fileID: 0}
-  m_InventoryController: {fileID: 0}
-  m_ButtonActionsEnum: 3
+  m_ConfirmationButtons: {fileID: 0}
+  m_ButtonActionsEnum: 0
 --- !u!1 &7896453223488517509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,7 +1381,7 @@ RectTransform:
   m_Children:
   - {fileID: 1753024726775717602}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

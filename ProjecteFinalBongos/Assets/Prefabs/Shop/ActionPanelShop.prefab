@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 8803309922417700793}
   - component: {fileID: 4793829430848072588}
   - component: {fileID: 2324832391283574848}
-  - component: {fileID: 8823200893936261470}
+  - component: {fileID: 6405575690862793739}
   m_Layer: 7
   m_Name: SellButton
   m_TagString: Untagged
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8823200893936261470
+--- !u!114 &6405575690862793739
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,12 +238,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2354308259630292747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fa7d826e86151e439e91e449b0281c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 28500ee2937da814abbd64eb79881798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_ActionButtons: {fileID: 0}
-  m_InventoryController: {fileID: 0}
-  m_ButtonActionsEnum: 3
+  m_ConfirmationButtons: {fileID: 0}
+  m_ButtonActionsEnum: 0
 --- !u!1 &2763411458407101970
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +276,7 @@ RectTransform:
   m_Children:
   - {fileID: 2469331783725220222}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 5559071572775530229}
   - component: {fileID: 1572819810561475314}
   - component: {fileID: 7709926851946879733}
-  - component: {fileID: 8343774802544089018}
+  - component: {fileID: 2430179074996340863}
   m_Layer: 7
   m_Name: CancelButton
   m_TagString: Untagged
@@ -432,7 +432,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8343774802544089018
+--- !u!114 &2430179074996340863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -441,12 +441,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3854611560443443407}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fa7d826e86151e439e91e449b0281c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 28500ee2937da814abbd64eb79881798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_ActionButtons: {fileID: 0}
-  m_InventoryController: {fileID: 0}
-  m_ButtonActionsEnum: 4
+  m_ConfirmationButtons: {fileID: 0}
+  m_ButtonActionsEnum: 0
 --- !u!1 &5527876993477702335
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 2711095856467417055}
   - component: {fileID: 617742573009014500}
   - component: {fileID: 1916494311888397859}
-  - component: {fileID: 5366780195231515956}
+  - component: {fileID: 5345502334858242632}
   m_Layer: 7
   m_Name: BuyButton
   m_TagString: Untagged
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5366780195231515956
+--- !u!114 &5345502334858242632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -579,12 +579,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5527876993477702335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fa7d826e86151e439e91e449b0281c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 28500ee2937da814abbd64eb79881798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_ActionButtons: {fileID: 0}
-  m_InventoryController: {fileID: 0}
-  m_ButtonActionsEnum: 2
+  m_ConfirmationButtons: {fileID: 0}
+  m_ButtonActionsEnum: 0
 --- !u!1 &7607857607460755965
 GameObject:
   m_ObjectHideFlags: 0
