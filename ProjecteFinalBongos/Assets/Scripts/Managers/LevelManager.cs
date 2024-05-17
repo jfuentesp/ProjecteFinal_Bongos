@@ -182,9 +182,9 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public GameObject GetBossToSpawn(int numBoss)
+    public BossDisponible GetBossToSpawn(int numBoss)
     {
-        return m_ListaBossesDisponibles[numBoss].m_BossPrefab;
+        return m_ListaBossesDisponibles[numBoss];
     }
 
     public void GuardarPartida()

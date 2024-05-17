@@ -29,6 +29,7 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     private bool m_HaEntradoElPlayer;
     public Action<Transform> OnPlayerIn;
     [SerializeField] private GameEvent m_JugadorEnSalaEvent;
+    [SerializeField] private LevelManager.BossDisponible m_BossSala;
 
     private void Start()
     {
@@ -152,9 +153,13 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     protected override void SpawnerSala()
     {
         print(LevelManager.Instance.GetBossToSpawn(m_NumeroBoss));
-        GameObject jefe = Instantiate(LevelManager.Instance.GetBossToSpawn(m_NumeroBoss), transform);
+        m_BossSala = LevelManager.Instance.GetBossToSpawn(m_NumeroBoss);
+        foreach(GameObject Bossito in m_BossSala.m_HijosBosses)
+        {
+            GameObject jefe = Instantiate(Bossito, transform);
 
-        jefe.GetComponent<BossBehaviour>().OnBossDeath += DesbloquearPuertas;
-        jefe.transform.localPosition = Vector3.zero;
+            jefe.GetComponent<BossBehaviour>().OnBossDeath += DesbloquearPuertas;
+            jefe.transform.localPosition = Vector3.zero;
+        }
     }
 }
