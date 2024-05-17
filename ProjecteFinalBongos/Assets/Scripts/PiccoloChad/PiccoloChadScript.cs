@@ -56,6 +56,7 @@ public class PiccoloChadScript : Interactuable
     public void Init()
     {
         m_ObjetosDisponibles = GetComponentInParent<PasilloTienda>().ObjetosDisponibles;
+        m_EquipablesDisponibles = GetComponentInParent<PasilloTienda>().EquipablesDisponibles;
         id = GetComponentInParent<PasilloTienda>().PiccoloId;
         m_Animator.Play("Idle");
     }

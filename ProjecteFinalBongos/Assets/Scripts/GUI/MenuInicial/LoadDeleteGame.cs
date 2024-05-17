@@ -11,14 +11,17 @@ namespace GUIScripts
         private Button m_ActionButton;
         private string m_Name;
         private string m_Mundo;
+        private int m_NumeroDeLista;
+        [SerializeField] private FloatEvent m_EventoNuevaIdPartida;
 
         private void Awake()
         {
             m_ActionButton = GetComponent<Button>();    
         }
 
-        public void Init(bool _Load, string namePlayer, MundoEnum _Mundo)
+        public void Init(TipoDeBotonCargarBorrarNuevaPartidaEnum _ButtonType, string namePlayer, MundoEnum _Mundo, int _NumeroDeLista)
         {
+            m_NumeroDeLista = _NumeroDeLista;
             m_Name = namePlayer;
             switch (_Mundo)
             {
@@ -30,14 +33,24 @@ namespace GUIScripts
                     break;
             }
 
-            if (_Load)
+            switch (_ButtonType)
             {
-                m_ActionButton.onClick.AddListener(DeleteWorld);
+                case TipoDeBotonCargarBorrarNuevaPartidaEnum.NUEVA:
+                    m_ActionButton.onClick.AddListener(NewWorld);
+                    break;
+                case TipoDeBotonCargarBorrarNuevaPartidaEnum.CARGAR:
+                    m_ActionButton.onClick.AddListener(LoadWorld);
+                    break;
+                case TipoDeBotonCargarBorrarNuevaPartidaEnum.BORRAR:
+                    m_ActionButton.onClick.AddListener(DeleteWorld);
+                    break;
             }
-            else
-            {
-                m_ActionButton.onClick.AddListener(LoadWorld);
-            }
+        }
+
+        private void NewWorld()
+        {
+            print($"Nuevo Mundo {m_Mundo} del jugador: {m_Name}");
+            m_EventoNuevaIdPartida.Raise(m_NumeroDeLista);
         }
 
         private void LoadWorld()
@@ -48,7 +61,8 @@ namespace GUIScripts
 
         private void DeleteWorld()
         {
-            GameManager.Instance.DeletePlayerGame(m_Name);
+            print($"Borrando {m_Mundo} del jugador: {m_Name}");
+            GameManager.Instance.DeletePlayerGame(m_Name , m_NumeroDeLista);
         }
     }
 }

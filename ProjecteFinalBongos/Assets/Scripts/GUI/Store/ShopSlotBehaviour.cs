@@ -18,9 +18,9 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     [SerializeField]
     private Button m_SlotButton;
     [SerializeField]
-    private InventoryController m_InventoryController;
-    [SerializeField]
     private Backpack m_Backpack;
+
+    private StoreGUIController m_StoreController;
 
     private Consumable m_AssignedConsumable;
     public Consumable AssignedConsumable => m_AssignedConsumable;
@@ -31,6 +31,13 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     [Header("Action Menu")]
     [SerializeField]
     private GameObject m_ActionPanel;
+
+
+
+    private void Start()
+    {
+        m_StoreController = LevelManager.Instance.GetComponent<StoreGUIController>();
+    }
 
     public void SetConsumable(Consumable consumableToSet)
     {
@@ -56,13 +63,34 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     {
         if (m_AssignedConsumable == null)
         {
-            m_Slot.SetActive(false);
+            m_ItemSprite.gameObject.SetActive(false);
+            m_QuantityText.gameObject.SetActive(false);
+            m_ItemSprite.sprite = null;
+            m_QuantityText.text = string.Empty;
         }
         else
         {
-            m_Slot.SetActive(true);
+            m_ItemSprite.gameObject.SetActive(true);
+            m_QuantityText.gameObject.SetActive(true);
             m_ItemSprite.sprite = m_AssignedConsumable.Sprite;
             m_QuantityText.text = m_Backpack.ConsumableSlots.FirstOrDefault(slot => slot?.Consumable == m_AssignedConsumable).Quantity.ToString();
+        }
+    }
+
+    public void RefreshStoreConsumableSlot()
+    {
+        if (m_AssignedConsumable == null)
+        {
+            m_ItemSprite.gameObject.SetActive(false);
+            m_QuantityText.gameObject.SetActive(false);
+            m_ItemSprite.sprite = null;
+            m_QuantityText.text = string.Empty;
+        }
+        else
+        {
+            m_ItemSprite.gameObject.SetActive(true);
+            m_QuantityText.gameObject.SetActive(true);
+            m_ItemSprite.sprite = m_AssignedConsumable.Sprite;
         }
     }
 
@@ -70,43 +98,57 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     {
         if (m_AssignedEquipable == null)
         {
-            m_Slot.SetActive(false);
+            m_ItemSprite.gameObject.SetActive(false);
+            m_QuantityText.gameObject.SetActive(false);
+            m_ItemSprite.sprite = null;
+            m_QuantityText.text = string.Empty;
         }
         else
         {
-            m_Slot.SetActive(true);
+            m_ItemSprite.gameObject.SetActive(true);
+            m_QuantityText.gameObject.SetActive(true);
             m_ItemSprite.sprite = m_AssignedEquipable.Sprite;
-            m_QuantityText.text = "";
+            m_QuantityText.text = string.Empty;
         }
     }
 
     public void OnCancel(BaseEventData eventData)
     {
-        throw new System.NotImplementedException();
+        m_ActionPanel.SetActive(false);
     }
 
     public void OnDeselect(BaseEventData eventData)
     {
-        throw new System.NotImplementedException();
+        //m_StoreController.SetLastSelection(null);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        if (m_AssignedConsumable != null || m_AssignedEquipable != null)
+        {
+            m_ActionPanel.SetActive(true);
+            m_ActionPanel.transform.position = transform.position;
+            m_StoreController.SetLastSelection(gameObject);
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        m_StoreController.SetLastSelection(gameObject);
     }
 
     public void OnSelect(BaseEventData eventData)
     {
-        m_InventoryController.SetSelectedItem(gameObject);
+        m_StoreController.SetLastSelection(gameObject);
     }
 
     public void OnSubmit(BaseEventData eventData)
     {
-        throw new System.NotImplementedException();
+        if (m_AssignedConsumable != null || m_AssignedEquipable != null)
+        {
+            m_ActionPanel.SetActive(true);
+            m_ActionPanel.transform.position = transform.position;
+            m_StoreController.SetLastSelection(gameObject);
+        }
     }
 }

@@ -10,8 +10,13 @@ public class GoldController : MonoBehaviour
     private int m_DINERO = DINEROINICIAL;
     public int DINERO => m_DINERO;
 
-    public void SetDinero(int _Dinero)
+    public void AddDinero(int _Dinero)
     {
         m_DINERO += _Dinero;
+    }
+
+    public void RemoveDinero(int _Dinero)
+    {
+        m_DINERO -= _Dinero;
     }
 }
