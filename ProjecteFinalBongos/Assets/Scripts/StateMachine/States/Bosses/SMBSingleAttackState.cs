@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 
 public class SMBSingleAttackState : SMBBasicAttackState
 {
@@ -10,6 +10,12 @@ public class SMBSingleAttackState : SMBBasicAttackState
     [Header("Attack Animation")]
     [SerializeField]
     private string m_SingleAttackAnimationName;
+    [SerializeField]
+    private string m_WaitAnimation;
+    [SerializeField]
+    private float minWaitTime;
+    [SerializeField]
+    private float maxWaitTime;
 
     public Action<GameObject> OnStopDetectingPlayer;
     public Action<GameObject> OnAttackStopped;
@@ -29,7 +35,7 @@ public class SMBSingleAttackState : SMBBasicAttackState
         if (m_SingleAttackAnimationName == String.Empty)
             m_SingleAttackCoroutine = StartCoroutine(AttackCoroutine(transform.position + transform.up, 1f));
         else
-            AttackAnimation();
+            StartCoroutine(AttackAnimationRoutine());
     }
 
     private void AttackAnimation()
@@ -37,7 +43,7 @@ public class SMBSingleAttackState : SMBBasicAttackState
         if (m_TwoDirections)
         {
             m_Animator.Play(m_SingleAttackAnimationName);
-            if(m_Target != null)
+            if (m_Target != null)
             {
                 if (m_Target.position.x - transform.position.x < 0)
                 {
@@ -50,7 +56,42 @@ public class SMBSingleAttackState : SMBBasicAttackState
             }
         }
     }
+    private IEnumerator AttackAnimationRoutine()
+    {
+        float waitTime = Random.Range(minWaitTime, maxWaitTime);
+        if (m_TwoDirections)
+        {
+            m_Animator.Play(m_WaitAnimation);
+            if (m_Target != null)
+            {
+                if (m_Target.position.x - transform.position.x < 0)
+                {
+                    derecha = false;
+                }
+                else
+                {
+                    derecha = true;
+                }
+            }
+        }
+        yield return new WaitForSeconds(waitTime);
 
+        if (m_TwoDirections)
+        {
+            m_Animator.Play(m_SingleAttackAnimationName);
+            if (m_Target != null)
+            {
+                if (m_Target.position.x - transform.position.x < 0)
+                {
+                    derecha = false;
+                }
+                else
+                {
+                    derecha = true;
+                }
+            }
+        }
+    }
     private void EndAttack()
     {
         if (!m_Boss.IsPlayerDetected)
@@ -63,14 +104,13 @@ public class SMBSingleAttackState : SMBBasicAttackState
     public override void ExitState()
     {
         base.ExitState();
-        if (m_SingleAttackCoroutine != null)
-            StopCoroutine(m_SingleAttackCoroutine);
+        StopAllCoroutines();
     }
 
     private Coroutine m_SingleAttackCoroutine;
     public IEnumerator AttackCoroutine(Vector2 position, float attackDelay)
     {
-        while (true)
+        while (m_Boss.IsPlayerDetected)
         {
             m_Rigidbody.velocity = Vector3.zero;
             m_AttackHitbox.transform.position = position;
@@ -82,12 +122,8 @@ public class SMBSingleAttackState : SMBBasicAttackState
             yield return new WaitForSeconds(attackDelay);
             m_AttackHitbox.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.5f);
-            if (!m_Boss.IsPlayerDetected)
-            {
-                OnStopDetectingPlayer?.Invoke(gameObject);
-            }
-            //m_StateMachine.ChangeState<SMBChaseState>();
         }
+        OnStopDetectingPlayer?.Invoke(gameObject);
     }
     private void Update()
     {

@@ -83,7 +83,7 @@ public class BelosBossBehaviour : BossBehaviour
         }
 
         float rng = Random.value;
-        if(m_CurrentPhase == Phase.TWO) //Y la vida caiga por debajo del 5%
+        if(m_CurrentPhase == Phase.TWO && m_HealthController.HP <= ((m_HealthController.HPMAX * 10f) / 100)) //Y la vida caiga por debajo del 5%
         {
             m_StateMachine.ChangeState<SMBBelosHealingState>();
             return;
