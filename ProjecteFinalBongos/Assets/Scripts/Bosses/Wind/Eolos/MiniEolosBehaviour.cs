@@ -1,6 +1,13 @@
+using NavMeshPlus.Extensions;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using Random = UnityEngine.Random;
+
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(AgentOverride2d))]
 [RequireComponent(typeof(SMBIdleState))]
 [RequireComponent(typeof(SMBBulletsAroundState))]
 [RequireComponent(typeof(SMBTornadosState))]
@@ -12,7 +19,9 @@ public class MiniEolosBehaviour : BossBehaviour
     [SerializeField]
     private float m_TiempoMaximo;
     private float m_tiempoEntreAtaque;
-
+    [SerializeField] private float directionSpeed;
+    [SerializeField] private float directionTime;
+    private float time;
     private new void Awake()
     {
         base.Awake();
@@ -26,15 +35,28 @@ public class MiniEolosBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaosState>();
         };
-        GetComponent<SMBLightningSummonState>().OnEndSummoning = (GameObject obj) =>
-        {
-            m_StateMachine.ChangeState<SMBChaosState>();
-        };
         GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaosState>();
         };
         m_StateMachine.ChangeState<SMBIdleState>();
+    }
+
+    private void RandomWalk() {
+        print("Randomeo");
+        Vector2 direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 8, LayerMask.NameToLayer("Default"));
+        if (hit.collider != null)
+        {
+            RandomWalk();
+        }
+        else { 
+            m_NavMeshAgent.velocity = direction.normalized * directionSpeed;
+        }
+    }
+    private IEnumerator WalkRoutine() { 
+        yield return new WaitForSeconds(directionTime);
+        RandomWalk();
     }
 
     public override void Init(Transform _Target)
@@ -44,6 +66,7 @@ public class MiniEolosBehaviour : BossBehaviour
     }
     private void EmpezarCorrutina()
     {
+        StartCoroutine(WalkRoutine());
         StartCoroutine(EsperarAtaque());
     }
 

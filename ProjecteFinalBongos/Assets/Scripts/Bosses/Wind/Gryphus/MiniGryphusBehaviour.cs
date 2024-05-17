@@ -25,20 +25,28 @@ public class MiniGryphusBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        GetComponent<SMBSingleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<SMBSingleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
         GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        transform.GetChild(0).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
         m_StateMachine.ChangeState<SMBIdleState>();
-        GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
     }
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
-        OnPlayerInSala.Invoke();
-    }
-    private void EmpezarCorutina(GameObject obj)
-    {
+        OnPlayerInSala?.Invoke();
         m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
     }
     private IEnumerator PlayerDetectionCoroutine()

@@ -2,12 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SMBDoubleAttackState : SMBBasicAttackState
 {
     [Header("Attack Animation")]
     [SerializeField]
     private string m_DoubleAttackAnimationName;
+    [SerializeField]
+    private string m_WaitAnimation;
+    [SerializeField]
+    private float minWaitTime;
+    [SerializeField]
+    private float maxWaitTime;
 
     public Action<GameObject> OnStopDetectingPlayer;
     public Action<GameObject> OnAttackStopped;
@@ -27,7 +34,7 @@ public class SMBDoubleAttackState : SMBBasicAttackState
         if (m_DoubleAttackAnimationName != String.Empty)
             m_DoubleAttackCoroutine = StartCoroutine(AttackCoroutine(transform.position + transform.up, 0.5f, 0.5f));
         else
-            AttackAnimation();
+            StartCoroutine(AttackAnimationRoutine());
     }
 
     private void AttackAnimation()
@@ -43,6 +50,42 @@ public class SMBDoubleAttackState : SMBBasicAttackState
             else
             {
                 derecha = true;
+            }
+        }
+    }
+    private IEnumerator AttackAnimationRoutine()
+    {
+        float waitTime = Random.Range(minWaitTime, maxWaitTime);
+        if (m_TwoDirections)
+        {
+            m_Animator.Play(m_WaitAnimation);
+            if (m_Target != null)
+            {
+                if (m_Target.position.x - transform.position.x < 0)
+                {
+                    derecha = false;
+                }
+                else
+                {
+                    derecha = true;
+                }
+            }
+        }
+        yield return new WaitForSeconds(waitTime);
+
+        if (m_TwoDirections)
+        {
+            m_Animator.Play(m_DoubleAttackAnimationName);
+            if (m_Target != null)
+            {
+                if (m_Target.position.x - transform.position.x < 0)
+                {
+                    derecha = false;
+                }
+                else
+                {
+                    derecha = true;
+                }
             }
         }
     }
