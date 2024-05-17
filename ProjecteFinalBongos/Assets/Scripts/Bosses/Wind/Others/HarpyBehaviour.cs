@@ -10,6 +10,8 @@ using UnityEngine;
 [RequireComponent(typeof(SMBParriedState))]
 public class HarpyBehaviour : BossBehaviour
 {
+    [SerializeField]
+    private GameEvent m_OnDeathEvent;
     protected new void Awake()
     {
         base.Awake();
@@ -97,6 +99,7 @@ public class HarpyBehaviour : BossBehaviour
     {
         base.VidaCero();
         StopAllCoroutines();
+        m_OnDeathEvent.Raise();
         m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+    
 [RequireComponent(typeof(SMBIdleState))]
 [RequireComponent(typeof(SMBChaseState))]
 [RequireComponent(typeof(SMBFlyingState))]
@@ -20,10 +21,11 @@ public class DamaBossBehaviour : BossBehaviour
     private Phase m_CurrentPhase;
 
     private bool m_IsFlying;
-
+    public bool isActive;
     private new void Awake()
     {
         base.Awake();
+
         GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
@@ -67,6 +69,7 @@ public class DamaBossBehaviour : BossBehaviour
     }
     private void ActivateBoss(GameObject @object)
     {
+        isActive = true;
         SetFlying();
     }
 

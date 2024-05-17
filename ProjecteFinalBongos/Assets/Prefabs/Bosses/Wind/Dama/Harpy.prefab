@@ -223,6 +223,9 @@ MonoBehaviour:
   m_HitboxRadius: 2
   m_TwoDirections: 1
   m_SingleAttackAnimationName: Attack
+  m_WaitAnimation: 
+  minWaitTime: 0
+  maxWaitTime: 0
 --- !u!95 &4270568068235055974
 Animator:
   serializedVersion: 5
@@ -306,6 +309,7 @@ MonoBehaviour:
   m_layerMask:
     serializedVersion: 2
     m_Bits: 0
+  m_OnDeathEvent: {fileID: 11400000, guid: c158ea061bdb7614d9e7adfc6b66abd3, type: 2}
 --- !u!114 &4026666115353880429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,3 +550,4 @@ MonoBehaviour:
   parreable: 1
   healable: 0
   m_EstadoAlterado: 12
+  stateTime: 0

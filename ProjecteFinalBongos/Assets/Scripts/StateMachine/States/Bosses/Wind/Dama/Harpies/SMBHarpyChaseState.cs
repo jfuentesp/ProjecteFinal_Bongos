@@ -22,8 +22,7 @@ public class SMBHarpyChaseState : SMState
     private float m_FlyingSpeed;
 
     [Header("GameEvent to call on death")]
-    [SerializeField]
-    private GameEvent m_OnDeathEvent;
+   
     private NavMeshAgent m_NavMeshAgent;
 
     [SerializeField] private bool m_TwoDirections;
@@ -54,7 +53,7 @@ public class SMBHarpyChaseState : SMState
         m_Animator.Play(m_FlyingHarpyAnimationname);
         
         //Esto en realidad tendrá que ir cuando el bicho muera
-        m_OnDeathEvent.Raise();
+        
     }
 
     public override void ExitState()

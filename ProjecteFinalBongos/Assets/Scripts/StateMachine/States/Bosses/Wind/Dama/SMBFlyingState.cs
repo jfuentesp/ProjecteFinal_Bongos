@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SMBFlyingState : SMState
 {
@@ -45,7 +46,7 @@ public class SMBFlyingState : SMState
     [Header("LayerMask for RayCasting on random walk")]
     [SerializeField]
     private LayerMask m_LayerMask;
-
+    private NavMeshAgent meshAgent;
     protected override void Awake()
     {
         base.Awake();
@@ -53,6 +54,7 @@ public class SMBFlyingState : SMState
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Animator = GetComponent<Animator>();
         m_Boss = GetComponent<BossBehaviour>();
+        meshAgent = GetComponent<NavMeshAgent>();
         m_Boss.OnPlayerInSala += SetTarget;
     }
 
@@ -78,11 +80,13 @@ public class SMBFlyingState : SMState
 
     public void OnHarpyDeath()
     {
-        m_HarpiesToDie--;
-        //Debug.Log("Harpias muertas: " + m_HarpiesToDie);
-        if (m_HarpiesToDie <= 0)
-        {
-            m_StateMachine.ChangeState<SMBLandingState>();
+        if (GetComponent<DamaBossBehaviour>().isActive) {
+            m_HarpiesToDie--;
+            //Debug.Log("Harpias muertas: " + m_HarpiesToDie);
+            if (m_HarpiesToDie <= 0)
+            {
+                m_StateMachine.ChangeState<SMBLandingState>();
+            }
         }
     }
 
@@ -107,7 +111,7 @@ public class SMBFlyingState : SMState
         }
         else
         {
-            m_Rigidbody.velocity = direccion.normalized * m_FlyingSpeed;
+            meshAgent.velocity = direccion.normalized * m_FlyingSpeed;
         }
     }
 
