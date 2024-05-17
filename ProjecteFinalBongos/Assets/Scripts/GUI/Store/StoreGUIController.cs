@@ -324,18 +324,18 @@ public class StoreGUIController : MonoBehaviour
         m_LastSelected.TryGetComponent<ShopSlotBehaviour>(out ShopSlotBehaviour slot);
         m_CurrentGoldText.text = m_PlayerGold.DINERO.ToString();
         if (slot?.AssignedConsumable != null)
-        if(slot.SlotType == ShopSlotType.BUY)
-        {
-            m_CalculatedCostText.text = (slot?.AssignedConsumable.shopPrice * int.Parse(m_QuantityStoreText.text)).ToString();
-            if (int.Parse(m_CurrentGoldText.text) < int.Parse(m_CalculatedCostText.text))
-                m_CalculatedCostText.color = Color.red;
-            else
+            if(slot.SlotType == ShopSlotType.BUY)
+            {
+                m_CalculatedCostText.text = (slot?.AssignedConsumable.shopPrice * int.Parse(m_QuantityStoreText.text)).ToString();
+                if (int.Parse(m_CurrentGoldText.text) < int.Parse(m_CalculatedCostText.text))
+                    m_CalculatedCostText.color = Color.red;
+                else
+                    m_CalculatedCostText.color = Color.black;
+            }
+            if (slot.SlotType == ShopSlotType.SELL)
+            {
                 m_CalculatedCostText.color = Color.black;
-        }
-        if (slot.SlotType == ShopSlotType.SELL)
-        {
-            m_CalculatedCostText.color = Color.black;
-            m_CalculatedCostText.text = (slot?.AssignedConsumable.sellPrice * int.Parse(m_QuantityStoreText.text)).ToString();
-        }
+                m_CalculatedCostText.text = (slot?.AssignedConsumable.sellPrice * int.Parse(m_QuantityStoreText.text)).ToString();
+            }
     }
 }
