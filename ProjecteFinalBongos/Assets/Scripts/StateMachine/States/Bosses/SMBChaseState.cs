@@ -75,10 +75,6 @@ public class SMBChaseState : SMState
                 else
                     transform.localEulerAngles = Vector3.zero;
             }
-            else
-            {
-
-            }
             /*Vector2 posicionPlayer = m_Target.position - transform.position;
             float angulo = Mathf.Atan2(posicionPlayer.y, posicionPlayer.x);
             angulo = Mathf.Rad2Deg * angulo - 90;
