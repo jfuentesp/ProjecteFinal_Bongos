@@ -32,7 +32,10 @@ public class ShopSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     [SerializeField]
     private GameObject m_ActionPanel;
 
-
+    [Header("Slot type")]
+    [SerializeField]
+    private ShopSlotType m_SlotType;
+    public ShopSlotType SlotType => m_SlotType;
 
     private void Start()
     {

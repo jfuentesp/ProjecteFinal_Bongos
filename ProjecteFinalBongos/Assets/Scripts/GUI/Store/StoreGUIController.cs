@@ -89,7 +89,15 @@ public class StoreGUIController : MonoBehaviour
 
     public void OnBuyConsumable(Consumable itemToBuy)
     {
-       
+        int quantity = m_PlayerInventory.BackPack.GetQuantity(itemToBuy);
+        int quantityToBuy = int.Parse(m_QuantityStoreText.text);
+        int quantityPrice = itemToBuy.shopPrice * quantityToBuy;
+        if (99-quantity <= quantityToBuy && m_PlayerGold.DINERO >= quantityPrice)
+        {
+            m_PlayerGold.RemoveDinero(itemToBuy.shopPrice *  quantityToBuy);
+            m_PlayerInventory.BackPack.AddConsumableStack(itemToBuy, quantityToBuy);
+            RefreshGUI();
+        }
     }
 
     public void OnBuyEquipable(Equipable itemToBuy)
@@ -104,7 +112,15 @@ public class StoreGUIController : MonoBehaviour
 
     public void OnSellConsumable(Consumable itemToSell)
     {
-
+        int quantity = m_PlayerInventory.BackPack.GetQuantity(itemToSell);
+        int quantityToSell = int.Parse(m_QuantityStoreText.text);
+        int quantityPrice = itemToSell.sellPrice * quantityToSell;
+        if(quantity >= quantityToSell)
+        {
+            m_PlayerGold.AddDinero(quantityPrice);
+            m_PlayerInventory.BackPack.RemoveConsumableStack(itemToSell, quantityToSell);
+            RefreshGUI();
+        }
     }
 
     public void OnSellEquipable(Equipable itemToSell) 
@@ -275,7 +291,10 @@ public class StoreGUIController : MonoBehaviour
             m_DescriptionName.text = slot.AssignedConsumable.itemName;
             m_DescriptionText.text = slot.AssignedConsumable.description;
             m_DescriptionImage.sprite = slot.AssignedConsumable.Sprite;
-            m_CostText.text = slot.AssignedConsumable.shopPrice.ToString();
+            if(slot.SlotType == ShopSlotType.BUY)
+                m_CostText.text = slot.AssignedConsumable.shopPrice.ToString();
+            if(slot.SlotType == ShopSlotType.SELL)
+                m_CostText.text = slot.AssignedConsumable.sellPrice.ToString();
         }
 
         if (slot.AssignedEquipable != null)
@@ -287,7 +306,10 @@ public class StoreGUIController : MonoBehaviour
             m_DescriptionName.text = slot.AssignedEquipable.itemName;
             m_DescriptionText.text = slot.AssignedEquipable.description;
             m_DescriptionImage.sprite = slot.AssignedEquipable.Sprite;
-            m_CostText.text = slot.AssignedEquipable.shopPrice.ToString();
+            if (slot.SlotType == ShopSlotType.BUY)
+                m_CostText.text = slot.AssignedEquipable.shopPrice.ToString();
+            if (slot.SlotType == ShopSlotType.SELL)
+                m_CostText.text = slot.AssignedEquipable.sellPrice.ToString();
         }
     }
 
