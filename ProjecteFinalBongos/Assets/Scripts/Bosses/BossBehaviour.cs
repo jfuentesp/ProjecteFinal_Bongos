@@ -185,16 +185,20 @@ public class BossBehaviour : MonoBehaviour
     
     public  void ReTarget()
     {
-        if (!typeof(SMBIdleState).IsInstanceOfType(m_StateMachine.CurrentState)) {
-            print("aqaa");
+        StartCoroutine(ReTargetCoroutine());
+    }
+
+    private IEnumerator ReTargetCoroutine()
+    {
+        yield return new WaitForSeconds(.1f);
+        if (!typeof(SMBIdleState).IsInstanceOfType(m_StateMachine.CurrentState))
+        {
             RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, 50, transform.position, 50, m_LayersToCheck);
-            if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
+            if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player"))
             {
                 m_Target = hitInfo.collider.gameObject.transform;
-  
-               
+                OnPlayerInSala?.Invoke();
             }
         }
-    
     }
 }

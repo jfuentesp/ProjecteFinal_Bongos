@@ -7950,7 +7950,9 @@ MonoBehaviour:
   m_BulletPool: {fileID: 1008338713}
   m_ListaBossesDisponibles:
   - m_BossPrefab: {fileID: 5652317080108237547, guid: 267d9aac067c1c946ab3bea63261c6bd, type: 3}
-    m_HijosBosses: []
+    m_HijosBosses:
+    - {fileID: 399034142371773799, guid: 535d644cb50b9904a9a8f5feaac95cff, type: 3}
+    - {fileID: 399034142371773799, guid: 535d644cb50b9904a9a8f5feaac95cff, type: 3}
     m_BossDisponible: 0
   m_GuardarPartidaEvent: {fileID: 11400000, guid: 0621630a1c7d1a949bc1c63b4833c396, type: 2}
   m_CargarPartidaEvent: {fileID: 11400000, guid: f7ea0370e72825c45b2c3968fb1d0ae2, type: 2}

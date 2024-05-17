@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
 
     private GeneracionSalasMatriz m_GeneracionSalasMatriz;
     private GeneracionSalaInstanciacion m_GeneracionSalasInstanciacion;
+    public GeneracionSalaInstanciacion GeneracionSalasInstanciacion => m_GeneracionSalasInstanciacion;
     [SerializeField] private ConsumablesDataBase m_ConsumableDataBase;
     public ConsumablesDataBase ConsumableDataBase => m_ConsumableDataBase;
 

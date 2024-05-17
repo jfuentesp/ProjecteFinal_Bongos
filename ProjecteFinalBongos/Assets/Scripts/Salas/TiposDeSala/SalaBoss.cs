@@ -30,6 +30,7 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     public Action<Transform> OnPlayerIn;
     [SerializeField] private GameEvent m_JugadorEnSalaEvent;
     [SerializeField] private LevelManager.BossDisponible m_BossSala;
+    private int m_BichitosMuertos;
 
     private void Start()
     {
@@ -61,7 +62,7 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
         m_ListaSalasPadreHijas = _ListaSalasPadreHijas;
         TodasLasSalasEnUnaLista();
         MaximosMinimosSala();
-        SpawnerSala();
+        LevelManager.Instance.GeneracionSalasInstanciacion.onMapaFinalized += SpawnerSala;
     }
 
     private void DesbloquearPuertas()
@@ -132,6 +133,27 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
 
         return false;
     }
+    protected override void SpawnerSala()
+    {
+        m_BossSala = LevelManager.Instance.GetBossToSpawn(m_NumeroBoss);
+        if (m_BossSala.m_HijosBosses.Length > 0)
+        {
+            foreach (GameObject Bossito in m_BossSala.m_HijosBosses)
+            {
+                GameObject jefe = Instantiate(Bossito, transform);
+
+                jefe.GetComponent<BossBehaviour>().OnBossDeath += DesbloquearPuertas;
+                jefe.transform.localPosition = Vector3.zero;
+            }
+        }
+        else
+        {
+            GameObject jefe = Instantiate(m_BossSala.m_BossPrefab, transform);
+
+            jefe.GetComponent<BossBehaviour>().OnBossDeath += DesbloquearPuertas;
+            jefe.transform.localPosition = Vector3.zero;
+        }
+    }
 
     public SalaBossData Save()
     {
@@ -148,18 +170,5 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
         m_NumeroBoss = _salaBossData.m_NumeroBoss;
         m_ListaSalasPadreHijas = _salaBossData.m_SalasHijas;
         Init(m_ListaSalasPadreHijas, m_NumeroBoss);
-    }
-
-    protected override void SpawnerSala()
-    {
-        print(LevelManager.Instance.GetBossToSpawn(m_NumeroBoss));
-        m_BossSala = LevelManager.Instance.GetBossToSpawn(m_NumeroBoss);
-        foreach(GameObject Bossito in m_BossSala.m_HijosBosses)
-        {
-            GameObject jefe = Instantiate(Bossito, transform);
-
-            jefe.GetComponent<BossBehaviour>().OnBossDeath += DesbloquearPuertas;
-            jefe.transform.localPosition = Vector3.zero;
-        }
     }
 }
