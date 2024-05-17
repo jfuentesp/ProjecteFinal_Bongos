@@ -92,8 +92,9 @@ public class StoreGUIController : MonoBehaviour
         int quantity = m_PlayerInventory.BackPack.GetQuantity(itemToBuy);
         int quantityToBuy = int.Parse(m_QuantityStoreText.text);
         int quantityPrice = itemToBuy.shopPrice * quantityToBuy;
-        if (99-quantity <= quantityToBuy && m_PlayerGold.DINERO >= quantityPrice)
+        if (m_PlayerGold.DINERO >= quantityPrice)
         {
+            Debug.Log("Entro en el primer if!");
             m_PlayerGold.RemoveDinero(itemToBuy.shopPrice *  quantityToBuy);
             m_PlayerInventory.BackPack.AddConsumableStack(itemToBuy, quantityToBuy);
             RefreshGUI();
@@ -323,10 +324,18 @@ public class StoreGUIController : MonoBehaviour
         m_LastSelected.TryGetComponent<ShopSlotBehaviour>(out ShopSlotBehaviour slot);
         m_CurrentGoldText.text = m_PlayerGold.DINERO.ToString();
         if (slot?.AssignedConsumable != null)
+        if(slot.SlotType == ShopSlotType.BUY)
+        {
             m_CalculatedCostText.text = (slot?.AssignedConsumable.shopPrice * int.Parse(m_QuantityStoreText.text)).ToString();
-        if (int.Parse(m_CurrentGoldText.text) < int.Parse(m_CalculatedCostText.text))
-            m_CalculatedCostText.color = Color.red;
-        else
+            if (int.Parse(m_CurrentGoldText.text) < int.Parse(m_CalculatedCostText.text))
+                m_CalculatedCostText.color = Color.red;
+            else
+                m_CalculatedCostText.color = Color.black;
+        }
+        if (slot.SlotType == ShopSlotType.SELL)
+        {
             m_CalculatedCostText.color = Color.black;
+            m_CalculatedCostText.text = (slot?.AssignedConsumable.sellPrice * int.Parse(m_QuantityStoreText.text)).ToString();
+        }
     }
 }

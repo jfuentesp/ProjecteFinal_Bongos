@@ -59,6 +59,7 @@ public class Backpack : ScriptableObject
         ConsumableSlot itemSlot = GetConsumable(item);
         if(itemSlot == null)
         {
+            Debug.Log("Entro en el segundo if");
             int index = Array.FindIndex(m_ConsumableSlots, i => i == null);
             m_ConsumableSlots[index] = new ConsumableSlot(item);
             if (quantity < 99)
