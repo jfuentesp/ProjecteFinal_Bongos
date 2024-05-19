@@ -38,11 +38,11 @@ public class PiccoloChadScript : Interactuable
         m_Animator = GetComponent<Animator>();
         dialoguePanel = LevelManager.Instance.DialoguePanel;
         dialogueText = LevelManager.Instance.DialogueText;
-        LevelManager.Instance.onCloseShopOfPiccolo += SegundoDialogo;
     }
     protected override void Start()
     {
         base.Start();
+        LevelManager.Instance.StoreGUIController.OnClosingStore += OnClosingStore;
         GetFrases();
     }
 
@@ -83,19 +83,16 @@ public class PiccoloChadScript : Interactuable
                 BreakCoroutineDialogueFinall();
             }
             else
-            { 
-                SegundoDialogo(id);
+            {
+                CloseDialogue();
             }
         }
     }
 
-    private void SegundoDialogo(int obj)
+    private void SegundoDialogo()
     {
-        if (obj == id)
-        {
-            inRange = true;
-            m_FinalTypeCoroutine = StartCoroutine(ShowLastLine());
-        }
+        inRange = true;
+        m_FinalTypeCoroutine = StartCoroutine(ShowLastLine());
     }
     private void CloseDialogue()
     {
@@ -154,7 +151,10 @@ public class PiccoloChadScript : Interactuable
         }
     }
 
-
+    private void OnClosingStore()
+    {
+        SegundoDialogo();
+    }
 
 
 }

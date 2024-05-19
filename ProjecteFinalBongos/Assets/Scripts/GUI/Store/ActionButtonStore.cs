@@ -12,7 +12,7 @@ public class ActionButtonStore : MonoBehaviour, ISubmitHandler, ICancelHandler, 
     private GameObject m_ConfirmationButtons;
 
     private StoreGUIController m_StoreController;
-    private enum ButtonActionsEnum { BUY, SELL, CONFIRM, CANCEL, QUANTITYUP, QUANTITYDOWN }
+    private enum ButtonActionsEnum { BUY, SELL, CONFIRM, CANCEL, QUANTITYUP, QUANTITYDOWN, CLOSE }
     [SerializeField]
     private ButtonActionsEnum m_ButtonActionsEnum;
 
@@ -121,6 +121,9 @@ public class ActionButtonStore : MonoBehaviour, ISubmitHandler, ICancelHandler, 
                 case ButtonActionsEnum.QUANTITYDOWN:
                     m_StoreController.OnDecreaseQuantity();
                     break;
+                case ButtonActionsEnum.CLOSE:
+                    m_StoreController.CloseShop();
+                    break;
                 case ButtonActionsEnum.CANCEL:
                     m_ActionButtons.SetActive(false);
                     m_ConfirmationButtons.SetActive(false);
@@ -207,6 +210,9 @@ public class ActionButtonStore : MonoBehaviour, ISubmitHandler, ICancelHandler, 
                     break;
                 case ButtonActionsEnum.QUANTITYDOWN:
                     m_StoreController.OnDecreaseQuantity();
+                    break;
+                case ButtonActionsEnum.CLOSE:
+                    m_StoreController.CloseShop();
                     break;
                 case ButtonActionsEnum.CANCEL:
                     m_ActionButtons.SetActive(false);

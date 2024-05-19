@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,6 +65,8 @@ public class StoreGUIController : MonoBehaviour
     private TMP_InputField m_QuantityStoreText;
     public TMP_InputField QuantityStoreText => m_QuantityStoreText;
 
+    public event Action OnClosingStore;
+
 
     private void Start()
     {
@@ -85,6 +88,7 @@ public class StoreGUIController : MonoBehaviour
     public void CloseShop() 
     {
         m_GUIPanel.SetActive(false);
+        OnClosingStore?.Invoke();
     }
 
     public void OnBuyConsumable(Consumable itemToBuy)
@@ -326,7 +330,7 @@ public class StoreGUIController : MonoBehaviour
         if (slot?.AssignedConsumable != null)
             if(slot.SlotType == ShopSlotType.BUY)
             {
-                m_CalculatedCostText.text = (slot?.AssignedConsumable.shopPrice * int.Parse(m_QuantityStoreText.text)).ToString();
+                m_CalculatedCostText.text = (slot.AssignedConsumable?.shopPrice * int.Parse(m_QuantityStoreText.text)).ToString();
                 if (int.Parse(m_CurrentGoldText.text) < int.Parse(m_CalculatedCostText.text))
                     m_CalculatedCostText.color = Color.red;
                 else
@@ -335,7 +339,7 @@ public class StoreGUIController : MonoBehaviour
             if (slot.SlotType == ShopSlotType.SELL)
             {
                 m_CalculatedCostText.color = Color.black;
-                m_CalculatedCostText.text = (slot?.AssignedConsumable.sellPrice * int.Parse(m_QuantityStoreText.text)).ToString();
+                m_CalculatedCostText.text = (slot.AssignedConsumable?.sellPrice * int.Parse(m_QuantityStoreText.text)).ToString();
             }
     }
 }
