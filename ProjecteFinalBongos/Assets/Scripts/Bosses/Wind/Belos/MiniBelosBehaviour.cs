@@ -10,13 +10,20 @@ using UnityEngine.AI;
 [RequireComponent(typeof(SMBParriedState))]
 [RequireComponent(typeof(SMBChaseState))]
 [RequireComponent(typeof(SMBSingleAttackState))]
-public class MiniGryphusBehaviour : BossBehaviour
+[RequireComponent(typeof(SMBDoubleAttackState))]
+[RequireComponent(typeof(SMBBelosHealingState))]
+[RequireComponent(typeof(DeathState))]
+public class MiniBelosBehaviour : BossBehaviour
 {
     private Coroutine m_PlayerDetectionCoroutine;
+    private enum Phase { ONE, TWO }
+    private Phase m_CurrentPhase;
 
     private new void Awake()
     {
         base.Awake();
+        m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
+        m_CurrentPhase = Phase.ONE;
         GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
@@ -33,7 +40,11 @@ public class MiniGryphusBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
-        GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
+        GetComponent<SMBDoubleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<SMBDoubleAttackState>().OnAttackStopped = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
@@ -41,26 +52,61 @@ public class MiniGryphusBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBParriedState>();
         };
+        GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
         m_StateMachine.ChangeState<SMBIdleState>();
+
     }
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
-        OnPlayerInSala?.Invoke();
-        m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
+        OnPlayerInSala.Invoke();
     }
+
+    private void SetAttack()
+    {
+
+        float rng = Random.value;
+        if (m_CurrentPhase == Phase.TWO && m_HealthController.HP <= ((m_HealthController.HPMAX * 10f) / 100)) //Y la vida caiga por debajo del 5%
+        {
+            m_StateMachine.ChangeState<SMBBelosHealingState>();
+            return;
+        }
+
+        switch (rng)
+        {
+            case < 0.5f:
+                m_StateMachine.ChangeState<SMBSingleAttackState>();
+                break;
+            case < 0.65f:
+                m_StateMachine.ChangeState<SMBDoubleAttackState>();
+                break;
+        }
+    }
+
+    private void SetChase()
+    {
+        m_StateMachine.ChangeState<SMBChaseState>();
+    }
+
+    private void SetPhase(Phase phaseToSet)
+    {
+        m_CurrentPhase = phaseToSet;
+    }
+
     private IEnumerator PlayerDetectionCoroutine()
     {
         while (m_IsAlive)
         {
-
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
                 RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    m_StateMachine.ChangeState<SMBSingleAttackState>();
+                    SetAttack();
                 }
                 else
                 {
@@ -70,10 +116,10 @@ public class MiniGryphusBehaviour : BossBehaviour
             else
             {
                 RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position, m_BoxArea, transform.rotation.z, transform.position);
-                if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
+                if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    m_StateMachine.ChangeState<SMBSingleAttackState>();
+                    SetAttack();
                 }
                 else
                 {
@@ -83,9 +129,25 @@ public class MiniGryphusBehaviour : BossBehaviour
             yield return new WaitForSeconds(m_CheckingPlayerTimelapse);
         }
     }
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+        if (m_CurrentPhase == Phase.ONE && m_HealthController.HP <= m_HealthController.HPMAX / 2)
+        {
+            print("Cambio de fase");
+            m_CurrentPhase = Phase.TWO;
+        }
+    }
+    private void MatarBoss()
+    {
+        Destroy(gameObject);
+    }
+
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         m_BossMuertoEvent.Raise();
