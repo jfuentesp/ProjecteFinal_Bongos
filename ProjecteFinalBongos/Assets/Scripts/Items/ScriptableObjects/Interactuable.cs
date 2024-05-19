@@ -48,6 +48,9 @@ public abstract class Interactuable : MonoBehaviour
     private void OnDestroy()
     {
         StopCoroutine(check());
-        PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("Interact").performed -= Interact;
+        if(PJSMB.Instance != null)
+        {
+            PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("Interact").performed -= Interact;
+        }
     }
 }

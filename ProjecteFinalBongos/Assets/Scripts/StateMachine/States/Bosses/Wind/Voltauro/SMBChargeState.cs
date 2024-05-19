@@ -96,16 +96,19 @@ public class SMBChargeState : SMState
         {
             if (m_IsAiming)
             {
-
-                if (m_Target.position.x - transform.position.x < 0)
+                if(m_Target != null)
                 {
-                    derecha = false;
+                    if (m_Target.position.x - transform.position.x < 0)
+                    {
+                        derecha = false;
+                    }
+                    else
+                    {
+                        derecha = true;
+                    }
+                    m_Direction = (m_Target.transform.position - transform.position).normalized;
                 }
-                else
-                {
-                    derecha = true;
-                }
-                m_Direction = (m_Target.transform.position - transform.position).normalized;
+               
             }
             if (derecha)
                 transform.localEulerAngles = Vector3.zero;
@@ -143,14 +146,19 @@ public class SMBChargeState : SMState
                 if (collision.gameObject.CompareTag("Player"))
                 {
                     collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                    if (collision.gameObject.GetComponent<SMBPlayerParryState>().parry)
+
+                    if (collision.gameObject.TryGetComponent<SMBPlayerParryState>(out SMBPlayerParryState parry))
                     {
-                        OnChargeParried?.Invoke(gameObject);
+                        if (parry.parry)
+                        {
+                            OnChargeParried?.Invoke(gameObject);
+                        }
                     }
                     else
                     {
                         OnChargePlayer.Invoke(gameObject);
-                        collision.gameObject.GetComponent<PJSMB>().GetDamage(GetComponent<BossAttackDamage>().Damage, GetComponent<BossAttackDamage>().EstadoAlterado, GetComponent<BossAttackDamage>().StateTime);
+                        if(collision.gameObject.GetComponent<PJSMB>())
+                            collision.gameObject.GetComponent<PJSMB>().GetDamage(GetComponent<BossAttackDamage>().Damage, GetComponent<BossAttackDamage>().EstadoAlterado, GetComponent<BossAttackDamage>().StateTime);
                         Rigidbody2D target;
                         collision.gameObject.TryGetComponent<Rigidbody2D>(out target);
                         if (target != null)

@@ -50,9 +50,12 @@ public class BossAttackDamage : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                if (collision.gameObject.GetComponent<SMBPlayerParryState>().parry)
+                if (collision.gameObject.TryGetComponent<SMBPlayerParryState>(out SMBPlayerParryState parry))
                 {
-                    OnAttackParried?.Invoke(transform.parent.gameObject);
+                    if (parry.parry)
+                    {
+                        OnAttackParried?.Invoke(transform.parent.gameObject);
+                    }
                 }
             }
         }
@@ -60,9 +63,12 @@ public class BossAttackDamage : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                if (!collision.gameObject.GetComponent<SMBPlayerParryState>().parry)
+                if (collision.gameObject.TryGetComponent<SMBPlayerParryState>(out SMBPlayerParryState parry))
                 {
-                    OnAttackHealed?.Invoke(transform.parent.gameObject);
+                    if (parry.parry)
+                    {
+                        OnAttackHealed?.Invoke(transform.parent.gameObject);
+                    }
                 }
             }
         }
