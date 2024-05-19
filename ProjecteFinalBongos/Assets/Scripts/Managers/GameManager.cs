@@ -181,7 +181,6 @@ public class GameManager : MonoBehaviour
             BuildEmptyFile();
 
             GetPlayersAndWorldsListOfGameManager();
-            Debug.Log("Carpeta creada en: " + rutaCompletaHastaCarpeta);
         }
         else
         {
@@ -191,7 +190,6 @@ public class GameManager : MonoBehaviour
             }
 
             GetPlayersAndWorldsListOfGameManager();
-            Debug.Log("La carpeta ya existe en: " + rutaCompletaHastaCarpeta);
         }
     }
 
@@ -273,8 +271,6 @@ public class GameManager : MonoBehaviour
         playerAndWorld[id] = saveGame;
         saveAllGames.m_SavedGames = playerAndWorld.ToArray();
         string jsonData = JsonUtility.ToJson(saveAllGames);
-
-        print(jsonData);
 
         File.WriteAllText(rutaCompleta, jsonData);
 

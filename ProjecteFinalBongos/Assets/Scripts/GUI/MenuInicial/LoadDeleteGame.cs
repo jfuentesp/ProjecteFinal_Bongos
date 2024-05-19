@@ -49,19 +49,16 @@ namespace GUIScripts
 
         private void NewWorld()
         {
-            print($"Nuevo Mundo {m_Mundo} del jugador: {m_Name}");
             m_EventoNuevaIdPartida.Raise(m_NumeroDeLista);
         }
 
         private void LoadWorld()
         {
-            print($"Cargando {m_Mundo} del jugador: {m_Name}");
             GameManager.Instance.LoadGameOfPlayer(m_Name, m_Mundo);
         }
 
         private void DeleteWorld()
         {
-            print($"Borrando {m_Mundo} del jugador: {m_Name}");
             GameManager.Instance.DeletePlayerGame(m_Name , m_NumeroDeLista);
         }
     }
