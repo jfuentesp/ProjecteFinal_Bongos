@@ -144,6 +144,7 @@ namespace GUIScripts
             {
                 if(GameManager.Instance.PlayersAndTheirWorldsList[i].m_Name == "EMPTY")
                 {
+                    print("Vacio");
                     m_PartidasSlots[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = GameManager.Instance.PlayersAndTheirWorldsList[i].m_Name;
                     m_PartidasSlots[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.Instance.PlayersAndTheirWorldsList[i].m_Mundo.ToString();
                     m_PartidasSlots[i].transform.GetChild(2).GetComponent<LoadDeleteGame>().Init(TipoDeBotonCargarBorrarNuevaPartidaEnum.NUEVA, GameManager.Instance.PlayersAndTheirWorldsList[i].m_Name, GameManager.Instance.PlayersAndTheirWorldsList[i].m_Mundo, i);
@@ -152,6 +153,7 @@ namespace GUIScripts
                 }
                 else
                 {
+                    print("plenty");
                     m_PartidasSlots[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = GameManager.Instance.PlayersAndTheirWorldsList[i].m_Name;
                     m_PartidasSlots[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.Instance.PlayersAndTheirWorldsList[i].m_Mundo.ToString();
                     m_PartidasSlots[i].transform.GetChild(2).GetComponent<LoadDeleteGame>().Init(TipoDeBotonCargarBorrarNuevaPartidaEnum.CARGAR, GameManager.Instance.PlayersAndTheirWorldsList[i].m_Name, GameManager.Instance.PlayersAndTheirWorldsList[i].m_Mundo, i);

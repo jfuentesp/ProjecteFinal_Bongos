@@ -21,6 +21,7 @@ namespace GUIScripts
 
         public void Init(TipoDeBotonCargarBorrarNuevaPartidaEnum _ButtonType, string namePlayer, MundoEnum _Mundo, int _NumeroDeLista)
         {
+            m_ActionButton.onClick.RemoveAllListeners();
             m_NumeroDeLista = _NumeroDeLista;
             m_Name = namePlayer;
             switch (_Mundo)
@@ -49,6 +50,7 @@ namespace GUIScripts
 
         private void NewWorld()
         {
+            print("Nueva partida");
             m_EventoNuevaIdPartida.Raise(m_NumeroDeLista);
         }
 
