@@ -153,7 +153,8 @@ public class PiccoloChadScript : Interactuable
 
     private void OnClosingStore()
     {
-        SegundoDialogo();
+        if(isInFirstMessage)
+            SegundoDialogo();
     }
 
 
