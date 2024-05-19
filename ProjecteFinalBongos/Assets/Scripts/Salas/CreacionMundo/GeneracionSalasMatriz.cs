@@ -15,6 +15,7 @@ namespace GeneracionSalas
         private List<ListaSalas> m_ListaSalasPadre = new();
         private List<ListaSalasConHijos> m_ListaSalasPadreConHijos = new();
         private List<ListaSalasConHijos> m_ListaPasillosConSalas = new();
+        private bool m_MundoGenerado;
 
         [Header("Numeros Sala")]
         [SerializeField] private int numSala;
@@ -26,6 +27,7 @@ namespace GeneracionSalas
         private void Awake()
         {
             m_GeneracionSalasInstanciacion = GetComponent<GeneracionSalaInstanciacion>();
+            m_MundoGenerado = false;
         }
         private void Start()
         {
@@ -35,12 +37,13 @@ namespace GeneracionSalas
         private IEnumerator IniciarMundo()
         {
             yield return new WaitForEndOfFrame();
-            if (!GameManager.Instance.Testing)
+            if (!m_MundoGenerado)
             {
                 if (GameManager.Instance.NuevaPartida)
                 {
                     try
                     {
+                        print("Eyou");
                         m_ListaSalasPadre = new();
                         m_ListaSalasPadreConHijos = new();
                         m_ListaPasillosConSalas = new();
@@ -52,7 +55,9 @@ namespace GeneracionSalas
                             Start();
                         else
                         {
+                            m_MundoGenerado = true;
                             m_GeneracionSalasInstanciacion.InstanciarElMundo(matrix, m_ListaSalasPadreConHijos, m_ListaPasillosConSalas);
+                            StopAllCoroutines();
                         }
                     }
                     catch (Exception)
