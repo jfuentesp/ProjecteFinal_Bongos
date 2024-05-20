@@ -10,7 +10,7 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
     private AbilityTierEnum m_SlotTier;
     [SerializeField]
     private AbilityCategoryEnum m_SlotCategory;
-    [SerializeField]
+
     private AbilitiesGUIController m_AbilitiesGUI;
     [SerializeField]
     private Image m_AbilityImage;
@@ -24,10 +24,10 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
 
     private bool m_IsChosen = false;
 
-    // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
-        Initialize();        
+        m_AbilitiesGUI = LevelManager.Instance.AbilitiesGUIController;
+        Initialize();
     }
 
     private void Initialize()

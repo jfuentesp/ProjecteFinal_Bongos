@@ -19,7 +19,6 @@ public class AbilitySlotHUDController : MonoBehaviour
     private AbilitySlotEnum m_AbilitySlotEnum;
 
     [Header("Player components")]
-    [SerializeField]
     private PlayerAbilitiesController m_PlayerAbilities;
 
     // Start is called before the first frame update

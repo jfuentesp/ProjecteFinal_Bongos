@@ -53,6 +53,12 @@ public class PJSMB : MonoBehaviour
     [SerializeField] private InventoryController m_Inventory;
     public InventoryController Inventory { get => m_Inventory; set => m_Inventory = value; }
 
+    private GoldController m_PlayerGold;
+    public GoldController PlayerGold => m_PlayerGold;
+
+    private HabilityPointsController m_PlayerAbilityPoints;
+    public HabilityPointsController PlayerAbilityPoints => m_PlayerAbilityPoints;
+
     public Action m_CambiaElTarget;
     public Action OnPlayerDamaged;
 
@@ -75,6 +81,8 @@ public class PJSMB : MonoBehaviour
         m_playerEstadosController = GetComponent<PlayerEstadosController>();
         m_playersStatsController = GetComponent<PlayerStatsController>();
         m_PlayerEstadosController = GetComponent<PlayerEstadosController>();
+        m_PlayerGold = GetComponent<GoldController>();
+        m_PlayerAbilityPoints = GetComponent<HabilityPointsController>();
         m_SMBPlayerParryState = GetComponent<SMBPlayerParryState>();
         m_HealthController.onDeath += AcabarJuego;
         DontDestroyOnLoad(this.gameObject);

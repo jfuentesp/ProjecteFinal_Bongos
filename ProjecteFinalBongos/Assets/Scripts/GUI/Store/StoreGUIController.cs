@@ -70,8 +70,8 @@ public class StoreGUIController : MonoBehaviour
 
     private void Start()
     {
-        m_PlayerInventory = GameManager.Instance.PlayerInGame.transform.GetChild(2).GetComponent<InventoryController>();
-        m_PlayerGold = GameManager.Instance.PlayerInGame.GetComponent<GoldController>();
+        m_PlayerInventory = LevelManager.Instance.InventoryController;
+        m_PlayerGold = PJSMB.Instance.PlayerGold;
         m_InitialButton = m_StoreConsumableGrid.transform.GetChild(0).GetChild(0).gameObject;
         m_LastSelected = m_InitialButton;
         RefreshGUI();

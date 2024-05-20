@@ -66,6 +66,12 @@ public class LevelManager : MonoBehaviour
 
     private StoreGUIController m_StoreGUIController;
     public StoreGUIController StoreGUIController => m_StoreGUIController;
+    private AbilitiesGUIController m_AbilitiesGUIController;
+    public AbilitiesGUIController AbilitiesGUIController => m_AbilitiesGUIController;
+    private PlayerHUDController m_PlayerHUDController;
+    public PlayerHUDController PlayerHUDController => m_PlayerHUDController;
+    private InventoryController m_InventoryController;
+    public InventoryController InventoryController => m_InventoryController;
 
     private EventSystem m_eventSystem;
     public EventSystem EventSystem => m_eventSystem;
@@ -86,6 +92,9 @@ public class LevelManager : MonoBehaviour
         m_eventSystem = GetComponent<EventSystem>();
         m_InputSystemUIInputModule = GetComponent<InputSystemUIInputModule>();
         m_StoreGUIController = GetComponent<StoreGUIController>();
+        m_AbilitiesGUIController = GetComponent<AbilitiesGUIController>();
+        m_PlayerHUDController = GetComponent<PlayerHUDController>();
+        m_InventoryController = GetComponent<InventoryController>();
         m_GeneracionSalasInstanciacion.onMapaFinalized += DesfundirNegro;
     }
 

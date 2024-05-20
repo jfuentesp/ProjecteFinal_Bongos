@@ -11,8 +11,9 @@ public class AbilitiesGUIController : MonoBehaviour
     [Header("Ability GUI components")]
     [SerializeField]
     private GameObject m_AbilityHUD;
-    [SerializeField]
+
     private PlayerStatsController m_PlayerStats;
+    private PlayerAbilitiesController m_PlayerAbilities;
 
     [Header("Listed Abilities")]
     [SerializeField]
@@ -60,18 +61,17 @@ public class AbilitiesGUIController : MonoBehaviour
     private int m_AbilityPoints;
     public int AbilityPoints => m_AbilityPoints;
 
-    [SerializeField]
-    private PlayerAbilitiesController m_PlayerAbilities;
-
     // Start is called before the first frame update
     void Awake()
     {
         m_LastSelectedSlot = m_InitialButton;
-        m_AbilityPoints = 3;
-
     }
+
     private void Start()
     {
+        m_PlayerStats = PJSMB.Instance.PlayerStatsController;
+        m_PlayerAbilities = PJSMB.Instance.PlayerAbilitiesController;
+        m_AbilityPoints = PJSMB.Instance.PlayerAbilityPoints.HabilityPoints;
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("OpenAbilities").performed += OpenAbilities;
     }
 
@@ -81,6 +81,7 @@ public class AbilitiesGUIController : MonoBehaviour
         m_AbilityHUD.SetActive(!m_AbilityHUD.activeSelf);
         RefreshAbilityGUI();
     }
+
     public Ability GetRandomAbilityByTierAndType(AbilityTierEnum tier, AbilityCategoryEnum category)
     {
         int random = 0;
@@ -100,7 +101,7 @@ public class AbilitiesGUIController : MonoBehaviour
                     return GetRandomAbilityByTierAndType(tier, category);
                 }
             case AbilityTierEnum.TIER2:
-                random = Random.Range(0, m_Tier1Abilities.Count);
+                random = Random.Range(0, m_Tier2Abilities.Count);
                 ability = m_Tier2Abilities[random];
                 if (ability.Category == category)
                 {
@@ -112,7 +113,7 @@ public class AbilitiesGUIController : MonoBehaviour
                     return GetRandomAbilityByTierAndType(tier, category);
                 }
             case AbilityTierEnum.TIER3:
-                random = Random.Range(0, m_Tier1Abilities.Count);
+                random = Random.Range(0, m_Tier3Abilities.Count);
                 ability = m_Tier3Abilities[random];
                 if (ability.Category == category)
                 {
@@ -156,6 +157,7 @@ public class AbilitiesGUIController : MonoBehaviour
 
     private void RefreshDescriptionGUI()
     {
+        m_AbilityPoints = PJSMB.Instance.PlayerAbilityPoints.HabilityPoints;
         m_AvailablePointsText.text = m_AbilityPoints.ToString();
 
         if(m_AbilityPoints <= 0)

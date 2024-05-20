@@ -11,7 +11,7 @@ public class PanelBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        m_InventoryController = GetComponentInParent<InventoryController>();
+        m_InventoryController = LevelManager.Instance.InventoryController;
     }
 
     private void OnEnable()

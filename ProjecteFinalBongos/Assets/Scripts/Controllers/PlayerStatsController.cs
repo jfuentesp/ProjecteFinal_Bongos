@@ -58,12 +58,11 @@ public class PlayerStatsController : MonoBehaviour
     private Sword m_Sword;
     public Sword Sword => m_Sword;
     [SerializeField]
-    private Sword m_SwordPrueba;
+    private Sword m_InitialSword;
     [SerializeField]
     private Armor m_Armor;
     public Armor Armor => m_Armor;
-    [SerializeField]
-    private Armor prueba;
+
     private void Start()
     {
         m_Velocity = m_PlayerBaseStats.m_BaseVelocity;
@@ -71,9 +70,7 @@ public class PlayerStatsController : MonoBehaviour
         m_Strength = m_PlayerBaseStats.m_BaseStrength;
         m_Defense = m_PlayerBaseStats.m_BaseDefense;
         m_HealthController = GetComponent<HealthController>();
-        EquipSword(m_SwordPrueba);
-        EquipArmor(prueba);
-
+        EquipSword(m_InitialSword);
     }
     public float getModifier(string modifier)
     {

@@ -18,8 +18,6 @@ public class InventoryController : MonoBehaviour
     [SerializeField]
     private GameObject m_InventoryHUD;
     [SerializeField]
-    private GameObject m_InventorySlotPrefab;
-    [SerializeField]
     private Backpack m_InventoryBackpack;
     public Backpack BackPack => m_InventoryBackpack;
 
@@ -61,7 +59,7 @@ public class InventoryController : MonoBehaviour
     private GridSlotBehaviour m_Weapon;
     [SerializeField]
     private GridSlotBehaviour m_Armor;
-    [SerializeField]
+
     private PlayerStatsController m_PlayerStats;
 
     [Header("QuickItems HUD settings")]
@@ -107,8 +105,12 @@ public class InventoryController : MonoBehaviour
     private bool m_MovingEquipable;
     [SerializeField] private GameObject m_ItemPrefab;
 
+    private GameObject m_Player;
+
     private void Start()
     {
+        m_PlayerStats = PJSMB.Instance.PlayerStatsController;
+        m_Player = GameManager.Instance.PlayerInGame;
         m_MovingConsumable = false;
         m_MovingEquipable = false;
         m_LastSelection = m_InitialButton;
@@ -143,7 +145,7 @@ public class InventoryController : MonoBehaviour
         Consumable itemToUse = m_InventoryBackpack.ConsumableSlots.FirstOrDefault(item => item?.Consumable.id == itemID).Consumable;
         if (itemToUse != null)
         {
-            itemToUse.OnUse(transform.root.gameObject);
+            itemToUse.OnUse(m_Player);
             m_InventoryBackpack.RemoveConsumable(itemToUse);
         }
         RefreshInventoryGUI();
@@ -155,7 +157,7 @@ public class InventoryController : MonoBehaviour
         Equipable itemToUse = m_InventoryBackpack.EquipableSlots.FirstOrDefault(item => item?.Equipable.id == itemID).Equipable;
         if(itemToUse != null) 
         { 
-            itemToUse.OnEquip(transform.root.gameObject);
+            itemToUse.OnEquip(m_Player);
             m_InventoryBackpack.RemoveEquipable(itemToUse);
         }
         RefreshEquipableGUI();
@@ -168,7 +170,7 @@ public class InventoryController : MonoBehaviour
         if (slot.AssignedEquipable != null)
         {
             m_InventoryBackpack.AddEquipable(slot.AssignedEquipable);
-            slot.AssignedEquipable.OnRemove(transform.root.gameObject);
+            slot.AssignedEquipable.OnRemove(m_Player);
             slot.RefreshEquipment();
             RefreshInventoryGUI();
         }
