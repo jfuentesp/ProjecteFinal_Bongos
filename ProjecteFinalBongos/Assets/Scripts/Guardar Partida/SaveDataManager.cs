@@ -23,7 +23,7 @@ namespace SaveLoadGame
             data.PopulateDataPasilloTienda(dataTiendas);
             data.PopulateDataPasilloObjetos(dataPasilloObjetos);
             data.m_NameAndWorld = new NameAndWorld(GameManager.Instance.PlayerName, LevelManager.Instance.MundoActualJugador);
-            
+
 
             try
             {
@@ -31,7 +31,7 @@ namespace SaveLoadGame
                 SaveAllGames dataLectura = new SaveAllGames();
                 JsonUtility.FromJsonOverwrite(jsonDataLectura, dataLectura);
 
-                for(int i = 0; i < dataLectura.m_SavedGames.Length; i++)
+                for (int i = 0; i < dataLectura.m_SavedGames.Length; i++)
                 {
                     if (dataLectura.m_SavedGames[i].m_NameAndWorld.m_Name == GameManager.Instance.PlayerName)
                         dataLectura.m_SavedGames[i] = data;
@@ -49,6 +49,7 @@ namespace SaveLoadGame
         {
             try
             {
+                print("CargarPartida");
                 SaveGame data = new SaveGame();
                 string jsonDataLectura = File.ReadAllText(GameManager.Instance.RutaCompleta);
                 SaveAllGames dataLectura = new SaveAllGames();
@@ -59,48 +60,67 @@ namespace SaveLoadGame
                     if (dataLectura.m_SavedGames[i].m_NameAndWorld.m_Name == GameManager.Instance.PlayerName)
                         data = dataLectura.m_SavedGames[i];
                 }
-                
-                JsonUtility.FromJsonOverwrite(jsonDataLectura, data);
+
+                //JsonUtility.FromJsonOverwrite(jsonDataLectura, data);
 
                 FindObjectOfType<GeneracionSalas.GeneracionSalasMatriz>().Load(data.m_Mapa);
 
-                SalaBoss[] salasLoot = FindObjectsByType<SalaBoss>(FindObjectsSortMode.None);
-                for (int i = 0; i < salasLoot.Length; i++)
-                {
-                    foreach (SaveGame.SalaBossData salita in data.m_Bosses)
-                    {
-                        if (salita.m_SalaTransform == salasLoot[i].transform.position)
-                            salasLoot[i].Load(salita);
-                    }
-                }
 
-                PasilloTienda[] pasillosTienda = FindObjectsByType<PasilloTienda>(FindObjectsSortMode.None);
+                FindObjectOfType<GeneracionSalas.GeneracionSalaInstanciacion>().onMapaFinalized += SeguirElCargado;
+               
 
-                for (int i = 0; i < pasillosTienda.Length; i++)
-                {
-                    foreach (SaveGame.PasilloTiendaData pasillito in data.m_PiccolosChad)
-                    {
-                        if (pasillito.m_SalaTransform == pasillosTienda[i].transform.position)
-                            pasillosTienda[i].Load(pasillito);
-                    }
-                }
-
-                PasilloObjetos[] pasillosObjetos = FindObjectsByType<PasilloObjetos>(FindObjectsSortMode.None);
-
-                for (int i = 0; i < pasillosObjetos.Length; i++)
-                {
-                    foreach (SaveGame.PasilloObjetosData pasillito in data.m_PasilloObjetos)
-                    {
-                        if (pasillito.m_SalaTransform == pasillosObjetos[i].transform.position)
-                            pasillosObjetos[i].Load(pasillito);
-                    }
-                }
-                GameManager.Instance.SetNamePlayer(data.m_NameAndWorld.m_Name);
             }
             catch (Exception e)
             {
                 Debug.LogError($"Error while trying to load {Path.Combine(Application.persistentDataPath, GameManager.Instance.RutaCompleta)} with exception {e}");
             }
+        }
+
+        private void SeguirElCargado()
+        {
+            SaveGame data = new SaveGame();
+            string jsonDataLectura = File.ReadAllText(GameManager.Instance.RutaCompleta);
+            SaveAllGames dataLectura = new SaveAllGames();
+            JsonUtility.FromJsonOverwrite(jsonDataLectura, dataLectura);
+
+            for (int i = 0; i < dataLectura.m_SavedGames.Length; i++)
+            {
+                if (dataLectura.m_SavedGames[i].m_NameAndWorld.m_Name == GameManager.Instance.PlayerName)
+                    data = dataLectura.m_SavedGames[i];
+            }
+
+            SalaBoss[] salasLoot = FindObjectsByType<SalaBoss>(FindObjectsSortMode.None);
+            for (int i = 0; i < salasLoot.Length; i++)
+            {
+                foreach (SaveGame.SalaBossData salita in data.m_Bosses)
+                {
+                    if (salita.m_SalaTransform == salasLoot[i].transform.position)
+                        salasLoot[i].Load(salita);
+                }
+            }
+
+            PasilloTienda[] pasillosTienda = FindObjectsByType<PasilloTienda>(FindObjectsSortMode.None);
+
+            for (int i = 0; i < pasillosTienda.Length; i++)
+            {
+                foreach (SaveGame.PasilloTiendaData pasillito in data.m_PiccolosChad)
+                {
+                    if (pasillito.m_SalaTransform == pasillosTienda[i].transform.position)
+                        pasillosTienda[i].Load(pasillito);
+                }
+            }
+
+            PasilloObjetos[] pasillosObjetos = FindObjectsByType<PasilloObjetos>(FindObjectsSortMode.None);
+
+            for (int i = 0; i < pasillosObjetos.Length; i++)
+            {
+                foreach (SaveGame.PasilloObjetosData pasillito in data.m_PasilloObjetos)
+                {
+                    if (pasillito.m_SalaTransform == pasillosObjetos[i].transform.position)
+                        pasillosObjetos[i].Load(pasillito);
+                }
+            }
+            GameManager.Instance.SetNamePlayer(data.m_NameAndWorld.m_Name);
         }
     }
 

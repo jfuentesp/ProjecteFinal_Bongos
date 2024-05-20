@@ -33,9 +33,11 @@ public class HabilidadDeMovimientoState : SMState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
+        //m_Movement = m_PJ.MovementAction.ReadValue<Vector2>();
+    }
+    private void Start()
+    {
         m_Movement = m_PJ.MovementAction.ReadValue<Vector2>();
-
-
     }
 
     public override void InitState()

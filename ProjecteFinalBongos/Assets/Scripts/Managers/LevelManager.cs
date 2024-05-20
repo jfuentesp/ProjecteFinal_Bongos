@@ -86,16 +86,19 @@ public class LevelManager : MonoBehaviour
         m_eventSystem = GetComponent<EventSystem>();
         m_InputSystemUIInputModule = GetComponent<InputSystemUIInputModule>();
         m_StoreGUIController = GetComponent<StoreGUIController>();
+        print(m_GeneracionSalasInstanciacion == null);
         m_GeneracionSalasInstanciacion.onMapaFinalized += DesfundirNegro;
     }
 
     private void DesfundirNegro()
     {
+        print("MundoGenerado");
         StartCoroutine(DesfundirNegroCoroutine());
     }
 
     private IEnumerator DesfundirNegroCoroutine()
     {
+        m_FundidoNegroPanel.SetActive(true);
         while (m_FundidoNegroPanel.GetComponent<Image>().color.a > 0)
         {
             Color colorin = m_FundidoNegroPanel.GetComponent<Image>().color;
