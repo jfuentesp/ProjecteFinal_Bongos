@@ -54,6 +54,7 @@ public class PJSMB : MonoBehaviour
     public InventoryController Inventory { get => m_Inventory; set => m_Inventory = value; }
 
     public Action m_CambiaElTarget;
+    public Action OnPlayerDamaged;
 
     private void Awake()
     {

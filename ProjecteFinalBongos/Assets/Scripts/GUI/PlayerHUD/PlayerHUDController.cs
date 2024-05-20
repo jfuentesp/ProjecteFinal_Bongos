@@ -8,10 +8,9 @@ using UnityEngine.UI;
 public class PlayerHUDController : MonoBehaviour
 {
     [Header("Player HUD Components")]
-    [SerializeField]
     private PlayerStatsController m_PlayerStats;
-    [SerializeField]
     private PlayerAbilitiesController m_PlayerAbilities;
+
     [Header("HUD Objects to Refresh")]
     [SerializeField]
     private Image m_HPBar;
@@ -33,6 +32,8 @@ public class PlayerHUDController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_PlayerStats = PJSMB.Instance.PlayerStatsController;
+        m_PlayerAbilities = PJSMB.Instance.PlayerAbilitiesController;
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("LeftAbility").performed += LeftAbility;
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("RightAbility").performed += RightAbility;
     }
@@ -46,7 +47,6 @@ public class PlayerHUDController : MonoBehaviour
     }
 
     float lerpSpeed;
-    // Update is called once per frame
     void Update()
     {
         lerpSpeed = m_SmoothSpeed * Time.deltaTime;

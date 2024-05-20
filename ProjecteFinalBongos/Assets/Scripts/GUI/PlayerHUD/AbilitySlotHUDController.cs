@@ -25,6 +25,7 @@ public class AbilitySlotHUDController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_PlayerAbilities = PJSMB.Instance.PlayerAbilitiesController;
         m_PlayerAbilities.OnLearnAbility += OnLearnAbilityAction;
         UpdateAssignedAbility();
         UpdateAbilitySlotGUI();
