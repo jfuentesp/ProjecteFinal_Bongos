@@ -157,5 +157,9 @@ public class PiccoloChadScript : Interactuable
             SegundoDialogo();
     }
 
-
+    private void OnDestroy()
+    {
+        if(LevelManager.Instance != null)
+            LevelManager.Instance.StoreGUIController.OnClosingStore -= OnClosingStore;
+    }
 }

@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 5370443792344523203}
   - component: {fileID: 4567108599630937664}
   - component: {fileID: 469436567016616782}
+  - component: {fileID: 5012399389271998975}
   m_Layer: 9
   m_Name: Harpy
   m_TagString: Untagged
@@ -425,6 +426,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ParryDuration: 1
   m_AnimationParryName: Parried
+--- !u!114 &5012399389271998975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175183814778568638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0640d428ac906c2459218b66878fd018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: bb20dec7d7e3e0a46b3f3eafed4e37a8, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -274922059993911915}
+        m_TargetAssemblyTypeName: BossBehaviour, Assembly-CSharp
+        m_MethodName: ReTarget
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4513034500936218330
 GameObject:
   m_ObjectHideFlags: 0

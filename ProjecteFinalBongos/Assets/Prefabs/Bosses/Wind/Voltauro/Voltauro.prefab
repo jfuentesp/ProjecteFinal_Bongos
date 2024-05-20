@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3705b7a045dce4488aa2017422848a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Damage: 100
+  m_Damage: 20
   m_StatsController: {fileID: 0}
   m_player: {fileID: 0}
   parreable: 1
@@ -156,7 +156,8 @@ GameObject:
   - component: {fileID: 1983238748092987480}
   - component: {fileID: 6431098446936519177}
   - component: {fileID: 1370205420779961457}
-  m_Layer: 9
+  - component: {fileID: 1085640237619562425}
+  m_Layer: 0
   m_Name: Voltauro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c95fcad212f9a846a53614aab35d8aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParryDuration: 3
+  m_ParryDuration: 0.5
   m_AnimationParryName: ParryVoltauro
 --- !u!50 &1995166033292200984
 Rigidbody2D:
@@ -357,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3f8f95414136945818e9d39b233177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ChaseSpeed: 10
+  m_ChaseSpeed: 5
   m_ChaseAnimationName: WalkVoltauro
   m_TwoDirections: 1
 --- !u!114 &5062246643037628907
@@ -415,7 +416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TimeBeforeCharge: 2
-  m_ChargeSpeed: 20
+  m_ChargeSpeed: 10
   m_ChargeForce: 2
   m_StartChargeAnimationName: StartChargeVoltauro
   m_ChargeAnimationName: ChargeVoltauro
@@ -433,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a8a8ec47d4a51d4b964f28aab281f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NumberOfLightnings: 12
+  m_NumberOfLightnings: 9
   m_DelayTime: 0.5
   m_SummoningDuration: 5
   m_SummoningArea: 5
@@ -497,7 +498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAXHP: 2000
+  MAXHP: 500
 --- !u!195 &3428213083637556498
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -514,7 +515,7 @@ NavMeshAgent:
   m_AngularSpeed: 0
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
+  m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.00001
   m_BaseOffset: 0
@@ -621,10 +622,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3705b7a045dce4488aa2017422848a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Damage: 150
+  m_Damage: 15
   m_StatsController: {fileID: 0}
   m_player: {fileID: 0}
-  parreable: 1
+  parreable: 0
   healable: 0
   m_EstadoAlterado: 4
   stateTime: 0
@@ -641,3 +642,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AnimationName: DieVoltauro
+--- !u!114 &1085640237619562425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652317080108237547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0640d428ac906c2459218b66878fd018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: bb20dec7d7e3e0a46b3f3eafed4e37a8, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9029267029551829187}
+        m_TargetAssemblyTypeName: BossBehaviour, Assembly-CSharp
+        m_MethodName: ReTarget
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

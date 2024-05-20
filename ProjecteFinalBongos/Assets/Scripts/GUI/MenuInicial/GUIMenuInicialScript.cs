@@ -73,7 +73,20 @@ namespace GUIScripts
 
             ClosePanelsInsteadOf(TypeOfPanels.INICIAL);
         }
-
+        private void OnDestroy()
+        {
+            GameManager.Instance.OnPlayerDeleted -= RefreshPlayersFromStartGame;
+            if (m_OptionsButton) m_OptionsButton.onClick.RemoveAllListeners();
+            if (m_RankingsButton) m_RankingsButton.onClick.RemoveAllListeners();
+            if (m_ExitButton) m_ExitButton.onClick.RemoveAllListeners();
+            if (m_StartButton) m_StartButton.onClick.RemoveAllListeners();
+            if (m_StartNewGameButton) m_StartNewGameButton.onClick.RemoveAllListeners();
+            if (m_BackSlotsButton) m_BackSlotsButton.onClick.RemoveAllListeners();
+            if (m_BackNewGameButton) m_BackNewGameButton.onClick.RemoveAllListeners();
+            if (m_BackOptionsButton) m_BackOptionsButton.onClick.RemoveAllListeners();
+            if (m_BackRankingButton) m_BackRankingButton.onClick.RemoveAllListeners();
+            m_NewNameInput.onValueChanged.RemoveAllListeners();
+        }
         private void SlotsGame()
         {
             ClosePanelsInsteadOf(TypeOfPanels.START_GAME);

@@ -187,6 +187,7 @@ public class VoltauroBossBehaviour : BossBehaviour
     {
         base.VidaCero();
         StopAllCoroutines();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
