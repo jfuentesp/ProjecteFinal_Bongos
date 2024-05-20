@@ -112,16 +112,10 @@ public class InventoryController : MonoBehaviour
         m_MovingConsumable = false;
         m_MovingEquipable = false;
         m_LastSelection = m_InitialButton;
-        m_InventoryBackpack.AddConsumable(m_ConsumableToAdd);
-        m_InventoryBackpack.AddConsumable(m_ConsumableToAdd);
-        m_InventoryBackpack.AddConsumable(m_ConsumableToAdd2);
-        m_InventoryBackpack.AddEquipable(m_EquipableSword);
-        m_InventoryBackpack.AddEquipable(m_EquipableArmor);
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("OpenInventory").performed += OpenInventory;
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("UseQuickItem").performed += UseQuickItem;
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("UseQuickItem2").performed += UseQuickItem2;
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("UseQuickItem3").performed += UseQuickItem3;
-
     }
     private void OpenInventory(InputAction.CallbackContext context)
     {

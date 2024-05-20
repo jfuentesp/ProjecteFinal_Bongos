@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
 {
     [Header("Testing")]
     [SerializeField] private bool m_Testing;
+    
     private static LevelManager m_Instance;
     public static LevelManager Instance => m_Instance;
 

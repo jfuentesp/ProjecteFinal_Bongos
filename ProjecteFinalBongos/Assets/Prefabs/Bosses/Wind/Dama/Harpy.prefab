@@ -203,7 +203,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FlyingHarpyAnimationname: Walk
   m_FlyingSpeed: 3
-  m_OnDeathEvent: {fileID: 11400000, guid: c158ea061bdb7614d9e7adfc6b66abd3, type: 2}
   m_TwoDirections: 1
 --- !u!114 &5779588992722725201
 MonoBehaviour:
@@ -281,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAXHP: 100.3
+  MAXHP: 50
 --- !u!114 &-274922059993911915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,7 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3705b7a045dce4488aa2017422848a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Damage: 15
+  m_Damage: 5
   m_StatsController: {fileID: 0}
   m_player: {fileID: 0}
   parreable: 1
