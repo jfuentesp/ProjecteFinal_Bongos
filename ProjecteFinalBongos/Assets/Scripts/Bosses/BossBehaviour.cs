@@ -135,7 +135,7 @@ public class BossBehaviour : MonoBehaviour
     public virtual void Init(Transform _Target)
     {
         m_Target = _Target;
-        OnPlayerInSala.Invoke();
+        OnPlayerInSala?.Invoke();
     }
 
     public void SetBusy(bool status)

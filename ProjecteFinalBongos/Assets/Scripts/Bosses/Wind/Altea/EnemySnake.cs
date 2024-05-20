@@ -80,6 +80,7 @@ public class EnemySnake : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
+        GetComponent<SalaBoss>().OnPlayerIn -= Init;
         m_IsAlive = false;
         Destroy(gameObject);
     }

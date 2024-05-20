@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c95fcad212f9a846a53614aab35d8aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParryDuration: 5
+  m_ParryDuration: 2
   m_AnimationParryName: GryphusParried
 --- !u!114 &4633328443264383016
 MonoBehaviour:
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3f8f95414136945818e9d39b233177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ChaseSpeed: 3
+  m_ChaseSpeed: 10
   m_ChaseAnimationName: chaseGryphus
   m_TwoDirections: 1
 --- !u!114 &8894470015447893835

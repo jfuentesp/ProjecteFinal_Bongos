@@ -123,6 +123,7 @@ public class MiniPegasusBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
+        GetComponent<SalaBoss>().OnPlayerIn -= Init;
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         m_BossMuertoEvent.Raise();

@@ -58,11 +58,6 @@ public class PegasusBossBehaviour : BossBehaviour
         OnPlayerInSala?.Invoke();
         m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
     }
-    void Start()
-    {
-       
-    }
-
 
     private IEnumerator PlayerDetectionCoroutine()
     {
