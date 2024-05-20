@@ -55,7 +55,7 @@ public class PegasusBossBehaviour : BossBehaviour
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
-        OnPlayerInSala.Invoke();
+        OnPlayerInSala?.Invoke();
         m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
     }
     void Start()
@@ -130,6 +130,7 @@ public class PegasusBossBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         m_BossMuertoEvent.Raise();

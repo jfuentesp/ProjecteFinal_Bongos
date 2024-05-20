@@ -137,6 +137,7 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     }
     protected override void SpawnerSala()
     {
+        print("Hola");
         m_BossSala = LevelManager.Instance.GetBossToSpawn(m_NumeroBoss);
         if (m_BossSala.m_HijosBosses.Length > 0)
         {

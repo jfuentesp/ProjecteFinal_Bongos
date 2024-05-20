@@ -98,6 +98,7 @@ public class HarpyBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         StopAllCoroutines();
         m_OnDeathEvent.Raise();
         m_StateMachine.ChangeState<DeathState>();

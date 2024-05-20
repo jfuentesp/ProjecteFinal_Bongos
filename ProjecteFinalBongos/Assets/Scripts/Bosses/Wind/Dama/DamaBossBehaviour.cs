@@ -161,6 +161,7 @@ public class DamaBossBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         StopAllCoroutines();
         m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;

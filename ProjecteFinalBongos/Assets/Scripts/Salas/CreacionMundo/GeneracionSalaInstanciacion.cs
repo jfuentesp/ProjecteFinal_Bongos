@@ -58,11 +58,9 @@ namespace GeneracionSalas
 
         private int[,] matrix = new int[100, 100];
 
-        public void InstanciarElMundo(int[,] _matrix, List<ListaSalasConHijos> _ListaSalasPadreConHijos, List<ListaSalasConHijos> _ListaPasillosConSalas)
+        private IEnumerator InstanciaMundoCoroutine()
         {
-            matrix = _matrix;
-            m_ListaSalasPadreConHijos = _ListaSalasPadreConHijos;
-            m_ListaPasillosConSalas = _ListaPasillosConSalas;
+            yield return new WaitForEndOfFrame();
             GenSalasBoss();
             GenPasillos();
             PintarTilemap();
@@ -71,6 +69,14 @@ namespace GeneracionSalas
             {
                 LevelManager.Instance.GuardarPartida();
             }
+
+        }
+        public void InstanciarElMundo(int[,] _matrix, List<ListaSalasConHijos> _ListaSalasPadreConHijos, List<ListaSalasConHijos> _ListaPasillosConSalas)
+        {
+            matrix = _matrix;
+            m_ListaSalasPadreConHijos = _ListaSalasPadreConHijos;
+            m_ListaPasillosConSalas = _ListaPasillosConSalas;
+            StartCoroutine(InstanciaMundoCoroutine());
         }
 
         private void GenPasillos()
