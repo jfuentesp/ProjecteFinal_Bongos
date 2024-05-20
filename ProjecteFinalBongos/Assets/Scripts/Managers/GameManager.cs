@@ -152,25 +152,7 @@ public class GameManager : MonoBehaviour
     {
         m_NuevaPartida = true;
     }
-    // Update is called once per frame
-    void Update()
-    {
-        if (m_Testing)
-        {
-            if (Input.GetKeyDown(KeyCode.G) && !m_MundoGenerado)
-            {
-                m_NuevaPartida = true;
-                m_MundoGenerado = true;
-                LevelManager.Instance.Init();
-            }
-            if (Input.GetKeyDown(KeyCode.C) && !m_MundoGenerado)
-            {
-                m_NuevaPartida = false;
-                m_MundoGenerado = true;
-                LevelManager.Instance.Init();
-            }
-        }
-    }
+    
     private void GetPlayersAndTheirWorld()
     {
         if (!Directory.Exists(rutaCompletaHastaCarpeta))
