@@ -103,6 +103,7 @@ public class InventoryController : MonoBehaviour
 
     private bool m_MovingConsumable;
     private bool m_MovingEquipable;
+    private bool m_IsStarted;
     [SerializeField] private GameObject m_ItemPrefab;
 
     private GameObject m_Player;
@@ -118,10 +119,6 @@ public class InventoryController : MonoBehaviour
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("UseQuickItem").performed += UseQuickItem;
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("UseQuickItem2").performed += UseQuickItem2;
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("UseQuickItem3").performed += UseQuickItem3;
-    }
-
-    private void OnEnable()
-    {
         RefreshInventoryGUI();
     }
 

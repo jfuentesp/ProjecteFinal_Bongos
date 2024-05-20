@@ -22,9 +22,12 @@ public class GUIInGamePlayerScript : MonoBehaviour
     [SerializeField] private GameObject m_PanelStore;
     [SerializeField] private List<GameObject> m_PanelsList;
 
+    private InventoryController m_Inventory;
+
     void Start()
     {
         m_Player = PJSMB.Instance;
+        m_Inventory = LevelManager.Instance.InventoryController;
         if (m_ResumeGameButton) m_ResumeGameButton.onClick.AddListener(ResumeGame);
         m_PausaPanel.SetActive(false);
         m_Player.Input.FindActionMap("PlayerActions").FindAction("Pause").started += PararLaPartida;
@@ -64,9 +67,14 @@ public class GUIInGamePlayerScript : MonoBehaviour
     private void OpenInventory(InputAction.CallbackContext context) 
     {
         if (m_PanelInventory.activeInHierarchy)
+        {
             ClosePanelsInsteadOf(TypeOfPanels.INICIAL);
+        }
         else
+        {
+            m_Inventory.RefreshInventoryGUI();
             ClosePanelsInsteadOf(TypeOfPanels.INVENTORY);
+        }
     }
 
     private void OpenStore(InputAction.CallbackContext context)
