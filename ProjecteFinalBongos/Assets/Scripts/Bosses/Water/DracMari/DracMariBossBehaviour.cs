@@ -138,12 +138,18 @@ public class DracMariBossBehaviour : BossBehaviour
         base.Init(_Target);
         OnPlayerInSala?.Invoke();
     }
+    private void MatarBoss() { 
+        Destroy(gameObject);
+    }
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
+        m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
-        Destroy(gameObject);
+        m_BossMuertoEvent.Raise();
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)  

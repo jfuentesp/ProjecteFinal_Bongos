@@ -52,46 +52,16 @@ public class DracMariTornadoState : SMState
         yield return new WaitForSeconds(0.5f);
         m_Animator.Play("idleDracMari");
         Destroy(tornado.gameObject);
-        GameObject bullet = m_Pool.GetElement();
-        bullet.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-        bullet.SetActive(true);
-        bullet.GetComponent<DracMBullet>().enabled = true;
-        bullet.GetComponent<DracMBullet>().Init(transform.up);
-        GameObject bullet2 = m_Pool.GetElement();
-        bullet2.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-        bullet2.SetActive(true);
-        bullet2.GetComponent<DracMBullet>().enabled = true;
-        bullet2.GetComponent<DracMBullet>().Init(-transform.up);
-        GameObject bullet3 = m_Pool.GetElement();
-        bullet3.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-        bullet3.SetActive(true);
-        bullet3.GetComponent<DracMBullet>().enabled = true;
-        bullet3.GetComponent<DracMBullet>().Init(transform.right);
-        GameObject bullet4 = m_Pool.GetElement();
-        bullet4.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-        bullet4.SetActive(true);
-        bullet4.GetComponent<DracMBullet>().enabled = true;
-        bullet4.GetComponent<DracMBullet>().Init(-transform.right);
-        GameObject bullet5 = m_Pool.GetElement();
-        bullet5.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-        bullet5.SetActive(true);
-        bullet5.GetComponent<DracMBullet>().enabled = true;
-        bullet5.GetComponent<DracMBullet>().Init(transform.up + transform.right);
-        GameObject bullet6 = m_Pool.GetElement();
-        bullet6.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-        bullet6.SetActive(true);
-        bullet6.GetComponent<DracMBullet>().enabled = true;
-        bullet6.GetComponent<DracMBullet>().Init(transform.up - transform.right);
-        GameObject bullet7 = m_Pool.GetElement();
-        bullet7.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-        bullet7.SetActive(true);
-        bullet7.GetComponent<DracMBullet>().enabled = true;
-        bullet7.GetComponent<DracMBullet>().Init(-transform.up - transform.right);
-        GameObject bullet8 = m_Pool.GetElement();
-        bullet8.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-        bullet8.SetActive(true);
-        bullet8.GetComponent<DracMBullet>().enabled = true;
-        bullet8.GetComponent<DracMBullet>().Init(-transform.up + transform.right);
+        for (int x = -1; x < 2; x++) {
+            for (int j = -1; j < 2; j++)
+            {
+                GameObject bullet = m_Pool.GetElement();
+                bullet.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+                bullet.SetActive(true);
+                bullet.GetComponent<DracMBullet>().enabled = true;
+                bullet.GetComponent<DracMBullet>().Init(new Vector2(x,j).normalized);
+            }
+        }
         yield return new WaitForSeconds(0.5f);
         OnTornadoFinished(gameObject);
     }
