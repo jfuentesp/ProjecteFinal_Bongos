@@ -13,6 +13,9 @@ public class SMBBossStunState : SMState
     private TimesScriptable times;
     private float m_Time;
     public Action<GameObject> OnStopStun;
+
+    [Header("Animation Name")]
+    [SerializeField] private string m_NameAnimation;
     private new void Awake()
     {
         base.Awake();
@@ -27,7 +30,8 @@ public class SMBBossStunState : SMState
     {
         base.InitState();
         m_Time = times.m_StunTime;
-        m_Animator.Play("stunned");
+        if(m_NameAnimation != String.Empty)
+            m_Animator.Play(m_NameAnimation);
         m_Rigidbody.velocity = Vector2.zero;
         StartCoroutine(StunSeconds());
 

@@ -12,6 +12,10 @@ public class SMBSingleAttackState : SMBBasicAttackState
     private string m_SingleAttackAnimationName;
 
     public Action<GameObject> OnStopDetectingPlayer;
+    public Action<GameObject> OnAttackStopped;
+    public Action<GameObject> OnAttackParried;
+
+    private bool derecha;
 
     protected override void Awake()
     {
@@ -22,19 +26,49 @@ public class SMBSingleAttackState : SMBBasicAttackState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        m_SingleAttackCoroutine = StartCoroutine(AttackCoroutine(transform.position + transform.up, 1f));
+        if (m_SingleAttackAnimationName == String.Empty)
+            m_SingleAttackCoroutine = StartCoroutine(AttackCoroutine(transform.position + transform.up, 1f));
+        else
+            AttackAnimation();
     }
+
+    private void AttackAnimation()
+    {
+        if (m_TwoDirections)
+        {
+            m_Animator.Play(m_SingleAttackAnimationName);
+
+            if (m_Target.position.x - transform.position.x < 0)
+            {
+                derecha = false;
+            }
+            else
+            {
+                derecha = true;
+            }
+        }
+    }
+
+    private void EndAttack()
+    {
+        if (!m_Boss.IsPlayerDetected)
+        {
+            OnAttackStopped?.Invoke(gameObject);
+        }
+    }
+
 
     public override void ExitState()
     {
         base.ExitState();
-        StopCoroutine(m_SingleAttackCoroutine);
+        if (m_SingleAttackCoroutine != null)
+            StopCoroutine(m_SingleAttackCoroutine);
     }
 
     private Coroutine m_SingleAttackCoroutine;
     public IEnumerator AttackCoroutine(Vector2 position, float attackDelay)
     {
-        while(m_Boss.IsPlayerDetected)
+        while (true)
         {
             m_Rigidbody.velocity = Vector3.zero;
             m_AttackHitbox.transform.position = position;
@@ -46,12 +80,20 @@ public class SMBSingleAttackState : SMBBasicAttackState
             yield return new WaitForSeconds(attackDelay);
             m_AttackHitbox.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.5f);
-                //m_StateMachine.ChangeState<SMBChaseState>();
+            if (!m_Boss.IsPlayerDetected)
+            {
+                OnStopDetectingPlayer?.Invoke(gameObject);
+            }
+            //m_StateMachine.ChangeState<SMBChaseState>();
         }
         OnStopDetectingPlayer?.Invoke(gameObject);
     }
     private void Update()
     {
-        
+        if (derecha)
+            transform.localEulerAngles = Vector3.zero;
+        else
+            transform.localEulerAngles = new Vector3(0, 180, 0);
+
     }
 }

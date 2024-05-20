@@ -124,15 +124,10 @@ public class PJSMB : MonoBehaviour
             }
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    public void GetDamage(float _Damage, EstadosAlterados estado)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("BossHitBox") && !m_SMBPlayerParryState.parry && collision.gameObject.GetComponent<BossBehaviour>().HurtBoxAttacking)
-        {
-            if (collision.gameObject.TryGetComponent<BossAttackDamage>(out BossAttackDamage damageBoss))
-            {
-                m_HealthController.Damage(damageBoss.Damage);
-                m_PlayerEstadosController.AlternarEstado(damageBoss.EstadoAlterado);
-            }
-        }
+        m_HealthController.Damage(_Damage);
+        m_PlayerEstadosController.AlternarEstado(estado);
     }
 }

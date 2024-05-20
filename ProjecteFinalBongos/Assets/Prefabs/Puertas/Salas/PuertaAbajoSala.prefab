@@ -206,6 +206,7 @@ GameObject:
   - component: {fileID: 2220627150241790449}
   - component: {fileID: 5666506166311377444}
   - component: {fileID: 7803702232405724636}
+  - component: {fileID: 3246915827446174624}
   m_Layer: 0
   m_Name: Puerta
   m_TagString: MechanicObstacle
@@ -341,6 +342,22 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!208 &3246915827446174624
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4167994484534527589}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8903008247471589583
 GameObject:
   m_ObjectHideFlags: 0

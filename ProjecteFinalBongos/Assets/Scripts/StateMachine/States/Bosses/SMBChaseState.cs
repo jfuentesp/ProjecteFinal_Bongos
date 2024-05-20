@@ -25,6 +25,8 @@ public class SMBChaseState : SMState
 
     public Action OnStartChase;
 
+    [SerializeField] private bool m_TwoDirections;
+
     private new void Awake()
     {
         base.Awake();
@@ -47,12 +49,15 @@ public class SMBChaseState : SMState
         m_Boss.SetBusy(false);
         m_NavMeshAgent.isStopped = false;
         OnStartChase?.Invoke();
+        if(m_ChaseAnimationName != String.Empty)
+            m_Animator.Play(m_ChaseAnimationName);
     }
 
     public override void ExitState()
     {
         base.ExitState();
         m_NavMeshAgent.isStopped = true;
+        m_NavMeshAgent.ResetPath();
     }
 
     private void Update()
@@ -61,10 +66,21 @@ public class SMBChaseState : SMState
         //To face the target
         if (m_Target != null)
         {
-            Vector2 posicionPlayer = m_Target.position - transform.position;
+            if (m_TwoDirections)
+            {
+                if (m_Target.position.x - transform.position.x < 0)
+                    transform.localEulerAngles = new Vector3(0, 180, 0);
+                else
+                    transform.localEulerAngles = Vector3.zero;
+            }
+            else
+            {
+
+            }
+            /*Vector2 posicionPlayer = m_Target.position - transform.position;
             float angulo = Mathf.Atan2(posicionPlayer.y, posicionPlayer.x);
             angulo = Mathf.Rad2Deg * angulo - 90;
-            transform.localEulerAngles = new Vector3(0, 0, angulo);
+            transform.localEulerAngles = new Vector3(0, 0, angulo);*/
         }
     }
 

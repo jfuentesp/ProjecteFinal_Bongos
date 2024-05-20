@@ -26,14 +26,12 @@ public class BossBehaviour : MonoBehaviour
 
     protected HealthController m_HealthController;
     protected FiniteStateMachine m_StateMachine;
+    public FiniteStateMachine StateMachine => m_StateMachine;
     protected Rigidbody2D m_Rigidbody;
     protected Animator m_Animator;
     private BossStatsController m_Stats;
     private BossEstadosController m_EstadosController;
     public BossEstadosController EstadosController => m_EstadosController;
-
-    protected bool m_HurtBoxAttacking;
-    public bool HurtBoxAttacking => m_HurtBoxAttacking;
 
     protected SalaBoss m_SalaPadre;
     public SalaBoss SalaPadre => m_SalaPadre;
@@ -195,5 +193,4 @@ public class BossBehaviour : MonoBehaviour
         }
     
     }
-
 }
