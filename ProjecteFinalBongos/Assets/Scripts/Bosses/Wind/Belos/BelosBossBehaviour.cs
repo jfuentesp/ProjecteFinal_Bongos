@@ -167,10 +167,11 @@ public class BelosBossBehaviour : BossBehaviour
     {
         base.VidaCero();
         StopAllCoroutines();
+        GetComponent<SalaBoss>().OnPlayerIn -= Init;
         m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         m_BossMuertoEvent.Raise();
-        Destroy(gameObject);
+        
     }
 }

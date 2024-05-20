@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 1630106362661267472}
   - component: {fileID: 3650524101458716014}
   - component: {fileID: 693633904342415992}
+  - component: {fileID: 2050168517093413958}
   m_Layer: 0
   m_Name: Gryphus
   m_TagString: Untagged
@@ -460,7 +461,7 @@ MonoBehaviour:
   m_WaterResistance: 5
   m_FireResistance: 5
   m_ElectricResistance: 5
-  m_bossBaseStats: {fileID: 11400000, guid: 2ed16064ca0caa64a94df5785d23f5c8, type: 2}
+  m_bossBaseStats: {fileID: 11400000, guid: dc4529363862df64aa2cd9a675c06719, type: 2}
   m_Velocity: 0
   m_AttackTime: 1
   m_Strength: 0
@@ -493,6 +494,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2050168517093413958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3588807802609925389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8b048728a5a454191ff5fb5a4cf910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AnimationName: Death
 --- !u!1 &6888195572230632890
 GameObject:
   m_ObjectHideFlags: 0
