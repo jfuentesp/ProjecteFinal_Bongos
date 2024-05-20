@@ -35,7 +35,7 @@ public class MiniPegasusBehaviour : BossBehaviour
         };
         GetComponent<SMBChargeState>().OnChargeMissed = (GameObject obj) =>
         {
-            m_StateMachine.ChangeState<SMBChaseState>();
+            m_StateMachine.ChangeState<SMBParriedState>();
         };
         GetComponent<SMBChargeState>().OnChargeParried = (GameObject obj) =>
         {
