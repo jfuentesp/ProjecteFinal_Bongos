@@ -67,11 +67,14 @@ public class StoreGUIController : MonoBehaviour
 
     public event Action OnClosingStore;
 
+    private GUIInGamePlayerScript m_GUIInGame;
+
 
     private void Start()
     {
         m_PlayerInventory = LevelManager.Instance.InventoryController;
         m_PlayerGold = PJSMB.Instance.PlayerGold;
+        m_GUIInGame = GetComponent<GUIInGamePlayerScript>();
         m_InitialButton = m_StoreConsumableGrid.transform.GetChild(0).GetChild(0).gameObject;
         m_LastSelected = m_InitialButton;
         RefreshGUI();
@@ -82,7 +85,7 @@ public class StoreGUIController : MonoBehaviour
         m_PiccoloStoreConsumables = consumables.ToArray();
         m_PiccoloStoreEquipables = equipables.ToArray();
         RefreshGUI();
-        m_GUIPanel.SetActive(true);
+        m_GUIInGame.ClosePanelsInsteadOf(TypeOfPanels.STORE);
     }
 
     public void CloseShop() 

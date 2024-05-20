@@ -63,14 +63,18 @@ public class PlayerStatsController : MonoBehaviour
     private Armor m_Armor;
     public Armor Armor => m_Armor;
 
-    private void Start()
+    private void Awake()
     {
         m_Velocity = m_PlayerBaseStats.m_BaseVelocity;
         m_AttackTime = m_PlayerBaseStats.m_BaseAttackTime;
         m_Strength = m_PlayerBaseStats.m_BaseStrength;
         m_Defense = m_PlayerBaseStats.m_BaseDefense;
-        m_HealthController = GetComponent<HealthController>();
         EquipSword(m_InitialSword);
+    }
+
+    private void Start()
+    {
+        m_HealthController = GetComponent<HealthController>();
     }
     public float getModifier(string modifier)
     {

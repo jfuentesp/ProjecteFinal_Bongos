@@ -114,16 +114,17 @@ public class InventoryController : MonoBehaviour
         m_MovingConsumable = false;
         m_MovingEquipable = false;
         m_LastSelection = m_InitialButton;
-        PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("OpenInventory").performed += OpenInventory;
+        
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("UseQuickItem").performed += UseQuickItem;
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("UseQuickItem2").performed += UseQuickItem2;
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("UseQuickItem3").performed += UseQuickItem3;
     }
-    private void OpenInventory(InputAction.CallbackContext context)
+
+    private void OnEnable()
     {
         RefreshInventoryGUI();
-        m_InventoryHUD.SetActive(!m_InventoryHUD.activeSelf);
     }
+
     private void UseQuickItem(InputAction.CallbackContext context)
     {
         if(m_QuickItem1.AssignedConsumable != null)
@@ -352,6 +353,7 @@ public class InventoryController : MonoBehaviour
         m_Armor.SetEquipable(m_PlayerStats.Armor);
         m_Weapon.RefreshEquipment();
         m_Armor.RefreshEquipment();
+        print(m_Weapon.AssignedEquipable);
     }
 
     /* SETTERS */

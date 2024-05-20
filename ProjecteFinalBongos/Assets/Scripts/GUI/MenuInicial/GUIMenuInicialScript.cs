@@ -13,8 +13,6 @@ namespace GUIScripts
 {
     public class GUIMenuInicialScript : MonoBehaviour
     {
-        public enum TypeOfPanels { INICIAL, NEW_GAME, OPTIONS, RANKING, START_GAME };
-
 
         [Header("Menu Inicial")]
         [SerializeField] private GameObject m_MenuInicialPanel;

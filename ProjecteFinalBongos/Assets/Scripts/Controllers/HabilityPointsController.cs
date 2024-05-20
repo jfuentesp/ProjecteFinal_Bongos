@@ -14,4 +14,14 @@ public class HabilityPointsController : MonoBehaviour
     {
         m_HabilityPoints += _HabilityPoints;
     }
+
+    public void ConsumeAbilityPoints(int _AbilityPoints)
+    {
+        m_HabilityPoints -= _AbilityPoints;
+    }
+
+    public void AddAbilityPoints(int _AbilityPoints)
+    {
+        m_HabilityPoints += _AbilityPoints;
+    }
 }

@@ -24,14 +24,9 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
 
     private bool m_IsChosen = false;
 
-    private void Awake()
+    public void Initialize()
     {
         m_AbilitiesGUI = LevelManager.Instance.AbilitiesGUIController;
-        Initialize();
-    }
-
-    private void Initialize()
-    {
         m_AssignedAbility = m_AbilitiesGUI.GetRandomAbilityByTierAndType(m_SlotTier, m_SlotCategory);
     }
 
@@ -75,7 +70,7 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
 
     public void OnSubmit(BaseEventData eventData)
     {
-        if (m_AbilitiesGUI.AbilityPoints <= 0)
+        if (m_AbilitiesGUI.AbilityPoints.HabilityPoints <= 0)
             return;
         m_IsChosen = true;
         m_AbilitiesGUI.SetAbility(AssignedAbility);
@@ -83,7 +78,7 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (m_AbilitiesGUI.AbilityPoints <= 0)
+        if (m_AbilitiesGUI.AbilityPoints.HabilityPoints <= 0)
             return;
         m_IsChosen = true;
         m_AbilitiesGUI.SetAbility(AssignedAbility);
