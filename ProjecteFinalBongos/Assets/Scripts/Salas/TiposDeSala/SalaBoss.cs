@@ -3,6 +3,7 @@ using SaveLoadGame;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static SaveLoadGame.SaveGame;
 using Random = UnityEngine.Random;
@@ -30,7 +31,8 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     public Action<Transform> OnPlayerIn;
     [SerializeField] private GameEvent m_JugadorEnSalaEvent;
     [SerializeField] private LevelManager.BossDisponible m_BossSala;
-    private int m_BichitosMuertos;
+    Transform m_TransformPlayer;
+    private int m_BichitosVivos;
 
     private void Start()
     {
@@ -48,7 +50,8 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
             {
                 m_CanOpenDoor = false;
                 cambioPuerta?.Invoke(false);
-                OnPlayerIn?.Invoke(hit.transform);
+                m_TransformPlayer = hit.transform;
+                OnPlayerIn?.Invoke(m_TransformPlayer);
                 m_JugadorEnSalaEvent.Raise();
                 m_HaEntradoElPlayer = true;
             }
@@ -130,7 +133,6 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
                 }
             }
         }
-
         return false;
     }
     protected override void SpawnerSala()
@@ -138,21 +140,88 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
         m_BossSala = LevelManager.Instance.GetBossToSpawn(m_NumeroBoss);
         if (m_BossSala.m_HijosBosses.Length > 0)
         {
+            m_BichitosVivos = m_BossSala.m_HijosBosses.Length;
+            int numero = 0;
             foreach (GameObject Bossito in m_BossSala.m_HijosBosses)
             {
                 GameObject jefe = Instantiate(Bossito, transform);
 
-                jefe.GetComponent<BossBehaviour>().OnBossDeath += DesbloquearPuertas;
-                jefe.transform.localPosition = Vector3.zero;
+                jefe.GetComponent<BossBehaviour>().OnBossDeath += BichitoMuerto;
+                jefe.transform.localPosition = GetPositionToSpawnBoss(numero);
+                numero++;
             }
         }
         else
         {
-            GameObject jefe = Instantiate(m_BossSala.m_BossPrefab, transform);
-
-            jefe.GetComponent<BossBehaviour>().OnBossDeath += DesbloquearPuertas;
-            jefe.transform.localPosition = Vector3.zero;
+            SpawnBossFinalSala();
         }
+    }
+
+    private IEnumerator SpawnFinalBossCoroutine()
+    {
+        yield return new WaitForSeconds(2);
+        SpawnBossFinalSala();
+    }
+
+    private void BichitoMuerto()
+    {
+        m_BichitosVivos--;
+
+        if (m_BichitosVivos == 0)
+            StartCoroutine(SpawnFinalBossCoroutine());
+    }
+
+    private void SpawnBossFinalSala()
+    {
+        GameObject jefe = Instantiate(m_BossSala.m_BossPrefab, transform);
+
+        jefe.GetComponent<BossBehaviour>().OnBossDeath += DesbloquearPuertas;
+        jefe.transform.localPosition = GetPositionToSpawnBoss(0);
+        if (m_TransformPlayer != null)
+            OnPlayerIn?.Invoke(m_TransformPlayer);
+    }
+
+    Vector3 GetPositionToSpawnBoss(int position)
+    {
+        if (EsSalaPar())
+        {
+            print("Es par");
+            Vector2 vectorin = GetPosicionSalaPar(GetMitadPar(0), GetMitadPar(1));
+            vectorin.x += position;
+            return vectorin;
+        }
+        else
+        {
+            return Vector3.zero;
+        }
+    }
+
+    private int GetMitadPar(int numerin)
+    {
+        int mitadSalas = m_ListaSalas.Count / 2;
+        int mitadInferior = mitadSalas - 1;
+        if (numerin == 0)
+        {
+            return mitadInferior;
+        }
+        else
+        {
+            return mitadSalas;
+        }
+    }
+
+    private Vector2 GetPosicionSalaPar(int numeroMenor, int numeroMayor)
+    {
+        Vector2 puntoMedio = new Vector2((m_ListaSalas[numeroMenor].x + m_ListaSalas[numeroMayor].x) / 2, (m_ListaSalas[numeroMenor].y + m_ListaSalas[numeroMayor].y) / 2);
+        return puntoMedio;
+    }
+
+    private bool EsSalaPar()
+    {
+        if (m_ListaSalas.Count % 2 == 0)
+            return true;
+        else
+            return false;
     }
 
     public SalaBossData Save()

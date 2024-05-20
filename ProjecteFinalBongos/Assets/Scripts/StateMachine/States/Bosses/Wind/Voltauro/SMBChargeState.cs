@@ -153,16 +153,17 @@ public class SMBChargeState : SMState
                         {
                             OnChargeParried?.Invoke(gameObject);
                         }
-                    }
-                    else
-                    {
-                        OnChargePlayer.Invoke(gameObject);
-                        if(collision.gameObject.GetComponent<PJSMB>())
-                            collision.gameObject.GetComponent<PJSMB>().GetDamage(GetComponent<BossAttackDamage>().Damage, GetComponent<BossAttackDamage>().EstadoAlterado, GetComponent<BossAttackDamage>().StateTime);
-                        Rigidbody2D target;
-                        collision.gameObject.TryGetComponent<Rigidbody2D>(out target);
-                        if (target != null)
-                            target.AddForce(transform.up * m_ChargeSpeed, ForceMode2D.Impulse);
+                        else
+                        {
+                            print("eo");
+                            OnChargePlayer?.Invoke(gameObject);
+                            if (collision.gameObject.GetComponent<PJSMB>())
+                                collision.gameObject.GetComponent<PJSMB>().GetDamage(GetComponent<BossAttackDamage>().Damage, GetComponent<BossAttackDamage>().EstadoAlterado, GetComponent<BossAttackDamage>().StateTime);
+                            Rigidbody2D target;
+                            collision.gameObject.TryGetComponent<Rigidbody2D>(out target);
+                            if (target != null)
+                                target.AddForce(transform.up * m_ChargeSpeed, ForceMode2D.Impulse);
+                        }
                     }
                 }
             }
