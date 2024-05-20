@@ -21,6 +21,7 @@ namespace GUIScripts
 
         public void Init(TipoDeBotonCargarBorrarNuevaPartidaEnum _ButtonType, string namePlayer, MundoEnum _Mundo, int _NumeroDeLista)
         {
+            m_ActionButton.onClick.RemoveAllListeners();
             m_NumeroDeLista = _NumeroDeLista;
             m_Name = namePlayer;
             switch (_Mundo)
@@ -49,19 +50,17 @@ namespace GUIScripts
 
         private void NewWorld()
         {
-            print($"Nuevo Mundo {m_Mundo} del jugador: {m_Name}");
+            print("Nueva partida");
             m_EventoNuevaIdPartida.Raise(m_NumeroDeLista);
         }
 
         private void LoadWorld()
         {
-            print($"Cargando {m_Mundo} del jugador: {m_Name}");
             GameManager.Instance.LoadGameOfPlayer(m_Name, m_Mundo);
         }
 
         private void DeleteWorld()
         {
-            print($"Borrando {m_Mundo} del jugador: {m_Name}");
             GameManager.Instance.DeletePlayerGame(m_Name , m_NumeroDeLista);
         }
     }

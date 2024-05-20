@@ -62,7 +62,6 @@ public class ClonBehaviour : MonoBehaviour
         }
         else
         {
-            print(direccion);
             if (direccion.y > 0 && direccion.x == 0)
             {
                 m_Animator.Play("walkUp");
@@ -110,12 +109,8 @@ public class ClonBehaviour : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("BossHitBox")) {
+            print("Me muero");
             Finish();
         }
-    }
-
-    private void OnDestroy()
-    {
-        StopAllCoroutines();
     }
 }

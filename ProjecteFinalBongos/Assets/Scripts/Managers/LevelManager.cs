@@ -14,11 +14,13 @@ public class LevelManager : MonoBehaviour
 {
     [Header("Testing")]
     [SerializeField] private bool m_Testing;
+    
     private static LevelManager m_Instance;
     public static LevelManager Instance => m_Instance;
 
     private GeneracionSalasMatriz m_GeneracionSalasMatriz;
     private GeneracionSalaInstanciacion m_GeneracionSalasInstanciacion;
+    public GeneracionSalaInstanciacion GeneracionSalasInstanciacion => m_GeneracionSalasInstanciacion;
     [SerializeField] private ConsumablesDataBase m_ConsumableDataBase;
     public ConsumablesDataBase ConsumableDataBase => m_ConsumableDataBase;
 
@@ -182,9 +184,9 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public GameObject GetBossToSpawn(int numBoss)
+    public BossDisponible GetBossToSpawn(int numBoss)
     {
-        return m_ListaBossesDisponibles[numBoss].m_BossPrefab;
+        return m_ListaBossesDisponibles[numBoss];
     }
 
     public void GuardarPartida()
@@ -316,12 +318,14 @@ public class LevelManager : MonoBehaviour
     public struct BossDisponible
     {
         public GameObject m_BossPrefab;
+        public GameObject[] m_HijosBosses;
         public bool m_BossDisponible;
 
-        public BossDisponible(GameObject _BossPrefab, bool _BossDisponible)
+        public BossDisponible(GameObject _BossPrefab, GameObject[] _HijosBosses, bool _BossDisponible)
         {
             m_BossDisponible = _BossDisponible;
             m_BossPrefab = _BossPrefab;
+            m_HijosBosses = _HijosBosses;
         }
     }
     [Serializable]

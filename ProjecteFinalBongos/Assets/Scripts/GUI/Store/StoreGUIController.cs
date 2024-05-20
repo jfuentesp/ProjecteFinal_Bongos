@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,7 +63,9 @@ public class StoreGUIController : MonoBehaviour
     private TextMeshProUGUI m_CalculatedCostText;
     [SerializeField]
     private TMP_InputField m_QuantityStoreText;
+    public TMP_InputField QuantityStoreText => m_QuantityStoreText;
 
+    public event Action OnClosingStore;
 
 
     private void Start()
@@ -85,11 +88,21 @@ public class StoreGUIController : MonoBehaviour
     public void CloseShop() 
     {
         m_GUIPanel.SetActive(false);
+        OnClosingStore?.Invoke();
     }
 
     public void OnBuyConsumable(Consumable itemToBuy)
     {
-       
+        int quantity = m_PlayerInventory.BackPack.GetQuantity(itemToBuy);
+        int quantityToBuy = int.Parse(m_QuantityStoreText.text);
+        int quantityPrice = itemToBuy.shopPrice * quantityToBuy;
+        if (m_PlayerGold.DINERO >= quantityPrice)
+        {
+            Debug.Log("Entro en el primer if!");
+            m_PlayerGold.RemoveDinero(itemToBuy.shopPrice *  quantityToBuy);
+            m_PlayerInventory.BackPack.AddConsumableStack(itemToBuy, quantityToBuy);
+            RefreshGUI();
+        }
     }
 
     public void OnBuyEquipable(Equipable itemToBuy)
@@ -104,24 +117,45 @@ public class StoreGUIController : MonoBehaviour
 
     public void OnSellConsumable(Consumable itemToSell)
     {
-
+        int quantity = m_PlayerInventory.BackPack.GetQuantity(itemToSell);
+        int quantityToSell = int.Parse(m_QuantityStoreText.text);
+        int quantityPrice = itemToSell.sellPrice * quantityToSell;
+        if(quantity >= quantityToSell)
+        {
+            m_PlayerGold.AddDinero(quantityPrice);
+            m_PlayerInventory.BackPack.RemoveConsumableStack(itemToSell, quantityToSell);
+            RefreshGUI();
+        }
     }
 
     public void OnSellEquipable(Equipable itemToSell) 
     {
-        m_PlayerGold.RemoveDinero(itemToSell.sellPrice);
+        m_PlayerGold.AddDinero(itemToSell.sellPrice);
         m_PlayerInventory.BackPack.RemoveEquipable(itemToSell);
         RefreshGUI();
     }
 
-    public void OnIncreaseQuantity()
+    public void OnIncreaseQuantity(Consumable consumable)
     {
-        int numberToSet = int.Parse(m_QuantityStoreText.text);
-        if(numberToSet < 99)
+        if (IsBuying)
         {
-            numberToSet += 1;
-            m_QuantityStoreText.text = numberToSet.ToString();
-            RefreshConfirmationGUI();
+            int numberToSet = int.Parse(m_QuantityStoreText.text);
+            if (numberToSet < (99-m_PlayerInventory.BackPack.GetQuantity(consumable)))
+            {
+                numberToSet += 1;
+                m_QuantityStoreText.text = numberToSet.ToString();
+                RefreshConfirmationGUI();
+            }
+        }
+        if(IsSelling)
+        {
+            int numberToSet = int.Parse(m_QuantityStoreText.text);
+            if (numberToSet < m_PlayerInventory.BackPack.GetQuantity(consumable))
+            {
+                numberToSet += 1;
+                m_QuantityStoreText.text = numberToSet.ToString();
+                RefreshConfirmationGUI();
+            }
         }
     }
 
@@ -262,7 +296,10 @@ public class StoreGUIController : MonoBehaviour
             m_DescriptionName.text = slot.AssignedConsumable.itemName;
             m_DescriptionText.text = slot.AssignedConsumable.description;
             m_DescriptionImage.sprite = slot.AssignedConsumable.Sprite;
-            m_CostText.text = slot.AssignedConsumable.shopPrice.ToString();
+            if(slot.SlotType == ShopSlotType.BUY)
+                m_CostText.text = slot.AssignedConsumable.shopPrice.ToString();
+            if(slot.SlotType == ShopSlotType.SELL)
+                m_CostText.text = slot.AssignedConsumable.sellPrice.ToString();
         }
 
         if (slot.AssignedEquipable != null)
@@ -274,7 +311,10 @@ public class StoreGUIController : MonoBehaviour
             m_DescriptionName.text = slot.AssignedEquipable.itemName;
             m_DescriptionText.text = slot.AssignedEquipable.description;
             m_DescriptionImage.sprite = slot.AssignedEquipable.Sprite;
-            m_CostText.text = slot.AssignedEquipable.shopPrice.ToString();
+            if (slot.SlotType == ShopSlotType.BUY)
+                m_CostText.text = slot.AssignedEquipable.shopPrice.ToString();
+            if (slot.SlotType == ShopSlotType.SELL)
+                m_CostText.text = slot.AssignedEquipable.sellPrice.ToString();
         }
     }
 
@@ -288,10 +328,18 @@ public class StoreGUIController : MonoBehaviour
         m_LastSelected.TryGetComponent<ShopSlotBehaviour>(out ShopSlotBehaviour slot);
         m_CurrentGoldText.text = m_PlayerGold.DINERO.ToString();
         if (slot?.AssignedConsumable != null)
-            m_CalculatedCostText.text = (slot?.AssignedConsumable.shopPrice * int.Parse(m_QuantityStoreText.text)).ToString();
-        if (int.Parse(m_CurrentGoldText.text) < int.Parse(m_CalculatedCostText.text))
-            m_CalculatedCostText.color = Color.red;
-        else
-            m_CalculatedCostText.color = Color.black;
+            if(slot.SlotType == ShopSlotType.BUY)
+            {
+                m_CalculatedCostText.text = (slot.AssignedConsumable?.shopPrice * int.Parse(m_QuantityStoreText.text)).ToString();
+                if (int.Parse(m_CurrentGoldText.text) < int.Parse(m_CalculatedCostText.text))
+                    m_CalculatedCostText.color = Color.red;
+                else
+                    m_CalculatedCostText.color = Color.black;
+            }
+            if (slot.SlotType == ShopSlotType.SELL)
+            {
+                m_CalculatedCostText.color = Color.black;
+                m_CalculatedCostText.text = (slot.AssignedConsumable?.sellPrice * int.Parse(m_QuantityStoreText.text)).ToString();
+            }
     }
 }

@@ -46,12 +46,33 @@ public class Backpack : ScriptableObject
         {
             int index = Array.FindIndex(m_ConsumableSlots, i => i == null);
             m_ConsumableSlots[index] = new ConsumableSlot(item);
-            Debug.Log("Añadido objeto " + item.itemName + " || Item => " + m_ConsumableSlots[index].Consumable.itemName);
         }
         else
         {
-            itemSlot.Quantity++;
-            Debug.Log("Aumentada la cantidad en 1 al objeto " + item.itemName);
+            if(itemSlot.Quantity < 99)
+                itemSlot.Quantity++;
+        }
+    }
+
+    public void AddConsumableStack(Consumable item, int quantity)
+    {
+        ConsumableSlot itemSlot = GetConsumable(item);
+        if(itemSlot == null)
+        {
+            Debug.Log("Entro en el segundo if");
+            int index = Array.FindIndex(m_ConsumableSlots, i => i == null);
+            m_ConsumableSlots[index] = new ConsumableSlot(item);
+            if (quantity < 99)
+                m_ConsumableSlots[index].Quantity = quantity;
+            else
+                m_ConsumableSlots[index].Quantity = 99;
+        }
+        else
+        {
+            if (itemSlot.Quantity + quantity < 99)
+                itemSlot.Quantity += quantity;
+            else
+                itemSlot.Quantity = 99;
         }
     }
 
@@ -60,9 +81,23 @@ public class Backpack : ScriptableObject
         ConsumableSlot itemSlot = GetConsumable(item);
         if (itemSlot == null)
             return;
-
-        itemSlot.Quantity--;
+        if(itemSlot.Quantity > 0)
+            itemSlot.Quantity--;
         if (itemSlot.Quantity <= 0)
+        {
+            int index = Array.FindIndex(m_ConsumableSlots, i => i == itemSlot);
+            m_ConsumableSlots[index] = null;
+        }
+    }
+
+    public void RemoveConsumableStack(Consumable item, int quantity)
+    {
+        ConsumableSlot itemSlot = GetConsumable(item);
+        if (itemSlot == null)
+            return;
+        if(itemSlot.Quantity - quantity > 0) { }
+            itemSlot.Quantity -= quantity;
+        if(itemSlot.Quantity <= 0)
         {
             int index = Array.FindIndex(m_ConsumableSlots, i => i == itemSlot);
             m_ConsumableSlots[index] = null;
@@ -88,8 +123,6 @@ public class Backpack : ScriptableObject
         {
             int index = Array.FindIndex(m_EquipableSlots, i => i == null);
             m_EquipableSlots[index] = new EquipableSlot(item);
-            if (m_EquipableSlots[index].Equipable != null)
-                Debug.Log("Añadido equipable " + item?.itemName + " || Item => " + m_EquipableSlots[index].Equipable.itemName);
         }
     }
 
