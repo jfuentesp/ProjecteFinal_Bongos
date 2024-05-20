@@ -13,10 +13,13 @@ public class ClonBehaviour : MonoBehaviour
     [SerializeField] private float m_DirectionTime;
     [SerializeField] private int Steps = 5;
     [SerializeField] private GameEvent ClonEvent;
+    private bool m_Alive;
     private void Awake()
     {
+        print("Nombre del Clon: " + GetComponent<CircleCollider2D>().gameObject.name);
         m_rb = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
+        m_Alive = true;
     }
 
     public void Init(Vector2 direction)
@@ -108,9 +111,14 @@ public class ClonBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("BossHitBox")) {
-            print("Me muero");
-            Finish();
+        if (m_Alive)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("BossHitBox"))
+            {
+                m_Alive = false;
+                print("Me muero");
+                Finish();
+            }
         }
     }
 }

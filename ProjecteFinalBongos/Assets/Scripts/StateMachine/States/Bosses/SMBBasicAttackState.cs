@@ -34,7 +34,7 @@ public class SMBBasicAttackState : SMState
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
         m_Boss.OnPlayerInSala += GetTarget;
-
+        /*
         //Checking what kind of Collider we have set on the hitbox and giving it the required size
         if (m_AttackHitbox is BoxCollider2D)
         {
@@ -43,7 +43,7 @@ public class SMBBasicAttackState : SMState
         if (m_AttackHitbox is CircleCollider2D)
         {
             SetCircleColliderSize(m_AttackHitbox);
-        }
+        }*/
     }
     private void GetTarget()
     {
