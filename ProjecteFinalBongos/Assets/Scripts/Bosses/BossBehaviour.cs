@@ -129,8 +129,6 @@ public class BossBehaviour : MonoBehaviour
             } else if (collision.gameObject.GetComponent<Player2x2BulletBehaviour>()) {
                 recibirDaño(collision.gameObject.GetComponent<Player2x2BulletBehaviour>().damage);
             }
-            
-
         }
     }
 

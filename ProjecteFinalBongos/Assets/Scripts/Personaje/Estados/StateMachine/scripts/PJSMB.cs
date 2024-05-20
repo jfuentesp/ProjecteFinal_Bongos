@@ -57,6 +57,7 @@ public class PJSMB : MonoBehaviour
 
     private void Awake()
     {
+        print("Nombre del Player: "+ GetComponent<CircleCollider2D>().gameObject.name);
         if (m_Instance == null)
             m_Instance = this;
         else
@@ -120,10 +121,9 @@ public class PJSMB : MonoBehaviour
             m_HealthController.Damage(Daño);
         }
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(this);
+        print(collision.gameObject.name);
         if (collision.gameObject.layer == LayerMask.NameToLayer("BossHitBox") && !m_SMBPlayerParryState.parry)
         {
             if (collision.gameObject.TryGetComponent<BossAttackDamage>(out BossAttackDamage damageBoss))
