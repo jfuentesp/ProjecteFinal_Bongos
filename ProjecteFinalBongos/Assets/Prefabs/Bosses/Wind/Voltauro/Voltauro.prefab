@@ -378,6 +378,9 @@ MonoBehaviour:
   m_HitboxRadius: 1
   m_TwoDirections: 1
   m_SingleAttackAnimationName: Attack1
+  m_WaitAnimation: Wait
+  minWaitTime: 0.2
+  maxWaitTime: 0.4
 --- !u!114 &5674208956649352257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,6 +399,9 @@ MonoBehaviour:
   m_HitboxRadius: 1
   m_TwoDirections: 1
   m_TripleAttackAnimationName: Attack3
+  m_WaitAnimation: Wait
+  minWaitTime: 0.2
+  maxWaitTime: 0.4
 --- !u!114 &7781588974767550170
 MonoBehaviour:
   m_ObjectHideFlags: 0
