@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAXHP: 500
+  MAXHP: 1200
 --- !u!195 &3453437631198273659
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -611,7 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3705b7a045dce4488aa2017422848a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Damage: 5
+  m_Damage: 60
   m_StatsController: {fileID: 0}
   m_player: {fileID: 0}
   parreable: 1

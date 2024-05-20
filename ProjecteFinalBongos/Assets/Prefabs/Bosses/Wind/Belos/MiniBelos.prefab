@@ -4979,7 +4979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c95fcad212f9a846a53614aab35d8aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParryDuration: 2
+  m_ParryDuration: 1
   m_AnimationParryName: Parried
 --- !u!114 &8922672649858318715
 MonoBehaviour:
@@ -5223,7 +5223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAXHP: 200
+  MAXHP: 500
 --- !u!61 &4109118976932153041
 BoxCollider2D:
   m_ObjectHideFlags: 0

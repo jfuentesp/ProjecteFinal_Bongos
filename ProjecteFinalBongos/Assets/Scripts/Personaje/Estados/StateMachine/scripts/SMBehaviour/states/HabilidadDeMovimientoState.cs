@@ -12,8 +12,8 @@ public class HabilidadDeMovimientoState : SMState
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
     private Ability m_habilidad;
-    private float dashSpeed = 15f;
-    private float dashSpeedInvicible = 10f;
+    private float dashSpeed = 5f;
+    private float dashSpeedInvicible = 3f;
     [SerializeField]
     private GameObject m_SlowDownZone;
     [SerializeField]
@@ -56,17 +56,17 @@ public class HabilidadDeMovimientoState : SMState
                     if (m_PJ.direccion == 0)
                     {
                         m_Animator.Play("Dash");
-                        m_Rigidbody.velocity = transform.right * dashSpeed;
+                        m_Rigidbody.velocity = transform.right * (PJSMB.Instance.PlayerStatsController.m_Velocity + dashSpeed);
                     }
                     else if (m_PJ.direccion == 1)
                     {
                         m_Animator.Play("DashDown");
-                        m_Rigidbody.velocity = -transform.up * dashSpeed;
+                        m_Rigidbody.velocity = -transform.up * (PJSMB.Instance.PlayerStatsController.m_Velocity + dashSpeed); ;
                     }
                     else if (m_PJ.direccion == 2)
                     {
                         m_Animator.Play("DashUp");
-                        m_Rigidbody.velocity = transform.up * dashSpeed;
+                        m_Rigidbody.velocity = transform.up * (PJSMB.Instance.PlayerStatsController.m_Velocity + dashSpeed); ;
                     }
                 }
                 else {
@@ -82,7 +82,7 @@ public class HabilidadDeMovimientoState : SMState
                     {
                         m_Animator.Play("DashUp");
                     }
-                    m_Rigidbody.velocity = m_PJ.MovementAction.ReadValue<Vector2>() * dashSpeed;
+                    m_Rigidbody.velocity = m_PJ.MovementAction.ReadValue<Vector2>() * (PJSMB.Instance.PlayerStatsController.m_Velocity + dashSpeed); ;
                 }
                 yield return new WaitForSeconds(0.4f);
                 PJSMB.Instance.GetComponent<PlayerAbilitiesController>().initCoolDown(m_habilidad.Cooldown);
@@ -98,17 +98,17 @@ public class HabilidadDeMovimientoState : SMState
                     if (m_PJ.direccion == 0)
                     {
                         m_Animator.Play("Dash");
-                        m_Rigidbody.velocity = transform.right * dashSpeedInvicible;
+                        m_Rigidbody.velocity = transform.right * (PJSMB.Instance.PlayerStatsController.m_Velocity + dashSpeedInvicible);
                     }
                     else if (m_PJ.direccion == 1)
                     {
                         m_Animator.Play("DashDown");
-                        m_Rigidbody.velocity = -transform.up * dashSpeedInvicible;
+                        m_Rigidbody.velocity = -transform.up * (PJSMB.Instance.PlayerStatsController.m_Velocity + dashSpeedInvicible);
                     }
                     else if (m_PJ.direccion == 2)
                     {
                         m_Animator.Play("DashUp");
-                        m_Rigidbody.velocity = transform.up * dashSpeedInvicible;
+                        m_Rigidbody.velocity = transform.up * (PJSMB.Instance.PlayerStatsController.m_Velocity + dashSpeedInvicible);
                     }
                 }
                 else
@@ -125,7 +125,7 @@ public class HabilidadDeMovimientoState : SMState
                     {
                         m_Animator.Play("DashUp");
                     }
-                    m_Rigidbody.velocity = m_PJ.MovementAction.ReadValue<Vector2>() * dashSpeedInvicible;
+                    m_Rigidbody.velocity = m_PJ.MovementAction.ReadValue<Vector2>() * (PJSMB.Instance.PlayerStatsController.m_Velocity + dashSpeedInvicible);
                 }
                 yield return new WaitForSeconds(0.4f);
                 PJSMB.Instance.GetComponent<PlayerAbilitiesController>().initCoolDown(m_habilidad.Cooldown);
