@@ -29,7 +29,6 @@ GameObject:
   - component: {fileID: 586029195165450857}
   - component: {fileID: 631329437472427693}
   - component: {fileID: 411893891875190907}
-  - component: {fileID: 3315753682095818307}
   m_Layer: 9
   m_Name: VoltauroMini
   m_TagString: Untagged
@@ -165,6 +164,9 @@ MonoBehaviour:
   m_HitboxRadius: 0
   m_TwoDirections: 1
   m_SingleAttackAnimationName: Attck
+  m_WaitAnimation: Wait
+  minWaitTime: 0.2
+  maxWaitTime: 0.3
 --- !u!114 &2766508921107913157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +300,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 7
 --- !u!95 &-622657025306183932
 Animator:
@@ -462,34 +464,6 @@ MonoBehaviour:
   healable: 0
   m_EstadoAlterado: 4
   stateTime: 0
---- !u!114 &3315753682095818307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 399034142371773799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0640d428ac906c2459218b66878fd018, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: bb20dec7d7e3e0a46b3f3eafed4e37a8, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4124949982275955070}
-        m_TargetAssemblyTypeName: BossBehaviour, Assembly-CSharp
-        m_MethodName: ReTarget
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &3652744599734502512
 GameObject:
   m_ObjectHideFlags: 0
