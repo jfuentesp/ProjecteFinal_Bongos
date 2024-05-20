@@ -261,6 +261,9 @@ MonoBehaviour:
   m_HitboxRadius: 0
   m_TwoDirections: 1
   m_SingleAttackAnimationName: MiniGryphusChaseAttack
+  m_WaitAnimation: Wait
+  minWaitTime: 0.2
+  maxWaitTime: 0.4
 --- !u!114 &6076494989580810209
 MonoBehaviour:
   m_ObjectHideFlags: 0

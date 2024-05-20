@@ -22,8 +22,7 @@ public class PlayerAbilitiesController : MonoBehaviour
     public bool CanMove => m_canMove;
     private List<Ability> m_AtaquesMejorados = new List<Ability>();
     public List<Ability> AtaquesMejoradosDisponibles => m_AtaquesMejorados;
-    [SerializeField]
-    private float m_CoolDown;
+    private float m_cooldown;
     private  void Awake()
     {
         initMovementAbility();
@@ -45,7 +44,8 @@ public class PlayerAbilitiesController : MonoBehaviour
     }
     public void initCoolDown(float cooldown)
     {
-        StartCoroutine(MovementCooldown());
+        m_cooldown = cooldown;
+        StartCoroutine(MovementCooldown(cooldown));
     }
 
     public void changeMovement(Ability movementAction)
@@ -118,14 +118,14 @@ public class PlayerAbilitiesController : MonoBehaviour
         OnLearnAbility.Invoke();
     }
 
-    IEnumerator MovementCooldown()
+    IEnumerator MovementCooldown(float CoolDown)
     {
         m_canMove = false;
-        yield return new WaitForSeconds(m_CoolDown);
+        yield return new WaitForSeconds(CoolDown);
         m_canMove = true;
         Exit();
     }
     private void Exit() {
-        StopCoroutine(MovementCooldown());
+        StopCoroutine(MovementCooldown(m_cooldown));
     }
 }
