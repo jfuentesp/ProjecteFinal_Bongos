@@ -137,7 +137,6 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     }
     protected override void SpawnerSala()
     {
-        print("Hola");
         m_BossSala = LevelManager.Instance.GetBossToSpawn(m_NumeroBoss);
         if (m_BossSala.m_HijosBosses.Length > 0)
         {
@@ -167,7 +166,7 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     private void BichitoMuerto()
     {
         m_BichitosVivos--;
-
+        print("Eyou");
         if (m_BichitosVivos == 0)
             StartCoroutine(SpawnFinalBossCoroutine());
     }
@@ -186,7 +185,6 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     {
         if (EsSalaPar())
         {
-            print("Es par");
             Vector2 vectorin = GetPosicionSalaPar(GetMitadPar(0), GetMitadPar(1));
             vectorin.x += position;
             return vectorin;

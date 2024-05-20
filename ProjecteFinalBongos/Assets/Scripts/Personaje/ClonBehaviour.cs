@@ -16,7 +16,6 @@ public class ClonBehaviour : MonoBehaviour
     private bool m_Alive;
     private void Awake()
     {
-        print("Nombre del Clon: " + GetComponent<CircleCollider2D>().gameObject.name);
         m_rb = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_Alive = true;

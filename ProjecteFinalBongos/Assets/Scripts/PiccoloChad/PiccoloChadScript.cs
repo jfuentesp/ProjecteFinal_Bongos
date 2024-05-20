@@ -159,6 +159,7 @@ public class PiccoloChadScript : Interactuable
 
     private void OnDestroy()
     {
-        LevelManager.Instance.StoreGUIController.OnClosingStore -= OnClosingStore;
+        if(LevelManager.Instance != null)
+            LevelManager.Instance.StoreGUIController.OnClosingStore -= OnClosingStore;
     }
 }

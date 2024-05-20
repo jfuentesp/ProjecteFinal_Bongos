@@ -100,6 +100,7 @@ public class HarpyBehaviour : BossBehaviour
         base.VidaCero();
         GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         StopAllCoroutines();
+        OnBossDeath?.Invoke();
         m_OnDeathEvent.Raise();
         m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
