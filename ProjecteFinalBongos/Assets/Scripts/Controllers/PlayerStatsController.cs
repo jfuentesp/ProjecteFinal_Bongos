@@ -70,9 +70,8 @@ public class PlayerStatsController : MonoBehaviour
         m_AttackTime = m_PlayerBaseStats.m_BaseAttackTime;
         m_Strength = m_PlayerBaseStats.m_BaseStrength;
         m_Defense = m_PlayerBaseStats.m_BaseDefense;
+        m_AttackTime = m_PlayerBaseStats.m_BaseAttackTime;
         m_HealthController = GetComponent<HealthController>();
-        EquipSword(m_SwordPrueba);
-        EquipArmor(prueba);
 
     }
     public float getModifier(string modifier)
