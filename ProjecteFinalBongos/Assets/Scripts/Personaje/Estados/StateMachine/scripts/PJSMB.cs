@@ -123,7 +123,6 @@ public class PJSMB : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(this);
         if (collision.gameObject.layer == LayerMask.NameToLayer("BossHitBox") && !m_SMBPlayerParryState.parry)
         {
             if (collision.gameObject.TryGetComponent<BossAttackDamage>(out BossAttackDamage damageBoss))

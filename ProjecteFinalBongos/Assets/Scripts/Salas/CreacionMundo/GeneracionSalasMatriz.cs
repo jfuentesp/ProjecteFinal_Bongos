@@ -43,7 +43,6 @@ namespace GeneracionSalas
                 {
                     try
                     {
-                        print("Eyou");
                         m_ListaSalasPadre = new();
                         m_ListaSalasPadreConHijos = new();
                         m_ListaPasillosConSalas = new();
