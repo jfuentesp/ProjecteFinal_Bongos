@@ -2,12 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SMBDoubleAttackState : SMBBasicAttackState
 {
     [Header("Attack Animation")]
     [SerializeField]
     private string m_DoubleAttackAnimationName;
+    [SerializeField]
+    private string m_WaitAnimation;
+    [SerializeField]
+    private float minWaitTime;
+    [SerializeField]
+    private float maxWaitTime;
+
+    public Action<GameObject> OnStopDetectingPlayer;
+    public Action<GameObject> OnAttackStopped;
+    public Action<GameObject> OnAttackParried;
+
+    private bool derecha;
 
     protected override void Awake()
     {
@@ -18,7 +31,70 @@ public class SMBDoubleAttackState : SMBBasicAttackState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        m_DoubleAttackCoroutine = StartCoroutine(AttackCoroutine(transform.position + transform.up, 0.5f, 0.5f));
+        if (m_DoubleAttackAnimationName != String.Empty)
+            m_DoubleAttackCoroutine = StartCoroutine(AttackCoroutine(transform.position + transform.up, 0.5f, 0.5f));
+        else
+            StartCoroutine(AttackAnimationRoutine());
+    }
+
+    private void AttackAnimation()
+    {
+        if (m_TwoDirections)
+        {
+            m_Animator.Play(m_DoubleAttackAnimationName);
+
+            if (m_Target.position.x - transform.position.x < 0)
+            {
+                derecha = false;
+            }
+            else
+            {
+                derecha = true;
+            }
+        }
+    }
+    private IEnumerator AttackAnimationRoutine()
+    {
+        float waitTime = Random.Range(minWaitTime, maxWaitTime);
+        if (m_TwoDirections)
+        {
+            m_Animator.Play(m_WaitAnimation);
+            if (m_Target != null)
+            {
+                if (m_Target.position.x - transform.position.x < 0)
+                {
+                    derecha = false;
+                }
+                else
+                {
+                    derecha = true;
+                }
+            }
+        }
+        yield return new WaitForSeconds(waitTime);
+
+        if (m_TwoDirections)
+        {
+            m_Animator.Play(m_DoubleAttackAnimationName);
+            if (m_Target != null)
+            {
+                if (m_Target.position.x - transform.position.x < 0)
+                {
+                    derecha = false;
+                }
+                else
+                {
+                    derecha = true;
+                }
+            }
+        }
+    }
+    private void EndSecondAttack()
+    {
+        if (!m_Boss.IsPlayerDetected)
+        {
+            OnAttackStopped?.Invoke(gameObject);
+        }
     }
 
     public override void ExitState()
@@ -29,7 +105,10 @@ public class SMBDoubleAttackState : SMBBasicAttackState
     }
     private void Update()
     {
-
+        if (derecha)
+            transform.localEulerAngles = Vector3.zero;
+        else
+            transform.localEulerAngles = new Vector3(0, 180, 0);
     }
     private Coroutine m_DoubleAttackCoroutine;
     public IEnumerator AttackCoroutine(Vector2 position, float attack1Delay, float attack2Delay)

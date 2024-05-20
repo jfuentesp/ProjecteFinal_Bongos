@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SMBTripleAttackState : SMBBasicAttackState
 {
@@ -9,6 +10,12 @@ public class SMBTripleAttackState : SMBBasicAttackState
     [Header("Attack Animation")]
     [SerializeField]
     private string m_TripleAttackAnimationName;
+    [SerializeField]
+    private string m_WaitAnimation;
+    [SerializeField]
+    private float minWaitTime;
+    [SerializeField]
+    private float maxWaitTime;
 
     public Action<GameObject> OnStopDetectingPlayer;
     public Action<GameObject> OnAttackStopped;
@@ -28,7 +35,7 @@ public class SMBTripleAttackState : SMBBasicAttackState
         if (m_TripleAttackAnimationName == String.Empty)
             m_TripleAttackCoroutine = StartCoroutine(AttackCoroutine(transform.position + transform.up, 0.5f, 0.5f, 1f));
         else
-            AttackAnimation();
+            StartCoroutine(AttackAnimationRoutine());
     }
 
     private void AttackAnimation()
@@ -47,7 +54,42 @@ public class SMBTripleAttackState : SMBBasicAttackState
             }
         }
     }
+    private IEnumerator AttackAnimationRoutine()
+    {
+        float waitTime = Random.Range(minWaitTime, maxWaitTime);
+        if (m_TwoDirections)
+        {
+            m_Animator.Play(m_WaitAnimation);
+            if (m_Target != null)
+            {
+                if (m_Target.position.x - transform.position.x < 0)
+                {
+                    derecha = false;
+                }
+                else
+                {
+                    derecha = true;
+                }
+            }
+        }
+        yield return new WaitForSeconds(waitTime);
 
+        if (m_TwoDirections)
+        {
+            m_Animator.Play(m_TripleAttackAnimationName);
+            if (m_Target != null)
+            {
+                if (m_Target.position.x - transform.position.x < 0)
+                {
+                    derecha = false;
+                }
+                else
+                {
+                    derecha = true;
+                }
+            }
+        }
+    }
     private void EndTripleAttackAttack()
     {
         if (!m_Boss.IsPlayerDetected)

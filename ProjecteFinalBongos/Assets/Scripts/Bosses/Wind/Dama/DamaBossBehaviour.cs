@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+    
 [RequireComponent(typeof(SMBIdleState))]
 [RequireComponent(typeof(SMBChaseState))]
 [RequireComponent(typeof(SMBFlyingState))]
@@ -11,6 +12,7 @@ using UnityEngine;
 [RequireComponent(typeof(SMBDoubleAttackState))]
 [RequireComponent(typeof(SMBParriedState))]
 [RequireComponent(typeof(HealthController))]
+[RequireComponent(typeof(DeathState))]
 public class DamaBossBehaviour : BossBehaviour
 {
     private int m_NumberOfAttacksBeforeFlying;
@@ -19,10 +21,11 @@ public class DamaBossBehaviour : BossBehaviour
     private Phase m_CurrentPhase;
 
     private bool m_IsFlying;
-
+    public bool isActive;
     private new void Awake()
     {
         base.Awake();
+
         GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
@@ -31,6 +34,31 @@ public class DamaBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        GetComponent<SMBSingleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<SMBSingleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBDoubleAttackState>().OnStopDetectingPlayer = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBDoubleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<SMBDoubleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        transform.GetChild(transform.childCount - 1).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+
         GetComponent<SMBIdleState>().OnPlayerEnter += ActivateBoss;
         m_StateMachine.ChangeState<SMBIdleState>();
     }
@@ -41,6 +69,7 @@ public class DamaBossBehaviour : BossBehaviour
     }
     private void ActivateBoss(GameObject @object)
     {
+        isActive = true;
         SetFlying();
     }
 
@@ -114,19 +143,26 @@ public class DamaBossBehaviour : BossBehaviour
 
         switch (rng)
         {
-            case < 0.5f:
+            case <= 0.5f:
                 m_NumberOfAttacksBeforeFlying--;
                 m_StateMachine.ChangeState<SMBSingleAttackState>();
                 break;
-            case < 0.51f:
+            case > 0.5f:
                 m_NumberOfAttacksBeforeFlying--;
                 m_StateMachine.ChangeState<SMBDoubleAttackState>();
                 break;
         }
     }
+    private void MatarBoss()
+    {
+        Destroy(gameObject);
+    }
+
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         m_BossMuertoEvent.Raise();

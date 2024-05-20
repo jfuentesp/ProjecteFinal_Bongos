@@ -94,7 +94,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1cf35e76a32c87c4da15e964cea769b2, type: 3}
-  m_Color: {r: 0.3962264, g: 0.29769382, b: 0.13643645, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee5c8230df4f49ae73db6a2eb0766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IdleAnimationName: 
+  m_IdleAnimationName: idleGryphus
 --- !u!114 &6759243597742088631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c95fcad212f9a846a53614aab35d8aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParryDuration: 0
+  m_ParryDuration: 5
+  m_AnimationParryName: GryphusParried
 --- !u!114 &4633328443264383016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +216,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ChaseSpeed: 3
-  m_ChaseAnimationName: 
+  m_ChaseAnimationName: chaseGryphus
+  m_TwoDirections: 1
 --- !u!114 &8894470015447893835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,8 +233,9 @@ MonoBehaviour:
   m_AttackHitbox: {fileID: 3289971473851106786}
   m_HitboxLength: 2
   m_HitboxWideness: 2
-  m_HitboxRadius: 2
-  m_SingleAttackAnimationName: 
+  m_HitboxRadius: 1
+  m_TwoDirections: 1
+  m_SingleAttackAnimationName: chaseAttack
 --- !u!114 &4888106144925879745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,7 +252,8 @@ MonoBehaviour:
   m_HitboxLength: 2
   m_HitboxWideness: 2
   m_HitboxRadius: 2
-  m_DoubleAttackAnimationName: 
+  m_TwoDirections: 1
+  m_DoubleAttackAnimationName: chaseAttackDoble
 --- !u!114 &3899642083483748884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,7 +270,8 @@ MonoBehaviour:
   m_HitboxLength: 2
   m_HitboxWideness: 2
   m_HitboxRadius: 2
-  m_TripleAttackAnimationName: 
+  m_TwoDirections: 1
+  m_TripleAttackAnimationName: chaseAttackTriple
 --- !u!114 &4191922890334615588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,7 +294,7 @@ Animator:
   m_GameObject: {fileID: 3588807802609925389}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5b927400ddd6232408f004998a022c54, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -318,7 +323,7 @@ MonoBehaviour:
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 1.5
   m_AreaWideness: 1.5
-  m_AreaRadius: 1.5
+  m_AreaRadius: 1
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
@@ -400,6 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   times: {fileID: 0}
+  m_NameAnimation: 
 --- !u!114 &1630106362661267472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,6 +495,7 @@ GameObject:
   - component: {fileID: 4607538765656301199}
   - component: {fileID: 3289971473851106786}
   - component: {fileID: 6732764687544811005}
+  - component: {fileID: 7419420813050877644}
   m_Layer: 8
   m_Name: AttackHitbox
   m_TagString: Untagged
@@ -564,14 +571,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6888195572230632890}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -583,3 +590,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7419420813050877644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6888195572230632890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3705b7a045dce4488aa2017422848a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 5
+  m_StatsController: {fileID: 0}
+  m_player: {fileID: 0}
+  parreable: 1
+  healable: 1
+  m_EstadoAlterado: 12
+  stateTime: 0

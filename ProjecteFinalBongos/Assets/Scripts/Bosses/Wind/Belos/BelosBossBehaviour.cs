@@ -10,6 +10,7 @@ using UnityEngine;
 [RequireComponent(typeof(SMBTripleAttackState))]
 [RequireComponent(typeof(SMBBelosHealingState))]
 [RequireComponent(typeof(SMBBelosLighningChainsState))]
+[RequireComponent(typeof(DeathState))]
 public class BelosBossBehaviour : BossBehaviour
 {
     private int m_NumberOfAttacksBeforeTrap;
@@ -29,6 +30,34 @@ public class BelosBossBehaviour : BossBehaviour
         GetComponent<SMBSingleAttackState>().OnStopDetectingPlayer = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBSingleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<SMBSingleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBDoubleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<SMBDoubleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBTripleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<SMBTripleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        transform.GetChild(0).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
         };
         GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
         {
@@ -54,7 +83,7 @@ public class BelosBossBehaviour : BossBehaviour
         }
 
         float rng = Random.value;
-        if(m_CurrentPhase == Phase.TWO) //Y la vida caiga por debajo del 5%
+        if(m_CurrentPhase == Phase.TWO && m_HealthController.HP <= ((m_HealthController.HPMAX * 10f) / 100)) //Y la vida caiga por debajo del 5%
         {
             m_StateMachine.ChangeState<SMBBelosHealingState>();
             return;
@@ -129,9 +158,16 @@ public class BelosBossBehaviour : BossBehaviour
             m_CurrentPhase = Phase.TWO;
         }
     }
+    private void MatarBoss()
+    {
+        Destroy(gameObject);
+    }
+
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         m_BossMuertoEvent.Raise();

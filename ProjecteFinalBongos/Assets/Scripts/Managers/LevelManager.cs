@@ -27,7 +27,6 @@ public class LevelManager : MonoBehaviour
     public GameObject DialoguePanel => dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
     public TextMeshProUGUI DialogueText => dialogueText;
-    [SerializeField] private GameObject m_TiendaPanel;
     [SerializeField] private Button m_CloseShopButton;
     private int idPiccolo;
     public Action<int> onCloseShopOfPiccolo;
@@ -52,12 +51,19 @@ public class LevelManager : MonoBehaviour
 
     [Header("Lista de objetos")]
     [SerializeField] private List<ObjetosDisponibles> m_ObjetosDisponiblesTienda;
+    [SerializeField] private List<EquipoDisponible> m_EquipoDisponibleTienda;
     [SerializeField] private List<ObjetosDisponibles> m_ObjetosDisponiblesSalas;
+    [SerializeField] private List<EquipoDisponible> m_EquipoDisponibleSalas;
     [SerializeField] private int numeroObjetosTienda;
+    [SerializeField] private int numeroEquipoTienda;
     [SerializeField] private int numeroObjetosSalaObjetos;
+    [SerializeField] private int numeroEquipoSalaObjetos;
 
     [Header("PanelCarga")]
     [SerializeField] private GameObject m_FundidoNegroPanel;
+
+    private StoreGUIController m_StoreGUIController;
+    public StoreGUIController StoreGUIController => m_StoreGUIController;
 
     private EventSystem m_eventSystem;
     public EventSystem EventSystem => m_eventSystem;
@@ -77,6 +83,7 @@ public class LevelManager : MonoBehaviour
         m_GeneracionSalasInstanciacion = GetComponent<GeneracionSalaInstanciacion>();
         m_eventSystem = GetComponent<EventSystem>();
         m_InputSystemUIInputModule = GetComponent<InputSystemUIInputModule>();
+        m_StoreGUIController = GetComponent<StoreGUIController>();
         m_GeneracionSalasInstanciacion.onMapaFinalized += DesfundirNegro;
     }
 
@@ -101,9 +108,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (m_CloseShopButton) m_CloseShopButton.onClick.AddListener(CloseShop);
         TodosLosBossesDisponibles();
-        m_TiendaPanel.SetActive(false);
         idPiccolo = 0;
         m_BossesMuertos = 0;
 
@@ -126,18 +131,6 @@ public class LevelManager : MonoBehaviour
         {
             m_CargarPartidaEvent.Raise();
         }
-    }
-
-    public void OpenShop(int id)
-    {
-        piccoloConTiendaAbierta = id;
-        m_TiendaPanel.SetActive(true);
-    }
-
-    private void CloseShop()
-    {
-        m_TiendaPanel.SetActive(false);
-        onCloseShopOfPiccolo?.Invoke(piccoloConTiendaAbierta);
     }
 
     private void TodosLosBossesDisponibles()
@@ -212,8 +205,12 @@ public class LevelManager : MonoBehaviour
             {
                 if (random >= numeroMinimo && random <= objeto.ratioAparicion + numeroMinimo)
                 {
-                    objetitosParaPiccoloChad.Add(objeto.m_Object);
-                    break;
+                    bool exists = objetitosParaPiccoloChad.Contains(objeto.m_Object);
+                    if(!exists)
+                    {
+                        objetitosParaPiccoloChad.Add(objeto.m_Object);
+                        break;
+                    }
                 }
                 else
                 {
@@ -223,6 +220,35 @@ public class LevelManager : MonoBehaviour
         }
         return objetitosParaPiccoloChad;
     }
+
+    public List<Equipable> GetEquipoTienda()
+    {
+        List<Equipable> equipablesParaPiccoloChad = new();
+
+        for(int i = 0; i < numeroEquipoTienda; i++)
+        {
+            float numeroMinimo = 0;
+            float random = Random.Range(0.0f, 100.0f);
+            foreach (EquipoDisponible equipo in m_EquipoDisponibleTienda)
+            {
+                if(random >= numeroMinimo && random <= equipo.ratioAparicion + numeroMinimo)
+                {
+                    bool exists = equipablesParaPiccoloChad.Contains(equipo.m_Object);
+                    if (!exists)
+                    {
+                        equipablesParaPiccoloChad.Add(equipo.m_Object);
+                        break;
+                    }
+                }
+                else
+                {
+                    numeroMinimo += equipo.ratioAparicion;
+                }
+            }
+        }
+        return equipablesParaPiccoloChad;
+    }
+
     public List<Consumable> GetObjetosSalaObjetos()
     {
         List<Consumable> objetitosParaSalaObjetos = new();
@@ -246,6 +272,30 @@ public class LevelManager : MonoBehaviour
             }
         }
         return objetitosParaSalaObjetos;
+    }
+
+    public List<Equipable> GetEquipablesSalaObjetos()
+    {
+        List<Equipable> equipablesParaSalaObjetos = new();
+
+        for(int i = 0; i < numeroEquipoSalaObjetos; i++)
+        {
+            float numeroMinimo = 0;
+            float random = Random.Range(0.0f, 100.0f);
+            foreach(EquipoDisponible equipo in m_EquipoDisponibleSalas)
+            {
+                if(random >= numeroMinimo && random <= equipo.ratioAparicion + numeroMinimo)
+                {
+                    equipablesParaSalaObjetos.Add(equipo.m_Object);
+                    break;
+                }
+                else
+                {
+                    numeroMinimo += equipo.ratioAparicion;
+                }
+            }
+        }
+        return equipablesParaSalaObjetos;
     }
 
     public void BossMuerto()
@@ -281,6 +331,18 @@ public class LevelManager : MonoBehaviour
         public float ratioAparicion;
 
         public ObjetosDisponibles(Consumable _Object, float _RatioAparicion)
+        {
+            m_Object = _Object;
+            ratioAparicion = _RatioAparicion;
+        }
+    }
+    [Serializable]
+    public struct EquipoDisponible
+    {
+        public Equipable m_Object;
+        public float ratioAparicion;
+
+        public EquipoDisponible(Equipable _Object, float _RatioAparicion)
         {
             m_Object = _Object;
             ratioAparicion = _RatioAparicion;

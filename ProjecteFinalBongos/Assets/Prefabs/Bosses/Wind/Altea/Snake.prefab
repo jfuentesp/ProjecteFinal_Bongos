@@ -70,7 +70,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -226,6 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ParryDuration: 2
+  m_AnimationParryName: Parried
 --- !u!114 &-4123083335491497801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,7 +295,7 @@ NavMeshAgent:
   m_AngularSpeed: 0
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 0.00001
   m_BaseOffset: 0
@@ -338,6 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   times: {fileID: 0}
+  m_NameAnimation: 
 --- !u!114 &3814501471000115121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,7 +405,10 @@ MonoBehaviour:
   m_Damage: 10
   m_StatsController: {fileID: 0}
   m_player: {fileID: 0}
+  parreable: 0
+  healable: 0
   m_EstadoAlterado: 0
+  stateTime: 0
 --- !u!114 &6474592647941441239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,7 +427,6 @@ MonoBehaviour:
   m_HitboxRadius: 0
   m_TwoDirections: 1
   m_SingleAttackAnimationName: Attack
-  derecha: 0
 --- !u!1 &8475441057901500385
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,4 +601,7 @@ MonoBehaviour:
   m_Damage: 15
   m_StatsController: {fileID: 0}
   m_player: {fileID: 0}
+  parreable: 1
+  healable: 0
   m_EstadoAlterado: 2
+  stateTime: 2

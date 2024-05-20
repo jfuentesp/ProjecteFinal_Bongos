@@ -29,9 +29,37 @@ public class GryphusBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        GetComponent<SMBSingleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<SMBSingleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBDoubleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<SMBDoubleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBTripleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<SMBTripleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
         GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        transform.GetChild(0).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
         };
         m_StateMachine.ChangeState<SMBIdleState>();
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;

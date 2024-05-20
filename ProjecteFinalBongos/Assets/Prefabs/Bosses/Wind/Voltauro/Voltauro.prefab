@@ -121,7 +121,10 @@ MonoBehaviour:
   m_Damage: 20
   m_StatsController: {fileID: 0}
   m_player: {fileID: 0}
+  parreable: 1
+  healable: 0
   m_EstadoAlterado: 12
+  stateTime: 0
 --- !u!1 &5652317080108237547
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +155,7 @@ GameObject:
   - component: {fileID: 5422407730244780150}
   - component: {fileID: 1983238748092987480}
   - component: {fileID: 6431098446936519177}
+  - component: {fileID: 1370205420779961457}
   m_Layer: 0
   m_Name: Voltauro
   m_TagString: Untagged
@@ -264,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c95fcad212f9a846a53614aab35d8aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParryDuration: 2
+  m_ParryDuration: 0.5
   m_AnimationParryName: ParryVoltauro
 --- !u!50 &1995166033292200984
 Rigidbody2D:
@@ -332,7 +336,7 @@ MonoBehaviour:
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 2
   m_AreaWideness: 2
-  m_AreaRadius: 2
+  m_AreaRadius: 2.2
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
@@ -353,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3f8f95414136945818e9d39b233177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ChaseSpeed: 1
+  m_ChaseSpeed: 5
   m_ChaseAnimationName: WalkVoltauro
   m_TwoDirections: 1
 --- !u!114 &5062246643037628907
@@ -404,8 +408,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03f062997d23bf46a50d2fa12d157ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TimeBeforeCharge: 2
   m_ChargeSpeed: 10
   m_ChargeForce: 2
+  m_StartChargeAnimationName: StartChargeVoltauro
+  m_ChargeAnimationName: ChargeVoltauro
+  m_EndChargeAnimationName: 
+  m_TwoDirections: 1
 --- !u!114 &2075526701291517141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,6 +433,7 @@ MonoBehaviour:
   m_SummoningArea: 5
   m_Pool: {fileID: 0}
   m_ScriptableInfo: {fileID: 0}
+  m_AnimationName: SummoningVoltauro
 --- !u!61 &6295494223804693635
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -608,4 +618,20 @@ MonoBehaviour:
   m_Damage: 15
   m_StatsController: {fileID: 0}
   m_player: {fileID: 0}
+  parreable: 0
+  healable: 0
   m_EstadoAlterado: 4
+  stateTime: 0
+--- !u!114 &1370205420779961457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652317080108237547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8b048728a5a454191ff5fb5a4cf910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AnimationName: DieVoltauro

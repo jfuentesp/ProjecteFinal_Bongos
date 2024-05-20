@@ -11,7 +11,10 @@ public class SMBChargeState : SMState
     private Animator m_Animator;
     private BossBehaviour m_Boss;
     private NavMeshAgent m_NavMeshAgent;
-        
+
+    [Header("Time Before Charge")]
+    [SerializeField] private float m_TimeBeforeCharge;
+
 
     [Header("Charge speed")]
     [SerializeField]
@@ -21,6 +24,14 @@ public class SMBChargeState : SMState
     [SerializeField]
     private float m_ChargeForce;
 
+    [Header("Animation Name")]
+    [SerializeField] private string m_StartChargeAnimationName;
+    [SerializeField] private string m_ChargeAnimationName;
+    [SerializeField] private string m_EndChargeAnimationName;
+
+    [Header("Animation Two Directions")]
+    [SerializeField] protected bool m_TwoDirections;
+
     private bool m_IsAiming;
     private bool m_IsCharging;
 
@@ -29,6 +40,8 @@ public class SMBChargeState : SMState
     public Action<GameObject> OnChargeMissed;
     public Action<GameObject> OnChargeParried;
     public Action<GameObject> OnChargePlayer;
+
+    private bool derecha;
 
 
     private new void Awake()
@@ -55,33 +68,49 @@ public class SMBChargeState : SMState
         m_Boss.SetBusy(true);
         StartCoroutine(ChargeCoroutine());
         m_NavMeshAgent.ResetPath();
+        m_NavMeshAgent.acceleration = m_ChargeSpeed;
+        m_NavMeshAgent.speed = m_ChargeSpeed;
     }
 
     public override void ExitState()
     {
         base.ExitState();
         m_NavMeshAgent.isStopped = true;
+        StopAllCoroutines();
     }
 
     private IEnumerator ChargeCoroutine()
     {
         m_IsAiming = true;
-        yield return new WaitForSeconds(2f);
+        m_Animator.Play(m_StartChargeAnimationName);
+        yield return new WaitForSeconds(m_TimeBeforeCharge);
         m_IsAiming = false;
         m_IsCharging = true;
+        m_Animator.Play(m_ChargeAnimationName);
     }
 
     Vector3 m_Direction;
     private void Update()
     {
-        if (m_IsAiming)
+        if (m_TwoDirections)
         {
-            m_Direction = (m_Target.transform.position - transform.position).normalized;
-            m_Rigidbody.velocity = Vector3.zero;
-            Vector2 posicionPlayer = m_Target.position - transform.position;
-            float angulo = Mathf.Atan2(posicionPlayer.y, posicionPlayer.x);
-            angulo = Mathf.Rad2Deg * angulo - 90;
-            transform.localEulerAngles = new Vector3(0, 0, angulo);
+            if (m_IsAiming)
+            {
+
+                if (m_Target.position.x - transform.position.x < 0)
+                {
+                    derecha = false;
+                }
+                else
+                {
+                    derecha = true;
+                }
+                m_Direction = (m_Target.transform.position - transform.position).normalized;
+            }
+            if (derecha)
+                transform.localEulerAngles = Vector3.zero;
+            else
+                transform.localEulerAngles = new Vector3(0, 180, 0);
         }
     }
 
@@ -105,23 +134,23 @@ public class SMBChargeState : SMState
                 m_NavMeshAgent.velocity = Vector3.zero;
                 if (collision.gameObject.CompareTag("MechanicObstacle"))
                 {
-                    OnChargeMissed.Invoke(gameObject);
+                    OnChargeMissed?.Invoke(gameObject);
                 }
-                if(collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox"))
+                if (collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox"))
                 {
-                    OnChargeMissed.Invoke(gameObject);
+                    OnChargeMissed?.Invoke(gameObject);
                 }
                 if (collision.gameObject.CompareTag("Player"))
                 {
                     collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                     if (collision.gameObject.GetComponent<SMBPlayerParryState>().parry)
                     {
-                        OnChargeParried.Invoke(gameObject);
+                        OnChargeParried?.Invoke(gameObject);
                     }
                     else
                     {
                         OnChargePlayer.Invoke(gameObject);
-                        collision.gameObject.GetComponent<PJSMB>().GetDamage(GetComponent<BossAttackDamage>().Damage, GetComponent<BossAttackDamage>().EstadoAlterado);
+                        collision.gameObject.GetComponent<PJSMB>().GetDamage(GetComponent<BossAttackDamage>().Damage, GetComponent<BossAttackDamage>().EstadoAlterado, GetComponent<BossAttackDamage>().StateTime);
                         Rigidbody2D target;
                         collision.gameObject.TryGetComponent<Rigidbody2D>(out target);
                         if (target != null)

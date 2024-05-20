@@ -13,7 +13,10 @@ public class PasilloTienda : TipoSala, ISaveableTiendasData
     public int PiccoloId => m_PiccoloId;
     [Header("Variables tienda")]
     [SerializeField] private List<Consumable> m_ObjetosDisponibles = new();
+    [SerializeField] private List<Equipable> m_EquipablesDisponibles = new();
     public List<Consumable> ObjetosDisponibles => m_ObjetosDisponibles;
+    public List<Equipable> EquipablesDisponibles => m_EquipablesDisponibles;
+
     protected override void SpawnerSala()
     {
         GameObject vendedor = Instantiate(m_Vendedor, transform);
@@ -25,6 +28,7 @@ public class PasilloTienda : TipoSala, ISaveableTiendasData
     {
         m_PiccoloId = LevelManager.Instance.GiveIdToPiccoloChad();
         m_ObjetosDisponibles = LevelManager.Instance.GetObjetosTienda();
+        m_EquipablesDisponibles = LevelManager.Instance.GetEquipoTienda();
         m_CanOpenDoor = true;
         SpawnerSala();
     }

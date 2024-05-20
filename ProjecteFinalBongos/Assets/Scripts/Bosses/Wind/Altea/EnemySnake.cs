@@ -27,7 +27,12 @@ public class EnemySnake : BossBehaviour
         GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
+        }; 
+        transform.GetChild(0).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
         };
+
         m_StateMachine.ChangeState<SMBIdleState>();
     }
     public override void Init(Transform _Target)

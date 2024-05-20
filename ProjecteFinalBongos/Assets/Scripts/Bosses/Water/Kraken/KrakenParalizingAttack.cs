@@ -52,7 +52,7 @@ public class KrakenParalizingAttack : SMState
     }
     
     public void Finish() {
-        m_tentacle.GetComponent<ParalazingTentacleBehaviour>().Finish();
+       // m_tentacle.GetComponent<ParalazingTentacleBehaviour>().Finish();
         onAttackStopped?.Invoke(gameObject);
     }
   

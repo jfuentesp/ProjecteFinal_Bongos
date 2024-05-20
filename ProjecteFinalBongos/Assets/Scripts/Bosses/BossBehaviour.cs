@@ -150,32 +150,36 @@ public class BossBehaviour : MonoBehaviour
         m_HealthController.Heal(_Heal);
     }
     public void recibirDaño(float Daño)
-    {   if (EstadosController.Invencible)
-            return;
-        if (m_EstadosController.Burn)
+    {
+        if (m_IsAlive)
         {
-            m_HealthController.Damage(Daño);
-            m_EstadosController.burntDamage = (Daño * m_Stats.getModifier("Burnt")) / 100;
-            m_HealthController.Damage(m_EstadosController.burntDamage);
-        }
-        if (m_EstadosController.Wrath && m_EstadosController.Paralized)
-        {
-            Daño += Daño * m_Stats.getModifier("Paralized");
-            m_HealthController.Damage(Daño);
-        }
-        else if (m_EstadosController.Wrath)
-        {
-            Daño += Daño * m_Stats.getModifier("WrathLife");
-            m_HealthController.Damage(Daño);
-        }
-        else if (m_EstadosController.Paralized)
-        {
-            Daño += Daño * m_Stats.getModifier("Paralized");
-            m_HealthController.Damage(Daño);
-        }
-        else
-        {
-            m_HealthController.Damage(Daño);
+            if (EstadosController.Invencible)
+                return;
+            if (m_EstadosController.Burn)
+            {
+                m_HealthController.Damage(Daño);
+                m_EstadosController.burntDamage = (Daño * m_Stats.getModifier("Burnt")) / 100;
+                m_HealthController.Damage(m_EstadosController.burntDamage);
+            }
+            if (m_EstadosController.Wrath && m_EstadosController.Paralized)
+            {
+                Daño += Daño * m_Stats.getModifier("Paralized");
+                m_HealthController.Damage(Daño);
+            }
+            else if (m_EstadosController.Wrath)
+            {
+                Daño += Daño * m_Stats.getModifier("WrathLife");
+                m_HealthController.Damage(Daño);
+            }
+            else if (m_EstadosController.Paralized)
+            {
+                Daño += Daño * m_Stats.getModifier("Paralized");
+                m_HealthController.Damage(Daño);
+            }
+            else
+            {
+                m_HealthController.Damage(Daño);
+            }
         }
     }
     

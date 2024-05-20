@@ -6,7 +6,9 @@ using System.Security.Cryptography;
 using TMPro;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
 
@@ -97,6 +99,9 @@ public class InventoryController : MonoBehaviour
     private CanvasGroup m_EquippedGearCanvasGroup;
     [SerializeField]
     private CanvasGroup m_EquippedConsumablesCanvasGroup;
+    [SerializeField] private GridSlotBehaviour m_QuickItem1;
+    [SerializeField] private GridSlotBehaviour m_QuickItem2;
+    [SerializeField] private GridSlotBehaviour m_QuickItem3;
 
     private bool m_MovingConsumable;
     private bool m_MovingEquipable;
@@ -112,15 +117,31 @@ public class InventoryController : MonoBehaviour
         m_InventoryBackpack.AddConsumable(m_ConsumableToAdd2);
         m_InventoryBackpack.AddEquipable(m_EquipableSword);
         m_InventoryBackpack.AddEquipable(m_EquipableArmor);
-    }
+        PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("OpenInventory").performed += OpenInventory;
+        PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("UseQuickItem").performed += UseQuickItem;
+        PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("UseQuickItem2").performed += UseQuickItem2;
+        PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("UseQuickItem3").performed += UseQuickItem3;
 
-    private void Update()
+    }
+    private void OpenInventory(InputAction.CallbackContext context)
     {
-        if(Input.GetKeyDown(KeyCode.B))
-        {
-            RefreshInventoryGUI();
-            m_InventoryHUD.SetActive(!m_InventoryHUD.activeSelf);
-        }
+        RefreshInventoryGUI();
+        m_InventoryHUD.SetActive(!m_InventoryHUD.activeSelf);
+    }
+    private void UseQuickItem(InputAction.CallbackContext context)
+    {
+        if(m_QuickItem1.AssignedConsumable != null)
+            OnUse(m_QuickItem1.AssignedConsumable.id);
+    }
+    private void UseQuickItem2(InputAction.CallbackContext context)
+    {
+        if (m_QuickItem2.AssignedConsumable != null)
+            OnUse(m_QuickItem2.AssignedConsumable.id);
+    }
+    private void UseQuickItem3(InputAction.CallbackContext context)
+    {
+        if (m_QuickItem3.AssignedConsumable != null)
+            OnUse(m_QuickItem3.AssignedConsumable.id);
     }
 
     public void OnUse(string itemID)

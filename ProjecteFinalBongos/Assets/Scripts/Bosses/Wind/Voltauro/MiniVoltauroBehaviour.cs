@@ -12,6 +12,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(SMBSingleAttackState))]
 [RequireComponent(typeof(SMBChargeState))]
 [RequireComponent (typeof(HealthController))]
+[RequireComponent (typeof(DeathState))]
 
 public class MiniVoltauroBehaviour : BossBehaviour
 {
@@ -50,10 +51,23 @@ public class MiniVoltauroBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        GetComponent<SMBSingleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBSingleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
         GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        transform.GetChild(0).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
         m_StateMachine.ChangeState<SMBIdleState>();
     }
@@ -118,12 +132,18 @@ public class MiniVoltauroBehaviour : BossBehaviour
         m_NumberOfAttacksBeforeCharge = Random.Range(1, 6);
         m_StateMachine.ChangeState<SMBChargeState>();
     }
+    private void MatarBoss()
+    {
+        Destroy(gameObject);
+    }
+
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         m_BossMuertoEvent.Raise();
-        Destroy(gameObject);
     }
 }

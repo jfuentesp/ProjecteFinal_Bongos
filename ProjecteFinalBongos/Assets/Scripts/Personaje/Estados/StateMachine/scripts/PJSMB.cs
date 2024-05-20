@@ -51,7 +51,9 @@ public class PJSMB : MonoBehaviour
     private static PJSMB m_Instance;
     public static PJSMB Instance => m_Instance;
     [SerializeField] private InventoryController m_Inventory;
-    public InventoryController Inventory { get => m_Inventory; set => m_Inventory = value; } 
+    public InventoryController Inventory { get => m_Inventory; set => m_Inventory = value; }
+
+    public Action m_CambiaElTarget;
 
     private void Awake()
     {
@@ -72,7 +74,13 @@ public class PJSMB : MonoBehaviour
         m_playersStatsController = GetComponent<PlayerStatsController>();
         m_PlayerEstadosController = GetComponent<PlayerEstadosController>();
         m_SMBPlayerParryState = GetComponent<SMBPlayerParryState>();
+        m_HealthController.onDeath += AcabarJuego;
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void AcabarJuego()
+    {
+        GameManager.Instance.AcabarJuego();
     }
 
     private void Start()
@@ -120,14 +128,14 @@ public class PJSMB : MonoBehaviour
             if (collision.gameObject.TryGetComponent<BossAttackDamage>(out BossAttackDamage damageBoss))
             {
                 m_HealthController.Damage(damageBoss.Damage);
-                m_PlayerEstadosController.AlternarEstado(damageBoss.EstadoAlterado);
+                m_PlayerEstadosController.AlternarEstado(damageBoss.EstadoAlterado, damageBoss.StateTime);
             }
         }
     }
 
-    public void GetDamage(float _Damage, EstadosAlterados estado)
+    public void GetDamage(float _Damage, EstadosAlterados estado, float time)
     {
         m_HealthController.Damage(_Damage);
-        m_PlayerEstadosController.AlternarEstado(estado);
+        m_PlayerEstadosController.AlternarEstado(estado, time);
     }
 }

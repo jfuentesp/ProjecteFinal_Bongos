@@ -9,9 +9,13 @@ public abstract class Interactuable : MonoBehaviour
     [SerializeField] private LayerMask layersToCheck;
     [SerializeField] private float checkTime;
     [SerializeField] private GameObject checkMark;
+    [SerializeField] private Material m_DefaultMaterial;
+    [SerializeField] private Material m_OutlineMaterial;
+    protected SpriteRenderer m_SpriteRenderer;
     protected bool inRange = false;
-    private void Start()
+    protected virtual void Start()
     {
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
         StartCoroutine(check());
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("Interact").performed += Interact;
     }
@@ -21,12 +25,20 @@ public abstract class Interactuable : MonoBehaviour
             RaycastHit2D hit = Physics2D.CircleCast(transform.position, 1, transform.position, 1, layersToCheck);
             if (hit.collider != null && hit.collider.gameObject.CompareTag("Player"))
             {
-                checkMark.SetActive(true);
-                inRange = true;
+                if (!inRange)
+                {
+                    checkMark.SetActive(true);
+                    m_SpriteRenderer.material = m_OutlineMaterial;
+                    inRange = true;
+                }
             }
             else {
-                checkMark.SetActive(false);
-                inRange = false;
+                if (inRange)
+                {
+                    checkMark.SetActive(false);
+                    m_SpriteRenderer.material = m_DefaultMaterial;
+                    inRange = false;
+                }
             }
             yield return new WaitForSeconds(checkTime);
         }

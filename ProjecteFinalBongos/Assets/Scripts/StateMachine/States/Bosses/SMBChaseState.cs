@@ -49,7 +49,9 @@ public class SMBChaseState : SMState
         m_Boss.SetBusy(false);
         m_NavMeshAgent.isStopped = false;
         OnStartChase?.Invoke();
-        if(m_ChaseAnimationName != String.Empty)
+        m_NavMeshAgent.acceleration = m_ChaseSpeed;
+        m_NavMeshAgent.speed = m_ChaseSpeed;
+        if (m_ChaseAnimationName != String.Empty)
             m_Animator.Play(m_ChaseAnimationName);
     }
 
@@ -72,10 +74,6 @@ public class SMBChaseState : SMState
                     transform.localEulerAngles = new Vector3(0, 180, 0);
                 else
                     transform.localEulerAngles = Vector3.zero;
-            }
-            else
-            {
-
             }
             /*Vector2 posicionPlayer = m_Target.position - transform.position;
             float angulo = Mathf.Atan2(posicionPlayer.y, posicionPlayer.x);

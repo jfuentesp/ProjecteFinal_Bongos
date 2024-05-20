@@ -19,7 +19,7 @@ public class HabilidadDeMovimientoState : SMState
     [SerializeField]
     private EstadoEvent changeEstado;
     [SerializeField] private GameEvent invencibleTitleCard;
-    private Vector2 m_RecallPosition = Vector2.zero;
+    private Vector2 m_RecallPosition;
     [SerializeField] private GameObject m_RecallZone;
     private GameObject RecallZone = null;
     [SerializeField] private GameObject m_Clon;
@@ -154,7 +154,7 @@ public class HabilidadDeMovimientoState : SMState
                 Exit(); 
                 break;
             case AbilityEnum.RECALL:
-                if (m_RecallPosition == Vector2.zero)
+                if (RecallZone == null)
                 {
                     RecallZone = Instantiate(m_RecallZone);
                     RecallZone.transform.position = transform.position;

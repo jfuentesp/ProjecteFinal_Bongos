@@ -83,7 +83,6 @@ public class SMBRunAwayState : SMState
         //To face the target
         if (m_TwoDirections)
         {
-            print(m_NavMeshAgent.velocity.x);
             if(m_NavMeshAgent.velocity.x > 0)
                 transform.localEulerAngles = Vector3.zero;
             else

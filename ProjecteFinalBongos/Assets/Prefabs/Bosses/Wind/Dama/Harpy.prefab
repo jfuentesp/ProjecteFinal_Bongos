@@ -17,11 +17,16 @@ GameObject:
   - component: {fileID: 5096283783416473512}
   - component: {fileID: 5779588992722725201}
   - component: {fileID: 4270568068235055974}
-  - component: {fileID: 9059754093083020899}
   - component: {fileID: -578530582925190797}
   - component: {fileID: 5282036825532460603}
   - component: {fileID: -274922059993911915}
   - component: {fileID: 4026666115353880429}
+  - component: {fileID: 8137140685791943744}
+  - component: {fileID: 4660995388247001053}
+  - component: {fileID: 7961609646063201408}
+  - component: {fileID: 5370443792344523203}
+  - component: {fileID: 4567108599630937664}
+  - component: {fileID: 469436567016616782}
   m_Layer: 9
   m_Name: Harpy
   m_TagString: Untagged
@@ -86,8 +91,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.9056604, g: 0.31185475, b: 0.31185475, a: 1}
+  m_Sprite: {fileID: 976156534, guid: eaaa0fd7458ce4a4ab706c1f990344dc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -183,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee5c8230df4f49ae73db6a2eb0766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IdleAnimationName: 
+  m_IdleAnimationName: Walk
 --- !u!114 &5096283783416473512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,9 +201,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe35ba9926d94b44953ef6b78a82d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FlyingHarpyAnimationname: 
+  m_FlyingHarpyAnimationname: Walk
   m_FlyingSpeed: 3
   m_OnDeathEvent: {fileID: 11400000, guid: c158ea061bdb7614d9e7adfc6b66abd3, type: 2}
+  m_TwoDirections: 1
 --- !u!114 &5779588992722725201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +221,11 @@ MonoBehaviour:
   m_HitboxLength: 2
   m_HitboxWideness: 2
   m_HitboxRadius: 2
-  m_SingleAttackAnimationName: 
+  m_TwoDirections: 1
+  m_SingleAttackAnimationName: Attack
+  m_WaitAnimation: 
+  minWaitTime: 0
+  maxWaitTime: 0
 --- !u!95 &4270568068235055974
 Animator:
   serializedVersion: 5
@@ -226,7 +236,7 @@ Animator:
   m_GameObject: {fileID: 2175183814778568638}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 68f83489abd2e6543a3bd4f6abb7fbb6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -237,41 +247,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!58 &9059754093083020899
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2175183814778568638}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!195 &-578530582925190797
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -306,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAXHP: 100
+  MAXHP: 100.3
 --- !u!114 &-274922059993911915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,11 +300,16 @@ MonoBehaviour:
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 1.5
   m_AreaWideness: 1.5
-  m_AreaRadius: 1.5
+  m_AreaRadius: 1.3
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
     m_Bits: 128
+  m_BossMuertoEvent: {fileID: 0}
+  m_layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_OnDeathEvent: {fileID: 11400000, guid: c158ea061bdb7614d9e7adfc6b66abd3, type: 2}
 --- !u!114 &4026666115353880429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,6 +322,110 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e39f6090724e4a4a8aadeb042afa2bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8137140685791943744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175183814778568638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cca67139dff3dd488cb7cce9fe6c87c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: {fileID: 0}
+--- !u!114 &4660995388247001053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175183814778568638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: {fileID: 0}
+  m_NameAnimation: Parried
+--- !u!114 &7961609646063201408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175183814778568638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83c8b096c741d3344bcc550c5c033407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Invencible: 0
+  Stun: 0
+  Poison: 0
+  Wet: 0
+  Burn: 0
+  Wrath: 0
+  Speedy: 0
+  StrongMan: 0
+  Stuck: 0
+  Paralized: 0
+  velocityBefore: 0
+  strengthBefore: 0
+  poisonCount: 4
+  poisonDamage: 0
+  burntDamage: 0
+--- !u!114 &5370443792344523203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175183814778568638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c862eb733f111414daa1cc87977a7bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bossTimes: {fileID: 0}
+  m_ParalizedLifeModifier: 2
+  m_WrathLifeModifier: 1.5
+  m_WaterResistance: 5
+  m_FireResistance: 5
+  m_ElectricResistance: 5
+  m_bossBaseStats: {fileID: 11400000, guid: 2ed16064ca0caa64a94df5785d23f5c8, type: 2}
+  m_Velocity: 0
+  m_AttackTime: 1
+  m_Strength: 0
+  m_Defense: 0
+--- !u!114 &4567108599630937664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175183814778568638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8b048728a5a454191ff5fb5a4cf910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AnimationName: Death
+--- !u!114 &469436567016616782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175183814778568638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c95fcad212f9a846a53614aab35d8aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ParryDuration: 1
+  m_AnimationParryName: Parried
 --- !u!1 &4513034500936218330
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +437,8 @@ GameObject:
   - component: {fileID: 8555078762060385985}
   - component: {fileID: 6224796117303506154}
   - component: {fileID: 627090036873684846}
-  m_Layer: 9
+  - component: {fileID: 2976602378533382893}
+  m_Layer: 8
   m_Name: AttackHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,3 +532,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2976602378533382893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4513034500936218330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3705b7a045dce4488aa2017422848a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 15
+  m_StatsController: {fileID: 0}
+  m_player: {fileID: 0}
+  parreable: 1
+  healable: 0
+  m_EstadoAlterado: 12
+  stateTime: 0

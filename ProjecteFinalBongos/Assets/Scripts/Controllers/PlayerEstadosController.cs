@@ -8,6 +8,7 @@ public class PlayerEstadosController : MonoBehaviour
     private HealthController m_HealthController;
     private PlayerStatsController m_Stats;
     private PJSMB m_PJ;
+    [SerializeField] private GameObject PoisonParticles;
     public bool Invencible, Stun, Poison, Wet, Burn, Wrath, Speedy, StrongMan, Stuck, Paralized;
     public float velocityBefore;
     public float strengthBefore;
@@ -138,6 +139,7 @@ public class PlayerEstadosController : MonoBehaviour
     IEnumerator PoisonRoutine(float time)
     {
         Poison = true;
+        PoisonParticles.SetActive(true);
         while (poisonCount > 0)
         {
             yield return new WaitForSeconds(time);
@@ -146,6 +148,7 @@ public class PlayerEstadosController : MonoBehaviour
             poisonCount--;
         }
         Poison = false;
+        PoisonParticles.SetActive(false);
         poisonCount = poisonNum;
         PararCorrutina("PoisonRoutine");
     }
