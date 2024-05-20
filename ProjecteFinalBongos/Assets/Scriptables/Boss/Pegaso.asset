@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb0ecdfb190bf7c43b7f8a35d54d10f7, type: 3}
-  m_Name: Player
+  m_Script: {fileID: 11500000, guid: 266dd745bfa212f4bbd0782087fe4b88, type: 3}
+  m_Name: Pegaso
   m_EditorClassIdentifier: 
-  m_BaseVelocity: 15
-  m_BaseAttackTime: 1
-  m_BaseStrongAttack: 20
-  m_BaseWeakAttack: 10
-  m_BaseStrength: 70
-  m_BaseDefense: 20
+  attack: 12
+  defense: 12
+  speed: 15
