@@ -164,6 +164,9 @@ MonoBehaviour:
   m_HitboxRadius: 0
   m_TwoDirections: 1
   m_SingleAttackAnimationName: Attck
+  m_WaitAnimation: Wait
+  minWaitTime: 0.2
+  maxWaitTime: 0.3
 --- !u!114 &2766508921107913157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,6 +463,7 @@ MonoBehaviour:
   parreable: 0
   healable: 0
   m_EstadoAlterado: 4
+  stateTime: 0
 --- !u!1 &3652744599734502512
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,3 +560,4 @@ MonoBehaviour:
   parreable: 1
   healable: 0
   m_EstadoAlterado: 12
+  stateTime: 0
