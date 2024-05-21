@@ -8,14 +8,14 @@ using UnityEngine.AI;
 
 public class PruebaNavMesh : MonoBehaviour
 {
-    [SerializeField]
     GeneracionSalaInstanciacion m_Mapa;
+
     private NavMeshSurface surface;
     private void Awake()
     {
         surface = GetComponent<NavMeshSurface>();
+        m_Mapa = LevelManager.Instance.GeneracionSalasInstanciacion;
         m_Mapa.onMapaFinalized += ConstruirMapa;
-
     }
 
     // Start is called before the first frame update
@@ -35,6 +35,15 @@ public class PruebaNavMesh : MonoBehaviour
 
     void BakeNavMesh()
     {
+        NavMesh.RemoveAllNavMeshData();
+        surface.BuildNavMesh();
+    }
+
+    public void Init()
+    {
+        surface = GetComponent<NavMeshSurface>();
+        m_Mapa = LevelManager.Instance.GeneracionSalasInstanciacion;
+        m_Mapa.onMapaFinalized += ConstruirMapa;
         NavMesh.RemoveAllNavMeshData();
         surface.BuildNavMesh();
     }

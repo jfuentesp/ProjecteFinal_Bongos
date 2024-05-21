@@ -6,11 +6,10 @@ using UnityEngine.UI;
 
 public class QuickItemGUIController : MonoBehaviour
 {
+    private InventoryController m_Inventory;
 
     [SerializeField]
     private Backpack m_PlayerBackpack;
-    [SerializeField]
-    private InventoryController m_Inventory;
     [SerializeField]
     private GridSlotBehaviour m_GridSlot;
     private Consumable m_AssignedConsumable;
@@ -18,6 +17,11 @@ public class QuickItemGUIController : MonoBehaviour
     private Image m_QuickItemImage;
     [SerializeField]
     private TextMeshProUGUI m_Quantity;
+
+    private void Awake()
+    {
+        m_Inventory = LevelManager.Instance.InventoryController;
+    }
 
     private void Start()
     {

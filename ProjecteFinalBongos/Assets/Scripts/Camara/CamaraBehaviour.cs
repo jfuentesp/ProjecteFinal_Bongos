@@ -9,7 +9,7 @@ public class CamaraBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_Player = GameManager.Instance.PlayerInGame.transform;
+        m_Player = PJSMB.Instance.transform;
     }
 
     // Update is called once per frame

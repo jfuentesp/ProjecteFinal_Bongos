@@ -166,7 +166,6 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     private void BichitoMuerto()
     {
         m_BichitosVivos--;
-        print("Eyou");
         if (m_BichitosVivos == 0)
             StartCoroutine(SpawnFinalBossCoroutine());
     }
@@ -237,6 +236,8 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     {
         m_NumeroBoss = _salaBossData.m_NumeroBoss;
         m_ListaSalasPadreHijas = _salaBossData.m_SalasHijas;
-        Init(m_ListaSalasPadreHijas, m_NumeroBoss);
+        TodasLasSalasEnUnaLista();
+        MaximosMinimosSala();
+        SpawnerSala();
     }
 }

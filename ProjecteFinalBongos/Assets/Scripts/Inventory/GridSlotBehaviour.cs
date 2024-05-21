@@ -19,8 +19,9 @@ public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     private TextMeshProUGUI m_QuantityText;
     [SerializeField]
     private Button m_SlotButton;
-    [SerializeField]
+
     private InventoryController m_InventoryController;
+
     [SerializeField]
     private Backpack m_Backpack;
 
@@ -33,6 +34,11 @@ public class GridSlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, 
     [Header("Action Menu")]
     [SerializeField]
     private GameObject m_ActionPanel;
+
+    private void Start()
+    {
+        m_InventoryController = LevelManager.Instance.InventoryController;
+    }
 
     public void SetConsumable(Consumable consumableToSet)
     {

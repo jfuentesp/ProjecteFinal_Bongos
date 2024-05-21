@@ -18,8 +18,6 @@ public class InventoryController : MonoBehaviour
     [SerializeField]
     private GameObject m_InventoryHUD;
     [SerializeField]
-    private GameObject m_InventorySlotPrefab;
-    [SerializeField]
     private Backpack m_InventoryBackpack;
     public Backpack BackPack => m_InventoryBackpack;
 
@@ -61,7 +59,7 @@ public class InventoryController : MonoBehaviour
     private GridSlotBehaviour m_Weapon;
     [SerializeField]
     private GridSlotBehaviour m_Armor;
-    [SerializeField]
+
     private PlayerStatsController m_PlayerStats;
 
     [Header("QuickItems HUD settings")]
@@ -105,23 +103,25 @@ public class InventoryController : MonoBehaviour
 
     private bool m_MovingConsumable;
     private bool m_MovingEquipable;
+    private bool m_IsStarted;
     [SerializeField] private GameObject m_ItemPrefab;
+
+    private GameObject m_Player;
 
     private void Start()
     {
+        m_PlayerStats = PJSMB.Instance.PlayerStatsController;
+        m_Player = GameManager.Instance.PlayerInGame;
         m_MovingConsumable = false;
         m_MovingEquipable = false;
         m_LastSelection = m_InitialButton;
-        PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("OpenInventory").performed += OpenInventory;
+        
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("UseQuickItem").performed += UseQuickItem;
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("UseQuickItem2").performed += UseQuickItem2;
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("UseQuickItem3").performed += UseQuickItem3;
-    }
-    private void OpenInventory(InputAction.CallbackContext context)
-    {
         RefreshInventoryGUI();
-        m_InventoryHUD.SetActive(!m_InventoryHUD.activeSelf);
     }
+
     private void UseQuickItem(InputAction.CallbackContext context)
     {
         if(m_QuickItem1.AssignedConsumable != null)
@@ -143,7 +143,7 @@ public class InventoryController : MonoBehaviour
         Consumable itemToUse = m_InventoryBackpack.ConsumableSlots.FirstOrDefault(item => item?.Consumable.id == itemID).Consumable;
         if (itemToUse != null)
         {
-            itemToUse.OnUse(transform.root.gameObject);
+            itemToUse.OnUse(m_Player);
             m_InventoryBackpack.RemoveConsumable(itemToUse);
         }
         RefreshInventoryGUI();
@@ -155,7 +155,7 @@ public class InventoryController : MonoBehaviour
         Equipable itemToUse = m_InventoryBackpack.EquipableSlots.FirstOrDefault(item => item?.Equipable.id == itemID).Equipable;
         if(itemToUse != null) 
         { 
-            itemToUse.OnEquip(transform.root.gameObject);
+            itemToUse.OnEquip(m_Player);
             m_InventoryBackpack.RemoveEquipable(itemToUse);
         }
         RefreshEquipableGUI();
@@ -168,7 +168,7 @@ public class InventoryController : MonoBehaviour
         if (slot.AssignedEquipable != null)
         {
             m_InventoryBackpack.AddEquipable(slot.AssignedEquipable);
-            slot.AssignedEquipable.OnRemove(transform.root.gameObject);
+            slot.AssignedEquipable.OnRemove(m_Player);
             slot.RefreshEquipment();
             RefreshInventoryGUI();
         }
@@ -350,6 +350,7 @@ public class InventoryController : MonoBehaviour
         m_Armor.SetEquipable(m_PlayerStats.Armor);
         m_Weapon.RefreshEquipment();
         m_Armor.RefreshEquipment();
+        print(m_Weapon.AssignedEquipable);
     }
 
     /* SETTERS */

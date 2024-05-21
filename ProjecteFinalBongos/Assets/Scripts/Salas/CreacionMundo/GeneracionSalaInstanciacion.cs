@@ -60,17 +60,25 @@ namespace GeneracionSalas
 
         private IEnumerator InstanciaMundoCoroutine()
         {
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(1);
+            GenerarMundo();
+          
+
+        }
+
+        private void GenerarMundo()
+        {
             GenSalasBoss();
             GenPasillos();
             PintarTilemap();
+
             onMapaFinalized?.Invoke();
             if (GameManager.Instance.NuevaPartida)
             {
                 LevelManager.Instance.GuardarPartida();
             }
-
         }
+
         public void InstanciarElMundo(int[,] _matrix, List<ListaSalasConHijos> _ListaSalasPadreConHijos, List<ListaSalasConHijos> _ListaPasillosConSalas)
         {
             matrix = _matrix;
