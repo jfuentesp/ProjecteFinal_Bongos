@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7823156985751946505}
   - component: {fileID: 7756242623279990475}
   - component: {fileID: 4022045264291484453}
-  - component: {fileID: 5069909168076150488}
   - component: {fileID: 6964128678803948264}
   - component: {fileID: 6883367712050160968}
   - component: {fileID: 3151661092243491725}
@@ -29,6 +28,7 @@ GameObject:
   - component: {fileID: 8147589741727174627}
   - component: {fileID: 2233925375138777732}
   - component: {fileID: 55494222987432255}
+  - component: {fileID: 5415231353583326773}
   m_Layer: 9
   m_Name: DracMari
   m_TagString: Untagged
@@ -44,10 +44,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8260551587002213075}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.598867, y: 74.082344, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5440578581560310340}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -92,8 +93,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1cf35e76a32c87c4da15e964cea769b2, type: 3}
-  m_Color: {r: 0.3843549, g: 0.028195057, b: 0.6792453, a: 1}
+  m_Sprite: {fileID: -1082273894, guid: 35e9ee2e088346245b341dc241bbe690, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -150,20 +151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IdleAnimationName: idleDracMari
---- !u!114 &5069909168076150488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8260551587002213075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7a79253711c73241a65516482450297, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TiempoAutoAtaque: 0
-  m_Pool: {fileID: 0}
 --- !u!114 &6964128678803948264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ChaseSpeed: 6
-  m_ChaseAnimationName: 
+  m_ChaseAnimationName: Walk
+  m_TwoDirections: 1
 --- !u!114 &6883367712050160968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,10 +181,11 @@ MonoBehaviour:
   m_RunSpeed: 5
   m_minimumWalkingDuration: 3
   m_maximumWalkingDuration: 6
-  m_ChaseAnimationName: 
+  m_ChaseAnimationName: Retreat
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 128
+  m_TwoDirections: 1
 --- !u!114 &3151661092243491725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,8 +224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_event: {fileID: 0}
   times: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
+  m_NameAnimation: 
 --- !u!114 &6715348647680617420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,8 +358,8 @@ MonoBehaviour:
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
-    m_Bits: 1152
-  m_BossMuertoEvent: {fileID: 0}
+    m_Bits: 128
+  m_BossMuertoEvent: {fileID: 11400000, guid: a68c2e2d0411f4242b3bfb77d6d424f3, type: 2}
   m_layerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -407,18 +396,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.023520887, y: 0.005880177}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.421875, y: 1.421875}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5880216, y: 1.6938654}
   m_EdgeRadius: 0
 --- !u!114 &8147589741727174627
 MonoBehaviour:
@@ -433,6 +422,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Pool: {fileID: 0}
+  m_ShootAnimation: RangeAttack
+  m_WaitAnimation: Wait
+  minWaitTime: 0.2
+  maxWaitTime: 0.25
+  m_TwoDirections: 1
+  m_SpawnPosition: {fileID: 5440578581560310340}
 --- !u!114 &2233925375138777732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,6 +441,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_meteor: {fileID: 5859692306482454946, guid: 4cb2c0e8ea04f5f4bafb3c6a9dab1a43, type: 3}
+  m_MeteorExplosionAnimation: Meteor
+  m_WaitAnimation: WaitMeteor
+  minWaitTime: 0.3
+  maxWaitTime: 0.4
 --- !u!114 &55494222987432255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,3 +458,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_tornado: {fileID: 3479318169914771735, guid: f76a3699ee924f548aa93f5159f495b8, type: 3}
+  m_BeginExplosionAnimation: Explosion
+  m_MidExplosionAnimation: ExplosionCloser
+  m_WaitAnimation: WaitTornado
+  minWaitTime: 1
+  maxWaitTime: 1
+--- !u!114 &5415231353583326773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260551587002213075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8b048728a5a454191ff5fb5a4cf910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AnimationName: Death
+--- !u!1 &8833129703966477732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5440578581560310340}
+  m_Layer: 9
+  m_Name: SpawnPointBullet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5440578581560310340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8833129703966477732}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4991433896677283170}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

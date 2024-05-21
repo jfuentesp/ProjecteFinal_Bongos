@@ -10,7 +10,7 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
     private AbilityTierEnum m_SlotTier;
     [SerializeField]
     private AbilityCategoryEnum m_SlotCategory;
-    [SerializeField]
+
     private AbilitiesGUIController m_AbilitiesGUI;
     [SerializeField]
     private Image m_AbilityImage;
@@ -24,14 +24,9 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
 
     private bool m_IsChosen = false;
 
-    // Start is called before the first frame update
-    void Awake()
+    public void Initialize()
     {
-        Initialize();        
-    }
-
-    private void Initialize()
-    {
+        m_AbilitiesGUI = LevelManager.Instance.AbilitiesGUIController;
         m_AssignedAbility = m_AbilitiesGUI.GetRandomAbilityByTierAndType(m_SlotTier, m_SlotCategory);
     }
 
@@ -75,7 +70,7 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
 
     public void OnSubmit(BaseEventData eventData)
     {
-        if (m_AbilitiesGUI.AbilityPoints <= 0)
+        if (m_AbilitiesGUI.AbilityPoints.HabilityPoints <= 0)
             return;
         m_IsChosen = true;
         m_AbilitiesGUI.SetAbility(AssignedAbility);
@@ -83,7 +78,7 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (m_AbilitiesGUI.AbilityPoints <= 0)
+        if (m_AbilitiesGUI.AbilityPoints.HabilityPoints <= 0)
             return;
         m_IsChosen = true;
         m_AbilitiesGUI.SetAbility(AssignedAbility);

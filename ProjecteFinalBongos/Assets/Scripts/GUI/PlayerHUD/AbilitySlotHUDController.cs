@@ -19,12 +19,12 @@ public class AbilitySlotHUDController : MonoBehaviour
     private AbilitySlotEnum m_AbilitySlotEnum;
 
     [Header("Player components")]
-    [SerializeField]
     private PlayerAbilitiesController m_PlayerAbilities;
 
     // Start is called before the first frame update
     void Start()
     {
+        m_PlayerAbilities = PJSMB.Instance.PlayerAbilitiesController;
         m_PlayerAbilities.OnLearnAbility += OnLearnAbilityAction;
         UpdateAssignedAbility();
         UpdateAbilitySlotGUI();

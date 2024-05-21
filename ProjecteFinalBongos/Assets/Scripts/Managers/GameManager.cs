@@ -56,6 +56,17 @@ public class GameManager : MonoBehaviour
     private MultiLanguageManager m_LanguageManager;
     public MultiLanguageManager LanguageManager => m_LanguageManager;
 
+    [Header("Listed Abilities")]
+    [SerializeField]
+    private List<Ability> m_Tier1Abilities;
+    public List<Ability> Tier1Abilities => m_Tier1Abilities;
+    [SerializeField]
+    private List<Ability> m_Tier2Abilities;
+    public List<Ability> Tier2Abilities => m_Tier2Abilities;
+    [SerializeField]
+    private List<Ability> m_Tier3Abilities;
+    public List<Ability> Tier3Abilities => m_Tier3Abilities;
+
     private void Awake()
     {
         if (m_Instance == null)

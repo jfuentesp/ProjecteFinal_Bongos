@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class OpcionesGUIScript : MonoBehaviour
 {
     [SerializeField] private TMP_Dropdown m_IdiomasDropDown;
-    [SerializeField] private Font m_Font;
     [SerializeField] private Toggle m_FullScreenToggle;
     [SerializeField] private TMP_Dropdown m_ResolucionesDropDown;
 

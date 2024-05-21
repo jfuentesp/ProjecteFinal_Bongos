@@ -11,8 +11,12 @@ public class ActionButtons : MonoBehaviour
     [SerializeField]
     private CanvasGroup m_ActionButtonsCanvasGroup;
 
-    [SerializeField]
     private InventoryController m_InventoryController;
+
+    private void Start()
+    {
+        m_InventoryController = LevelManager.Instance.InventoryController;
+    }
 
     private void OnEnable()
     {

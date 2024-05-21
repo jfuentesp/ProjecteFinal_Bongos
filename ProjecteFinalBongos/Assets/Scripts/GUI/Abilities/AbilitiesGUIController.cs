@@ -11,16 +11,11 @@ public class AbilitiesGUIController : MonoBehaviour
     [Header("Ability GUI components")]
     [SerializeField]
     private GameObject m_AbilityHUD;
-    [SerializeField]
-    private PlayerStatsController m_PlayerStats;
 
-    [Header("Listed Abilities")]
-    [SerializeField]
-    private List<Ability> m_Tier1Abilities;
-    [SerializeField]
-    private List<Ability> m_Tier2Abilities;
-    [SerializeField]
-    private List<Ability> m_Tier3Abilities;
+    private PlayerStatsController m_PlayerStats;
+    private PlayerAbilitiesController m_PlayerAbilities;
+
+    private GameManager m_GameManager;
 
     private AbilityTierEnum m_CurrentOffensiveTier = AbilityTierEnum.TIER1;
     private AbilityTierEnum m_CurrentDefensiveTier = AbilityTierEnum.TIER1;
@@ -57,30 +52,26 @@ public class AbilitiesGUIController : MonoBehaviour
     [SerializeField]
     private List<AbilitySlotBehaviour> m_Slots;
 
-    private int m_AbilityPoints;
-    public int AbilityPoints => m_AbilityPoints;
+    private HabilityPointsController m_AbilityPoints;
+    public HabilityPointsController AbilityPoints => m_AbilityPoints;
 
-    [SerializeField]
-    private PlayerAbilitiesController m_PlayerAbilities;
+
 
     // Start is called before the first frame update
     void Awake()
     {
         m_LastSelectedSlot = m_InitialButton;
-        m_AbilityPoints = 3;
-
     }
+
     private void Start()
     {
-        PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("OpenAbilities").performed += OpenAbilities;
-    }
-
-    // Update is called once per frame
-    private void OpenAbilities(InputAction.CallbackContext context)
-    {
-        m_AbilityHUD.SetActive(!m_AbilityHUD.activeSelf);
+        m_GameManager = GameManager.Instance;
+        m_PlayerStats = PJSMB.Instance.PlayerStatsController;
+        m_PlayerAbilities = PJSMB.Instance.PlayerAbilitiesController;
+        m_AbilityPoints = PJSMB.Instance.PlayerAbilityPoints;
         RefreshAbilityGUI();
     }
+
     public Ability GetRandomAbilityByTierAndType(AbilityTierEnum tier, AbilityCategoryEnum category)
     {
         int random = 0;
@@ -88,11 +79,11 @@ public class AbilitiesGUIController : MonoBehaviour
         switch (tier)
         {
             case AbilityTierEnum.TIER1:
-                random = Random.Range(0, m_Tier1Abilities.Count);
-                ability = m_Tier1Abilities[random];
+                random = Random.Range(0, m_GameManager.Tier1Abilities.Count);
+                ability = m_GameManager.Tier1Abilities[random];
                 if(ability.Category == category)
                 {
-                    m_Tier1Abilities.Remove(ability);
+                    m_GameManager.Tier1Abilities.Remove(ability);
                     return ability;
                 } 
                 else
@@ -100,11 +91,11 @@ public class AbilitiesGUIController : MonoBehaviour
                     return GetRandomAbilityByTierAndType(tier, category);
                 }
             case AbilityTierEnum.TIER2:
-                random = Random.Range(0, m_Tier1Abilities.Count);
-                ability = m_Tier2Abilities[random];
+                random = Random.Range(0, m_GameManager.Tier2Abilities.Count);
+                ability = m_GameManager.Tier2Abilities[random];
                 if (ability.Category == category)
                 {
-                    m_Tier2Abilities.Remove(ability);
+                    m_GameManager.Tier2Abilities.Remove(ability);
                     return ability;
                 }
                 else
@@ -112,11 +103,11 @@ public class AbilitiesGUIController : MonoBehaviour
                     return GetRandomAbilityByTierAndType(tier, category);
                 }
             case AbilityTierEnum.TIER3:
-                random = Random.Range(0, m_Tier1Abilities.Count);
-                ability = m_Tier3Abilities[random];
+                random = Random.Range(0, m_GameManager.Tier3Abilities.Count);
+                ability = m_GameManager.Tier3Abilities[random];
                 if (ability.Category == category)
                 {
-                    m_Tier3Abilities.Remove(ability);
+                    m_GameManager.Tier3Abilities.Remove(ability);
                     return ability;
                 }
                 else
@@ -135,10 +126,20 @@ public class AbilitiesGUIController : MonoBehaviour
         RefreshDescriptionGUI();
     }
 
+    private void OnInitializeAbilities(AbilitySlotBehaviour slot)
+    {
+        if (slot.AssignedAbility != null)
+            return;
+
+        if (m_GameManager.NuevaPartida)
+            slot.Initialize();
+    }
+
     private void OnGuiRefresh()
     {
         foreach(AbilitySlotBehaviour slot in m_Slots)
         {
+            OnInitializeAbilities(slot);
             switch(slot.AssignedAbility.Category)
             {
                 case AbilityCategoryEnum.OFFENSIVE:
@@ -156,9 +157,9 @@ public class AbilitiesGUIController : MonoBehaviour
 
     private void RefreshDescriptionGUI()
     {
-        m_AvailablePointsText.text = m_AbilityPoints.ToString();
+        m_AvailablePointsText.text = m_AbilityPoints.HabilityPoints.ToString();
 
-        if(m_AbilityPoints <= 0)
+        if(m_AbilityPoints.HabilityPoints <= 0)
         {
             m_AvailablePointsText.color = m_ZeroPointsColor;
         } 
@@ -196,7 +197,7 @@ public class AbilitiesGUIController : MonoBehaviour
 
     public void SetAbility(Ability ability)
     {
-        m_AbilityPoints--;
+        m_AbilityPoints.ConsumeAbilityPoints(1);
         switch(ability.TypeEnum)
         {
             case AbilityTypeEnum.ABILITY:

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2460941521321669748}
   - component: {fileID: 6680870749267416029}
   - component: {fileID: -3308812818241463687}
+  - component: {fileID: 2155942602176928196}
   m_Layer: 0
   m_Name: Splash
   m_TagString: Splash
@@ -32,7 +33,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8564957952386650585}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.027, y: -0.022, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -210,10 +211,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d0578bc1d3caf4c97b4c259272b324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TimeUntilDestroyed: 5
-  m_SizeLength: 1
-  m_SizeWideness: 1
+  m_TimeUntilDestroyed: 4
+  m_SizeLength: 4
+  m_SizeWideness: 4
   m_SplashEffectState: 0
+  m_Damage: 6
+  Animation: DracMariSplash
 --- !u!114 &-3308812818241463687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,4 +232,28 @@ MonoBehaviour:
   m_Damage: 0
   m_StatsController: {fileID: 0}
   m_player: {fileID: 0}
-  m_EstadoAlterado: 3
+  parreable: 0
+  healable: 0
+  m_EstadoAlterado: 12
+  stateTime: 0
+--- !u!95 &2155942602176928196
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8564957952386650585}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4aebad0c40618641a61f82784164f60, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -6,8 +6,6 @@ public class DracMBullet : Bullet
 {
     [SerializeField] private Pool m_pool;
     private bool boss;
-    [SerializeField] private float m_damage;
-    public float Damage => m_damage;
     public new void Init(Vector2 direction)
     {
         transform.up = direction;
@@ -16,6 +14,7 @@ public class DracMBullet : Bullet
         m_Rigidbody.velocity = transform.up * m_Speed;
         m_pool = LevelManager.Instance._SplashPool;
         boss = false;
+        m_AttackDamage.SetDamage(m_Damage);
         gameObject.tag = "Untagged";
     }
 
@@ -36,6 +35,7 @@ public class DracMBullet : Bullet
                 DracMVaporSplash vaporsplash = vaporCrash.GetComponent<DracMVaporSplash>();
                 vaporsplash.enabled = true;
                 vaporCrash.GetComponent<DracMVaporSplash>().Init();
+                vaporCrash.GetComponent<DracMVaporSplash>().ChangeLayer("BossHitBox");
                 DisableBullet();
             }
             else if (collision.gameObject.CompareTag("Player"))
@@ -48,13 +48,13 @@ public class DracMBullet : Bullet
                 }
                 else
                 {
-                    collision.GetComponent<PJSMB>().recibirDamage(m_damage);
                     GameObject vaporCrash = m_pool.GetElement();
                     vaporCrash.transform.position = transform.position;
                     vaporCrash.SetActive(true);
                     DracMVaporSplash vaporsplash = vaporCrash.GetComponent<DracMVaporSplash>();
                     vaporsplash.enabled = true;
                     vaporCrash.GetComponent<DracMVaporSplash>().Init();
+                    vaporCrash.GetComponent<DracMVaporSplash>().ChangeLayer("BossHitBox");
                     DisableBullet();
                 }
             }
@@ -66,6 +66,7 @@ public class DracMBullet : Bullet
                 DracMVaporSplash vaporsplash = vaporCrash.GetComponent<DracMVaporSplash>();
                 vaporsplash.enabled = true;
                 vaporCrash.GetComponent<DracMVaporSplash>().Init();
+                vaporCrash.GetComponent<DracMVaporSplash>().ChangeLayer("PlayerHitBox");
                 vaporCrash.tag = "DracPlayerSplash";
                 DisableBullet();
             }

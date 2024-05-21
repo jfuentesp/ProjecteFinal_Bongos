@@ -53,7 +53,14 @@ public class PJSMB : MonoBehaviour
     [SerializeField] private InventoryController m_Inventory;
     public InventoryController Inventory { get => m_Inventory; set => m_Inventory = value; }
 
+    private GoldController m_PlayerGold;
+    public GoldController PlayerGold => m_PlayerGold;
+
+    private HabilityPointsController m_PlayerAbilityPoints;
+    public HabilityPointsController PlayerAbilityPoints => m_PlayerAbilityPoints;
+
     public Action m_CambiaElTarget;
+    public Action OnPlayerDamaged;
 
     private void Awake()
     {
@@ -73,6 +80,8 @@ public class PJSMB : MonoBehaviour
         m_playerEstadosController = GetComponent<PlayerEstadosController>();
         m_playersStatsController = GetComponent<PlayerStatsController>();
         m_PlayerEstadosController = GetComponent<PlayerEstadosController>();
+        m_PlayerGold = GetComponent<GoldController>();
+        m_PlayerAbilityPoints = GetComponent<HabilityPointsController>();
         m_SMBPlayerParryState = GetComponent<SMBPlayerParryState>();
         m_HealthController.onDeath += AcabarJuego;
         DontDestroyOnLoad(this.gameObject);
@@ -126,12 +135,13 @@ public class PJSMB : MonoBehaviour
         {
             if (collision.gameObject.TryGetComponent<BossAttackDamage>(out BossAttackDamage damageBoss))
             {
-                m_HealthController.Damage(damageBoss.Damage);
+
+                recibirDamage(damageBoss.Damage);
                 m_PlayerEstadosController.AlternarEstado(damageBoss.EstadoAlterado, damageBoss.StateTime);
             }
         }
+       
     }
-
     public void GetDamage(float _Damage, EstadosAlterados estado, float time)
     {
         m_HealthController.Damage(_Damage);

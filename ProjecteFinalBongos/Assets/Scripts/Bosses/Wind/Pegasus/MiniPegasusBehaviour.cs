@@ -132,7 +132,5 @@ public class MiniPegasusBehaviour : BossBehaviour
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         m_BossMuertoEvent.Raise();
-
-        Destroy(gameObject);
     }
 }

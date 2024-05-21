@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private PruebaNavMesh m_LevelManagerNavmesh;
     public PruebaNavMesh LevelManagerNavmesh => m_LevelManagerNavmesh;
-    
+
     private static LevelManager m_Instance;
     public static LevelManager Instance => m_Instance;
 
@@ -71,6 +71,12 @@ public class LevelManager : MonoBehaviour
 
     private StoreGUIController m_StoreGUIController;
     public StoreGUIController StoreGUIController => m_StoreGUIController;
+    private AbilitiesGUIController m_AbilitiesGUIController;
+    public AbilitiesGUIController AbilitiesGUIController => m_AbilitiesGUIController;
+    private PlayerHUDController m_PlayerHUDController;
+    public PlayerHUDController PlayerHUDController => m_PlayerHUDController;
+    private InventoryController m_InventoryController;
+    public InventoryController InventoryController => m_InventoryController;
 
     private EventSystem m_eventSystem;
     public EventSystem EventSystem => m_eventSystem;
@@ -97,13 +103,11 @@ public class LevelManager : MonoBehaviour
 
     private void DesfundirNegro()
     {
-        print("MundoGenerado");
         StartCoroutine(DesfundirNegroCoroutine());
     }
 
     private IEnumerator DesfundirNegroCoroutine()
     {
-        m_FundidoNegroPanel.SetActive(true);
         while (m_FundidoNegroPanel.GetComponent<Image>().color.a > 0)
         {
             Color colorin = m_FundidoNegroPanel.GetComponent<Image>().color;

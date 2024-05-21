@@ -8,7 +8,7 @@ public class AbilityPanelBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        m_AbilitiesController = GetComponentInParent<AbilitiesGUIController>();
+        m_AbilitiesController = LevelManager.Instance.AbilitiesGUIController;
     }
 
     private void OnEnable()

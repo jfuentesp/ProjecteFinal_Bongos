@@ -7,11 +7,16 @@ public class EquippedButtonBehaviour : MonoBehaviour, ISubmitHandler, ICancelHan
 {
     [SerializeField]
     private GameObject m_ActionButtons;
-    [SerializeField]
+
     private InventoryController m_InventoryController;
     private enum ButtonActionsEnum { REMOVE, CANCEL }
     [SerializeField]
     private ButtonActionsEnum m_ButtonActionsEnum;
+
+    private void Start()
+    {
+        m_InventoryController = LevelManager.Instance.InventoryController;
+    }
 
     public void OnSubmit(BaseEventData eventData)
     {
