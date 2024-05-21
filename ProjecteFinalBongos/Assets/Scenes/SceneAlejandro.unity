@@ -4984,7 +4984,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IdiomasDropDown: {fileID: 1631837125}
-  m_Font: {fileID: 0}
   m_FullScreenToggle: {fileID: 1493579025}
   m_ResolucionesDropDown: {fileID: 61068173}
 --- !u!114 &872450211
@@ -5001,6 +5000,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PausaPanel: {fileID: 1081165975}
   m_ResumeGameButton: {fileID: 323524777}
+  m_PanelInventory: {fileID: 0}
+  m_PanelPlayerHUD: {fileID: 0}
+  m_PanelAbilities: {fileID: 0}
+  m_PanelStore: {fileID: 0}
+  m_PanelsList: []
 --- !u!4 &872450212
 Transform:
   m_ObjectHideFlags: 0
@@ -7400,7 +7404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39708c9d1eb457c42bf8316883db0540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mapa: {fileID: 1568915789}
 --- !u!114 &1308331201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9142,9 +9145,9 @@ MonoBehaviour:
   m_SplashPool: {fileID: 182402511}
   m_BulletPool: {fileID: 402498319}
   m_ListaBossesDisponibles:
-  - m_BossPrefab: {fileID: 8260551587002213075, guid: 26757a25d9a24b842bb4c0b9715ee2d7, type: 3}
+  - m_BossPrefab: {fileID: 1790994148621288474, guid: 6cfd5907e0f684143b938b9e7452b224, type: 3}
     m_HijosBosses:
-    - {fileID: 8260551587002213075, guid: 26757a25d9a24b842bb4c0b9715ee2d7, type: 3}
+    - {fileID: 1790994148621288474, guid: 6cfd5907e0f684143b938b9e7452b224, type: 3}
     m_BossDisponible: 0
   m_GuardarPartidaEvent: {fileID: 11400000, guid: 0621630a1c7d1a949bc1c63b4833c396, type: 2}
   m_CargarPartidaEvent: {fileID: 11400000, guid: f7ea0370e72825c45b2c3968fb1d0ae2, type: 2}

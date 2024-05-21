@@ -163,6 +163,9 @@ public class MedusaBossBehaviour : BossBehaviour
             
     }
 
+    private void MatarBoss() {
+        Destroy(gameObject);
+    }
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
@@ -171,9 +174,12 @@ public class MedusaBossBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
+        m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         m_BossMuertoEvent.Raise();
-        Destroy(gameObject);
+
     }
 }
