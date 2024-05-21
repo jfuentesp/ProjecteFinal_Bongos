@@ -51,7 +51,7 @@ public class PlaceableController : MonoBehaviour
                 m_Animator.Play("Explosion");
                 break;
             case PlaceableEnum.TRAPPOISON:
-
+                m_Animator.Play("PoisonCloud");
                 break;
             case PlaceableEnum.TRAPWATER:
 
@@ -78,7 +78,8 @@ public class PlaceableController : MonoBehaviour
     {
         m_Animator.Play("PoisonTrap");
         m_Rigidbody.simulated = false;
-        yield return new WaitForSeconds(20f);   
+        yield return new WaitForSeconds(20f);
+        m_Animator.Play("PoisonCloud");
     }
 
     private IEnumerator WaterTrap()
