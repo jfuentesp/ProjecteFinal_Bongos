@@ -322,8 +322,7 @@ public class GameManager : MonoBehaviour
     {
         m_PlayerName = _PlayerName;
         m_NuevaPartida = false;
-        print(mundo);
-        //SceneManager.LoadScene(mundo);
+        SceneManager.LoadScene(mundo);
     }
 
     public void DeletePlayerGame(string _PlayerName, int id)

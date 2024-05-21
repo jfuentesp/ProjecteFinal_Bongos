@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 586029195165450857}
   - component: {fileID: 631329437472427693}
   - component: {fileID: 411893891875190907}
-  - component: {fileID: 3315753682095818307}
+  - component: {fileID: 5904273208453465715}
   m_Layer: 9
   m_Name: VoltauroMini
   m_TagString: Untagged
@@ -165,6 +165,9 @@ MonoBehaviour:
   m_HitboxRadius: 0
   m_TwoDirections: 1
   m_SingleAttackAnimationName: Attck
+  m_WaitAnimation: Wait
+  minWaitTime: 0.2
+  maxWaitTime: 0.3
 --- !u!114 &2766508921107913157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +259,7 @@ MonoBehaviour:
   m_WaterResistance: 5
   m_FireResistance: 5
   m_ElectricResistance: 5
-  m_bossBaseStats: {fileID: 11400000, guid: 2ed16064ca0caa64a94df5785d23f5c8, type: 2}
+  m_bossBaseStats: {fileID: 11400000, guid: 976e9ced17071274e9d4ef249441e093, type: 2}
   m_Velocity: 0
   m_AttackTime: 1
   m_Strength: 0
@@ -298,7 +301,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 7
 --- !u!95 &-622657025306183932
 Animator:
@@ -394,7 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAXHP: 200
+  MAXHP: 500
 --- !u!58 &586029195165450857
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -462,7 +465,7 @@ MonoBehaviour:
   healable: 0
   m_EstadoAlterado: 4
   stateTime: 0
---- !u!114 &3315753682095818307
+--- !u!114 &5904273208453465715
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

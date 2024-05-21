@@ -76,6 +76,10 @@ public class AlteaBossBehaviour : BossBehaviour
             egg.GetComponent<EggAltea>().Init(m_Target, transform.parent);
         }
     }
+    private void MatarBoss()
+    {
+        Destroy(gameObject);
+    }
     protected override void VidaCero()
     {
         base.VidaCero();

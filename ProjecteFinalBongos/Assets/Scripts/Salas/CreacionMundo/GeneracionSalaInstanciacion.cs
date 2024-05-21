@@ -58,19 +58,33 @@ namespace GeneracionSalas
 
         private int[,] matrix = new int[100, 100];
 
-        public void InstanciarElMundo(int[,] _matrix, List<ListaSalasConHijos> _ListaSalasPadreConHijos, List<ListaSalasConHijos> _ListaPasillosConSalas)
+        private IEnumerator InstanciaMundoCoroutine()
         {
-            matrix = _matrix;
-            m_ListaSalasPadreConHijos = _ListaSalasPadreConHijos;
-            m_ListaPasillosConSalas = _ListaPasillosConSalas;
+            yield return new WaitForSeconds(1);
+            GenerarMundo();
+          
+
+        }
+
+        private void GenerarMundo()
+        {
             GenSalasBoss();
             GenPasillos();
             PintarTilemap();
+
             onMapaFinalized?.Invoke();
             if (GameManager.Instance.NuevaPartida)
             {
                 LevelManager.Instance.GuardarPartida();
             }
+        }
+
+        public void InstanciarElMundo(int[,] _matrix, List<ListaSalasConHijos> _ListaSalasPadreConHijos, List<ListaSalasConHijos> _ListaPasillosConSalas)
+        {
+            matrix = _matrix;
+            m_ListaSalasPadreConHijos = _ListaSalasPadreConHijos;
+            m_ListaPasillosConSalas = _ListaPasillosConSalas;
+            StartCoroutine(InstanciaMundoCoroutine());
         }
 
         private void GenPasillos()

@@ -135,7 +135,7 @@ public class BossBehaviour : MonoBehaviour
     public virtual void Init(Transform _Target)
     {
         m_Target = _Target;
-        OnPlayerInSala.Invoke();
+        OnPlayerInSala?.Invoke();
     }
 
     public void SetBusy(bool status)
@@ -194,6 +194,7 @@ public class BossBehaviour : MonoBehaviour
             RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, 50, transform.position, 50, m_LayersToCheck);
             if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player"))
             {
+                print("Hola");
                 m_Target = hitInfo.collider.gameObject.transform;
                 OnPlayerInSala?.Invoke();
             }

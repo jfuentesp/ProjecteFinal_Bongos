@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: -8868033771294296155}
   - component: {fileID: 4304728740585702880}
   - component: {fileID: -8632461810726162559}
+  - component: {fileID: 4513353836437777373}
   m_Layer: 9
   m_Name: MiniPegasus
   m_TagString: Untagged
@@ -94,7 +95,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1cf35e76a32c87c4da15e964cea769b2, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.990566, g: 0.7335796, b: 0.90423083, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -237,8 +238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03f062997d23bf46a50d2fa12d157ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TimeBeforeCharge: 0
-  m_ChargeSpeed: 10
+  m_TimeBeforeCharge: 2
+  m_ChargeSpeed: 60
   m_ChargeForce: 0
   m_StartChargeAnimationName: StartCharge
   m_ChargeAnimationName: Charge
@@ -344,7 +345,7 @@ MonoBehaviour:
   m_WaterResistance: 5
   m_FireResistance: 5
   m_ElectricResistance: 5
-  m_bossBaseStats: {fileID: 11400000, guid: 2ed16064ca0caa64a94df5785d23f5c8, type: 2}
+  m_bossBaseStats: {fileID: 11400000, guid: 30907610129c4b44daa5df813128964d, type: 2}
   m_Velocity: 0
   m_AttackTime: 1
   m_Strength: 0
@@ -472,6 +473,19 @@ MonoBehaviour:
   healable: 0
   m_EstadoAlterado: 4
   stateTime: 2
+--- !u!114 &4513353836437777373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186185797598942992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8b048728a5a454191ff5fb5a4cf910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AnimationName: MiniDeath
 --- !u!1 &1808595707494533218
 GameObject:
   m_ObjectHideFlags: 0

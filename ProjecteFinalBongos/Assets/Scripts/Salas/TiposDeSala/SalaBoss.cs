@@ -166,7 +166,6 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     private void BichitoMuerto()
     {
         m_BichitosVivos--;
-
         if (m_BichitosVivos == 0)
             StartCoroutine(SpawnFinalBossCoroutine());
     }
@@ -185,7 +184,6 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     {
         if (EsSalaPar())
         {
-            print("Es par");
             Vector2 vectorin = GetPosicionSalaPar(GetMitadPar(0), GetMitadPar(1));
             vectorin.x += position;
             return vectorin;
@@ -238,6 +236,8 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     {
         m_NumeroBoss = _salaBossData.m_NumeroBoss;
         m_ListaSalasPadreHijas = _salaBossData.m_SalasHijas;
-        Init(m_ListaSalasPadreHijas, m_NumeroBoss);
+        TodasLasSalasEnUnaLista();
+        MaximosMinimosSala();
+        SpawnerSala();
     }
 }

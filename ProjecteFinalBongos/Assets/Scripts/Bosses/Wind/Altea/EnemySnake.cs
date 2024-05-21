@@ -77,10 +77,17 @@ public class EnemySnake : BossBehaviour
             yield return new WaitForSeconds(m_CheckingPlayerTimelapse);
         }
     }
+    private void MatarBoss() { 
+        Destroy(gameObject);
+    }
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        GetComponent<SalaBoss>().OnPlayerIn -= Init;
+        m_StateMachine.ChangeState<DeathState>();
+        OnBossDeath?.Invoke();
+        m_BossMuertoEvent.Raise();
         m_IsAlive = false;
-        Destroy(gameObject);
     }
 }

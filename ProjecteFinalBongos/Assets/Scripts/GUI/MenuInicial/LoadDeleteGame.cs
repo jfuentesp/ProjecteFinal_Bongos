@@ -50,7 +50,6 @@ namespace GUIScripts
 
         private void NewWorld()
         {
-            print("Nueva partida");
             m_EventoNuevaIdPartida.Raise(m_NumeroDeLista);
         }
 
