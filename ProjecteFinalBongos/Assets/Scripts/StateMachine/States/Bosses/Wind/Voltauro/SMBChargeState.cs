@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.GraphicsBuffer;
 
 public class SMBChargeState : SMState
 {
@@ -15,6 +16,8 @@ public class SMBChargeState : SMState
     [Header("Time Before Charge")]
     [SerializeField] private float m_TimeBeforeCharge;
 
+    [Header("GameObject Shader")]
+    [SerializeField] private GameObject m_Shader;
 
     [Header("Charge speed")]
     [SerializeField]
@@ -83,7 +86,10 @@ public class SMBChargeState : SMState
     {
         m_IsAiming = true;
         m_Animator.Play(m_StartChargeAnimationName);
+        m_Shader.SetActive(true);
+        m_Shader.GetComponent<TelegraphShaderController>().Init((float)m_TimeBeforeCharge);
         yield return new WaitForSeconds(m_TimeBeforeCharge);
+        m_Shader.SetActive(false);
         m_IsAiming = false;
         m_IsCharging = true;
         m_Animator.Play(m_ChargeAnimationName);
@@ -96,8 +102,13 @@ public class SMBChargeState : SMState
         {
             if (m_IsAiming)
             {
+              
                 if(m_Target != null)
                 {
+                    Vector2 direction = m_Target.position - m_Shader.transform.position;
+                    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                    m_Shader.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+
                     if (m_Target.position.x - transform.position.x < 0)
                     {
                         derecha = false;

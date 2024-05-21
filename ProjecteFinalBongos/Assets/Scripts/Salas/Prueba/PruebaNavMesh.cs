@@ -9,6 +9,7 @@ using UnityEngine.AI;
 public class PruebaNavMesh : MonoBehaviour
 {
     GeneracionSalaInstanciacion m_Mapa;
+    public Action OnEndNavmesh;
 
     private NavMeshSurface surface;
     private void Awake()
@@ -37,14 +38,6 @@ public class PruebaNavMesh : MonoBehaviour
     {
         NavMesh.RemoveAllNavMeshData();
         surface.BuildNavMesh();
-    }
-
-    public void Init()
-    {
-        surface = GetComponent<NavMeshSurface>();
-        m_Mapa = LevelManager.Instance.GeneracionSalasInstanciacion;
-        m_Mapa.onMapaFinalized += ConstruirMapa;
-        NavMesh.RemoveAllNavMeshData();
-        surface.BuildNavMesh();
+        OnEndNavmesh?.Invoke();
     }
 }

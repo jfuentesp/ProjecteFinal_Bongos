@@ -14,6 +14,10 @@ public class LevelManager : MonoBehaviour
 {
     [Header("Testing")]
     [SerializeField] private bool m_Testing;
+
+    [SerializeField]
+    private PruebaNavMesh m_LevelManagerNavmesh;
+    public PruebaNavMesh LevelManagerNavmesh => m_LevelManagerNavmesh;
     
     private static LevelManager m_Instance;
     public static LevelManager Instance => m_Instance;
@@ -21,6 +25,7 @@ public class LevelManager : MonoBehaviour
     private GeneracionSalasMatriz m_GeneracionSalasMatriz;
     private GeneracionSalaInstanciacion m_GeneracionSalasInstanciacion;
     public GeneracionSalaInstanciacion GeneracionSalasInstanciacion => m_GeneracionSalasInstanciacion;
+    [Header("Items DataBase")]
     [SerializeField] private ConsumablesDataBase m_ConsumableDataBase;
     public ConsumablesDataBase ConsumableDataBase => m_ConsumableDataBase;
 
@@ -80,13 +85,13 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        print("Awake");
         m_GeneracionSalasMatriz = GetComponent<GeneracionSalasMatriz>();
         m_GUIBossManager = GetComponent<GUIBossManager>();
         m_GeneracionSalasInstanciacion = GetComponent<GeneracionSalaInstanciacion>();
         m_eventSystem = GetComponent<EventSystem>();
         m_InputSystemUIInputModule = GetComponent<InputSystemUIInputModule>();
         m_StoreGUIController = GetComponent<StoreGUIController>();
-        print(m_GeneracionSalasInstanciacion == null);
         m_GeneracionSalasInstanciacion.onMapaFinalized += DesfundirNegro;
     }
 

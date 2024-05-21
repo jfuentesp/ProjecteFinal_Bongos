@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using static SaveLoadGame.SaveGame;
 using Random = UnityEngine.Random;
 
@@ -65,7 +66,7 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
         m_ListaSalasPadreHijas = _ListaSalasPadreHijas;
         TodasLasSalasEnUnaLista();
         MaximosMinimosSala();
-        LevelManager.Instance.GeneracionSalasInstanciacion.onMapaFinalized += SpawnerSala;
+        LevelManager.Instance.LevelManagerNavmesh.OnEndNavmesh += SpawnerSala;
     }
 
     private void DesbloquearPuertas()
@@ -144,8 +145,11 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
             int numero = 0;
             foreach (GameObject Bossito in m_BossSala.m_HijosBosses)
             {
-                GameObject jefe = Instantiate(Bossito, transform);
 
+                /*GameObject jefe = Instantiate(Bossito, transform);
+                jefe.GetComponent<BossBehaviour>().OnBossDeath += BichitoMuerto;
+                jefe.transform.localPosition = GetPositionToSpawnBoss(numero);*/
+                GameObject jefe = Instantiate(Bossito, transform);
                 jefe.GetComponent<BossBehaviour>().OnBossDeath += BichitoMuerto;
                 jefe.transform.localPosition = GetPositionToSpawnBoss(numero);
                 numero++;
@@ -156,7 +160,7 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
             SpawnBossFinalSala();
         }
     }
-
+   
     private IEnumerator SpawnFinalBossCoroutine()
     {
         yield return new WaitForSeconds(2);
