@@ -24,6 +24,9 @@ public class BossBehaviour : MonoBehaviour
     protected Transform m_Target;
     public Transform Target => m_Target;
 
+    [SerializeField]
+    protected BloodController m_BloodController;
+
     protected HealthController m_HealthController;
     protected FiniteStateMachine m_StateMachine;
     public FiniteStateMachine StateMachine => m_StateMachine;
@@ -212,6 +215,7 @@ public class BossBehaviour : MonoBehaviour
             {
                 m_HealthController.Damage(Daño);
             }
+            m_BloodController.PlayBlood();
         }
     }
     
