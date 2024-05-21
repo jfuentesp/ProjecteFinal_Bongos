@@ -12,7 +12,12 @@ public class DracMariMeteorShowerState : SMState
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
     private BossBehaviour m_Boss;
-
+    [SerializeField] private string m_MeteorExplosionAnimation;
+    [SerializeField] private string m_WaitAnimation;
+    [SerializeField]
+    private float minWaitTime;
+    [SerializeField]
+    private float maxWaitTime;
     public Action<GameObject> OnShowerFinished;
 
     private new void Awake()
@@ -28,27 +33,46 @@ public class DracMariMeteorShowerState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        m_MeteorCoroutine = StartCoroutine(MeteorShower());
+        StartCoroutine(Wait());
+    
     }
     public override void ExitState()
     {
         base.ExitState();
-        StopCoroutine(m_MeteorCoroutine);   
+        StopCoroutine(Wait());
+        StopCoroutine(MeteorShower());
     }
     private Coroutine m_MeteorCoroutine;
+    private IEnumerator Wait()
+    {
+        float waitTime = Random.Range(minWaitTime, maxWaitTime);
+
+        m_Animator.Play(m_WaitAnimation);
+        yield return new WaitForSeconds(waitTime);
+        m_Animator.Play(m_MeteorExplosionAnimation);
+        StartCoroutine(MeteorShower());
+    }
+
 
     private IEnumerator MeteorShower() {
         int meteorNumber = Random.Range(5, 9);
         while (meteorNumber > 0) {
+            print("Entro");
             float delayTime = Random.Range(0.2f, 0.6f);
             GameObject meteor = Instantiate(m_meteor);
             meteor.transform.position = m_Boss.SalaPadre.GetPosicionAleatoriaEnSala();
             meteor.GetComponent<Animator>().speed += Random.Range(-0.5f, 0.6f);
             meteorNumber--;
             yield return new WaitForSeconds(delayTime);
+            print("Disparos: "+meteorNumber);
 
         }
-        print("finished");
-        OnShowerFinished(gameObject);
+        OnShowerFinished?.Invoke(gameObject);
+    }
+
+
+    private void Update()
+    {
+
     }
 }

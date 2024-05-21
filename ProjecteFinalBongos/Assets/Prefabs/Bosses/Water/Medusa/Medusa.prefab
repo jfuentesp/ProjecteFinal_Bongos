@@ -161,6 +161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TiempoAutoAtaque: 0.4
   m_Pool: {fileID: 0}
+  m_TwoDirections: 0
+  m_RangedAttackAnimationName: 
 --- !u!114 &8463474089832775593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ChaseSpeed: 5
   m_ChaseAnimationName: 
+  m_TwoDirections: 0
 --- !u!114 &3181285454805822546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +197,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 128
+  m_TwoDirections: 0
 --- !u!114 &3079354719602664928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,7 +343,7 @@ MonoBehaviour:
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
-    m_Bits: 1152
+    m_Bits: 128
   m_BossMuertoEvent: {fileID: 0}
   m_layerMask:
     serializedVersion: 2
@@ -411,5 +415,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_event: {fileID: 0}
   times: {fileID: 0}
+  m_NameAnimation: 
