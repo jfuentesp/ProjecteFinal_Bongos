@@ -11,8 +11,7 @@ public class DracMariMeteorBehaviour : MonoBehaviour
         m_Pool = LevelManager.Instance._SplashPool;
     }
 
-    public void Fall() {
-        print("aaaa");
+    public void Fall() { 
         GameObject vaporCrash = m_Pool.GetElement();
         vaporCrash.transform.position = transform.position;
         vaporCrash.SetActive(true);

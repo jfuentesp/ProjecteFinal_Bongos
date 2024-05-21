@@ -16,7 +16,13 @@ public class DracMariTornadoState : SMState
     private BossBehaviour m_Boss;
     private Pool m_Pool;
     public Action<GameObject> OnTornadoFinished;
-
+    [SerializeField] private string m_BeginExplosionAnimation;
+    [SerializeField] private string m_MidExplosionAnimation;
+    [SerializeField] private string m_WaitAnimation;
+    [SerializeField]
+    private float minWaitTime;
+    [SerializeField]
+    private float maxWaitTime;
     private new void Awake()
     {
         base.Awake();
@@ -31,38 +37,52 @@ public class DracMariTornadoState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        m_TornadoCoroutine = StartCoroutine(TornadoExplosion());
+        StartCoroutine(Wait());
     }
     public override void ExitState()
     {
         base.ExitState();
-        StopCoroutine(m_TornadoCoroutine);
-        Destroy(tornado.gameObject);
+        StopAllCoroutines();
+        if(tornado != null)
+            Destroy(tornado.gameObject);
     }
-    private Coroutine m_TornadoCoroutine;
 
-    private IEnumerator TornadoExplosion()
+    private IEnumerator Wait()
     {
+        float waitTime = Random.Range(minWaitTime, maxWaitTime);
+  
+            m_Animator.Play(m_WaitAnimation);
+
+        yield return new WaitForSeconds(waitTime);
+        BeginExplosion();
+
+
+    
+
+    }
+
+    private void BeginExplosion() {
+        m_Animator.Play(m_BeginExplosionAnimation);
         tornado = Instantiate(m_tornado, transform.parent);
         tornado.transform.position = transform.position;
-        yield return new WaitForSeconds(1f);
-        m_Animator.Play("Explosion");
-        yield return new WaitForSeconds(2f);
-        m_Animator.Play("ExplosionCloser");
-        yield return new WaitForSeconds(0.5f);
-        m_Animator.Play("idleDracMari");
+    
+    }
+    private void MidExplosion() {
+        m_Animator.Play(m_MidExplosionAnimation);
+    }
+    private void FinishExplosion() {
         Destroy(tornado.gameObject);
-        for (int x = -1; x < 2; x++) {
+        for (int x = -1; x < 2; x++)
+        {
             for (int j = -1; j < 2; j++)
             {
                 GameObject bullet = m_Pool.GetElement();
                 bullet.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
                 bullet.SetActive(true);
                 bullet.GetComponent<DracMBullet>().enabled = true;
-                bullet.GetComponent<DracMBullet>().Init(new Vector2(x,j).normalized);
+                bullet.GetComponent<DracMBullet>().Init(new Vector2(x, j).normalized);
             }
         }
-        yield return new WaitForSeconds(0.5f);
         OnTornadoFinished(gameObject);
     }
 }

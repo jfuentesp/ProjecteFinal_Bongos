@@ -42,7 +42,6 @@ public class DracMariBossBehaviour : BossBehaviour
         };
         GetComponent<DracMariMeteorShowerState>().OnShowerFinished = (GameObject obj) =>
         {
-           
             SetAttack();
         };
         GetComponent<DracMariTornadoState>().OnTornadoFinished = (GameObject obj) =>
@@ -150,6 +149,7 @@ public class DracMariBossBehaviour : BossBehaviour
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         m_BossMuertoEvent.Raise();
+
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)  
@@ -167,15 +167,9 @@ public class DracMariBossBehaviour : BossBehaviour
             }
             else
             {
-                recibirDaño(collision.gameObject.GetComponent<DracMBullet>().Damage);
+                recibirDaño(collision.gameObject.GetComponent<BossAttackDamage>().Damage);
             }
         }
 
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("DracPlayerBullet"))
-        {
-        }
     }
 }

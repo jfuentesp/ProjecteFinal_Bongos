@@ -21,11 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -878569702, guid: 35e9ee2e088346245b341dc241bbe690, type: 3}
-    - time: 0.41666666
+      value: {fileID: 1859515421, guid: 35e9ee2e088346245b341dc241bbe690, type: 3}
+    - time: 0.33333334
+      value: {fileID: 1042120889, guid: 35e9ee2e088346245b341dc241bbe690, type: 3}
+    - time: 0.6666667
+      value: {fileID: -1044597910, guid: 35e9ee2e088346245b341dc241bbe690, type: 3}
+    - time: 1
       value: {fileID: 601419785, guid: 35e9ee2e088346245b341dc241bbe690, type: 3}
-    - time: 0.73333335
-      value: {fileID: 570722786, guid: 35e9ee2e088346245b341dc241bbe690, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,9 +50,10 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -878569702, guid: 35e9ee2e088346245b341dc241bbe690, type: 3}
+    - {fileID: 1859515421, guid: 35e9ee2e088346245b341dc241bbe690, type: 3}
+    - {fileID: 1042120889, guid: 35e9ee2e088346245b341dc241bbe690, type: 3}
+    - {fileID: -1044597910, guid: 35e9ee2e088346245b341dc241bbe690, type: 3}
     - {fileID: 601419785, guid: 35e9ee2e088346245b341dc241bbe690, type: 3}
-    - {fileID: 570722786, guid: 35e9ee2e088346245b341dc241bbe690, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -77,7 +80,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 4
-    functionName: 
+    functionName: MatarBoss
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,12 +113,12 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 867
-        width: 93
-        height: 89
-      alignment: 9
-      pivot: {x: 0.56250566, y: 0.6344714}
+        x: 2
+        y: 874
+        width: 117
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_1
       rect:
         serializedVersion: 2
-        x: 98
-        y: 867
-        width: 93
-        height: 87
-      alignment: 9
-      pivot: {x: 0.5698593, y: 0.6336326}
+        x: 123
+        y: 869
+        width: 91
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_2
       rect:
         serializedVersion: 2
-        x: 193
+        x: 215
         y: 869
         width: 92
         height: 91
-      alignment: 9
-      pivot: {x: 0.5669018, y: 0.6014552}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_3
       rect:
         serializedVersion: 2
-        x: 286
-        y: 869
-        width: 91
-        height: 91
-      alignment: 9
-      pivot: {x: 0.5713944, y: 0.5901825}
+        x: 309
+        y: 867
+        width: 93
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,10 +197,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_4
       rect:
         serializedVersion: 2
-        x: 381
-        y: 874
-        width: 117
-        height: 87
+        x: 404
+        y: 867
+        width: 93
+        height: 89
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,12 +218,12 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_5
       rect:
         serializedVersion: 2
-        x: 56
+        x: 11
         y: 769
-        width: 102
+        width: 109
         height: 89
-      alignment: 9
-      pivot: {x: 0.58045715, y: 0.6267872}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,12 +239,12 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_6
       rect:
         serializedVersion: 2
-        x: 160
-        y: 760
-        width: 102
-        height: 98
-      alignment: 9
-      pivot: {x: 0.60057145, y: 0.6744603}
+        x: 122
+        y: 769
+        width: 113
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,12 +260,12 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_7
       rect:
         serializedVersion: 2
-        x: 265
-        y: 769
-        width: 113
-        height: 89
-      alignment: 9
-      pivot: {x: 0.6180155, y: 0.63831323}
+        x: 238
+        y: 760
+        width: 102
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -281,12 +281,12 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_8
       rect:
         serializedVersion: 2
-        x: 379
+        x: 342
         y: 769
-        width: 109
+        width: 102
         height: 89
-      alignment: 9
-      pivot: {x: 0.63489497, y: 0.6421557}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -302,10 +302,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_9
       rect:
         serializedVersion: 2
-        x: 73
-        y: 720
-        width: 75
-        height: 40
+        x: 162
+        y: 736
+        width: 15
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -323,10 +323,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_10
       rect:
         serializedVersion: 2
-        x: 184
-        y: 701
-        width: 39
-        height: 44
+        x: 177
+        y: 734
+        width: 24
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -344,10 +344,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_11
       rect:
         serializedVersion: 2
-        x: 249
-        y: 709
-        width: 21
-        height: 45
+        x: 198
+        y: 730
+        width: 5
+        height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -365,7 +365,7 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_12
       rect:
         serializedVersion: 2
-        x: 283
+        x: 202
         y: 720
         width: 15
         height: 27
@@ -386,10 +386,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_13
       rect:
         serializedVersion: 2
-        x: 297
-        y: 730
-        width: 5
-        height: 7
+        x: 230
+        y: 709
+        width: 21
+        height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -407,10 +407,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_14
       rect:
         serializedVersion: 2
-        x: 299
-        y: 734
-        width: 24
-        height: 19
+        x: 277
+        y: 701
+        width: 39
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -428,10 +428,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_15
       rect:
         serializedVersion: 2
-        x: 323
-        y: 736
-        width: 15
-        height: 15
+        x: 352
+        y: 720
+        width: 75
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -449,10 +449,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_16
       rect:
         serializedVersion: 2
-        x: 8
+        x: 27
         y: 589
-        width: 97
-        height: 104
+        width: 118
+        height: 99
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -470,10 +470,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_17
       rect:
         serializedVersion: 2
-        x: 109
-        y: 588
-        width: 99
-        height: 103
+        x: 154
+        y: 596
+        width: 130
+        height: 81
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -491,10 +491,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_18
       rect:
         serializedVersion: 2
-        x: 214
-        y: 596
-        width: 130
-        height: 81
+        x: 292
+        y: 589
+        width: 99
+        height: 103
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -512,10 +512,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_19
       rect:
         serializedVersion: 2
-        x: 355
+        x: 395
         y: 589
-        width: 118
-        height: 99
+        width: 97
+        height: 104
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -533,10 +533,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_20
       rect:
         serializedVersion: 2
-        x: 20
-        y: 473
-        width: 125
-        height: 110
+        x: 61
+        y: 488
+        width: 129
+        height: 81
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -554,7 +554,7 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_21
       rect:
         serializedVersion: 2
-        x: 167
+        x: 199
         y: 484
         width: 134
         height: 105
@@ -575,10 +575,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_22
       rect:
         serializedVersion: 2
-        x: 310
-        y: 488
-        width: 129
-        height: 81
+        x: 355
+        y: 473
+        width: 125
+        height: 110
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -596,10 +596,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_23
       rect:
         serializedVersion: 2
-        x: 66
-        y: 406
-        width: 37
-        height: 61
+        x: 115
+        y: 386
+        width: 66
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -617,10 +617,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_24
       rect:
         serializedVersion: 2
-        x: 107
-        y: 376
-        width: 139
-        height: 92
+        x: 192
+        y: 383
+        width: 81
+        height: 57
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -638,10 +638,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_25
       rect:
         serializedVersion: 2
-        x: 227
-        y: 383
-        width: 81
-        height: 57
+        x: 254
+        y: 376
+        width: 139
+        height: 92
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -659,10 +659,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_26
       rect:
         serializedVersion: 2
-        x: 319
-        y: 386
-        width: 66
-        height: 26
+        x: 397
+        y: 406
+        width: 37
+        height: 61
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -680,10 +680,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_27
       rect:
         serializedVersion: 2
-        x: 10
-        y: 271
-        width: 93
-        height: 102
+        x: 29
+        y: 314
+        width: 45
+        height: 58
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -701,10 +701,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_28
       rect:
         serializedVersion: 2
-        x: 106
-        y: 273
-        width: 119
-        height: 88
+        x: 82
+        y: 327
+        width: 26
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -719,55 +719,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_32
-      rect:
-        serializedVersion: 2
-        x: 331
-        y: 324
-        width: 24
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a341a223e47d548438c07d1035c0a7b6
-      internalID: 1393664016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_33
-      rect:
-        serializedVersion: 2
-        x: 364
-        y: 326
-        width: 23
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 82188dad08f4b7c45b2062785499d280
-      internalID: -1517593220
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_34
       rect:
         serializedVersion: 2
-        x: 392
-        y: 327
-        width: 26
-        height: 25
+        x: 275
+        y: 273
+        width: 119
+        height: 88
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -785,10 +743,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_35
       rect:
         serializedVersion: 2
-        x: 426
-        y: 314
-        width: 45
-        height: 58
+        x: 397
+        y: 271
+        width: 93
+        height: 102
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -803,57 +761,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_45
-      rect:
-        serializedVersion: 2
-        x: 358
-        y: 264
-        width: 44
-        height: 36
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 701d66a71f6079f4dad23e32c3e52361
-      internalID: -939418881
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_46
-      rect:
-        serializedVersion: 2
-        x: 408
-        y: 261
-        width: 40
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ebbdaf79ed6eee14080e1200d8946ebc
-      internalID: -431648459
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_60
       rect:
         serializedVersion: 2
-        x: 26
-        y: 153
-        width: 119
-        height: 89
-      alignment: 9
-      pivot: {x: 0.44246432, y: 0.63575935}
+        x: 105
+        y: 158
+        width: 124
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -869,12 +785,12 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_61
       rect:
         serializedVersion: 2
-        x: 146
+        x: 230
         y: 156
         width: 124
         height: 89
-      alignment: 9
-      pivot: {x: 0.45397145, y: 0.60990083}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -890,12 +806,12 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_62
       rect:
         serializedVersion: 2
-        x: 271
-        y: 158
-        width: 124
-        height: 88
-      alignment: 9
-      pivot: {x: 0.45824063, y: 0.59153503}
+        x: 355
+        y: 153
+        width: 119
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -908,36 +824,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_77
-      rect:
-        serializedVersion: 2
-        x: 26
-        y: 59
-        width: 142
-        height: 85
-      alignment: 9
-      pivot: {x: 0.35008255, y: 0.67599237}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6bb47d836962ee146b93d2bb5c6f53e7
-      internalID: 2007429347
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_78
       rect:
         serializedVersion: 2
-        x: 177
+        x: 179
         y: 59
         width: 144
         height: 85
-      alignment: 9
-      pivot: {x: 0.36814702, y: 0.64214766}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -950,34 +845,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_84
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 35
-        width: 49
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3c5d71f59e1cb24493f22d422c2b22f
-      internalID: 130162495
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_87
       rect:
         serializedVersion: 2
-        x: 139
+        x: 237
         y: 35
-        width: 50
-        height: 17
+        width: 63
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -995,10 +869,10 @@ TextureImporter:
       name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_88
       rect:
         serializedVersion: 2
-        x: 200
+        x: 311
         y: 35
-        width: 63
-        height: 11
+        width: 50
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1008,6 +882,216 @@ TextureImporter:
       bones: []
       spriteID: 1119a8674d542494384bec3450abaa00
       internalID: -2114099845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_29
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 326
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 820c3083b8f2f1741adc6f3a6c9a3056
+      internalID: -1204536719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_30
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 324
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9cbd39e35d6c82499513daa6317b6f1
+      internalID: 626912494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_43
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 261
+        width: 40
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cba5601a787bfb34ab18ee45fb362278
+      internalID: 1405545975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_44
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 264
+        width: 44
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0572e36039f768848ad5a9d1396ddb4a
+      internalID: 789019717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_48
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 289
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4fc3674643fc9b46b8d292c57ab6e26
+      internalID: -2033991183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_54
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 271
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08eb17e930aca23409eec891d8a25cb1
+      internalID: -147201926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_58
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 255
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edd06a6b909ad71479e94ee6b72fd756
+      internalID: 2018084250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_59
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 256
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10c82ec6be451a242b6ef964a99f1f3a
+      internalID: 374458078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_79
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 59
+        width: 142
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aaeb75a2bc461949b763aba1d6cd100
+      internalID: -748931973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_86
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 35
+        width: 49
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02d005240f59d14da34a643608c3fe1
+      internalID: 756541407
       vertices: []
       indices: 
       edges: []
@@ -1114,7 +1198,6 @@ TextureImporter:
       Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_89: -1760392870
       Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_9: 1020890248
       Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_90: 2077926196
-      Game Boy Advance - Summon Night Swordcraft Story 3 - Blue Dragon_91: 588359868
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
