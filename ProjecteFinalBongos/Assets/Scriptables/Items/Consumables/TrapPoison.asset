@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: TrapPoison
   m_EditorClassIdentifier: 
   m_ItemId: 8
-  m_ItemName: 
-  m_ItemDescription: 
+  m_ItemName: Poison trap
+  m_ItemDescription: Trap that poisons enemies who step on it.
   m_ItemSprite: {fileID: -1199928496, guid: 3f88d2c1145bfc04ca22193678f12c63, type: 3}
   m_ShopPrice: 60
   m_SellPrice: 25
-  m_PrefabToInstantiateAndPlace: {fileID: 0}
+  m_PrefabToInstantiateAndPlace: {fileID: 4526966402006351552, guid: 2dec2f3cf8648cd4aa1161bf9168ba02, type: 3}
+  m_PlaceableType: 3

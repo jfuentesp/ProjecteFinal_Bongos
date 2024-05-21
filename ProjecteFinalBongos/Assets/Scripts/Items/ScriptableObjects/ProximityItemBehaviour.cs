@@ -26,14 +26,14 @@ public class ProximityItemBehaviour : Interactuable
         if (inRange) {
            if (m_Consumible != null)
             {
-                PJSMB.Instance.Inventory.BackPack.AddConsumable(m_Consumible);
-                PJSMB.Instance.Inventory.RefreshInventoryGUI();
+                LevelManager.Instance.InventoryController.BackPack.AddConsumable(m_Consumible);
+                LevelManager.Instance.InventoryController.RefreshInventoryGUI();
                 Destroy(gameObject);
             }   
             else if (m_Equipable != null)
             {
-                PJSMB.Instance.Inventory.BackPack.AddEquipable(m_Equipable);
-                PJSMB.Instance.Inventory.RefreshInventoryGUI();
+                LevelManager.Instance.InventoryController.BackPack.AddEquipable(m_Equipable);
+                LevelManager.Instance.InventoryController.RefreshInventoryGUI();
                 Destroy(gameObject);
             }
         }
