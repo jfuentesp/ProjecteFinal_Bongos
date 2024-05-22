@@ -401,6 +401,9 @@ GameObject:
   - component: {fileID: 41379384}
   - component: {fileID: 41379383}
   - component: {fileID: 41379381}
+  - component: {fileID: 41379392}
+  - component: {fileID: 41379391}
+  - component: {fileID: 41379390}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -598,7 +601,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43eb1c30fb5819c48a5993f8b0b0e133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Testing: 0
+  m_Testing: 1
+  m_LevelManagerNavmesh: {fileID: 378208121}
   m_ConsumableDataBase: {fileID: 11400000, guid: 3695245b911850942b8fb981337f43ac, type: 2}
   dialoguePanel: {fileID: 1908113610}
   dialogueText: {fileID: 1824279297}
@@ -610,30 +614,6 @@ MonoBehaviour:
   - m_BossPrefab: {fileID: 1425193616162931063, guid: 6f2566c93786db14598faf7c55c71d10, type: 3}
     m_HijosBosses:
     - {fileID: 5513851930493740377, guid: a799decb14ea03146848c315774bca92, type: 3}
-    m_BossDisponible: 0
-  - m_BossPrefab: {fileID: 8425413129942869862, guid: 48b353e347bd60f46ae2d4dd39ca9640, type: 3}
-    m_HijosBosses:
-    - {fileID: 1332423687316427174, guid: f73f5209fd9bb2a49947699db6277701, type: 3}
-    m_BossDisponible: 0
-  - m_BossPrefab: {fileID: 6748304150830227311, guid: 9214ca88664d22c4c8830cc482cd8d66, type: 3}
-    m_HijosBosses:
-    - {fileID: 2175183814778568638, guid: dcad94abb0d0ab949b5c77b2fbadec97, type: 3}
-    m_BossDisponible: 0
-  - m_BossPrefab: {fileID: 217732930650622082, guid: 3d046f5b75d75ed43ac6d11d71f471f8, type: 3}
-    m_HijosBosses:
-    - {fileID: 7164887665494995254, guid: ce50ab1351b4ac54682c0ebe24541d80, type: 3}
-    m_BossDisponible: 0
-  - m_BossPrefab: {fileID: 3588807802609925389, guid: a57d01a60ab4631439d671f0bb7d5723, type: 3}
-    m_HijosBosses:
-    - {fileID: 4326972662823664859, guid: 2504a2ed05f3800458f63fc67ba56db1, type: 3}
-    m_BossDisponible: 0
-  - m_BossPrefab: {fileID: 5578168786395275385, guid: 936dd161c13d01f4f9c51d68d0c2fe60, type: 3}
-    m_HijosBosses:
-    - {fileID: 1186185797598942992, guid: 46350ebacd20dee4e91a9684de01ffb8, type: 3}
-    m_BossDisponible: 0
-  - m_BossPrefab: {fileID: 5652317080108237547, guid: 267d9aac067c1c946ab3bea63261c6bd, type: 3}
-    m_HijosBosses:
-    - {fileID: 399034142371773799, guid: 535d644cb50b9904a9a8f5feaac95cff, type: 3}
     m_BossDisponible: 0
   m_GuardarPartidaEvent: {fileID: 11400000, guid: 0621630a1c7d1a949bc1c63b4833c396, type: 2}
   m_CargarPartidaEvent: {fileID: 11400000, guid: f7ea0370e72825c45b2c3968fb1d0ae2, type: 2}
@@ -711,7 +691,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 41379380}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -719,6 +699,64 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &41379390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41379380}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39708c9d1eb457c42bf8316883db0540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &41379391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41379380}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70bd44a44cd62c64fbfc1eea95b24880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideByGrid: 0
+  m_UseMeshPrefab: {fileID: 0}
+  m_CompressBounds: 0
+  m_OverrideVector: {x: 1, y: 1, z: 1}
+--- !u!114 &41379392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41379380}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04976799df50f54ba128eff723155a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_HideEditorLogs: 0
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &65260075
 GameObject:
   m_ObjectHideFlags: 0
@@ -8215,7 +8253,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IdiomasDropDown: {fileID: 111414591}
-  m_Font: {fileID: 0}
   m_FullScreenToggle: {fileID: 1957402384}
   m_ResolucionesDropDown: {fileID: 618337208}
 --- !u!114 &586383330
@@ -8232,6 +8269,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PausaPanel: {fileID: 1086351092}
   m_ResumeGameButton: {fileID: 1311061631}
+  m_PanelInventory: {fileID: 0}
+  m_PanelPlayerHUD: {fileID: 0}
+  m_PanelAbilities: {fileID: 0}
+  m_PanelStore: {fileID: 0}
+  m_PanelsList: []
 --- !u!4 &586383331
 Transform:
   m_ObjectHideFlags: 0
@@ -22719,7 +22761,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16

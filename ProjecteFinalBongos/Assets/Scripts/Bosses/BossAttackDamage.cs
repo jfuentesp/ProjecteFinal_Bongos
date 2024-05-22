@@ -54,7 +54,7 @@ public class BossAttackDamage : MonoBehaviour
                 {
                     if (parry.parry)
                     {
-                        OnAttackParried?.Invoke(transform.parent.gameObject);
+                            OnAttackParried?.Invoke(gameObject);
                     }
                 }
             }

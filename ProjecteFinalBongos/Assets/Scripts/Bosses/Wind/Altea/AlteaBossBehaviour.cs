@@ -37,9 +37,6 @@ public class AlteaBossBehaviour : BossBehaviour
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
         m_StateMachine.ChangeState<SMBIdleState>();
     }
-    private void Start()
-    {
-    }
     public override void Init(Transform _Target)
     {
         base.Init(_Target);

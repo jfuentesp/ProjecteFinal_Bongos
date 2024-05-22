@@ -12,6 +12,7 @@ public class NavMeshPrueba : MonoBehaviour
     //GeneracionSalasFinal m_Mapa;
 
     NavMeshSurface m_Surface;
+    public Action OnEndNavmesh;
 
     private void Awake()
     {
@@ -29,6 +30,8 @@ public class NavMeshPrueba : MonoBehaviour
     {
         NavMesh.RemoveAllNavMeshData();
         m_Surface.BuildNavMesh();
+        print("Acabe el navmesh");
+        OnEndNavmesh?.Invoke();
     }
 
 }

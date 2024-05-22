@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
         }
         if (scene.name == "Mundo2")
         {
-            if (!m_NuevaPartida)
+            if (m_PlayerInGame == null)
                 m_PlayerInGame = Instantiate(m_PlayerPrefab);
             m_PlayerInGame.transform.position = Vector3.zero;
         }
@@ -163,25 +163,7 @@ public class GameManager : MonoBehaviour
     {
         m_NuevaPartida = true;
     }
-    // Update is called once per frame
-    void Update()
-    {
-        if (m_Testing)
-        {
-            if (Input.GetKeyDown(KeyCode.G) && !m_MundoGenerado)
-            {
-                m_NuevaPartida = true;
-                m_MundoGenerado = true;
-                LevelManager.Instance.Init();
-            }
-            if (Input.GetKeyDown(KeyCode.C) && !m_MundoGenerado)
-            {
-                m_NuevaPartida = false;
-                m_MundoGenerado = true;
-                LevelManager.Instance.Init();
-            }
-        }
-    }
+    
     private void GetPlayersAndTheirWorld()
     {
         if (!Directory.Exists(rutaCompletaHastaCarpeta))

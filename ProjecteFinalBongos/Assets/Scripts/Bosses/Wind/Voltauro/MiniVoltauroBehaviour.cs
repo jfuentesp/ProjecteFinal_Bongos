@@ -69,6 +69,10 @@ public class MiniVoltauroBehaviour : BossBehaviour
         };
 
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
+       
+    }
+    private void Start()
+    {
         m_StateMachine.ChangeState<SMBIdleState>();
     }
     private void EmpezarCorutina(GameObject obj)

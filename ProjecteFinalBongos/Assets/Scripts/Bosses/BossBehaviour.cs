@@ -24,6 +24,9 @@ public class BossBehaviour : MonoBehaviour
     protected Transform m_Target;
     public Transform Target => m_Target;
 
+    [SerializeField]
+    protected BloodController m_BloodController;
+
     protected HealthController m_HealthController;
     protected FiniteStateMachine m_StateMachine;
     public FiniteStateMachine StateMachine => m_StateMachine;
@@ -77,10 +80,11 @@ public class BossBehaviour : MonoBehaviour
     private OnPlayerEnter onPlayerEnter;
 
     protected NavMeshAgent m_NavMeshAgent;
+    public NavMeshAgent NavMeshAgent => m_NavMeshAgent;
 
     [SerializeField] private LayerMask m_layerMask;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Rigidbody = GetComponent<Rigidbody2D>();
@@ -96,15 +100,31 @@ public class BossBehaviour : MonoBehaviour
         m_IsPlayerDetected = false;
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
         GetComponentInParent<SalaBoss>().OnPlayerIn += Init;
+
+        if (!m_NavMeshAgent.isOnNavMesh)
+        {
+            if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 10f, NavMesh.AllAreas))
+            {
+                transform.position = hit.position;
+
+                m_NavMeshAgent.Warp(hit.position);
+            }
+            else
+            {
+                Debug.Log("Could not find position on NavMesh close to the agent.");
+                return;
+            }
+        }
+        print("Awake");
         /* GetComponent<SMBPatrol>().OnPlayerEnter = (GameObject obj) =>
          {
              m_StateMachine.ChangeState<SMBAttack>();
          };*/
     }
-
     protected virtual void Update()
     {
         transform.localEulerAngles = new Vector3(0,0, transform.localEulerAngles.z);
+        
     }
     private void FixedUpdate()
     {
@@ -178,6 +198,7 @@ public class BossBehaviour : MonoBehaviour
             {
                 m_HealthController.Damage(Daño);
             }
+            m_BloodController.PlayBlood();
         }
     }
     
@@ -199,5 +220,29 @@ public class BossBehaviour : MonoBehaviour
                 OnPlayerInSala?.Invoke();
             }
         }
+    }
+
+    internal void BossFinalSalaSpawn(Transform Target)
+    {
+        StartCoroutine(SpawnFinalBoss(Target));
+    }
+
+    private IEnumerator SpawnFinalBoss(Transform Target)
+    {
+        yield return new WaitForSeconds(1);
+        if (!m_NavMeshAgent.isOnNavMesh)
+        {
+            if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 10f, NavMesh.AllAreas))
+            {
+                transform.position = hit.position;
+
+                m_NavMeshAgent.Warp(hit.position);
+            }
+            else
+            {
+                Debug.Log("Could not find position on NavMesh close to the agent.");
+            }
+        }
+        Init(Target);
     }
 }
