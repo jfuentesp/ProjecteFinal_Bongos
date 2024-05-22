@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
-public class PlayerStatsController : MonoBehaviour
+public class PlayerStatsController : MonoBehaviour, IBuffable
 {
     private HealthController m_HealthController;
     public HealthController Health => m_HealthController;
@@ -154,10 +154,22 @@ public class PlayerStatsController : MonoBehaviour
         Debug.Log(string.Format("El valor de daño ha cambiado de {0} a {1}", m_Strength - damageUp, m_Strength));
     }
 
+    public void DecreaseDamage(float damageDown)
+    {
+        m_Strength -= damageDown;
+        Debug.Log(string.Format("El valor de daño ha cambiado de {0} a {1}", m_Strength + damageDown, m_Strength));
+    }
+
     public void IncreaseDefense(float defenseUp)
     {
         m_Defense += defenseUp;
         Debug.Log(string.Format("El valor de defensa ha cambiado de {0} a {1}", m_Defense - defenseUp, m_Defense));
+    }
+
+    public void DecreaseDefense(float defenseDown)
+    {
+        m_Defense -= defenseDown;
+        Debug.Log(string.Format("El valor de defensa ha cambiado de {0} a {1}", m_Defense + defenseDown, m_Defense));
     }
 
     public void IncreaseHealth(float healthUp)
@@ -172,9 +184,52 @@ public class PlayerStatsController : MonoBehaviour
         Debug.Log(string.Format("El valor de velocidad ha cambiado de {0} a {1}", m_Velocity - speedUp, m_Velocity));
     }
 
+    public void DecreaseSpeed(float speedDown)
+    {
+        m_Velocity -= speedDown;
+        Debug.Log(string.Format("El valor de velocidad ha cambiado de {0} a {1}", m_Velocity + speedDown, m_Velocity));
+    }
+
     public void IncreaseAttackSpeed(float atkspeedUp)
     {
         m_AttackTime += atkspeedUp;
         Debug.Log(string.Format("El valor de velocidad de ataque ha cambiado de {0} a {1}", m_AttackTime - atkspeedUp, m_AttackTime));
+    }
+
+    public IEnumerator AttackBuff(float statAmount, float duration)
+    {
+        IncreaseDamage(statAmount);
+        yield return new WaitForSeconds(duration);
+        DecreaseDamage(statAmount);
+    }
+
+    public IEnumerator DefenseBuff(float statAmount, float duration)
+    {
+        IncreaseDefense(statAmount);
+        yield return new WaitForSeconds(duration);
+        DecreaseDefense(statAmount);
+    }
+
+    public IEnumerator SpeedBuff(float statAmount, float duration)
+    {
+        IncreaseSpeed(statAmount);
+        yield return new WaitForSeconds(duration);
+        DecreaseSpeed(statAmount);
+    }
+
+    public void BuffStat(StatType statToBuff, float statAmount, float duration)
+    {
+        switch (statToBuff)
+        {
+            case StatType.ATTACK:
+                StartCoroutine(AttackBuff(statAmount, duration));
+                break;
+            case StatType.DEFENSE:
+                StartCoroutine(DefenseBuff(statAmount, duration));
+                break;
+            case StatType.SPEED:
+                StartCoroutine((SpeedBuff(statAmount, duration)));
+                break;
+        }
     }
 }

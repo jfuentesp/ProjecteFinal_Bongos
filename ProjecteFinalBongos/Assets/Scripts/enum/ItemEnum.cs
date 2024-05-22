@@ -11,3 +11,8 @@ public enum ExplosionType
 {
     EXPLOSION, PROTECTEDEXPLOSION, SLOW, POISON
 }
+
+public enum StatType
+{
+    ATTACK, DEFENSE, SPEED
+}
