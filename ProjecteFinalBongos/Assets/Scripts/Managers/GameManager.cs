@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
         }
         if (scene.name == "Mundo2")
         {
-            if (!m_NuevaPartida)
+            if (m_PlayerInGame == null)
                 m_PlayerInGame = Instantiate(m_PlayerPrefab);
             m_PlayerInGame.transform.position = Vector3.zero;
         }

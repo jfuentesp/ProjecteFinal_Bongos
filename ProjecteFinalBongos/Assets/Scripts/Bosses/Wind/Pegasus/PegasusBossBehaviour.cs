@@ -50,6 +50,9 @@ public class PegasusBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+    }
+    private void Start()
+    {
         m_StateMachine.ChangeState<SMBIdleState>();
     }
     public override void Init(Transform _Target)
@@ -121,7 +124,10 @@ public class PegasusBossBehaviour : BossBehaviour
         m_NumberOfAttacksBeforeCharge = Random.Range(5, 7);
         m_StateMachine.ChangeState<SMBWalkAroundState>();
     }
-
+    private void MatarBoss()
+    {
+        Destroy(gameObject);
+    }
     protected override void VidaCero()
     {
         base.VidaCero();
@@ -131,6 +137,5 @@ public class PegasusBossBehaviour : BossBehaviour
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         m_BossMuertoEvent.Raise();
-        Destroy(gameObject);
     }
 }

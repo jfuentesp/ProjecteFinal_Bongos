@@ -181,7 +181,7 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
         jefe.GetComponent<BossBehaviour>().OnBossDeath += DesbloquearPuertas;
         jefe.transform.localPosition = GetPositionToSpawnBoss(0);
         if (m_TransformPlayer != null)
-            OnPlayerIn?.Invoke(m_TransformPlayer);
+            jefe.GetComponent<BossBehaviour>().BossFinalSalaSpawn(m_TransformPlayer);
     }
 
     Vector3 GetPositionToSpawnBoss(int position)
