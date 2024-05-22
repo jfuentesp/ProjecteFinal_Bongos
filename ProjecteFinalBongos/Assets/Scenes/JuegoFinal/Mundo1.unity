@@ -8215,7 +8215,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IdiomasDropDown: {fileID: 111414591}
-  m_Font: {fileID: 0}
   m_FullScreenToggle: {fileID: 1957402384}
   m_ResolucionesDropDown: {fileID: 618337208}
 --- !u!114 &586383330
@@ -8232,6 +8231,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PausaPanel: {fileID: 1086351092}
   m_ResumeGameButton: {fileID: 1311061631}
+  m_PanelInventory: {fileID: 0}
+  m_PanelPlayerHUD: {fileID: 0}
+  m_PanelAbilities: {fileID: 0}
+  m_PanelStore: {fileID: 0}
+  m_PanelsList: []
 --- !u!4 &586383331
 Transform:
   m_ObjectHideFlags: 0

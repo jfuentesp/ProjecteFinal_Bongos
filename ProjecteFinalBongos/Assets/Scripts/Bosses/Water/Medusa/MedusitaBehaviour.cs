@@ -3,27 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
+using Random = UnityEngine.Random;
 
-public class MedusitaBehaviour : MonoBehaviour
+public class MedusitaBehaviour : BossBehaviour
 {
     private int m_KindOfMedusita;
     private SpriteRenderer m_SpriteRenderer;
     [SerializeField] private float m_Speed;
     [SerializeField] private float m_UpdateDirectonTime;
     private Rigidbody2D m_RigidBody;
-    private Transform m_Target;
     private bool m_Inmolando;
 
-    private void Awake()
+    private new void Awake()
     {
+        base.Awake();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         m_RigidBody = GetComponent<Rigidbody2D>();
         m_Inmolando = false;
     }
-    public void Init(int _kindMedusita, Transform _Target)
+    public override void Init(Transform _Target)
     {
+        base.Init(_Target);
         m_Target = _Target;
-        m_KindOfMedusita = _kindMedusita;
+        m_KindOfMedusita = Random.Range(1, 4); 
         switch (m_KindOfMedusita)
         {
             case 1:
@@ -44,6 +46,7 @@ public class MedusitaBehaviour : MonoBehaviour
             default:
                 break;
         }
+        OnPlayerInSala?.Invoke();
     }
     public void PlayerHoming()
     {
@@ -79,14 +82,32 @@ public class MedusitaBehaviour : MonoBehaviour
         transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, new Vector3(0, 0, angulo), max); ;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
+        base.OnTriggerEnter2D(collision);
         if (m_Inmolando)
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox") || collision.gameObject.layer == LayerMask.NameToLayer("Default"))
             {
-                Destroy(gameObject);
+                VidaCero();
             }
         }
+    }
+
+    private void MatarBoss()
+    {
+        Destroy(gameObject);
+    }
+    protected override void VidaCero()
+    {
+        base.VidaCero();
+        StopAllCoroutines();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
+        m_StateMachine.ChangeState<DeathState>();
+        m_IsAlive = false;
+        OnBossDeath?.Invoke();
+        m_BossMuertoEvent.Raise();
+
     }
 }

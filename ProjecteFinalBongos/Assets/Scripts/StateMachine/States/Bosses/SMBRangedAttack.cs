@@ -56,7 +56,7 @@ public class SMBRangedAttack : SMState
         if (m_RangedAttackAnimationName == String.Empty)
             print("ay");
         else
-            AttackAnimation();
+            StartCoroutine(AttackAnimationRoutine());
     }
 
     private void AttackAnimation()
@@ -140,6 +140,7 @@ public class SMBRangedAttack : SMState
     public override void ExitState()
     {
         base.ExitState();
+        StopAllCoroutines();
     }
     // Update is called once per frame
     void Update()

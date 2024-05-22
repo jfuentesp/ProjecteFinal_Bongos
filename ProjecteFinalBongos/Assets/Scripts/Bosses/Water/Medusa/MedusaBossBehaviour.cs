@@ -89,7 +89,7 @@ public class MedusaBossBehaviour : BossBehaviour
             //medusa.GetComponent<CircleCollider2D>().enabled = false;
             
             medusa.transform.localPosition = GetRandomPosition();
-            medusa.GetComponent<MedusitaBehaviour>().Init(Random.Range(1,4), m_Target);
+            medusa.GetComponent<MedusitaBehaviour>().Init(m_Target);
         }
     }
     private Vector2 GetRandomPosition()
