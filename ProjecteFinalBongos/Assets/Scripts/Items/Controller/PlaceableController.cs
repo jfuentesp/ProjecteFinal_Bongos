@@ -69,7 +69,7 @@ public class PlaceableController : MonoBehaviour
                 m_Animator.Play("PoisonCloud");
                 break;
             case PlaceableEnum.TRAPWATER:
-
+                m_Animator.Play("WaterWave");
                 break;
         }   
     }
@@ -102,6 +102,7 @@ public class PlaceableController : MonoBehaviour
         m_Animator.Play("WaterTrap");
         m_Rigidbody.simulated = false;
         yield return new WaitForSeconds(20f);
+        m_Animator.Play("WaterWave");
     }
 
     public void DestroyGameObject()
