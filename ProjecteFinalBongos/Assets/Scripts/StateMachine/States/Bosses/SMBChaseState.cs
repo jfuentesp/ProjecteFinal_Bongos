@@ -34,8 +34,9 @@ public class SMBChaseState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
-        m_NavMeshAgent= GetComponent<NavMeshAgent>();
+        m_NavMeshAgent = m_Boss.NavMeshAgent;
         m_Boss.OnPlayerInSala += GetTarget;
+       
     }
 
     private void GetTarget()
@@ -47,11 +48,27 @@ public class SMBChaseState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(false);
+        if (m_NavMeshAgent == null)
+        {
+            Debug.LogError("NavMeshAgent is null");
+            return;
+        }
+        if (!m_NavMeshAgent.isOnNavMesh)
+        {
+            Debug.LogError("NavMeshAgent is not on NavMesh");
+            return;
+        }
+
+        if (!m_NavMeshAgent.enabled)
+        {
+            Debug.LogError("NavMeshAgent is not enabled");
+            return;
+        }
         m_NavMeshAgent.isStopped = false;
-        OnStartChase?.Invoke();
-        //m_NavMeshAgent.acceleration = m_ChaseSpeed;
         m_NavMeshAgent.speed = m_ChaseSpeed;
 
+        OnStartChase?.Invoke();
+        //m_NavMeshAgent.acceleration = m_ChaseSpeed;
 
         if (m_ChaseAnimationName != String.Empty)
             m_Animator.Play(m_ChaseAnimationName);
@@ -66,7 +83,7 @@ public class SMBChaseState : SMState
 
     private void Update()
     {
-      
+
         //To face the target
         if (m_Target != null)
         {
@@ -77,22 +94,27 @@ public class SMBChaseState : SMState
                 else
                     transform.localEulerAngles = Vector3.zero;
             }
+            if (m_NavMeshAgent == null)
+            {
+                Debug.LogError("NavMeshAgent is null");
+                return;
+            }
+            if (!m_NavMeshAgent.isOnNavMesh)
+            {
+                Debug.LogError("NavMeshAgent is not on NavMesh");
+                return;
+            }
+
+            if (!m_NavMeshAgent.enabled)
+            {
+                Debug.LogError("NavMeshAgent is not enabled");
+                return;
+            }
             m_NavMeshAgent.SetDestination(m_Target.position);
             /*Vector2 posicionPlayer = m_Target.position - transform.position;
             float angulo = Mathf.Atan2(posicionPlayer.y, posicionPlayer.x);
             angulo = Mathf.Rad2Deg * angulo - 90;
             transform.localEulerAngles = new Vector3(0, 0, angulo);*/
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if (m_Target != null)
-        {
-            m_NavMeshAgent.SetDestination(m_Target.position);
-            /*m_Rigidbody.velocity = Vector3.zero;
-            Vector3 direction = (m_Target.position - transform.position).normalized;
-            m_Rigidbody.velocity = direction * m_ChaseSpeed;*/
         }
     }
 }

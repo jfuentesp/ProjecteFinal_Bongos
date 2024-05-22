@@ -18,7 +18,8 @@ public class VoltauroBossBehaviour : BossBehaviour
     private enum Phase { ONE, TWO }
     private Phase m_CurrentPhase;
 
-    private new void Awake()
+
+    protected override void Awake()
     {
         base.Awake();
         m_CurrentPhase = Phase.ONE;
