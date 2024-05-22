@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7602870204940437933}
-  - component: {fileID: 5559036301615131156}
-  - component: {fileID: 2376167371366517407}
+  - component: {fileID: 1980958914882291989}
   m_Layer: 10
   m_Name: ItemHitbox
   m_TagString: Explosion
@@ -33,68 +32,26 @@ Transform:
   m_Father: {fileID: 1952777222249143302}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &5559036301615131156
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1365334553935237466}
-  m_BodyType: 0
-  m_Simulated: 0
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
---- !u!58 &2376167371366517407
-CircleCollider2D:
+--- !u!114 &1980958914882291989
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365334553935237466}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e525d3b91acf5eb4db698748f8d2b8fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ExplosionType: 0
+  m_ExplosionDamage: 0
+  m_ExplosionForce: 0
+  m_PoisonDuration: 0
+  m_SlowDuration: 0
+  m_LayersAffected:
     serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+    m_Bits: 640
 --- !u!1 &4526966402006351552
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5430f523d47781b4d94df17d08455ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ExplosionBehaviour: {fileID: 1980958914882291989}
 --- !u!95 &169157964029032814
 Animator:
   serializedVersion: 5
