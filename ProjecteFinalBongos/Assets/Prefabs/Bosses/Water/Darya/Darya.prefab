@@ -201,8 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_event: {fileID: 0}
   times: {fileID: 0}
+  m_NameAnimation: 
 --- !u!114 &-5364012345615360534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +328,8 @@ MonoBehaviour:
   m_BossName: 
   m_Description: 
   m_Target: {fileID: 0}
+  m_BloodController: {fileID: 0}
+  m_BossFinalSala: 0
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 0
   m_AreaWideness: 0
@@ -335,7 +337,7 @@ MonoBehaviour:
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
-    m_Bits: 1152
+    m_Bits: 128
   m_BossMuertoEvent: {fileID: 0}
   m_layerMask:
     serializedVersion: 2
