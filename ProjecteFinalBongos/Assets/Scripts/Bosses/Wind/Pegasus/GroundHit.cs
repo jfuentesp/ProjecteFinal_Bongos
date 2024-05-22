@@ -14,6 +14,12 @@ public class GroundHit : MonoBehaviour
     void Start()
     {
         transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        GetComponent<BossAttackDamage>().OnAttackParried += Parried;
+    }
+
+    private void Parried(GameObject @object)
+    {
+        Destroy(gameObject);
     }
 
     // Update is called once per frame

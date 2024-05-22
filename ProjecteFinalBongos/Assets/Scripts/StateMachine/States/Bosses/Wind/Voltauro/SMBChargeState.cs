@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using static UnityEngine.GraphicsBuffer;
+using Random = UnityEngine.Random;
 
 public class SMBChargeState : SMState
 {
@@ -36,6 +37,8 @@ public class SMBChargeState : SMState
 
     [Header("Animation Two Directions")]
     [SerializeField] protected bool m_TwoDirections;
+    [Header("Colores del Shader")]
+    [SerializeField] private Color[] m_ColoresList;
 
     private bool m_IsAiming;
     private bool m_IsCharging;
@@ -58,6 +61,12 @@ public class SMBChargeState : SMState
         m_Boss = GetComponent<BossBehaviour>();
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
         m_Boss.OnPlayerInSala += GetTarget;
+        m_Boss.OnBossDeath += HideTelegraph;
+    }
+
+    private void HideTelegraph()
+    {
+        m_Shader.SetActive(false);
     }
 
     private void GetTarget()
@@ -89,6 +98,7 @@ public class SMBChargeState : SMState
         m_IsAiming = true;
         m_Animator.Play(m_StartChargeAnimationName);
         m_Shader.SetActive(true);
+        m_Shader.GetComponent<SpriteRenderer>().material.SetColor("_Color", m_ColoresList[Random.Range(0, m_ColoresList.Length)]);
         yield return new WaitForSeconds(m_TimeBeforeCharge);
         m_Shader.SetActive(false);
         m_IsAiming = false;
