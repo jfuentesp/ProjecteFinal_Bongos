@@ -3,29 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
-using Random = UnityEngine.Random;
 
-public class MedusitaBehaviour : BossBehaviour
+public class MedusitaBehaviour : MonoBehaviour
 {
     private int m_KindOfMedusita;
     private SpriteRenderer m_SpriteRenderer;
     [SerializeField] private float m_Speed;
     [SerializeField] private float m_UpdateDirectonTime;
     private Rigidbody2D m_RigidBody;
+    private Transform m_Target;
     private bool m_Inmolando;
+    private Animator m_Animator;
 
-    private new void Awake()
+    private void Awake()
     {
-        base.Awake();
+        m_Animator = GetComponent<Animator>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         m_RigidBody = GetComponent<Rigidbody2D>();
         m_Inmolando = false;
     }
-    public override void Init(Transform _Target)
+    public void Init(int _kindMedusita, Transform _Target)
     {
-        base.Init(_Target);
         m_Target = _Target;
-        m_KindOfMedusita = Random.Range(1, 4); 
+        m_KindOfMedusita = _kindMedusita;
         switch (m_KindOfMedusita)
         {
             case 1:
@@ -46,7 +46,6 @@ public class MedusitaBehaviour : BossBehaviour
             default:
                 break;
         }
-        OnPlayerInSala?.Invoke();
     }
     public void PlayerHoming()
     {
@@ -82,15 +81,13 @@ public class MedusitaBehaviour : BossBehaviour
         transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, new Vector3(0, 0, angulo), max); ;
     }
 
-
-    protected override void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        base.OnTriggerEnter2D(collision);
         if (m_Inmolando)
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox") || collision.gameObject.layer == LayerMask.NameToLayer("Default"))
             {
-                VidaCero();
+                m_Animator.Play("MiniDeath");
             }
         }
     }
@@ -98,16 +95,5 @@ public class MedusitaBehaviour : BossBehaviour
     private void MatarBoss()
     {
         Destroy(gameObject);
-    }
-    protected override void VidaCero()
-    {
-        base.VidaCero();
-        StopAllCoroutines();
-        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
-        m_StateMachine.ChangeState<DeathState>();
-        m_IsAlive = false;
-        OnBossDeath?.Invoke();
-        m_BossMuertoEvent.Raise();
-
     }
 }
