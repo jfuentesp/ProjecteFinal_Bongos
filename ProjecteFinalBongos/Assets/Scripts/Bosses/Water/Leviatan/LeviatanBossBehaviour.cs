@@ -68,9 +68,13 @@ public class LeviatanBossBehaviour : BossBehaviour
             m_StateMachine.ChangeState<SMBChaseState>();
         };
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorrutina;
-        m_StateMachine.ChangeState<SMBIdleState>();
+   
     }
 
+    private void Start()
+    {
+        m_StateMachine.ChangeState<SMBIdleState>();
+    }
     private void EmpezarCorrutina(GameObject @object)
     {
         m_DeteccionPlayerCoroutine = StartCoroutine(PlayerDetectionCoroutine());
