@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TimeUntilDestroyed: -0.06
   m_SizeRadius: 1
-  m_Speed: 50
+  m_Speed: 30
   m_Damage: 10
   m_AnimationName: 
 --- !u!114 &-7529973721447979446
@@ -296,7 +296,6 @@ MonoBehaviour:
   m_Damage: 10
   m_AnimationName: DracMariBullet
   m_pool: {fileID: 0}
-  m_damage: 10
 --- !u!114 &6484961490468896115
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,5 +25,14 @@ public class AlteaBullet : Bullet
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox"))
                 DisableBullet();
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox"))
+            DisableBullet();
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox"))
+            DisableBullet();
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox"))
+            DisableBullet();
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox"))
+            DisableBullet();
     }
 }

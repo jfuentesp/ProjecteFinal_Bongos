@@ -48,6 +48,8 @@ public class BossBehaviour : MonoBehaviour
 
     public Action OnBossDeath;
 
+    [SerializeField] protected bool m_BossFinalSala;
+
     protected enum CollisionType { CIRCLE, BOX }
 
     [Header("Attack detection area settings (CircleCast collider)")]
@@ -229,7 +231,7 @@ public class BossBehaviour : MonoBehaviour
 
     private IEnumerator SpawnFinalBoss(Transform Target)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.1f);
         if (!m_NavMeshAgent.isOnNavMesh)
         {
             if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 10f, NavMesh.AllAreas))
