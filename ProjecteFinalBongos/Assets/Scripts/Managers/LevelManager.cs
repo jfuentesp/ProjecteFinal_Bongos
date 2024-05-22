@@ -98,6 +98,7 @@ public class LevelManager : MonoBehaviour
         m_eventSystem = GetComponent<EventSystem>();
         m_InputSystemUIInputModule = GetComponent<InputSystemUIInputModule>();
         m_StoreGUIController = GetComponent<StoreGUIController>();
+        m_InventoryController = GetComponent<InventoryController>();
         m_GeneracionSalasInstanciacion.onMapaFinalized += DesfundirNegro;
     }
 
