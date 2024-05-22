@@ -40,7 +40,7 @@ public class LeviatanEggs : Splash
                 if (NavMesh.SamplePosition(transform.position, out NavMeshHit closestHit, 500, 1))
                 {
                     bicho.transform.position = closestHit.position;
-                    bicho.GetComponent<PiranaBehaviour>().Init(m_Target);
+                    bicho.GetComponent<AnguilaBehaviour>().Init(m_Target);
                 }
             }
             else
@@ -49,7 +49,7 @@ public class LeviatanEggs : Splash
                 if (NavMesh.SamplePosition(transform.position, out NavMeshHit closestHit, 500, 1))
                 {
                     bicho.transform.position = closestHit.position;
-                    bicho.GetComponent<PiranaBehaviour>().Init(m_Target);
+                    bicho.GetComponent<AnguilaBehaviour>().Init(m_Target);
                 }
             }
         }

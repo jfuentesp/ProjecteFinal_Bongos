@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LeviatanWaveScript : MonoBehaviour
 {
-    [SerializeField] EstadoEvent changeEstado;
     [SerializeField] private float scaleSpeed = 3f;
     [SerializeField] private float fadeOutSpeed = 0.2f;
     private SpriteRenderer spriteRenderer;
@@ -14,10 +13,7 @@ public class LeviatanWaveScript : MonoBehaviour
         transform.localScale = Vector3.zero;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        changeEstado.Raise(EstadosAlterados.Mullat);
-    }
+
 
     private void Update()
     {

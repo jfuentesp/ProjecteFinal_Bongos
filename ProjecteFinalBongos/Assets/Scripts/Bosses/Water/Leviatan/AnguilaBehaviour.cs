@@ -10,6 +10,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(SMBChaseState))]
 [RequireComponent(typeof(HealthController))]
 [RequireComponent(typeof(SMBParriedState))]
+[RequireComponent(typeof(SMBChargeState))]
 public class AnguilaBehaviour : BossBehaviour
 {
     private new void Awake()

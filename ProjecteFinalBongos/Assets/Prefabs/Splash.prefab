@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6680870749267416029}
   - component: {fileID: -3308812818241463687}
   - component: {fileID: 2155942602176928196}
+  - component: {fileID: 2119653403821904922}
   m_Layer: 0
   m_Name: Splash
   m_TagString: Splash
@@ -257,3 +258,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2119653403821904922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8564957952386650585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fef7158e89a86744bfda216ba2102cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TimeUntilDestroyed: 5
+  m_SizeLength: 1
+  m_SizeWideness: 1
+  m_SplashEffectState: 0
+  m_piranha: {fileID: 3408488696584773643, guid: ff07fb2dc7be898489a2db2b0b01482f, type: 3}
+  m_anguila: {fileID: 3408488696584773643, guid: ff07fb2dc7be898489a2db2b0b01482f, type: 3}

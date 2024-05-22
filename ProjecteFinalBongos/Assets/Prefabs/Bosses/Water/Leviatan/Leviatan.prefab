@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 5593307010911000243}
   - component: {fileID: 7744248490207793796}
   - component: {fileID: 408036267130153214}
+  - component: {fileID: 3950921055843223782}
   m_Layer: 9
   m_Name: Leviatan
   m_TagString: Untagged
@@ -93,7 +94,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -544431312, guid: 5f8af9e9cd869ae49b212714c0d17254, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -257,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31aad942560380c47874cf5311cb5dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Wave: {fileID: 0}
+  m_Wave: {fileID: 6553183163462465869, guid: fe24d6304fbb77046a7a89d24754ed8b, type: 3}
 --- !u!114 &8491019510831488592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,11 +271,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52dc24ada46251f4f9e615258ccf2ae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_piranha: {fileID: 0}
-  m_anguila: {fileID: 0}
+  m_piranha: {fileID: 6552562057509646066, guid: 5c0c4178f5c3e944d970b272fe7975fa, type: 3}
+  m_anguila: {fileID: 3408488696584773643, guid: ff07fb2dc7be898489a2db2b0b01482f, type: 3}
   m_LayerCannotInteractInSpawn:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
 --- !u!114 &5388372976190083808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,15 +288,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed55b1b0673a9e24a98ce8d9413e3f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AttackHitbox: {fileID: 0}
-  m_HitboxLength: 0
-  m_HitboxWideness: 0
-  m_HitboxRadius: 0
-  m_TwoDirections: 0
-  m_SingleAttackAnimationName: 
-  m_WaitAnimation: 
-  minWaitTime: 0
-  maxWaitTime: 0
+  m_AttackHitbox: {fileID: 9030039706780272103}
+  m_HitboxLength: 1
+  m_HitboxWideness: 1
+  m_HitboxRadius: 1
+  m_TwoDirections: 1
+  m_SingleAttackAnimationName: Attack
+  m_WaitAnimation: Wait
+  minWaitTime: 0.2
+  maxWaitTime: 0.25
 --- !u!114 &5907151408996630611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,8 +322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c95fcad212f9a846a53614aab35d8aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParryDuration: 0
-  m_AnimationParryName: 
+  m_ParryDuration: 3
+  m_AnimationParryName: P
 --- !u!114 &4713296134046984966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +396,7 @@ MonoBehaviour:
   m_WaterResistance: 5
   m_FireResistance: 5
   m_ElectricResistance: 5
-  m_bossBaseStats: {fileID: 0}
+  m_bossBaseStats: {fileID: 11400000, guid: 2ed16064ca0caa64a94df5785d23f5c8, type: 2}
   m_Velocity: 0
   m_AttackTime: 1
   m_Strength: 0
@@ -427,7 +428,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -438,7 +439,52 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
+--- !u!61 &3950921055843223782
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3128256692640645519}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.049063683, y: 0.4415722}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.47338918, y: 0.27209178}
+    oldSize: {x: 1.84375, y: 1.9375}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.84375, y: 1.9375}
+  m_EdgeRadius: 0
 --- !u!1 &6183386804774667221
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +693,10 @@ PrefabInstance:
     - target: {fileID: 4901853211154067748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
       propertyPath: m_Name
       value: ComponenteSanguineo
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901853211154067748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

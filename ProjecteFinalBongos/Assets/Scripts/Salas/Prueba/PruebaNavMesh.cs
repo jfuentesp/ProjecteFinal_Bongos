@@ -14,7 +14,9 @@ public class PruebaNavMesh : MonoBehaviour
     private NavMeshSurface surface;
     private void Awake()
     {
+        print("Awake del navmesh");
         surface = GetComponent<NavMeshSurface>();
+        print(LevelManager.Instance == null);
         m_Mapa = LevelManager.Instance.GeneracionSalasInstanciacion;
         m_Mapa.onMapaFinalized += ConstruirMapa;
     }

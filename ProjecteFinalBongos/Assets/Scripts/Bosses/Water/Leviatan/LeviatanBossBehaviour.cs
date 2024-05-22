@@ -55,6 +55,14 @@ public class LeviatanBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        GetComponent<SMBSingleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBSingleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
         GetComponent<LeviatanCrashWaveState>().OnSpawnedWave = (GameObject obj) =>
         {
             ComprobarSiMorder();
@@ -66,6 +74,10 @@ public class LeviatanBossBehaviour : BossBehaviour
         GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        transform.GetChild(0).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
         };
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorrutina;
    
@@ -98,6 +110,8 @@ public class LeviatanBossBehaviour : BossBehaviour
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
+        m_Target = _Target;
+        OnPlayerInSala?.Invoke();
     }
 
     private IEnumerator LeviatanMinionsSpawn()
@@ -146,5 +160,21 @@ public class LeviatanBossBehaviour : BossBehaviour
             }
             yield return new WaitForSeconds(m_CheckingPlayerTimelapse);
         }
+    }
+
+    private void MatarBoss()
+    {
+        Destroy(gameObject);
+    }
+
+    protected override void VidaCero()
+    {
+        base.VidaCero();
+        StopAllCoroutines();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
+        m_StateMachine.ChangeState<DeathState>();
+        m_IsAlive = false;
+        OnBossDeath?.Invoke();
+        m_BossMuertoEvent.Raise();
     }
 }
