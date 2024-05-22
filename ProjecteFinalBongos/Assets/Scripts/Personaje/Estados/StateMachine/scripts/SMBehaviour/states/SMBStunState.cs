@@ -31,7 +31,6 @@ public class SMBStunState : SMState
         base.InitState();
         m_Time = playerTimes.m_StunTime;
         m_Animator.Play("stunnedPlayer");
-        m_Rigidbody.velocity = Vector2.zero;
         StartCoroutine(StunSeconds());
         
     }
