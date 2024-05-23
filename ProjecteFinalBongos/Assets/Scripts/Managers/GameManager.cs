@@ -130,7 +130,9 @@ public class GameManager : MonoBehaviour
     public void AcabarJuego()
     {
         SceneManager.LoadScene("EscenaInicial");
-        Destroy(PlayerInGame);
+        print("MuereCalvo");
+        print(m_PlayerInGame == null);
+        //Destroy(m_PlayerInGame);
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
     {

@@ -29,13 +29,12 @@ public class SMBStunState : SMState
     public override void InitState()
     {
         base.InitState();
-        m_Time = playerTimes.m_StunTime;
         m_Animator.Play("stunnedPlayer");
-        m_Rigidbody.velocity = Vector2.zero;
         StartCoroutine(StunSeconds());
-        
+
     }
-    IEnumerator StunSeconds() { 
+
+    IEnumerator StunSeconds() {
         yield return new WaitForSeconds(m_Time);
         m_event.Raise();
         m_StateMachine.ChangeState<SMBPlayerIdleState>();
@@ -46,7 +45,7 @@ public class SMBStunState : SMState
         StopAllCoroutines();
     }
 
-    public void ChangeTime(float time) { 
+    public void ChangeTime(float time) {
         m_Time = time;
     }
 }

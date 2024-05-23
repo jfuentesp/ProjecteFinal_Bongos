@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class SMBPlayerSuccesfulParryState : MBState
+public class SMBPlayerSuccesfulParryState : SMState
 {
     private PJSMB m_PJ;
     private Rigidbody2D m_Rigidbody;
@@ -12,7 +12,7 @@ public class SMBPlayerSuccesfulParryState : MBState
     private Ability m_parry;
 
 
-    private void Awake()
+    private new void Awake()
     {
         m_PJ = GetComponent<PJSMB>();
         m_Rigidbody = GetComponent<Rigidbody2D>();

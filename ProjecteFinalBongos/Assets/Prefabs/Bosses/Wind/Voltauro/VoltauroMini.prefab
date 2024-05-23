@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Description: asa
   m_Target: {fileID: 0}
   m_BloodController: {fileID: 1131370943619560393}
+  m_BossFinalSala: 0
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 0
   m_AreaWideness: 0
@@ -222,7 +223,7 @@ MonoBehaviour:
   m_EndChargeAnimationName: 
   m_TwoDirections: 1
   m_ColoresList:
-  - {r: 0.7169812, g: 0.010145942, b: 0.010145942, a: 0}
+  - {r: 0.7169812, g: 0.010145942, b: 0.010145942, a: 1}
 --- !u!114 &-6303694690769605173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,7 +474,7 @@ MonoBehaviour:
   parreable: 0
   healable: 0
   m_EstadoAlterado: 4
-  stateTime: 0
+  stateTime: 1.5
 --- !u!114 &5904273208453465715
 MonoBehaviour:
   m_ObjectHideFlags: 0

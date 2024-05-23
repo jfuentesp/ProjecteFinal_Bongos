@@ -1,0 +1,987 @@
+fileFormatVersion: 2
+guid: 5f8af9e9cd869ae49b212714c0d17254
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Leviatan_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1164
+        width: 73
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd2c35261056b6049b8cf753c1de0bb9
+      internalID: 2024758700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_1
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 1154
+        width: 59
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c933297e7f1f8f74281f56f84c8bf2f7
+      internalID: 1629649917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_2
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 1168
+        width: 86
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ce2b3f049c88c64ab61489481d3a9f2
+      internalID: -9266505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1108
+        width: 73
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8ced068deeb2d842bc62957481dbff8
+      internalID: 2100897296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_4
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 1112
+        width: 89
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee76e717eedb0f04abee04c64fdbfb48
+      internalID: 702641742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_5
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1040
+        width: 97
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6c9521dde431de4db1b13d737017191
+      internalID: 1448629013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_6
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 1056
+        width: 80
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d14fdbedd4b5f9468e1ffa0bb000fb5
+      internalID: -1771727767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_10
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 1006
+        width: 98
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bf5bee45081fe841bbd22ef2adcf53c
+      internalID: 291012287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 956
+        width: 128
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f45c9fd16103ce4b98df6261ef01050
+      internalID: -1268350166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_17
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 903
+        width: 97
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d200ff663ad3784fbbc16a56f957800
+      internalID: -949992068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_23
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 814
+        width: 85
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51670ab6e89c26741b6d30ffae106cd3
+      internalID: -1424529968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_25
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 770
+        width: 99
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21d6e35f82cf1c243b81171420150990
+      internalID: -1300693033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_26
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 728
+        width: 73
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2004e5d3cf2f1b040be019b7fba3e3a6
+      internalID: -952440007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_27
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 681
+        width: 79
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1449c1b704471af43bc3d0ed53a355da
+      internalID: 1479794791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_28
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 682
+        width: 85
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e325c56fb731e44bb103079f9e83dde
+      internalID: 1590830300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_29
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 617
+        width: 80
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 199a619d2d3d39d41a40cd5b0e3b38ed
+      internalID: -459843430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_30
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 618
+        width: 100
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cf7a584802a23746a2b9323825a7e3c
+      internalID: 1154396703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_31
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 564
+        width: 86
+        height: 51
+      alignment: 9
+      pivot: {x: 0.43306062, y: 0.33581305}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fffaceb2fe8534f43b5fb239561dea16
+      internalID: -928156618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_32
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 550
+        width: 59
+        height: 62
+      alignment: 9
+      pivot: {x: 0.47338918, y: 0.27209178}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93aac9f81115e4b42943bb96ec73d105
+      internalID: -544431312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_33
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 560
+        width: 73
+        height: 55
+      alignment: 9
+      pivot: {x: 0.4575492, y: 0.29196668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8b7626578e05cc41af6f15146480143
+      internalID: -1018514104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_34
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 508
+        width: 89
+        height: 50
+      alignment: 9
+      pivot: {x: 0.39744794, y: 0.28322998}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ed11887e4f2fc46984c3be0df6cbb5
+      internalID: 2015124803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_35
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 504
+        width: 73
+        height: 54
+      alignment: 9
+      pivot: {x: 0.43294913, y: 0.31035247}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7e5acb26637867449357c56bf440b26
+      internalID: -1586772314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_36
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 452
+        width: 80
+        height: 53
+      alignment: 9
+      pivot: {x: 0.38591084, y: 0.31702638}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f4126d2dfadb26429e4bd24938fb778
+      internalID: 1167012293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_37
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 436
+        width: 97
+        height: 55
+      alignment: 9
+      pivot: {x: 0.44604698, y: 0.30969295}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0afb637a6f595294184f76dade833630
+      internalID: -1202361154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_38
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 402
+        width: 98
+        height: 50
+      alignment: 9
+      pivot: {x: 0.36041525, y: 0.27615723}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f23d046a3c0a6eb46b9e7cbb56606cff
+      internalID: 1135193467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_39
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 347
+        width: 125
+        height: 84
+      alignment: 9
+      pivot: {x: 0.3367163, y: 0.27570924}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53aa757622ab0c0428f8daf3fd403696
+      internalID: -1867881682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 352
+        width: 128
+        height: 45
+      alignment: 9
+      pivot: {x: 0.38341516, y: 0.23746812}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a31bc1f6bffc53645b026d801de8a767
+      internalID: 491004817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_46
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 299
+        width: 97
+        height: 52
+      alignment: 9
+      pivot: {x: 0.44230834, y: 0.34455344}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2221220fb87aa0245a46baae91207643
+      internalID: 92655201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_47
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 254
+        width: 127
+        height: 85
+      alignment: 9
+      pivot: {x: 0.3279937, y: 0.32152963}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e0aaaf519a58be458ff9ae9a90c2640
+      internalID: 1331187522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_52
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 210
+        width: 85
+        height: 85
+      alignment: 9
+      pivot: {x: 0.36101246, y: 0.31712162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 502b369e2f8286c4e94858e52ff61023
+      internalID: -1075041401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 124
+        width: 73
+        height: 81
+      alignment: 9
+      pivot: {x: 0.40025204, y: 0.23031145}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c2dbbab0d8055147bbf978190153701
+      internalID: -1240871244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_57
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 166
+        width: 99
+        height: 85
+      alignment: 9
+      pivot: {x: 0.39580172, y: 0.28583536}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7997086619b2254cb765be9bb7e2e61
+      internalID: -1073383288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_58
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 78
+        width: 85
+        height: 85
+      alignment: 9
+      pivot: {x: 0.39291796, y: 0.24300295}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c706875a9921b2f4091f64cd4219ba7c
+      internalID: 1867095401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_59
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 77
+        width: 79
+        height: 63
+      alignment: 9
+      pivot: {x: 0.26188892, y: 0.4422101}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca532bd1a0321bf4187d69cd8c0bfbe8
+      internalID: -1790125573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_60
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 14
+        width: 100
+        height: 60
+      alignment: 9
+      pivot: {x: 0.24514444, y: 0.36852664}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e86f4e71f651ae42aae6ef0e8630a77
+      internalID: 1601245993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_61
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 13
+        width: 80
+        height: 63
+      alignment: 9
+      pivot: {x: 0.23452549, y: 0.4422092}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcf4343289c500a48b81774bb4bb9e2b
+      internalID: -1207505552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 951
+        width: 128
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 506cc300e2f537f41b9de20abda0636b
+      internalID: -1377587663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leviatan_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 857
+        width: 136
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e53c046fd1166c8429c77986179ea16f
+      internalID: -1756085928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Leviatan_0: 2024758700
+      Leviatan_1: 1629649917
+      Leviatan_10: 291012287
+      Leviatan_11: 1494371991
+      Leviatan_12: -1268350166
+      Leviatan_13: -1523843007
+      Leviatan_14: -1623939360
+      Leviatan_15: 447421269
+      Leviatan_16: 697129922
+      Leviatan_17: -949992068
+      Leviatan_18: -2041650239
+      Leviatan_19: -195122225
+      Leviatan_2: -9266505
+      Leviatan_20: 986471196
+      Leviatan_21: 1746978158
+      Leviatan_22: 714131484
+      Leviatan_23: -1424529968
+      Leviatan_24: -1324363484
+      Leviatan_25: -1300693033
+      Leviatan_26: -952440007
+      Leviatan_27: 1479794791
+      Leviatan_28: 1590830300
+      Leviatan_29: -459843430
+      Leviatan_3: 2100897296
+      Leviatan_30: 1154396703
+      Leviatan_31: -928156618
+      Leviatan_32: -544431312
+      Leviatan_33: -1018514104
+      Leviatan_34: 2015124803
+      Leviatan_35: -1586772314
+      Leviatan_36: 1167012293
+      Leviatan_37: -1202361154
+      Leviatan_38: 1135193467
+      Leviatan_39: -1867881682
+      Leviatan_4: 702641742
+      Leviatan_40: 156549459
+      Leviatan_41: -879404613
+      Leviatan_42: 491004817
+      Leviatan_43: 2060671594
+      Leviatan_44: -1905546460
+      Leviatan_45: -1927442010
+      Leviatan_46: 92655201
+      Leviatan_47: 1331187522
+      Leviatan_48: 1187079766
+      Leviatan_49: 1907820026
+      Leviatan_5: 1448629013
+      Leviatan_50: -68684835
+      Leviatan_51: -837763807
+      Leviatan_52: -1075041401
+      Leviatan_53: 551834057
+      Leviatan_54: 901600988
+      Leviatan_55: -1394143876
+      Leviatan_56: -1240871244
+      Leviatan_57: -1073383288
+      Leviatan_58: 1867095401
+      Leviatan_59: -1790125573
+      Leviatan_6: -1771727767
+      Leviatan_60: 1601245993
+      Leviatan_61: -1207505552
+      Leviatan_7: -1377587663
+      Leviatan_8: -1756085928
+      Leviatan_9: 2124895186
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -82,6 +82,7 @@ public class StoreGUIController : MonoBehaviour
 
     public void OpenShop(List<Consumable> consumables, List<Equipable> equipables)
     {
+        PJSMB.Instance.StopPlayer();
         m_PiccoloStoreConsumables = consumables.ToArray();
         m_PiccoloStoreEquipables = equipables.ToArray();
         RefreshGUI();
@@ -90,6 +91,7 @@ public class StoreGUIController : MonoBehaviour
 
     public void CloseShop() 
     {
+        PJSMB.Instance.GetComponent<SMBPlayerStopState>().Exit();
         m_GUIPanel.SetActive(false);
         OnClosingStore?.Invoke();
     }

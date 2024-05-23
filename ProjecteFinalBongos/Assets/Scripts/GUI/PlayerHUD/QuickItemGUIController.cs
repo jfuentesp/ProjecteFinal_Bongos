@@ -20,11 +20,12 @@ public class QuickItemGUIController : MonoBehaviour
 
     private void Awake()
     {
-        m_Inventory = LevelManager.Instance.InventoryController;
+       
     }
 
     private void Start()
     {
+        m_Inventory = LevelManager.Instance.InventoryController;
         m_Inventory.OnEquipQuickConsumable += OnEquipConsumableAction;
         m_Inventory.OnUseQuickConsumable += UpdateQuickItem;
         m_Inventory.OnRemoveQuickConsumable += OnRemoveConsumableAction;

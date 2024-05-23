@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SMBPlayerParryState : MBState
+public class SMBPlayerParryState : SMState
 {
     private PJSMB m_PJ;
     private Rigidbody2D m_Rigidbody;
@@ -13,11 +13,12 @@ public class SMBPlayerParryState : MBState
     private Ability m_parry;
     private LayerMask m_BossHurtBox;
     private LayerMask m_BossHitBox;
+    private LayerMask m_AllHitBox;
     [SerializeField]
     private EstadoEvent m_ChangeEstado;
     [SerializeField]
     private EstadoEvent m_ChangeEstadoEnemigo;
-    private void Awake()
+    private new void Awake()
     {
         m_PJ = GetComponent<PJSMB>();
         m_Rigidbody = GetComponent<Rigidbody2D>();
@@ -27,6 +28,7 @@ public class SMBPlayerParryState : MBState
         m_Animator.speed = 1.0f;
         m_BossHurtBox = LayerMask.NameToLayer("BossHurtBox");
         m_BossHitBox = LayerMask.NameToLayer("BossHitBox");
+        m_AllHitBox = LayerMask.NameToLayer("AllHitBox");
     }
 
     public override void InitState()
@@ -91,7 +93,7 @@ public class SMBPlayerParryState : MBState
     {
         if (enabled)
         {
-            if (parry && m_BossHurtBox == collision.gameObject.layer || parry && m_BossHitBox == collision.gameObject.layer)
+            if (parry && m_BossHurtBox == collision.gameObject.layer || parry && m_BossHitBox == collision.gameObject.layer || parry && m_AllHitBox == collision.gameObject.layer)
             {
                 parry = false;
                 parryAction(collision.gameObject);
@@ -104,7 +106,7 @@ public class SMBPlayerParryState : MBState
     {
         if (enabled)
         {
-            if (parry && m_BossHurtBox == collision.gameObject.layer || parry && m_BossHitBox == collision.gameObject.layer)
+            if (parry && m_BossHurtBox == collision.gameObject.layer || parry && m_BossHitBox == collision.gameObject.layer || parry && m_AllHitBox == collision.gameObject.layer)
             {
                 parry = false;
                 parryAction(collision.gameObject);

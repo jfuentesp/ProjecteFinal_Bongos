@@ -25,6 +25,7 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(SMBHit2x3State))]
 [RequireComponent(typeof(SMBHit2AereoState))]
 [RequireComponent(typeof(SMBParalitzatState))]
+[RequireComponent(typeof(SMBPlayerStopState))]
 [RequireComponent(typeof(SMBStunState))]
 [RequireComponent(typeof(SMBAdormitState))]
 [RequireComponent(typeof(FiniteStateMachine))]
@@ -37,7 +38,7 @@ public class PJSMB : MonoBehaviour
     private InputActionAsset m_Input;
     public InputActionAsset Input => m_Input;
     private InputAction m_MovementAction;
-    public int direccion;
+    public int direccion = 0;
     public InputAction MovementAction => m_MovementAction;
     private HealthController m_HealthController;
     private PlayerAbilitiesController m_playerAbilitiesController;
@@ -90,15 +91,18 @@ public class PJSMB : MonoBehaviour
     private void AcabarJuego()
     {
         GameManager.Instance.AcabarJuego();
+        Destroy(gameObject);
     }
 
     private void Start()
     {
         m_Inventory = LevelManager.Instance.InventoryController;
         m_StateMachine = GetComponent<FiniteStateMachine>();
-        m_StateMachine.ChangeState<SMBPlayerIdleState>();
+        m_StateMachine.ChangeState<SMBPlayerStopState>();
     }
-
+    public void StopPlayer() { 
+        m_StateMachine?.ChangeState<SMBPlayerStopState>();
+    }
     public void recibirDamage(float Daño)
     {
         if (m_playerEstadosController.Invencible)
