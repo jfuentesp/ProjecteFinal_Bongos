@@ -42,6 +42,7 @@ public class PlayerHUDController : MonoBehaviour
         m_PlayerAbilities = PJSMB.Instance.PlayerAbilitiesController;
         PJSMB.Instance.PlayerEstadosController.OnApplyEstadoAlterado += UpdateEstados;
         PJSMB.Instance.PlayerStatsController.OnApplyBuff += UpdateBuff;
+        GameManager.Instance.OnTimerUpdate += UpdateTimerGUI;
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("LeftAbility").performed += LeftAbility;
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("RightAbility").performed += RightAbility;
         FillBuffs();
@@ -72,9 +73,9 @@ public class PlayerHUDController : MonoBehaviour
         m_HPBar.fillAmount = Mathf.Lerp(m_HPBar.fillAmount, m_PlayerStats.Health.HP / m_PlayerStats.Health.HPMAX, lerpSpeed);
     }
 
-    private void UpdateTimerGUI()
+    private void UpdateTimerGUI(float timer)
     {
-        
+        m_Timer.text = (int) timer/60 + " : " + (int) timer % 60;
     }
 
     private void FillBuffs()

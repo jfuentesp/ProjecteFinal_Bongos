@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
     public string NombreDeTuEscena => m_NombreDeTuEscena;
     public bool Testing => m_Testing;
 
+    private float m_TimerPartida = 0;
+    public float TimerPartida => m_TimerPartida;
+
+    public Action<float> OnTimerUpdate;
+
     public void setTesting()
     {
         m_Testing = false;
@@ -133,18 +138,23 @@ public class GameManager : MonoBehaviour
         {
             m_PlayerInGame = Instantiate(m_PlayerPrefab);
             m_PlayerInGame.transform.position = Vector3.zero;
-
+            m_TimerCoroutine = StartCoroutine(Timer());
         }
         if (scene.name == "Mundo2")
         {
             if (m_PlayerInGame == null)
+            {
                 m_PlayerInGame = Instantiate(m_PlayerPrefab);
+                m_TimerCoroutine = StartCoroutine(Timer());
+            }
+
             m_PlayerInGame.transform.position = Vector3.zero;
         }
         if (scene.name == m_NombreDeTuEscena)
         {
             m_PlayerInGame = Instantiate(m_PlayerPrefab);
             m_PlayerInGame.transform.position = Vector3.zero;
+            m_TimerCoroutine = StartCoroutine(Timer());
         }
     }
 
@@ -294,6 +304,17 @@ public class GameManager : MonoBehaviour
         */
     }
 
+    private IEnumerator Timer()
+    {
+        while(m_PlayerInGame != null)
+        {
+            yield return new WaitForSeconds(1f);
+            m_TimerPartida++;
+            OnTimerUpdate.Invoke(m_TimerPartida);
+        }
+    }
+
+    private Coroutine m_TimerCoroutine;
     public void CreateNewGameOfPlayer(string _PlayerName, string mundo)
     {
         m_PlayerName = _PlayerName;
