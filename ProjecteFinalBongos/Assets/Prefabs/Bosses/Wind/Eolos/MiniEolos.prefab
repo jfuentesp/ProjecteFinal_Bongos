@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 8082798681524552067}
   m_Layer: 9
   m_Name: MiniEolos
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -310,6 +310,7 @@ MonoBehaviour:
   m_BossName: miniEolos
   m_Description: fufu
   m_Target: {fileID: 0}
+  m_BloodController: {fileID: 0}
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 0
   m_AreaWideness: 0

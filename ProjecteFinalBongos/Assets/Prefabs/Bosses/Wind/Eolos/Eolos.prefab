@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 519741929554745550}
   m_Layer: 0
   m_Name: Eolos
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -320,6 +320,7 @@ MonoBehaviour:
   m_BossName: Eolos
   m_Description: WIuuuu wiuuu
   m_Target: {fileID: 0}
+  m_BloodController: {fileID: 0}
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 2
   m_AreaWideness: 2

@@ -94,9 +94,9 @@ public class PJSMB : MonoBehaviour
 
     private void Start()
     {
+        m_Inventory = LevelManager.Instance.InventoryController;
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_StateMachine.ChangeState<SMBPlayerIdleState>();
-
     }
 
     public void recibirDamage(float Daño)
