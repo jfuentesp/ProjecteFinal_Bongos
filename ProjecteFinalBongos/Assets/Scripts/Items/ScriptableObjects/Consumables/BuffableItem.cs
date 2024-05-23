@@ -9,7 +9,6 @@ public class BuffableItem : Consumable
     private float m_BuffStatAmount;
     [SerializeField]
     private float m_Duration;
-    private enum StatType { DAMAGE, DEFENSE, SPEED }
     [SerializeField]
     private StatType m_StatType;
 
@@ -20,14 +19,14 @@ public class BuffableItem : Consumable
         {
             switch(m_StatType) 
             { 
-                case StatType.DAMAGE:
-                    buffable.AttackBuff(m_BuffStatAmount, m_Duration);
+                case StatType.ATTACK:
+                    buffable.BuffStat(StatType.ATTACK, m_BuffStatAmount, m_Duration);
                     break;
                 case StatType.DEFENSE:
-                    buffable.DefenseBuff(m_BuffStatAmount, m_Duration);
+                    buffable.BuffStat(StatType.DEFENSE, m_BuffStatAmount, m_Duration);
                     break;
                 case StatType.SPEED:
-                    buffable.SpeedBuff(m_BuffStatAmount, m_Duration);
+                    buffable.BuffStat(StatType.SPEED, m_BuffStatAmount, m_Duration);
                     break;      
             }
         }
