@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerStatsController : MonoBehaviour, IBuffable
 {
@@ -62,6 +63,8 @@ public class PlayerStatsController : MonoBehaviour, IBuffable
     [SerializeField]
     private Armor m_Armor;
     public Armor Armor => m_Armor;
+
+    public Action<StatType, float> OnApplyBuff;
 
     private void Awake()
     {
@@ -223,6 +226,7 @@ public class PlayerStatsController : MonoBehaviour, IBuffable
         {
             case StatType.ATTACK:
                 StartCoroutine(AttackBuff(statAmount, duration));
+
                 break;
             case StatType.DEFENSE:
                 StartCoroutine(DefenseBuff(statAmount, duration));
@@ -231,5 +235,6 @@ public class PlayerStatsController : MonoBehaviour, IBuffable
                 StartCoroutine((SpeedBuff(statAmount, duration)));
                 break;
         }
+        OnApplyBuff.Invoke(statToBuff, duration);
     }
 }
