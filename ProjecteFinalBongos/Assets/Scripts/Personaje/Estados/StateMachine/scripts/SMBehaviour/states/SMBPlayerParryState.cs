@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SMBPlayerParryState : MBState
+public class SMBPlayerParryState : SMState
 {
     private PJSMB m_PJ;
     private Rigidbody2D m_Rigidbody;
@@ -18,7 +18,7 @@ public class SMBPlayerParryState : MBState
     private EstadoEvent m_ChangeEstado;
     [SerializeField]
     private EstadoEvent m_ChangeEstadoEnemigo;
-    private void Awake()
+    private new void Awake()
     {
         m_PJ = GetComponent<PJSMB>();
         m_Rigidbody = GetComponent<Rigidbody2D>();

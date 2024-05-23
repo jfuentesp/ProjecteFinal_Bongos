@@ -82,6 +82,7 @@ public class LevelManager : MonoBehaviour
     public EventSystem EventSystem => m_eventSystem;
     private InputSystemUIInputModule m_InputSystemUIInputModule;
     public InputSystemUIInputModule InputSystemUIInputModule => m_InputSystemUIInputModule;
+    
     private void Awake()
     {
         if (m_Instance == null)
@@ -118,6 +119,7 @@ public class LevelManager : MonoBehaviour
 
             yield return new WaitForSeconds(.03f);
         }
+        PJSMB.Instance.GetComponent<SMBPlayerStopState>().Exit();
         m_FundidoNegroPanel.SetActive(false);
     }
 

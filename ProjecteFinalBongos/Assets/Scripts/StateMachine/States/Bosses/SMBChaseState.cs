@@ -77,8 +77,8 @@ public class SMBChaseState : SMState
     public override void ExitState()
     {
         base.ExitState();
-        m_NavMeshAgent.isStopped = true;
-        m_NavMeshAgent.ResetPath();
+            m_NavMeshAgent.isStopped = true;
+            m_NavMeshAgent.ResetPath();
     }
 
     private void Update()
