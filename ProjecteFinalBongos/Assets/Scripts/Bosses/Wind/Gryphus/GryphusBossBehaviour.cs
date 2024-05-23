@@ -66,7 +66,10 @@ public class GryphusBossBehaviour : BossBehaviour
         transform.GetChild(0).GetComponent<BossAttackDamage>().OnAttackHealed = (GameObject obj) =>
         {
             if(m_CurrentPhase == Phase.ONE)
-            ParticulitasCura();
+            {
+                m_HealthController.Heal(transform.GetChild(0).GetComponent<BossAttackDamage>().Damage * 0.75f);
+                ParticulitasCura();
+            }
         };
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
         m_CurrentPhase = Phase.ONE;
@@ -190,9 +193,12 @@ public class GryphusBossBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
+        m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
-        m_BossMuertoEvent.Raise();
-        Destroy(gameObject);
+        if (m_BossFinalSala)
+            m_BossMuertoEvent.Raise();
     }
 }
