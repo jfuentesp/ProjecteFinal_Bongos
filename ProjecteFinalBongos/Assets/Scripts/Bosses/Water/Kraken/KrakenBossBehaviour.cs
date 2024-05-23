@@ -58,8 +58,13 @@ public class KrakenBossBehaviour : BossBehaviour
             m_StateMachine.ChangeState<SMBChaseState>();
         };
 
-        m_StateMachine.ChangeState<SMBIdleState>();
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
+    }
+
+    private void Start()
+    {
+
+        m_StateMachine.ChangeState<SMBIdleState>();
     }
     private void EmpezarCorutina(GameObject obj)
     {

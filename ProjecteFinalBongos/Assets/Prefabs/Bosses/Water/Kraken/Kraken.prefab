@@ -349,6 +349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8468686920076797290}
+  - component: {fileID: -1846783767402545479}
   - component: {fileID: 121724882767486000}
   - component: {fileID: 2696438157233493604}
   - component: {fileID: -11465032342909015}
@@ -361,7 +362,6 @@ GameObject:
   - component: {fileID: 6861277209195072056}
   - component: {fileID: 8381330382830345235}
   - component: {fileID: 9050405244301595571}
-  - component: {fileID: -1846783767402545479}
   - component: {fileID: 7988971145222638730}
   - component: {fileID: 3986194509085481938}
   - component: {fileID: 3541838711100300314}
@@ -395,6 +395,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1846783767402545479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4831098368659947342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641ecafcdc5e6184dae696e1b9193f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BossName: Kraken
+  m_Description: Xutulu
+  m_Target: {fileID: 0}
+  m_BloodController: {fileID: 0}
+  m_PlayerAttackDetectionAreaType: 0
+  m_AreaLength: 0
+  m_AreaWideness: 0
+  m_AreaRadius: 3
+  m_CheckingPlayerTimelapse: 0.2
+  m_LayersToCheck:
+    serializedVersion: 2
+    m_Bits: 128
+  m_BossMuertoEvent: {fileID: 0}
+  m_layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_tentacle: {fileID: 7718859505142421878, guid: aaf4e78d9df55b4448dcab306b3282ef, type: 3}
+  paralizingTenacleCount: 0
 --- !u!195 &121724882767486000
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -441,7 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee5c8230df4f49ae73db6a2eb0766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IdleAnimationName: 
+  m_IdleAnimationName: Idle
 --- !u!114 &5390957296066793260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,7 +485,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ChaseSpeed: 5
-  m_ChaseAnimationName: 
+  m_ChaseAnimationName: Idle
+  m_TwoDirections: 1
 --- !u!114 &-3128271491494714962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,8 +525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_event: {fileID: 0}
   times: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
+  m_NameAnimation: 
 --- !u!114 &5121099191108693955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,31 +637,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-1846783767402545479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4831098368659947342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 641ecafcdc5e6184dae696e1b9193f02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BossName: Kraken
-  m_Description: Xutulu
-  m_Target: {fileID: 0}
-  m_PlayerAttackDetectionAreaType: 0
-  m_AreaLength: 0
-  m_AreaWideness: 0
-  m_AreaRadius: 3
-  m_CheckingPlayerTimelapse: 0.2
-  m_LayersToCheck:
-    serializedVersion: 2
-    m_Bits: 128
-  m_tentacle: {fileID: 7718859505142421878, guid: aaf4e78d9df55b4448dcab306b3282ef, type: 3}
-  paralizingTenacleCount: 0
 --- !u!114 &7988971145222638730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,7 +706,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2.5, y: 1.21875}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -750,7 +756,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1cf35e76a32c87c4da15e964cea769b2, type: 3}
+  m_Sprite: {fileID: 257003758, guid: e8fba88603b5bc149b235675a4a9d21a, type: 3}
   m_Color: {r: 0, g: 0.7176471, b: 0.39215687, a: 1}
   m_FlipX: 0
   m_FlipY: 0
