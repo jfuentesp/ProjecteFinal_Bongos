@@ -76,7 +76,6 @@ public class PlayerHUDController : MonoBehaviour
 
     private void UpdateTimerGUI(float timer)
     {
-        
         m_Timer.text = TimeSpan.FromSeconds(timer).ToString(@"mm\:ss");
     }
 
