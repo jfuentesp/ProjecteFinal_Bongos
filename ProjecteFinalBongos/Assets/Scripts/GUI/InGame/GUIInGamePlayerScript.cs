@@ -59,19 +59,27 @@ public class GUIInGamePlayerScript : MonoBehaviour
     private void OpenAbilities(InputAction.CallbackContext context)
     {
         if (m_PanelAbilities.activeInHierarchy)
+        {
+            PJSMB.Instance.GetComponent<SMBPlayerStopState>().Exit();
             ClosePanelsInsteadOf(TypeOfPanels.INICIAL);
-        else
+        }
+        else {
             ClosePanelsInsteadOf(TypeOfPanels.ABILITIES);
+            PJSMB.Instance.StopPlayer();
+        }
+           
     }
 
     private void OpenInventory(InputAction.CallbackContext context) 
     {
         if (m_PanelInventory.activeInHierarchy)
         {
+            PJSMB.Instance.GetComponent<SMBPlayerStopState>().Exit();
             ClosePanelsInsteadOf(TypeOfPanels.INICIAL);
         }
         else
         {
+            PJSMB.Instance.StopPlayer();
             m_Inventory.RefreshInventoryGUI();
             ClosePanelsInsteadOf(TypeOfPanels.INVENTORY);
         }
