@@ -27,7 +27,6 @@ public class PlayerAbilitiesController : MonoBehaviour
     {
         initMovementAbility();
         initParryAbility();
-        
     }
 
     private void initMovementAbility()
@@ -107,7 +106,7 @@ public class PlayerAbilitiesController : MonoBehaviour
         Ability abilityToSet = GetNextAbility();
         if(abilityToSet != null)
             m_actualMovement = abilityToSet;
-        OnLearnAbility.Invoke();
+        OnLearnAbility?.Invoke();
     }
 
     public void SelectPreviousAbility()
@@ -115,7 +114,7 @@ public class PlayerAbilitiesController : MonoBehaviour
         Ability abilityToSet = GetPreviousAbility();
         if(abilityToSet != null)
             m_actualMovement = abilityToSet;
-        OnLearnAbility.Invoke();
+        OnLearnAbility?.Invoke();
     }
 
     IEnumerator MovementCooldown(float CoolDown)

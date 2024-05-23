@@ -61,9 +61,12 @@ public class GryphusBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBParriedState>();
         };
-        m_StateMachine.ChangeState<SMBIdleState>();
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
         m_CurrentPhase = Phase.ONE;
+    }
+    private void Start()
+    {
+        m_StateMachine.ChangeState<SMBIdleState>();
     }
     public override void Init(Transform _Target)
     {

@@ -7,6 +7,8 @@ public class AlteaBullet : Bullet
     private bool m_Devuelta;
     public new void Init(Vector2 direction)
     {
+        if (m_AnimationName != string.Empty)
+            m_Animator.Play(m_AnimationName);
         transform.up = direction;
         m_Devuelta = false;
         m_Size = new Vector2(m_SizeRadius, m_SizeRadius);
@@ -33,22 +35,19 @@ public class AlteaBullet : Bullet
                     {
                         if (parry.parry)
                         {
-                            print("Me parrearon");
                             m_Devuelta = true;
-                            gameObject.layer = LayerMask.NameToLayer("PlayerHitBox");
-                            m_Rigidbody.velocity = transform.up * -m_Speed;
+                            transform.up = -transform.up;
+                            m_Rigidbody.velocity = transform.up * m_Speed;
                         }
                         else
                         {
-                            print("No me parrearon");
+                            collision.gameObject.GetComponent<PJSMB>().recibirDamage(m_Damage);
                             DisableBullet();
                         }
                     }
             if (collision.gameObject.layer == LayerMask.NameToLayer("Default"))
                 if (collision.CompareTag("MechanicObstacle"))
                 {
-                    print("Pared");
-                    gameObject.layer = LayerMask.NameToLayer("BossHitBox");
                     DisableBullet();
                 }   
         }
@@ -57,12 +56,10 @@ public class AlteaBullet : Bullet
             if (collision.gameObject.layer == LayerMask.NameToLayer("Default"))
                 if (collision.CompareTag("MechanicObstacle"))
                 {
-                    print("Pared");
                     DisableBullet();
                 }
             if (collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox"))
             {
-                print("Golpee al boss");
                 collision.gameObject.GetComponent<BossBehaviour>().recibirDaño(m_Damage);
                 gameObject.layer = LayerMask.NameToLayer("BossHitBox");
                 DisableBullet();

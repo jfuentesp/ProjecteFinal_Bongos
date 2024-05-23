@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c95fcad212f9a846a53614aab35d8aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParryDuration: 0.5
+  m_ParryDuration: 1
   m_AnimationParryName: ParryVoltauro
 --- !u!50 &1995166033292200984
 Rigidbody2D:
@@ -638,7 +638,7 @@ MonoBehaviour:
   parreable: 0
   healable: 0
   m_EstadoAlterado: 4
-  stateTime: 0
+  stateTime: 2
 --- !u!114 &1370205420779961457
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -90,6 +90,7 @@ public class PJSMB : MonoBehaviour
     private void AcabarJuego()
     {
         GameManager.Instance.AcabarJuego();
+        Destroy(gameObject);
     }
 
     private void Start()

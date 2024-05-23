@@ -117,7 +117,6 @@ public class BossBehaviour : MonoBehaviour
                 return;
             }
         }
-        print("Awake");
         /* GetComponent<SMBPatrol>().OnPlayerEnter = (GameObject obj) =>
          {
              m_StateMachine.ChangeState<SMBAttack>();
@@ -246,5 +245,10 @@ public class BossBehaviour : MonoBehaviour
             }
         }
         Init(Target);
+    }
+    private void OnDestroy()
+    {
+        m_HealthController.onDeath -= VidaCero;
+        if(GetComponentInParent<SalaBoss>() != null) GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
     }
 }
