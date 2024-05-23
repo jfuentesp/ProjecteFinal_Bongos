@@ -328,6 +328,7 @@ public class GameManager : MonoBehaviour
         m_PlayerName = _PlayerName;
         m_NuevaPartida = true;
         LoadAbilityLists();
+        m_TimerPartida = 0;
         SceneManager.LoadScene(mundo);
     }
 
