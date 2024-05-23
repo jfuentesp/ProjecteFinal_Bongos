@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,7 +76,8 @@ public class PlayerHUDController : MonoBehaviour
 
     private void UpdateTimerGUI(float timer)
     {
-        m_Timer.text = (int) timer/60 + " : " + (int) timer % 60;
+        
+        m_Timer.text = TimeSpan.FromSeconds(timer).ToString(@"mm\:ss");
     }
 
     private void FillBuffs()

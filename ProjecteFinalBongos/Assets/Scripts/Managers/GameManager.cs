@@ -130,6 +130,8 @@ public class GameManager : MonoBehaviour
     public void AcabarJuego()
     {
         SceneManager.LoadScene("EscenaInicial");
+        if(m_TimerCoroutine != null)
+            StopCoroutine(m_TimerCoroutine);
         print("MuereCalvo");
         print(m_PlayerInGame == null);
         //Destroy(m_PlayerInGame);
