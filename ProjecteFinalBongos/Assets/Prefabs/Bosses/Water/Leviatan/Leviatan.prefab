@@ -29,6 +29,8 @@ GameObject:
   - component: {fileID: 7744248490207793796}
   - component: {fileID: 408036267130153214}
   - component: {fileID: 3950921055843223782}
+  - component: {fileID: 7301837208395938406}
+  - component: {fileID: 6312416347657880346}
   m_Layer: 9
   m_Name: Leviatan
   m_TagString: Untagged
@@ -276,6 +278,7 @@ MonoBehaviour:
   m_LayerCannotInteractInSpawn:
     serializedVersion: 2
     m_Bits: 1
+  InvokeAnimation: Invoke
 --- !u!114 &5388372976190083808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,6 +488,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.84375, y: 1.9375}
   m_EdgeRadius: 0
+--- !u!114 &7301837208395938406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3128256692640645519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3705b7a045dce4488aa2017422848a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 20
+  m_StatsController: {fileID: 0}
+  m_player: {fileID: 0}
+  parreable: 0
+  healable: 0
+  m_EstadoAlterado: 12
+  stateTime: 0
+--- !u!114 &6312416347657880346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3128256692640645519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8b048728a5a454191ff5fb5a4cf910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AnimationName: Death
 --- !u!1 &6183386804774667221
 GameObject:
   m_ObjectHideFlags: 0

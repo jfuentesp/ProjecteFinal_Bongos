@@ -16,6 +16,14 @@ public class AnguilaBehaviour : BossBehaviour
     private new void Awake()
     {
         base.Awake();
+        GetComponent<SMBChargeState>().OnChargeParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<SMBChargeState>().OnChargePlayer = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
         GetComponent<SMBChargeState>().OnChargeMissed = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBParriedState>();
@@ -28,6 +36,12 @@ public class AnguilaBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+  
+    }
+
+    private void Start()
+    {
+        print("aaasd"); 
         m_StateMachine.ChangeState<SMBIdleState>();
     }
     public override void Init(Transform _Target)
@@ -47,7 +61,7 @@ public class AnguilaBehaviour : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    m_StateMachine.ChangeState<SMBChaseState>();
+                    m_StateMachine.ChangeState<SMBChargeState>();
 
                 }
                 else
@@ -61,7 +75,7 @@ public class AnguilaBehaviour : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    m_StateMachine.ChangeState<SMBChaseState>();
+                    m_StateMachine.ChangeState<SMBChargeState>();
 
                 }
                 else
@@ -72,18 +86,18 @@ public class AnguilaBehaviour : BossBehaviour
             yield return new WaitForSeconds(m_CheckingPlayerTimelapse);
         }
     }
+    private void MatarBoss()
+    {
+        Destroy(gameObject);
+    }
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
+        m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
-        Destroy(gameObject);
-    }
-    protected override void OnTriggerEnter2D(Collider2D collision)
-    {
-        base.OnTriggerEnter2D(collision);
-        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox"))
-        {
-            collision.GetComponent<PlayerEstadosController>().AlternarEstado(EstadosAlterados.Paralitzat, 1f);
-        }
+        OnBossDeath?.Invoke();
+        m_BossMuertoEvent.Raise();
     }
 }

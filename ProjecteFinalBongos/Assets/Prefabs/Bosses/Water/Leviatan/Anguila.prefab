@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8632453213145811160}
   - component: {fileID: 598722227330074685}
+  - component: {fileID: 280018840541838371}
   - component: {fileID: 7359067925477902465}
   - component: {fileID: 3022398677893715152}
   - component: {fileID: 9078519426181905651}
@@ -23,7 +24,6 @@ GameObject:
   - component: {fileID: 404667602599148198}
   - component: {fileID: 8883176506181127792}
   - component: {fileID: 2011595834286512216}
-  - component: {fileID: 280018840541838371}
   - component: {fileID: 3918339897587180480}
   - component: {fileID: 770052292436533915}
   - component: {fileID: 5708613630968646660}
@@ -42,7 +42,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3408488696584773643}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.59725666, y: -33.67257, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -103,6 +103,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &280018840541838371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3408488696584773643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76952e456ea2dd94db98bdd523726ec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BossName: 
+  m_Description: 
+  m_Target: {fileID: 0}
+  m_BloodController: {fileID: 5707468346790587655}
+  m_PlayerAttackDetectionAreaType: 0
+  m_AreaLength: 0
+  m_AreaWideness: 0
+  m_AreaRadius: 4
+  m_CheckingPlayerTimelapse: 0.2
+  m_LayersToCheck:
+    serializedVersion: 2
+    m_Bits: 128
+  m_BossMuertoEvent: {fileID: 11400000, guid: a68c2e2d0411f4242b3bfb77d6d424f3, type: 2}
+  m_layerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!195 &7359067925477902465
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -190,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c95fcad212f9a846a53614aab35d8aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParryDuration: 2
+  m_ParryDuration: 1.96
   m_AnimationParryName: Parried
 --- !u!114 &7737816071760412291
 MonoBehaviour:
@@ -329,34 +357,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &280018840541838371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3408488696584773643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76952e456ea2dd94db98bdd523726ec6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BossName: 
-  m_Description: 
-  m_Target: {fileID: 0}
-  m_BloodController: {fileID: 5707468346790587655}
-  m_PlayerAttackDetectionAreaType: 0
-  m_AreaLength: 0
-  m_AreaWideness: 0
-  m_AreaRadius: 4
-  m_CheckingPlayerTimelapse: 0.2
-  m_LayersToCheck:
-    serializedVersion: 2
-    m_Bits: 128
-  m_BossMuertoEvent: {fileID: 11400000, guid: a68c2e2d0411f4242b3bfb77d6d424f3, type: 2}
-  m_layerMask:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!114 &3918339897587180480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,7 +375,7 @@ MonoBehaviour:
   parreable: 0
   healable: 0
   m_EstadoAlterado: 3
-  stateTime: 0
+  stateTime: 5
 --- !u!61 &770052292436533915
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -438,7 +438,7 @@ MonoBehaviour:
     m_Bits: 55
   m_TimeBeforeCharge: 2
   m_Shader: {fileID: 4024616484130983408}
-  m_ChargeSpeed: 3
+  m_ChargeSpeed: 10
   m_ChargeForce: 0
   m_StartChargeAnimationName: Wait
   m_ChargeAnimationName: Charge

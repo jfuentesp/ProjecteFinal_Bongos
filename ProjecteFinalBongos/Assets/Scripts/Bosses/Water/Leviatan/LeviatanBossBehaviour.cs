@@ -120,7 +120,7 @@ public class LeviatanBossBehaviour : BossBehaviour
         {
             yield return new WaitForSeconds(1f);
             count++;
-            if (count >= 2 && !m_IsBusy)
+            if (count >= 10 && !m_IsBusy)
             {
                 count = 0;
                 m_StateMachine.ChangeState<LeviatanMinionsSpawnState>();

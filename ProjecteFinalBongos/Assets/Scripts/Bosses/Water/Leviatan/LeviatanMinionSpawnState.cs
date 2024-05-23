@@ -3,16 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class LeviatanMinionsSpawnState : SMState
 {
-    [SerializeField] private GameObject m_piranha;
-    [SerializeField] private GameObject m_anguila;
     [SerializeField] private LayerMask m_LayerCannotInteractInSpawn;
+    [SerializeField] private string InvokeAnimation;
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
@@ -43,17 +39,21 @@ public class LeviatanMinionsSpawnState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        m_SpawnCoroutine = StartCoroutine(Spawn());
+        m_Animator.Play(InvokeAnimation);
     }
     public override void ExitState()
     {
         base.ExitState();
-        StopCoroutine(m_SpawnCoroutine);
     }
-    private Coroutine m_SpawnCoroutine;
 
-    private IEnumerator Spawn()
+    private void Finish()
     {
+        print("Entro");
+        OnSpawnFinished?.Invoke(gameObject);
+
+    }
+
+    private void Spawn() {
         int rng = Random.Range(0, 2);
         if (rng == 0)
         {
@@ -71,8 +71,6 @@ public class LeviatanMinionsSpawnState : SMState
                 SpawnBicho(1);
             }
         }
-        yield return new WaitForSeconds(5f);
-        OnSpawnFinished?.Invoke(gameObject);
     }
 
     private void SpawnBicho(int numBicho)
