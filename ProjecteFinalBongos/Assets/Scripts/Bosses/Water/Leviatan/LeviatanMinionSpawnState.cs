@@ -57,7 +57,7 @@ public class LeviatanMinionsSpawnState : SMState
         int rng = Random.Range(0, 2);
         if (rng == 0)
         {
-            float pirañaNumber = Random.Range(4, 8);
+            float pirañaNumber = Random.Range(2, 4);
             for (int p = 0; p < pirañaNumber; p++)
             {
                 SpawnBicho(0);

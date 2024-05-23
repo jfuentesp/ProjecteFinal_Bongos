@@ -45,7 +45,7 @@ public class LeviatanEggs : Splash
             }
             else
             {
-                GameObject bicho = Instantiate(m_piranha, m_TransformSala);
+                GameObject bicho = Instantiate(m_anguila, m_TransformSala);
                 if (NavMesh.SamplePosition(transform.position, out NavMeshHit closestHit, 500, 1))
                 {
                     bicho.transform.position = closestHit.position;

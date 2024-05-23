@@ -148,7 +148,7 @@ MonoBehaviour:
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 0
   m_AreaWideness: 0
-  m_AreaRadius: 2
+  m_AreaRadius: 5
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
@@ -242,8 +242,8 @@ MonoBehaviour:
   m_Shader: {fileID: 5752155966888724441}
   m_ChargeSpeed: 15
   m_ChargeForce: 0
-  m_StartChargeAnimationName: 
-  m_ChargeAnimationName: 
+  m_StartChargeAnimationName: Wait
+  m_ChargeAnimationName: Charge
   m_EndChargeAnimationName: 
   m_TwoDirections: 1
   m_ColoresList:
@@ -273,8 +273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52dc24ada46251f4f9e615258ccf2ae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_piranha: {fileID: 6552562057509646066, guid: 5c0c4178f5c3e944d970b272fe7975fa, type: 3}
-  m_anguila: {fileID: 3408488696584773643, guid: ff07fb2dc7be898489a2db2b0b01482f, type: 3}
   m_LayerCannotInteractInSpawn:
     serializedVersion: 2
     m_Bits: 1
@@ -326,7 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ParryDuration: 3
-  m_AnimationParryName: P
+  m_AnimationParryName: Parried
 --- !u!114 &4713296134046984966
 MonoBehaviour:
   m_ObjectHideFlags: 0
