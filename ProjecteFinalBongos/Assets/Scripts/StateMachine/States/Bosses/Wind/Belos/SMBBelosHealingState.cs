@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,7 +38,16 @@ public class SMBBelosHealingState : SMState
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
+        m_Boss.OnBossDeath += SeMurioMientrasSeCuraba;
         m_HealingMultiplier = 1;
+    }
+
+    private void SeMurioMientrasSeCuraba()
+    {
+        if(m_HealingCoroutine != null)
+        {
+            StopAllCoroutines();
+        }
     }
 
     public override void InitState()
@@ -78,11 +88,6 @@ public class SMBBelosHealingState : SMState
             // else se muere jjajajajaj
             HealthParticles.SetActive(false);
             m_StateMachine.ChangeState<SMBChaseState>();
-        } 
-        else
-        {
-            HealthParticles.SetActive(false);
-            m_StateMachine.ChangeState<SMBDeathState>();
         }
     }
 

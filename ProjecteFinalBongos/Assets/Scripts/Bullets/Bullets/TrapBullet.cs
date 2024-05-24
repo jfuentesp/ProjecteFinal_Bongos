@@ -32,7 +32,6 @@ public class TrapBullet : Bullet
     public override void Init(Vector2 direction)
     {
         base.Init(direction);
-        m_CurrentScale = transform.localScale;
     }
 
     float t = 0;
