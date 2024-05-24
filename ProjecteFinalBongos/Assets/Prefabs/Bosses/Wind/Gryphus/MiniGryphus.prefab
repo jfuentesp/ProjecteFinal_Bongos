@@ -199,6 +199,7 @@ MonoBehaviour:
   m_layerMask:
     serializedVersion: 2
     m_Bits: 128
+  m_HealParticles: {fileID: 8184776483310793131}
 --- !u!195 &2544222612939484948
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -709,6 +710,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 368a283b16d1fa5499267c7aa15ea3d4, type: 3}
+--- !u!1 &8184776483310793131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4146643121339026617, guid: 368a283b16d1fa5499267c7aa15ea3d4, type: 3}
+  m_PrefabInstance: {fileID: 5196590101782543634}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9022229707035115516 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3830479948167168750, guid: 368a283b16d1fa5499267c7aa15ea3d4, type: 3}

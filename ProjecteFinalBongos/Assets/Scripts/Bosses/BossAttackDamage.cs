@@ -65,9 +65,9 @@ public class BossAttackDamage : MonoBehaviour
             {
                 if (collision.gameObject.TryGetComponent<SMBPlayerParryState>(out SMBPlayerParryState parry))
                 {
-                    if (parry.parry)
+                    if (!parry.parry)
                     {
-                        OnAttackHealed?.Invoke(transform.parent.gameObject);
+                        OnAttackHealed?.Invoke(gameObject);
                     }
                 }
             }
