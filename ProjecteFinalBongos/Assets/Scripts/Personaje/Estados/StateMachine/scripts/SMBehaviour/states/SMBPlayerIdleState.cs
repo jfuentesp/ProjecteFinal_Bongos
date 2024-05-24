@@ -74,11 +74,11 @@ using UnityEngine.InputSystem;
     }
     private void MovementAction(InputAction.CallbackContext context)
     {
-        if (m_PJ.PlayerAbilitiesController.CanMove)
+        print("La habilidad de movimiento está en " + PJSMB.Instance.PlayerAbilitiesController.Movement.OnCooldown);
+        if (!PJSMB.Instance.PlayerAbilitiesController.Movement.OnCooldown)
         {
             m_StateMachine.ChangeState<HabilidadDeMovimientoState>();
         }
-
     }
 
     private void Update()

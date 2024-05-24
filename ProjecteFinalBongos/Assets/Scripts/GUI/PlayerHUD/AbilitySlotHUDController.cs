@@ -36,17 +36,18 @@ public class AbilitySlotHUDController : MonoBehaviour
     private float m_ElapsedTime;
     private void Update()
     {
-        if (m_IsOnCooldown)
-        {
-            m_ElapsedTime -= Time.deltaTime;
-            m_CooldownImage.fillAmount = m_ElapsedTime / m_Cooldown;
-            if (m_ElapsedTime <= 0)
+        if(m_CurrentSlotAbility != null) 
+            if (m_CurrentSlotAbility.OnCooldown)
             {
-                m_IsOnCooldown = false;
-                m_CooldownImage.gameObject.SetActive(false);
-                m_CooldownImage.fillAmount = 0;
+                m_ElapsedTime -= Time.deltaTime;
+                m_CooldownImage.fillAmount = m_ElapsedTime / m_Cooldown;
+                if (m_ElapsedTime <= 0)
+                {
+                    m_IsOnCooldown = false;
+                    m_CooldownImage.gameObject.SetActive(false);
+                    m_CooldownImage.fillAmount = 0;
+                }
             }
-        }
     }
 
     private void OnDestroy()
@@ -63,8 +64,6 @@ public class AbilitySlotHUDController : MonoBehaviour
 
     private void UpdateAssignedAbility()
     {
-        try
-        {
             switch (m_AbilitySlotEnum)
             {
                 case AbilitySlotEnum.CURRENT:
@@ -77,11 +76,6 @@ public class AbilitySlotHUDController : MonoBehaviour
                     m_CurrentSlotAbility = m_PlayerAbilities.GetPreviousAbility();
                     break;
             }
-        }
-        catch (Exception e)
-        {
-            Debug.Log("Ha petado el try catch: " + e);
-        }
     }
 
     private void UpdateAbilitySlotGUI()
@@ -98,13 +92,18 @@ public class AbilitySlotHUDController : MonoBehaviour
 
     private void AbilityCooldown(AbilityEnum ability, float timer)
     {
-        if(m_CurrentSlotAbility != null)
+        if (m_CurrentSlotAbility != null)
             if (ability == m_CurrentSlotAbility.AbilityEnum)
             {
-                m_IsOnCooldown = true;
                 m_CooldownImage.gameObject.SetActive(true);
+                m_IsOnCooldown = true;
                 m_Cooldown = m_CurrentSlotAbility.Cooldown;
                 m_ElapsedTime = m_CurrentSlotAbility.Cooldown;
             }
+    }
+
+    public void SetRemainingCD(float remainingCD)
+    {
+        m_ElapsedTime = remainingCD;
     }
 }

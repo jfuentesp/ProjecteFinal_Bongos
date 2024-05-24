@@ -69,6 +69,7 @@ public class PlayerAbilitiesController : MonoBehaviour
 
     public void learnMovement(Ability movementAction)
     {
+        movementAction.OnCooldown = false;
         m_MovementActionsDisponibles.Add(movementAction);
         changeMovement(movementAction);
         OnLearnAbility?.Invoke();
@@ -123,9 +124,9 @@ public class PlayerAbilitiesController : MonoBehaviour
 
     IEnumerator MovementCooldown(float CoolDown)
     {
-        m_canMove = false;
+        m_actualMovement.OnCooldown = true;
         yield return new WaitForSeconds(CoolDown);
-        m_canMove = true;
+        m_actualMovement.OnCooldown = false;
         Exit();
     }
     private void Exit() {

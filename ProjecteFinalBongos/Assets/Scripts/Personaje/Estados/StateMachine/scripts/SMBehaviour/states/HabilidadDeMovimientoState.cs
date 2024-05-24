@@ -43,8 +43,11 @@ public class HabilidadDeMovimientoState : SMState
     public override void InitState()
     {
         base.InitState();
-        m_habilidad = m_PJ.PlayerAbilitiesController.Movement;
-        StartCoroutine(habilidad());
+        m_habilidad = PJSMB.Instance.PlayerAbilitiesController.Movement;
+        if (m_habilidad.OnCooldown)
+            Exit();
+        else
+            StartCoroutine(habilidad());
     }
 
     IEnumerator habilidad()
