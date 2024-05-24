@@ -62,6 +62,8 @@ public class PJSMB : MonoBehaviour
 
     public Action m_CambiaElTarget;
     public Action OnPlayerDamaged;
+    [Header("Particulas cura")]
+    [SerializeField] private GameObject m_HealParticles;
 
     private void Awake()
     {
@@ -150,5 +152,18 @@ public class PJSMB : MonoBehaviour
     {
         m_HealthController.Damage(_Damage);
         m_PlayerEstadosController.AlternarEstado(estado, time);
+    }
+
+    public void Heal(float heal)
+    {
+        m_HealthController.Heal(heal);
+        StartCoroutine(HealParticlesCoroutine());
+    }
+
+    private IEnumerator HealParticlesCoroutine()
+    {
+        m_HealParticles.SetActive(true);
+        yield return new WaitForSeconds(1);
+        m_HealParticles.SetActive(false);
     }
 }

@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 3650524101458716014}
   - component: {fileID: 693633904342415992}
   - component: {fileID: 2050168517093413958}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gryphus
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -199,8 +199,8 @@ MonoBehaviour:
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 1.5
   m_AreaWideness: 1.5
-  m_AreaRadius: 1
-  m_CheckingPlayerTimelapse: 0.2
+  m_AreaRadius: 1.1
+  m_CheckingPlayerTimelapse: 0.1
   m_LayersToCheck:
     serializedVersion: 2
     m_Bits: 128

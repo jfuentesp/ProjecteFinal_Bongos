@@ -29,6 +29,7 @@ public class GryphusBossBehaviour : BossBehaviour
         };
         GetComponent<SMBSingleAttackState>().OnStopDetectingPlayer = (GameObject obj) =>
         {
+            
             m_StateMachine.ChangeState<SMBChaseState>();
         };
         GetComponent<SMBSingleAttackState>().OnAttackParried = (GameObject obj) =>
@@ -113,37 +114,29 @@ public class GryphusBossBehaviour : BossBehaviour
     {
         base.OnTriggerEnter2D(collision);
 
-        if(collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox"))
-        {
-            if (m_CurrentPhase == Phase.ONE)
-                m_HealthController.Heal(20);
-        }
         if (m_CurrentPhase == Phase.ONE && m_HealthController.HP <= m_HealthController.HPMAX / 2)
         {
             print("Cambio de fase");
             m_CurrentPhase = Phase.TWO;
+            transform.GetChild(0).GetComponent<BossAttackDamage>().SetDamage(transform.GetChild(0).GetComponent<BossAttackDamage>().Damage * 2);
         }
     }
 
     private void SetAttack()
     {
         float rng = Random.value;
-        /*if (si la vida cae al 50%)
+
+        if (rng > 0 && rng < 0.5)
         {
-            m_CurrentPhase = Phase.TWO;
-            return;
-        }*/
-        switch (rng)
+            m_StateMachine.ChangeState<SMBSingleAttackState>();
+        }
+        else if (rng >= 0.5 && rng < 0.8)
         {
-            case < 0.5f:
-                m_StateMachine.ChangeState<SMBSingleAttackState>();
-                break;
-            case < 0.65f:
-                m_StateMachine.ChangeState<SMBDoubleAttackState>();
-                break;
-            case > 0.8f:
-                m_StateMachine.ChangeState<SMBTripleAttackState>();
-                break;
+            m_StateMachine.ChangeState<SMBDoubleAttackState>();
+        }
+        else if (rng >= 0.8)
+        {
+            m_StateMachine.ChangeState<SMBTripleAttackState>();
         }
     }
 

@@ -31,10 +31,7 @@ public class SMBDoubleAttackState : SMBBasicAttackState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        if (m_DoubleAttackAnimationName != String.Empty)
-            m_DoubleAttackCoroutine = StartCoroutine(AttackCoroutine(transform.position + transform.up, 0.5f, 0.5f));
-        else
-            StartCoroutine(AttackAnimationRoutine());
+        StartCoroutine(AttackAnimationRoutine());
     }
 
     private void AttackAnimation()

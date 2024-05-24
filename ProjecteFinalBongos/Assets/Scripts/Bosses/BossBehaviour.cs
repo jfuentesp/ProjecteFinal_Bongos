@@ -138,7 +138,7 @@ public class BossBehaviour : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        m_Rigidbody.velocity = Vector2.zero;
+
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)

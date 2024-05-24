@@ -140,6 +140,21 @@ namespace GeneracionSalas
             float posicionX = (x - 50) * 20;
             float posicionY = (y - 50) * 20;
             GameObject sala;
+            bool m_Horizontal;
+            int difX = 0;
+            
+            for(int i = 0; i < habitacionesHijas.Count; i++)
+            {
+                if(i == 0)
+                    difX = habitacionesHijas[i].x;
+                else
+                    difX -= habitacionesHijas[i].x;
+            }
+
+            if (Math.Abs(difX) == 2)
+                m_Horizontal = true;
+            else
+                m_Horizontal = false;
 
             switch (matrix[x, y])
             {
@@ -154,7 +169,7 @@ namespace GeneracionSalas
                 case 5:
                     sala = Instantiate(m_PasilloObjetos, m_TransformParentMundo);
                     if (GameManager.Instance.NuevaPartida)
-                        sala.GetComponent<PasilloObjetos>().Init(LevelManager.Instance.GetObjetosSalaObjetos());
+                        sala.GetComponent<PasilloObjetos>().Init(LevelManager.Instance.GetObjetosSalaObjetos(), m_Horizontal);
                     break;
                 default:
                     sala = null;

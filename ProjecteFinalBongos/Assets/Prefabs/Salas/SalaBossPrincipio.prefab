@@ -50,8 +50,15 @@ MonoBehaviour:
   m_BoxLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  m_LayerDelRAYCAST:
+    serializedVersion: 2
+    m_Bits: 3319
   m_TimeBetweenBoxCast: 0.4
   m_JugadorEnSalaEvent: {fileID: 11400000, guid: 1e46ef1f1b1268343a2fd391f09d0a49, type: 2}
+  m_BossSala:
+    m_BossPrefab: {fileID: 0}
+    m_HijosBosses: []
+    m_BossDisponible: 0
 --- !u!1 &5920626219881764530
 GameObject:
   m_ObjectHideFlags: 0
