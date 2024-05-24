@@ -1,6 +1,7 @@
 using NavMeshPlus.Extensions;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -21,6 +22,7 @@ public class KrakenBossBehaviour : BossBehaviour
     private Coroutine m_PlayerDetectionCoroutine;
    [SerializeField] private GameObject m_tentacle;
    [SerializeField] private int paralizingTenacleCount = 0;
+    [SerializeField] private LayerMask m_TentaculosMask;
 
     private new void Awake()
     {
@@ -30,6 +32,7 @@ public class KrakenBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+
         GetComponent<KrakenParalizingAttack>().onAttackStopped = (GameObject obj) =>
         {
             StartCoroutine(WaitPTentacleCoroutine());
@@ -129,11 +132,26 @@ public class KrakenBossBehaviour : BossBehaviour
     private IEnumerator SpawnTentacles() {
         while (m_IsAlive) {
             yield return new WaitForSeconds(1f);
+            PonerTentaculo();
+            }
+
+    }
+    private void PonerTentaculo()
+    {
+        Vector2 posicionTentacle = m_SalaPadre.GetPosicionAleatoriaEnSala();
+        RaycastHit2D hit = Physics2D.CircleCast(posicionTentacle, 1, posicionTentacle, 1, m_TentaculosMask);
+        if (hit.collider != null)
+        {
+            PonerTentaculo();
+
+        }
+        else
+        {
             GameObject tentacle = Instantiate(m_tentacle, transform.parent);
-            tentacle.transform.position = m_SalaPadre.GetPosicionAleatoriaEnSala();
+            tentacle.transform.position = new Vector2(posicionTentacle.x, posicionTentacle.y);
         }
     }
-    private void SetAttack()
+        private void SetAttack()
     {
         float rng = Random.value;
         switch (rng)

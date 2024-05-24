@@ -7,7 +7,6 @@ using UnityEngine.AI;
 public class KrakenParalizingAttack : SMState
 {
     [SerializeField] private string m_ParalizingAnimation;
-    [SerializeField] private GameObject m_tentacle;
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
@@ -16,6 +15,7 @@ public class KrakenParalizingAttack : SMState
     public Action<GameObject> onAttackStopped;
     public Action<GameObject> onAttackDestroyed;
     private NavMeshAgent m_NavMeshAgent;
+    private float countAttack = 5;
 
     private new void Awake()
     {
@@ -41,17 +41,34 @@ public class KrakenParalizingAttack : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        m_Animator.Play(m_A)
+        m_Animator.Play(m_ParalizingAnimation);
     }
 
 
     public void Destroyed() {
         onAttackDestroyed?.Invoke(gameObject);
+        PJSMB.Instance.PlayerEstadosController.UnStuckFunction();
     }
     public void Finish() {
+        PJSMB.Instance.PlayerEstadosController.UnStuckFunction();
         onAttackStopped?.Invoke(gameObject);
     }
-  
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (enabled)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHitBox"))
+            {
+                countAttack--;
+                if (countAttack <= 0)
+                {
+                    Destroyed();
+                }
+            }
+        }
+   
+    }
 
     public override void ExitState()
     {
