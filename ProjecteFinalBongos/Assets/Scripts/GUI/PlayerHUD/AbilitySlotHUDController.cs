@@ -26,13 +26,33 @@ public class AbilitySlotHUDController : MonoBehaviour
     {
         m_PlayerAbilities = PJSMB.Instance.PlayerAbilitiesController;
         m_PlayerAbilities.OnLearnAbility += OnLearnAbilityAction;
+        PJSMB.Instance.PlayerAbilitiesController.OnMovementAbilityCooldown += AbilityCooldown;
+        m_CooldownImage.fillAmount = 0;
         UpdateAssignedAbility();
         UpdateAbilitySlotGUI();
+    }
+
+    private bool m_IsOnCooldown;
+    private float m_ElapsedTime;
+    private void Update()
+    {
+        if (m_IsOnCooldown)
+        {
+            m_ElapsedTime -= Time.deltaTime;
+            m_CooldownImage.fillAmount = m_ElapsedTime / m_Cooldown;
+            if (m_ElapsedTime <= 0)
+            {
+                m_IsOnCooldown = false;
+                m_CooldownImage.gameObject.SetActive(false);
+                m_CooldownImage.fillAmount = 0;
+            }
+        }
     }
 
     private void OnDestroy()
     {
         m_PlayerAbilities.OnLearnAbility -= OnLearnAbilityAction;
+        PJSMB.Instance.PlayerAbilitiesController.OnMovementAbilityCooldown -= AbilityCooldown;
     }
 
     private void OnLearnAbilityAction()
@@ -74,5 +94,17 @@ public class AbilitySlotHUDController : MonoBehaviour
         }
         m_AbilityImage.sprite = m_CurrentSlotAbility.Sprite;
         m_AbilityImage.gameObject.SetActive(true);
+    }
+
+    private void AbilityCooldown(AbilityEnum ability, float timer)
+    {
+        if(m_CurrentSlotAbility != null)
+            if (ability == m_CurrentSlotAbility.AbilityEnum)
+            {
+                m_IsOnCooldown = true;
+                m_CooldownImage.gameObject.SetActive(true);
+                m_Cooldown = m_CurrentSlotAbility.Cooldown;
+                m_ElapsedTime = m_CurrentSlotAbility.Cooldown;
+            }
     }
 }

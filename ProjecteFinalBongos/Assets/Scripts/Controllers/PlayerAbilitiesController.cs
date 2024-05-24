@@ -23,6 +23,9 @@ public class PlayerAbilitiesController : MonoBehaviour
     private List<Ability> m_AtaquesMejorados = new List<Ability>();
     public List<Ability> AtaquesMejoradosDisponibles => m_AtaquesMejorados;
     private float m_cooldown;
+
+    public Action<AbilityEnum, float> OnMovementAbilityCooldown;
+
     private  void Awake()
     {
         initMovementAbility();
@@ -43,6 +46,7 @@ public class PlayerAbilitiesController : MonoBehaviour
     }
     public void initCoolDown(float cooldown)
     {
+        OnMovementAbilityCooldown.Invoke(m_actualMovement.AbilityEnum, cooldown);
         m_cooldown = cooldown;
         StartCoroutine(MovementCooldown(cooldown));
     }

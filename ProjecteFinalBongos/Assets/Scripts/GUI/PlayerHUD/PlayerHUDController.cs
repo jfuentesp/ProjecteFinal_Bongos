@@ -48,6 +48,7 @@ public class PlayerHUDController : MonoBehaviour
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("RightAbility").performed += RightAbility;
         FillBuffs();
     }
+
     private void LeftAbility(InputAction.CallbackContext context)
     {
         m_PlayerAbilities.SelectPreviousAbility();
@@ -56,6 +57,7 @@ public class PlayerHUDController : MonoBehaviour
     {
         m_PlayerAbilities.SelectNextAbility();
     }
+
 
     float lerpSpeed;
     void Update()
