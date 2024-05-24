@@ -89,7 +89,7 @@ public class MedusaBossBehaviour : BossBehaviour
             //medusa.GetComponent<CircleCollider2D>().enabled = false;
             
             medusa.transform.localPosition = GetRandomPosition();
-            medusa.GetComponent<MedusitaBehaviour>().Init(Random.Range(1,4), m_Target);
+            medusa.GetComponent<MedusitaBehaviour>().Init(Random.Range(1,4),m_Target);
         }
     }
     private Vector2 GetRandomPosition()
@@ -163,6 +163,9 @@ public class MedusaBossBehaviour : BossBehaviour
             
     }
 
+    private void MatarBoss() {
+        Destroy(gameObject);
+    }
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
@@ -171,9 +174,12 @@ public class MedusaBossBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
+        m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         m_BossMuertoEvent.Raise();
-        Destroy(gameObject);
+
     }
 }
