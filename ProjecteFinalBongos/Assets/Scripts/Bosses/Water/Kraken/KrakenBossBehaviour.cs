@@ -32,7 +32,10 @@ public class KrakenBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
-
+        GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
         GetComponent<KrakenParalizingAttack>().onAttackStopped = (GameObject obj) =>
         {
             StartCoroutine(WaitPTentacleCoroutine());
