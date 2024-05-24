@@ -35,13 +35,13 @@ public class KrakenBossBehaviour : BossBehaviour
             StartCoroutine(WaitPTentacleCoroutine());
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        GetComponent<KrakenParalizingAttack>().onAttackDestroyed = (GameObject obj) =>
+        {
+            StartCoroutine(WaitPTentacleCoroutine());
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
         GetComponent<KrakenRangedAttackState>().onAttackStopped = (GameObject obj) =>
         {
-            m_StateMachine.ChangeState<SubMergeState>();
-        };
-        GetComponent<KrakenSpinState>().onAttackStopped = (GameObject obj) =>
-        {
-          
             m_StateMachine.ChangeState<SMBChaseState>();
         };
         GetComponent<KrakenMergeState>().OnMergeFinish = (GameObject obj) =>
@@ -57,7 +57,18 @@ public class KrakenBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
-
+        transform.GetChild(4).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        transform.GetChild(5).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        transform.GetChild(6).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
     }
 
@@ -91,7 +102,7 @@ public class KrakenBossBehaviour : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                   SetAttack();                
+                    m_StateMachine.ChangeState<KrakenParalizingAttack>();
                 }   
                 else
                 {
@@ -104,7 +115,7 @@ public class KrakenBossBehaviour : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    SetAttack();
+                    m_StateMachine.ChangeState<KrakenParalizingAttack>();
                 }
                 else
                 {

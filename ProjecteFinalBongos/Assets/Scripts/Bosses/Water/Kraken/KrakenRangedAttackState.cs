@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class KrakenRangedAttackState : SMState
 {
-    public bool trapped;
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
@@ -13,7 +12,10 @@ public class KrakenRangedAttackState : SMState
     [Header("Pool of projectiles/splats")]
     [SerializeField]
     private Pool m_Pool;
-
+    [SerializeField]
+    private string m_ShootAnimation;
+    [SerializeField]
+    private Transform m_ShootPoint;
     private Transform m_Target;
 
     public Action<GameObject> onAttackStopped;
@@ -27,7 +29,6 @@ public class KrakenRangedAttackState : SMState
         m_Boss = GetComponent<BossBehaviour>();
         m_Pool = LevelManager.Instance._BulletPool;
         m_Boss.OnPlayerInSala += GetTarget;
-        trapped = false;
     }
 
     private void GetTarget()
@@ -39,27 +40,25 @@ public class KrakenRangedAttackState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        StartCoroutine(Disparar());
+        m_Animator.Play(m_ShootAnimation);       
         m_Rigidbody.velocity = Vector3.zero;
     }
+    private void Shoot() {
+        GameObject lightning = m_Pool.GetElement();
+        lightning.transform.position = new Vector3(m_ShootPoint.position.x, m_ShootPoint.position.y, 0);
+        lightning.SetActive(true);
+        lightning.GetComponent<TintaBullet>().enabled = true;
+        lightning.GetComponent<TintaBullet>().Init(m_Target.position - transform.position);
+    }
 
-    private IEnumerator Disparar()
-    {
-    
-            GameObject lightning = m_Pool.GetElement();
-            lightning.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-            lightning.SetActive(true);
-            lightning.GetComponent<TintaBullet>().enabled = true;
-            lightning.GetComponent<TintaBullet>().Init(m_Target.position - transform.position);
-            yield return new WaitForSeconds(1f);
-            trapped = false;
-            onAttackStopped.Invoke(gameObject);
+    private void End() {
+        onAttackStopped.Invoke(gameObject);
     }
 
     public override void ExitState()
     {
         base.ExitState();
-        StopCoroutine(Disparar());
+
     }
     // Update is called once per frame
     void Update()

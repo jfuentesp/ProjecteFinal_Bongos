@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class KrakenParalizingAttack : SMState
 {
-    [SerializeField] private string m_SpinAnimation;
+    [SerializeField] private string m_ParalizingAnimation;
     [SerializeField] private GameObject m_tentacle;
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
@@ -14,6 +14,7 @@ public class KrakenParalizingAttack : SMState
     private BossBehaviour m_Boss;
     private Transform m_Target;
     public Action<GameObject> onAttackStopped;
+    public Action<GameObject> onAttackDestroyed;
     private NavMeshAgent m_NavMeshAgent;
 
     private new void Awake()
@@ -39,30 +40,21 @@ public class KrakenParalizingAttack : SMState
     public override void InitState()
     {
         base.InitState();
-        print("tentaculo");
         m_Boss.SetBusy(true);
-        m_tentacle.SetActive(true);
-        StartCoroutine(aasdad());
+        m_Animator.Play(m_A)
     }
 
-    IEnumerator aasdad() { 
-        yield return new WaitForSeconds(5f);
-        m_tentacle.SetActive(false);
-        Finish();
+
+    public void Destroyed() {
+        onAttackDestroyed?.Invoke(gameObject);
     }
-    
     public void Finish() {
-       // m_tentacle.GetComponent<ParalazingTentacleBehaviour>().Finish();
         onAttackStopped?.Invoke(gameObject);
     }
   
 
-
-
-
     public override void ExitState()
     {
         base.ExitState();
-        StopAllCoroutines();
     }
 }
