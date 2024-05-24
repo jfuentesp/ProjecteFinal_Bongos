@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2227326789264683510}
   - component: {fileID: 6340874501568866934}
+  - component: {fileID: 4124949982275955070}
   - component: {fileID: -2661576376330267457}
   - component: {fileID: -3617419724970758767}
   - component: {fileID: 2207415601366420514}
@@ -22,7 +23,6 @@ GameObject:
   - component: {fileID: -1661820653440631124}
   - component: {fileID: 1171684039085722767}
   - component: {fileID: -622657025306183932}
-  - component: {fileID: 4124949982275955070}
   - component: {fileID: 8565259217560878604}
   - component: {fileID: 8826381022006950237}
   - component: {fileID: 764764548139932705}
@@ -32,7 +32,7 @@ GameObject:
   - component: {fileID: 5904273208453465715}
   m_Layer: 9
   m_Name: VoltauroMini
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,6 +107,35 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4124949982275955070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399034142371773799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69160f910c2396140988aafda6d468a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BossName: as
+  m_Description: asa
+  m_Target: {fileID: 0}
+  m_BloodController: {fileID: 1131370943619560393}
+  m_BossFinalSala: 0
+  m_PlayerAttackDetectionAreaType: 0
+  m_AreaLength: 0
+  m_AreaWideness: 0
+  m_AreaRadius: 2
+  m_CheckingPlayerTimelapse: 0.2
+  m_LayersToCheck:
+    serializedVersion: 2
+    m_Bits: 128
+  m_BossMuertoEvent: {fileID: 11400000, guid: a68c2e2d0411f4242b3bfb77d6d424f3, type: 2}
+  m_layerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &-2661576376330267457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +222,8 @@ MonoBehaviour:
   m_ChargeAnimationName: Charge
   m_EndChargeAnimationName: 
   m_TwoDirections: 1
+  m_ColoresList:
+  - {r: 0.7169812, g: 0.010145942, b: 0.010145942, a: 1}
 --- !u!114 &-6303694690769605173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,34 +361,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4124949982275955070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 399034142371773799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69160f910c2396140988aafda6d468a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BossName: as
-  m_Description: asa
-  m_Target: {fileID: 0}
-  m_BloodController: {fileID: 1131370943619560393}
-  m_PlayerAttackDetectionAreaType: 0
-  m_AreaLength: 0
-  m_AreaWideness: 0
-  m_AreaRadius: 2
-  m_CheckingPlayerTimelapse: 0.2
-  m_LayersToCheck:
-    serializedVersion: 2
-    m_Bits: 128
-  m_BossMuertoEvent: {fileID: 11400000, guid: a68c2e2d0411f4242b3bfb77d6d424f3, type: 2}
-  m_layerMask:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!195 &8565259217560878604
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -471,7 +474,7 @@ MonoBehaviour:
   parreable: 0
   healable: 0
   m_EstadoAlterado: 4
-  stateTime: 0
+  stateTime: 1.5
 --- !u!114 &5904273208453465715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,6 +735,26 @@ PrefabInstance:
     - target: {fileID: 1552560892194166361, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646615665294502748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_BloodColorList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646615665294502748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_BloodColorList.Array.data[0].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646615665294502748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_BloodColorList.Array.data[0].b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646615665294502748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_BloodColorList.Array.data[0].g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646615665294502748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_BloodColorList.Array.data[0].r
+      value: 0.4716981
       objectReference: {fileID: 0}
     - target: {fileID: 4901853211154067748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
       propertyPath: m_Name

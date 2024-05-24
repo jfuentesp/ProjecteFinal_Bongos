@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 6484961490468896115}
   - component: {fileID: 8371443194967632601}
   - component: {fileID: 2530162861021700224}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,11 +220,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a55ee38cc4a1577408f94dc5eca4e325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TimeUntilDestroyed: -0.06
+  m_TimeUntilDestroyed: 0
   m_SizeRadius: 1
-  m_Speed: 50
+  m_Speed: 30
   m_Damage: 10
-  m_AnimationName: 
+  m_AnimationName: SinusBullet
 --- !u!114 &-7529973721447979446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +296,6 @@ MonoBehaviour:
   m_Damage: 10
   m_AnimationName: DracMariBullet
   m_pool: {fileID: 0}
-  m_damage: 10
 --- !u!114 &6484961490468896115
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -32,7 +32,9 @@ public class EnemySnake : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBParriedState>();
         };
-
+    }
+    private void Start()
+    {
         m_StateMachine.ChangeState<SMBIdleState>();
     }
     public override void Init(Transform _Target)
@@ -84,10 +86,11 @@ public class EnemySnake : BossBehaviour
     {
         base.VidaCero();
         StopAllCoroutines();
-        GetComponent<SalaBoss>().OnPlayerIn -= Init;
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         m_StateMachine.ChangeState<DeathState>();
         OnBossDeath?.Invoke();
-        m_BossMuertoEvent.Raise();
+        if (m_BossFinalSala)
+            m_BossMuertoEvent.Raise();
         m_IsAlive = false;
     }
 }

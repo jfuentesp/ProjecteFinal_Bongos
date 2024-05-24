@@ -17,7 +17,7 @@ public class MiniPegasusBehaviour : BossBehaviour
 {
     private Coroutine m_PlayerDetectionCoroutine;
     private int m_NumberOfAttacksBeforeCharge;
-    private new void Awake()
+    protected override void Awake()
     {
         base.Awake();
         m_NumberOfAttacksBeforeCharge = Random.Range(5, 7);
@@ -49,6 +49,9 @@ public class MiniPegasusBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBGroundHitState>();
         };
+    }
+    private void Start()
+    {
         m_StateMachine.ChangeState<SMBIdleState>();
     }
     public override void Init(Transform _Target)
@@ -131,6 +134,7 @@ public class MiniPegasusBehaviour : BossBehaviour
         m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
-        m_BossMuertoEvent.Raise();
+        if (m_BossFinalSala)
+            m_BossMuertoEvent.Raise();
     }
 }

@@ -69,6 +69,10 @@ public class MiniVoltauroBehaviour : BossBehaviour
         };
 
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
+       
+    }
+    private void Start()
+    {
         m_StateMachine.ChangeState<SMBIdleState>();
     }
     private void EmpezarCorutina(GameObject obj)
@@ -145,6 +149,7 @@ public class MiniVoltauroBehaviour : BossBehaviour
         m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
-        m_BossMuertoEvent.Raise();
+        if(m_BossFinalSala)
+            m_BossMuertoEvent.Raise();
     }
 }

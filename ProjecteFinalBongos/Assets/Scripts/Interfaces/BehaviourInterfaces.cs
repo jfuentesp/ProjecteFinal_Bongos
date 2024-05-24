@@ -20,16 +20,18 @@ public interface IThrowable
 
 public interface IBuffable
 {
-    public void AttackBuff(float statAmount, float duration);
-    public void DefenseBuff(float statAmount, float duration);
-    public void SpeedBuff(float statAmount, float duration);
+    public IEnumerator AttackBuff(float statAmount, float duration);
+    public IEnumerator DefenseBuff(float statAmount, float duration);
+    public IEnumerator SpeedBuff(float statAmount, float duration);
+    public void BuffStat(StatType statToBuff, float statAmount, float duration);
 }
 
 public interface IDebuffable
 {
-    public void AttackDebuff(float statAmount, float duration);
-    public void DefenseDebuff(float statAmount, float duration);
-    public void SpeedDebuff(float statAmount, float duration);
+    public IEnumerator AttackDebuff(float statAmount, float duration);
+    public IEnumerator DefenseDebuff(float statAmount, float duration);
+    public IEnumerator SpeedDebuff(float statAmount, float duration);
+    public void DebuffStat(StatType statToDebuff, float statAmount, float duration);
 }
 
 public interface IPlaceable

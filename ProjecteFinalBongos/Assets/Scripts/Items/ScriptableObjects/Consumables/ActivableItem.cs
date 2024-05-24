@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Area Damaging Item", menuName = "Scriptables/Items/AreaDamage")]
-public class DamageableItem : Consumable
+[CreateAssetMenu(fileName = "Area Active Item", menuName = "Scriptables/Items/AreaActive")]
+public class ActivableItem : Consumable
 {
     [SerializeField]
     private LayerMask m_Layermask;
@@ -11,6 +12,12 @@ public class DamageableItem : Consumable
     private float m_DamageAmount;
     [SerializeField]
     private float m_AreaRadius;
+    [SerializeField]
+    private float m_Duration;
+
+    private Animator m_Animator;
+    [SerializeField]
+    private UnityEditor.Animations.AnimatorController m_AnimatorController;
 
     public override void OnUse(GameObject usedBy)
     {

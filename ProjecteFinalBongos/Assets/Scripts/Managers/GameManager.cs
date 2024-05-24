@@ -125,7 +125,9 @@ public class GameManager : MonoBehaviour
     public void AcabarJuego()
     {
         SceneManager.LoadScene("EscenaInicial");
-        Destroy(PlayerInGame);
+        print("MuereCalvo");
+        print(m_PlayerInGame == null);
+        //Destroy(m_PlayerInGame);
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
     {
@@ -137,7 +139,7 @@ public class GameManager : MonoBehaviour
         }
         if (scene.name == "Mundo2")
         {
-            if (!m_NuevaPartida)
+            if (m_PlayerInGame == null)
                 m_PlayerInGame = Instantiate(m_PlayerPrefab);
             m_PlayerInGame.transform.position = Vector3.zero;
         }

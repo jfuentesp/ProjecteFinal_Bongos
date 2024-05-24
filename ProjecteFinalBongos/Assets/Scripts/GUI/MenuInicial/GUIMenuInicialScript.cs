@@ -73,7 +73,8 @@ namespace GUIScripts
         }
         private void OnDestroy()
         {
-            GameManager.Instance.OnPlayerDeleted -= RefreshPlayersFromStartGame;
+            if(GameManager.Instance != null)
+                GameManager.Instance.OnPlayerDeleted -= RefreshPlayersFromStartGame;    
             if (m_OptionsButton) m_OptionsButton.onClick.RemoveAllListeners();
             if (m_RankingsButton) m_RankingsButton.onClick.RemoveAllListeners();
             if (m_ExitButton) m_ExitButton.onClick.RemoveAllListeners();

@@ -140,7 +140,8 @@ public class InventoryController : MonoBehaviour
 
     public void OnUse(string itemID)
     {
-        Consumable itemToUse = m_InventoryBackpack.ConsumableSlots.FirstOrDefault(item => item?.Consumable.id == itemID).Consumable;
+        Consumable itemToUse = m_InventoryBackpack.ConsumableSlots.FirstOrDefault(item => item?.Consumable.id == itemID)?.Consumable;
+
         if (itemToUse != null)
         {
             itemToUse.OnUse(m_Player);
@@ -153,6 +154,8 @@ public class InventoryController : MonoBehaviour
     public void OnEquip(string itemID)
     {
         Equipable itemToUse = m_InventoryBackpack.EquipableSlots.FirstOrDefault(item => item?.Equipable.id == itemID).Equipable;
+        if (itemToUse == null)
+            return;
         if(itemToUse != null) 
         { 
             itemToUse.OnEquip(m_Player);
@@ -262,7 +265,7 @@ public class InventoryController : MonoBehaviour
             GameObject consumable = Instantiate(m_ItemPrefab);
             consumable.GetComponent<ProximityItemBehaviour>().SetConsumable(itemToUse);
             consumable.GetComponent<ProximityItemBehaviour>().SetSprite(itemToUse.Sprite);
-            consumable.transform.position = transform.parent.position;
+            consumable.transform.position = PJSMB.Instance.gameObject.transform.position;
             m_InventoryBackpack.RemoveConsumable(itemToUse);
         }
         RefreshInventoryGUI();

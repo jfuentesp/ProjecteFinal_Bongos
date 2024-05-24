@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: TrapExplosive
   m_EditorClassIdentifier: 
   m_ItemId: 7
-  m_ItemName: 
-  m_ItemDescription: 
-  m_ItemSprite: {fileID: 192854759, guid: 3f88d2c1145bfc04ca22193678f12c63, type: 3}
+  m_ItemName: Explosion trap
+  m_ItemDescription: Trap that explodes when an enemy passes over it.
+  m_ItemSprite: {fileID: 21300000, guid: 44a6b77bbefde3d448ce5041eaf4e4d8, type: 3}
   m_ShopPrice: 60
   m_SellPrice: 25
-  m_PrefabToInstantiateAndPlace: {fileID: 0}
+  m_PrefabToInstantiateAndPlace: {fileID: 4526966402006351552, guid: 2dec2f3cf8648cd4aa1161bf9168ba02, type: 3}
+  m_PlaceableType: 2

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EggAltea : Splash
 {
@@ -10,6 +12,13 @@ public class EggAltea : Splash
     private Transform m_Target;
     private Transform m_TransformSala;
     private bool m_Nacido;
+    private Animator m_Animator;
+    [SerializeField] private AnimationClip[] m_AnimationsClips;
+
+    private void Awake()
+    {
+        m_Animator = GetComponent<Animator>();
+    }
 
     public void Init(Transform _Target, Transform parent)
     {
@@ -22,25 +31,40 @@ public class EggAltea : Splash
     }
     protected virtual IEnumerator BornSNake()
     {
+        PlayRandomAnimation();
         yield return new WaitForSeconds(m_TimeUntilDestroyed);
         m_Nacido = true;
-        this.gameObject.SetActive(false);
+        m_Animator.Play("EggAlteaBorn");
     }
 
-    private void Update()
+    private void PlayRandomAnimation()
     {
-        
+        m_Animator.Play(m_AnimationsClips[Random.Range(0, m_AnimationsClips.Length)].name);
     }
 
     private void OnDisable()
+    {
+        DisableBullet();
+    }
+
+    private void OnSnakeBorned()
     {
         if (m_Nacido)
         {
             GameObject Serpiente = Instantiate(m_SerpientePrefab, m_TransformSala);
             Serpiente.transform.position = transform.position;
-            Serpiente.GetComponent<EnemySnake>().Init(m_Target);
+            Serpiente.GetComponent<BossBehaviour>().BossFinalSalaSpawn(m_Target);
         }
-        
-        DisableBullet();
+    }
+    private void EndEgg()
+    {
+        this.gameObject.SetActive(false);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("PlayerHitBox"))
+        {
+            m_Animator.Play("EggAlteaBorn");
+        }
     }
 }

@@ -18,7 +18,8 @@ public class VoltauroBossBehaviour : BossBehaviour
     private enum Phase { ONE, TWO }
     private Phase m_CurrentPhase;
 
-    private new void Awake()
+
+    protected override void Awake()
     {
         base.Awake();
         m_CurrentPhase = Phase.ONE;
@@ -191,7 +192,8 @@ public class VoltauroBossBehaviour : BossBehaviour
         m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
-        m_BossMuertoEvent.Raise();
+        if (m_BossFinalSala)
+            m_BossMuertoEvent.Raise();
     }
     private void SetPhase(Phase phaseToSet)
     {

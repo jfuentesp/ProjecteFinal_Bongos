@@ -103,7 +103,7 @@ public class PlayerEstadosController : MonoBehaviour
     {
         Wet = true;
         velocityBefore = m_Stats.m_Velocity;
-        m_Stats.m_Velocity -= (m_Stats.m_Velocity * m_Stats.getModifier("Wet")) / 100;
+        m_Stats.m_Velocity -= (m_Stats.m_Velocity * m_Stats.getModifier("Wet")) / 100; 
         yield return new WaitForSeconds(time);
         Wet = false;
         m_Stats.m_Velocity = velocityBefore;
