@@ -17,6 +17,9 @@ public class AlteaBossBehaviour : BossBehaviour
     [SerializeField]
     private Pool m_Pool;
 
+    [Header("Time between Eggs")]
+    [SerializeField] private float m_TimeBetweenEggs;
+
     private new void Awake()
     {
         base.Awake();
@@ -51,7 +54,7 @@ public class AlteaBossBehaviour : BossBehaviour
     {
         while (m_IsAlive)
         {
-            yield return new WaitForSeconds(7);
+            yield return new WaitForSeconds(m_TimeBetweenEggs);
             PonerHuevo();
         }
     }
@@ -82,7 +85,8 @@ public class AlteaBossBehaviour : BossBehaviour
         base.VidaCero();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
-        m_BossMuertoEvent.Raise();
+        if (m_BossFinalSala)
+            m_BossMuertoEvent.Raise();
         Destroy(gameObject);
     }
     protected override void Update()

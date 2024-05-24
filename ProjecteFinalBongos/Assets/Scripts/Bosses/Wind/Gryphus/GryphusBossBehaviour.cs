@@ -14,6 +14,8 @@ using UnityEngine.AI;
 [RequireComponent(typeof(SMBTripleAttackState))]
 public class GryphusBossBehaviour : BossBehaviour
 {
+    [SerializeField] private GameObject m_HealParticles;
+    private Coroutine m_HealCoroutine;
     private Coroutine m_PlayerDetectionCoroutine;
     private enum Phase { ONE, TWO }
     private Phase m_CurrentPhase;
@@ -61,9 +63,38 @@ public class GryphusBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBParriedState>();
         };
-        m_StateMachine.ChangeState<SMBIdleState>();
+        transform.GetChild(0).GetComponent<BossAttackDamage>().OnAttackHealed = (GameObject obj) =>
+        {
+            if(m_CurrentPhase == Phase.ONE)
+            ParticulitasCura();
+        };
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
         m_CurrentPhase = Phase.ONE;
+    }
+
+    private void ParticulitasCura()
+    {
+        if(m_HealCoroutine != null)
+        {
+            StopCoroutine(m_HealCoroutine);
+            m_HealCoroutine = StartCoroutine(CuraParticulas());
+        }
+        else
+        {
+            m_HealCoroutine = StartCoroutine(CuraParticulas());
+        }
+    }
+
+    private IEnumerator CuraParticulas()
+    {
+        m_HealParticles.SetActive(true);
+        yield return new WaitForSeconds(1);
+        m_HealParticles.SetActive(false);
+    }
+
+    private void Start()
+    {
+        m_StateMachine.ChangeState<SMBIdleState>();
     }
     public override void Init(Transform _Target)
     {

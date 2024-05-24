@@ -319,7 +319,7 @@ public class LevelManager : MonoBehaviour
     public void BossMuerto()
     {
         m_BossesMuertos++;
-
+        print("Bosses Muertos: " + m_BossesMuertos);
         if (m_BossesMuertos == 1)
         {
             GameManager.Instance.AlCargarMundo();

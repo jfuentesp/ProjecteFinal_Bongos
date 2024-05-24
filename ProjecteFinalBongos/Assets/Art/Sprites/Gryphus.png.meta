@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 64
@@ -118,7 +118,7 @@ TextureImporter:
         width: 65
         height: 82
       alignment: 9
-      pivot: {x: 0.4977882, y: 0.33654377}
+      pivot: {x: 0.5988227, y: 0.4803184}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,7 +139,7 @@ TextureImporter:
         width: 63
         height: 82
       alignment: 9
-      pivot: {x: 0.4804823, y: 0.3500493}
+      pivot: {x: 0.58542633, y: 0.4803195}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,7 +160,7 @@ TextureImporter:
         width: 62
         height: 83
       alignment: 9
-      pivot: {x: 0.48016775, y: 0.32222703}
+      pivot: {x: 0.58680403, y: 0.4680503}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,7 +181,7 @@ TextureImporter:
         width: 65
         height: 82
       alignment: 9
-      pivot: {x: 0.49999976, y: 0.32573533}
+      pivot: {x: 0.5961522, y: 0.47820225}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,7 +202,7 @@ TextureImporter:
         width: 70
         height: 82
       alignment: 9
-      pivot: {x: 0.5284842, y: 0.32168245}
+      pivot: {x: 0.6364066, y: 0.4633819}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -223,7 +223,7 @@ TextureImporter:
         width: 70
         height: 82
       alignment: 9
-      pivot: {x: 0.5237366, y: 0.32168245}
+      pivot: {x: 0.6488072, y: 0.46126464}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -244,7 +244,7 @@ TextureImporter:
         width: 70
         height: 82
       alignment: 9
-      pivot: {x: 0.5237366, y: 0.3135774}
+      pivot: {x: 0.641367, y: 0.4570305}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,12 +260,12 @@ TextureImporter:
       name: Gryphus_7
       rect:
         serializedVersion: 2
-        x: 492
+        x: 491
         y: 359
         width: 70
         height: 82
       alignment: 9
-      pivot: {x: 0.5189889, y: 0.32573533}
+      pivot: {x: 0.6364066, y: 0.47820225}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -286,7 +286,7 @@ TextureImporter:
         width: 70
         height: 82
       alignment: 9
-      pivot: {x: 0.52177906, y: 0.32525337}
+      pivot: {x: 0.624006, y: 0.47820225}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -366,9 +366,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 328
-        y: 297
+        y: 286
         width: 111
-        height: 47
+        height: 58
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -446,27 +446,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gryphus_16
-      rect:
-        serializedVersion: 2
-        x: 326
-        y: 286
-        width: 111
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7433c221bde880f44b2501d7ba16316b
-      internalID: -148278193
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Gryphus_17
       rect:
         serializedVersion: 2
@@ -537,8 +516,8 @@ TextureImporter:
         y: 168
         width: 90
         height: 86
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5708635, y: 0.45808357}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -558,8 +537,8 @@ TextureImporter:
         y: 153
         width: 117
         height: 106
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.48577985, y: 0.42675278}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -579,8 +558,8 @@ TextureImporter:
         y: 160
         width: 85
         height: 91
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.60439235, y: 0.4542922}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -600,8 +579,8 @@ TextureImporter:
         y: 183
         width: 77
         height: 70
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.58282787, y: 0.47227064}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -819,27 +798,6 @@ TextureImporter:
       bones: []
       spriteID: 2ccd93d4ca875c243b885c614e647f0c
       internalID: -1570309235
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gryphus_53
-      rect:
-        serializedVersion: 2
-        x: 675
-        y: 6
-        width: 90
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8ee70f07064b1d4488e78f765526be40
-      internalID: 965019989
       vertices: []
       indices: 
       edges: []

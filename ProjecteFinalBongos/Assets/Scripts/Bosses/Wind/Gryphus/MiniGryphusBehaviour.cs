@@ -12,6 +12,8 @@ using UnityEngine.AI;
 [RequireComponent(typeof(SMBSingleAttackState))]
 public class MiniGryphusBehaviour : BossBehaviour
 {
+    [SerializeField] private GameObject m_HealParticles;
+    private Coroutine m_HealCoroutine;
     private Coroutine m_PlayerDetectionCoroutine;
 
     private new void Awake()
@@ -37,11 +39,38 @@ public class MiniGryphusBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        transform.GetChild(0).GetComponent<BossAttackDamage>().OnAttackHealed = (GameObject obj) =>
+        {
+            ParticulitasCura();
+        };
         transform.GetChild(0).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBParriedState>();
         };
+       
+    }
+    private void Start()
+    {
         m_StateMachine.ChangeState<SMBIdleState>();
+    }
+    private void ParticulitasCura()
+    {
+        if (m_HealCoroutine != null)
+        {
+            StopCoroutine(m_HealCoroutine);
+            m_HealCoroutine = StartCoroutine(CuraParticulas());
+        }
+        else
+        {
+            m_HealCoroutine = StartCoroutine(CuraParticulas());
+        }
+    }
+
+    private IEnumerator CuraParticulas()
+    {
+        m_HealParticles.SetActive(true);
+        yield return new WaitForSeconds(1);
+        m_HealParticles.SetActive(false);
     }
     public override void Init(Transform _Target)
     {

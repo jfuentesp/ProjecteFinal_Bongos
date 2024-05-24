@@ -135,7 +135,8 @@ public class PegasusBossBehaviour : BossBehaviour
         GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
-        OnBossDeath?.Invoke();
-        m_BossMuertoEvent.Raise();
+        OnBossDeath?.Invoke(); 
+        if (m_BossFinalSala)
+            m_BossMuertoEvent.Raise();
     }
 }
