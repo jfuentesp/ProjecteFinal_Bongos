@@ -23,9 +23,12 @@ public class FountainScript : Interactuable
     {
         if (inRange && !m_AlreadyActivated)
         {
-            m_AlreadyActivated = true;
-            PJSMB.Instance.Heal(m_Heal);
-            canInteract = false;
+            if(PJSMB.Instance.GetComponent<HealthController>().HP < PJSMB.Instance.GetComponent<HealthController>().HPMAX)
+            {
+                m_AlreadyActivated = true;
+                PJSMB.Instance.Heal(m_Heal);
+                canInteract = false;
+            }
         }
     }
 }

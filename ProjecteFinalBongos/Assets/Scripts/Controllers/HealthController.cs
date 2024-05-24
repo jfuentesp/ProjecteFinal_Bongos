@@ -6,6 +6,7 @@ using UnityEngine;
 public class HealthController : MonoBehaviour, IHealable, IDamageable
 {
     public Action onDeath;
+    public Action onHurt;
     [SerializeField]
     private float MAXHP = 100f;
     public float HPMAX => MAXHP;
@@ -26,7 +27,9 @@ public class HealthController : MonoBehaviour, IHealable, IDamageable
         {
             m_HP = 0;
             onDeath?.Invoke();
-        }   
+        }
+        else
+            onHurt?.Invoke();
 
         Debug.Log(string.Format(gameObject.name + " Received {0} damage. Remaining HP: {1}", damageAmount, m_HP));
     }

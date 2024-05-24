@@ -186,7 +186,7 @@ MonoBehaviour:
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 1.5
   m_AreaWideness: 1.5
-  m_AreaRadius: 1
+  m_AreaRadius: 0.9
   m_CheckingPlayerTimelapse: 0.1
   m_LayersToCheck:
     serializedVersion: 2
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FlyingHarpyAnimationname: Walk
-  m_FlyingSpeed: 4
+  m_FlyingSpeed: 7
   m_TwoDirections: 1
 --- !u!114 &5779588992722725201
 MonoBehaviour:
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAXHP: 50
+  MAXHP: 200
 --- !u!114 &4026666115353880429
 MonoBehaviour:
   m_ObjectHideFlags: 0

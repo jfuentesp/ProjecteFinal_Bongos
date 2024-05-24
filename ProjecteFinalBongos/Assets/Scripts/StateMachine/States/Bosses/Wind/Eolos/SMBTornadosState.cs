@@ -44,7 +44,6 @@ public class SMBTornadosState : SMState
     public override void InitState()
     {
         base.InitState();
-        print("Tornado");
         m_CurrentDuration = 0;
         m_Boss.SetBusy(true);
         m_Rigidbody.velocity = Vector3.zero;
@@ -55,12 +54,14 @@ public class SMBTornadosState : SMState
     {
         Vector2 posicionTornado = m_Boss.SalaPadre.GetPosicionAleatoriaEnSala();
         RaycastHit2D hit = Physics2D.CircleCast(posicionTornado, m_RangoCircleCast, posicionTornado, m_RangoCircleCast, m_TornadoLayerMask);
-        if (hit.collider != null && Vector2.Distance(hit.transform.position, m_Target.position) > 6)
+        if (hit.collider != null || Vector2.Distance(posicionTornado, m_Target.position) > 6)
         {
             SpawnTornado();
         }
         else
         {
+            print(hit.collider == null);
+            print(Vector2.Distance(posicionTornado, m_Target.position));
             GameObject tornado = Instantiate(m_TornadoPrefab);
             tornado.transform.position = posicionTornado;
             tornado.GetComponent<TornadoBehaviour>().Init(m_Target);
@@ -73,7 +74,7 @@ public class SMBTornadosState : SMState
         m_CurrentDuration += Time.deltaTime;
         if (m_CurrentDuration >= m_SummoningDuration)
         {
-            onTornadoSpawned.Invoke(gameObject);
+            onTornadoSpawned?.Invoke(gameObject);
         }
     }
 }

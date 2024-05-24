@@ -57,7 +57,6 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
                     RaycastHit2D Hit2 = Physics2D.Raycast(transform.position, (hit.transform.position - transform.position).normalized, Mathf.Infinity, m_LayerDelRAYCAST);
                     if (Hit2.collider != null)
                     {
-                        print(Hit2.collider.name);
                         if (Hit2.collider.gameObject.TryGetComponent<PJSMB>(out PJSMB pj))
                         {
                             m_CanOpenDoor = false;

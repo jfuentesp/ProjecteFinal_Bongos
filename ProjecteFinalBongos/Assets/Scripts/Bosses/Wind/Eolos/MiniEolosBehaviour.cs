@@ -43,7 +43,6 @@ public class MiniEolosBehaviour : BossBehaviour
     }
 
     private void RandomWalk() {
-        print("Randomeo");
         Vector2 direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 8, LayerMask.NameToLayer("Default"));
         if (hit.collider != null)

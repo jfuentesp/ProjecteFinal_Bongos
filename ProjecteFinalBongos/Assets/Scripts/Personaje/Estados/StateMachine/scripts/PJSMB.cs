@@ -64,6 +64,8 @@ public class PJSMB : MonoBehaviour
     public Action OnPlayerDamaged;
     [Header("Particulas cura")]
     [SerializeField] private GameObject m_HealParticles;
+    [Header("Componente Sanguineo")]
+    [SerializeField] private BloodController m_ComponenteSanguineo;
 
     private void Awake()
     {
@@ -87,6 +89,7 @@ public class PJSMB : MonoBehaviour
         m_PlayerAbilityPoints = GetComponent<HabilityPointsController>();
         m_SMBPlayerParryState = GetComponent<SMBPlayerParryState>();
         m_HealthController.onDeath += AcabarJuego;
+        m_HealthController.onHurt += GetHurted;
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -137,16 +140,14 @@ public class PJSMB : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("BossHitBox") && !m_SMBPlayerParryState.parry)
+        if ((collision.gameObject.layer == LayerMask.NameToLayer("BossHitBox") || collision.gameObject.layer == LayerMask.NameToLayer("AllHitBox")) && !m_SMBPlayerParryState.parry)
         {
             if (collision.gameObject.TryGetComponent<BossAttackDamage>(out BossAttackDamage damageBoss))
             {
-
                 recibirDamage(damageBoss.Damage);
                 m_PlayerEstadosController.AlternarEstado(damageBoss.EstadoAlterado, damageBoss.StateTime);
             }
         }
-       
     }
     public void GetDamage(float _Damage, EstadosAlterados estado, float time)
     {
@@ -165,5 +166,19 @@ public class PJSMB : MonoBehaviour
         m_HealParticles.SetActive(true);
         yield return new WaitForSeconds(1);
         m_HealParticles.SetActive(false);
+    }
+    private void GetHurted()
+    {
+        m_ComponenteSanguineo.PlayBlood();
+    }
+    private void OnDestroy()
+    {
+        if (m_HealthController)
+        {
+            m_HealthController.onDeath -= AcabarJuego;
+            m_HealthController.onHurt -= GetHurted;
+        }
+        if(m_Input)
+            m_Input.FindActionMap("PlayerActions").Disable();
     }
 }

@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Description: fufu
   m_Target: {fileID: 0}
   m_BloodController: {fileID: 0}
+  m_BossFinalSala: 0
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 0
   m_AreaWideness: 0
@@ -322,7 +323,7 @@ MonoBehaviour:
   m_BossMuertoEvent: {fileID: 11400000, guid: a68c2e2d0411f4242b3bfb77d6d424f3, type: 2}
   m_layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_TiempoMinimo: 1
   m_TiempoMaximo: 2
   directionSpeed: 5
@@ -339,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAXHP: 100
+  MAXHP: 500
 --- !u!61 &3800776232999033490
 BoxCollider2D:
   m_ObjectHideFlags: 0
