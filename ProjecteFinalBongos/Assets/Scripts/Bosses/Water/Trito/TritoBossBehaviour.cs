@@ -16,6 +16,8 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(SMBSingleAttackState))]
 [RequireComponent(typeof(SMBDoubleAttackState))]
 [RequireComponent(typeof(HealthController))]
+[RequireComponent(typeof(SMBParriedState))]
+[RequireComponent(typeof(DeathState))]
 public class TritoBossBehaviour : BossBehaviour
 {
     [SerializeField] private float m_TiempoEntreSpawn;
@@ -39,15 +41,50 @@ public class TritoBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
         GetComponent<SMBSingleAttackState>().OnStopDetectingPlayer = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        GetComponent<SMBSingleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<SMBSingleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBDoubleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<SMBDoubleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBTripleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
+        GetComponent<SMBTripleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        transform.GetChild(0).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
+        };
 
         GetComponent<SMBChaseState>().OnStartChase += EmpezarCuentaAtras;
+      
+    }
+    private void Start()
+    {
         m_StateMachine.ChangeState<SMBIdleState>();
     }
-
 
     private void EmpezarCuentaAtras()
     {
@@ -131,29 +168,37 @@ public class TritoBossBehaviour : BossBehaviour
 
         float rng = Random.value;
 
-        switch (rng)
+        if (rng > 0 && rng < 0.5)
         {
-            case < 0.5f:
-                m_StateMachine.ChangeState<SMBSingleAttackState>();
-                break;
-            case < 0.65f:
-                m_StateMachine.ChangeState<SMBDoubleAttackState>();
-                break;
-            case > 0.8f:
-                m_StateMachine.ChangeState<SMBTripleAttackState>();
-                break;
+            m_StateMachine.ChangeState<SMBSingleAttackState>();
+        }
+        else if (rng >= 0.5 && rng < 0.8)
+        {
+            m_StateMachine.ChangeState<SMBDoubleAttackState>();
+        }
+        else if (rng >= 0.8)
+        {
+            m_StateMachine.ChangeState<SMBTripleAttackState>();
         }
     }
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
     }
+    private void MatarBoss()
+    {
+        Destroy(gameObject);
+    }
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
+        m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
-        Destroy(gameObject);
+        if (m_BossFinalSala)
+            m_BossMuertoEvent.Raise();
     }
 
 }

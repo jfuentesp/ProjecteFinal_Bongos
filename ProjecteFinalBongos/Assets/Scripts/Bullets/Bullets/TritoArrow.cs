@@ -8,6 +8,7 @@ public class TritoArrow : Bullet
     Transform m_Target;
     public void Init(Vector2 direction, Transform _Transform)
     {
+        m_Animator.Play(m_AnimationName);
         transform.up = direction;
         m_Size = new Vector2(m_SizeRadius, m_SizeRadius);
         transform.localScale = m_Size;
@@ -36,5 +37,9 @@ public class TritoArrow : Bullet
     {
         if(!enabled)
             return;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            DisableBullet();
+        }
     }
 }

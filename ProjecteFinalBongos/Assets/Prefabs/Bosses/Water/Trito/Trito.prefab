@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8761738446130208099}
   - component: {fileID: -5209712229123396259}
   - component: {fileID: 4234558671970637261}
+  - component: {fileID: 1582208329993904766}
   - component: {fileID: -3386484485365003636}
   - component: {fileID: 4176395212540637241}
   - component: {fileID: -6644511011484854180}
@@ -23,10 +24,13 @@ GameObject:
   - component: {fileID: 7924719069485337747}
   - component: {fileID: -4046195310766787561}
   - component: {fileID: -5472345098832196548}
-  - component: {fileID: 1582208329993904766}
   - component: {fileID: 5579819627284910758}
   - component: {fileID: 1425268775676390137}
   - component: {fileID: 9073124340534116262}
+  - component: {fileID: 2774593870463290840}
+  - component: {fileID: 7955280910309389934}
+  - component: {fileID: 3031301352993247109}
+  - component: {fileID: 8154149859021844123}
   m_Layer: 9
   m_Name: Trito
   m_TagString: Untagged
@@ -41,15 +45,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8699538466360959486}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3951395549763302221}
+  - {fileID: 408819346186118337}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &8761738446130208099
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -91,8 +96,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1cf35e76a32c87c4da15e964cea769b2, type: 3}
-  m_Color: {r: 0, g: 0.6102464, b: 1, a: 1}
+  m_Sprite: {fileID: 1687229266, guid: 398c7f323e39df34b972e7b09805a304, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -161,19 +166,50 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.13, y: 0.21485157}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.36758736, y: 0.2811369}
+    oldSize: {x: 2.075, y: 0.85}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.82316864}
   m_EdgeRadius: 0
+--- !u!114 &1582208329993904766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8699538466360959486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33cbd9db7735253418db1961bcd9fb5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BossName: Trito
+  m_Description: "Undyne ?\xBF?\xBF?\xBF??\xBF\xBF?\xBF??\xBF\xBF?\xBF?\xBF?\xBF?\xBF??\xBF?\xBF?\xBF\xBF\xBF"
+  m_Target: {fileID: 0}
+  m_BloodController: {fileID: 503931301995633092}
+  m_BossFinalSala: 1
+  m_PlayerAttackDetectionAreaType: 0
+  m_AreaLength: 0
+  m_AreaWideness: 0
+  m_AreaRadius: 1
+  m_CheckingPlayerTimelapse: 0.2
+  m_LayersToCheck:
+    serializedVersion: 2
+    m_Bits: 128
+  m_BossMuertoEvent: {fileID: 0}
+  m_layerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  m_TiempoEntreSpawn: 5
+  m_TiempoParaRed: 3
 --- !u!195 &-3386484485365003636
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -185,7 +221,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 200000
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -220,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee5c8230df4f49ae73db6a2eb0766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IdleAnimationName: 
+  m_IdleAnimationName: Idle
 --- !u!114 &-6195026785774484221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +282,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 363fedf7bfe75094c8e33ab9adcbec14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DurationOfSummoning: 0.2
+  m_PositionToSpawn: {x: 1.25, y: 0.14, z: 0}
+  m_AnimationName: RangedAttack
+  m_TwoDirections: 1
 --- !u!114 &-6312628357339103398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,8 +297,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3f8f95414136945818e9d39b233177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ChaseSpeed: 0
-  m_ChaseAnimationName: 
+  m_ChaseSpeed: 5
+  m_ChaseAnimationName: Walk
+  m_TwoDirections: 1
 --- !u!114 &-7957646106649611583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +316,11 @@ MonoBehaviour:
   m_HitboxLength: 0
   m_HitboxWideness: 0
   m_HitboxRadius: 0
-  m_TripleAttackAnimationName: 
+  m_TwoDirections: 1
+  m_TripleAttackAnimationName: Triple
+  m_WaitAnimation: Wait
+  minWaitTime: 0.2
+  maxWaitTime: 0.4
 --- !u!114 &-176570706284413231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,7 +337,11 @@ MonoBehaviour:
   m_HitboxLength: 0
   m_HitboxWideness: 0
   m_HitboxRadius: 0
-  m_SingleAttackAnimationName: 
+  m_TwoDirections: 1
+  m_SingleAttackAnimationName: Attack
+  m_WaitAnimation: Wait
+  minWaitTime: 0.2
+  maxWaitTime: 0.4
 --- !u!114 &7924719069485337747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,7 +358,11 @@ MonoBehaviour:
   m_HitboxLength: 0
   m_HitboxWideness: 0
   m_HitboxRadius: 0
-  m_DoubleAttackAnimationName: 
+  m_TwoDirections: 1
+  m_DoubleAttackAnimationName: Double
+  m_WaitAnimation: Wait
+  minWaitTime: 0.2
+  maxWaitTime: 0.4
 --- !u!114 &-4046195310766787561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,7 +385,7 @@ Animator:
   m_GameObject: {fileID: 8699538466360959486}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3487c823a3549724d9526949fbf9b2a3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -345,31 +396,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1582208329993904766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8699538466360959486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33cbd9db7735253418db1961bcd9fb5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BossName: Trito
-  m_Description: "Undyne ?\xBF?\xBF?\xBF??\xBF\xBF?\xBF??\xBF\xBF?\xBF?\xBF?\xBF?\xBF??\xBF?\xBF?\xBF\xBF\xBF"
-  m_Target: {fileID: 0}
-  m_PlayerAttackDetectionAreaType: 0
-  m_AreaLength: 0
-  m_AreaWideness: 0
-  m_AreaRadius: 1
-  m_CheckingPlayerTimelapse: 0.2
-  m_LayersToCheck:
-    serializedVersion: 2
-    m_Bits: 128
-  m_TiempoEntreSpawn: 5
-  m_TiempoParaRed: 3
 --- !u!114 &5579819627284910758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,7 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAXHP: 100
+  MAXHP: 700
 --- !u!114 &1425268775676390137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,6 +459,60 @@ MonoBehaviour:
   m_AttackTime: 1
   m_Strength: 0
   m_Defense: 0
+--- !u!114 &2774593870463290840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8699538466360959486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cca67139dff3dd488cb7cce9fe6c87c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: {fileID: 0}
+--- !u!114 &7955280910309389934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8699538466360959486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: {fileID: 0}
+  m_NameAnimation: 
+--- !u!114 &3031301352993247109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8699538466360959486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c95fcad212f9a846a53614aab35d8aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ParryDuration: 1
+  m_AnimationParryName: Parried
+--- !u!114 &8154149859021844123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8699538466360959486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8b048728a5a454191ff5fb5a4cf910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AnimationName: Die
 --- !u!1 &8845871710027280201
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +524,8 @@ GameObject:
   - component: {fileID: 3951395549763302221}
   - component: {fileID: 4816105749191700893}
   - component: {fileID: 8859327863546878664}
-  m_Layer: 0
+  - component: {fileID: 3826827939229886854}
+  m_Layer: 8
   m_Name: AttackHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -538,3 +619,119 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3826827939229886854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8845871710027280201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3705b7a045dce4488aa2017422848a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 20
+  m_StatsController: {fileID: 0}
+  m_player: {fileID: 0}
+  parreable: 1
+  healable: 0
+  m_EstadoAlterado: 12
+  stateTime: 0
+--- !u!1001 &1164082511142105752
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4844290191119318772}
+    m_Modifications:
+    - target: {fileID: 1552560892194166361, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552560892194166361, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.182
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552560892194166361, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.236
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552560892194166361, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552560892194166361, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552560892194166361, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552560892194166361, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552560892194166361, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552560892194166361, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552560892194166361, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552560892194166361, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646615665294502748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_BloodColorList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646615665294502748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_BloodColorList.Array.data[0].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646615665294502748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_BloodColorList.Array.data[0].g
+      value: 0.6792453
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646615665294502748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_BloodColorList.Array.data[0].r
+      value: 0.17754613
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901853211154067748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_Name
+      value: ComponenteSanguineo
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901853211154067748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+--- !u!4 &408819346186118337 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1552560892194166361, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+  m_PrefabInstance: {fileID: 1164082511142105752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &503931301995633092 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1646615665294502748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+  m_PrefabInstance: {fileID: 1164082511142105752}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce4e3bb771e77c441b1b59c97ab3cc72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
