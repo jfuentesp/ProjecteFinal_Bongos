@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 2530162861021700224}
   m_Layer: 10
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TimeUntilDestroyed: 0
   m_SizeRadius: 1
-  m_Speed: 30
+  m_Speed: 20
   m_Damage: 10
   m_AnimationName: SinusBullet
 --- !u!114 &-7529973721447979446

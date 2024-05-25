@@ -158,6 +158,13 @@ public class BossBehaviour : MonoBehaviour
                 recibirDaño(collision.gameObject.GetComponent<Player2x2BulletBehaviour>().damage);
             }
         }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("AllHitBox"))
+        {
+            if (collision.CompareTag("Bullet"))
+            {
+                recibirDaño(collision.gameObject.GetComponent<BossAttackDamage>().Damage);
+            }
+        }
     }
 
     public virtual void Init(Transform _Target)
