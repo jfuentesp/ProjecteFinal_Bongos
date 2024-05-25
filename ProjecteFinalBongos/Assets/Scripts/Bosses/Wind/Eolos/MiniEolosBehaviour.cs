@@ -39,22 +39,27 @@ public class MiniEolosBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaosState>();
         };
+    }
+    private void Start()
+    {
         m_StateMachine.ChangeState<SMBIdleState>();
     }
 
-    private void RandomWalk() {
-        print("Randomeo");
+    private void RandomWalk()
+    {
         Vector2 direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 8, LayerMask.NameToLayer("Default"));
         if (hit.collider != null)
         {
             RandomWalk();
         }
-        else { 
+        else
+        {
             m_NavMeshAgent.velocity = direction.normalized * directionSpeed;
         }
     }
-    private IEnumerator WalkRoutine() { 
+    private IEnumerator WalkRoutine()
+    {
         yield return new WaitForSeconds(directionTime);
         RandomWalk();
     }
@@ -74,25 +79,25 @@ public class MiniEolosBehaviour : BossBehaviour
     {
         m_tiempoEntreAtaque = Random.Range(m_TiempoMinimo, m_TiempoMaximo);
         yield return new WaitForSeconds(m_tiempoEntreAtaque);
-        int numerin = Random.Range(0, 2);
-        switch (numerin)
+        int numerin = Random.Range(0, 11);
+        if (numerin > 0 && numerin < 8)
         {
-            case 0:
-                m_StateMachine.ChangeState<SMBBulletsAroundState>();
-                break;
-            case 1:
-                m_StateMachine.ChangeState<SMBTornadosState>();
-                break;
+            m_StateMachine.ChangeState<SMBBulletsAroundState>();
+        }
+        else
+        {
+            m_StateMachine.ChangeState<SMBTornadosState>();
         }
     }
     protected override void VidaCero()
     {
         base.VidaCero();
-            m_IsAlive = false;
-            OnBossDeath?.Invoke();
+        m_IsAlive = false;
+        OnBossDeath?.Invoke();
+        if (m_BossFinalSala)
             m_BossMuertoEvent.Raise();
-            Destroy(gameObject);
-  
+        Destroy(gameObject);
+
     }
 
 }

@@ -31,7 +31,10 @@ public class BossAttackDamage : MonoBehaviour
 
         SetDamage();
     }
-
+    public void SetEstado(EstadosAlterados _Estado)
+    {
+        m_EstadoAlterado = _Estado;
+    }
     private void SetDamage()
     {
         if (m_StatsController)

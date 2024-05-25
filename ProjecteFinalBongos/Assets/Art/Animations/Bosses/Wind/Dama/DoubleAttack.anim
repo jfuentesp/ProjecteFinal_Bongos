@@ -279,21 +279,6 @@ AnimationClip:
     classID: 212
     script: {fileID: 0}
     flags: 2
-  - serializedVersion: 2
-    curve:
-    - time: 0
-      value: {fileID: 2100000, guid: 76de55bd68e639343a3ea8095333ce79, type: 2}
-    - time: 0.33333334
-      value: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    - time: 0.65
-      value: {fileID: 2100000, guid: 76de55bd68e639343a3ea8095333ce79, type: 2}
-    - time: 0.9166667
-      value: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    attribute: m_Materials.Array.data[0]
-    path: DamaSprite
-    classID: 212
-    script: {fileID: 0}
-    flags: 2
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -355,15 +340,6 @@ AnimationClip:
       isPPtrCurve: 1
       isIntCurve: 0
       isSerializeReferenceCurve: 0
-    - serializedVersion: 2
-      path: 3667886971
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 21
-      isPPtrCurve: 1
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
     pptrCurveMapping:
     - {fileID: -202941660, guid: 62d907651f3794c4c90dd808d8166e3e, type: 3}
     - {fileID: -1642931198, guid: 62d907651f3794c4c90dd808d8166e3e, type: 3}
@@ -381,10 +357,6 @@ AnimationClip:
     - {fileID: 249665005, guid: 62d907651f3794c4c90dd808d8166e3e, type: 3}
     - {fileID: -200135806, guid: 62d907651f3794c4c90dd808d8166e3e, type: 3}
     - {fileID: 1829582039, guid: 62d907651f3794c4c90dd808d8166e3e, type: 3}
-    - {fileID: 2100000, guid: 76de55bd68e639343a3ea8095333ce79, type: 2}
-    - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    - {fileID: 2100000, guid: 76de55bd68e639343a3ea8095333ce79, type: 2}
-    - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

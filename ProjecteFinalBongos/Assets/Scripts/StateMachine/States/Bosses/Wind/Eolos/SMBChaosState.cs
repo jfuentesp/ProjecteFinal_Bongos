@@ -10,7 +10,7 @@ public class SMBChaosState : SMState
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
     private BossBehaviour m_Boss;
-
+    [SerializeField] private string m_AnimationName;
     public Action empezarContador;
 
     private new void Awake()
@@ -26,7 +26,8 @@ public class SMBChaosState : SMState
         base.InitState();
         m_Boss.SetBusy(true);
         m_Rigidbody.velocity = Vector3.zero;
-        empezarContador.Invoke();
+        empezarContador?.Invoke();
+        m_Animator.Play(m_AnimationName);
     }
 
     public override void ExitState()

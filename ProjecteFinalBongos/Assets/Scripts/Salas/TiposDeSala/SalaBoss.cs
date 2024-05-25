@@ -24,6 +24,8 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     [SerializeField]
     private LayerMask m_BoxLayerMask;
     [SerializeField]
+    private LayerMask m_LayerDelRAYCAST;
+    [SerializeField]
     private float m_TimeBetweenBoxCast;
 
     [Header("Variables sala")]
@@ -46,15 +48,26 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     {
         while (!m_HaEntradoElPlayer)
         {
-            RaycastHit2D hit = Physics2D.BoxCast(transform.position, m_BoxCastSize, 0, transform.position, m_BoxCastRange, m_BoxLayerMask);
-            if (hit.collider != null)
+            RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, m_BoxCastSize, 0, transform.position, m_BoxCastRange, m_BoxLayerMask);
+
+            if (hits.Length > 0)
             {
-                m_CanOpenDoor = false;
-                cambioPuerta?.Invoke(false);
-                m_TransformPlayer = hit.transform;
-                OnPlayerIn?.Invoke(m_TransformPlayer);
-                m_JugadorEnSalaEvent.Raise();
-                m_HaEntradoElPlayer = true;
+                foreach (RaycastHit2D hit in hits)
+                {
+                    RaycastHit2D Hit2 = Physics2D.Raycast(transform.position, (hit.transform.position - transform.position).normalized, Mathf.Infinity, m_LayerDelRAYCAST);
+                    if (Hit2.collider != null)
+                    {
+                        if (Hit2.collider.gameObject.TryGetComponent<PJSMB>(out PJSMB pj))
+                        {
+                            m_CanOpenDoor = false;
+                            cambioPuerta?.Invoke(false);
+                            m_TransformPlayer = hit.transform;
+                            OnPlayerIn?.Invoke(m_TransformPlayer);
+                            m_JugadorEnSalaEvent.Raise();
+                            m_HaEntradoElPlayer = true;
+                        }
+                    }
+                }
             }
             yield return new WaitForSeconds(m_TimeBetweenBoxCast);
         }

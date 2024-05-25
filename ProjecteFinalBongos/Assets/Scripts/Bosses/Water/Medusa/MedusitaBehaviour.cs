@@ -50,11 +50,13 @@ public class MedusitaBehaviour : MonoBehaviour
     public void PlayerHoming()
     {
         StartCoroutine(Homing());
+        m_Animator.Play("Idle");
     }
 
     private IEnumerator Homing()
     {
         m_Inmolando = true;
+        transform.up = m_Target.position - transform.position;
         //UpdateRotacion(1);
         while (true)
         {
