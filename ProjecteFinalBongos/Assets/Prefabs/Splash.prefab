@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -3308812818241463687}
   - component: {fileID: 2155942602176928196}
   - component: {fileID: 2119653403821904922}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Splash
   m_TagString: Splash
   m_Icon: {fileID: 0}
@@ -172,9 +172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5269dc109ed7be34183f1cf65930f3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TimeUntilDestroyed: 5
-  m_SizeLength: 1
-  m_SizeWideness: 1
+  m_TimeUntilDestroyed: 10
+  m_SizeLength: 2
+  m_SizeWideness: 2
   m_SplashEffectState: 1
 --- !u!50 &2460941521321669748
 Rigidbody2D:
@@ -184,14 +184,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8564957952386650585}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -201,7 +201,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 7
 --- !u!114 &6680870749267416029
 MonoBehaviour:

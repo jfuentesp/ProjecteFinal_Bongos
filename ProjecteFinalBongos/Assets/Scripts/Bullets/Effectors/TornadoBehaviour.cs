@@ -6,7 +6,11 @@ using UnityEngine;
 public class TornadoBehaviour : MonoBehaviour
 {
     [SerializeField]
-    private int m_Speed;
+    private float m_Speed;
+    [SerializeField]
+    private float m_FinalSpeed;
+
+    private bool m_PlayerTucat;
 
     private Transform m_Target;
     private Rigidbody2D m_Rigidbody;
@@ -21,6 +25,7 @@ public class TornadoBehaviour : MonoBehaviour
 
     public void Init(Transform target)
     {
+        m_PlayerTucat = false;
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         m_SpriteRenderer.material.SetColor("_Color", m_ColorShader);
@@ -35,23 +40,50 @@ public class TornadoBehaviour : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Vector3 direction = (m_Target.position - transform.position).normalized;
+        if (!m_PlayerTucat)
+        {
+            /*Vector3 direction = (m_Target.position - transform.position).normalized;
 
-        // Rotación gradual hacia la dirección del objetivo solo en el eje Z
-        Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, direction);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, m_UpdateDirectonTime * Time.deltaTime);
+             Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, direction);
+             Quaternion rotacion = Quaternion.Lerp(transform.rotation, targetRotation, m_UpdateDirectonTime * Time.deltaTime);
+             m_Rigidbody.velocity = rotacion * transform.up * m_Speed;*/
+             Vector3 nuevaPosicion = Vector3.Lerp(transform.position, m_Target.position, m_Speed * Time.deltaTime);
 
-        // Movimiento hacia adelante en la dirección local del misil (su up)
-        m_Rigidbody.velocity = transform.up * m_Speed;
+             // Actualizamos la posición del objeto que tiene este script
+             transform.position = nuevaPosicion;
+        }
+
     }
     // Update is called once per frame
     void Update()
     {
         m_Duration += Time.deltaTime;
-        if(m_Duration >= m_TornadoActiveDuration)
+        if (m_Duration >= m_TornadoActiveDuration)
         {
             m_Rigidbody.velocity = Vector3.zero;
             gameObject.SetActive(false);
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        print(collision.gameObject.tag);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (!m_PlayerTucat)
+            {
+                m_PlayerTucat = true;
+                m_Rigidbody.velocity = (m_Target.position - transform.position).normalized * m_FinalSpeed;
+            }
+        }
+        if (collision.gameObject.CompareTag("Splash"))
+        {
+            print("Toque splash");
+            if (collision.GetComponent<Splash>().SplashEffectState == ObstacleStateEnum.ELECTRIFIED)
+            {
+                m_SpriteRenderer.material.SetColor("_Color", m_CoorquemadoSader);
+            }
+        }
+
+
     }
 }

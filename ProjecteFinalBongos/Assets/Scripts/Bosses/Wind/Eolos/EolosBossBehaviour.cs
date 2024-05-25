@@ -43,13 +43,17 @@ public class EolosBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaosState>();
         };
+    }
+
+    private void Start()
+    {
         m_StateMachine.ChangeState<SMBIdleState>();
     }
 
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
-        OnPlayerInSala.Invoke();
+        OnPlayerInSala?.Invoke();
     }
     private void EmpezarCorrutina()
     {
@@ -91,29 +95,48 @@ public class EolosBossBehaviour : BossBehaviour
         }
         
     }
+
     protected override void VidaCero()
     {
         base.VidaCero();
         print("Cambio de fase");
-        if(m_CurrentPhase == Phase.ONE)
+        /*if (m_CurrentPhase == Phase.THREE)
         {
-            m_HealthController.Heal(m_HealthController.HPMAX);
+            m_IsAlive = false;
+            StopAllCoroutines();
+            OnBossDeath?.Invoke();
+            if (m_BossFinalSala)
+                m_BossMuertoEvent.Raise();
+            Destroy(gameObject);
+        }*/
+        if (m_CurrentPhase == Phase.TWO)
+        {
+            /*GetComponent<BoxCollider2D>().enabled = false;
+            m_HealthController.Revive();
+            m_CurrentPhase = Phase.THREE;
+            StartCoroutine(DescontarVida());
+            return;*/
+            m_IsAlive = false;
+            StopAllCoroutines();
+            OnBossDeath?.Invoke();
+            if (m_BossFinalSala)
+                m_BossMuertoEvent.Raise();
+            Destroy(gameObject);
+        }
+        else if (m_CurrentPhase == Phase.ONE)
+        {
+            m_HealthController.Revive();
             m_CurrentPhase = Phase.TWO;
             return;
         }
-        if (m_CurrentPhase == Phase.TWO)
-        {
-            m_HealthController.Heal(m_HealthController.HPMAX);
-            m_CurrentPhase = Phase.THREE;
-            return;
-        }
-        if (m_CurrentPhase == Phase.THREE)
-        {
-            m_IsAlive = false;
-            OnBossDeath?.Invoke();
-            m_BossMuertoEvent.Raise();
-            Destroy(gameObject);
-        }
     }
 
+    private IEnumerator DescontarVida()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            m_HealthController.Damage(m_HealthController.HPMAX / 50);
+        }
+    }
 }

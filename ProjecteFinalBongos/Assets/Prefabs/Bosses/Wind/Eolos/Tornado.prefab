@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 8891796380704125681}
   - component: {fileID: 1508452052120740962}
   - component: {fileID: 4853187513484065810}
-  m_Layer: 0
+  - component: {fileID: 6684490785839788162}
+  m_Layer: 8
   m_Name: Tornado
-  m_TagString: Untagged
+  m_TagString: Splash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 7324040313650042030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.56, y: -0.06745294, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -250003069, guid: 21d4764cffeef39458fe3d12f12ccaf8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,7 +102,7 @@ PointEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 128
-  m_ForceMagnitude: -200
+  m_ForceMagnitude: -250
   m_ForceVariation: 0
   m_DistanceScale: 10
   m_ForceSource: 0
@@ -156,10 +157,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa739b80418b7b0488ae7d67b2954be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Speed: 5
+  m_Speed: 1.5
+  m_FinalSpeed: 5
   m_TornadoActiveDuration: 5
   m_ColorShader: {r: 1.8634343, g: 4.192727, b: 4.237095, a: 1}
-  m_CoorquemadoSader: {r: 0, g: 0, b: 0, a: 0}
+  m_CoorquemadoSader: {r: 24.335144, g: 1.0330954, b: 1.0330954, a: 0}
   m_UpdateDirectonTime: 5
 --- !u!50 &1508452052120740962
 Rigidbody2D:
@@ -186,7 +188,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!95 &4853187513484065810
 Animator:
@@ -209,3 +211,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6684490785839788162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7324040313650042030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3705b7a045dce4488aa2017422848a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 0
+  m_StatsController: {fileID: 0}
+  m_player: {fileID: 0}
+  parreable: 0
+  healable: 0
+  m_EstadoAlterado: 5
+  stateTime: 0

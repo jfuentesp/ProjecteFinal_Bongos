@@ -29,7 +29,8 @@ public class HealthController : MonoBehaviour, IHealable, IDamageable
             onDeath?.Invoke();
         }
         else
-            onHurt?.Invoke();
+            if(damageAmount > 0)
+                onHurt?.Invoke();
 
         Debug.Log(string.Format(gameObject.name + " Received {0} damage. Remaining HP: {1}", damageAmount, m_HP));
     }
@@ -48,6 +49,11 @@ public class HealthController : MonoBehaviour, IHealable, IDamageable
             m_HP = MAXHP;
 
         Debug.Log(string.Format(gameObject.name + " Healed by {0} points. Remaining HP: {1}", healAmount, m_HP));
+    }
+
+    public void Revive()
+    {
+        m_HP = MAXHP;
     }
 
     public void Regenerate(float regenerationAmount, float duration, float tickDelay)
