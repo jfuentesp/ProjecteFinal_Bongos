@@ -742,7 +742,7 @@ MonoBehaviour:
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 0
   m_AreaWideness: 0
-  m_AreaRadius: 3
+  m_AreaRadius: 2
   m_CheckingPlayerTimelapse: 0.2
   m_LayersToCheck:
     serializedVersion: 2
@@ -983,6 +983,10 @@ MonoBehaviour:
   m_Pool: {fileID: 0}
   m_ShootAnimation: Shoot
   m_ShootPoint: {fileID: 7001815044233291613}
+  m_WaitAnimation: WaitShoot
+  minWaitTime: 0.2
+  maxWaitTime: 0.3
+  m_TwoDirections: 1
 --- !u!114 &3986194509085481938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -998,7 +1002,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 1
-  m_SubmergeSpeed: 10
+  m_SubmergeSpeed: 7
   m_DirectionTime: 1
   Steps: 5
   m_SubmergeAnimationName: ShadowSubmerge
@@ -1059,6 +1063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd58c06bdd58b2c45a8df7c4d4b30548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TwoDirections: 1
   m_SetSubmergeAnimationName: Submerge
 --- !u!114 &8475113299944557031
 MonoBehaviour:
@@ -1073,6 +1078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MergeAnimationName: Merge
+  m_TwoDirections: 1
 --- !u!114 &4844373721741066641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1100,6 +1106,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ParalizingAnimation: KrakenParalize
+  m_WaitAnimation: OutlineParalizing
+  minWaitTime: 0.1
+  maxWaitTime: 0.3
+  m_TwoDirections: 1
 --- !u!212 &5086735015862928942
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1165,14 +1175,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AttackHitbox: {fileID: 7190333050504276265}
-  m_HitboxLength: 0
-  m_HitboxWideness: 0
-  m_HitboxRadius: 0
-  m_TwoDirections: 0
-  m_SingleAttackAnimationName: 
-  m_WaitAnimation: 
-  minWaitTime: 0
-  maxWaitTime: 0
+  m_HitboxLength: 1
+  m_HitboxWideness: 1
+  m_HitboxRadius: 1
+  m_TwoDirections: 1
+  m_SingleAttackAnimationName: NormalAttack
+  m_WaitAnimation: Wait
+  minWaitTime: 0.2
+  maxWaitTime: 0.4
 --- !u!114 &6558023856593061983
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ public class KrakenBossBehaviour : BossBehaviour
    [SerializeField] private GameObject m_tentacle;
    [SerializeField] private int paralizingTenacleCount = 0;
     [SerializeField] private LayerMask m_TentaculosMask;
+    private int numberofAttacksBeforeSubmerging;
 
     private new void Awake()
     {
@@ -38,12 +39,11 @@ public class KrakenBossBehaviour : BossBehaviour
         };
         GetComponent<KrakenParalizingAttack>().onAttackStopped = (GameObject obj) =>
         {
-            StartCoroutine(WaitPTentacleCoroutine());
             m_StateMachine.ChangeState<SMBChaseState>();
         };
         GetComponent<KrakenParalizingAttack>().onAttackDestroyed = (GameObject obj) =>
         {
-            StartCoroutine(WaitPTentacleCoroutine());
+        
             m_StateMachine.ChangeState<SMBParriedState>();
         };
         GetComponent<KrakenRangedAttackState>().onAttackStopped = (GameObject obj) =>
@@ -62,6 +62,18 @@ public class KrakenBossBehaviour : BossBehaviour
         GetComponent<SMBBossStunState>().OnStopStun = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBSingleAttackState>().OnStopDetectingPlayer = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBSingleAttackState>().OnAttackStopped = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBSingleAttackState>().OnAttackParried = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBParriedState>();
         };
         transform.GetChild(4).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
         {
@@ -87,16 +99,17 @@ public class KrakenBossBehaviour : BossBehaviour
     {
         m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
         StartCoroutine(SpawnTentacles());
+        SetNmberOfAttacks();
         
     }
-    private IEnumerator WaitPTentacleCoroutine()
-    {
-        while (paralizingTenacleCount > 0) { 
-            yield return new WaitForSeconds(1f);
-            paralizingTenacleCount--;
-        }
-    }
 
+    private void SetNmberOfAttacks() {
+        numberofAttacksBeforeSubmerging = Random.Range(2, 7);
+    }
+    private void SetSubmerge() { 
+        SetNmberOfAttacks();
+        m_StateMachine.ChangeState<KrakenSetSubMergeState>();
+    }
         private IEnumerator PlayerDetectionCoroutine()
     {
         while (m_IsAlive)
@@ -108,7 +121,7 @@ public class KrakenBossBehaviour : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    m_StateMachine.ChangeState<KrakenParalizingAttack>();
+                    SetAttack();
                 }   
                 else
                 {
@@ -121,7 +134,7 @@ public class KrakenBossBehaviour : BossBehaviour
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
-                    m_StateMachine.ChangeState<KrakenParalizingAttack>();
+                    SetAttack();
                 }
                 else
                 {
@@ -157,17 +170,30 @@ public class KrakenBossBehaviour : BossBehaviour
         private void SetAttack()
     {
         float rng = Random.value;
-        switch (rng)
-        {
-            case < 0.3f:
-                m_StateMachine.ChangeState<KrakenRangedAttackState>();
-                break;
-            case > 0.8f:
-                    m_StateMachine.ChangeState<KrakenSpinState>();
-                
-                break;
-
+        print(numberofAttacksBeforeSubmerging);
+        if (numberofAttacksBeforeSubmerging <= 0) {
+            
+            SetSubmerge();
         }
+        else{
+            switch (rng)
+            {
+                case < 0.5f:
+                    numberofAttacksBeforeSubmerging--;
+                    m_StateMachine.ChangeState<SMBSingleAttackState>();
+                    break;
+                case < 0.65f:
+                    numberofAttacksBeforeSubmerging--;
+                    m_StateMachine.ChangeState<KrakenRangedAttackState>();
+                    break;
+                case > 0.8f:
+                    numberofAttacksBeforeSubmerging--;
+                    m_StateMachine.ChangeState<KrakenParalizingAttack>();
+                    break;
+
+            }
+        }
+      
     }
 
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class KrakenParalizingAttack : SMState
 {
@@ -16,6 +17,14 @@ public class KrakenParalizingAttack : SMState
     public Action<GameObject> onAttackDestroyed;
     private NavMeshAgent m_NavMeshAgent;
     private float countAttack = 5;
+    [SerializeField]
+    private string m_WaitAnimation;
+    [SerializeField]
+    private float minWaitTime;
+    [SerializeField]
+    private float maxWaitTime;
+    private bool derecha;
+    public bool m_TwoDirections;
 
     private new void Awake()
     {
@@ -41,9 +50,44 @@ public class KrakenParalizingAttack : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        m_Animator.Play(m_ParalizingAnimation);
+        StartCoroutine(AttackAnimationRoutine());
     }
+    private IEnumerator AttackAnimationRoutine()
+    {
+        float waitTime = Random.Range(minWaitTime, maxWaitTime);
+        if (m_TwoDirections)
+        {
+            m_Animator.Play(m_WaitAnimation);
+            if (m_Target != null)
+            {
+                if (m_Target.position.x - transform.position.x < 0)
+                {
+                    derecha = false;
+                }
+                else
+                {
+                    derecha = true;
+                }
+            }
+        }
+        yield return new WaitForSeconds(waitTime);
 
+        if (m_TwoDirections)
+        {
+            m_Animator.Play(m_ParalizingAnimation);
+            if (m_Target != null)
+            {
+                if (m_Target.position.x - transform.position.x < 0)
+                {
+                    derecha = false;
+                }
+                else
+                {
+                    derecha = true;
+                }
+            }
+        }
+    }
 
     public void Destroyed() {
         onAttackDestroyed?.Invoke(gameObject);
@@ -73,5 +117,14 @@ public class KrakenParalizingAttack : SMState
     public override void ExitState()
     {
         base.ExitState();
+        StopAllCoroutines();
+    }
+    private void Update()
+    {
+        if (derecha)
+            transform.localEulerAngles = Vector3.zero;
+        else
+            transform.localEulerAngles = new Vector3(0, 180, 0);
+
     }
 }
