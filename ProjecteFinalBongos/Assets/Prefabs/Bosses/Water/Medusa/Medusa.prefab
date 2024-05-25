@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 1250731723143489309}
   - component: {fileID: 9079792780928699839}
   - component: {fileID: 6265127640907986970}
+  - component: {fileID: 4621488702869090318}
   m_Layer: 9
   m_Name: Medusa
   m_TagString: Untagged
@@ -146,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee5c8230df4f49ae73db6a2eb0766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IdleAnimationName: 
+  m_IdleAnimationName: Idle
 --- !u!114 &1402180153004933467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,8 +162,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TiempoAutoAtaque: 0.4
   m_Pool: {fileID: 0}
-  m_TwoDirections: 0
-  m_RangedAttackAnimationName: 
+  m_TwoDirections: 1
+  m_RangedAttackAnimationName: Attack
+  m_WaitAnimation: Wait
+  minWaitTime: 0.2
+  maxWaitTime: 0.3
 --- !u!114 &8463474089832775593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,8 +180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ChaseSpeed: 5
-  m_ChaseAnimationName: 
-  m_TwoDirections: 0
+  m_ChaseAnimationName: Idle
+  m_TwoDirections: 1
 --- !u!114 &3181285454805822546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,11 +197,11 @@ MonoBehaviour:
   m_RunSpeed: 5
   m_minimumWalkingDuration: 2
   m_maximumWalkingDuration: 3
-  m_ChaseAnimationName: 
+  m_ChaseAnimationName: Idle
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 128
-  m_TwoDirections: 0
+  m_TwoDirections: 1
 --- !u!114 &3079354719602664928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +260,7 @@ MonoBehaviour:
   m_WaterResistance: 5
   m_FireResistance: 5
   m_ElectricResistance: 5
-  m_bossBaseStats: {fileID: 11400000, guid: 2ed16064ca0caa64a94df5785d23f5c8, type: 2}
+  m_bossBaseStats: {fileID: 11400000, guid: c5fe2ea742768834eafd7024c3ec319e, type: 2}
   m_Velocity: 0
   m_AttackTime: 1
   m_Strength: 0
@@ -310,7 +314,7 @@ Animator:
   m_GameObject: {fileID: 1790994148621288474}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 30961d0ff1fbf234996b87c9d6345564, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -336,6 +340,7 @@ MonoBehaviour:
   m_BossName: Medusa
   m_Description: Chassssssssssss
   m_Target: {fileID: 0}
+  m_BloodController: {fileID: 0}
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 0
   m_AreaWideness: 0
@@ -344,7 +349,7 @@ MonoBehaviour:
   m_LayersToCheck:
     serializedVersion: 2
     m_Bits: 128
-  m_BossMuertoEvent: {fileID: 0}
+  m_BossMuertoEvent: {fileID: 11400000, guid: a68c2e2d0411f4242b3bfb77d6d424f3, type: 2}
   m_layerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -417,3 +422,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: {fileID: 0}
   m_NameAnimation: 
+--- !u!114 &4621488702869090318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790994148621288474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8b048728a5a454191ff5fb5a4cf910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AnimationName: Death
