@@ -53,11 +53,12 @@ public class SMBRangedAttack : SMState
         base.InitState();
         m_Boss.SetBusy(true);
         m_Rigidbody.velocity = Vector3.zero;
-
         if (m_RangedAttackAnimationName == String.Empty)
             print("ay");
-        else
+        else {
             StartCoroutine(AttackAnimationRoutine());
+        }
+         
     }
 
     private void AttackAnimation()
@@ -96,10 +97,12 @@ public class SMBRangedAttack : SMState
                 }
             }
         }
+      
         yield return new WaitForSeconds(waitTime);
 
         if (m_TwoDirections)
         {
+    
             m_Animator.Play(m_RangedAttackAnimationName);
             if (m_Target != null)
             {

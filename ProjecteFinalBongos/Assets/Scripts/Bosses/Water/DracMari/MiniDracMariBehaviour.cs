@@ -1,7 +1,6 @@
 using NavMeshPlus.Extensions;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,11 +11,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(SMBRunAwayState))]
 [RequireComponent(typeof(HealthController))]
 [RequireComponent(typeof(DracMariRangedAttackState))]
-[RequireComponent(typeof(DracMariMeteorShowerState))]
-[RequireComponent(typeof(DracMariTornadoState))]
-
-
-public class DracMariBossBehaviour : BossBehaviour
+public class MiniDracMariBehaviour : BossBehaviour
 {
     [SerializeField] private int m_RangoHuirPerseguir;
     private Coroutine m_PlayerDetectionCoroutine;
@@ -27,24 +22,14 @@ public class DracMariBossBehaviour : BossBehaviour
     private new void Awake()
     {
         base.Awake();
-        m_Animator.Play("idleDracMari");
         m_CurrentPhase = Phase.ONE;
         EstadosController.Invencible = true;
         m_SalaPadre = GetComponentInParent<SalaBoss>();
         GetComponent<SMBIdleState>().OnPlayerEnter = (GameObject obj) =>
         {
-            
             m_StateMachine.ChangeState<SMBChaseState>();
         };
         GetComponent<SMBRunAwayState>().onStoppedRunningAway = (GameObject obj) =>
-        {
-            SetAttack();
-        };
-        GetComponent<DracMariMeteorShowerState>().OnShowerFinished = (GameObject obj) =>
-        {
-            SetAttack();
-        };
-        GetComponent<DracMariTornadoState>().OnTornadoFinished = (GameObject obj) =>
         {
             SetAttack();
         };
@@ -59,9 +44,11 @@ public class DracMariBossBehaviour : BossBehaviour
         GetComponent<SMBBossStunState>().OnStopStun = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
-        };  
+        };
+     
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
     }
+
     private void Start()
     {
         m_StateMachine.ChangeState<SMBIdleState>();
@@ -111,28 +98,9 @@ public class DracMariBossBehaviour : BossBehaviour
         else
             m_StateMachine.ChangeState<SMBRunAwayState>();
     }
-    private void SetAttack()    
+    private void SetAttack()
     {
-        if (m_CurrentPhase == Phase.ONE)
-        {
-            m_StateMachine.ChangeState<DracMariRangedAttackState>();
-        }
-        else {
-            float rng = Random.value;
-
-            switch (rng)
-            {
-                case < 0.7f:
-                    m_StateMachine.ChangeState<DracMariRangedAttackState>();
-                    break;
-                case < 0.8f:
-                    m_StateMachine.ChangeState<DracMariMeteorShowerState>();
-                    break;
-                case > 0.95f:
-                    m_StateMachine.ChangeState<DracMariTornadoState>();
-                    break;
-            }
-        }
+        m_StateMachine.ChangeState<DracMariRangedAttackState>();
     }
 
     public override void Init(Transform _Target)
@@ -140,7 +108,8 @@ public class DracMariBossBehaviour : BossBehaviour
         base.Init(_Target);
         OnPlayerInSala?.Invoke();
     }
-    private void MatarBoss() { 
+    private void MatarBoss()
+    {
         Destroy(gameObject);
     }
     protected override void VidaCero()
@@ -155,7 +124,7 @@ public class DracMariBossBehaviour : BossBehaviour
 
     }
 
-    protected override void OnTriggerEnter2D(Collider2D collision)  
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
         if (collision.gameObject.CompareTag("DracPlayerBullet"))
@@ -163,7 +132,8 @@ public class DracMariBossBehaviour : BossBehaviour
             if (CorazaCount > 0)
             {
                 CorazaCount--;
-                if (CorazaCount <= 0) {
+                if (CorazaCount <= 0)
+                {
                     EstadosController.Invencible = false;
                     m_CurrentPhase = Phase.TWO;
                 }
