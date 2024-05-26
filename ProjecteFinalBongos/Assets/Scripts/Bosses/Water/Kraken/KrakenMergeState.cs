@@ -15,6 +15,8 @@ public class KrakenMergeState : SMState
     [Header("Merge animation")]
     [SerializeField]
     private string m_MergeAnimationName;
+    private bool derecha;
+    public bool m_TwoDirections;
 
     private new void Awake()
     {
@@ -42,6 +44,12 @@ public class KrakenMergeState : SMState
     public override void ExitState()
     {
         base.ExitState();
-        m_Animator.Play("idle");
+    }
+    private void Update()
+    {
+        if (derecha)
+            transform.localEulerAngles = Vector3.zero;
+        else
+            transform.localEulerAngles = new Vector3(0, 180, 0);
     }
 }

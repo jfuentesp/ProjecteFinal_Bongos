@@ -1,8 +1,6 @@
 using NavMeshPlus.Extensions;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,19 +8,14 @@ using UnityEngine.AI;
 [RequireComponent(typeof(AgentOverride2d))]
 [RequireComponent(typeof(SMBIdleState))]
 [RequireComponent(typeof(SMBChaseState))]
-[RequireComponent(typeof(KrakenRangedAttackState))]
-[RequireComponent(typeof(KrakenSpinState))]
-[RequireComponent(typeof(KrakenParalizingAttack))]
 [RequireComponent(typeof(KrakenSetSubMergeState))]
 [RequireComponent(typeof(KrakenMergeState))]
 [RequireComponent(typeof(SubMergeState))]
 [RequireComponent(typeof(HealthController))]
-public class KrakenBossBehaviour : BossBehaviour
+[RequireComponent(typeof(SMBSingleAttackState))]
+public class MiniKrakenBehaviour : BossBehaviour
 {
     private Coroutine m_PlayerDetectionCoroutine;
-   [SerializeField] private GameObject m_tentacle;
-   [SerializeField] private int paralizingTenacleCount = 0;
-    [SerializeField] private LayerMask m_TentaculosMask;
     private int numberofAttacksBeforeSubmerging;
 
     private new void Awake()
@@ -37,22 +30,9 @@ public class KrakenBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
-        GetComponent<KrakenParalizingAttack>().onAttackStopped = (GameObject obj) =>
-        {
-            m_StateMachine.ChangeState<SMBChaseState>();
-        };
-        GetComponent<KrakenParalizingAttack>().onAttackDestroyed = (GameObject obj) =>
-        {
-        
-            m_StateMachine.ChangeState<SMBParriedState>();
-        };
-        GetComponent<KrakenRangedAttackState>().onAttackStopped = (GameObject obj) =>
-        {
-            m_StateMachine.ChangeState<SMBChaseState>();
-        };
         GetComponent<KrakenMergeState>().OnMergeFinish = (GameObject obj) =>
         {
-          
+
             m_StateMachine.ChangeState<SMBChaseState>();
         };
         GetComponent<SMBParalized>().OnStopParalized = (GameObject obj) =>
@@ -79,14 +59,6 @@ public class KrakenBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBParriedState>();
         };
-        transform.GetChild(5).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
-        {
-            m_StateMachine.ChangeState<SMBParriedState>();
-        };
-        transform.GetChild(6).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
-        {
-            m_StateMachine.ChangeState<SMBParriedState>();
-        };
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
     }
 
@@ -98,19 +70,20 @@ public class KrakenBossBehaviour : BossBehaviour
     private void EmpezarCorutina(GameObject obj)
     {
         m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
-        StartCoroutine(SpawnTentacles());
         SetNmberOfAttacks();
-        
+
     }
 
-    private void SetNmberOfAttacks() {
+    private void SetNmberOfAttacks()
+    {
         numberofAttacksBeforeSubmerging = Random.Range(2, 7);
     }
-    private void SetSubmerge() { 
+    private void SetSubmerge()
+    {
         SetNmberOfAttacks();
         m_StateMachine.ChangeState<KrakenSetSubMergeState>();
     }
-        private IEnumerator PlayerDetectionCoroutine()
+    private IEnumerator PlayerDetectionCoroutine()
     {
         while (m_IsAlive)
         {
@@ -122,7 +95,7 @@ public class KrakenBossBehaviour : BossBehaviour
                 {
                     m_IsPlayerDetected = true;
                     SetAttack();
-                }   
+                }
                 else
                 {
                     m_IsPlayerDetected = false;
@@ -145,55 +118,23 @@ public class KrakenBossBehaviour : BossBehaviour
         }
     }
 
-    private IEnumerator SpawnTentacles() {
-        while (m_IsAlive) {
-            yield return new WaitForSeconds(1f);
-            PonerTentaculo();
-            }
 
-    }
-    private void PonerTentaculo()
+    private void SetAttack()
     {
-        Vector2 posicionTentacle = m_SalaPadre.GetPosicionAleatoriaEnSala();
-        RaycastHit2D hit = Physics2D.CircleCast(posicionTentacle, 1, posicionTentacle, 1, m_TentaculosMask);
-        if (hit.collider != null)
-        {
-            PonerTentaculo();
 
+        print(numberofAttacksBeforeSubmerging);
+        if (numberofAttacksBeforeSubmerging <= 0)
+        {
+
+            SetSubmerge();
         }
         else
         {
-            GameObject tentacle = Instantiate(m_tentacle, transform.parent);
-            tentacle.transform.position = new Vector2(posicionTentacle.x, posicionTentacle.y);
+           
+            m_StateMachine.ChangeState<SMBSingleAttackState>();
+    
         }
-    }
-        private void SetAttack()
-    {
-        float rng = Random.value;
-        print(numberofAttacksBeforeSubmerging);
-        if (numberofAttacksBeforeSubmerging <= 0) {
-            
-            SetSubmerge();
-        }
-        else{
-            switch (rng)
-            {
-                case < 0.5f:
-                    numberofAttacksBeforeSubmerging--;
-                    m_StateMachine.ChangeState<SMBSingleAttackState>();
-                    break;
-                case < 0.65f:
-                    numberofAttacksBeforeSubmerging--;
-                    m_StateMachine.ChangeState<KrakenRangedAttackState>();
-                    break;
-                case > 0.8f:
-                    numberofAttacksBeforeSubmerging--;
-                    m_StateMachine.ChangeState<KrakenParalizingAttack>();
-                    break;
 
-            }
-        }
-      
     }
 
 

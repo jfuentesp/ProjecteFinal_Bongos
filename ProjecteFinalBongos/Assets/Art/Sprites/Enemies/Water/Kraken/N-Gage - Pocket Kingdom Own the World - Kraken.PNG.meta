@@ -1,0 +1,986 @@
+fileFormatVersion: 2
+guid: e8fba88603b5bc149b235675a4a9d21a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 873
+        width: 84
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b5f61c996ae87b4789546cfa2efc358
+      internalID: 781142389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 825
+        width: 85
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fec8c8796fb3e749b4322baaf98c257
+      internalID: -963427300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_2
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 873
+        width: 80
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8da618500b325d42ba4a2f647ca2b70
+      internalID: -71249412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 825
+        width: 73
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9fac0d75d8ebda49add6f0f553b4144
+      internalID: -1162507873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_4
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 825
+        width: 78
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ba3db4d17959fd4eadec9a45e54a2b9
+      internalID: 1535340310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_5
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 777
+        width: 79
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edd52995ff902414f8b13095f4550821
+      internalID: 409524269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_6
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 777
+        width: 88
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 078dc4b3636deb545be8e48e9cb7809c
+      internalID: -1139851914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_7
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 725
+        width: 107
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80184986ac65e01458705ad00137b953
+      internalID: 1475853859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_8
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 725
+        width: 79
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4ba5c283dfdfef4ca858120b7ada5b5
+      internalID: 707725303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_9
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 677
+        width: 106
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be6247066eb255846ab2570832f2b151
+      internalID: 1770264084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_10
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 677
+        width: 115
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eebcd2b90423514ea2f2c910ed99634
+      internalID: 764755909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_11
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 713
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55d02e80b381e074495cdae9eb87fb0e
+      internalID: -199656128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_12
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 633
+        width: 91
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1e434dd591bff04d99fcec29f8e4bde
+      internalID: 1935811745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_13
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 633
+        width: 106
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5974b7e9a5d25f442b2148955dcd82b1
+      internalID: 398480780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_14
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 569
+        width: 79
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91d199ca56319474b81a9567ee62866e
+      internalID: -263578431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_15
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 569
+        width: 80
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b01ed8ac408bc4883b92f33dae7136
+      internalID: -971701309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_16
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 505
+        width: 125
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb4516975b2625e44a30d06d16f800f9
+      internalID: -1677067005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_17
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 461
+        width: 130
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3121a4a6173f5f49b05d55d90190bb2
+      internalID: -1634360644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_18
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 461
+        width: 104
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 381715ec9a830944db1a4f37dfd0b36f
+      internalID: -275026574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_19
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 417
+        width: 80
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcba5b884b72d274198131dfc71813b5
+      internalID: 257003758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_20
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 417
+        width: 85
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d672f148d896fe449be7b0516dd52a2
+      internalID: 6568103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_21
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 417
+        width: 84
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 111f3c947600cfe4a9aad3ce46895c4e
+      internalID: 2147397420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_22
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 369
+        width: 78
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f140e5f4d1634428c0f219247985d7
+      internalID: -396085704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_23
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 369
+        width: 73
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95b9c3171d819604381ac0cba0de965c
+      internalID: -1629802735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 321
+        width: 88
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15f2a39fc490f7046bae302736726b37
+      internalID: 1039058764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_25
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 321
+        width: 79
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36284e8b48600cb48b4c6240e769998e
+      internalID: -364741779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_26
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 269
+        width: 79
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90646ec073a16894a82c4388e47ceca1
+      internalID: -1453556642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_27
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 269
+        width: 107
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 643dd31a540f87e4582956ed9a9ac032
+      internalID: 1682526315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_28
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 221
+        width: 115
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af3bc041edac5b645b0996d11084d5e0
+      internalID: -37651788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_30
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 221
+        width: 106
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c394e111854179c4ca5f0b2bd0a9f422
+      internalID: -1186016571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_31
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 177
+        width: 106
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 382ebc8db0d42b443ae76581a04d7e8f
+      internalID: 217805977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_32
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 177
+        width: 91
+        height: 40
+      alignment: 9
+      pivot: {x: 0.55815476, y: 0.62027586}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81f4ad1cc2d0d7a4d9bb46cfed741645
+      internalID: -2067354725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 113
+        width: 80
+        height: 56
+      alignment: 9
+      pivot: {x: 0.62027514, y: 0.4570446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5752d2287c6171748a33406b0e41cee8
+      internalID: 857827710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_34
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 113
+        width: 79
+        height: 61
+      alignment: 9
+      pivot: {x: 0.6035278, y: 0.4526785}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7659b8fa4a4c29748979ab01eae5d339
+      internalID: -1926717407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_35
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 49
+        width: 94
+        height: 63
+      alignment: 9
+      pivot: {x: 0.6023616, y: 0.34726933}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2143d71265be7974d894e6a57e99db99
+      internalID: -958411158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_36
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 50
+        width: 125
+        height: 45
+      alignment: 9
+      pivot: {x: 0.4615122, y: 0.44654387}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ce3eb963a1a85b49b19191c07402371
+      internalID: 1611255325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_37
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 5
+        width: 104
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5555116, y: 0.5246721}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ab191a4bbf564d4f91e3f94800fd311
+      internalID: -833910979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_38
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 5
+        width: 133
+        height: 44
+      alignment: 9
+      pivot: {x: 0.4240369, y: 0.489066}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94848c0233b6b15408c5c937002d9329
+      internalID: 1612173430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N-Gage - Pocket Kingdom Own the World - Kraken_39
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 369
+        width: 90
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ed0208029f7bd140a98b667070bb899
+      internalID: 168098042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      N-Gage - Pocket Kingdom Own the World - Kraken_0: 781142389
+      N-Gage - Pocket Kingdom Own the World - Kraken_1: -963427300
+      N-Gage - Pocket Kingdom Own the World - Kraken_10: 764755909
+      N-Gage - Pocket Kingdom Own the World - Kraken_11: -199656128
+      N-Gage - Pocket Kingdom Own the World - Kraken_12: 1935811745
+      N-Gage - Pocket Kingdom Own the World - Kraken_13: 398480780
+      N-Gage - Pocket Kingdom Own the World - Kraken_14: -263578431
+      N-Gage - Pocket Kingdom Own the World - Kraken_15: -971701309
+      N-Gage - Pocket Kingdom Own the World - Kraken_16: -1677067005
+      N-Gage - Pocket Kingdom Own the World - Kraken_17: -1634360644
+      N-Gage - Pocket Kingdom Own the World - Kraken_18: -275026574
+      N-Gage - Pocket Kingdom Own the World - Kraken_19: 257003758
+      N-Gage - Pocket Kingdom Own the World - Kraken_2: -71249412
+      N-Gage - Pocket Kingdom Own the World - Kraken_20: 6568103
+      N-Gage - Pocket Kingdom Own the World - Kraken_21: 2147397420
+      N-Gage - Pocket Kingdom Own the World - Kraken_22: -396085704
+      N-Gage - Pocket Kingdom Own the World - Kraken_23: -1629802735
+      N-Gage - Pocket Kingdom Own the World - Kraken_24: 1039058764
+      N-Gage - Pocket Kingdom Own the World - Kraken_25: -364741779
+      N-Gage - Pocket Kingdom Own the World - Kraken_26: -1453556642
+      N-Gage - Pocket Kingdom Own the World - Kraken_27: 1682526315
+      N-Gage - Pocket Kingdom Own the World - Kraken_28: -37651788
+      N-Gage - Pocket Kingdom Own the World - Kraken_29: 455938557
+      N-Gage - Pocket Kingdom Own the World - Kraken_3: -1162507873
+      N-Gage - Pocket Kingdom Own the World - Kraken_30: -1186016571
+      N-Gage - Pocket Kingdom Own the World - Kraken_31: 217805977
+      N-Gage - Pocket Kingdom Own the World - Kraken_32: -2067354725
+      N-Gage - Pocket Kingdom Own the World - Kraken_33: 857827710
+      N-Gage - Pocket Kingdom Own the World - Kraken_34: -1926717407
+      N-Gage - Pocket Kingdom Own the World - Kraken_35: -958411158
+      N-Gage - Pocket Kingdom Own the World - Kraken_36: 1611255325
+      N-Gage - Pocket Kingdom Own the World - Kraken_37: -833910979
+      N-Gage - Pocket Kingdom Own the World - Kraken_38: 1612173430
+      N-Gage - Pocket Kingdom Own the World - Kraken_39: 168098042
+      N-Gage - Pocket Kingdom Own the World - Kraken_4: 1535340310
+      N-Gage - Pocket Kingdom Own the World - Kraken_5: 409524269
+      N-Gage - Pocket Kingdom Own the World - Kraken_6: -1139851914
+      N-Gage - Pocket Kingdom Own the World - Kraken_7: 1475853859
+      N-Gage - Pocket Kingdom Own the World - Kraken_8: 707725303
+      N-Gage - Pocket Kingdom Own the World - Kraken_9: 1770264084
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
