@@ -25,6 +25,7 @@ public class DaryaBossBehaviour : BossBehaviour
     [SerializeField] private int vecesAntesDeQuePeteEscudo;
     [SerializeField] private BubbleProtectionScript m_Bubble;
     [SerializeField] private Material m_materialPared;
+    [SerializeField] private float m_PorcentajePerdidaVidaSegundaFase;
     private int cuantoQuedaEscudo;
     private bool atacando;
 
@@ -100,6 +101,7 @@ public class DaryaBossBehaviour : BossBehaviour
                 {
                     m_CurrentPhase = Phase.TWO;
                     StartCoroutine(SetAttack());
+                    StartCoroutine(EmpezarFallecer());
                 }
             }
         }
@@ -114,15 +116,33 @@ public class DaryaBossBehaviour : BossBehaviour
             }
         }
     }
+
+    private IEnumerator EmpezarFallecer()
+    {
+        while (m_IsAlive)
+        {
+            yield return new WaitForSeconds(1);
+            m_HealthController.Damage(m_HealthController.HPMAX / m_PorcentajePerdidaVidaSegundaFase / 100);
+        }
+    }
+
     protected override void VidaCero()
     {
         base.VidaCero();
         if (m_CurrentPhase == Phase.TWO)
         {
+            StopAllCoroutines();
+            GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
+            m_StateMachine.ChangeState<DeathState>();
             m_IsAlive = false;
             OnBossDeath?.Invoke();
-            Destroy(gameObject);
+            if (m_BossFinalSala)
+                m_BossMuertoEvent.Raise();
         }
+    }
+    private void MatarBoss()
+    {
+        Destroy(gameObject);
     }
 
     private IEnumerator SetAttack()

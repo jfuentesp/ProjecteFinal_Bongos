@@ -101,6 +101,7 @@ public class PlayerEstadosController : MonoBehaviour
 
     IEnumerator WetRoutine(float time)
     {
+        print("me Mojaron");
         Wet = true;
         velocityBefore = m_Stats.m_Velocity;
         m_Stats.m_Velocity -= (m_Stats.m_Velocity * m_Stats.getModifier("Wet")) / 100; 

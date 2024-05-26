@@ -62,6 +62,8 @@ public class EggAltea : Splash
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!enabled)
+            return;
         if(collision.gameObject.layer == LayerMask.NameToLayer("PlayerHitBox"))
         {
             m_Animator.Play("EggAlteaBorn");

@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Description: Marinero
   m_Target: {fileID: 0}
   m_BloodController: {fileID: 3835841705852290781}
+  m_BossFinalSala: 1
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 0
   m_AreaWideness: 0
@@ -172,7 +173,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 200000
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -310,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAXHP: 100
+  MAXHP: 700
 --- !u!114 &558043539018404321
 MonoBehaviour:
   m_ObjectHideFlags: 0
