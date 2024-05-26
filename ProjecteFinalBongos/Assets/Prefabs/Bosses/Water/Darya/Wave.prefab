@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6705527474481411549}
   - component: {fileID: 8398411816594676974}
   - component: {fileID: -4609650569113917127}
-  - component: {fileID: -5526773778125507321}
+  - component: {fileID: -86651256589872547}
   m_Layer: 8
   m_Name: Wave
   m_TagString: DaryaWave
@@ -173,7 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Speed: 3
---- !u!114 &-5526773778125507321
+  m_Force: 1000
+--- !u!114 &-86651256589872547
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,9 +183,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 695410775385291763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9f8c85d123d44aa02ef324573ae5a, type: 3}
+  m_Script: {fileID: 11500000, guid: ea3705b7a045dce4488aa2017422848a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Damage: 100
+  m_Damage: 0
   m_StatsController: {fileID: 0}
   m_player: {fileID: 0}
+  parreable: 1
+  healable: 0
+  m_EstadoAlterado: 4
+  stateTime: 0.5

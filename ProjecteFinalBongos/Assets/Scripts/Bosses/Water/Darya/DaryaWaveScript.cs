@@ -8,6 +8,7 @@ public class DaryaWaveScript : MonoBehaviour
     private Transform m_Boss;
     private Rigidbody2D m_RigidBody;
     [SerializeField] private float m_Speed;
+    [SerializeField] private float m_Force;
     private bool m_Parreado;
 
     private void Awake()
@@ -41,16 +42,18 @@ public class DaryaWaveScript : MonoBehaviour
             {
                 if (collision.gameObject.GetComponent<SMBPlayerParryState>().parry)
                 {
-                    gameObject.layer = LayerMask.NameToLayer("PlayerHitBox");
                     m_Parreado = true;
                     Vector2 posicionPlayer = m_Boss.transform.position - transform.position;
                     float angulo = Mathf.Atan2(posicionPlayer.y, posicionPlayer.x);
                     angulo = Mathf.Rad2Deg * angulo - 90;
                     transform.localEulerAngles = new Vector3(0, 0, angulo);
                     m_RigidBody.velocity = transform.up * m_Speed;
+                    gameObject.layer = LayerMask.NameToLayer("AllHitBox");
                 }
                 else
                 {
+                    collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                    collision.GetComponent<Rigidbody2D>().AddForce(transform.up * m_Force);
                     Destroy(gameObject);
                 }
             }

@@ -149,6 +149,16 @@ public class PJSMB : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("MechanicObstacle"))
+        {
+            if(collision.gameObject.TryGetComponent<BossAttackDamage>(out BossAttackDamage damageBoss))
+                recibirDamage(damageBoss.Damage);
+        }
+    }
+
     public void GetDamage(float _Damage, EstadosAlterados estado, float time)
     {
         m_HealthController.Damage(_Damage);
