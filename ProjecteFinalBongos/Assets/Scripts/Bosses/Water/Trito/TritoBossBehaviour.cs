@@ -200,5 +200,4 @@ public class TritoBossBehaviour : BossBehaviour
         if (m_BossFinalSala)
             m_BossMuertoEvent.Raise();
     }
-
 }

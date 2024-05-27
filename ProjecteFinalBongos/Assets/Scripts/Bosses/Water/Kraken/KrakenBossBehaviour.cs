@@ -20,8 +20,8 @@ using UnityEngine.AI;
 public class KrakenBossBehaviour : BossBehaviour
 {
     private Coroutine m_PlayerDetectionCoroutine;
-   [SerializeField] private GameObject m_tentacle;
-   [SerializeField] private int paralizingTenacleCount = 0;
+    [SerializeField] private GameObject m_tentacle;
+    [SerializeField] private int paralizingTenacleCount = 0;
     [SerializeField] private LayerMask m_TentaculosMask;
     private int numberofAttacksBeforeSubmerging;
 
@@ -43,7 +43,7 @@ public class KrakenBossBehaviour : BossBehaviour
         };
         GetComponent<KrakenParalizingAttack>().onAttackDestroyed = (GameObject obj) =>
         {
-        
+
             m_StateMachine.ChangeState<SMBParriedState>();
         };
         GetComponent<KrakenRangedAttackState>().onAttackStopped = (GameObject obj) =>
@@ -52,7 +52,7 @@ public class KrakenBossBehaviour : BossBehaviour
         };
         GetComponent<KrakenMergeState>().OnMergeFinish = (GameObject obj) =>
         {
-          
+
             m_StateMachine.ChangeState<SMBChaseState>();
         };
         GetComponent<SMBParalized>().OnStopParalized = (GameObject obj) =>
@@ -100,17 +100,19 @@ public class KrakenBossBehaviour : BossBehaviour
         m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
         StartCoroutine(SpawnTentacles());
         SetNmberOfAttacks();
-        
+
     }
 
-    private void SetNmberOfAttacks() {
+    private void SetNmberOfAttacks()
+    {
         numberofAttacksBeforeSubmerging = Random.Range(2, 7);
     }
-    private void SetSubmerge() { 
+    private void SetSubmerge()
+    {
         SetNmberOfAttacks();
         m_StateMachine.ChangeState<KrakenSetSubMergeState>();
     }
-        private IEnumerator PlayerDetectionCoroutine()
+    private IEnumerator PlayerDetectionCoroutine()
     {
         while (m_IsAlive)
         {
@@ -122,7 +124,7 @@ public class KrakenBossBehaviour : BossBehaviour
                 {
                     m_IsPlayerDetected = true;
                     SetAttack();
-                }   
+                }
                 else
                 {
                     m_IsPlayerDetected = false;
@@ -145,11 +147,13 @@ public class KrakenBossBehaviour : BossBehaviour
         }
     }
 
-    private IEnumerator SpawnTentacles() {
-        while (m_IsAlive) {
+    private IEnumerator SpawnTentacles()
+    {
+        while (m_IsAlive)
+        {
             yield return new WaitForSeconds(1f);
             PonerTentaculo();
-            }
+        }
 
     }
     private void PonerTentaculo()
@@ -167,15 +171,17 @@ public class KrakenBossBehaviour : BossBehaviour
             tentacle.transform.position = new Vector2(posicionTentacle.x, posicionTentacle.y);
         }
     }
-        private void SetAttack()
+    private void SetAttack()
     {
         float rng = Random.value;
         print(numberofAttacksBeforeSubmerging);
-        if (numberofAttacksBeforeSubmerging <= 0) {
-            
+        if (numberofAttacksBeforeSubmerging <= 0)
+        {
+
             SetSubmerge();
         }
-        else{
+        else
+        {
             switch (rng)
             {
                 case < 0.5f:
@@ -193,9 +199,8 @@ public class KrakenBossBehaviour : BossBehaviour
 
             }
         }
-      
-    }
 
+    }
 
     public override void Init(Transform _Target)
     {
@@ -208,6 +213,8 @@ public class KrakenBossBehaviour : BossBehaviour
         StopAllCoroutines();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
+        if (m_BossFinalSala)
+            m_BossMuertoEvent.Raise();
         Destroy(gameObject);
     }
 }

@@ -53,7 +53,7 @@ public class DaryaBossBehaviour : BossBehaviour
         m_StateMachine.ChangeState<SMBIdleState>();
         cuantoQuedaEscudo = vecesAntesDeQuePeteEscudo;
         m_Bubble.Init(cuantoQuedaEscudo);
-        ParedesDarya();
+        //ParedesDarya();
     }
 
     private void ParedesDarya()

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8398411816594676974}
   - component: {fileID: -4609650569113917127}
   - component: {fileID: -86651256589872547}
+  - component: {fileID: 920657598946776668}
   m_Layer: 8
   m_Name: Wave
   m_TagString: DaryaWave
@@ -30,11 +31,11 @@ Transform:
   m_GameObject: {fileID: 695410775385291763}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 0.5, z: 1}
+  m_LocalScale: {x: 5, y: 0.49999997, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &663441504798008925
 SpriteRenderer:
@@ -77,11 +78,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.50931454, b: 1, a: 0.5019608}
+  m_Sprite: {fileID: -806467459, guid: 18699231b55605544a48181e79edee94, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 2
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -127,7 +128,7 @@ BoxCollider2D:
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
@@ -172,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5e5d12e8fdafa54f9d657c6e89a755e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Speed: 10
+  m_Speed: 20
   m_Force: 1000
 --- !u!114 &-86651256589872547
 MonoBehaviour:
@@ -193,3 +194,24 @@ MonoBehaviour:
   healable: 0
   m_EstadoAlterado: 4
   stateTime: 0.5
+--- !u!95 &920657598946776668
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695410775385291763}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1575432a05f6f0348baaaa5da7ec4179, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

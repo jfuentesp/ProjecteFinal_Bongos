@@ -19,6 +19,7 @@ public class MiniDracMariBehaviour : BossBehaviour
     private Phase m_CurrentPhase;
 
     private int CorazaCount = 5;
+    [SerializeField] private BubbleProtectionScript m_Bubble;
     private new void Awake()
     {
         base.Awake();
@@ -52,6 +53,7 @@ public class MiniDracMariBehaviour : BossBehaviour
     private void Start()
     {
         m_StateMachine.ChangeState<SMBIdleState>();
+        m_Bubble.Init(CorazaCount);
     }
     private void EmpezarCorutina(GameObject obj)
     {
@@ -120,8 +122,8 @@ public class MiniDracMariBehaviour : BossBehaviour
         m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
-        m_BossMuertoEvent.Raise();
-
+        if (m_BossFinalSala)
+            m_BossMuertoEvent.Raise();
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)
@@ -132,6 +134,7 @@ public class MiniDracMariBehaviour : BossBehaviour
             if (CorazaCount > 0)
             {
                 CorazaCount--;
+                m_Bubble.SetVida(CorazaCount);
                 if (CorazaCount <= 0)
                 {
                     EstadosController.Invencible = false;

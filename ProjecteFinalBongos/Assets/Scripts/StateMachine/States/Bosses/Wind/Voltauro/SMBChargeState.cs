@@ -82,7 +82,6 @@ public class SMBChargeState : SMState
         m_Boss.SetBusy(true);
         StartCoroutine(ChargeCoroutine());
         m_NavMeshAgent.ResetPath();
-        m_NavMeshAgent.acceleration = m_ChargeSpeed;
         m_NavMeshAgent.speed = m_ChargeSpeed;
     }
 

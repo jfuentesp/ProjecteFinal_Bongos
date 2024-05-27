@@ -14,6 +14,7 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(AgullaCoralAreaAttack))]
 [RequireComponent(typeof(SMBParriedState))]
 [RequireComponent(typeof(HealthController))]
+[RequireComponent(typeof(DeathState))]
 public class AgullesDeCoralBossBehaviour : BossBehaviour
 {
     private Pool m_Pool;
@@ -22,6 +23,7 @@ public class AgullesDeCoralBossBehaviour : BossBehaviour
     [SerializeField] private float m_RangeCoralCircleCast;
     [SerializeField] private int m_RangeForCoralSummoning;
     [SerializeField, Range(0.0f, 1.0f)] private float m_HealingReduction;
+    [SerializeField] private GameObject m_HealParticles;
     private new void Awake()
     {
         base.Awake();
@@ -42,10 +44,6 @@ public class AgullesDeCoralBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<AgullaCoralAreaAttack>();
         };
-        GetComponent<AgullaDeCoralFlipState>().OnAttackParried = (GameObject obj) =>
-        {
-            m_StateMachine.ChangeState<SMBParriedState>();
-        };
         GetComponent<AgullaDeCoralFlipState>().OnAttackMissed = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<AgullaChargeState>();
@@ -62,13 +60,28 @@ public class AgullesDeCoralBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<AgullaChargeState>();
         };
-        GetComponent<AgullaCoralAreaAttack>().OnParriedAttack = (GameObject obj) =>
+        transform.GetChild(0).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBParriedState>();
         };
-
+        m_HealthController.onHeal += Curar;
         m_Pool = LevelManager.Instance._BulletPool;
+    }
 
+    private void Curar()
+    {
+        StartCoroutine(HealAnimation());
+    }
+
+    private IEnumerator HealAnimation()
+    {
+        m_HealParticles.SetActive(true);
+        yield return new WaitForSeconds(1);
+        m_HealParticles.SetActive(false);
+    }
+
+    private void Start()
+    {
         m_StateMachine.ChangeState<SMBIdleState>();
     }
 
@@ -88,7 +101,7 @@ public class AgullesDeCoralBossBehaviour : BossBehaviour
                 SoltarCoral(Damage.Damage);
             }
         }
-        if (collision.gameObject.layer == LayerMask.NameToLayer("BossHitBox"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("AllHitBox"))
         {
             AgullaDeCoralCoralBullet coralBullet;
             if (collision.gameObject.TryGetComponent<AgullaDeCoralCoralBullet>(out coralBullet))
@@ -119,11 +132,20 @@ public class AgullesDeCoralBossBehaviour : BossBehaviour
             arrow.GetComponent<AgullaDeCoralCoralBullet>().Init(posicionHuevo, transform, damage);
         }
     }
+    private void MatarBoss()
+    {
+        Destroy(gameObject);
+    }
+
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
+        m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
-        Destroy(gameObject);
+        if (m_BossFinalSala)
+            m_BossMuertoEvent.Raise();
     }
 }

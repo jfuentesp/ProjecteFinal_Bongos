@@ -7,6 +7,7 @@ public class HealthController : MonoBehaviour, IHealable, IDamageable
 {
     public Action onDeath;
     public Action onHurt;
+    public Action onHeal;
     [SerializeField]
     private float MAXHP = 100f;
     public float HPMAX => MAXHP;
@@ -43,10 +44,14 @@ public class HealthController : MonoBehaviour, IHealable, IDamageable
             onDeath?.Invoke();
             return;
         }
-
-        m_HP += healAmount;
-        if (m_HP > MAXHP)
-            m_HP = MAXHP;
+        else
+        {
+            m_HP += healAmount;
+            onHeal?.Invoke();
+            if (m_HP > MAXHP)
+                m_HP = MAXHP;
+        }
+       
 
         //Debug.Log(string.Format(gameObject.name + " Healed by {0} points. Remaining HP: {1}", healAmount, m_HP));
     }
