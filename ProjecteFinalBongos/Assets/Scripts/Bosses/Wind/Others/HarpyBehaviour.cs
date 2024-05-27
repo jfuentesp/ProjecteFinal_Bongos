@@ -42,8 +42,10 @@ public class HarpyBehaviour : BossBehaviour
         };
 
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
+    }
+    private void Start()
+    {
         m_StateMachine.ChangeState<SMBIdleState>();
-
     }
 
     private void EmpezarCorutina(GameObject @object)
@@ -98,12 +100,14 @@ public class HarpyBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
-        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         StopAllCoroutines();
-        OnBossDeath?.Invoke();
-        m_OnDeathEvent.Raise();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
+        OnBossDeath?.Invoke();
+        m_OnDeathEvent.Raise();
+        if (m_BossFinalSala)
+            m_BossMuertoEvent.Raise();
     }
     private void Attack()
     {

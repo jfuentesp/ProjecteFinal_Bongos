@@ -25,6 +25,7 @@ public class SMBRangedAttack : SMState
     [SerializeField]
     private float maxWaitTime;
     private bool derecha;
+    [SerializeField] private Vector3 m_PosicionSpawn;
 
     private Transform m_Target;
 
@@ -52,11 +53,12 @@ public class SMBRangedAttack : SMState
         base.InitState();
         m_Boss.SetBusy(true);
         m_Rigidbody.velocity = Vector3.zero;
-
         if (m_RangedAttackAnimationName == String.Empty)
             print("ay");
-        else
+        else {
             StartCoroutine(AttackAnimationRoutine());
+        }
+         
     }
 
     private void AttackAnimation()
@@ -95,10 +97,12 @@ public class SMBRangedAttack : SMState
                 }
             }
         }
+      
         yield return new WaitForSeconds(waitTime);
 
         if (m_TwoDirections)
         {
+    
             m_Animator.Play(m_RangedAttackAnimationName);
             if (m_Target != null)
             {
@@ -116,7 +120,14 @@ public class SMBRangedAttack : SMState
     private void DispararAtaque()
     {
         GameObject lightning = m_Pool.GetElement();
-        lightning.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        if (derecha)
+        {
+            lightning.transform.position = transform.position + m_PosicionSpawn;
+        }
+        else
+        {
+            lightning.transform.position = transform.position - m_PosicionSpawn;
+        }
         lightning.SetActive(true);
         lightning.GetComponent<AlteaBullet>().enabled = true;
         lightning.GetComponent<AlteaBullet>().Init(m_Target.position - transform.position);

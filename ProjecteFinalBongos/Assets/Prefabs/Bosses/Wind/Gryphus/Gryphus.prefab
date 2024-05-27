@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 3650524101458716014}
   - component: {fileID: 693633904342415992}
   - component: {fileID: 2050168517093413958}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gryphus
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1791955884, guid: 484e2ccab160161499a4d15bc017150e, type: 3}
+  m_Sprite: {fileID: -1233497500, guid: 2700b3e96903e2f4d8a09aa606073aa0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -169,8 +169,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.6488072, y: 0.46126464}
-    oldSize: {x: 1.09375, y: 1.28125}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.08, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -199,8 +199,8 @@ MonoBehaviour:
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 1.5
   m_AreaWideness: 1.5
-  m_AreaRadius: 1
-  m_CheckingPlayerTimelapse: 0.2
+  m_AreaRadius: 1.1
+  m_CheckingPlayerTimelapse: 0.1
   m_LayersToCheck:
     serializedVersion: 2
     m_Bits: 128
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3f8f95414136945818e9d39b233177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ChaseSpeed: 10
+  m_ChaseSpeed: 7
   m_ChaseAnimationName: chaseGryphus
   m_TwoDirections: 1
 --- !u!114 &8894470015447893835
@@ -371,7 +371,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 20000
   avoidancePriority: 50
   m_AngularSpeed: 0
   m_StoppingDistance: 0
@@ -767,6 +767,26 @@ PrefabInstance:
     - target: {fileID: 1552560892194166361, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646615665294502748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_BloodColorList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646615665294502748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_BloodColorList.Array.data[0].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646615665294502748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_BloodColorList.Array.data[0].b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646615665294502748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_BloodColorList.Array.data[0].g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646615665294502748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
+      propertyPath: m_BloodColorList.Array.data[0].r
+      value: 0.6509434
       objectReference: {fileID: 0}
     - target: {fileID: 4901853211154067748, guid: 3032d6b4ef9b6064082df941417e6ebb, type: 3}
       propertyPath: m_Name

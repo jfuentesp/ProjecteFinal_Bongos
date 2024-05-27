@@ -24,11 +24,13 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
 
     private bool m_IsChosen = false;
 
+
     public void Initialize()
     {
         m_AbilitiesGUI = LevelManager.Instance.AbilitiesGUIController;
         m_AssignedAbility = m_AbilitiesGUI.GetRandomAbilityByTierAndType(m_SlotTier, m_SlotCategory);
     }
+
 
     public void RefreshSlot(AbilityTierEnum tier)
     {

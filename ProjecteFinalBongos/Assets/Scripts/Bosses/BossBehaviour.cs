@@ -95,6 +95,7 @@ public class BossBehaviour : MonoBehaviour
         m_Stats = GetComponent<BossStatsController>();
         m_EstadosController = GetComponent<BossEstadosController>();
         m_HealthController.onDeath += VidaCero;
+        m_HealthController.onHurt += GetHurted;
         if(m_PlayerAttackDetectionAreaType == CollisionType.BOX)
             m_BoxArea = new Vector2(m_AreaWideness, m_AreaLength);
         m_IsBusy = false;
@@ -122,6 +123,12 @@ public class BossBehaviour : MonoBehaviour
              m_StateMachine.ChangeState<SMBAttack>();
          };*/
     }
+
+    protected void GetHurted()
+    {
+        m_BloodController.PlayBlood();
+    }
+
     protected virtual void Update()
     {
         transform.localEulerAngles = new Vector3(0,0, transform.localEulerAngles.z);
@@ -138,7 +145,7 @@ public class BossBehaviour : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        m_Rigidbody.velocity = Vector2.zero;
+
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -149,6 +156,13 @@ public class BossBehaviour : MonoBehaviour
                 recibirDaño(collision.gameObject.GetComponent<AttackDamage>().Damage);
             } else if (collision.gameObject.GetComponent<Player2x2BulletBehaviour>()) {
                 recibirDaño(collision.gameObject.GetComponent<Player2x2BulletBehaviour>().damage);
+            }
+        }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("AllHitBox"))
+        {
+            if (collision.CompareTag("Bullet"))
+            {
+                recibirDaño(collision.gameObject.GetComponent<BossAttackDamage>().Damage);
             }
         }
     }
@@ -199,7 +213,6 @@ public class BossBehaviour : MonoBehaviour
             {
                 m_HealthController.Damage(Daño);
             }
-            m_BloodController.PlayBlood();
         }
     }
     
@@ -216,7 +229,6 @@ public class BossBehaviour : MonoBehaviour
             RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, 50, transform.position, 50, m_LayersToCheck);
             if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player"))
             {
-                print("Hola");
                 m_Target = hitInfo.collider.gameObject.transform;
                 OnPlayerInSala?.Invoke();
             }

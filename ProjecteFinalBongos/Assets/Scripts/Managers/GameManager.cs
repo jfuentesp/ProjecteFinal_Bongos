@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
     public string NombreDeTuEscena => m_NombreDeTuEscena;
     public bool Testing => m_Testing;
 
+    private float m_TimerPartida = 0;
+    public float TimerPartida => m_TimerPartida;
+
+    public Action<float> OnTimerUpdate;
+
     public void setTesting()
     {
         m_Testing = false;
@@ -58,14 +63,17 @@ public class GameManager : MonoBehaviour
 
     [Header("Listed Abilities")]
     [SerializeField]
-    private List<Ability> m_Tier1Abilities;
-    public List<Ability> Tier1Abilities => m_Tier1Abilities;
+    private List<Ability> m_Tier1AbilitiesInitial;
+    private List<Ability> m_Tier1AbilitiesCopy;
+    public List<Ability> Tier1Abilities => m_Tier1AbilitiesCopy;
     [SerializeField]
-    private List<Ability> m_Tier2Abilities;
-    public List<Ability> Tier2Abilities => m_Tier2Abilities;
+    private List<Ability> m_Tier2AbilitiesInitial;
+    private List<Ability> m_Tier2AbilitiesCopy;
+    public List<Ability> Tier2Abilities => m_Tier2AbilitiesCopy;
     [SerializeField]
-    private List<Ability> m_Tier3Abilities;
-    public List<Ability> Tier3Abilities => m_Tier3Abilities;
+    private List<Ability> m_Tier3AbilitiesInitial;
+    private List<Ability> m_Tier3AbilitiesCopy;
+    public List<Ability> Tier3Abilities => m_Tier3AbilitiesCopy;
 
     private void Awake()
     {
@@ -78,6 +86,7 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         m_MundoGenerado = false;
+
     }
     private void Start()
     {
@@ -125,6 +134,8 @@ public class GameManager : MonoBehaviour
     public void AcabarJuego()
     {
         SceneManager.LoadScene("EscenaInicial");
+        if(m_TimerCoroutine != null)
+            StopCoroutine(m_TimerCoroutine);
         print("MuereCalvo");
         print(m_PlayerInGame == null);
         //Destroy(m_PlayerInGame);
@@ -135,18 +146,23 @@ public class GameManager : MonoBehaviour
         {
             m_PlayerInGame = Instantiate(m_PlayerPrefab);
             m_PlayerInGame.transform.position = Vector3.zero;
-
+            m_TimerCoroutine = StartCoroutine(Timer());
         }
         if (scene.name == "Mundo2")
         {
             if (m_PlayerInGame == null)
+            {
                 m_PlayerInGame = Instantiate(m_PlayerPrefab);
+                m_TimerCoroutine = StartCoroutine(Timer());
+            }
+
             m_PlayerInGame.transform.position = Vector3.zero;
         }
         if (scene.name == m_NombreDeTuEscena)
         {
             m_PlayerInGame = Instantiate(m_PlayerPrefab);
             m_PlayerInGame.transform.position = Vector3.zero;
+            m_TimerCoroutine = StartCoroutine(Timer());
         }
     }
 
@@ -296,12 +312,45 @@ public class GameManager : MonoBehaviour
         */
     }
 
+    private IEnumerator Timer()
+    {
+        while(m_PlayerInGame != null)
+        {
+            yield return new WaitForSeconds(1f);
+            m_TimerPartida++;
+            OnTimerUpdate.Invoke(m_TimerPartida);
+        }
+    }
+
+    private Coroutine m_TimerCoroutine;
     public void CreateNewGameOfPlayer(string _PlayerName, string mundo)
     {
         m_PlayerName = _PlayerName;
         m_NuevaPartida = true;
+        LoadAbilityLists();
+        m_TimerPartida = 0;
         SceneManager.LoadScene(mundo);
     }
+
+    public void LoadAbilityLists()
+    {
+        m_Tier1AbilitiesCopy = new List<Ability>();
+        m_Tier2AbilitiesCopy = new List<Ability>();
+        m_Tier3AbilitiesCopy = new List<Ability>();
+        foreach(Ability ability in m_Tier1AbilitiesInitial)
+        {
+            m_Tier1AbilitiesCopy.Add(ability);
+        }
+        foreach(Ability ability in m_Tier2AbilitiesInitial)
+        {
+            m_Tier2AbilitiesCopy.Add(ability);
+        }
+        foreach(Ability ability in m_Tier3AbilitiesInitial)
+        {
+            m_Tier3AbilitiesCopy.Add(ability);
+        }
+    }
+
     public void LoadGameOfPlayer(string _PlayerName, string mundo)
     {
         m_PlayerName = _PlayerName;

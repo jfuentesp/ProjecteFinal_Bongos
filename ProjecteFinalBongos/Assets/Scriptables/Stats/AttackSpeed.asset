@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce6a9cb2700c354b8e37e177f8e6374, type: 3}
+  m_Name: AttackSpeed
+  m_EditorClassIdentifier: 
+  m_StatId: 1
+  m_StatName: AttackSpeed
+  m_StatDescripcion: La velocidad a la que realizas ataques
+  m_StatSprite: {fileID: 21300000, guid: c650f28003318cb48bb1a38d8dda96b3, type: 3}
+  m_StatType: 0

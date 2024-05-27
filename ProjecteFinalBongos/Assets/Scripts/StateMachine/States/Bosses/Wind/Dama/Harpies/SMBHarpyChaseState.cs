@@ -48,7 +48,7 @@ public class SMBHarpyChaseState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(false);
-        m_NavMeshAgent.acceleration = m_FlyingSpeed;
+        m_NavMeshAgent.isStopped = false;
         m_NavMeshAgent.speed = m_FlyingSpeed;
         m_Animator.Play(m_FlyingHarpyAnimationname);
         
@@ -59,6 +59,8 @@ public class SMBHarpyChaseState : SMState
     public override void ExitState()
     {
         base.ExitState();
+        m_NavMeshAgent.isStopped = true;
+        m_NavMeshAgent.ResetPath();
     }
 
     private void Update()

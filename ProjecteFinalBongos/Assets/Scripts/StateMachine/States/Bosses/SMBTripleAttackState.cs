@@ -32,10 +32,7 @@ public class SMBTripleAttackState : SMBBasicAttackState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        if (m_TripleAttackAnimationName == String.Empty)
-            m_TripleAttackCoroutine = StartCoroutine(AttackCoroutine(transform.position + transform.up, 0.5f, 0.5f, 1f));
-        else
-            StartCoroutine(AttackAnimationRoutine());
+        StartCoroutine(AttackAnimationRoutine());
     }
 
     private void AttackAnimation()

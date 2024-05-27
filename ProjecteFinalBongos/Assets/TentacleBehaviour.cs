@@ -15,7 +15,6 @@ public class TentacleBehaviour : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox")) {
             if (collision.gameObject.GetComponent<SMBPlayerParryState>().parry)
                 Morir();
-            collision.gameObject.GetComponent<PJSMB>().recibirDamage(Damage);
         }
     }
 }

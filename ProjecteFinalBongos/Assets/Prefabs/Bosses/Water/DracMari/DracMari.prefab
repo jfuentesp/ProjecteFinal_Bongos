@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4991433896677283170}
   - component: {fileID: 4613460742915565093}
+  - component: {fileID: 1964429396859285604}
   - component: {fileID: 7823156985751946505}
   - component: {fileID: 7756242623279990475}
   - component: {fileID: 4022045264291484453}
@@ -23,7 +24,6 @@ GameObject:
   - component: {fileID: 7864428238198272243}
   - component: {fileID: 2627505379393222218}
   - component: {fileID: 9024920154673667628}
-  - component: {fileID: 1964429396859285604}
   - component: {fileID: -8061540420897948165}
   - component: {fileID: 8147589741727174627}
   - component: {fileID: 2233925375138777732}
@@ -104,6 +104,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1964429396859285604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260551587002213075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f94eb001b7a14d14f9253d9e62324b0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BossName: DracMari
+  m_Description: DragQueen
+  m_Target: {fileID: 0}
+  m_BloodController: {fileID: 0}
+  m_BossFinalSala: 0
+  m_PlayerAttackDetectionAreaType: 0
+  m_AreaLength: 3
+  m_AreaWideness: 3
+  m_AreaRadius: 5
+  m_CheckingPlayerTimelapse: 0.2
+  m_LayersToCheck:
+    serializedVersion: 2
+    m_Bits: 128
+  m_BossMuertoEvent: {fileID: 11400000, guid: a68c2e2d0411f4242b3bfb77d6d424f3, type: 2}
+  m_layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_RangoHuirPerseguir: 3
 --- !u!195 &7823156985751946505
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -336,34 +366,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1964429396859285604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8260551587002213075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f94eb001b7a14d14f9253d9e62324b0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BossName: DracMari
-  m_Description: DragQueen
-  m_Target: {fileID: 0}
-  m_PlayerAttackDetectionAreaType: 0
-  m_AreaLength: 3
-  m_AreaWideness: 3
-  m_AreaRadius: 5
-  m_CheckingPlayerTimelapse: 0.2
-  m_LayersToCheck:
-    serializedVersion: 2
-    m_Bits: 128
-  m_BossMuertoEvent: {fileID: 11400000, guid: a68c2e2d0411f4242b3bfb77d6d424f3, type: 2}
-  m_layerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  m_RangoHuirPerseguir: 3
 --- !u!61 &-8061540420897948165
 BoxCollider2D:
   m_ObjectHideFlags: 0

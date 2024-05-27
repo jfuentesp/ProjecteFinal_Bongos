@@ -56,9 +56,13 @@ public class MiniBelosBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
-        m_StateMachine.ChangeState<SMBIdleState>();
-
     }
+
+    private void Start()
+    {
+        m_StateMachine.ChangeState<SMBIdleState>();
+    }
+
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
@@ -69,18 +73,12 @@ public class MiniBelosBehaviour : BossBehaviour
     {
 
         float rng = Random.value;
-        if (m_CurrentPhase == Phase.TWO && m_HealthController.HP <= ((m_HealthController.HPMAX * 10f) / 100)) //Y la vida caiga por debajo del 5%
-        {
-            m_StateMachine.ChangeState<SMBBelosHealingState>();
-            return;
-        }
-
         switch (rng)
         {
-            case < 0.5f:
+            case < 0.65f:
                 m_StateMachine.ChangeState<SMBSingleAttackState>();
                 break;
-            case < 0.65f:
+            case >= 0.65f:
                 m_StateMachine.ChangeState<SMBDoubleAttackState>();
                 break;
         }
@@ -100,6 +98,11 @@ public class MiniBelosBehaviour : BossBehaviour
     {
         while (m_IsAlive)
         {
+            if (m_CurrentPhase == Phase.TWO && m_HealthController.HP <= ((m_HealthController.HPMAX * 20f) / 100)) //Y la vida caiga por debajo del 5%
+            {
+                m_StateMachine.ChangeState<SMBBelosHealingState>();
+            }
+
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
                 RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
@@ -147,10 +150,11 @@ public class MiniBelosBehaviour : BossBehaviour
     {
         base.VidaCero();
         StopAllCoroutines();
-        GetComponent<SalaBoss>().OnPlayerIn -= Init;
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
-        m_BossMuertoEvent.Raise();
+        if (m_BossFinalSala)
+            m_BossMuertoEvent.Raise();
     }
 }

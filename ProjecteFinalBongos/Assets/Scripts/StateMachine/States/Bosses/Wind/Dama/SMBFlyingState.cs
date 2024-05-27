@@ -125,7 +125,7 @@ public class SMBFlyingState : SMState
             HarpyBehaviour harpy = obj.GetComponent<HarpyBehaviour>();
             Vector3 spawnPos = new Vector3(Random.Range(transform.position.x - 5, transform.position.x + 5), transform.position.y + 7, 0);
             obj.transform.position = spawnPos;
-            harpy.Init(m_Target);
+            harpy.BossFinalSalaSpawn(m_Target);
             yield return new WaitForSeconds(m_SpawnTime);
         }
     }

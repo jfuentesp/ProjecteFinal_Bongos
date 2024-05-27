@@ -21,6 +21,11 @@ public class BossEstadosController : MonoBehaviour
         m_Stats = GetComponent<BossStatsController>();
         Stun = false;
     }
+    private void Update()
+    {
+
+    }
+
     public void AlternarEstado(EstadosAlterados estado)
     {
         if (!Invencible) {

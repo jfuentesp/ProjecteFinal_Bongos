@@ -6,6 +6,7 @@ using UnityEngine;
 public class HealthController : MonoBehaviour, IHealable, IDamageable
 {
     public Action onDeath;
+    public Action onHurt;
     [SerializeField]
     private float MAXHP = 100f;
     public float HPMAX => MAXHP;
@@ -26,18 +27,33 @@ public class HealthController : MonoBehaviour, IHealable, IDamageable
         {
             m_HP = 0;
             onDeath?.Invoke();
-        }   
+        }
+        else
+            if(damageAmount > 0)
+                onHurt?.Invoke();
 
-        Debug.Log(string.Format("Received {0} damage. Remaining HP: {1}", damageAmount, m_HP));
+        //Debug.Log(string.Format(gameObject.name + " Received {0} damage. Remaining HP: {1}", damageAmount, m_HP));
     }
 
     public void Heal(float healAmount)
     {
+        if (m_HP <= 0)
+        {
+            m_HP = 0;
+            onDeath?.Invoke();
+            return;
+        }
+
         m_HP += healAmount;
         if (m_HP > MAXHP)
             m_HP = MAXHP;
 
-        Debug.Log(string.Format("Healed by {0} points. Remaining HP: {1}", healAmount, m_HP));
+        //Debug.Log(string.Format(gameObject.name + " Healed by {0} points. Remaining HP: {1}", healAmount, m_HP));
+    }
+
+    public void Revive()
+    {
+        m_HP = MAXHP;
     }
 
     public void Regenerate(float regenerationAmount, float duration, float tickDelay)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class PlayerEstadosController : MonoBehaviour
     public int poisonCount = poisonNum;
     public float poisonDamage;
     public float burntDamage;
+    public Action<EstadosAlterados, float> OnApplyEstadoAlterado;
     private void Awake()
     {
         m_StateMachine = GetComponent<FiniteStateMachine>();
@@ -34,6 +36,7 @@ public class PlayerEstadosController : MonoBehaviour
                     {
                         Stun = true;
                         m_StateMachine.ChangeState<SMBAdormitState>();
+                        OnApplyEstadoAlterado.Invoke(EstadosAlterados.Adormit, time);
                     }
                     break;
                 case EstadosAlterados.Atordit:
@@ -42,19 +45,29 @@ public class PlayerEstadosController : MonoBehaviour
                         Stun = true;
                         m_PJ.GetComponent<SMBStunState>().ChangeTime(time);
                         m_StateMachine.ChangeState<SMBStunState>();
+                        OnApplyEstadoAlterado.Invoke(EstadosAlterados.Atordit, time);
                     }
                     break;
                 case EstadosAlterados.Mullat:
                     if (!Wet)
+                    {
                         StartCoroutine(WetRoutine(time));
+                        OnApplyEstadoAlterado.Invoke(EstadosAlterados.Mullat, time);
+                    }
                     break;
                 case EstadosAlterados.Peus_Lleugers:
                     if (!Speedy)
+                    {
                         StartCoroutine(SpeedRoutine(time));
+                        OnApplyEstadoAlterado.Invoke(EstadosAlterados.Peus_Lleugers, time);
+                    }
                     break;
                 case EstadosAlterados.Forçut:
                     if (!StrongMan)
+                    {
                         StartCoroutine(StrongRoutine(time));
+                        OnApplyEstadoAlterado.Invoke(EstadosAlterados.Forçut, time);
+                    }
                     break;
                 case EstadosAlterados.Paralitzat:
                     if (!Stun)
@@ -62,34 +75,48 @@ public class PlayerEstadosController : MonoBehaviour
                         Stun = true;
                         Paralized = true;
                         m_PJ.GetComponent<SMBParalitzatState>().ChangeTime(time);
+                        OnApplyEstadoAlterado.Invoke(EstadosAlterados.Paralitzat, time);
                         m_StateMachine.ChangeState<SMBParalitzatState>();
                     }
                     break;
                 case EstadosAlterados.Cremat:
                     if (!Burn)
+                    {
                         StartCoroutine(BurntRoutine(time));
+                        OnApplyEstadoAlterado.Invoke(EstadosAlterados.Cremat, time);
+                    }
                     break;
                 case EstadosAlterados.Enverinat:
                     if (!Poison)
                     {
                         StartCoroutine(PoisonRoutine(time));
+                        OnApplyEstadoAlterado.Invoke(EstadosAlterados.Enverinat, time);
                     }
-
                     break;
                 case EstadosAlterados.Invencible:
                     if (!Invencible)
+                    {
                         StartCoroutine(InvencibleRoutine(time));
+                        OnApplyEstadoAlterado.Invoke(EstadosAlterados.Invencible, time);
+                    }
                     break;
                 case EstadosAlterados.Ira:
                     if (!Wrath)
+                    {
                         StartCoroutine(WrathRoutine(time));
+                        OnApplyEstadoAlterado.Invoke(EstadosAlterados.Invencible, time);
+                    }
                     break;
                 case EstadosAlterados.Atrapat:
                     if (!Stuck)
-                        StuckFunction();              
+                    {
+                        StuckFunction();
+                        OnApplyEstadoAlterado.Invoke(EstadosAlterados.Atrapat, time);
+                    }
                     break;
                 case EstadosAlterados.Escapar:
-                        UnStuckFunction();
+                    UnStuckFunction();
+                    OnApplyEstadoAlterado.Invoke(EstadosAlterados.Escapar, time);
                     break;
                 default:
                     break;
@@ -188,7 +215,8 @@ public class PlayerEstadosController : MonoBehaviour
         m_Stats.m_Velocity = 0;
     }
     public void UnStuckFunction() {
-        m_Stats.m_Velocity = velocityBefore;
+        if (m_Stats.m_Velocity == 0)
+            m_Stats.m_Velocity = velocityBefore;
     }
     private void PararCorrutina(string rutina)
     {

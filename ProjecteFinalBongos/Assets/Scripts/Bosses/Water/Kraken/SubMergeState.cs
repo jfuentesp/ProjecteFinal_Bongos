@@ -28,7 +28,7 @@ public class SubMergeState : SMState
     private new void Awake()
     {
         base.Awake();
-        m_Rigidbody = GetComponent<Rigidbody2D>();
+        m_Rigidbody = GetComponent<Rigidbody2D>();  
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_Boss = GetComponent<BossBehaviour>();
@@ -49,7 +49,6 @@ public class SubMergeState : SMState
         if (hit.collider != null)
         {
 
-            print("Me choco");
             RandomWalk();
         }
         else

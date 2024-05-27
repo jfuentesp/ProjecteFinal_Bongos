@@ -26,6 +26,8 @@ public class SMBTornadosState : SMState
     private LayerMask m_TornadoLayerMask;
     [SerializeField]
     private float m_RangoCircleCast;
+    [SerializeField] private string m_AnimationName;
+    private Coroutine m_Corrutina;
 
     private new void Awake()
     {
@@ -44,18 +46,31 @@ public class SMBTornadosState : SMState
     public override void InitState()
     {
         base.InitState();
-        print("Tornado");
         m_CurrentDuration = 0;
         m_Boss.SetBusy(true);
         m_Rigidbody.velocity = Vector3.zero;
+        m_Animator.Play(m_AnimationName);
+        m_Corrutina = StartCoroutine(SpawnCoroutine());
+        
+    }
+    public override void ExitState()
+    {
+        base.ExitState();
+        StopAllCoroutines();
+    }
+
+    private IEnumerator SpawnCoroutine()
+    {
+        yield return new WaitForSeconds(m_SummoningDuration);
         SpawnTornado();
+        onTornadoSpawned?.Invoke(gameObject);
     }
 
     private void SpawnTornado()
     {
         Vector2 posicionTornado = m_Boss.SalaPadre.GetPosicionAleatoriaEnSala();
         RaycastHit2D hit = Physics2D.CircleCast(posicionTornado, m_RangoCircleCast, posicionTornado, m_RangoCircleCast, m_TornadoLayerMask);
-        if (hit.collider != null && Vector2.Distance(hit.transform.position, m_Target.position) > 6)
+        if (hit.collider != null || Vector2.Distance(posicionTornado, m_Target.position) > 6)
         {
             SpawnTornado();
         }
@@ -64,16 +79,6 @@ public class SMBTornadosState : SMState
             GameObject tornado = Instantiate(m_TornadoPrefab);
             tornado.transform.position = posicionTornado;
             tornado.GetComponent<TornadoBehaviour>().Init(m_Target);
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        m_CurrentDuration += Time.deltaTime;
-        if (m_CurrentDuration >= m_SummoningDuration)
-        {
-            onTornadoSpawned.Invoke(gameObject);
         }
     }
 }

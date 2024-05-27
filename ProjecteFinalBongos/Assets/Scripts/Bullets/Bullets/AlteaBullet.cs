@@ -7,6 +7,7 @@ public class AlteaBullet : Bullet
     private bool m_Devuelta;
     public new void Init(Vector2 direction)
     {
+        gameObject.layer = LayerMask.NameToLayer("BossHitBox");
         if (m_AnimationName != string.Empty)
             m_Animator.Play(m_AnimationName);
         transform.up = direction;
@@ -38,30 +39,36 @@ public class AlteaBullet : Bullet
                             m_Devuelta = true;
                             transform.up = -transform.up;
                             m_Rigidbody.velocity = transform.up * m_Speed;
+                            gameObject.layer = LayerMask.NameToLayer("AllHitBox");
                         }
                         else
                         {
                             collision.gameObject.GetComponent<PJSMB>().recibirDamage(m_Damage);
+                            gameObject.layer = LayerMask.NameToLayer("AllHitBox");
                             DisableBullet();
                         }
                     }
             if (collision.gameObject.layer == LayerMask.NameToLayer("Default"))
                 if (collision.CompareTag("MechanicObstacle"))
                 {
+                    gameObject.layer = LayerMask.NameToLayer("AllHitBox");
                     DisableBullet();
                 }   
         }
         else
         {
+            m_Devuelta = false;
             if (collision.gameObject.layer == LayerMask.NameToLayer("Default"))
                 if (collision.CompareTag("MechanicObstacle"))
                 {
+                    gameObject.layer = LayerMask.NameToLayer("AllHitBox");
                     DisableBullet();
                 }
             if (collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox"))
             {
+                print("YOUYOUYOUYOUYOU");
                 collision.gameObject.GetComponent<BossBehaviour>().recibirDaño(m_Damage);
-                gameObject.layer = LayerMask.NameToLayer("BossHitBox");
+                gameObject.layer = LayerMask.NameToLayer("AllHitBox");
                 DisableBullet();
             }
         }

@@ -1,0 +1,2837 @@
+fileFormatVersion: 2
+guid: 398c7f323e39df34b972e7b09805a304
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 40
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 884
+        width: 42
+        height: 51
+      alignment: 9
+      pivot: {x: 0.6301738, y: 0.17545453}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de95b206847344942882c213b2df9ce6
+      internalID: 179031592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_3
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 884
+        width: 38
+        height: 51
+      alignment: 9
+      pivot: {x: 0.58879834, y: 0.16433895}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4e49a6e5a5b7704384049eeea605e26
+      internalID: 1991900611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_4
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 884
+        width: 40
+        height: 51
+      alignment: 9
+      pivot: {x: 0.6152214, y: 0.15788358}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d19edc452796f748a05e57c11761160
+      internalID: -514999849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_5
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 884
+        width: 40
+        height: 50
+      alignment: 9
+      pivot: {x: 0.6563721, y: 0.15597901}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02be9dc35706874d9fe2ae0dd446263
+      internalID: 1359043774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_6
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 884
+        width: 46
+        height: 50
+      alignment: 9
+      pivot: {x: 0.7057535, y: 0.15597901}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8626c74f5815874499f1a60b0c46a68e
+      internalID: 354150768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_7
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 884
+        width: 49
+        height: 50
+      alignment: 9
+      pivot: {x: 0.74354523, y: 0.15597901}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94fae115b8fd02a4e97cacbf7db5cd94
+      internalID: 1102117647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_8
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 884
+        width: 44
+        height: 51
+      alignment: 9
+      pivot: {x: 0.71323603, y: 0.15142822}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2137d3b5b9bf134191aa0c30cc8f7f7
+      internalID: -474049113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 884
+        width: 44
+        height: 51
+      alignment: 9
+      pivot: {x: 0.6683433, y: 0.16433895}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 650cf916749fc574bb4a13377ea84bcb
+      internalID: -1376031871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_12
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 816
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be0a64a345ef3ee408fb8d82ddc5d7b1
+      internalID: -1500249682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_13
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 816
+        width: 45
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f7b732121bc67c41ba7c8d07a8e9296
+      internalID: 1009070349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_14
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 816
+        width: 42
+        height: 36
+      alignment: 9
+      pivot: {x: 0.7025212, y: 0.25298733}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a632f21f09bebc9438c4cb79a326a0fe
+      internalID: -1743924081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_15
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 810
+        width: 41
+        height: 43
+      alignment: 9
+      pivot: {x: 0.7074607, y: 0.3831134}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76ba0e1373b1a6a4ba6c312c03feea3a
+      internalID: -1477248773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_16
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 809
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52a01e4f3a038d54482eba8cd1cc82ab
+      internalID: 843930331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_17
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 810
+        width: 41
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b99738e39b54af4cbef362bf58c75f5
+      internalID: -1894588923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_18
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 811
+        width: 39
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7f4c0f447ae73948b47410e9e54e0d3
+      internalID: 2017968215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_19
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 811
+        width: 39
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd3b378d5af671428fe4e14b21ce0e8
+      internalID: -1459919024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_20
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 811
+        width: 39
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f591e9d445ac55949ac3e2e748559436
+      internalID: 1266486606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_21
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 811
+        width: 39
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc14375001278db4d9d11a36ab043cb9
+      internalID: 118006604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_22
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 811
+        width: 39
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e1f0143401f1141b8d5dcf1906739c
+      internalID: -1066882409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_23
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 811
+        width: 40
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95109166de70eed4db3245f39c01ae0b
+      internalID: -1263228488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_24
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 748
+        width: 49
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0d11847997e3a84c8a5fefec5a026ae
+      internalID: 2013467883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_25
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 748
+        width: 50
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 944b72e235debf248b6f4f136d1d7994
+      internalID: 901052744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_28
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 748
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65a51185b4043d34688412aeee4c104b
+      internalID: -1243492795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_30
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 748
+        width: 46
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8ef63897579bbd4197797ed90e237f3
+      internalID: 1803635273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_31
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 749
+        width: 42
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 531288e26e45e5f42a4bc1292d3af8d1
+      internalID: -1972929433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_32
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 748
+        width: 41
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d694fde0786670044a0fcea5492c3d35
+      internalID: -497675010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_33
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 754
+        width: 42
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 446f39c92665bed42b17da6a9e375d06
+      internalID: 1846498133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_34
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 754
+        width: 45
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1d4d287533edf74a8a39827e6515bb1
+      internalID: 1349381242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_40
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 682
+        width: 42
+        height: 51
+      alignment: 9
+      pivot: {x: 0.62558734, y: 0.1690578}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd9e75aec105a24e85c64d90476c596
+      internalID: -697371795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_41
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 681
+        width: 45
+        height: 39
+      alignment: 9
+      pivot: {x: 0.72144216, y: 0.23909035}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 390ab739474e81544997ae95d34bf417
+      internalID: 1870707882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_42
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 682
+        width: 42
+        height: 36
+      alignment: 9
+      pivot: {x: 0.6971599, y: 0.25828382}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2add80b225b4dc64390022bda9470019
+      internalID: 1979982597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_43
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 676
+        width: 41
+        height: 43
+      alignment: 9
+      pivot: {x: 0.7104157, y: 0.37186733}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5bf048928d7ab8408a1c2b8bf0be444
+      internalID: 323468418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_44
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 677
+        width: 38
+        height: 42
+      alignment: 9
+      pivot: {x: 0.78616893, y: 0.3619123}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4046f54ceb6a0c4d975367bd9e7cfb1
+      internalID: -1736814021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_45
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 682
+        width: 39
+        height: 37
+      alignment: 9
+      pivot: {x: 0.7954665, y: 0.24856155}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5121fcd648de5b41b403c63552f84e2
+      internalID: -231854091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_46
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 682
+        width: 38
+        height: 37
+      alignment: 9
+      pivot: {x: 0.780985, y: 0.25141865}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9bdeccd30dfa6d43a2b77611e1d8fb2
+      internalID: 310893372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_47
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 682
+        width: 38
+        height: 41
+      alignment: 9
+      pivot: {x: 0.780985, y: 0.22925697}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b38336a1c7e0d7488ecedf0c39aa8e0
+      internalID: 1307794729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_48
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 682
+        width: 38
+        height: 42
+      alignment: 9
+      pivot: {x: 0.7865488, y: 0.2206014}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07f8e16d33026b34fab71988e1d195e9
+      internalID: -560271370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_52
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 614
+        width: 38
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 085d2446d2eb3164985750be01694664
+      internalID: -257426480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_53
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 614
+        width: 38
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef51dc3a5602a3448a67129fb09acdf
+      internalID: 2124338497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_54
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 614
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92f8bcbfe262544c972e728ce529d73
+      internalID: -1078634707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_58
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 543
+        width: 42
+        height: 51
+      alignment: 9
+      pivot: {x: 0.61840147, y: 0.17335181}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 666179f520e49b04e9a7654960351591
+      internalID: -2055926724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_59
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 543
+        width: 40
+        height: 44
+      alignment: 9
+      pivot: {x: 0.6926979, y: 0.22310291}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf8e9a49ca5bf56458b1d9625a20c846
+      internalID: -1440705937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_60
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 543
+        width: 46
+        height: 39
+      alignment: 9
+      pivot: {x: 0.748643, y: 0.3724913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e22f62060db7a8347be7a38ab94a2ef0
+      internalID: 2064063038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_61
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 543
+        width: 44
+        height: 40
+      alignment: 9
+      pivot: {x: 0.8164548, y: 0.28243715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf8dad7cc3df2444ba6640debbf983fe
+      internalID: 291509031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_62
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 543
+        width: 51
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f128aca48d583f942b1d54de46415596
+      internalID: 810756541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_63
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 543
+        width: 46
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f9fe404424b3e84c83e2b8817b97e97
+      internalID: 85293721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_64
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 543
+        width: 45
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: facf4fc911284e044b74e8f636618a1c
+      internalID: 66525957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_65
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 543
+        width: 47
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af726d325a6b14341a4d4f17236e9974
+      internalID: -1028078416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_66
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 543
+        width: 43
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e21ef804e1f1dfb4a884bfd6a62028aa
+      internalID: -1126002480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_67
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 543
+        width: 43
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c43fca5780d2624ea4a3ca7386d2d4e
+      internalID: 882483545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_68
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 543
+        width: 42
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 711d5ce5ea6974e44afc2351bcc73a39
+      internalID: -720387478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_69
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 543
+        width: 43
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfed2f7c7306c134694dd16b3376acae
+      internalID: 493571029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_70
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 482
+        width: 39
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d45a1e029fc854692d86a620d11fd7
+      internalID: 1409107850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_71
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 482
+        width: 38
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2079dd153b869f14f855c9acc7aceab1
+      internalID: 52294062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_72
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 482
+        width: 29
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d207dc727b43be44ba30189d807fe05
+      internalID: 1470287185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_77
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 410
+        width: 24
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02e47af66da105141bcd71227f7bbb1a
+      internalID: -201079180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_78
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 410
+        width: 30
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3c161f654d48e149aaae61bda16f726
+      internalID: -794962623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_79
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 410
+        width: 42
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46934a38ffe7cd64f883602f0ec0ff54
+      internalID: -927452800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_80
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 410
+        width: 48
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f3908df36cfe764c8f66eb866bf587b
+      internalID: 1975463716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_81
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 410
+        width: 49
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb4ad674d4d1919419d74eb819489f41
+      internalID: 649161882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_82
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 410
+        width: 47
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a87a0ede7e457d47aaab4e35b9feccb
+      internalID: 1359681240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_83
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 410
+        width: 47
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b41c270d80368e04fbb262582c886f80
+      internalID: -243225194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_84
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 410
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6efeeb2e6c6d94f4c81fcc727094cd2d
+      internalID: -870646797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_85
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 410
+        width: 44
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89129251b6913b349adf5daf746205fe
+      internalID: -1132614591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_86
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 410
+        width: 44
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44d4c16b16833c94b91f7e734da128a4
+      internalID: 1240923222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_87
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 410
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8f00851f5c180a4e8374809131608f4
+      internalID: -1083979804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_91
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 351
+        width: 38
+        height: 37
+      alignment: 9
+      pivot: {x: 0.7982553, y: 0.27722415}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77e1536ff4fee9d44a943c93f451464a
+      internalID: -1531697057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_92
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 351
+        width: 83
+        height: 34
+      alignment: 9
+      pivot: {x: 0.36758736, y: 0.2811369}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edb4fe0950742c34fa21d9d0af3dbefd
+      internalID: 1687229266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_93
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 351
+        width: 85
+        height: 33
+      alignment: 9
+      pivot: {x: 0.37204984, y: 0.26062843}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 197a8cc460059dd4ead50ed69dda1f86
+      internalID: -1913400540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_95
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 351
+        width: 85
+        height: 33
+      alignment: 9
+      pivot: {x: 0.37204984, y: 0.25715962}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb29edccb049e2f43853c6fa5d6006c8
+      internalID: -207701778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_96
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 351
+        width: 79
+        height: 33
+      alignment: 9
+      pivot: {x: 0.39973778, y: 0.23367587}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc27a029a4c31f34fa18da2a7045cf9f
+      internalID: -1696410667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_97
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 345
+        width: 48
+        height: 42
+      alignment: 9
+      pivot: {x: 0.669534, y: 0.36824688}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba22a04c703c0f6499fe0d9c0b7f253d
+      internalID: 2034305645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_98
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 346
+        width: 38
+        height: 42
+      alignment: 9
+      pivot: {x: 0.7855305, y: 0.34757996}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f002bc4d250611646af58cb1e63268b6
+      internalID: 332117073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_99
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 345
+        width: 41
+        height: 43
+      alignment: 9
+      pivot: {x: 0.71435696, y: 0.37635696}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b25bea5aa3dc8234abb2d5bb0411a4d2
+      internalID: -1131420049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_100
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 351
+        width: 42
+        height: 36
+      alignment: 9
+      pivot: {x: 0.7221709, y: 0.22874366}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddee93c3ae9a81247b4690dd53156b1b
+      internalID: -1944129483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_101
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 351
+        width: 45
+        height: 38
+      alignment: 9
+      pivot: {x: 0.73133683, y: 0.22604531}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce7d7f49381a60f4c96bc770044d91b3
+      internalID: 2091428707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_106
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 275
+        width: 42
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a802def3c378bf4db25d0d28b9b76d2
+      internalID: -411610624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_107
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 275
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12d5614edf94fa1409582c4e6db0545e
+      internalID: 717153750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_108
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 275
+        width: 45
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9565b9e7bb3725c478eba1d952ce28e8
+      internalID: 202268168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_109
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 275
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dde79e30f5b1d824ca4d34926eef2109
+      internalID: -810259204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_110
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 275
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbd3e4bdfdbffb2408dc5a3708cbe868
+      internalID: 628932022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_113
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 215
+        width: 45
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c655d5b33d344644b1de402f11936fc
+      internalID: 45685293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_114
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 216
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aa11f1a3928f2740a26b8b6e0e9c2b6
+      internalID: 1036734360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_115
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 216
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d849dd29cbb32f544a55941ddf29465b
+      internalID: 1065698508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_116
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 216
+        width: 33
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7603b5ddcd85014b930575e541c7a12
+      internalID: 349088214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_117
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 216
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f96f06215e373a488fe1fc961fef060
+      internalID: -1017201671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_118
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 216
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bebbcad364b448a4f8f8e5aff3427dda
+      internalID: -1226498963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_119
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 216
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae0447e6fc4307242b60ddb44e88c5f7
+      internalID: 34910043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_120
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 216
+        width: 25
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e816505474fafa43a81aad17f8780f5
+      internalID: -1385942847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_121
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 216
+        width: 34
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f0f6fec758094b4092a9000ab609636
+      internalID: -1737487504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_122
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 216
+        width: 25
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aafdd98b22469241ab355358145ce54
+      internalID: -992411436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_123
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 216
+        width: 33
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35ba51b664631e9428c4ab91ef13bbb4
+      internalID: -1785467315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_124
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 216
+        width: 33
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8be74dc20681c4479bcd61ada6639b4
+      internalID: 177511307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_125
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 167
+        width: 33
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03998e5e1119b824caa3e698d1fa66ec
+      internalID: 131970640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_126
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 167
+        width: 33
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2b1735b62df3204aba3e892bed67e99
+      internalID: 1773979171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_127
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 165
+        width: 36
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ba1d78c375c7d043a2a11ea4acf50d3
+      internalID: 1859351526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_128
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 165
+        width: 39
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f54b176b574f42e42a526016f67be1d7
+      internalID: -325968205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_130
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 165
+        width: 38
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccd06f50d0ecee448bd0f54c6b1182af
+      internalID: 1815803863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_134
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 170
+        width: 35
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8db05b179e6d514c9cedbfdda4f6f12
+      internalID: 1683158234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_135
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 167
+        width: 33
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b9441e12269a34ba8f4a564403bf4d
+      internalID: 794178415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_136
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 167
+        width: 34
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4a3b67766a6c3a49b263a342d91f896
+      internalID: -239356320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_142
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 126
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9716aa64effcd674e8cf846fb75a1228
+      internalID: 1055531430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_143
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 126
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b52d17ec5a11774ca65e8ad8c418189
+      internalID: 774755184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_144
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 129
+        width: 22
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44e3dca905b452142a760152f55e0c82
+      internalID: 750942113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_145
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 127
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac6ebf1f973652b4ba89ddb0c4a46901
+      internalID: -1706018424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_146
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 125
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0904b65ef7c0e3f4ea6cc107348d3bc3
+      internalID: 2065548330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_147
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 124
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19a3d1faa1148d54cbdf7662d4dde96c
+      internalID: -1487026378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_148
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 123
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58af562f25a399c42a71984580ceaf5a
+      internalID: -743117223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_149
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 121
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0fadc0b70e5ec749ba20fd60605740b
+      internalID: -1602027116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_155
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 75
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb42770119c9a14fa213e97135cab09
+      internalID: 1814038307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_156
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 73
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1aa70a176f82c34799d0686cb0cf62e
+      internalID: -692246081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_157
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 75
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cb774b58c92f6842adceb9089f44601
+      internalID: -1672195548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_158
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 75
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eaebace92b23cd4ba10d5e06118b227
+      internalID: -309685722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_167
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 13
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637143616429c7748b064f7b8a601672
+      internalID: -1496835320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_172
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 7
+        width: 31
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d9800737f4637f48a72cc8611906e52
+      internalID: 1571157538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_0
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 170
+        width: 39
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32e05dc282a6e8f4b87b1a88dfa04c8f
+      internalID: -1838684299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 5
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e0989ea5c748c5468061c144b49a7e9
+      internalID: -181579390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 9
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63d14f157aa5058499909b77b94d83e6
+      internalID: 795681591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_11
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 7
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d2a04cdb90b8d6449d93a00080cb3cb
+      internalID: -1502424952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3DS - Shantae and the Pirates Curse - Mermaid_26
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 9
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 013e2ec70c560af46b259c4295ba4ee8
+      internalID: 586644855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      3DS - Shantae and the Pirates Curse - Mermaid_0: -1838684299
+      3DS - Shantae and the Pirates Curse - Mermaid_1: -181579390
+      3DS - Shantae and the Pirates Curse - Mermaid_10: 795681591
+      3DS - Shantae and the Pirates Curse - Mermaid_100: -1944129483
+      3DS - Shantae and the Pirates Curse - Mermaid_101: 2091428707
+      3DS - Shantae and the Pirates Curse - Mermaid_102: 795467077
+      3DS - Shantae and the Pirates Curse - Mermaid_103: 1916262402
+      3DS - Shantae and the Pirates Curse - Mermaid_104: 1886119988
+      3DS - Shantae and the Pirates Curse - Mermaid_105: 756477009
+      3DS - Shantae and the Pirates Curse - Mermaid_106: -411610624
+      3DS - Shantae and the Pirates Curse - Mermaid_107: 717153750
+      3DS - Shantae and the Pirates Curse - Mermaid_108: 202268168
+      3DS - Shantae and the Pirates Curse - Mermaid_109: -810259204
+      3DS - Shantae and the Pirates Curse - Mermaid_11: -1502424952
+      3DS - Shantae and the Pirates Curse - Mermaid_110: 628932022
+      3DS - Shantae and the Pirates Curse - Mermaid_111: -485036703
+      3DS - Shantae and the Pirates Curse - Mermaid_112: 518989577
+      3DS - Shantae and the Pirates Curse - Mermaid_113: 45685293
+      3DS - Shantae and the Pirates Curse - Mermaid_114: 1036734360
+      3DS - Shantae and the Pirates Curse - Mermaid_115: 1065698508
+      3DS - Shantae and the Pirates Curse - Mermaid_116: 349088214
+      3DS - Shantae and the Pirates Curse - Mermaid_117: -1017201671
+      3DS - Shantae and the Pirates Curse - Mermaid_118: -1226498963
+      3DS - Shantae and the Pirates Curse - Mermaid_119: 34910043
+      3DS - Shantae and the Pirates Curse - Mermaid_12: -1500249682
+      3DS - Shantae and the Pirates Curse - Mermaid_120: -1385942847
+      3DS - Shantae and the Pirates Curse - Mermaid_121: -1737487504
+      3DS - Shantae and the Pirates Curse - Mermaid_122: -992411436
+      3DS - Shantae and the Pirates Curse - Mermaid_123: -1785467315
+      3DS - Shantae and the Pirates Curse - Mermaid_124: 177511307
+      3DS - Shantae and the Pirates Curse - Mermaid_125: 131970640
+      3DS - Shantae and the Pirates Curse - Mermaid_126: 1773979171
+      3DS - Shantae and the Pirates Curse - Mermaid_127: 1859351526
+      3DS - Shantae and the Pirates Curse - Mermaid_128: -325968205
+      3DS - Shantae and the Pirates Curse - Mermaid_129: 1915671473
+      3DS - Shantae and the Pirates Curse - Mermaid_13: 1009070349
+      3DS - Shantae and the Pirates Curse - Mermaid_130: 1815803863
+      3DS - Shantae and the Pirates Curse - Mermaid_131: 1632584075
+      3DS - Shantae and the Pirates Curse - Mermaid_132: 768581580
+      3DS - Shantae and the Pirates Curse - Mermaid_133: -1887581793
+      3DS - Shantae and the Pirates Curse - Mermaid_134: 1683158234
+      3DS - Shantae and the Pirates Curse - Mermaid_135: 794178415
+      3DS - Shantae and the Pirates Curse - Mermaid_136: -239356320
+      3DS - Shantae and the Pirates Curse - Mermaid_137: -1914351059
+      3DS - Shantae and the Pirates Curse - Mermaid_138: 977665114
+      3DS - Shantae and the Pirates Curse - Mermaid_139: -1473594163
+      3DS - Shantae and the Pirates Curse - Mermaid_14: -1743924081
+      3DS - Shantae and the Pirates Curse - Mermaid_140: 1200804957
+      3DS - Shantae and the Pirates Curse - Mermaid_141: 665508574
+      3DS - Shantae and the Pirates Curse - Mermaid_142: 1055531430
+      3DS - Shantae and the Pirates Curse - Mermaid_143: 774755184
+      3DS - Shantae and the Pirates Curse - Mermaid_144: 750942113
+      3DS - Shantae and the Pirates Curse - Mermaid_145: -1706018424
+      3DS - Shantae and the Pirates Curse - Mermaid_146: 2065548330
+      3DS - Shantae and the Pirates Curse - Mermaid_147: -1487026378
+      3DS - Shantae and the Pirates Curse - Mermaid_148: -743117223
+      3DS - Shantae and the Pirates Curse - Mermaid_149: -1602027116
+      3DS - Shantae and the Pirates Curse - Mermaid_15: -1477248773
+      3DS - Shantae and the Pirates Curse - Mermaid_150: 646630203
+      3DS - Shantae and the Pirates Curse - Mermaid_151: -627730301
+      3DS - Shantae and the Pirates Curse - Mermaid_152: -745589477
+      3DS - Shantae and the Pirates Curse - Mermaid_153: -2094939837
+      3DS - Shantae and the Pirates Curse - Mermaid_154: 805536351
+      3DS - Shantae and the Pirates Curse - Mermaid_155: 1814038307
+      3DS - Shantae and the Pirates Curse - Mermaid_156: -692246081
+      3DS - Shantae and the Pirates Curse - Mermaid_157: -1672195548
+      3DS - Shantae and the Pirates Curse - Mermaid_158: -309685722
+      3DS - Shantae and the Pirates Curse - Mermaid_159: 437393135
+      3DS - Shantae and the Pirates Curse - Mermaid_16: 843930331
+      3DS - Shantae and the Pirates Curse - Mermaid_160: 881927463
+      3DS - Shantae and the Pirates Curse - Mermaid_161: 731640236
+      3DS - Shantae and the Pirates Curse - Mermaid_162: -1661870848
+      3DS - Shantae and the Pirates Curse - Mermaid_163: 1405014634
+      3DS - Shantae and the Pirates Curse - Mermaid_164: -706139614
+      3DS - Shantae and the Pirates Curse - Mermaid_165: 1969652123
+      3DS - Shantae and the Pirates Curse - Mermaid_166: 1627035430
+      3DS - Shantae and the Pirates Curse - Mermaid_167: -1496835320
+      3DS - Shantae and the Pirates Curse - Mermaid_168: 1671927480
+      3DS - Shantae and the Pirates Curse - Mermaid_169: 1356193351
+      3DS - Shantae and the Pirates Curse - Mermaid_17: -1894588923
+      3DS - Shantae and the Pirates Curse - Mermaid_170: 1084790036
+      3DS - Shantae and the Pirates Curse - Mermaid_171: 95121730
+      3DS - Shantae and the Pirates Curse - Mermaid_172: 1571157538
+      3DS - Shantae and the Pirates Curse - Mermaid_173: 1705030717
+      3DS - Shantae and the Pirates Curse - Mermaid_174: 156565945
+      3DS - Shantae and the Pirates Curse - Mermaid_175: -1868108212
+      3DS - Shantae and the Pirates Curse - Mermaid_176: 952207056
+      3DS - Shantae and the Pirates Curse - Mermaid_18: 2017968215
+      3DS - Shantae and the Pirates Curse - Mermaid_19: -1459919024
+      3DS - Shantae and the Pirates Curse - Mermaid_2: 179031592
+      3DS - Shantae and the Pirates Curse - Mermaid_20: 1266486606
+      3DS - Shantae and the Pirates Curse - Mermaid_21: 118006604
+      3DS - Shantae and the Pirates Curse - Mermaid_22: -1066882409
+      3DS - Shantae and the Pirates Curse - Mermaid_23: -1263228488
+      3DS - Shantae and the Pirates Curse - Mermaid_24: 2013467883
+      3DS - Shantae and the Pirates Curse - Mermaid_25: 901052744
+      3DS - Shantae and the Pirates Curse - Mermaid_26: 586644855
+      3DS - Shantae and the Pirates Curse - Mermaid_27: 1812628707
+      3DS - Shantae and the Pirates Curse - Mermaid_28: -1243492795
+      3DS - Shantae and the Pirates Curse - Mermaid_29: -1229720478
+      3DS - Shantae and the Pirates Curse - Mermaid_3: 1991900611
+      3DS - Shantae and the Pirates Curse - Mermaid_30: 1803635273
+      3DS - Shantae and the Pirates Curse - Mermaid_31: -1972929433
+      3DS - Shantae and the Pirates Curse - Mermaid_32: -497675010
+      3DS - Shantae and the Pirates Curse - Mermaid_33: 1846498133
+      3DS - Shantae and the Pirates Curse - Mermaid_34: 1349381242
+      3DS - Shantae and the Pirates Curse - Mermaid_35: 327802751
+      3DS - Shantae and the Pirates Curse - Mermaid_36: 782820952
+      3DS - Shantae and the Pirates Curse - Mermaid_37: 1078672018
+      3DS - Shantae and the Pirates Curse - Mermaid_38: 2101499407
+      3DS - Shantae and the Pirates Curse - Mermaid_39: 1800510933
+      3DS - Shantae and the Pirates Curse - Mermaid_4: -514999849
+      3DS - Shantae and the Pirates Curse - Mermaid_40: -697371795
+      3DS - Shantae and the Pirates Curse - Mermaid_41: 1870707882
+      3DS - Shantae and the Pirates Curse - Mermaid_42: 1979982597
+      3DS - Shantae and the Pirates Curse - Mermaid_43: 323468418
+      3DS - Shantae and the Pirates Curse - Mermaid_44: -1736814021
+      3DS - Shantae and the Pirates Curse - Mermaid_45: -231854091
+      3DS - Shantae and the Pirates Curse - Mermaid_46: 310893372
+      3DS - Shantae and the Pirates Curse - Mermaid_47: 1307794729
+      3DS - Shantae and the Pirates Curse - Mermaid_48: -560271370
+      3DS - Shantae and the Pirates Curse - Mermaid_49: 1039030094
+      3DS - Shantae and the Pirates Curse - Mermaid_5: 1359043774
+      3DS - Shantae and the Pirates Curse - Mermaid_50: -2012527350
+      3DS - Shantae and the Pirates Curse - Mermaid_51: 640866268
+      3DS - Shantae and the Pirates Curse - Mermaid_52: -257426480
+      3DS - Shantae and the Pirates Curse - Mermaid_53: 2124338497
+      3DS - Shantae and the Pirates Curse - Mermaid_54: -1078634707
+      3DS - Shantae and the Pirates Curse - Mermaid_55: 835776091
+      3DS - Shantae and the Pirates Curse - Mermaid_56: 2883907
+      3DS - Shantae and the Pirates Curse - Mermaid_57: 1621528880
+      3DS - Shantae and the Pirates Curse - Mermaid_58: -2055926724
+      3DS - Shantae and the Pirates Curse - Mermaid_59: -1440705937
+      3DS - Shantae and the Pirates Curse - Mermaid_6: 354150768
+      3DS - Shantae and the Pirates Curse - Mermaid_60: 2064063038
+      3DS - Shantae and the Pirates Curse - Mermaid_61: 291509031
+      3DS - Shantae and the Pirates Curse - Mermaid_62: 810756541
+      3DS - Shantae and the Pirates Curse - Mermaid_63: 85293721
+      3DS - Shantae and the Pirates Curse - Mermaid_64: 66525957
+      3DS - Shantae and the Pirates Curse - Mermaid_65: -1028078416
+      3DS - Shantae and the Pirates Curse - Mermaid_66: -1126002480
+      3DS - Shantae and the Pirates Curse - Mermaid_67: 882483545
+      3DS - Shantae and the Pirates Curse - Mermaid_68: -720387478
+      3DS - Shantae and the Pirates Curse - Mermaid_69: 493571029
+      3DS - Shantae and the Pirates Curse - Mermaid_7: 1102117647
+      3DS - Shantae and the Pirates Curse - Mermaid_70: 1409107850
+      3DS - Shantae and the Pirates Curse - Mermaid_71: 52294062
+      3DS - Shantae and the Pirates Curse - Mermaid_72: 1470287185
+      3DS - Shantae and the Pirates Curse - Mermaid_73: -1786097311
+      3DS - Shantae and the Pirates Curse - Mermaid_74: 318460572
+      3DS - Shantae and the Pirates Curse - Mermaid_75: 1033567079
+      3DS - Shantae and the Pirates Curse - Mermaid_76: 587616786
+      3DS - Shantae and the Pirates Curse - Mermaid_77: -201079180
+      3DS - Shantae and the Pirates Curse - Mermaid_78: -794962623
+      3DS - Shantae and the Pirates Curse - Mermaid_79: -927452800
+      3DS - Shantae and the Pirates Curse - Mermaid_8: -474049113
+      3DS - Shantae and the Pirates Curse - Mermaid_80: 1975463716
+      3DS - Shantae and the Pirates Curse - Mermaid_81: 649161882
+      3DS - Shantae and the Pirates Curse - Mermaid_82: 1359681240
+      3DS - Shantae and the Pirates Curse - Mermaid_83: -243225194
+      3DS - Shantae and the Pirates Curse - Mermaid_84: -870646797
+      3DS - Shantae and the Pirates Curse - Mermaid_85: -1132614591
+      3DS - Shantae and the Pirates Curse - Mermaid_86: 1240923222
+      3DS - Shantae and the Pirates Curse - Mermaid_87: -1083979804
+      3DS - Shantae and the Pirates Curse - Mermaid_88: -1649605671
+      3DS - Shantae and the Pirates Curse - Mermaid_89: -1156273923
+      3DS - Shantae and the Pirates Curse - Mermaid_9: -1376031871
+      3DS - Shantae and the Pirates Curse - Mermaid_90: 1139552118
+      3DS - Shantae and the Pirates Curse - Mermaid_91: -1531697057
+      3DS - Shantae and the Pirates Curse - Mermaid_92: 1687229266
+      3DS - Shantae and the Pirates Curse - Mermaid_93: -1913400540
+      3DS - Shantae and the Pirates Curse - Mermaid_94: 1058322191
+      3DS - Shantae and the Pirates Curse - Mermaid_95: -207701778
+      3DS - Shantae and the Pirates Curse - Mermaid_96: -1696410667
+      3DS - Shantae and the Pirates Curse - Mermaid_97: 2034305645
+      3DS - Shantae and the Pirates Curse - Mermaid_98: 332117073
+      3DS - Shantae and the Pirates Curse - Mermaid_99: -1131420049
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

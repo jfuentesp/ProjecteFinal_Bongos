@@ -49,7 +49,7 @@ public class SMBBelosLighningChainsState : SMState
         TrapBullet trap = bulletObject.GetComponent<TrapBullet>();
         trap.enabled = true;
         bulletObject.SetActive(true);
-        trap.Init(m_Boss.Target.position);
+        trap.Init(m_Boss.Target.position - transform.position);
  
     }
 
