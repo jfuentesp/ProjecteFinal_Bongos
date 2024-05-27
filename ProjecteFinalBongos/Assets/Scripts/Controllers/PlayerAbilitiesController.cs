@@ -49,9 +49,8 @@ public class PlayerAbilitiesController : MonoBehaviour
         if (m_ParriesDisponibles.Count > 0)
             m_actualParry = m_ParriesDisponibles[0];
     }
-    public void initCoolDown(float cooldown)
+    public void initCoolDown()
     {
-        m_cooldown = cooldown;
         StartCoroutine(MovementCooldown());
     }
 
@@ -73,7 +72,6 @@ public class PlayerAbilitiesController : MonoBehaviour
 
     public void learnMovement(Ability movementAction)
     {
-        movementAction.OnCooldown = false;
         movementAction.CooldownRemaining = 0;
         m_MovementActionsDisponibles.Add(movementAction);
         changeMovement(movementAction);
@@ -131,10 +129,9 @@ public class PlayerAbilitiesController : MonoBehaviour
     IEnumerator MovementCooldown()
     {
         Ability currentAbility = m_actualMovement;
-        currentAbility.OnCooldown = true;
+        currentAbility.UseAbility();
         OnMovementAbilityCooldown?.Invoke();
         yield return new WaitForSeconds(currentAbility.Cooldown);
-        currentAbility.OnCooldown = false;
         Exit();
     }
     private void Exit() {

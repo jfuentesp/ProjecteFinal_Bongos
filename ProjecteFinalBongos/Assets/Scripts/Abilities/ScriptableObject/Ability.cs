@@ -42,4 +42,20 @@ public class Ability : ScriptableObject
     public float Cooldown { get => m_Cooldown; set => m_Cooldown = value; }
     public bool OnCooldown { get => m_OnCooldown; }
     public float CooldownRemaining { get => m_CooldownRemaining; set => m_CooldownRemaining = value; }
+
+    public void UseAbility()
+    {
+        m_CooldownRemaining = m_Cooldown;
+    }
+
+    public void UpdateRemainingCooldown(float time)
+    {
+        if(m_CooldownRemaining > 0)
+            m_CooldownRemaining -= time;
+    }
+
+    public float ReturnCooldownPercentage()
+    {
+        return Mathf.Clamp01(1 - (m_CooldownRemaining / m_Cooldown));
+    }
 }

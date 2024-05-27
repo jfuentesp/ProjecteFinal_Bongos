@@ -34,17 +34,12 @@ public class AbilitySlotHUDController : MonoBehaviour
 
         if (m_CurrentSlotAbility.OnCooldown)
         {
-            m_CurrentSlotAbility.CooldownRemaining -= Time.deltaTime;
-            m_CooldownImage.fillAmount = m_CurrentSlotAbility.CooldownRemaining / m_CurrentSlotAbility.Cooldown;
-            if (m_CurrentSlotAbility.CooldownRemaining <= 0)
-            {
-                m_CurrentSlotAbility.CooldownRemaining = 0;
-                m_CooldownImage.gameObject.SetActive(false);
-                m_CooldownImage.fillAmount = 0;
-            }
+            m_CooldownImage.gameObject.SetActive(true);
+            m_CooldownImage.fillAmount = m_CurrentSlotAbility.ReturnCooldownPercentage();
         }
         else
         {
+            m_CooldownImage.fillAmount = 0;
             m_CooldownImage.gameObject.SetActive(false);
         }
     }
@@ -58,7 +53,6 @@ public class AbilitySlotHUDController : MonoBehaviour
     private void OnLearnAbilityAction()
     {
         UpdateAssignedAbility();
-        CheckIfIsOnCooldown();
         UpdateAbilitySlotGUI();
     }
 
@@ -88,22 +82,5 @@ public class AbilitySlotHUDController : MonoBehaviour
         }
         m_AbilityImage.sprite = m_CurrentSlotAbility.Sprite;
         m_AbilityImage.gameObject.SetActive(true);
-        if(m_CurrentSlotAbility.OnCooldown)
-            m_CooldownImage.gameObject.SetActive(true);
-    }
-
-    private void CheckIfIsOnCooldown()
-    {
-        if (m_CurrentSlotAbility == null)
-            return;
-
-        if (m_CurrentSlotAbility.OnCooldown)
-            AbilityCooldown();
-    }
-
-    private void AbilityCooldown()
-    {
-        if (m_CurrentSlotAbility.CooldownRemaining <= 0)
-            m_CurrentSlotAbility.CooldownRemaining = m_CurrentSlotAbility.Cooldown;
     }
 }

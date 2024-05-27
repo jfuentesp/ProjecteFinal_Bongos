@@ -68,6 +68,10 @@ public class PlayerHUDController : MonoBehaviour
             m_BackgroundHP.color = Color.Lerp(Color.white, Color.red, Mathf.PingPong(Time.time * 1f, 1f));
         else
             m_BackgroundHP.color = Color.white;
+        foreach(Ability ability in m_PlayerAbilities.AbilityList)
+        {
+            ability.UpdateRemainingCooldown(Time.deltaTime);
+        }
     }
 
     private Coroutine m_BlinkCoroutine;
