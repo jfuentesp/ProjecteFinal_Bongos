@@ -93,11 +93,13 @@ public class AlteaBossBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
+        m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         if (m_BossFinalSala)
             m_BossMuertoEvent.Raise();
-        Destroy(gameObject);
     }
     protected override void Update()
     {
