@@ -165,6 +165,20 @@ public class InventoryController : MonoBehaviour
         RefreshEquippedGearGUI();
     }
 
+    public void OnEquipmentReplace(Equipable equipment)
+    {
+        if(equipment is Armor)
+        {
+            if(PJSMB.Instance.PlayerStatsController.Armor != null)
+                m_InventoryBackpack.AddEquipable(PJSMB.Instance.PlayerStatsController.Armor);
+        }
+        if(equipment is Sword)
+        {
+            if (PJSMB.Instance.PlayerStatsController.Sword != null)
+                m_InventoryBackpack.AddEquipable(PJSMB.Instance.PlayerStatsController.Sword);
+        }
+    }
+
     public void OnEquipmentRemove()
     {
         GridSlotBehaviour slot = m_LastSelection.GetComponent<GridSlotBehaviour>();

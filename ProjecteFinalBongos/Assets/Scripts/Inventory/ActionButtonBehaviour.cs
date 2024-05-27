@@ -47,6 +47,7 @@ public class ActionButtonBehaviour : MonoBehaviour, ISubmitHandler, ICancelHandl
                     }
                     if (lastSelection.AssignedEquipable != null)
                     {
+                        m_InventoryController.OnEquipmentReplace(lastSelection.AssignedEquipable);
                         Debug.Log("Equipando objeto " + lastSelection.AssignedEquipable.itemName);
                         m_InventoryController.OnEquip(lastSelection.AssignedEquipable.id);
                     }
@@ -97,6 +98,7 @@ public class ActionButtonBehaviour : MonoBehaviour, ISubmitHandler, ICancelHandl
                     }
                     if (lastSelection.AssignedEquipable != null)
                     {
+                        m_InventoryController.OnEquipmentReplace(lastSelection.AssignedEquipable);
                         Debug.Log("Equipando objeto " + lastSelection.AssignedEquipable.itemName);
                         m_InventoryController.OnEquip(lastSelection.AssignedEquipable.id);
                     }
