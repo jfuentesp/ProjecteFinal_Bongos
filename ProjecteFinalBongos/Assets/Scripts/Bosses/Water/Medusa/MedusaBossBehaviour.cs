@@ -38,9 +38,11 @@ public class MedusaBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBRangedAttack>();
         };
-
-        m_StateMachine.ChangeState<SMBIdleState>();
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
+    }
+    private void Start()
+    {
+        m_StateMachine.ChangeState<SMBIdleState>();
     }
     private void EmpezarCorutina(GameObject obj)
     {
@@ -69,11 +71,14 @@ public class MedusaBossBehaviour : BossBehaviour
 
             for (int i = 0; i < numerinPlusMedusas; i++)
             {
-                int random = Random.Range(0, transform.childCount);
+                int random = Random.Range(1, transform.childCount);
                 GameObject medusita = transform.GetChild(random).gameObject;
-                medusita.transform.localPosition = new Vector2(1,1);
+                medusita.transform.localPosition = (m_Target.position - transform.position).normalized;
                 medusita.transform.parent = transform.parent;
-                medusita.GetComponent<MedusitaBehaviour>().PlayerHoming();
+                if (medusita.TryGetComponent <MedusitaBehaviour>(out MedusitaBehaviour medusilla))
+                {
+                    medusita.GetComponent<MedusitaBehaviour>().PlayerHoming();
+                }
             }
             GenerarMedusitas();
         }
@@ -82,14 +87,13 @@ public class MedusaBossBehaviour : BossBehaviour
     {
         int numerinPlusMedusas = 10 - (int)(m_HealthController.HP / m_HealthController.HPMAX * 10);
         int numeroMaximoMedusitas = m_NumeroMinimoMedusas + numerinPlusMedusas;
-        print(numeroMaximoMedusitas);
         while (transform.childCount < numeroMaximoMedusitas)
         {
             GameObject medusa = Instantiate(m_Medusita, transform);
             //medusa.GetComponent<CircleCollider2D>().enabled = false;
             
             medusa.transform.localPosition = GetRandomPosition();
-            medusa.GetComponent<MedusitaBehaviour>().Init(Random.Range(1,4), m_Target);
+            medusa.GetComponent<MedusitaBehaviour>().Init(Random.Range(1,4),m_Target);
         }
     }
     private Vector2 GetRandomPosition()
@@ -152,17 +156,18 @@ public class MedusaBossBehaviour : BossBehaviour
 
         if (Vector2.Distance(transform.position, m_Target.position) > m_RangoHuirPerseguir)
         {
-            print("Me acerco " + Vector2.Distance(transform.position, m_Target.position));
             m_StateMachine.ChangeState<SMBChaseState>();
         }
         else
         {
-            print("Me alejo " + Vector2.Distance(transform.position, m_Target.position));
             m_StateMachine.ChangeState<SMBRunAwayState>();
         }
             
     }
 
+    private void MatarBoss() {
+        Destroy(gameObject);
+    }
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
@@ -171,9 +176,12 @@ public class MedusaBossBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
+        m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         m_BossMuertoEvent.Raise();
-        Destroy(gameObject);
+
     }
 }

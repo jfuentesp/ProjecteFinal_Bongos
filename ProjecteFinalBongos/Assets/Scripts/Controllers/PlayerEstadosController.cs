@@ -215,7 +215,8 @@ public class PlayerEstadosController : MonoBehaviour
         m_Stats.m_Velocity = 0;
     }
     public void UnStuckFunction() {
-        m_Stats.m_Velocity = velocityBefore;
+        if (m_Stats.m_Velocity == 0)
+            m_Stats.m_Velocity = velocityBefore;
     }
     private void PararCorrutina(string rutina)
     {

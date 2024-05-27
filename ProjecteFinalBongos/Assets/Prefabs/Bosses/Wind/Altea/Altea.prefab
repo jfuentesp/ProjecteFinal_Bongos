@@ -198,6 +198,10 @@ MonoBehaviour:
   m_Pool: {fileID: 0}
   m_TwoDirections: 1
   m_RangedAttackAnimationName: Attack
+  m_WaitAnimation: 
+  minWaitTime: 0
+  maxWaitTime: 0
+  m_PosicionSpawn: {x: 1.6, y: 0, z: 0}
 --- !u!195 &-395386619402931416
 NavMeshAgent:
   m_ObjectHideFlags: 0

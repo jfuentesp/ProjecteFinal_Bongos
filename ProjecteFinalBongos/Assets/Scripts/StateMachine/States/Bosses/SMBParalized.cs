@@ -26,6 +26,10 @@ public class SMBParalized : SMState
         StartCoroutine(StunSeconds());
 
     }
+    private void Update()
+    {
+        
+    }
     IEnumerator StunSeconds()
     {
         yield return new WaitForSeconds(times.m_ParalizedTime);

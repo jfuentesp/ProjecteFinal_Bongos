@@ -54,12 +54,14 @@ public class DamaBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
-        transform.GetChild(transform.childCount - 1).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
+        transform.GetChild(transform.childCount - 2).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBParriedState>();
         };
-
         GetComponent<SMBIdleState>().OnPlayerEnter += ActivateBoss;
+    }
+    private void Start()
+    {
         m_StateMachine.ChangeState<SMBIdleState>();
     }
     public override void Init(Transform _Target)
@@ -161,12 +163,12 @@ public class DamaBossBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
-        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         StopAllCoroutines();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
-        m_BossMuertoEvent.Raise();
-        Destroy(gameObject);
+        if (m_BossFinalSala)
+            m_BossMuertoEvent.Raise();
     }
 }

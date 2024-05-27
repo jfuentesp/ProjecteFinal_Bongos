@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7787922209460934600}
   - component: {fileID: 8631274477730193983}
+  - component: {fileID: -311361710498778778}
   m_Layer: 0
-  m_Name: SalaBichos
+  m_Name: SalaFuente
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,3 +85,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-311361710498778778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6593885139977142343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9ae9962726f51448264727d5c0f6ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FountainPrefab: {fileID: 4997710110960692794, guid: de288c11c08a17541a519ffd50a7315a, type: 3}

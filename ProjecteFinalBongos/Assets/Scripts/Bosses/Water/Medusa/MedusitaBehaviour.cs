@@ -13,9 +13,11 @@ public class MedusitaBehaviour : MonoBehaviour
     private Rigidbody2D m_RigidBody;
     private Transform m_Target;
     private bool m_Inmolando;
+    private Animator m_Animator;
 
     private void Awake()
     {
+        m_Animator = GetComponent<Animator>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         m_RigidBody = GetComponent<Rigidbody2D>();
         m_Inmolando = false;
@@ -48,11 +50,13 @@ public class MedusitaBehaviour : MonoBehaviour
     public void PlayerHoming()
     {
         StartCoroutine(Homing());
+        m_Animator.Play("Idle");
     }
 
     private IEnumerator Homing()
     {
         m_Inmolando = true;
+        transform.up = m_Target.position - transform.position;
         //UpdateRotacion(1);
         while (true)
         {
@@ -85,8 +89,13 @@ public class MedusitaBehaviour : MonoBehaviour
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox") || collision.gameObject.layer == LayerMask.NameToLayer("Default"))
             {
-                Destroy(gameObject);
+                m_Animator.Play("MiniDeath");
             }
         }
+    }
+
+    private void MatarBoss()
+    {
+        Destroy(gameObject);
     }
 }

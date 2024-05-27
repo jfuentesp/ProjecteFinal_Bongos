@@ -36,6 +36,10 @@ public class SMBBossStunState : SMState
         StartCoroutine(StunSeconds());
 
     }
+    private void Update()
+    {
+
+    }
     IEnumerator StunSeconds()
     {
         yield return new WaitForSeconds(m_Time);

@@ -50,6 +50,8 @@ public class SinusBullet : Bullet
             return;
         if(collision.gameObject.CompareTag("MechanicObstacle"))
             DisableBullet();
+        if(collision.gameObject.CompareTag("Player"))
+            DisableBullet();
     }
 
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SMBRangedAttack : SMState
 {
@@ -17,7 +18,14 @@ public class SMBRangedAttack : SMState
 
     [SerializeField] private bool m_TwoDirections;
     [SerializeField] private string m_RangedAttackAnimationName;
+    [SerializeField]
+    private string m_WaitAnimation;
+    [SerializeField]
+    private float minWaitTime;
+    [SerializeField]
+    private float maxWaitTime;
     private bool derecha;
+    [SerializeField] private Vector3 m_PosicionSpawn;
 
     private Transform m_Target;
 
@@ -45,11 +53,12 @@ public class SMBRangedAttack : SMState
         base.InitState();
         m_Boss.SetBusy(true);
         m_Rigidbody.velocity = Vector3.zero;
-
         if (m_RangedAttackAnimationName == String.Empty)
             print("ay");
-        else
-            AttackAnimation();
+        else {
+            StartCoroutine(AttackAnimationRoutine());
+        }
+         
     }
 
     private void AttackAnimation()
@@ -70,11 +79,55 @@ public class SMBRangedAttack : SMState
     }
 
 
+    private IEnumerator AttackAnimationRoutine()
+    {
+        float waitTime = Random.Range(minWaitTime, maxWaitTime);
+        if (m_TwoDirections)
+        {
+            m_Animator.Play(m_WaitAnimation);
+            if (m_Target != null)
+            {
+                if (m_Target.position.x - transform.position.x < 0)
+                {
+                    derecha = false;
+                }
+                else
+                {
+                    derecha = true;
+                }
+            }
+        }
+      
+        yield return new WaitForSeconds(waitTime);
 
+        if (m_TwoDirections)
+        {
+    
+            m_Animator.Play(m_RangedAttackAnimationName);
+            if (m_Target != null)
+            {
+                if (m_Target.position.x - transform.position.x < 0)
+                {
+                    derecha = false;
+                }
+                else
+                {
+                    derecha = true;
+                }
+            }
+        }
+    }
     private void DispararAtaque()
     {
         GameObject lightning = m_Pool.GetElement();
-        lightning.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        if (derecha)
+        {
+            lightning.transform.position = transform.position + m_PosicionSpawn;
+        }
+        else
+        {
+            lightning.transform.position = transform.position - m_PosicionSpawn;
+        }
         lightning.SetActive(true);
         lightning.GetComponent<AlteaBullet>().enabled = true;
         lightning.GetComponent<AlteaBullet>().Init(m_Target.position - transform.position);
@@ -98,6 +151,7 @@ public class SMBRangedAttack : SMState
     public override void ExitState()
     {
         base.ExitState();
+        StopAllCoroutines();
     }
     // Update is called once per frame
     void Update()

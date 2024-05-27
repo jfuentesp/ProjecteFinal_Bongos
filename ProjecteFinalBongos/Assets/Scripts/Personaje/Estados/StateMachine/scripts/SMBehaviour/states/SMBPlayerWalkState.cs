@@ -43,7 +43,6 @@ public class SMBPlayerWalkState : SMState
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed -= Parry;
             m_PJ.Input.FindActionMap("PlayerActions").FindAction("MovementAction").performed -= MovementAction;
         }
-
     }
 
     private void OnAttack1(InputAction.CallbackContext context)
@@ -100,6 +99,16 @@ public class SMBPlayerWalkState : SMState
         }
 
         m_Rigidbody.velocity = m_Movement * m_PJ.PlayerStatsController.m_Velocity;
+    }
+    private void OnDestroy()
+    {
+        if (m_PJ.Input)
+        {
+            m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack1").performed -= OnAttack1;
+            m_PJ.Input.FindActionMap("PlayerActions").FindAction("Attack2").performed -= OnAttack2;
+            m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed -= Parry;
+            m_PJ.Input.FindActionMap("PlayerActions").FindAction("MovementAction").performed -= MovementAction;
+        }
     }
 }
 

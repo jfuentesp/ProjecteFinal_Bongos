@@ -115,7 +115,6 @@ public class ClonBehaviour : MonoBehaviour
             if (collision.gameObject.layer == LayerMask.NameToLayer("BossHitBox"))
             {
                 m_Alive = false;
-                print("Me muero");
                 Finish();
             }
         }

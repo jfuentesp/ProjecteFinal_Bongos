@@ -51,8 +51,8 @@ public class BossStatsController : MonoBehaviour
     public float m_Defense;
     private void Start()
     {
-        m_Velocity = m_bossBaseStats.speed;
         m_Strength = m_bossBaseStats.attack;
+        m_Velocity = m_bossBaseStats.speed;
         m_Defense = m_bossBaseStats.defense;
 
     }

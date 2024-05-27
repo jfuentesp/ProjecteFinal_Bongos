@@ -8,18 +8,20 @@ public class PasilloObjetos : TipoSala, ISaveableObjetosData
 {
     [SerializeField] List<Consumable> m_ObjetosDisponibles = new();
     [SerializeField] private GameObject m_CofrePrefab;
+    [SerializeField] private bool m_Horizontal;
     protected override void SpawnerSala()
     {
         foreach (Consumable m_Objeto in m_ObjetosDisponibles)
         {
             GameObject Barril = Instantiate(m_CofrePrefab, transform);
             Barril.GetComponent<BarrelController>().SetConsumable(m_Objeto);
-            Barril.transform.position = GetPosicionSPawnear();
+            Barril.transform.position = GetPosicionSPawnear(m_Horizontal);
         }
     }
 
-    public void Init(List<Consumable> objetosDisponibles)
+    public void Init(List<Consumable> objetosDisponibles, bool horizontal)
     {
+        m_Horizontal = horizontal;
         m_ObjetosDisponibles = objetosDisponibles;
         SpawnerSala();
     }

@@ -41,6 +41,7 @@ public class MiniGryphusBehaviour : BossBehaviour
         };
         transform.GetChild(0).GetComponent<BossAttackDamage>().OnAttackHealed = (GameObject obj) =>
         {
+            m_HealthController.Heal(transform.GetChild(0).GetComponent<BossAttackDamage>().Damage * 0.75f);
             ParticulitasCura();
         };
         transform.GetChild(0).GetComponent<BossAttackDamage>().OnAttackParried = (GameObject obj) =>
@@ -119,9 +120,12 @@ public class MiniGryphusBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
+        m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
-        m_BossMuertoEvent.Raise();
-        Destroy(gameObject);
+        if (m_BossFinalSala)
+            m_BossMuertoEvent.Raise();
     }
 }
