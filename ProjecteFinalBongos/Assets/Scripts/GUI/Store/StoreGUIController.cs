@@ -92,7 +92,7 @@ public class StoreGUIController : MonoBehaviour
     public void CloseShop() 
     {
         PJSMB.Instance.GetComponent<SMBPlayerStopState>().Exit();
-        m_GUIPanel.SetActive(false);
+        m_GUIInGame.ClosePanelsInsteadOf(TypeOfPanels.INICIAL);
         OnClosingStore?.Invoke();
     }
 

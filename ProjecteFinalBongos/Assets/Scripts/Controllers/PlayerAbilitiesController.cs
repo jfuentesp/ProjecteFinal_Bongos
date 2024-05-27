@@ -23,7 +23,15 @@ public class PlayerAbilitiesController : MonoBehaviour
     private List<Ability> m_AtaquesMejorados = new List<Ability>();
     public List<Ability> AtaquesMejoradosDisponibles => m_AtaquesMejorados;
     private float m_cooldown;
-    private  void Awake()
+
+    public Action OnMovementAbilityCooldown;
+
+    private void Awake()
+    {
+        InitAbilities();
+    }
+
+    public void InitAbilities()
     {
         initMovementAbility();
         initParryAbility();
@@ -44,7 +52,7 @@ public class PlayerAbilitiesController : MonoBehaviour
     public void initCoolDown(float cooldown)
     {
         m_cooldown = cooldown;
-        StartCoroutine(MovementCooldown(cooldown));
+        StartCoroutine(MovementCooldown());
     }
 
     public void changeMovement(Ability movementAction)
@@ -65,6 +73,8 @@ public class PlayerAbilitiesController : MonoBehaviour
 
     public void learnMovement(Ability movementAction)
     {
+        movementAction.OnCooldown = false;
+        movementAction.ElapsedTime = 0;
         m_MovementActionsDisponibles.Add(movementAction);
         changeMovement(movementAction);
         OnLearnAbility?.Invoke();
@@ -90,6 +100,7 @@ public class PlayerAbilitiesController : MonoBehaviour
             return m_MovementActionsDisponibles[currentIndex + 1];
         else
             return null;
+
     }
 
     public Ability GetPreviousAbility()
@@ -117,14 +128,16 @@ public class PlayerAbilitiesController : MonoBehaviour
         OnLearnAbility?.Invoke();
     }
 
-    IEnumerator MovementCooldown(float CoolDown)
+    IEnumerator MovementCooldown()
     {
-        m_canMove = false;
-        yield return new WaitForSeconds(CoolDown);
-        m_canMove = true;
+        Ability currentAbility = m_actualMovement;
+        currentAbility.OnCooldown = true;
+        OnMovementAbilityCooldown?.Invoke();
+        yield return new WaitForSeconds(currentAbility.Cooldown);
+        currentAbility.OnCooldown = false;
         Exit();
     }
     private void Exit() {
-        StopCoroutine(MovementCooldown(m_cooldown));
+        StopCoroutine(MovementCooldown());
     }
 }

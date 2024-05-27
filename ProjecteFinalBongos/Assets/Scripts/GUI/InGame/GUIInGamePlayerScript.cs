@@ -35,6 +35,7 @@ public class GUIInGamePlayerScript : MonoBehaviour
         m_Player.Input.FindActionMap("PlayerActions").FindAction("OpenInventory").performed += OpenInventory;
     }
 
+
     private void ResumeGame()
     {
         m_PausaPanel.SetActive(m_GameParado);
@@ -93,6 +94,8 @@ public class GUIInGamePlayerScript : MonoBehaviour
     private void OnDestroy()
     {
         m_Player.Input.FindActionMap("PlayerActions").FindAction("Pause").started -= PararLaPartida;
+        m_Player.Input.FindActionMap("PlayerActions").FindAction("OpenAbilities").performed -= OpenAbilities;
+        m_Player.Input.FindActionMap("PlayerActions").FindAction("OpenInventory").performed -= OpenInventory;
     }
 
     public void ClosePanelsInsteadOf(TypeOfPanels panel)
