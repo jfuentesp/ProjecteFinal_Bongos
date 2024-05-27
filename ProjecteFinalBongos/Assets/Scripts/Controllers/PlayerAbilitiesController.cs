@@ -74,7 +74,7 @@ public class PlayerAbilitiesController : MonoBehaviour
     public void learnMovement(Ability movementAction)
     {
         movementAction.OnCooldown = false;
-        movementAction.ElapsedTime = 0;
+        movementAction.CooldownRemaining = 0;
         m_MovementActionsDisponibles.Add(movementAction);
         changeMovement(movementAction);
         OnLearnAbility?.Invoke();

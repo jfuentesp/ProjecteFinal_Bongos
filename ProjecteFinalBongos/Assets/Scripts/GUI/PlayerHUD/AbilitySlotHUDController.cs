@@ -34,11 +34,11 @@ public class AbilitySlotHUDController : MonoBehaviour
 
         if (m_CurrentSlotAbility.OnCooldown)
         {
-            m_CurrentSlotAbility.ElapsedTime -= Time.deltaTime;
-            m_CooldownImage.fillAmount = m_CurrentSlotAbility.ElapsedTime / m_CurrentSlotAbility.Cooldown;
-            if (m_CurrentSlotAbility.ElapsedTime <= 0)
+            m_CurrentSlotAbility.CooldownRemaining -= Time.deltaTime;
+            m_CooldownImage.fillAmount = m_CurrentSlotAbility.CooldownRemaining / m_CurrentSlotAbility.Cooldown;
+            if (m_CurrentSlotAbility.CooldownRemaining <= 0)
             {
-                m_CurrentSlotAbility.ElapsedTime = 0;
+                m_CurrentSlotAbility.CooldownRemaining = 0;
                 m_CooldownImage.gameObject.SetActive(false);
                 m_CooldownImage.fillAmount = 0;
             }
@@ -103,7 +103,7 @@ public class AbilitySlotHUDController : MonoBehaviour
 
     private void AbilityCooldown()
     {
-        if (m_CurrentSlotAbility.ElapsedTime <= 0)
-            m_CurrentSlotAbility.ElapsedTime = m_CurrentSlotAbility.Cooldown;
+        if (m_CurrentSlotAbility.CooldownRemaining <= 0)
+            m_CurrentSlotAbility.CooldownRemaining = m_CurrentSlotAbility.Cooldown;
     }
 }
