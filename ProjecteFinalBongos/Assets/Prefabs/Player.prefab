@@ -4874,6 +4874,7 @@ GameObject:
   - component: {fileID: 2877444579328802483}
   - component: {fileID: -37645083596162389}
   - component: {fileID: 6581448414601255830}
+  - component: {fileID: 1380150824676145829}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -5465,7 +5466,7 @@ MonoBehaviour:
   m_ElectricResistance: 5
   m_PlayerBaseStats: {fileID: 11400000, guid: fe6e42c4c219d03489147d28d3b95089, type: 2}
   m_Velocity: 0
-  m_AttackTime: 0
+  m_AttackTime: 2
   m_Strength: 0
   m_Defense: 0
   m_Sword: {fileID: 0}
@@ -5581,6 +5582,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HabilityPoints: 3
+--- !u!114 &1380150824676145829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922464185457733035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef6acfb6664b5f846910127ebbcc7058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2352748786373372752
 GameObject:
   m_ObjectHideFlags: 0
