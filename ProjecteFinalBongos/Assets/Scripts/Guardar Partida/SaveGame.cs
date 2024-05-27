@@ -93,15 +93,28 @@ namespace SaveLoadGame
         [Serializable]
         public struct BackPack
         {
-            public string[] m_ConsumableSlotId;
+            public ConsumablesSLots[] m_ConsumableSlotId;
             public string[] m_EquipableSlotId;
             public string[] m_QuickCosnumableSlotsId;
 
-            public BackPack(string[] _ConsumableSlotId, string[] _EquipableSlotId, string[] _QuickCosnumableSlotsId)
+            public BackPack(ConsumablesSLots[] _ConsumableSlotId, string[] _EquipableSlotId, string[] _QuickCosnumableSlotsId)
             {
                 m_ConsumableSlotId = _ConsumableSlotId;
                 m_EquipableSlotId = _EquipableSlotId;
                 m_QuickCosnumableSlotsId = _QuickCosnumableSlotsId;
+            }
+        }
+
+        [Serializable]
+        public struct ConsumablesSLots
+        {
+            public string id;
+            public int quantity;
+
+            public ConsumablesSLots(string _id, int _quantity)
+            {
+                id = _id;
+                quantity = _quantity;
             }
         }
 

@@ -425,18 +425,19 @@ public class InventoryController : MonoBehaviour, ISaveableBackPackData
     public BackPack Save()
     {
         SaveGame.BackPack m_BackPack = new SaveGame.BackPack();
-        string[] consumableSlotId = new string[25];
+        SaveGame.ConsumablesSLots[] consumableSlotId = new SaveGame.ConsumablesSLots[25];
 
         for (int i = 0; i < consumableSlotId.Length; i++)
         {
             //print(m_InventoryBackpack.ConsumableSlots[i].Consumable.id);
             if (m_InventoryBackpack.ConsumableSlots[i] != null)
             {
-                consumableSlotId[i] = m_InventoryBackpack.ConsumableSlots[i].Consumable.id;
+                consumableSlotId[i] = new SaveGame.ConsumablesSLots(m_InventoryBackpack.ConsumableSlots[i].Consumable.id, m_InventoryBackpack.ConsumableSlots[i].Quantity);
+                    
             }
             else
             {
-                consumableSlotId[i] = "99";
+                consumableSlotId[i] = new SaveGame.ConsumablesSLots("99", 0);
             }
         }
 
@@ -461,6 +462,20 @@ public class InventoryController : MonoBehaviour, ISaveableBackPackData
 
     public void Load(BackPack _BackPack)
     {
-        throw new NotImplementedException();
+        for(int i = 0; i < _BackPack.m_ConsumableSlotId.Length; i++)
+        {
+            if (_BackPack.m_ConsumableSlotId[i].id != "99")
+            {
+                m_InventoryBackpack.AddConsumableLoadGame(LevelManager.Instance.ConsumableDataBase.GetItemByID(_BackPack.m_ConsumableSlotId[i].id), _BackPack.m_ConsumableSlotId[i].quantity, i);
+            }
+        }
+        for (int i = 0; i < _BackPack.m_EquipableSlotId.Length; i++)
+        {
+            if (_BackPack.m_EquipableSlotId[i] != "99")
+            {
+                m_InventoryBackpack.AddEquipableLoadGame(LevelManager.Instance.EquipableDataBase.GetItemByID(_BackPack.m_EquipableSlotId[i]), i);
+            }
+        }
+
     }
 }

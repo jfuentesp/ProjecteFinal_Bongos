@@ -25,10 +25,6 @@ namespace SaveLoadGame
             data.PopulateDataPasilloObjetos(dataPasilloObjetos);
             data.PopulateDataBackPack(dataBackpack);
             print(data.m_BackPack.m_ConsumableSlotId);
-            foreach(string id in data.m_BackPack.m_ConsumableSlotId)
-            {
-                print(id);
-            }
             data.m_NameAndWorld = new NameAndWorld(GameManager.Instance.PlayerName, LevelManager.Instance.MundoActualJugador);
 
 
@@ -127,6 +123,9 @@ namespace SaveLoadGame
                         pasillosObjetos[i].Load(pasillito);
                 }
             }
+            InventoryController inventoryController = FindObjectOfType<InventoryController>();
+            inventoryController.Load(data.m_BackPack);
+
             GameManager.Instance.SetNamePlayer(data.m_NameAndWorld.m_Name);
         }
     }

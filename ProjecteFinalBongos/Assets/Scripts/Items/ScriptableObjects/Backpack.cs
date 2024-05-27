@@ -76,6 +76,12 @@ public class Backpack : ScriptableObject
         }
     }
 
+    public void AddConsumableLoadGame(Consumable item, int quantity, int slotId)
+    {
+        m_ConsumableSlots[slotId] = new ConsumableSlot(item);
+        m_ConsumableSlots[slotId].Quantity = quantity;
+    }
+
     public void RemoveConsumable(Consumable item)
     {
         ConsumableSlot itemSlot = GetConsumable(item);
@@ -124,6 +130,11 @@ public class Backpack : ScriptableObject
             int index = Array.FindIndex(m_EquipableSlots, i => i == null);
             m_EquipableSlots[index] = new EquipableSlot(item);
         }
+    }
+
+    public void AddEquipableLoadGame(Equipable item, int slotId)
+    {
+        m_EquipableSlots[slotId] = new EquipableSlot(item);
     }
 
     public void RemoveEquipable(Equipable item)

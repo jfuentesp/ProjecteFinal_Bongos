@@ -64,13 +64,8 @@ public class PasilloTienda : TipoSala, ISaveableTiendasData
         }
         foreach (string equipableId in _pasilloTiendaData.m_EquipablesId)
         {
-            if (LevelManager.Instance.EquipableDataBase.GetItemByID(equipableId) == null)
+            if (LevelManager.Instance.EquipableDataBase.GetItemByID(equipableId) != null)
             {
-                print(equipableId + " es nulo");
-            }
-            else
-            {
-                print(equipableId + " " + LevelManager.Instance.EquipableDataBase.GetItemByID(equipableId).itemName);
                 m_EquipablesDisponibles.Add(LevelManager.Instance.EquipableDataBase.GetItemByID(equipableId));
             }
         }
