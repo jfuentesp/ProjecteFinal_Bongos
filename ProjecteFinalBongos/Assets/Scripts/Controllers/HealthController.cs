@@ -55,7 +55,10 @@ public class HealthController : MonoBehaviour, IHealable, IDamageable
 
         //Debug.Log(string.Format(gameObject.name + " Healed by {0} points. Remaining HP: {1}", healAmount, m_HP));
     }
-
+    public void SetHPFromLoad(float _HP)
+    {
+        m_HP = _HP;
+    }
     public void Revive()
     {
         m_HP = MAXHP;

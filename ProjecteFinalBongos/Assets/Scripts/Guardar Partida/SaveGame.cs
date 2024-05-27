@@ -117,6 +117,20 @@ namespace SaveLoadGame
                 quantity = _quantity;
             }
         }
+        [Serializable]
+        public struct PlayerStats
+        {
+            public string idSword;
+            public string idArmor;
+
+            public float m_Velocity;
+            public float m_AttackTime;
+            public float m_Strength;
+            public float m_Defense;
+            public float m_HP;
+            public int m_Money;
+            public int m_AbilityPoints;
+        }
 
 
         //Variables de guardado
@@ -126,6 +140,7 @@ namespace SaveLoadGame
         public PasilloObjetosData[] m_PasilloObjetos;
         public NameAndWorld m_NameAndWorld;
         public BackPack m_BackPack;
+        public PlayerStats m_PlayerStats;
 
 
         //Populates
@@ -160,6 +175,11 @@ namespace SaveLoadGame
             m_BackPack = _BackPack.Save();
         }
 
+        public void PopulateDataPlayer(ISaveablePlayerData _PlayerStats)
+        {
+            m_PlayerStats = _PlayerStats.Save();
+        }
+
         public interface ISaveableSalasData
         {
             public SalasData Save();
@@ -187,6 +207,11 @@ namespace SaveLoadGame
         {
             public BackPack Save();
             public void Load(BackPack _BackPack);
+        }
+        public interface ISaveablePlayerData
+        {
+            public PlayerStats Save();
+            public void Load(PlayerStats _PlayerStats);
         }
     }
 }

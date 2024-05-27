@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce562ca1e324674469e81bc5db144a65, type: 3}
   m_Name: StunAttack
   m_EditorClassIdentifier: 
-  m_AbilityId: 2
+  m_AbilityId: 30
   m_AbilityName: Ataque aturdidor
   m_AbilityDescription: "Tus ataques r\xE1pidos tienen la posibilidad de aturdir
     al enemigo."
@@ -22,3 +22,4 @@ MonoBehaviour:
   m_AbilityType: 0
   m_AbilityEnum: 12
   m_PowerUpAmount: 0
+  m_Cooldown: 0

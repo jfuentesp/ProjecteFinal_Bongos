@@ -85,6 +85,9 @@ public class BossBehaviour : MonoBehaviour
     public NavMeshAgent NavMeshAgent => m_NavMeshAgent;
 
     [SerializeField] private LayerMask m_layerMask;
+    [Header("Economy when dies")]
+    [SerializeField] protected GameObject m_GoldPrefab;
+    [SerializeField] protected GameObject m_AbilityPointPrefab;
 
     protected virtual void Awake()
     {

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce562ca1e324674469e81bc5db144a65, type: 3}
   m_Name: ParryParalization
   m_EditorClassIdentifier: 
-  m_AbilityId: 17
+  m_AbilityId: 18
   m_AbilityName: Bloqueo electrizante
   m_AbilityDescription: Al realizar un bloqueo, paralizas al enemigo temporalmente.
   m_AbilitySprite: {fileID: 21300000, guid: bc5007c533cc47341bcd14bffbf1f40f, type: 3}
@@ -21,3 +21,4 @@ MonoBehaviour:
   m_AbilityType: 0
   m_AbilityEnum: 7
   m_PowerUpAmount: 0
+  m_Cooldown: 0
