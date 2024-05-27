@@ -245,11 +245,13 @@ public class PJSMB : MonoBehaviour, ISaveablePlayerData
 
         if (_PlayerStats.idSword != "99")
         {
-            m_playersStatsController.EquipSword(LevelManager.Instance.EquipableDataBase.GetItemByID(_PlayerStats.idSword).GetComponent<Sword>());
+            m_Inventory.OnEquip(_PlayerStats.idSword);
+            //m_playersStatsController.EquipSword(LevelManager.Instance.EquipableDataBase.GetItemByID(_PlayerStats.idSword).GetComponent<Sword>());
         }
         if(_PlayerStats.idArmor != "99")
         {
-            m_playersStatsController.EquipArmor(LevelManager.Instance.EquipableDataBase.GetItemByID(_PlayerStats.idArmor).GetComponent<Armor>());
+            m_Inventory.OnEquip(_PlayerStats.idArmor);
+            //m_playersStatsController.EquipArmor(LevelManager.Instance.EquipableDataBase.GetItemByID(_PlayerStats.idArmor).GetComponent<Armor>());
         }
     }
 }

@@ -14,16 +14,17 @@ public class PruebaNavMesh : MonoBehaviour
     private NavMeshSurface surface;
     private void Awake()
     {
-        print("Awake del navmesh");
-        surface = GetComponent<NavMeshSurface>();
-        print(LevelManager.Instance == null);
-        m_Mapa = LevelManager.Instance.GeneracionSalasInstanciacion;
-        m_Mapa.onMapaFinalized += ConstruirMapa;
+       
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        print("Awake del navmesh");
+        surface = GetComponent<NavMeshSurface>();
+        print(LevelManager.Instance == null);
+        m_Mapa = LevelManager.Instance.GeneracionSalasInstanciacion;
+        m_Mapa.onMapaFinalized += ConstruirMapa;
         if (surface == null)
         {
             Debug.LogError("NavMeshSurface no est� asignado en el inspector.");

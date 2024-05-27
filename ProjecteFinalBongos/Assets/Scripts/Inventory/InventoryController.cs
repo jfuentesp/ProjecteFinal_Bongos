@@ -113,7 +113,7 @@ public class InventoryController : MonoBehaviour, ISaveableBackPackData
     private void Start()
     {
         m_PlayerStats = PJSMB.Instance.PlayerStatsController;
-        m_Player = GameManager.Instance.PlayerInGame;
+        m_Player = PJSMB.Instance.gameObject;
         m_MovingConsumable = false;
         m_MovingEquipable = false;
         m_LastSelection = m_InitialButton;

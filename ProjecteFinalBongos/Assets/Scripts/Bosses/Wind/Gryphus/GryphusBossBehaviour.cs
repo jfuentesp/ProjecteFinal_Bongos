@@ -113,12 +113,14 @@ public class GryphusBossBehaviour : BossBehaviour
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
-
-        if (m_CurrentPhase == Phase.ONE && m_HealthController.HP <= m_HealthController.HPMAX / 2)
+        if (m_IsAlive)
         {
-            print("Cambio de fase");
-            m_CurrentPhase = Phase.TWO;
-            transform.GetChild(0).GetComponent<BossAttackDamage>().SetDamage(transform.GetChild(0).GetComponent<BossAttackDamage>().Damage * 2);
+            if (m_CurrentPhase == Phase.ONE && m_HealthController.HP <= m_HealthController.HPMAX / 2)
+            {
+                print("Cambio de fase");
+                m_CurrentPhase = Phase.TWO;
+                transform.GetChild(0).GetComponent<BossAttackDamage>().SetDamage(transform.GetChild(0).GetComponent<BossAttackDamage>().Damage * 2);
+            }
         }
     }
 

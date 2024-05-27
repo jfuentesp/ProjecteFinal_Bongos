@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Description: da
   m_Target: {fileID: 0}
   m_BloodController: {fileID: 546488759695763725}
+  m_BossFinalSala: 0
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 0
   m_AreaWideness: 0
@@ -180,6 +181,8 @@ MonoBehaviour:
   m_layerMask:
     serializedVersion: 2
     m_Bits: 128
+  m_GoldPrefab: {fileID: 0}
+  m_AbilityPointPrefab: {fileID: 0}
 --- !u!195 &7191566821977629713
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -487,7 +490,7 @@ MonoBehaviour:
   parreable: 0
   healable: 0
   m_EstadoAlterado: 4
-  stateTime: 2
+  stateTime: 1
 --- !u!114 &4513353836437777373
 MonoBehaviour:
   m_ObjectHideFlags: 0

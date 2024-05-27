@@ -26,6 +26,8 @@ public class SMBChargeState : SMState
     [SerializeField]
     private float m_ChargeSpeed;
 
+    [SerializeField] private Vector3 m_Speed;
+
     [Header("Charge force to apply on impact")]
     [SerializeField]
     private float m_ChargeForce;
@@ -82,7 +84,7 @@ public class SMBChargeState : SMState
         m_Boss.SetBusy(true);
         StartCoroutine(ChargeCoroutine());
         m_NavMeshAgent.ResetPath();
-        m_NavMeshAgent.speed = m_ChargeSpeed;
+        //m_NavMeshAgent.speed = m_ChargeSpeed;
     }
 
     public override void ExitState()
@@ -145,15 +147,17 @@ public class SMBChargeState : SMState
             else
                 transform.localEulerAngles = new Vector3(0, 180, 0);
         }
-    }
-
-    private void FixedUpdate()
-    {
         if (m_IsCharging)
         {
             m_NavMeshAgent.isStopped = false;
             m_NavMeshAgent.velocity = m_Direction * m_ChargeSpeed;
+            m_Speed = m_NavMeshAgent.velocity;
         }
+    }
+
+    private void FixedUpdate()
+    {
+       
         //m_Rigidbody.velocity = m_Direction * m_ChargeSpeed;
     }
 
