@@ -24,9 +24,14 @@ public class PlayerAbilitiesController : MonoBehaviour
     public List<Ability> AtaquesMejoradosDisponibles => m_AtaquesMejorados;
     private float m_cooldown;
 
-    public Action<AbilityEnum, float> OnMovementAbilityCooldown;
+    public Action OnMovementAbilityCooldown;
 
-    private  void Awake()
+    private void Awake()
+    {
+        InitAbilities();
+    }
+
+    public void InitAbilities()
     {
         initMovementAbility();
         initParryAbility();
@@ -46,9 +51,8 @@ public class PlayerAbilitiesController : MonoBehaviour
     }
     public void initCoolDown(float cooldown)
     {
-        OnMovementAbilityCooldown.Invoke(m_actualMovement.AbilityEnum, cooldown);
         m_cooldown = cooldown;
-        StartCoroutine(MovementCooldown(cooldown));
+        StartCoroutine(MovementCooldown());
     }
 
     public void changeMovement(Ability movementAction)
@@ -70,6 +74,7 @@ public class PlayerAbilitiesController : MonoBehaviour
     public void learnMovement(Ability movementAction)
     {
         movementAction.OnCooldown = false;
+        movementAction.ElapsedTime = 0;
         m_MovementActionsDisponibles.Add(movementAction);
         changeMovement(movementAction);
         OnLearnAbility?.Invoke();
@@ -95,6 +100,7 @@ public class PlayerAbilitiesController : MonoBehaviour
             return m_MovementActionsDisponibles[currentIndex + 1];
         else
             return null;
+
     }
 
     public Ability GetPreviousAbility()
@@ -122,14 +128,16 @@ public class PlayerAbilitiesController : MonoBehaviour
         OnLearnAbility?.Invoke();
     }
 
-    IEnumerator MovementCooldown(float CoolDown)
+    IEnumerator MovementCooldown()
     {
-        m_actualMovement.OnCooldown = true;
-        yield return new WaitForSeconds(CoolDown);
-        m_actualMovement.OnCooldown = false;
+        Ability currentAbility = m_actualMovement;
+        currentAbility.OnCooldown = true;
+        OnMovementAbilityCooldown?.Invoke();
+        yield return new WaitForSeconds(currentAbility.Cooldown);
+        currentAbility.OnCooldown = false;
         Exit();
     }
     private void Exit() {
-        StopCoroutine(MovementCooldown(m_cooldown));
+        StopCoroutine(MovementCooldown());
     }
 }
