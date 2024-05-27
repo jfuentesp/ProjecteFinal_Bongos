@@ -36,6 +36,7 @@ public class PasilloTienda : TipoSala, ISaveableTiendasData
     public PasilloTiendaData Save()
     {
         string[] idObjetos = new string[m_ObjetosDisponibles.Count];
+        string[] idEquipables = new string[m_EquipablesDisponibles.Count];
         PasilloTiendaData PiccoloChad = new PasilloTiendaData();
 
         PiccoloChad.m_PiccoloId = m_PiccoloId;
@@ -44,7 +45,12 @@ public class PasilloTienda : TipoSala, ISaveableTiendasData
         {
             idObjetos[i] = m_ObjetosDisponibles[i].id;
         }
+        for (int i = 0; i < m_EquipablesDisponibles.Count; i++)
+        {
+            idEquipables[i] = m_EquipablesDisponibles[i].id;
+        }
         PiccoloChad.m_ObjetosId = idObjetos;
+        PiccoloChad.m_EquipablesId = idEquipables;
 
         return PiccoloChad;
     }
@@ -55,6 +61,18 @@ public class PasilloTienda : TipoSala, ISaveableTiendasData
         foreach (string objetoId in _pasilloTiendaData.m_ObjetosId)
         {
             m_ObjetosDisponibles.Add(LevelManager.Instance.ConsumableDataBase.GetItemByID(objetoId));
+        }
+        foreach (string equipableId in _pasilloTiendaData.m_EquipablesId)
+        {
+            if (LevelManager.Instance.EquipableDataBase.GetItemByID(equipableId) == null)
+            {
+                print(equipableId + " es nulo");
+            }
+            else
+            {
+                print(equipableId + " " + LevelManager.Instance.EquipableDataBase.GetItemByID(equipableId).itemName);
+                m_EquipablesDisponibles.Add(LevelManager.Instance.EquipableDataBase.GetItemByID(equipableId));
+            }
         }
         m_CanOpenDoor = true;
         SpawnerSala();

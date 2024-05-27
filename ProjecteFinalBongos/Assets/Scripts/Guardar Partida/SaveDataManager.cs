@@ -16,12 +16,19 @@ namespace SaveLoadGame
             ISaveableSalaBossData[] dataBosses = FindObjectsByType<SalaBoss>(FindObjectsSortMode.None);
             ISaveableTiendasData[] dataTiendas = FindObjectsByType<PasilloTienda>(FindObjectsSortMode.None);
             ISaveableObjetosData[] dataPasilloObjetos = FindObjectsByType<PasilloObjetos>(FindObjectsSortMode.None);
+            ISaveableBackPackData dataBackpack = FindObjectOfType<InventoryController>();
 
             SaveGame data = new SaveGame();
             data.PopulateDataMapaSalas(dataSalas);
             data.PopulateDataSalasBoss(dataBosses);
             data.PopulateDataPasilloTienda(dataTiendas);
             data.PopulateDataPasilloObjetos(dataPasilloObjetos);
+            data.PopulateDataBackPack(dataBackpack);
+            print(data.m_BackPack.m_ConsumableSlotId);
+            foreach(string id in data.m_BackPack.m_ConsumableSlotId)
+            {
+                print(id);
+            }
             data.m_NameAndWorld = new NameAndWorld(GameManager.Instance.PlayerName, LevelManager.Instance.MundoActualJugador);
 
 
