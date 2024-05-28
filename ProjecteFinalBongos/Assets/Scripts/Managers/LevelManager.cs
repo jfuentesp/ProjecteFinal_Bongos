@@ -117,6 +117,7 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator DesfundirNegroCoroutine()
     {
+        //GetComponent<GUIInGamePlayerScript>().ClosePanelsInsteadOf(TypeOfPanels.INICIAL);
         while (m_FundidoNegroPanel.GetComponent<Image>().color.a > 0)
         {
             Color colorin = m_FundidoNegroPanel.GetComponent<Image>().color;
@@ -214,6 +215,7 @@ public class LevelManager : MonoBehaviour
 
     public void GuardarPartida()
     {
+        print("PuntoGuardado");
         m_GuardarPartidaEvent.Raise();
     }
 

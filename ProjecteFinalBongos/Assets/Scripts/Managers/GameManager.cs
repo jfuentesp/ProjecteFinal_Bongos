@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour, ISaveablePreSetsData
     public Action OnPlayerDeleted;
     [SerializeField] private string m_PlayerName;
     public string PlayerName => m_PlayerName;
-    private const string playerAndWorldFile = "JugadoresGuardados.txt";
+    private const string playerAndWorldFile = "JugadoresGuardados.json";
     private string rutaCompletaHastaCarpeta;
     public string RutaCompletaHastaCarpeta => rutaCompletaHastaCarpeta;
     private string rutaCompleta;

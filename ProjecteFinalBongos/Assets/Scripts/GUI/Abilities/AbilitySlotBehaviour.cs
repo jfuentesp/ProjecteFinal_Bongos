@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static SaveLoadGame.SaveGame;
 
 public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandler, IPointerClickHandler, IPointerEnterHandler
 {
@@ -18,6 +19,9 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
     private Button m_Slot;
     [SerializeField]
     private Image m_SlotImage;
+    [SerializeField]
+    private string m_ButtonId;
+    public string ButtonId => m_ButtonId;
 
     private Ability m_AssignedAbility;
     public Ability AssignedAbility => m_AssignedAbility;
@@ -27,6 +31,7 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
     {
         m_AbilitiesGUI = LevelManager.Instance.AbilitiesGUIController;
         m_AssignedAbility = m_AbilitiesGUI.GetRandomAbilityByTierAndType(m_SlotTier, m_SlotCategory);
+        print("Existo?");
     }
 
 
@@ -122,4 +127,5 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
     {
         m_AbilitiesGUI.SetSelection(gameObject);
     }
+
 }

@@ -130,8 +130,18 @@ namespace SaveLoadGame
             public float m_HP;
             public int m_Money;
             public int m_AbilityPoints;
-        }
+            public AbilityTierEnum m_TierDefensive;
+            public AbilityTierEnum m_TierOffensive;
+            public AbilityTierEnum m_TierAgility;
 
+        }
+        [Serializable]
+        public struct PlayerAbilities
+        {
+            public string m_ButtonId;
+            public string m_AbilityId;
+            public bool m_AbilityIsLearned;
+        }
 
         //Variables de guardado
         public SalasData m_Mapa;
@@ -141,6 +151,7 @@ namespace SaveLoadGame
         public NameAndWorld m_NameAndWorld;
         public BackPack m_BackPack;
         public PlayerStats m_PlayerStats;
+        public PlayerAbilities[] m_PlayerAbilities;
 
 
         //Populates
@@ -180,6 +191,11 @@ namespace SaveLoadGame
             m_PlayerStats = _PlayerStats.Save();
         }
 
+        public void PopulateDataAbilities(ISaveableAbilitiesPlayerData _PlayerAbilities)
+        {
+            m_PlayerAbilities = _PlayerAbilities.Save();
+        }
+
         public interface ISaveableSalasData
         {
             public SalasData Save();
@@ -212,6 +228,12 @@ namespace SaveLoadGame
         {
             public PlayerStats Save();
             public void Load(PlayerStats _PlayerStats);
+        }
+
+        public interface ISaveableAbilitiesPlayerData
+        {
+            public PlayerAbilities[] Save();
+            public void Load(PlayerAbilities[] _PlayerAbilities);
         }
     }
 }

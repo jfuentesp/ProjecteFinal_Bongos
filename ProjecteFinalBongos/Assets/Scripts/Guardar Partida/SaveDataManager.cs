@@ -17,6 +17,7 @@ namespace SaveLoadGame
             ISaveableSalaBossData[] dataBosses = FindObjectsByType<SalaBoss>(FindObjectsSortMode.None);
             ISaveableTiendasData[] dataTiendas = FindObjectsByType<PasilloTienda>(FindObjectsSortMode.None);
             ISaveableObjetosData[] dataPasilloObjetos = FindObjectsByType<PasilloObjetos>(FindObjectsSortMode.None);
+            ISaveableAbilitiesPlayerData dataAbilites = FindObjectOfType<AbilitiesGUIController>();
             ISaveableBackPackData dataBackpack = FindObjectOfType<InventoryController>();
             ISaveablePlayerData dataPlayer = FindObjectOfType<PJSMB>();
 
@@ -27,6 +28,15 @@ namespace SaveLoadGame
             data.PopulateDataPasilloObjetos(dataPasilloObjetos);
             data.PopulateDataBackPack(dataBackpack);
             data.PopulateDataPlayer(dataPlayer);
+            data.PopulateDataAbilities(dataAbilites);
+
+            print("Estas vacio???????" + data.m_PlayerAbilities.Length);
+            foreach(PlayerAbilities habilidades in data.m_PlayerAbilities)
+            {
+                print(habilidades.m_AbilityId);
+                print(habilidades.m_AbilityIsLearned);
+                print(habilidades.m_ButtonId);
+            }
             
             data.m_NameAndWorld = new NameAndWorld(GameManager.Instance.PlayerName, LevelManager.Instance.MundoActualJugador);
 
@@ -126,10 +136,23 @@ namespace SaveLoadGame
                         pasillosObjetos[i].Load(pasillito);
                 }
             }
+
             InventoryController inventoryController = FindObjectOfType<InventoryController>();
             inventoryController.Load(data.m_BackPack);
             PJSMB player = FindObjectOfType<PJSMB>();
             player.Load(data.m_PlayerStats);
+
+            /*AbilitySlotBehaviour[] abilities = FindObjectsByType<AbilitySlotBehaviour>(FindObjectsSortMode.None);
+            for(int i = 0; i < abilities.Length; i++)
+            {
+                foreach(SaveGame.PlayerAbilities ability in data.m_PlayerAbilities)
+                {
+                    if(ability.m_ButtonId == abilities[i].ButtonId)
+                    {
+                        abilities[i].Load(ability);
+                    }
+                }
+            }*/
 
             GameManager.Instance.SetNamePlayer(data.m_NameAndWorld.m_Name);
         }

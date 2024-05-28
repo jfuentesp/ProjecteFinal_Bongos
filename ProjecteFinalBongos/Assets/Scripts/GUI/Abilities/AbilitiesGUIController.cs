@@ -1,3 +1,4 @@
+using SaveLoadGame;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -5,8 +6,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using static SaveLoadGame.SaveGame;
 
-public class AbilitiesGUIController : MonoBehaviour
+public class AbilitiesGUIController : MonoBehaviour, ISaveableAbilitiesPlayerData
 {
     [Header("Ability GUI components")]
     [SerializeField]
@@ -45,6 +47,7 @@ public class AbilitiesGUIController : MonoBehaviour
     [Header("Ability Slot List")]
     [SerializeField]
     private List<AbilitySlotBehaviour> m_Slots;
+    public AbilitySlotBehaviour[] Slots => m_Slots.ToArray();
 
     private HabilityPointsController m_AbilityPoints;
     public HabilityPointsController AbilityPoints => m_AbilityPoints;
@@ -246,5 +249,25 @@ public class AbilitiesGUIController : MonoBehaviour
                 break;
         }
         RefreshAbilityGUI();
+    }
+
+    public PlayerAbilities[] Save()
+    {
+        PlayerAbilities[] abilities = new PlayerAbilities[m_Slots.Count];
+        for(int i = 0; i < m_Slots.Count; i++)
+        {
+            PlayerAbilities ability = new();
+            ability.m_AbilityId = m_Slots[i].AssignedAbility.id;
+            ability.m_AbilityIsLearned = m_Slots[i].AssignedAbility.IsLearnt;
+            ability.m_ButtonId = m_Slots[i].ButtonId;
+            abilities[i] = ability;
+        }
+        return abilities;
+    }
+
+
+    public void Load(PlayerAbilities[] _PlayerAbilities)
+    {
+        throw new System.NotImplementedException();
     }
 }

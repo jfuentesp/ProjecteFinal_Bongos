@@ -211,6 +211,9 @@ public class PJSMB : MonoBehaviour, ISaveablePlayerData
         m_PlayerStats.m_HP = m_HealthController.HP;
         m_PlayerStats.m_Money = m_PlayerGold.DINERO;
         m_PlayerStats.m_AbilityPoints = m_PlayerAbilityPoints.HabilityPoints;
+        m_PlayerStats.m_TierOffensive = m_playerAbilitiesController.CurrentOffensiveTier;
+        m_PlayerStats.m_TierDefensive = m_playerAbilitiesController.CurrentDefensiveTier;
+        m_PlayerStats.m_TierAgility = m_playerAbilitiesController.CurrentAgilityTier;
 
         if (m_playersStatsController.Sword != null)
         {
@@ -242,6 +245,10 @@ public class PJSMB : MonoBehaviour, ISaveablePlayerData
         m_HealthController.SetHPFromLoad(_PlayerStats.m_HP);
         m_PlayerGold.SetDineroFromLoad(_PlayerStats.m_Money);
         m_PlayerAbilityPoints.SetHabilityPoints(_PlayerStats.m_AbilityPoints);
+
+        m_playerAbilitiesController.SetOffensiveTier(_PlayerStats.m_TierOffensive);
+        m_playerAbilitiesController.SetDefensiveTier(_PlayerStats.m_TierDefensive);
+        m_playerAbilitiesController.SetAgilityTier(_PlayerStats.m_TierAgility);
 
         if (_PlayerStats.idSword != "99")
         {
