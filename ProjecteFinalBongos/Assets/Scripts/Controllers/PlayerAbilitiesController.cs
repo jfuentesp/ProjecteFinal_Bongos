@@ -163,4 +163,19 @@ public class PlayerAbilitiesController : MonoBehaviour
     {
         m_CurrentAgilityTier = tier == AbilityTierEnum.TIER1 ? AbilityTierEnum.TIER2 : AbilityTierEnum.TIER3;
     }
+
+    public void LoadOffensiveTier(AbilityTierEnum tier)
+    {
+        m_CurrentOffensiveTier = tier;
+    }
+
+    public void LoadDefensiveTier(AbilityTierEnum tier)
+    {
+        m_CurrentDefensiveTier = tier;
+    }
+
+    public void LoadAgilityTier(AbilityTierEnum tier)
+    {
+        m_CurrentAgilityTier = tier;
+    }
 }
