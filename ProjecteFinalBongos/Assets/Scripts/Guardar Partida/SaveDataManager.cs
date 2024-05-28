@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using static SaveLoadGame.SaveGame;
+using static SaveLoadGame.SavePreSets;
 
 namespace SaveLoadGame
 {
@@ -131,6 +132,13 @@ namespace SaveLoadGame
             player.Load(data.m_PlayerStats);
 
             GameManager.Instance.SetNamePlayer(data.m_NameAndWorld.m_Name);
+        }
+
+        public void SaveDataPreStes()
+        {
+            ISaveablePreSetsData dataPreSets = FindObjectOfType<GameManager>();
+            SavePreSets data = new();
+            data.PopulateDataPreSets(dataPreSets);
         }
     }
 

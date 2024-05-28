@@ -143,7 +143,7 @@ public class BossBehaviour : MonoBehaviour
     }
     protected virtual void VidaCero()
     {
-        print("Morí");
+        //print("Morí");
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)

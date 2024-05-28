@@ -119,4 +119,15 @@ public class ClonBehaviour : MonoBehaviour
             }
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (m_Alive)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox"))
+            {
+                m_Alive = false;
+                Finish();
+            }
+        }
+    }
 }

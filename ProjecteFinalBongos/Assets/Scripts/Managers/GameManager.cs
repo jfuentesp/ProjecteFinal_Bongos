@@ -8,8 +8,9 @@ using System.Linq;
 using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static SaveLoadGame.SavePreSets;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, ISaveablePreSetsData
 {
     [Header("Testing")]
     [SerializeField] private bool m_Testing;
@@ -376,5 +377,15 @@ public class GameManager : MonoBehaviour
 
         File.WriteAllText(rutaCompleta, jsonData);
         OnPlayerDeleted?.Invoke();
+    }
+
+    public PreSets Save()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Load(PreSets _salaData)
+    {
+        throw new NotImplementedException();
     }
 }

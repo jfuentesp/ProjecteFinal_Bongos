@@ -195,8 +195,12 @@ public class SMBChargeState : SMState
                             Rigidbody2D target;
                             collision.gameObject.TryGetComponent<Rigidbody2D>(out target);
                             if (target != null)
-                                target.AddForce((transform.position + collision.transform.position).normalized * m_ChargeSpeed, ForceMode2D.Impulse);
+                                target.AddForce((collision.transform.position - transform.position).normalized * m_ChargeSpeed, ForceMode2D.Impulse);
                         }
+                    }
+                    else
+                    {
+                        OnChargePlayer?.Invoke(gameObject);
                     }
                 }
             }
