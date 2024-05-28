@@ -11,6 +11,9 @@ public class OpcionesGUIScript : MonoBehaviour
     [SerializeField] private Toggle m_FullScreenToggle;
     [SerializeField] private TMP_Dropdown m_ResolucionesDropDown;
 
+    private int m_IdiomaGuardado;
+    private int m_ResolucionGuardada;
+
     Resolution[] resoluciones;
     List<IdiomaEnum> m_IdiomaList = new();
     // Start is called before the first frame update
@@ -22,7 +25,47 @@ public class OpcionesGUIScript : MonoBehaviour
         m_FullScreenToggle.onValueChanged.AddListener(CheckFullScreen);
         m_ResolucionesDropDown.onValueChanged.AddListener(CambiarResolucion);
         CheckResolutions();
+        LoadSettings();
     }
+
+    public void LoadSettings()
+    {
+        m_IdiomaGuardado = (int) PlayerPrefs.GetFloat("Idioma");
+        Screen.fullScreen = TranslateBool(PlayerPrefs.GetFloat("FullScreen"));
+        m_ResolucionGuardada = (int)PlayerPrefs.GetFloat("Resolucion");
+        CambiarResolucion(m_ResolucionGuardada);
+        LanguageChanged(m_IdiomaGuardado);
+    }
+    public void SaveSettings()
+    {
+        PlayerPrefs.SetFloat("Idioma", m_IdiomaGuardado);
+        PlayerPrefs.SetFloat("FullScreen", TranslateBool(Screen.fullScreen));
+        PlayerPrefs.SetFloat("Resolucion", m_ResolucionGuardada);
+        PlayerPrefs.Save();
+    }
+    public int TranslateBool(bool _BoolToTranslate)
+    {
+        switch (_BoolToTranslate)
+        {
+            case true:
+                return 1;
+            case false:
+                return 0;
+        }
+    }
+    public bool TranslateBool(float _BoolToTranslate)
+    {
+        switch (_BoolToTranslate)
+        {
+            case 1:
+                return true;
+            case 0:
+                return false;
+            default: return false;
+        }
+    }
+
+ 
 
     private void CheckResolutions()
     {
@@ -31,12 +74,12 @@ public class OpcionesGUIScript : MonoBehaviour
         List<string> opciones = new();
         int resolucionActual = 0;
 
-        for(int i = 0; i < resoluciones.Length; i++)
+        for (int i = 0; i < resoluciones.Length; i++)
         {
             string opcion = resoluciones[i].width + "x" + resoluciones[i].height;
             opciones.Add(opcion);
 
-            if(Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height)
+            if (Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height)
             {
                 resolucionActual = i;
             }
@@ -49,8 +92,10 @@ public class OpcionesGUIScript : MonoBehaviour
 
     private void CambiarResolucion(int indiceResolucion)
     {
+        m_ResolucionGuardada = indiceResolucion;
         Resolution resolucion = resoluciones[indiceResolucion];
         Screen.SetResolution(resolucion.width, resolucion.height, Screen.fullScreen);
+        SaveSettings();
     }
 
     private void CheckFullScreen(bool fullScreen)
@@ -63,11 +108,14 @@ public class OpcionesGUIScript : MonoBehaviour
         {
             Screen.fullScreen = false;
         }
+        SaveSettings();
     }
 
     private void LanguageChanged(int idioma)
     {
+        m_IdiomaGuardado = idioma;
         GameManager.Instance.ChangeLanguage(m_IdiomaList[idioma]);
+        SaveSettings();
     }
 
     private void SettearIdiomasDropDown()
@@ -84,7 +132,7 @@ public class OpcionesGUIScript : MonoBehaviour
 
     private void SetDropDownValue()
     {
-        for(int i = 0; i < m_IdiomaList.Count; i++)
+        for (int i = 0; i < m_IdiomaList.Count; i++)
         {
             if (m_IdiomaList[i] == GameManager.Instance.IdiomaJuego)
             {
@@ -104,8 +152,8 @@ public class OpcionesGUIScript : MonoBehaviour
                 return "English";
             case IdiomaEnum.IT:
                 return "Italiano";
-            case IdiomaEnum.CH:
-                return "陈航";
+            //case IdiomaEnum.CH:
+                //return "陈航";
             default:
                 return null;
 

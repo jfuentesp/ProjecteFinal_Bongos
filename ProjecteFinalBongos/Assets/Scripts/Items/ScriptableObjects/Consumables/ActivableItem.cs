@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Area Active Item", menuName = "Scriptables/Items/AreaActive")]
@@ -16,8 +13,6 @@ public class ActivableItem : Consumable
     private float m_Duration;
 
     private Animator m_Animator;
-    [SerializeField]
-    private UnityEditor.Animations.AnimatorController m_AnimatorController;
 
     public override void OnUse(GameObject usedBy)
     {

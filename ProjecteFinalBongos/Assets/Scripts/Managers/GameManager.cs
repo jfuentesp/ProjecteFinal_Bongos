@@ -157,7 +157,7 @@ public class GameManager : MonoBehaviour, ISaveablePreSetsData
                 m_TimerCoroutine = StartCoroutine(Timer());
             }
 
-            m_PlayerInGame.transform.position = Vector3.zero;
+            PJSMB.Instance.transform.position = Vector3.zero;
         }
         if (scene.name == m_NombreDeTuEscena)
         {
