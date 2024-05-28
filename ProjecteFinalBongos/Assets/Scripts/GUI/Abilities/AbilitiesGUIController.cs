@@ -131,8 +131,12 @@ public class AbilitiesGUIController : MonoBehaviour
         if (slot.AssignedAbility != null)
             return;
 
-        if (m_GameManager.NuevaPartida)
+        if (m_GameManager.NuevaPartida && LevelManager.Instance.MundoActualJugador == MundoEnum.MUNDO_UNO)
+        {
+            
             slot.Initialize();
+        }
+            
     }
 
     private void OnGuiRefresh()
@@ -140,7 +144,7 @@ public class AbilitiesGUIController : MonoBehaviour
         foreach(AbilitySlotBehaviour slot in m_Slots)
         {
             OnInitializeAbilities(slot);
-            switch(slot.AssignedAbility.Category)
+            switch(slot.AssignedAbility?.Category)
             {
                 case AbilityCategoryEnum.OFFENSIVE:
                     slot.RefreshSlot(m_CurrentOffensiveTier);

@@ -25,6 +25,13 @@ public class OpcionesGUIScript : MonoBehaviour
         m_FullScreenToggle.onValueChanged.AddListener(CheckFullScreen);
         m_ResolucionesDropDown.onValueChanged.AddListener(CambiarResolucion);
         CheckResolutions();
+        StartCoroutine(LoadSettingsCoroutine());
+        
+    }
+
+    private IEnumerator LoadSettingsCoroutine()
+    {
+        yield return new WaitForSeconds(.3f);
         LoadSettings();
     }
 

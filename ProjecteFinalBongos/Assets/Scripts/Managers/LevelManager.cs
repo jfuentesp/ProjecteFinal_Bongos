@@ -135,6 +135,7 @@ public class LevelManager : MonoBehaviour
         TodosLosBossesDisponibles();
         idPiccolo = 0;
         m_BossesMuertos = 0;
+        m_FundidoNegroPanel.SetActive(true);
 
         if (!GameManager.Instance.Testing)
         {

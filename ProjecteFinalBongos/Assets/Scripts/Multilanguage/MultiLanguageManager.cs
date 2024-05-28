@@ -29,7 +29,7 @@ namespace multilanguaje
             Multilanguage multilanguage = new Multilanguage();
             JsonUtility.FromJsonOverwrite(jsonDataLectura, multilanguage);
 
-            for (int i = 0; i < multilanguage.m_Idiomas.Length; i++)
+            for (int i = 0; i < multilanguage.m_Idiomas.Length - 1; i++)
             {
                 if (multilanguage.m_Idiomas[i].id == GameManager.Instance.IdiomaJuego.ToString())
                 {

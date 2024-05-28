@@ -54,17 +54,20 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
             {
                 foreach (RaycastHit2D hit in hits)
                 {
-                    RaycastHit2D Hit2 = Physics2D.Raycast(transform.position, (hit.transform.position - transform.position).normalized, m_BoxCastRange, m_LayerDelRAYCAST);
-                    if (Hit2.collider != null)
+                    if (hit.collider.gameObject.CompareTag("Player"))
                     {
-                        if (Hit2.collider.gameObject.TryGetComponent<PJSMB>(out PJSMB pj))
+                        RaycastHit2D Hit2 = Physics2D.Raycast(transform.position, (hit.transform.position - transform.position).normalized, 14, m_LayerDelRAYCAST);
+                        if (Hit2.collider != null)
                         {
-                            m_CanOpenDoor = false;
-                            cambioPuerta?.Invoke(false);
-                            m_TransformPlayer = hit.transform;
-                            OnPlayerIn?.Invoke(m_TransformPlayer);
-                            m_JugadorEnSalaEvent.Raise();
-                            m_HaEntradoElPlayer = true;
+                            if (Hit2.collider.gameObject.TryGetComponent<PJSMB>(out PJSMB pj))
+                            {
+                                m_CanOpenDoor = false;
+                                cambioPuerta?.Invoke(false);
+                                m_TransformPlayer = hit.transform;
+                                OnPlayerIn?.Invoke(m_TransformPlayer);
+                                m_JugadorEnSalaEvent.Raise();
+                                m_HaEntradoElPlayer = true;
+                            }
                         }
                     }
                 }
