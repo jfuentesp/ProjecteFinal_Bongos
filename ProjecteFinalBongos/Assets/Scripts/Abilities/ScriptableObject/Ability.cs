@@ -30,6 +30,8 @@ public class Ability : ScriptableObject
     [SerializeField]
     private float m_CooldownRemaining = 0;
 
+    private bool m_IsLearnt = false;
+
     public string id { get => m_AbilityId; set => m_AbilityId = value; }
     public string abilityName { get => m_AbilityName; set => m_AbilityName = value; }
     public string abilityDescription { get => m_AbilityDescription; set => m_AbilityDescription = value; }
@@ -42,6 +44,7 @@ public class Ability : ScriptableObject
     public float Cooldown { get => m_Cooldown; set => m_Cooldown = value; }
     public bool OnCooldown { get => m_OnCooldown; }
     public float CooldownRemaining { get => m_CooldownRemaining; set => m_CooldownRemaining = value; }
+    public bool IsLearnt { get => m_IsLearnt; set => m_IsLearnt = value; }
 
     public void UseAbility()
     {

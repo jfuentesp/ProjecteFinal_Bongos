@@ -24,10 +24,21 @@ public class PlayerAbilitiesController : MonoBehaviour
     public List<Ability> AtaquesMejoradosDisponibles => m_AtaquesMejorados;
     private float m_cooldown;
 
+    private AbilityTierEnum m_CurrentOffensiveTier;
+    private AbilityTierEnum m_CurrentDefensiveTier;
+    private AbilityTierEnum m_CurrentAgilityTier;
+
+    public AbilityTierEnum CurrentOffensiveTier => m_CurrentOffensiveTier;
+    public AbilityTierEnum CurrentDefensiveTier => m_CurrentDefensiveTier;
+    public AbilityTierEnum CurrentAgilityTier => m_CurrentAgilityTier;
+
     public Action OnMovementAbilityCooldown;
 
     private void Awake()
     {
+        m_CurrentOffensiveTier = AbilityTierEnum.TIER1;
+        m_CurrentDefensiveTier = AbilityTierEnum.TIER1;
+        m_CurrentAgilityTier = AbilityTierEnum.TIER1;
         InitAbilities();
     }
 
@@ -136,5 +147,20 @@ public class PlayerAbilitiesController : MonoBehaviour
     }
     private void Exit() {
         StopCoroutine(MovementCooldown());
+    }
+
+    public void SetOffensiveTier(AbilityTierEnum tier)
+    {
+        m_CurrentOffensiveTier = tier == AbilityTierEnum.TIER1 ? AbilityTierEnum.TIER2 : AbilityTierEnum.TIER3;
+    }
+
+    public void SetDefensiveTier(AbilityTierEnum tier)
+    {
+        m_CurrentDefensiveTier = tier == AbilityTierEnum.TIER1 ? AbilityTierEnum.TIER2 : AbilityTierEnum.TIER3;
+    }
+
+    public void SetAgilityTier(AbilityTierEnum tier)
+    {
+        m_CurrentAgilityTier = tier == AbilityTierEnum.TIER1 ? AbilityTierEnum.TIER2 : AbilityTierEnum.TIER3;
     }
 }

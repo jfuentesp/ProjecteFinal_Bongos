@@ -22,8 +22,6 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
     private Ability m_AssignedAbility;
     public Ability AssignedAbility => m_AssignedAbility;
 
-    private bool m_IsChosen = false;
-
 
     public void Initialize()
     {
@@ -36,7 +34,7 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
     {
         if(m_AssignedAbility != null)
         {
-            if(m_IsChosen)
+            if(m_AssignedAbility.IsLearnt)
             {
                 m_Slot.interactable = false;
                 m_AbilityImage.color = Color.white;
@@ -62,7 +60,7 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
 
     private void SetChosen(bool status)
     {
-        m_IsChosen = status;
+        m_AssignedAbility.IsLearnt = status;
     }
 
     public void OnSelect(BaseEventData eventData)
@@ -74,7 +72,24 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
     {
         if (m_AbilitiesGUI.AbilityPoints.HabilityPoints <= 0)
             return;
-        m_IsChosen = true;
+
+        switch(m_AssignedAbility.Category)
+        {
+            case AbilityCategoryEnum.OFFENSIVE:
+                if (m_SlotTier != PJSMB.Instance.PlayerAbilitiesController.CurrentOffensiveTier)
+                    return;
+                break;
+            case AbilityCategoryEnum.DEFENSIVE:
+                if (m_SlotTier != PJSMB.Instance.PlayerAbilitiesController.CurrentDefensiveTier)
+                    return;
+                break;
+            case AbilityCategoryEnum.AGILITY:
+                if (m_SlotTier != PJSMB.Instance.PlayerAbilitiesController.CurrentAgilityTier)
+                    return;
+                break;
+        }
+
+        m_AssignedAbility.IsLearnt = true;
         m_AbilitiesGUI.SetAbility(AssignedAbility);
     }
 
@@ -82,7 +97,24 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
     {
         if (m_AbilitiesGUI.AbilityPoints.HabilityPoints <= 0)
             return;
-        m_IsChosen = true;
+
+        switch (m_AssignedAbility.Category)
+        {
+            case AbilityCategoryEnum.OFFENSIVE:
+                if (m_SlotTier != PJSMB.Instance.PlayerAbilitiesController.CurrentOffensiveTier)
+                    return;
+                break;
+            case AbilityCategoryEnum.DEFENSIVE:
+                if (m_SlotTier != PJSMB.Instance.PlayerAbilitiesController.CurrentDefensiveTier)
+                    return;
+                break;
+            case AbilityCategoryEnum.AGILITY:
+                if (m_SlotTier != PJSMB.Instance.PlayerAbilitiesController.CurrentAgilityTier)
+                    return;
+                break;
+        }
+
+        m_AssignedAbility.IsLearnt = true;
         m_AbilitiesGUI.SetAbility(AssignedAbility);
     }
 

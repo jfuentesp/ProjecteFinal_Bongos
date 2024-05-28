@@ -17,13 +17,7 @@ public class AbilitiesGUIController : MonoBehaviour
 
     private GameManager m_GameManager;
 
-    private AbilityTierEnum m_CurrentOffensiveTier = AbilityTierEnum.TIER1;
-    private AbilityTierEnum m_CurrentDefensiveTier = AbilityTierEnum.TIER1;
-    private AbilityTierEnum m_CurrentAgilityTier = AbilityTierEnum.TIER1;
 
-    public AbilityTierEnum CurrentOffensiveTier => m_CurrentOffensiveTier;
-    public AbilityTierEnum CurrentDefensiveTier => m_CurrentDefensiveTier;
-    public AbilityTierEnum CurrentAgilityTier => m_CurrentAgilityTier;
 
     [Header("Description GUI")]
     [SerializeField]
@@ -72,6 +66,11 @@ public class AbilitiesGUIController : MonoBehaviour
         RefreshAbilityGUI();
     }
 
+    private void OnEnable()
+    {
+        RefreshDescriptionGUI();
+    }
+
     public Ability GetRandomAbilityByTierAndType(AbilityTierEnum tier, AbilityCategoryEnum category)
     {
         int random = 0;
@@ -84,6 +83,7 @@ public class AbilitiesGUIController : MonoBehaviour
                 if(ability.Category == category)
                 {
                     m_GameManager.Tier1Abilities.Remove(ability);
+                    ability.IsLearnt = false;
                     return ability;
                 } 
                 else
@@ -96,6 +96,7 @@ public class AbilitiesGUIController : MonoBehaviour
                 if (ability.Category == category)
                 {
                     m_GameManager.Tier2Abilities.Remove(ability);
+                    ability.IsLearnt = false;
                     return ability;
                 }
                 else
@@ -108,6 +109,7 @@ public class AbilitiesGUIController : MonoBehaviour
                 if (ability.Category == category)
                 {
                     m_GameManager.Tier3Abilities.Remove(ability);
+                    ability.IsLearnt = false;
                     return ability;
                 }
                 else
@@ -147,13 +149,13 @@ public class AbilitiesGUIController : MonoBehaviour
             switch(slot.AssignedAbility?.Category)
             {
                 case AbilityCategoryEnum.OFFENSIVE:
-                    slot.RefreshSlot(m_CurrentOffensiveTier);
+                    slot.RefreshSlot(PJSMB.Instance.PlayerAbilitiesController.CurrentOffensiveTier);
                     break;
                 case AbilityCategoryEnum.DEFENSIVE:
-                    slot.RefreshSlot(m_CurrentDefensiveTier);
+                    slot.RefreshSlot(PJSMB.Instance.PlayerAbilitiesController.CurrentDefensiveTier);
                     break;
                 case AbilityCategoryEnum.AGILITY:
-                    slot.RefreshSlot(m_CurrentAgilityTier);
+                    slot.RefreshSlot(PJSMB.Instance.PlayerAbilitiesController.CurrentAgilityTier);
                     break;
             }
         }
@@ -161,6 +163,9 @@ public class AbilitiesGUIController : MonoBehaviour
 
     private void RefreshDescriptionGUI()
     {
+        if (m_AbilityPoints == null)
+            return;
+
         m_AvailablePointsText.text = m_AbilityPoints.HabilityPoints.ToString();
 
         if(m_AbilityPoints.HabilityPoints <= 0)
@@ -181,7 +186,6 @@ public class AbilitiesGUIController : MonoBehaviour
         }
 
         AbilitySlotBehaviour slot = m_LastSelectedSlot.GetComponent<AbilitySlotBehaviour>();
-        Debug.Log(slot.AssignedAbility == null ? true : false);
         if (slot.AssignedAbility != null)
         {
             m_DescriptionImage.gameObject.SetActive(true);
@@ -232,13 +236,13 @@ public class AbilitiesGUIController : MonoBehaviour
         switch(ability.Category)
         {
             case AbilityCategoryEnum.OFFENSIVE:
-                m_CurrentOffensiveTier = ability.Tier == AbilityTierEnum.TIER1 ? AbilityTierEnum.TIER2 : AbilityTierEnum.TIER3;
+                PJSMB.Instance.PlayerAbilitiesController.SetOffensiveTier(ability.Tier);
                 break;
             case AbilityCategoryEnum.DEFENSIVE:
-                m_CurrentDefensiveTier = ability.Tier == AbilityTierEnum.TIER1 ? AbilityTierEnum.TIER2 : AbilityTierEnum.TIER3;
+                PJSMB.Instance.PlayerAbilitiesController.SetDefensiveTier(ability.Tier);
                 break;
             case AbilityCategoryEnum.AGILITY:
-                m_CurrentAgilityTier = ability.Tier == AbilityTierEnum.TIER1 ? AbilityTierEnum.TIER2 : AbilityTierEnum.TIER3;
+                PJSMB.Instance.PlayerAbilitiesController.SetAgilityTier(ability.Tier);
                 break;
         }
         RefreshAbilityGUI();
