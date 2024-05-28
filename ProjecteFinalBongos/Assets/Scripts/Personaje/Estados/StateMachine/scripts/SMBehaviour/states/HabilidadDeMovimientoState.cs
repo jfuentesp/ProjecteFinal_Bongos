@@ -88,7 +88,7 @@ public class HabilidadDeMovimientoState : SMState
                     m_Rigidbody.velocity = m_PJ.MovementAction.ReadValue<Vector2>() * (PJSMB.Instance.PlayerStatsController.m_Velocity + dashSpeed); ;
                 }
                 yield return new WaitForSeconds(0.4f);
-                PJSMB.Instance.GetComponent<PlayerAbilitiesController>().initCoolDown(PJSMB.Instance.PlayerAbilitiesController.Movement.Cooldown);
+                PJSMB.Instance.GetComponent<PlayerAbilitiesController>().initCoolDown();
                 Exit();
                 break;
                 case AbilityEnum.INVULNERABLEDASH:
@@ -130,7 +130,7 @@ public class HabilidadDeMovimientoState : SMState
                     m_Rigidbody.velocity = m_PJ.MovementAction.ReadValue<Vector2>() * (PJSMB.Instance.PlayerStatsController.m_Velocity + dashSpeedInvicible);
                 }
                 yield return new WaitForSeconds(0.4f);
-                PJSMB.Instance.GetComponent<PlayerAbilitiesController>().initCoolDown(PJSMB.Instance.PlayerAbilitiesController.Movement.Cooldown);
+                PJSMB.Instance.GetComponent<PlayerAbilitiesController>().initCoolDown();
                 Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerHurtBox"), LayerMask.NameToLayer("BossHurtBox"), false);
                 Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerHurtBox"), LayerMask.NameToLayer("BossHitBox"), false);
                 Exit();
@@ -154,7 +154,7 @@ public class HabilidadDeMovimientoState : SMState
                 break;
             case AbilityEnum.SPEED:
                 m_PJ.GetComponent<PlayerEstadosController>().AlternarEstado(EstadosAlterados.Peus_Lleugers, 5f);
-                PJSMB.Instance.GetComponent<PlayerAbilitiesController>().initCoolDown(PJSMB.Instance.PlayerAbilitiesController.Movement.Cooldown);
+                PJSMB.Instance.GetComponent<PlayerAbilitiesController>().initCoolDown();
                 Exit(); 
                 break;
             case AbilityEnum.RECALL:
@@ -168,7 +168,7 @@ public class HabilidadDeMovimientoState : SMState
                 else
                 {
                     invencibleTitleCard.Raise();
-                    PJSMB.Instance.GetComponent<PlayerAbilitiesController>().initCoolDown(PJSMB.Instance.PlayerAbilitiesController.Movement.Cooldown);
+                    PJSMB.Instance.GetComponent<PlayerAbilitiesController>().initCoolDown();
                     transform.position = m_RecallPosition;
                     Destroy(RecallZone.gameObject);
                     m_RecallPosition = Vector2.zero;
@@ -248,7 +248,7 @@ public class HabilidadDeMovimientoState : SMState
                         Clon.GetComponent<ClonBehaviour>().Init(new Vector2(-1, -1));
                     }
                 }
-                PJSMB.Instance.GetComponent<PlayerAbilitiesController>().initCoolDown(PJSMB.Instance.PlayerAbilitiesController.Movement.Cooldown);
+                PJSMB.Instance.GetComponent<PlayerAbilitiesController>().initCoolDown();
                 Exit();
                 break;
 

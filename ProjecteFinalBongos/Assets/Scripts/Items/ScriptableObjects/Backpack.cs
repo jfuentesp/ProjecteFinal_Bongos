@@ -129,6 +129,7 @@ public class Backpack : ScriptableObject
         {
             int index = Array.FindIndex(m_EquipableSlots, i => i == null);
             m_EquipableSlots[index] = new EquipableSlot(item);
+            Debug.Log("Entro en el itemslot: " + index + " | " + m_EquipableSlots[index].Equipable.itemName);
         }
     }
 

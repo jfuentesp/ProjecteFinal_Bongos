@@ -125,7 +125,8 @@ public class PlayerStatsController : MonoBehaviour, IBuffable
     }
     public void UnequipArmor()
     {
-
+        if (m_Armor == null)
+            return;
         m_Defense -= m_Armor.defense;
         m_Velocity -= m_Armor.speed;
         if (m_Armor.propiedades.Contains(EquipablePropertiesEnum.ENCHANTED))
@@ -145,6 +146,8 @@ public class PlayerStatsController : MonoBehaviour, IBuffable
     }
     public void UnequipSword()
     {
+        if (m_Sword == null)
+            return;
         m_Strength -= m_Sword.attack;
         m_Velocity -= m_Sword.speed;
         m_AttackTime -= m_Sword.speedAttack;

@@ -26,9 +26,9 @@ public class Ability : ScriptableObject
     [SerializeField]
     private float m_Cooldown;
     [SerializeField]
-    private bool m_OnCooldown;
+    private bool m_OnCooldown => m_CooldownRemaining > 0;
     [SerializeField]
-    private float m_ElapsedTime;
+    private float m_CooldownRemaining = 0;
 
     public string id { get => m_AbilityId; set => m_AbilityId = value; }
     public string abilityName { get => m_AbilityName; set => m_AbilityName = value; }
@@ -40,6 +40,22 @@ public class Ability : ScriptableObject
     public AbilityEnum AbilityEnum { get => m_AbilityEnum; set => m_AbilityEnum = value; }
     public float PowerUpAmount { get => m_PowerUpAmount; set => m_PowerUpAmount = value; }
     public float Cooldown { get => m_Cooldown; set => m_Cooldown = value; }
-    public bool OnCooldown { get => m_OnCooldown; set => m_OnCooldown = value;}
-    public float ElapsedTime { get => m_ElapsedTime; set => m_ElapsedTime = value; }
+    public bool OnCooldown { get => m_OnCooldown; }
+    public float CooldownRemaining { get => m_CooldownRemaining; set => m_CooldownRemaining = value; }
+
+    public void UseAbility()
+    {
+        m_CooldownRemaining = m_Cooldown;
+    }
+
+    public void UpdateRemainingCooldown(float time)
+    {
+        if(m_CooldownRemaining > 0)
+            m_CooldownRemaining -= time;
+    }
+
+    public float ReturnCooldownPercentage()
+    {
+        return Mathf.Clamp01(1 - (m_CooldownRemaining / m_Cooldown));
+    }
 }
