@@ -24,9 +24,9 @@ public class PlayerAbilitiesController : MonoBehaviour
     public List<Ability> AtaquesMejoradosDisponibles => m_AtaquesMejorados;
     private float m_cooldown;
 
-    private AbilityTierEnum m_CurrentOffensiveTier = AbilityTierEnum.TIER1;
-    private AbilityTierEnum m_CurrentDefensiveTier = AbilityTierEnum.TIER1;
-    private AbilityTierEnum m_CurrentAgilityTier = AbilityTierEnum.TIER1;
+    private AbilityTierEnum m_CurrentOffensiveTier;
+    private AbilityTierEnum m_CurrentDefensiveTier;
+    private AbilityTierEnum m_CurrentAgilityTier;
 
     public AbilityTierEnum CurrentOffensiveTier => m_CurrentOffensiveTier;
     public AbilityTierEnum CurrentDefensiveTier => m_CurrentDefensiveTier;
@@ -36,6 +36,9 @@ public class PlayerAbilitiesController : MonoBehaviour
 
     private void Awake()
     {
+        m_CurrentOffensiveTier = AbilityTierEnum.TIER1;
+        m_CurrentDefensiveTier = AbilityTierEnum.TIER1;
+        m_CurrentAgilityTier = AbilityTierEnum.TIER1;
         InitAbilities();
     }
 

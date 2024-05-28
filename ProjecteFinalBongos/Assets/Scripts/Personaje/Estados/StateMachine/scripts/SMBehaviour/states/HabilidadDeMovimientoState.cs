@@ -87,8 +87,8 @@ public class HabilidadDeMovimientoState : SMState
                     }
                     m_Rigidbody.velocity = m_PJ.MovementAction.ReadValue<Vector2>() * (PJSMB.Instance.PlayerStatsController.m_Velocity + dashSpeed); ;
                 }
-                yield return new WaitForSeconds(0.4f);
                 PJSMB.Instance.GetComponent<PlayerAbilitiesController>().initCoolDown();
+                yield return new WaitForSeconds(0.4f);
                 Exit();
                 break;
                 case AbilityEnum.INVULNERABLEDASH:
