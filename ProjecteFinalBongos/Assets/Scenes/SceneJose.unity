@@ -18517,6 +18517,8 @@ MonoBehaviour:
   m_Testing: 1
   m_LevelManagerNavmesh: {fileID: 1190278709}
   m_ConsumableDataBase: {fileID: 11400000, guid: 3695245b911850942b8fb981337f43ac, type: 2}
+  m_EquipableDataBase: {fileID: 0}
+  m_AbilityDataBase: {fileID: 0}
   dialoguePanel: {fileID: 1240701545}
   dialogueText: {fileID: 355698824}
   m_CloseShopButton: {fileID: 0}
@@ -18736,6 +18738,7 @@ MonoBehaviour:
   - {fileID: 238955626}
   - {fileID: 729377235}
   - {fileID: 1973018799}
+  - {fileID: 1420251080}
 --- !u!114 &772055661
 MonoBehaviour:
   m_ObjectHideFlags: 0

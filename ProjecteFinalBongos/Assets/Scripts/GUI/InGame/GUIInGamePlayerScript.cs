@@ -38,7 +38,9 @@ public class GUIInGamePlayerScript : MonoBehaviour
 
     private void ResumeGame()
     {
-        m_PausaPanel.SetActive(m_GameParado);
+        m_GameParado = false;
+        GameManager.Instance.PauseGame(m_GameParado);
+        ClosePanelsInsteadOf(TypeOfPanels.INICIAL);
     }
 
     private void PararLaPartida(InputAction.CallbackContext context)
@@ -46,13 +48,11 @@ public class GUIInGamePlayerScript : MonoBehaviour
         if (!m_GameParado)
         {
             m_GameParado = true;
+            ClosePanelsInsteadOf(TypeOfPanels.PAUSE);
             GameManager.Instance.PauseGame(m_GameParado);
-            m_PausaPanel.SetActive(m_GameParado);
         }
         else
         {
-            m_GameParado = false;
-            GameManager.Instance.PauseGame(m_GameParado);
             ResumeGame();
         }
     }
@@ -118,6 +118,7 @@ public class GUIInGamePlayerScript : MonoBehaviour
                 m_PanelInventory.SetActive(true);
                 break;
             case TypeOfPanels.PAUSE:
+                m_PausaPanel.SetActive(m_GameParado);
                 break;
         }
     }
