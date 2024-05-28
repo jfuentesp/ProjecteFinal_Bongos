@@ -1,0 +1,360 @@
+fileFormatVersion: 2
+guid: 78599aa73b831e24a9f415d290ae8eed
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 40
+        width: 13
+        height: 12
+      alignment: 9
+      pivot: {x: 0.6312514, y: 0.32839265}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ca61f2bf9376794ca0fa9af2826cca2
+      internalID: 1050953969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 40
+        width: 13
+        height: 9
+      alignment: 9
+      pivot: {x: 0.4954743, y: 0.45423847}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3570b8b79f2e7644a78d65ceba72fb9
+      internalID: -1634827393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_2
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 40
+        width: 13
+        height: 8
+      alignment: 9
+      pivot: {x: 0.37327486, y: 0.5000005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fffe39432f1e7c946a1f325b569d28f1
+      internalID: -1591598518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_3
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 40
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be758767e59f2a44cb1203b4d1824b9c
+      internalID: 1301040336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_4
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 22
+        width: 12
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5196124, y: 0.34800515}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c031e08e00656314a81b2460c9b0a672
+      internalID: -1871641422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_5
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 22
+        width: 12
+        height: 12
+      alignment: 9
+      pivot: {x: 0.44606638, y: 0.3381988}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7de68ec0ac26709499034cedbc061cd7
+      internalID: 2011721327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_6
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 22
+        width: 13
+        height: 12
+      alignment: 9
+      pivot: {x: 0.33254182, y: 0.33329567}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cbec6a48eda8b247bf704e2d904d900
+      internalID: 1118568964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fbea057d5dcfd24fae861601e013b7a
+      internalID: -1195584726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_8
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 2
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fbae123c16258844851803c681a0166
+      internalID: -960860315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_9
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 2
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1980c0a3209ed524fb0575069868dfde
+      internalID: 202605557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_0: 1050953969
+      Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_1: -1634827393
+      Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_2: -1591598518
+      Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_3: 1301040336
+      Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_4: -1871641422
+      Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_5: 2011721327
+      Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_6: 1118568964
+      Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_7: -1195584726
+      Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_8: -960860315
+      Saturn - Nanatsu Kaze no Shima Monogatari JPN - Dumb Clam_9: 202605557
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

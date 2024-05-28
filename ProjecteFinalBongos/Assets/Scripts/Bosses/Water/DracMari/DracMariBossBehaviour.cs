@@ -19,6 +19,7 @@ using UnityEngine.AI;
 public class DracMariBossBehaviour : BossBehaviour
 {
     [SerializeField] private int m_RangoHuirPerseguir;
+    [SerializeField] private BubbleProtectionScript m_Bubble;
     private Coroutine m_PlayerDetectionCoroutine;
     private enum Phase { ONE, TWO }
     private Phase m_CurrentPhase;
@@ -59,12 +60,13 @@ public class DracMariBossBehaviour : BossBehaviour
         GetComponent<SMBBossStunState>().OnStopStun = (GameObject obj) =>
         {
             m_StateMachine.ChangeState<SMBChaseState>();
-        };  
+        };
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
     }
     private void Start()
     {
         m_StateMachine.ChangeState<SMBIdleState>();
+        m_Bubble.Init(CorazaCount);
     }
     private void EmpezarCorutina(GameObject obj)
     {
@@ -151,7 +153,8 @@ public class DracMariBossBehaviour : BossBehaviour
         m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
-        m_BossMuertoEvent.Raise();
+        if (m_BossFinalSala)
+            m_BossMuertoEvent.Raise();
 
     }
 
@@ -163,6 +166,7 @@ public class DracMariBossBehaviour : BossBehaviour
             if (CorazaCount > 0)
             {
                 CorazaCount--;
+                m_Bubble.SetVida(CorazaCount);
                 if (CorazaCount <= 0) {
                     EstadosController.Invencible = false;
                     m_CurrentPhase = Phase.TWO;

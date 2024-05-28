@@ -1,3 +1,4 @@
+using SaveLoadGame;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,9 +11,10 @@ using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using static SaveLoadGame.SaveGame;
 using static UnityEditor.Progress;
 
-public class InventoryController : MonoBehaviour
+public class InventoryController : MonoBehaviour, ISaveableBackPackData
 {
     [Header("Inventory components")]
     [SerializeField]
@@ -34,7 +36,7 @@ public class InventoryController : MonoBehaviour
     private Equipable m_EquipableSword;
     [SerializeField]
     private Equipable m_EquipableArmor;
-    
+
 
     [Header("Consumable Grid settings")]
     [SerializeField]
@@ -111,11 +113,11 @@ public class InventoryController : MonoBehaviour
     private void Start()
     {
         m_PlayerStats = PJSMB.Instance.PlayerStatsController;
-        m_Player = GameManager.Instance.PlayerInGame;
+        m_Player = PJSMB.Instance.gameObject;
         m_MovingConsumable = false;
         m_MovingEquipable = false;
         m_LastSelection = m_InitialButton;
-        
+
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("UseQuickItem").performed += UseQuickItem;
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("UseQuickItem2").performed += UseQuickItem2;
         PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("UseQuickItem3").performed += UseQuickItem3;
@@ -124,7 +126,7 @@ public class InventoryController : MonoBehaviour
 
     private void UseQuickItem(InputAction.CallbackContext context)
     {
-        if(m_QuickItem1.AssignedConsumable != null)
+        if (m_QuickItem1.AssignedConsumable != null)
             OnUse(m_QuickItem1.AssignedConsumable.id);
     }
     private void UseQuickItem2(InputAction.CallbackContext context)
@@ -156,8 +158,8 @@ public class InventoryController : MonoBehaviour
         Equipable itemToUse = m_InventoryBackpack.EquipableSlots.FirstOrDefault(item => item?.Equipable.id == itemID).Equipable;
         if (itemToUse == null)
             return;
-        if(itemToUse != null) 
-        { 
+        if (itemToUse != null)
+        {
             itemToUse.OnEquip(m_Player);
             m_InventoryBackpack.RemoveEquipable(itemToUse);
         }
@@ -203,7 +205,7 @@ public class InventoryController : MonoBehaviour
             {
                 GridSlotBehaviour slot = m_QuickConsumablesGrid.transform.GetChild(index).GetComponentInChildren<GridSlotBehaviour>();
                 if (slot.AssignedConsumable == null)
-                {        
+                {
                     slot.SetConsumable(itemToEquip);
                     slot.RefreshEquippedSlot();
                     OnEquipQuickConsumable.Invoke();
@@ -257,7 +259,8 @@ public class InventoryController : MonoBehaviour
         m_InventoryBackpack.MoveConsumable(indexSelected, indexTarget);
         m_MoveConsumableSlot = null;
     }
-    public void OnDropEquipable(string itemID) {
+    public void OnDropEquipable(string itemID)
+    {
         Equipable itemToUse = m_InventoryBackpack.EquipableSlots.FirstOrDefault(item => item?.Equipable.id == itemID).Equipable;
         if (itemToUse != null)
         {
@@ -296,7 +299,7 @@ public class InventoryController : MonoBehaviour
 
     private void RefreshConsumableGUI()
     {
-        for(int items = 0; items < m_InventoryBackpack.ConsumableSlots.Length; items++)
+        for (int items = 0; items < m_InventoryBackpack.ConsumableSlots.Length; items++)
         {
             GridSlotBehaviour slot = m_ConsumableGrid.transform.GetChild(items).GetComponentInChildren<GridSlotBehaviour>();
             if (m_InventoryBackpack.ConsumableSlots[items] != null)
@@ -433,4 +436,60 @@ public class InventoryController : MonoBehaviour
         m_MoveEquipableSlot = slot;
     }
 
+    public BackPack Save()
+    {
+        SaveGame.BackPack m_BackPack = new SaveGame.BackPack();
+        SaveGame.ConsumablesSLots[] consumableSlotId = new SaveGame.ConsumablesSLots[25];
+
+        for (int i = 0; i < consumableSlotId.Length; i++)
+        {
+            //print(m_InventoryBackpack.ConsumableSlots[i].Consumable.id);
+            if (m_InventoryBackpack.ConsumableSlots[i] != null)
+            {
+                consumableSlotId[i] = new SaveGame.ConsumablesSLots(m_InventoryBackpack.ConsumableSlots[i].Consumable.id, m_InventoryBackpack.ConsumableSlots[i].Quantity);
+                    
+            }
+            else
+            {
+                consumableSlotId[i] = new SaveGame.ConsumablesSLots("99", 0);
+            }
+        }
+
+        string[] equipableSlotId = new string[25];
+        for (int i = 0; i < equipableSlotId.Length; i++)
+        {
+            if(m_InventoryBackpack.EquipableSlots[i] != null)
+            {
+                equipableSlotId[i] = m_InventoryBackpack.EquipableSlots[i].Equipable.id;
+            }
+            else
+            {
+                equipableSlotId[i] = "99";
+            }
+        }
+
+        m_BackPack.m_ConsumableSlotId = consumableSlotId;
+        m_BackPack.m_EquipableSlotId = equipableSlotId;
+
+        return m_BackPack;
+    }
+
+    public void Load(BackPack _BackPack)
+    {
+        for(int i = 0; i < _BackPack.m_ConsumableSlotId.Length; i++)
+        {
+            if (_BackPack.m_ConsumableSlotId[i].id != "99")
+            {
+                m_InventoryBackpack.AddConsumableLoadGame(LevelManager.Instance.ConsumableDataBase.GetItemByID(_BackPack.m_ConsumableSlotId[i].id), _BackPack.m_ConsumableSlotId[i].quantity, i);
+            }
+        }
+        for (int i = 0; i < _BackPack.m_EquipableSlotId.Length; i++)
+        {
+            if (_BackPack.m_EquipableSlotId[i] != "99")
+            {
+                m_InventoryBackpack.AddEquipableLoadGame(LevelManager.Instance.EquipableDataBase.GetItemByID(_BackPack.m_EquipableSlotId[i]), i);
+            }
+        }
+
+    }
 }

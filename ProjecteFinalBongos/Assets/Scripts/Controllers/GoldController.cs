@@ -19,4 +19,9 @@ public class GoldController : MonoBehaviour
     {
         m_DINERO -= _Dinero;
     }
+
+    public void SetDineroFromLoad(int _Dinero)
+    {
+        m_DINERO = _Dinero;
+    }
 }

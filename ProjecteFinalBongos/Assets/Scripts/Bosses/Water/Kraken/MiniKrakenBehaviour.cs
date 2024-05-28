@@ -137,6 +137,10 @@ public class MiniKrakenBehaviour : BossBehaviour
 
     }
 
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+    }
 
     public override void Init(Transform _Target)
     {
@@ -149,6 +153,8 @@ public class MiniKrakenBehaviour : BossBehaviour
         StopAllCoroutines();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
+        if (m_BossFinalSala)
+            m_BossMuertoEvent.Raise();
         Destroy(gameObject);
     }
 }

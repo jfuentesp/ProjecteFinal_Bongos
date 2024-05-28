@@ -15,6 +15,8 @@ public class TritoArrow : Bullet
         m_Rigidbody.velocity = transform.up * m_Speed;
         StartCoroutine(ReturnToPoolCoroutine());
         m_Target = _Transform;
+        GetComponent<BossAttackDamage>().SetDamage(m_Damage);
+        gameObject.layer = LayerMask.NameToLayer("BossHitBox");
     }
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,7 @@ public class TritoArrow : Bullet
             return;
         if (collision.gameObject.CompareTag("Player"))
         {
+            gameObject.layer = LayerMask.NameToLayer("AllHitBox");
             DisableBullet();
         }
     }

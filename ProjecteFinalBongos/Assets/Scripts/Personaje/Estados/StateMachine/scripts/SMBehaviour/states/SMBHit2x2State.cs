@@ -23,7 +23,7 @@ public class SMBHit2x2State : SMBComboState
             m_Animator.Play("attack2x2");
         }
         m_Animator.speed = m_PJ.PlayerStatsController.m_AttackTime;
-        StartCoroutine( AttackBehaviour());
+        StartCoroutine(AttackBehaviour());
         SetDamage();
    
     }
@@ -99,6 +99,7 @@ public class SMBHit2x2State : SMBComboState
     {
         if (m_PJ.PlayerAbilitiesController.AtaquesMejoradosDisponibles.Exists(ability => ability.AbilityEnum.Equals(AbilityEnum.CANCEL)))
         {
+            StopAllCoroutines();
             m_StateMachine.ChangeState<SMBHit1x4State>();
         }
     }

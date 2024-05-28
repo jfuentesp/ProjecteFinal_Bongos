@@ -22,6 +22,11 @@ public class DaryaBossBehaviour : BossBehaviour
     private Phase m_CurrentPhase;
     [Header("Segunda fase")]
     [SerializeField] private float m_TimeBetwwenAttacksSecondPhase;
+    [SerializeField] private int vecesAntesDeQuePeteEscudo;
+    [SerializeField] private BubbleProtectionScript m_Bubble;
+    [SerializeField] private Material m_materialPared;
+    [SerializeField] private float m_PorcentajePerdidaVidaSegundaFase;
+    private int cuantoQuedaEscudo;
     private bool atacando;
 
     private new void Awake()
@@ -42,18 +47,61 @@ public class DaryaBossBehaviour : BossBehaviour
             StartCoroutine(SetAttack());
         };
         atacando = false;
+    }
+    private void Start()
+    {
         m_StateMachine.ChangeState<SMBIdleState>();
+        cuantoQuedaEscudo = vecesAntesDeQuePeteEscudo;
+        m_Bubble.Init(cuantoQuedaEscudo);
+        //ParedesDarya();
+    }
+
+    private void ParedesDarya()
+    {
+        int hijos = transform.parent.childCount;
+
+        for(int i = 0; i < hijos; i++)
+        {
+            if (transform.parent.GetChild(i).childCount > 0)
+            {
+                int hijosDeLosHijos = transform.parent.GetChild(i).childCount;
+                for(int j = 0; j < hijosDeLosHijos; j++)
+                {
+                    if (transform.parent.GetChild(i).GetChild(j).gameObject.CompareTag("MechanicObstacle"))
+                    {
+                        transform.parent.GetChild(i).GetChild(j).gameObject.AddComponent<BossAttackDamage>();
+                        transform.parent.GetChild(i).GetChild(j).gameObject.GetComponent<BossAttackDamage>().SetEstado(EstadosAlterados.Normal);
+                        transform.parent.GetChild(i).GetChild(j).gameObject.GetComponent<BossAttackDamage>().SetDamage(20);
+                        if(transform.parent.GetChild(i).GetChild(j).gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite))
+                            sprite.material = m_materialPared;
+                    }
+                }
+            }
+            else
+            {
+                transform.parent.GetChild(i).gameObject.AddComponent<BossAttackDamage>();
+                transform.parent.GetChild(i).gameObject.GetComponent<BossAttackDamage>().SetEstado(EstadosAlterados.Normal);
+                transform.parent.GetChild(i).gameObject.GetComponent<BossAttackDamage>().SetDamage(20);
+                if (transform.parent.GetChild(i).gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite))
+                    sprite.material = m_materialPared;
+            }
+        }
     }
 
     protected new void OnTriggerEnter2D(Collider2D collision)
     {
         if (m_CurrentPhase == Phase.ONE)
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHitBox") && collision.CompareTag("DaryaWave"))
+            if (collision.gameObject.layer == LayerMask.NameToLayer("AllHitBox") && collision.CompareTag("DaryaWave"))
             {
-                if (collision.TryGetComponent<AttackDamage>(out AttackDamage damage))
+                cuantoQuedaEscudo--;
+                m_Bubble.SetVida(cuantoQuedaEscudo);
+
+                if(cuantoQuedaEscudo == 0)
                 {
-                    recibirDaño(damage.Damage);
+                    m_CurrentPhase = Phase.TWO;
+                    StartCoroutine(SetAttack());
+                    StartCoroutine(EmpezarFallecer());
                 }
             }
         }
@@ -68,21 +116,33 @@ public class DaryaBossBehaviour : BossBehaviour
             }
         }
     }
+
+    private IEnumerator EmpezarFallecer()
+    {
+        while (m_IsAlive)
+        {
+            yield return new WaitForSeconds(1);
+            m_HealthController.Damage(m_HealthController.HPMAX / m_PorcentajePerdidaVidaSegundaFase / 100);
+        }
+    }
+
     protected override void VidaCero()
     {
         base.VidaCero();
         if (m_CurrentPhase == Phase.TWO)
         {
+            StopAllCoroutines();
+            GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
+            m_StateMachine.ChangeState<DeathState>();
             m_IsAlive = false;
             OnBossDeath?.Invoke();
-            Destroy(gameObject);
+            if (m_BossFinalSala)
+                m_BossMuertoEvent.Raise();
         }
-        else if (m_CurrentPhase == Phase.ONE)
-        {
-            m_HealthController.Heal(m_HealthController.HPMAX);
-            m_CurrentPhase = Phase.TWO;
-            StartCoroutine(SetAttack());
-        }
+    }
+    private void MatarBoss()
+    {
+        Destroy(gameObject);
     }
 
     private IEnumerator SetAttack()

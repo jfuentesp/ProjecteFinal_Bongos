@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class AgullaChargeState : SMState
 {
@@ -19,6 +19,20 @@ public class AgullaChargeState : SMState
     [SerializeField]
     private float m_ChargeSpeed;
 
+    [Header("Time Before Charge")]
+    [SerializeField] private float m_TimeBeforeCharge;
+
+    [Header("GameObject Shader")]
+    [SerializeField] private GameObject m_Shader;
+    [SerializeField] private GameObject m_Objetivo;
+
+    [Header("Animation Two Directions")]
+    [SerializeField] protected bool m_TwoDirections;
+
+    [Header("Colores del Shader")]
+    [SerializeField] private Color[] m_ColoresList;
+
+    private bool derecha;
 
     private bool m_IsAiming;
     private bool m_IsCharging;
@@ -40,6 +54,12 @@ public class AgullaChargeState : SMState
         m_Boss = GetComponent<BossBehaviour>();
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
         m_Boss.OnPlayerInSala += GetTarget;
+        m_Boss.OnBossDeath += HideTelegraph;
+    }
+    private void HideTelegraph()
+    {
+        m_Shader.SetActive(false);
+        m_Objetivo.SetActive(false);
     }
 
     private void GetTarget()
@@ -63,13 +83,20 @@ public class AgullaChargeState : SMState
     {
         base.ExitState();
         m_NavMeshAgent.isStopped = true;
+        StopAllCoroutines();
     }
 
     Vector3 destino;
     private IEnumerator ChargeCoroutine()
     {
         m_IsAiming = true;
-        yield return new WaitForSeconds(2f);
+        m_Animator.Play(m_AnimationName);
+        m_Objetivo.SetActive(true);
+        m_Shader.SetActive(true);
+        m_Shader.GetComponent<SpriteRenderer>().material.SetColor("_Color", m_ColoresList[Random.Range(0, m_ColoresList.Length)]);
+        yield return new WaitForSeconds(m_TimeBeforeCharge);
+        m_Shader.SetActive(false);
+        m_Objetivo.SetActive(false);
         m_IsAiming = false;
         m_IsCharging = true;
         m_NavMeshAgent.isStopped = false;
@@ -79,23 +106,48 @@ public class AgullaChargeState : SMState
 
     private void Update()
     {
-        if (m_IsAiming)
+        if (m_TwoDirections)
         {
-            m_Rigidbody.velocity = Vector3.zero;
-            Vector2 posicionPlayer = m_Target.position - transform.position;
-            float angulo = Mathf.Atan2(posicionPlayer.y, posicionPlayer.x);
-            angulo = Mathf.Rad2Deg * angulo - 90;
-            transform.localEulerAngles = new Vector3(0, 0, angulo);
+            if (m_IsAiming)
+            {
+                m_Rigidbody.velocity = Vector3.zero;
+               
+                float distancia = Vector2.Distance(m_Shader.transform.position, m_Target.position);
+
+                m_Shader.GetComponent<SpriteRenderer>().size = new Vector2(m_Shader.GetComponent<SpriteRenderer>().size.x, distancia / transform.localScale.y);
+                
+                if (m_Target.position.x - transform.position.x < 0)
+                {
+                    derecha = false;
+                    Vector2 direction = m_Target.position - m_Shader.transform.position;
+                    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                    m_Shader.transform.rotation = Quaternion.Euler(new Vector3(0, 180, angle - 90));
+                    Vector2 posicion = direction.normalized * distancia / transform.localScale.y;
+                    m_Objetivo.transform.localPosition = new Vector2(-posicion.x, posicion.y);
+                }
+                else
+                {
+                    derecha = true;
+                    Vector2 direction = m_Target.position - m_Shader.transform.position;
+                    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                    m_Shader.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+                    m_Objetivo.transform.localPosition = direction.normalized * distancia / transform.localScale.y;
+                }
+            }
+            if (m_IsCharging)
+            {
+                if (Vector2.Distance(destino, transform.position) < 0.2f)
+                {
+                    print("falle");
+                    OnChargeMissed?.Invoke(gameObject);
+                }
+            }
+            if (derecha)
+                transform.localEulerAngles = Vector3.zero;
+            else
+                transform.localEulerAngles = new Vector3(0, 180, 0);
         }
-        if (m_IsCharging)
-        {
-            Vector2 posicionPlayer = destino - transform.position;
-            float angulo = Mathf.Atan2(posicionPlayer.y, posicionPlayer.x);
-            angulo = Mathf.Rad2Deg * angulo - 90;
-            transform.localEulerAngles = new Vector3(0, 0, angulo);
-            if(Vector2.Distance(destino, transform.position) < 0.2f)
-                OnChargeMissed.Invoke(gameObject);
-        }
+       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -109,13 +161,13 @@ public class AgullaChargeState : SMState
                 m_NavMeshAgent.velocity = Vector3.zero;
                 if (collision.gameObject.CompareTag("MechanicObstacle"))
                 {
-                    OnChargeMissed.Invoke(gameObject);
+                    OnChargeMissed?.Invoke(gameObject);
                 }
                 if (collision.gameObject.CompareTag("Player"))
                 {
                     collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
-                    OnChargePlayer.Invoke(gameObject);
+                    OnChargePlayer?.Invoke(gameObject);
                 }
             }
         }

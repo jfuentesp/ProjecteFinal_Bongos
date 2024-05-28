@@ -1,9 +1,12 @@
+using SaveLoadGame;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
+using static SaveLoadGame.SaveGame;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(PlayerAbilitiesController))]
@@ -30,7 +33,7 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(SMBAdormitState))]
 [RequireComponent(typeof(FiniteStateMachine))]
 
-public class PJSMB : MonoBehaviour
+public class PJSMB : MonoBehaviour, ISaveablePlayerData
 {
     private FiniteStateMachine m_StateMachine;
     [SerializeField]
@@ -105,7 +108,8 @@ public class PJSMB : MonoBehaviour
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_StateMachine.ChangeState<SMBPlayerStopState>();
     }
-    public void StopPlayer() { 
+    public void StopPlayer()
+    {
         m_StateMachine?.ChangeState<SMBPlayerStopState>();
     }
     public void recibirDamage(float Daño)
@@ -148,7 +152,21 @@ public class PJSMB : MonoBehaviour
                 m_PlayerEstadosController.AlternarEstado(damageBoss.EstadoAlterado, damageBoss.StateTime);
             }
         }
+        if (collision.CompareTag("Money"))
+            m_PlayerGold.AddDinero(collision.gameObject.GetComponent<CoinScript>().Coins);
+        if (collision.CompareTag("AbilityPoint"))
+            m_PlayerAbilityPoints.AddAbilityPoints(collision.gameObject.GetComponent<AbilityPointScript>().Points);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("MechanicObstacle"))
+        {
+            if (collision.gameObject.TryGetComponent<BossAttackDamage>(out BossAttackDamage damageBoss))
+                recibirDamage(damageBoss.Damage);
+        }
+    }
+
     public void GetDamage(float _Damage, EstadosAlterados estado, float time)
     {
         m_HealthController.Damage(_Damage);
@@ -178,7 +196,62 @@ public class PJSMB : MonoBehaviour
             m_HealthController.onDeath -= AcabarJuego;
             m_HealthController.onHurt -= GetHurted;
         }
-        if(m_Input)
+        if (m_Input)
             m_Input.FindActionMap("PlayerActions").Disable();
+    }
+
+    public PlayerStats Save()
+    {
+        SaveGame.PlayerStats m_PlayerStats = new SaveGame.PlayerStats();
+        m_PlayerStats.m_Velocity = m_playersStatsController.m_Velocity;
+        m_PlayerStats.m_AttackTime = m_playersStatsController.m_AttackTime;
+        m_PlayerStats.m_Strength = m_playersStatsController.m_Strength;
+        m_PlayerStats.m_Defense = m_playersStatsController.m_Defense;
+
+        m_PlayerStats.m_HP = m_HealthController.HP;
+        m_PlayerStats.m_Money = m_PlayerGold.DINERO;
+        m_PlayerStats.m_AbilityPoints = m_PlayerAbilityPoints.HabilityPoints;
+
+        if (m_playersStatsController.Sword != null)
+        {
+            m_PlayerStats.idSword = m_playersStatsController.Sword.id;
+        }
+        else
+        {
+            m_PlayerStats.idArmor = "99";
+        }
+        if (m_playersStatsController.Armor)
+        {
+            m_PlayerStats.idArmor = m_playersStatsController.Armor.id;
+        }
+        else
+        {
+            m_PlayerStats.idArmor = "99";
+        }
+
+        return m_PlayerStats;
+    }
+
+    public void Load(PlayerStats _PlayerStats)
+    {
+        m_playersStatsController.m_Velocity = _PlayerStats.m_Velocity;
+        m_playersStatsController.m_AttackTime = _PlayerStats.m_AttackTime;
+        m_playersStatsController.m_Strength = _PlayerStats.m_Strength;
+        m_playersStatsController.m_Defense = _PlayerStats.m_Defense;
+
+        m_HealthController.SetHPFromLoad(_PlayerStats.m_HP);
+        m_PlayerGold.SetDineroFromLoad(_PlayerStats.m_Money);
+        m_PlayerAbilityPoints.SetHabilityPoints(_PlayerStats.m_AbilityPoints);
+
+        if (_PlayerStats.idSword != "99")
+        {
+            m_Inventory.OnEquip(_PlayerStats.idSword);
+            //m_playersStatsController.EquipSword(LevelManager.Instance.EquipableDataBase.GetItemByID(_PlayerStats.idSword).GetComponent<Sword>());
+        }
+        if(_PlayerStats.idArmor != "99")
+        {
+            m_Inventory.OnEquip(_PlayerStats.idArmor);
+            //m_playersStatsController.EquipArmor(LevelManager.Instance.EquipableDataBase.GetItemByID(_PlayerStats.idArmor).GetComponent<Armor>());
+        }
     }
 }

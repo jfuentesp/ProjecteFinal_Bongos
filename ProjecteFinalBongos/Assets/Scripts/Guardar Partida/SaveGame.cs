@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using static SaveLoadGame.SaveGame;
 
@@ -37,14 +38,16 @@ namespace SaveLoadGame
         public struct PasilloTiendaData
         {
             public string[] m_ObjetosId;
+            public string[] m_EquipablesId;
             public Vector3 m_SalaTransform;
             public int m_PiccoloId;
 
-            public PasilloTiendaData(string[] _ObjetosId, Vector3 _SalaTransform, int _PiccoloId)
+            public PasilloTiendaData(string[] _ObjetosId, string[] _EquipablesId, Vector3 _SalaTransform, int _PiccoloId)
             {
                 m_ObjetosId = _ObjetosId;
                 m_SalaTransform = _SalaTransform;
                 m_PiccoloId = _PiccoloId;
+                m_EquipablesId = _EquipablesId;
             }
         }
 
@@ -87,6 +90,47 @@ namespace SaveLoadGame
                 m_Mundo = _Mundo;
             }
         }
+        [Serializable]
+        public struct BackPack
+        {
+            public ConsumablesSLots[] m_ConsumableSlotId;
+            public string[] m_EquipableSlotId;
+            public string[] m_QuickCosnumableSlotsId;
+
+            public BackPack(ConsumablesSLots[] _ConsumableSlotId, string[] _EquipableSlotId, string[] _QuickCosnumableSlotsId)
+            {
+                m_ConsumableSlotId = _ConsumableSlotId;
+                m_EquipableSlotId = _EquipableSlotId;
+                m_QuickCosnumableSlotsId = _QuickCosnumableSlotsId;
+            }
+        }
+
+        [Serializable]
+        public struct ConsumablesSLots
+        {
+            public string id;
+            public int quantity;
+
+            public ConsumablesSLots(string _id, int _quantity)
+            {
+                id = _id;
+                quantity = _quantity;
+            }
+        }
+        [Serializable]
+        public struct PlayerStats
+        {
+            public string idSword;
+            public string idArmor;
+
+            public float m_Velocity;
+            public float m_AttackTime;
+            public float m_Strength;
+            public float m_Defense;
+            public float m_HP;
+            public int m_Money;
+            public int m_AbilityPoints;
+        }
 
 
         //Variables de guardado
@@ -95,6 +139,8 @@ namespace SaveLoadGame
         public PasilloTiendaData[] m_PiccolosChad;
         public PasilloObjetosData[] m_PasilloObjetos;
         public NameAndWorld m_NameAndWorld;
+        public BackPack m_BackPack;
+        public PlayerStats m_PlayerStats;
 
 
         //Populates
@@ -124,6 +170,16 @@ namespace SaveLoadGame
                 m_PasilloObjetos[i] = _PasilloObjetosData[i].Save();
         }
 
+        public void PopulateDataBackPack(ISaveableBackPackData _BackPack)
+        {
+            m_BackPack = _BackPack.Save();
+        }
+
+        public void PopulateDataPlayer(ISaveablePlayerData _PlayerStats)
+        {
+            m_PlayerStats = _PlayerStats.Save();
+        }
+
         public interface ISaveableSalasData
         {
             public SalasData Save();
@@ -145,6 +201,17 @@ namespace SaveLoadGame
         {
             public PasilloObjetosData Save();
             public void Load(PasilloObjetosData _pasilloTiendaData);
+        }
+
+        public interface ISaveableBackPackData
+        {
+            public BackPack Save();
+            public void Load(BackPack _BackPack);
+        }
+        public interface ISaveablePlayerData
+        {
+            public PlayerStats Save();
+            public void Load(PlayerStats _PlayerStats);
         }
     }
 }

@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce562ca1e324674469e81bc5db144a65, type: 3}
   m_Name: AtkSpeedUp1
   m_EditorClassIdentifier: 
-  m_AbilityId: 10
+  m_AbilityId: 20
   m_AbilityName: "Bendici\xF3n de Ira I"
   m_AbilityDescription: Incrementa tu velocidad de ataque ligeramente.
   m_AbilitySprite: {fileID: 21300000, guid: 046507dc8ae076c4aabf0b7dd305bbb6, type: 3}
   m_AbilityTier: 0
   m_AbilityCategory: 0
   m_AbilityType: 3
+  m_AbilityEnum: 0
   m_PowerUpAmount: 1
+  m_Cooldown: 0

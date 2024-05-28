@@ -78,16 +78,28 @@ public class AlteaBossBehaviour : BossBehaviour
     }
     private void MatarBoss()
     {
+        if (m_GoldPrefab)
+        {
+            GameObject dinero = Instantiate(m_GoldPrefab, transform.parent);
+            dinero.transform.position = transform.position;
+        }
+        if (m_AbilityPointPrefab)
+        {
+            GameObject abilityPoint = Instantiate(m_AbilityPointPrefab, transform.parent);
+            abilityPoint.transform.position = transform.position;
+        }
         Destroy(gameObject);
     }
     protected override void VidaCero()
     {
         base.VidaCero();
+        StopAllCoroutines();
+        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
+        m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         if (m_BossFinalSala)
             m_BossMuertoEvent.Raise();
-        Destroy(gameObject);
     }
     protected override void Update()
     {

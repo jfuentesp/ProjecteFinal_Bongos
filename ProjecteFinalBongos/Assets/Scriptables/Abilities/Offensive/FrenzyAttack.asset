@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce562ca1e324674469e81bc5db144a65, type: 3}
   m_Name: FrenzyAttack
   m_EditorClassIdentifier: 
-  m_AbilityId: 4
+  m_AbilityId: 28
   m_AbilityName: Ataque Temerario
   m_AbilityDescription: "Tus ataques r\xE1pidos pueden aplicarte el estado Fuerte
     al terminar el combo"
@@ -22,3 +22,4 @@ MonoBehaviour:
   m_AbilityType: 0
   m_AbilityEnum: 10
   m_PowerUpAmount: 0
+  m_Cooldown: 0

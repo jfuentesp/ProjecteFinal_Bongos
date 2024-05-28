@@ -121,6 +121,16 @@ public class EolosBossBehaviour : BossBehaviour
             OnBossDeath?.Invoke();
             if (m_BossFinalSala)
                 m_BossMuertoEvent.Raise();
+            if (m_GoldPrefab)
+            {
+                GameObject dinero = Instantiate(m_GoldPrefab, transform.parent);
+                dinero.transform.position = transform.position;
+            }
+            if (m_AbilityPointPrefab)
+            {
+                GameObject abilityPoint = Instantiate(m_AbilityPointPrefab, transform.parent);
+                abilityPoint.transform.position = transform.position;
+            }
             Destroy(gameObject);
         }
         else if (m_CurrentPhase == Phase.ONE)

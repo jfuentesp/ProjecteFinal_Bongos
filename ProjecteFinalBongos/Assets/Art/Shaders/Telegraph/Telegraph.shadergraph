@@ -262,6 +262,20 @@
             },
             "m_InputSlot": {
                 "m_Node": {
+                    "m_Id": "4fb7d4f4b7514f748cee10f16524b244"
+                },
+                "m_SlotId": 2
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "3a9f6606b9604159b3a0be8503dcf900"
+                },
+                "m_SlotId": 2
+            },
+            "m_InputSlot": {
+                "m_Node": {
                     "m_Id": "679e6bd7b66b49b6ae3c2e0a81255dcc"
                 },
                 "m_SlotId": 0
@@ -433,20 +447,6 @@
                     "m_Id": "c8b1d81779d543cb89147cb4fd8ff97b"
                 },
                 "m_SlotId": 1
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
-                    "m_Id": "679e6bd7b66b49b6ae3c2e0a81255dcc"
-                },
-                "m_SlotId": 2
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "4fb7d4f4b7514f748cee10f16524b244"
-                },
-                "m_SlotId": 2
             }
         },
         {
@@ -3643,7 +3643,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.44999998807907107,
+    "m_Value": 0.11999999731779099,
     "m_FloatType": 1,
     "m_RangeValues": {
         "x": -0.5,
@@ -4813,7 +4813,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 48.04999923706055,
+    "m_Value": 12.0,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,

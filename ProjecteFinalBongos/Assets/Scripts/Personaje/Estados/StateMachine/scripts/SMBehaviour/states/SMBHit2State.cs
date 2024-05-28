@@ -73,8 +73,6 @@ public class SMBHit2State : SMBComboState
     {
         StopAllCoroutines();
         m_StateMachine.ChangeState<SMBHit1x3State>();
-
-
     }
 
     protected override void OnEndAction()

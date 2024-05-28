@@ -41,7 +41,8 @@ public class DracMVaporSplash : Splash
 
     private void OnDisable()
     {
-        print("adsadasdadadadadadadadadadadadadadadadadadadadad");
+        gameObject.tag = "Splash";
+        gameObject.layer = LayerMask.NameToLayer("BossHitBox");
         StopCoroutine(DamageRoutine());
     }
 }

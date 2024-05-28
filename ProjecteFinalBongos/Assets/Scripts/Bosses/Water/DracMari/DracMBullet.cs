@@ -23,7 +23,12 @@ public class DracMBullet : Bullet
     {
 
     }
-
+    private void MeChoque()
+    {
+        gameObject.layer = LayerMask.NameToLayer("AllHitBox");
+        gameObject.tag = "Bullet";
+        DisableBullet();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (enabled) {
@@ -34,9 +39,9 @@ public class DracMBullet : Bullet
                 vaporCrash.SetActive(true);
                 DracMVaporSplash vaporsplash = vaporCrash.GetComponent<DracMVaporSplash>();
                 vaporsplash.enabled = true;
-                vaporCrash.GetComponent<DracMVaporSplash>().Init();
-                vaporCrash.GetComponent<DracMVaporSplash>().ChangeLayer("BossHitBox");
-                DisableBullet();
+                vaporsplash.Init();
+                vaporsplash.ChangeLayer("BossHitBox");
+                MeChoque();
             }
             else if (collision.gameObject.CompareTag("Player"))
             {
@@ -53,9 +58,9 @@ public class DracMBullet : Bullet
                     vaporCrash.SetActive(true);
                     DracMVaporSplash vaporsplash = vaporCrash.GetComponent<DracMVaporSplash>();
                     vaporsplash.enabled = true;
-                    vaporCrash.GetComponent<DracMVaporSplash>().Init();
-                    vaporCrash.GetComponent<DracMVaporSplash>().ChangeLayer("BossHitBox");
-                    DisableBullet();
+                    vaporsplash.Init();
+                    vaporsplash.ChangeLayer("BossHitBox");
+                    MeChoque();
                 }
             }
             else if (collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox") && boss)
@@ -65,10 +70,10 @@ public class DracMBullet : Bullet
                 vaporCrash.SetActive(true);
                 DracMVaporSplash vaporsplash = vaporCrash.GetComponent<DracMVaporSplash>();
                 vaporsplash.enabled = true;
-                vaporCrash.GetComponent<DracMVaporSplash>().Init();
-                vaporCrash.GetComponent<DracMVaporSplash>().ChangeLayer("PlayerHitBox");
-                vaporCrash.tag = "DracPlayerSplash";
-                DisableBullet();
+                vaporsplash.Init();
+                vaporsplash.ChangeLayer("PlayerHitBox");
+                vaporsplash.tag = "DracPlayerSplash";
+                MeChoque();
             }
         }
 

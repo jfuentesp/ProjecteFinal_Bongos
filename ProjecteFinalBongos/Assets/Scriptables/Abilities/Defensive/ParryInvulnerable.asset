@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce562ca1e324674469e81bc5db144a65, type: 3}
   m_Name: ParryInvulnerable
   m_EditorClassIdentifier: 
-  m_AbilityId: 16
+  m_AbilityId: 17
   m_AbilityName: Bloqueo a la muerte
   m_AbilityDescription: "Al realizar un bloqueo, te vuelves invulnerable por una
     fracci\xF3n de segundo."
@@ -22,3 +22,4 @@ MonoBehaviour:
   m_AbilityType: 0
   m_AbilityEnum: 6
   m_PowerUpAmount: 0
+  m_Cooldown: 0

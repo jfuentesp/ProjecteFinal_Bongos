@@ -28,6 +28,12 @@ public class LevelManager : MonoBehaviour
     [Header("Items DataBase")]
     [SerializeField] private ConsumablesDataBase m_ConsumableDataBase;
     public ConsumablesDataBase ConsumableDataBase => m_ConsumableDataBase;
+    [Header("Equipables DataBase")]
+    [SerializeField] private EquipableDataBase m_EquipableDataBase;
+    public EquipableDataBase EquipableDataBase => m_EquipableDataBase;
+    [Header("Ability DataBase")]
+    [SerializeField] private AbilityDataBase m_AbilityDataBase;
+    public AbilityDataBase AbilityDataBase => m_AbilityDataBase;
 
     [Header("Variables Piccolo Chad")]
     [SerializeField] private GameObject dialoguePanel;

@@ -66,7 +66,6 @@ public class AlteaBullet : Bullet
                 }
             if (collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox"))
             {
-                print("YOUYOUYOUYOUYOU");
                 collision.gameObject.GetComponent<BossBehaviour>().recibirDaño(m_Damage);
                 gameObject.layer = LayerMask.NameToLayer("AllHitBox");
                 DisableBullet();
