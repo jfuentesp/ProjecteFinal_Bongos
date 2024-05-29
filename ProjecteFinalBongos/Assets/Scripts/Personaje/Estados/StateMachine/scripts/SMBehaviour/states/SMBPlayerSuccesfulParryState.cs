@@ -48,7 +48,6 @@ public class SMBPlayerSuccesfulParryState : SMState
     {
         base.ExitState();
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed -= Parry;
-        m_ParticlesParry.gameObject.SetActive(false);
     }
     public void Exit()
     {

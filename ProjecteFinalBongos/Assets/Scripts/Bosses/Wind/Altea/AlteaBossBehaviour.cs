@@ -20,6 +20,10 @@ public class AlteaBossBehaviour : BossBehaviour
     [Header("Time between Eggs")]
     [SerializeField] private float m_TimeBetweenEggs;
 
+    [Header("Maximum Snakes")]
+    [SerializeField] private int m_MaximumSnakes;
+    [SerializeField] private int m_CurrentSnakes;
+
     private new void Awake()
     {
         base.Awake();
@@ -43,11 +47,12 @@ public class AlteaBossBehaviour : BossBehaviour
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
-        OnPlayerInSala.Invoke();
+        m_CurrentSnakes = 0;
+        OnPlayerInSala?.Invoke();
     }
     private void EmpezarCorutina(GameObject obj)
     {
-        m_SpawnEggCoroutine = StartCoroutine(SpawnEggsCoroutine());
+        m_SpawnEggCoroutine??= StartCoroutine(SpawnEggsCoroutine());
     }
 
     private IEnumerator SpawnEggsCoroutine()
@@ -61,21 +66,31 @@ public class AlteaBossBehaviour : BossBehaviour
 
     private void PonerHuevo()
     {
-        Vector2 posicionHuevo = m_SalaPadre.GetPosicionAleatoriaEnSala();
-        RaycastHit2D hit = Physics2D.CircleCast(posicionHuevo, 1, posicionHuevo, 1, m_HuevosLayerMask);
-        if (hit.collider != null)
+        if(m_CurrentSnakes < m_MaximumSnakes)
         {
-            PonerHuevo();
-        }
-        else
-        {
-            GameObject egg = m_Pool.GetElement();
-            egg.transform.position = new Vector2(posicionHuevo.x, posicionHuevo.y);
-            egg.SetActive(true);
-            egg.GetComponent<EggAltea>().enabled = true;
-            egg.GetComponent<EggAltea>().Init(m_Target, transform.parent);
+            Vector2 posicionHuevo = m_SalaPadre.GetPosicionAleatoriaEnSala();
+            RaycastHit2D hit = Physics2D.CircleCast(posicionHuevo, 1, posicionHuevo, 1, m_HuevosLayerMask);
+            if (hit.collider != null || Vector2.Distance(transform.position, posicionHuevo) > 10)
+            {
+                PonerHuevo();
+            }
+            else
+            {
+                GameObject egg = m_Pool.GetElement();
+                egg.transform.position = new Vector2(posicionHuevo.x, posicionHuevo.y);
+                egg.SetActive(true);
+                egg.GetComponent<EggAltea>().enabled = true;
+                egg.GetComponent<EggAltea>().Init(m_Target, transform.parent, transform);
+                m_CurrentSnakes++;
+            }
         }
     }
+
+    public void SnakeMuerta()
+    {
+        m_CurrentSnakes--;
+    }
+
     private void MatarBoss()
     {
         if (m_GoldPrefab)

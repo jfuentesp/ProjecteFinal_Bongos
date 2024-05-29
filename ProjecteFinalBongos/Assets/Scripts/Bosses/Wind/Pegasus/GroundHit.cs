@@ -32,7 +32,7 @@ public class GroundHit : MonoBehaviour
         }
         if (transform.localScale.x < 10)
         {
-            transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+            transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
         }
     }
 

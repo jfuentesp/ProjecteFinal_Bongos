@@ -184,7 +184,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.12, y: 0.09}
   serializedVersion: 2
   m_Radius: 0.5
 --- !u!114 &8056586074386712392
@@ -207,8 +207,8 @@ MonoBehaviour:
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 5
   m_AreaWideness: 5
-  m_AreaRadius: 1.5
-  m_CheckingPlayerTimelapse: 0.2
+  m_AreaRadius: 0.8
+  m_CheckingPlayerTimelapse: 0.1
   m_LayersToCheck:
     serializedVersion: 2
     m_Bits: 128

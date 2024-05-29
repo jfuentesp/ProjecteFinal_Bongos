@@ -11,6 +11,7 @@ public class EggAltea : Splash
 
     private Transform m_Target;
     private Transform m_TransformSala;
+    private Transform m_TransformBoss;
     private bool m_Nacido;
     private Animator m_Animator;
     [SerializeField] private AnimationClip[] m_AnimationsClips;
@@ -20,15 +21,27 @@ public class EggAltea : Splash
         m_Animator = GetComponent<Animator>();
     }
 
-    public void Init(Transform _Target, Transform parent)
+    public void Init(Transform _Target, Transform parent, Transform AlteaTransform)
     {
         m_TransformSala = parent;
+        m_TransformBoss = AlteaTransform;
+        if (m_TransformBoss.TryGetComponent<AlteaBossBehaviour>(out AlteaBossBehaviour altea))
+            altea.OnBossDeath += BossMuerto;
         m_Size = new Vector2(m_SizeWideness, m_SizeLength);
         transform.localScale = m_Size;
         m_Target = _Target;
         m_Nacido = false;
         StartCoroutine(BornSNake());
     }
+
+    private void BossMuerto()
+    {
+        StopAllCoroutines();
+        m_Animator.Play("EggAlteaBorn");
+        if (m_TransformBoss.TryGetComponent<AlteaBossBehaviour>(out AlteaBossBehaviour altea))
+            altea.SnakeMuerta();
+    }
+
     protected virtual IEnumerator BornSNake()
     {
         PlayRandomAnimation();
@@ -44,6 +57,9 @@ public class EggAltea : Splash
 
     private void OnDisable()
     {
+        if (m_TransformBoss.TryGetComponent<AlteaBossBehaviour>(out AlteaBossBehaviour altea))
+            altea.OnBossDeath -= BossMuerto;
+
         DisableBullet();
     }
 
@@ -54,6 +70,7 @@ public class EggAltea : Splash
             GameObject Serpiente = Instantiate(m_SerpientePrefab, m_TransformSala);
             Serpiente.transform.position = transform.position;
             Serpiente.GetComponent<BossBehaviour>().BossFinalSalaSpawn(m_Target);
+            Serpiente.GetComponent<EnemySnake>().SetAlteaTransform(m_TransformBoss);
         }
     }
     private void EndEgg()
@@ -66,7 +83,10 @@ public class EggAltea : Splash
             return;
         if(collision.gameObject.layer == LayerMask.NameToLayer("PlayerHitBox"))
         {
+            StopAllCoroutines();
             m_Animator.Play("EggAlteaBorn");
+            if (m_TransformBoss.TryGetComponent<AlteaBossBehaviour>(out AlteaBossBehaviour altea))
+                altea.SnakeMuerta();
         }
     }
 }
