@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -13,6 +14,8 @@ namespace GUIScripts
 {
     public class GUIMenuInicialScript : MonoBehaviour
     {
+        private static GUIMenuInicialScript m_Instance;
+        public static GUIMenuInicialScript Instance => m_Instance;
 
         [Header("Menu Inicial")]
         [SerializeField] private GameObject m_MenuInicialPanel;
@@ -44,10 +47,42 @@ namespace GUIScripts
         private List<GameObject> m_PanelsList;
         private int m_IdPartidaNueva;
 
+        private EventSystem m_eventSystem;
+        public EventSystem EventSystem => m_eventSystem;
+
+        [SerializeField]
+        private GameObject m_InitialPanelFirstItem;
+        [SerializeField]
+        private GameObject m_NewGameFirstItem;
+        [SerializeField]
+        private GameObject m_OptionsFirstItem;
+        [SerializeField]
+        private GameObject m_RankingFirstItem;
+        [SerializeField]
+        private GameObject m_MenuSlotsFirstItem;
+        [SerializeField]
+        private GameObject m_OnSubmitTextFirstItem;
+
+        [SerializeField]
+        private GameObject[] m_ButtonList;
+
+        private void Awake()
+        {
+            if (m_Instance == null)
+                m_Instance = this;
+            else
+            {
+                Destroy(gameObject);
+                return;
+            }
+            m_eventSystem = GetComponent<EventSystem>();
+        }
+
         // Start is called before the first frame update
         void Start()
         {
             GameManager.Instance.OnPlayerDeleted += RefreshPlayersFromStartGame;
+            
             if (m_OptionsButton) m_OptionsButton.onClick.AddListener(Options);
             if (m_RankingsButton) m_RankingsButton.onClick.AddListener(Ranking);
             if (m_ExitButton) m_ExitButton.onClick.AddListener(CloseGame);
@@ -57,6 +92,11 @@ namespace GUIScripts
             if (m_BackNewGameButton) m_BackNewGameButton.onClick.AddListener(BackMainMenu);
             if (m_BackOptionsButton) m_BackOptionsButton.onClick.AddListener(BackMainMenu);
             if (m_BackRankingButton) m_BackRankingButton.onClick.AddListener(BackMainMenu);
+            if (m_NewNameInput) m_NewNameInput.onSubmit.AddListener(fieldValue =>
+            {
+                fieldValue = m_NewNameInput.text;
+                TextSubmitted();
+            });
             m_NewNameInput.onValueChanged.AddListener(ValidateIpInputField);
             m_StartNewGameButton.interactable = false;
 
@@ -84,6 +124,7 @@ namespace GUIScripts
             if (m_BackNewGameButton) m_BackNewGameButton.onClick.RemoveAllListeners();
             if (m_BackOptionsButton) m_BackOptionsButton.onClick.RemoveAllListeners();
             if (m_BackRankingButton) m_BackRankingButton.onClick.RemoveAllListeners();
+            if (m_NewNameInput) m_NewNameInput.onSubmit.RemoveAllListeners();
             m_NewNameInput.onValueChanged.RemoveAllListeners();
         }
         private void SlotsGame()
@@ -120,6 +161,11 @@ namespace GUIScripts
             }
         }
 
+        private void TextSubmitted()
+        {
+            m_eventSystem.SetSelectedGameObject(m_OnSubmitTextFirstItem);
+        }
+
         private void BackMainMenu()
         {
             ClosePanelsInsteadOf(TypeOfPanels.INICIAL);
@@ -134,18 +180,23 @@ namespace GUIScripts
             {
                 case TypeOfPanels.INICIAL:
                     m_MenuInicialPanel.SetActive(true);
+                    m_eventSystem.SetSelectedGameObject(m_InitialPanelFirstItem);
                     break;
                 case TypeOfPanels.NEW_GAME:
                     m_MenuNewGamePanel.SetActive(true);
+                    m_eventSystem.SetSelectedGameObject(m_NewGameFirstItem);
                     break;
                 case TypeOfPanels.OPTIONS:
                     m_MenuOptionsPanel.SetActive(true);
+                    m_eventSystem.SetSelectedGameObject(m_OptionsFirstItem);
                     break;
                 case TypeOfPanels.RANKING:
                     m_MenuRankingPanel.SetActive(true);
+                    m_eventSystem.SetSelectedGameObject(m_RankingFirstItem);
                     break;
                 case TypeOfPanels.START_GAME:
                     m_MenuSlotsGamesPanel.SetActive(true);
+                    m_eventSystem.SetSelectedGameObject(m_MenuSlotsFirstItem);
                     RefreshPlayersFromStartGame();
                     break;
             }
@@ -171,6 +222,18 @@ namespace GUIScripts
                     m_PartidasSlots[i].transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = "Load Game";
                 }
             }
+        }
+
+        public GameObject SelectPreviousButton(string buttonID)
+        {
+            for(int i = 0; i < m_ButtonList.Length; i++)
+            {
+               GameObject item = m_ButtonList[i];
+               LoadDeleteGame button = item.GetComponent<LoadDeleteGame>();
+                if (button.ButtonId == buttonID)
+                    return m_ButtonList[i - 1];
+            }
+            return null;
         }
 
         public void NewGameId(float id)
