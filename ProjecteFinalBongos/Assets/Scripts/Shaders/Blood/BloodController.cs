@@ -29,6 +29,13 @@ public class BloodController : MonoBehaviour
         m_Animator.Play(m_AnimationsList[Random.Range(0, m_AnimationsList.Length)].name);
     }
 
+    public void PlayDeathBlood()
+    {
+        gameObject.SetActive(true);
+        m_SpriteRenderer.material.SetColor("_Color", m_BloodColorList[Random.Range(0, m_BloodColorList.Length)]);
+        m_Animator.Play("Muerto");
+    }
+
     private void EndAnimation()
     {
         gameObject.SetActive(false);

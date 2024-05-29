@@ -169,6 +169,7 @@ public class GameManager : MonoBehaviour, ISaveablePreSetsData
 
     public void AvanzarMundo(MundoEnum mundoEnum)
     {
+        print("Avancemos: " + mundoEnum);
         if (mundoEnum == MundoEnum.MUNDO_UNO)
         {
             SceneManager.LoadScene("Mundo2");

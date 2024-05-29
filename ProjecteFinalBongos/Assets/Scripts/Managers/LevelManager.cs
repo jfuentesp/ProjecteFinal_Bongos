@@ -61,6 +61,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private List<BossDisponible> m_ListaBossesDisponibles = new();
     [SerializeField] private GameEvent m_GuardarPartidaEvent;
     [SerializeField] private GameEvent m_CargarPartidaEvent;
+    [SerializeField] private GameEvent m_CargarPartidaEntreEscenasEvent;
 
     [Header("Lista de objetos")]
     [SerializeField] private List<ObjetosDisponibles> m_ObjetosDisponiblesTienda;
@@ -130,6 +131,22 @@ public class LevelManager : MonoBehaviour
         m_FundidoNegroPanel.SetActive(false);
     }
 
+    private IEnumerator FundirNegroCoroutine()
+    {
+        m_FundidoNegroPanel.SetActive(true);
+        PJSMB.Instance.StopPlayer();
+        while (m_FundidoNegroPanel.GetComponent<Image>().color.a < 1)
+        {
+            Color colorin = m_FundidoNegroPanel.GetComponent<Image>().color;
+            colorin.a += 0.01f;
+            m_FundidoNegroPanel.GetComponent<Image>().color = colorin;
+            print(m_FundidoNegroPanel.GetComponent<Image>().color.a);
+            yield return new WaitForSeconds(.03f);
+        }
+
+        GameManager.Instance.AvanzarMundo(m_MundoActual);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -137,13 +154,18 @@ public class LevelManager : MonoBehaviour
         idPiccolo = 0;
         m_BossesMuertos = 0;
         m_FundidoNegroPanel.SetActive(true);
-
+        bool cargado = false;
         if (!GameManager.Instance.Testing)
         {
             if (!GameManager.Instance.NuevaPartida)
             {
+                cargado = true;
                 m_CargarPartidaEvent.Raise();
             }
+        }
+        if(m_MundoActual == MundoEnum.MUNDO_DOS && !cargado)
+        {
+            m_CargarPartidaEntreEscenasEvent.Raise();
         }
     }
 
@@ -335,7 +357,8 @@ public class LevelManager : MonoBehaviour
         }
         if (m_BossesMuertos == 7)
         {
-            GameManager.Instance.AvanzarMundo(m_MundoActual);
+            GuardarPartida();
+            StartCoroutine(FundirNegroCoroutine());
         }
     }
 

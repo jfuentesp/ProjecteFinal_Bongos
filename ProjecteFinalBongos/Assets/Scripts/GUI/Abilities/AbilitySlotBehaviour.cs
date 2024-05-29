@@ -63,6 +63,11 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
         }
     }
 
+    public void SetAbility(Ability _Ability)
+    {
+        m_AssignedAbility = _Ability;
+    }
+
     private void SetChosen(bool status)
     {
         m_AssignedAbility.IsLearnt = status;

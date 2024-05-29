@@ -83,12 +83,12 @@ public class AbilitiesGUIController : MonoBehaviour, ISaveableAbilitiesPlayerDat
             case AbilityTierEnum.TIER1:
                 random = Random.Range(0, m_GameManager.Tier1Abilities.Count);
                 ability = m_GameManager.Tier1Abilities[random];
-                if(ability.Category == category)
+                if (ability.Category == category)
                 {
                     m_GameManager.Tier1Abilities.Remove(ability);
                     ability.IsLearnt = false;
                     return ability;
-                } 
+                }
                 else
                 {
                     return GetRandomAbilityByTierAndType(tier, category);
@@ -138,18 +138,18 @@ public class AbilitiesGUIController : MonoBehaviour, ISaveableAbilitiesPlayerDat
 
         if (m_GameManager.NuevaPartida && LevelManager.Instance.MundoActualJugador == MundoEnum.MUNDO_UNO)
         {
-            
+
             slot.Initialize();
         }
-            
+
     }
 
     private void OnGuiRefresh()
     {
-        foreach(AbilitySlotBehaviour slot in m_Slots)
+        foreach (AbilitySlotBehaviour slot in m_Slots)
         {
             OnInitializeAbilities(slot);
-            switch(slot.AssignedAbility?.Category)
+            switch (slot.AssignedAbility?.Category)
             {
                 case AbilityCategoryEnum.OFFENSIVE:
                     slot.RefreshSlot(PJSMB.Instance.PlayerAbilitiesController.CurrentOffensiveTier);
@@ -171,10 +171,10 @@ public class AbilitiesGUIController : MonoBehaviour, ISaveableAbilitiesPlayerDat
 
         m_AvailablePointsText.text = m_AbilityPoints.HabilityPoints.ToString();
 
-        if(m_AbilityPoints.HabilityPoints <= 0)
+        if (m_AbilityPoints.HabilityPoints <= 0)
         {
             m_AvailablePointsText.color = m_ZeroPointsColor;
-        } 
+        }
         else
         {
             m_AvailablePointsText.color = m_AvailablePointsColor;
@@ -209,7 +209,7 @@ public class AbilitiesGUIController : MonoBehaviour, ISaveableAbilitiesPlayerDat
     public void SetAbility(Ability ability)
     {
         m_AbilityPoints.ConsumeAbilityPoints(1);
-        switch(ability.TypeEnum)
+        switch (ability.TypeEnum)
         {
             case AbilityTypeEnum.ABILITY:
                 if (ability.Category == AbilityCategoryEnum.OFFENSIVE)
@@ -236,7 +236,7 @@ public class AbilitiesGUIController : MonoBehaviour, ISaveableAbilitiesPlayerDat
                 break;
         }
 
-        switch(ability.Category)
+        switch (ability.Category)
         {
             case AbilityCategoryEnum.OFFENSIVE:
                 PJSMB.Instance.PlayerAbilitiesController.SetOffensiveTier(ability.Tier);
@@ -254,7 +254,7 @@ public class AbilitiesGUIController : MonoBehaviour, ISaveableAbilitiesPlayerDat
     public PlayerAbilities[] Save()
     {
         PlayerAbilities[] abilities = new PlayerAbilities[m_Slots.Count];
-        for(int i = 0; i < m_Slots.Count; i++)
+        for (int i = 0; i < m_Slots.Count; i++)
         {
             PlayerAbilities ability = new();
             ability.m_AbilityId = m_Slots[i].AssignedAbility.id;
@@ -265,9 +265,36 @@ public class AbilitiesGUIController : MonoBehaviour, ISaveableAbilitiesPlayerDat
         return abilities;
     }
 
-
-    public void Load(PlayerAbilities[] _PlayerAbilities)
+    public void Load(PlayerAbilities[] _PlayerAbilities, bool entreEscena)
     {
-        throw new System.NotImplementedException();
+        if (!entreEscena)
+        {
+            for (int i = 0; i < _PlayerAbilities.Length; i++)
+            {
+                m_Slots[i].SetAbility(LevelManager.Instance.AbilityDataBase.GetItemByID(_PlayerAbilities[i].m_AbilityId));
+                if (_PlayerAbilities[i].m_AbilityIsLearned)
+                {
+                    switch (m_Slots[i].AssignedAbility.Category)
+                    {
+                        case AbilityCategoryEnum.OFFENSIVE:
+                            PJSMB.Instance.PlayerAbilitiesController.learnAttack(m_Slots[i].AssignedAbility);
+                            break;
+                        case AbilityCategoryEnum.DEFENSIVE:
+                            PJSMB.Instance.PlayerAbilitiesController.learnParry(m_Slots[i].AssignedAbility);
+                            break;
+                        case AbilityCategoryEnum.AGILITY:
+                            PJSMB.Instance.PlayerAbilitiesController.learnMovement(m_Slots[i].AssignedAbility);
+                            break;
+                    }
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < _PlayerAbilities.Length; i++)
+            {
+                m_Slots[i].SetAbility(LevelManager.Instance.AbilityDataBase.GetItemByID(_PlayerAbilities[i].m_AbilityId));
+            }
+        }
     }
 }

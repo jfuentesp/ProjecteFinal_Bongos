@@ -116,6 +116,7 @@ public class EolosBossBehaviour : BossBehaviour
             m_CurrentPhase = Phase.THREE;
             StartCoroutine(DescontarVida());
             return;*/
+            m_BloodController.PlayDeathBlood();
             m_IsAlive = false;
             StopAllCoroutines();
             OnBossDeath?.Invoke();

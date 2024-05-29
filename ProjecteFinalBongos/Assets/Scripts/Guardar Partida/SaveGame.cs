@@ -233,7 +233,7 @@ namespace SaveLoadGame
         public interface ISaveableAbilitiesPlayerData
         {
             public PlayerAbilities[] Save();
-            public void Load(PlayerAbilities[] _PlayerAbilities);
+            public void Load(PlayerAbilities[] _PlayerAbilities, bool entreEscena);
         }
     }
 }

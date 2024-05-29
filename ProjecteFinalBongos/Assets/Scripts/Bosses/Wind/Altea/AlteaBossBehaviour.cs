@@ -108,6 +108,7 @@ public class AlteaBossBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
+        m_BloodController.PlayDeathBlood();
         StopAllCoroutines();
         GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         m_StateMachine.ChangeState<DeathState>();
