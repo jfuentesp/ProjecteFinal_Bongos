@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -44,10 +45,30 @@ namespace GUIScripts
         private List<GameObject> m_PanelsList;
         private int m_IdPartidaNueva;
 
+        private EventSystem m_eventSystem;
+        public EventSystem EventSystem => m_eventSystem;
+
+        [SerializeField]
+        private GameObject m_InitialPanelFirstItem;
+        [SerializeField]
+        private GameObject m_NewGameFirstItem;
+        [SerializeField]
+        private GameObject m_OptionsFirstItem;
+        [SerializeField]
+        private GameObject m_RankingFirstItem;
+        [SerializeField]
+        private GameObject m_MenuSlotsFirstItem;
+
+        private void Awake()
+        {
+            m_eventSystem = GetComponent<EventSystem>();
+        }
+
         // Start is called before the first frame update
         void Start()
         {
             GameManager.Instance.OnPlayerDeleted += RefreshPlayersFromStartGame;
+            
             if (m_OptionsButton) m_OptionsButton.onClick.AddListener(Options);
             if (m_RankingsButton) m_RankingsButton.onClick.AddListener(Ranking);
             if (m_ExitButton) m_ExitButton.onClick.AddListener(CloseGame);
@@ -134,18 +155,23 @@ namespace GUIScripts
             {
                 case TypeOfPanels.INICIAL:
                     m_MenuInicialPanel.SetActive(true);
+                    m_eventSystem.SetSelectedGameObject(m_InitialPanelFirstItem);
                     break;
                 case TypeOfPanels.NEW_GAME:
                     m_MenuNewGamePanel.SetActive(true);
+                    m_eventSystem.SetSelectedGameObject(m_NewGameFirstItem);
                     break;
                 case TypeOfPanels.OPTIONS:
                     m_MenuOptionsPanel.SetActive(true);
+                    m_eventSystem.SetSelectedGameObject(m_OptionsFirstItem);
                     break;
                 case TypeOfPanels.RANKING:
                     m_MenuRankingPanel.SetActive(true);
+                    m_eventSystem.SetSelectedGameObject(m_RankingFirstItem);
                     break;
                 case TypeOfPanels.START_GAME:
                     m_MenuSlotsGamesPanel.SetActive(true);
+                    m_eventSystem.SetSelectedGameObject(m_MenuSlotsFirstItem);
                     RefreshPlayersFromStartGame();
                     break;
             }
