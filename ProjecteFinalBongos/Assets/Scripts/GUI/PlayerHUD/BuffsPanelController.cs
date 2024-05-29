@@ -26,7 +26,10 @@ public class BuffsPanelController : MonoBehaviour
     {
         m_Image.fillAmount = 1;
         m_EstadoActual = estado;
-        m_Cooldown = time;
+        if (estado == EstadosAlterados.Enverinat)
+            m_Cooldown = time * 4;
+        else
+            m_Cooldown = time;
         m_TimeElapsed = m_Cooldown;
         m_Image.sprite = m_Estados.FirstOrDefault(estadoAlterado => estadoAlterado.Estado == estado).Sprite;
     }
