@@ -14,6 +14,8 @@ namespace GUIScripts
 {
     public class GUIMenuInicialScript : MonoBehaviour
     {
+        private static GUIMenuInicialScript m_Instance;
+        public static GUIMenuInicialScript Instance => m_Instance;
 
         [Header("Menu Inicial")]
         [SerializeField] private GameObject m_MenuInicialPanel;
@@ -58,9 +60,21 @@ namespace GUIScripts
         private GameObject m_RankingFirstItem;
         [SerializeField]
         private GameObject m_MenuSlotsFirstItem;
+        [SerializeField]
+        private GameObject m_OnSubmitTextFirstItem;
+
+        [SerializeField]
+        private GameObject[] m_ButtonList;
 
         private void Awake()
         {
+            if (m_Instance == null)
+                m_Instance = this;
+            else
+            {
+                Destroy(gameObject);
+                return;
+            }
             m_eventSystem = GetComponent<EventSystem>();
         }
 
@@ -78,6 +92,11 @@ namespace GUIScripts
             if (m_BackNewGameButton) m_BackNewGameButton.onClick.AddListener(BackMainMenu);
             if (m_BackOptionsButton) m_BackOptionsButton.onClick.AddListener(BackMainMenu);
             if (m_BackRankingButton) m_BackRankingButton.onClick.AddListener(BackMainMenu);
+            if (m_NewNameInput) m_NewNameInput.onSubmit.AddListener(fieldValue =>
+            {
+                fieldValue = m_NewNameInput.text;
+                TextSubmitted();
+            });
             m_NewNameInput.onValueChanged.AddListener(ValidateIpInputField);
             m_StartNewGameButton.interactable = false;
 
@@ -105,6 +124,7 @@ namespace GUIScripts
             if (m_BackNewGameButton) m_BackNewGameButton.onClick.RemoveAllListeners();
             if (m_BackOptionsButton) m_BackOptionsButton.onClick.RemoveAllListeners();
             if (m_BackRankingButton) m_BackRankingButton.onClick.RemoveAllListeners();
+            if (m_NewNameInput) m_NewNameInput.onSubmit.RemoveAllListeners();
             m_NewNameInput.onValueChanged.RemoveAllListeners();
         }
         private void SlotsGame()
@@ -139,6 +159,11 @@ namespace GUIScripts
                 GameManager.Instance.SavePlayersAndTheirWorld(m_NewNameInput.text, m_IdPartidaNueva);
                 GameManager.Instance.CreateNewGameOfPlayer(m_NewNameInput.text, GameManager.Instance.NombreDeTuEscena);
             }
+        }
+
+        private void TextSubmitted()
+        {
+            m_eventSystem.SetSelectedGameObject(m_OnSubmitTextFirstItem);
         }
 
         private void BackMainMenu()
@@ -197,6 +222,18 @@ namespace GUIScripts
                     m_PartidasSlots[i].transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = "Load Game";
                 }
             }
+        }
+
+        public GameObject SelectPreviousButton(string buttonID)
+        {
+            for(int i = 0; i < m_ButtonList.Length; i++)
+            {
+               GameObject item = m_ButtonList[i];
+               LoadDeleteGame button = item.GetComponent<LoadDeleteGame>();
+                if (button.ButtonId == buttonID)
+                    return m_ButtonList[i - 1];
+            }
+            return null;
         }
 
         public void NewGameId(float id)

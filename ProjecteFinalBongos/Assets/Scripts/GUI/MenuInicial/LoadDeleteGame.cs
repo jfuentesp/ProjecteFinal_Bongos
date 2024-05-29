@@ -13,6 +13,9 @@ namespace GUIScripts
         private string m_Mundo;
         private int m_NumeroDeLista;
         [SerializeField] private FloatEvent m_EventoNuevaIdPartida;
+        [SerializeField]
+        private string m_ButtonId;
+        public string ButtonId => m_ButtonId;
 
         private void Awake()
         {
@@ -61,6 +64,7 @@ namespace GUIScripts
         private void DeleteWorld()
         {
             GameManager.Instance.DeletePlayerGame(m_Name , m_NumeroDeLista);
+            GUIMenuInicialScript.Instance.EventSystem.SetSelectedGameObject(GUIMenuInicialScript.Instance.SelectPreviousButton(m_ButtonId));
         }
     }
 }
