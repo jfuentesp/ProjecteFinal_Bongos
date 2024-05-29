@@ -10,6 +10,7 @@ public class SMBPlayerSuccesfulParryState : SMState
     private Animator m_Animator;
     private FiniteStateMachine m_StateMachine;
     private Ability m_parry;
+    [SerializeField] private ParticleSystem m_ParticlesParry;
 
 
     private new void Awake()
@@ -26,6 +27,8 @@ public class SMBPlayerSuccesfulParryState : SMState
     {
         base.InitState();
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed += Parry;
+        m_ParticlesParry.gameObject.SetActive(true);
+        m_ParticlesParry.Play();
         if (m_PJ.direccion == 0)
         {
             m_Animator.Play("parriedPose");
@@ -45,6 +48,7 @@ public class SMBPlayerSuccesfulParryState : SMState
     {
         base.ExitState();
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed -= Parry;
+        m_ParticlesParry.gameObject.SetActive(false);
     }
     public void Exit()
     {

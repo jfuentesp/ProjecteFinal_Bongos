@@ -216,6 +216,8 @@ MonoBehaviour:
   m_layerMask:
     serializedVersion: 2
     m_Bits: 128
+  m_GoldPrefab: {fileID: 0}
+  m_AbilityPointPrefab: {fileID: 0}
 --- !u!114 &-8486497787577258188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAXHP: 200
+  MAXHP: 100
 --- !u!114 &-8294847842510679009
 MonoBehaviour:
   m_ObjectHideFlags: 0

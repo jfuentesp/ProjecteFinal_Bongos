@@ -281,7 +281,7 @@ MonoBehaviour:
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 2
   m_AreaWideness: 2
-  m_AreaRadius: 1.4
+  m_AreaRadius: 1.5
   m_CheckingPlayerTimelapse: 0.1
   m_LayersToCheck:
     serializedVersion: 2
@@ -353,8 +353,8 @@ MonoBehaviour:
   m_TwoDirections: 1
   m_SingleAttackAnimationName: SingleAttack
   m_WaitAnimation: Wait
-  minWaitTime: 0.3
-  maxWaitTime: 0.6
+  minWaitTime: 0.2
+  maxWaitTime: 0.4
 --- !u!114 &1774389843798436801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,8 +374,8 @@ MonoBehaviour:
   m_TwoDirections: 1
   m_DoubleAttackAnimationName: DoubleAttack
   m_WaitAnimation: Wait
-  minWaitTime: 0.3
-  maxWaitTime: 0.6
+  minWaitTime: 0.2
+  maxWaitTime: 0.4
 --- !u!114 &7563892893529071026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,8 +395,8 @@ MonoBehaviour:
   m_TwoDirections: 1
   m_TripleAttackAnimationName: TripleAttack
   m_WaitAnimation: Wait
-  minWaitTime: 0.3
-  maxWaitTime: 0.6
+  minWaitTime: 0.2
+  maxWaitTime: 0.4
 --- !u!114 &3592041333081363109
 MonoBehaviour:
   m_ObjectHideFlags: 0
