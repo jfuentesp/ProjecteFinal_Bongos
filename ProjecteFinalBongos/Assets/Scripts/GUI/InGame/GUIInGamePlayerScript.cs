@@ -86,23 +86,12 @@ public class GUIInGamePlayerScript : MonoBehaviour
 
     private void OnExitConfirmation()
     {
-
+        m_GameParado = false;
+        GameManager.Instance.PauseGame(m_GameParado);
+        LevelManager.Instance.FundirNegro(false);
     }
 
     private void CancelExit()
-    {
-        ClosePanelsInsteadOf(TypeOfPanels.PAUSE);
-    }
-
-    private void ExitConfirmation()
-    {
-        //Para salir de la partida
-        //Haces fundir a negro - LevelManager
-        //Decirle al player que se borre
-        //Aparte de cargar la escena inicial
-    }
-
-    private void ExitBack()
     {
         ClosePanelsInsteadOf(TypeOfPanels.PAUSE);
     }

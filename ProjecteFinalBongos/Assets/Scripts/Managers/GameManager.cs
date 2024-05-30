@@ -187,12 +187,6 @@ public class GameManager : MonoBehaviour, ISaveablePreSetsData
         }
     }
 
-    public void TerminarPartida()
-    {
-        PJSMB.Instance.AcabarJuego();
-        SceneManager.LoadScene("EscenaInicial");
-    }
-
     public void AlCargarMundo()
     {
         m_NuevaPartida = true;
