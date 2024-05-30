@@ -12,6 +12,10 @@ public class MiniDaryaBossBehaviour : BossBehaviour
     [SerializeField] private int vecesAntesDeQuePeteEscudo;
     [SerializeField] private BubbleProtectionScript m_Bubble;
     [SerializeField] private Material m_materialPared;
+    [Header("Paredes pinchos")]
+    [SerializeField] private GameObject m_ParedesPinchoPrefab;
+    [SerializeField] private GameObject m_PuertaParedPrefab;
+    [SerializeField] private GameObject m_PuertaPrefab;
     private int cuantoQuedaEscudo;
     private bool atacando;
 
@@ -51,21 +55,43 @@ public class MiniDaryaBossBehaviour : BossBehaviour
                 {
                     if (transform.parent.GetChild(i).GetChild(j).gameObject.CompareTag("MechanicObstacle"))
                     {
+                        GameObject prefabito;
+                        if (j == 0)
+                        {
+                             prefabito = Instantiate(m_PuertaPrefab, transform.parent.GetChild(i).GetChild(j));
+                        }
+                        else
+                        {
+                             prefabito = Instantiate(m_PuertaParedPrefab, transform.parent.GetChild(i).GetChild(j));
+                        }
                         transform.parent.GetChild(i).GetChild(j).gameObject.AddComponent<BossAttackDamage>();
                         transform.parent.GetChild(i).GetChild(j).gameObject.GetComponent<BossAttackDamage>().SetEstado(EstadosAlterados.Normal);
                         transform.parent.GetChild(i).GetChild(j).gameObject.GetComponent<BossAttackDamage>().SetDamage(20);
                         if (transform.parent.GetChild(i).GetChild(j).gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite))
                             sprite.material = m_materialPared;
+
+                        if (j == 1)
+                        {
+                            prefabito.transform.localPosition = new Vector3(0.1f, prefabito.transform.localPosition.y, prefabito.transform.localPosition.z);
+                        }
+                        else if (j == 2)
+                        {
+                            prefabito.transform.localPosition = new Vector3(-0.1f, prefabito.transform.localPosition.y, prefabito.transform.localPosition.z);
+                        }
                     }
                 }
             }
             else
             {
-                transform.parent.GetChild(i).gameObject.AddComponent<BossAttackDamage>();
-                transform.parent.GetChild(i).gameObject.GetComponent<BossAttackDamage>().SetEstado(EstadosAlterados.Normal);
-                transform.parent.GetChild(i).gameObject.GetComponent<BossAttackDamage>().SetDamage(20);
-                if (transform.parent.GetChild(i).gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite))
-                    sprite.material = m_materialPared;
+                if (transform.parent.GetChild(i).gameObject.CompareTag("MechanicObstacle"))
+                {
+                    GameObject prefabito = Instantiate(m_ParedesPinchoPrefab, transform.parent.GetChild(i));
+                    transform.parent.GetChild(i).gameObject.AddComponent<BossAttackDamage>();
+                    transform.parent.GetChild(i).gameObject.GetComponent<BossAttackDamage>().SetEstado(EstadosAlterados.Normal);
+                    transform.parent.GetChild(i).gameObject.GetComponent<BossAttackDamage>().SetDamage(20);
+                    if (transform.parent.GetChild(i).gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite))
+                        sprite.material = m_materialPared;
+                }
             }
         }
     }
