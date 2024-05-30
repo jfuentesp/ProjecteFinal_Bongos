@@ -131,7 +131,7 @@ public class LevelManager : MonoBehaviour
         m_FundidoNegroPanel.SetActive(false);
     }
 
-    private IEnumerator FundirNegroCoroutine()
+    private IEnumerator FundirNegroCoroutine(bool isPlayerDead)
     {
         m_FundidoNegroPanel.SetActive(true);
         PJSMB.Instance.StopPlayer();
