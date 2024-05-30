@@ -6388,6 +6388,7 @@ GameObject:
   - component: {fileID: 234246585}
   - component: {fileID: 234246584}
   - component: {fileID: 234246583}
+  - component: {fileID: 234246588}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6527,6 +6528,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &234246588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234246582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5c8c1c039dae94d8e4beb37709071f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SoundType: 2
 --- !u!1001 &234620592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12655,7 +12669,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -214.99998}
+  m_AnchoredPosition: {x: 200, y: -215}
   m_SizeDelta: {x: 250, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &501407847
@@ -25989,18 +26003,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd96abb575477824f96c59056a776123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PausaPanel: {fileID: 1170322372}
-  m_ResumeGameButton: {fileID: 686841587}
+  m_PausaPanel: {fileID: 1966964291}
+  m_ResumeGameButton: {fileID: 92443472}
+  m_OptionsButton: {fileID: 501407847}
+  m_ExitGameButton: {fileID: 616976390}
+  m_ExitConfirmationButton: {fileID: 1413397595}
+  m_ExitBackButton: {fileID: 2021067439}
   m_PanelInventory: {fileID: 305401016}
   m_PanelPlayerHUD: {fileID: 2090436230}
   m_PanelAbilities: {fileID: 2021606262}
   m_PanelStore: {fileID: 519965447}
+  m_PanelOptions: {fileID: 1170322372}
+  m_PanelExitConfirmation: {fileID: 685591389}
   m_PanelsList:
   - {fileID: 305401016}
   - {fileID: 2090436230}
   - {fileID: 2021606262}
   - {fileID: 519965447}
   - {fileID: 1170322372}
+  - {fileID: 1966964291}
+  - {fileID: 685591389}
 --- !u!114 &1099265613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26244,6 +26266,7 @@ MonoBehaviour:
     m_BossDisponible: 0
   m_GuardarPartidaEvent: {fileID: 11400000, guid: 0621630a1c7d1a949bc1c63b4833c396, type: 2}
   m_CargarPartidaEvent: {fileID: 11400000, guid: f7ea0370e72825c45b2c3968fb1d0ae2, type: 2}
+  m_CargarPartidaEntreEscenasEvent: {fileID: 0}
   m_ObjetosDisponiblesTienda:
   - m_Object: {fileID: 11400000, guid: 4c8ac7b15a95b654a8735bb991fe4e1d, type: 2}
     ratioAparicion: 20

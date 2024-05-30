@@ -131,7 +131,7 @@ public class LevelManager : MonoBehaviour
         m_FundidoNegroPanel.SetActive(false);
     }
 
-    private IEnumerator FundirNegroCoroutine()
+    private IEnumerator FundirNegroCoroutine(bool isLoadingNextScene)
     {
         m_FundidoNegroPanel.SetActive(true);
         PJSMB.Instance.StopPlayer();
@@ -144,7 +144,10 @@ public class LevelManager : MonoBehaviour
             yield return new WaitForSeconds(.03f);
         }
 
-        GameManager.Instance.AvanzarMundo(m_MundoActual);
+        if (isLoadingNextScene)
+            GameManager.Instance.AvanzarMundo(m_MundoActual);
+        else
+            GameManager.Instance.TerminarPartida();
     }
 
     // Start is called before the first frame update
@@ -359,7 +362,7 @@ public class LevelManager : MonoBehaviour
         if (m_BossesMuertos == 7)
         {
             GuardarPartida();
-            StartCoroutine(FundirNegroCoroutine());
+            StartCoroutine(FundirNegroCoroutine(true));
         }
     }
 
