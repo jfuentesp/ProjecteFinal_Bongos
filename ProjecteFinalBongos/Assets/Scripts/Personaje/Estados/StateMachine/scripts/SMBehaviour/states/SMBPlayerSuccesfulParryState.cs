@@ -11,6 +11,8 @@ public class SMBPlayerSuccesfulParryState : SMState
     private FiniteStateMachine m_StateMachine;
     private Ability m_parry;
     [SerializeField] private ParticleSystem m_ParticlesParry;
+    [SerializeField] private AudioClip m_AudioClip;
+    private AudioSource m_AudioSource;
 
 
     private new void Awake()
@@ -19,6 +21,7 @@ public class SMBPlayerSuccesfulParryState : SMState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
+        m_AudioSource = GetComponent<AudioSource>();
         m_Animator.speed = 1.0f;
 
     }
@@ -26,6 +29,8 @@ public class SMBPlayerSuccesfulParryState : SMState
     public override void InitState()
     {
         base.InitState();
+        m_AudioSource.clip = m_AudioClip;
+        m_AudioSource.Play();
         m_PJ.Input.FindActionMap("PlayerActions").FindAction("Parry").performed += Parry;
         m_ParticlesParry.gameObject.SetActive(true);
         m_ParticlesParry.Play();

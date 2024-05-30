@@ -165,6 +165,7 @@ public class LevelManager : MonoBehaviour
         }
         if(m_MundoActual == MundoEnum.MUNDO_DOS && !cargado)
         {
+            print("PuntoCargado");
             m_CargarPartidaEntreEscenasEvent.Raise();
         }
     }

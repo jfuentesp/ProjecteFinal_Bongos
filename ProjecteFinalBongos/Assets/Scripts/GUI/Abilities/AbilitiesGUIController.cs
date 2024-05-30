@@ -138,10 +138,8 @@ public class AbilitiesGUIController : MonoBehaviour, ISaveableAbilitiesPlayerDat
 
         if (m_GameManager.NuevaPartida && LevelManager.Instance.MundoActualJugador == MundoEnum.MUNDO_UNO)
         {
-
             slot.Initialize();
         }
-
     }
 
     private void OnGuiRefresh()
@@ -296,5 +294,7 @@ public class AbilitiesGUIController : MonoBehaviour, ISaveableAbilitiesPlayerDat
                 m_Slots[i].SetAbility(LevelManager.Instance.AbilityDataBase.GetItemByID(_PlayerAbilities[i].m_AbilityId));
             }
         }
+        m_LastSelectedSlot = m_InitialButton;
+        RefreshAbilityGUI();
     }
 }
