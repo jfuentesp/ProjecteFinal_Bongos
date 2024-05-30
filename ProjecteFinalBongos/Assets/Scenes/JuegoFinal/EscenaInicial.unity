@@ -3956,6 +3956,7 @@ GameObject:
   - component: {fileID: 845929503}
   - component: {fileID: 845929502}
   - component: {fileID: 845929505}
+  - component: {fileID: 845929506}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4081,6 +4082,19 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &845929506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845929501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5c8c1c039dae94d8e4beb37709071f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SoundType: 2
 --- !u!1 &875656092
 GameObject:
   m_ObjectHideFlags: 0
@@ -5160,6 +5174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1047910045}
   - component: {fileID: 1047910046}
+  - component: {fileID: 1047910047}
   - component: {fileID: 1047910044}
   m_Layer: 0
   m_Name: GameManagerAlex
@@ -5257,6 +5272,21 @@ MonoBehaviour:
     equipablesDatos: []
   cambioIdiomaEvent: {fileID: 11400000, guid: c937e8c8da1c3ca4fb045e605a293a38, type: 2}
   m_ConsumablesList: {fileID: 11400000, guid: 3695245b911850942b8fb981337f43ac, type: 2}
+--- !u!114 &1047910047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047910043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97d30d5ee72fee44eb47383d560bf822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TotalVolume: 0.3
+  m_MusicVolume: 0.3
+  m_EffectVolume: 0.3
 --- !u!1 &1071544727
 GameObject:
   m_ObjectHideFlags: 0

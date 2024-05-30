@@ -17,8 +17,9 @@ public abstract class SMBComboState : SMState
     protected float Strength;
     [SerializeField]
     protected float m_Damage;
+    private AudioSource m_AudioSource;
     [SerializeField]
-
+    private AudioClip m_AudioClip;
     private new void Awake()
     {
         base.Awake();
@@ -28,6 +29,7 @@ public abstract class SMBComboState : SMState
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_ComboHandler = GetComponent<ComboHandler>();
         Strength = 10f;
+        m_AudioSource = GetComponent<AudioSource>();
 
     }
 
@@ -40,7 +42,11 @@ public abstract class SMBComboState : SMState
         m_Rigidbody.velocity = Vector2.zero;
         m_ComboHandler.enabled = true;
         m_ComboHandler.OnEndAction += OnEndAction;
-
+        if(m_AudioClip != null)
+        {
+            m_AudioSource.clip = m_AudioClip;
+            m_AudioSource.Play();
+        }
     }
 
     public override void ExitState()
