@@ -49,6 +49,15 @@ public class PlayerHUDController : MonoBehaviour
         FillBuffs();
     }
 
+    private void OnDestroy()
+    {
+        PJSMB.Instance.PlayerEstadosController.OnApplyEstadoAlterado -= UpdateEstados;
+        PJSMB.Instance.PlayerStatsController.OnApplyBuff -= UpdateBuff;
+        GameManager.Instance.OnTimerUpdate -= UpdateTimerGUI;
+        PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("LeftAbility").performed -= LeftAbility;
+        PJSMB.Instance.Input.FindActionMap("PlayerActions").FindAction("RightAbility").performed -= RightAbility;
+    }
+
     private void LeftAbility(InputAction.CallbackContext context)
     {
         m_PlayerAbilities.SelectPreviousAbility();

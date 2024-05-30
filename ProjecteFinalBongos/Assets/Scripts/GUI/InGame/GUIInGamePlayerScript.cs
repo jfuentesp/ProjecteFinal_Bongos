@@ -59,6 +59,8 @@ public class GUIInGamePlayerScript : MonoBehaviour
 
     private void OpenAbilities(InputAction.CallbackContext context)
     {
+        if (m_GameParado)
+            return;
         if (m_PanelAbilities.activeInHierarchy)
         {
             PJSMB.Instance.GetComponent<SMBPlayerStopState>().Exit();
@@ -73,6 +75,8 @@ public class GUIInGamePlayerScript : MonoBehaviour
 
     private void OpenInventory(InputAction.CallbackContext context) 
     {
+        if (m_GameParado)
+            return;
         if (m_PanelInventory.activeInHierarchy)
         {
             PJSMB.Instance.GetComponent<SMBPlayerStopState>().Exit();
@@ -119,6 +123,9 @@ public class GUIInGamePlayerScript : MonoBehaviour
                 break;
             case TypeOfPanels.PAUSE:
                 m_PausaPanel.SetActive(m_GameParado);
+                break;
+            case TypeOfPanels.OPTIONS:
+
                 break;
         }
     }

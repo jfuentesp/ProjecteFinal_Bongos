@@ -26,12 +26,15 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
     private Ability m_AssignedAbility;
     public Ability AssignedAbility => m_AssignedAbility;
 
+    public void InitAbilitiesGUI()
+    {
+        m_AbilitiesGUI = LevelManager.Instance.AbilitiesGUIController;
+    }
 
     public void Initialize()
     {
         m_AbilitiesGUI = LevelManager.Instance.AbilitiesGUIController;
         m_AssignedAbility = m_AbilitiesGUI.GetRandomAbilityByTierAndType(m_SlotTier, m_SlotCategory);
-        print("Existo?");
     }
 
 
