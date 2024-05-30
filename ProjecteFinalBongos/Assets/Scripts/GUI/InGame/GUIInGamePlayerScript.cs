@@ -40,6 +40,8 @@ public class GUIInGamePlayerScript : MonoBehaviour
         if (m_ResumeGameButton) m_ResumeGameButton.onClick.AddListener(ResumeGame);
         if (m_OptionsButton) m_OptionsButton.onClick.AddListener(OpenOptions);
         if (m_ExitGameButton) m_ExitGameButton.onClick.AddListener(OpenExit);
+        if (m_ExitConfirmationButton) m_ExitConfirmationButton.onClick.AddListener(OnExitConfirmation);
+        if (m_ExitBackButton) m_ExitBackButton.onClick.AddListener(CancelExit);
         ClosePanelsInsteadOf(TypeOfPanels.INICIAL);
         m_Player.Input.FindActionMap("PlayerActions").FindAction("Pause").started += PararLaPartida;
         m_Player.Input.FindActionMap("PlayerActions").FindAction("OpenAbilities").performed += OpenAbilities;
@@ -51,6 +53,8 @@ public class GUIInGamePlayerScript : MonoBehaviour
         m_ResumeGameButton.onClick.RemoveAllListeners();
         m_OptionsButton.onClick.RemoveAllListeners();
         m_ExitGameButton.onClick.RemoveAllListeners();
+        m_ExitConfirmationButton.onClick.RemoveAllListeners();
+        m_ExitBackButton.onClick.RemoveAllListeners();
         m_Player.Input.FindActionMap("PlayerActions").FindAction("Pause").started -= PararLaPartida;
         m_Player.Input.FindActionMap("PlayerActions").FindAction("OpenAbilities").performed -= OpenAbilities;
         m_Player.Input.FindActionMap("PlayerActions").FindAction("OpenInventory").performed -= OpenInventory;
@@ -79,6 +83,16 @@ public class GUIInGamePlayerScript : MonoBehaviour
 
 
     /* EXIT GUI BUTTONS */
+
+    private void OnExitConfirmation()
+    {
+
+    }
+
+    private void CancelExit()
+    {
+        ClosePanelsInsteadOf(TypeOfPanels.PAUSE);
+    }
 
     private void ExitConfirmation()
     {

@@ -96,7 +96,7 @@ public class PJSMB : MonoBehaviour, ISaveablePlayerData
         DontDestroyOnLoad(this.gameObject);
     }
 
-    private void AcabarJuego()
+    public void AcabarJuego()
     {
         GameManager.Instance.AcabarJuego();
         Destroy(gameObject);

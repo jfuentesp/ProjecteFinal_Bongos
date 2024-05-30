@@ -186,6 +186,13 @@ public class GameManager : MonoBehaviour, ISaveablePreSetsData
             print("Te lo pasaste bro!");
         }
     }
+
+    public void TerminarPartida()
+    {
+        PJSMB.Instance.AcabarJuego();
+        SceneManager.LoadScene("EscenaInicial");
+    }
+
     public void AlCargarMundo()
     {
         m_NuevaPartida = true;
