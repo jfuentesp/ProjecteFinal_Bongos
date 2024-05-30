@@ -75,7 +75,8 @@ public class BelosBossBehaviour : BossBehaviour
     public override void Init(Transform _Target)
     {
         base.Init(_Target);
-        OnPlayerInSala.Invoke();
+        m_StateMachine.ChangeState<SMBIdleState>();
+        OnPlayerInSala?.Invoke();
     }
 
     private void SetAttack()
@@ -181,6 +182,7 @@ public class BelosBossBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
+        m_BloodController.PlayDeathBlood();
         StopAllCoroutines();
         GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         m_StateMachine.ChangeState<DeathState>();

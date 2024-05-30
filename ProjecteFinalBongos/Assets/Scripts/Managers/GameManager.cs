@@ -62,6 +62,10 @@ public class GameManager : MonoBehaviour, ISaveablePreSetsData
     private MultiLanguageManager m_LanguageManager;
     public MultiLanguageManager LanguageManager => m_LanguageManager;
 
+    [Header("Variables Sonido")]
+    private SoundManager m_SoundManager;
+    public SoundManager SoundManager => m_SoundManager;
+
     [Header("Listed Abilities")]
     [SerializeField]
     private List<Ability> m_Tier1AbilitiesInitial;
@@ -87,19 +91,22 @@ public class GameManager : MonoBehaviour, ISaveablePreSetsData
         }
         DontDestroyOnLoad(gameObject);
         m_MundoGenerado = false;
+        m_SoundManager = GetComponent<SoundManager>();
+        m_LanguageManager = GetComponent<MultiLanguageManager>();
+        rutaCompletaHastaCarpeta = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame");
+        rutaCompleta = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame", playerAndWorldFile);
+        GetPlayersAndTheirWorld();
 
     }
     private void Start()
     {
         if (!m_Testing)
         {
-            m_LanguageManager = GetComponent<MultiLanguageManager>();
-            rutaCompletaHastaCarpeta = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame");
-            rutaCompleta = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame", playerAndWorldFile);
-            GetPlayersAndTheirWorld();
+           
         }
         else
         {
+            m_SoundManager = GetComponent<SoundManager>();
             m_LanguageManager = GetComponent<MultiLanguageManager>();
             m_PlayerInGame = Instantiate(m_PlayerPrefab);
             m_PlayerInGame.transform.position = Vector3.zero;
@@ -169,6 +176,7 @@ public class GameManager : MonoBehaviour, ISaveablePreSetsData
 
     public void AvanzarMundo(MundoEnum mundoEnum)
     {
+        print("Avancemos: " + mundoEnum);
         if (mundoEnum == MundoEnum.MUNDO_UNO)
         {
             SceneManager.LoadScene("Mundo2");

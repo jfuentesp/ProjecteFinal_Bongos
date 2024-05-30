@@ -8,6 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(SMBIdleState))]
 public class EnemySnake : BossBehaviour
 {
+    private Transform m_AlteaTransform;
     private new void Awake()
     {
         base.Awake();
@@ -36,6 +37,12 @@ public class EnemySnake : BossBehaviour
     private void Start()
     {
         m_StateMachine.ChangeState<SMBIdleState>();
+    }
+    public void SetAlteaTransform(Transform _AlteaTransform)
+    {
+        m_AlteaTransform = _AlteaTransform;
+        if (m_AlteaTransform.TryGetComponent<AlteaBossBehaviour>(out AlteaBossBehaviour altea))
+            altea.OnBossDeath += VidaCero;
     }
     public override void Init(Transform _Target)
     {
@@ -79,16 +86,28 @@ public class EnemySnake : BossBehaviour
             yield return new WaitForSeconds(m_CheckingPlayerTimelapse);
         }
     }
-    private void MatarBoss() { 
+    private void MatarBoss() 
+    {
+        if (m_AlteaTransform != null)
+        {
+            if (m_AlteaTransform.TryGetComponent<AlteaBossBehaviour>(out AlteaBossBehaviour altea))
+                altea.OnBossDeath -= VidaCero;
+        }
         Destroy(gameObject);
     }
     protected override void VidaCero()
     {
         base.VidaCero();
+        m_BloodController.PlayDeathBlood();
         StopAllCoroutines();
         GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         m_StateMachine.ChangeState<DeathState>();
         OnBossDeath?.Invoke();
+        if(m_AlteaTransform != null)
+        {
+            if (m_AlteaTransform.TryGetComponent<AlteaBossBehaviour>(out AlteaBossBehaviour altea))
+                altea.SnakeMuerta();
+        }
         if (m_BossFinalSala)
             m_BossMuertoEvent.Raise();
         m_IsAlive = false;

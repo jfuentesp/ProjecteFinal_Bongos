@@ -4984,6 +4984,8 @@ MonoBehaviour:
   m_layerMask:
     serializedVersion: 2
     m_Bits: 128
+  m_GoldPrefab: {fileID: 0}
+  m_AbilityPointPrefab: {fileID: 0}
 --- !u!114 &60887926060766111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5023,7 +5025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3f8f95414136945818e9d39b233177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ChaseSpeed: 4
+  m_ChaseSpeed: 5.4
   m_ChaseAnimationName: Walk
   m_TwoDirections: 1
 --- !u!114 &7174746094612315955

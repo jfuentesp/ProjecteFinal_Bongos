@@ -156,6 +156,32 @@ namespace SaveLoadGame
 
             GameManager.Instance.SetNamePlayer(data.m_NameAndWorld.m_Name);
         }
+        public void LoadDataBetweenScenes()
+        {
+            try
+            {
+                print("CargarPartidaEntreEscenas");
+                SaveGame data = new SaveGame();
+                string jsonDataLectura = File.ReadAllText(GameManager.Instance.RutaCompleta);
+                SaveAllGames dataLectura = new SaveAllGames();
+                JsonUtility.FromJsonOverwrite(jsonDataLectura, dataLectura);
+
+                for (int i = 0; i < dataLectura.m_SavedGames.Length; i++)
+                {
+                    if (dataLectura.m_SavedGames[i].m_NameAndWorld.m_Name == GameManager.Instance.PlayerName)
+                        data = dataLectura.m_SavedGames[i];
+                }
+
+                //JsonUtility.FromJsonOverwrite(jsonDataLectura, data);
+
+                FindObjectOfType<AbilitiesGUIController>().Load(data.m_PlayerAbilities, true);
+
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Error while trying to load {Path.Combine(Application.persistentDataPath, GameManager.Instance.RutaCompleta)} with exception {e}");
+            }
+        }
 
         public void SaveDataPreStes()
         {

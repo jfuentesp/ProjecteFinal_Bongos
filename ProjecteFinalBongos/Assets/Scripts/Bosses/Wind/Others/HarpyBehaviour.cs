@@ -12,6 +12,11 @@ public class HarpyBehaviour : BossBehaviour
 {
     [SerializeField]
     private GameEvent m_OnDeathEvent;
+    private Transform m_DamaTransform;
+
+    [Header("Variables Harpias")]
+    [SerializeField] private int m_MaximumHarpies;
+    [SerializeField] private int m_CurrentHarpies;
     protected new void Awake()
     {
         base.Awake();
@@ -46,6 +51,13 @@ public class HarpyBehaviour : BossBehaviour
     private void Start()
     {
         m_StateMachine.ChangeState<SMBIdleState>();
+    }
+
+    public void SetDamaTransform(Transform _AlteaTransform)
+    {
+        m_DamaTransform = _AlteaTransform;
+        if (m_DamaTransform.TryGetComponent<DamaBossBehaviour>(out DamaBossBehaviour altea))
+            altea.OnBossDeath += VidaCero;
     }
 
     private void EmpezarCorutina(GameObject @object)
@@ -95,11 +107,17 @@ public class HarpyBehaviour : BossBehaviour
     }
     private void MatarBoss()
     {
+        if (m_DamaTransform != null)
+        {
+            if (m_DamaTransform.TryGetComponent<AlteaBossBehaviour>(out AlteaBossBehaviour altea))
+                altea.OnBossDeath -= VidaCero;
+        }
         Destroy(gameObject);
     }
     protected override void VidaCero()
     {
         base.VidaCero();
+        m_BloodController.PlayDeathBlood();
         StopAllCoroutines();
         GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         m_StateMachine.ChangeState<DeathState>();

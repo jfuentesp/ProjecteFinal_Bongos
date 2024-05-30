@@ -39,16 +39,16 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
     {
         if(m_AssignedAbility != null)
         {
-            if(m_AssignedAbility.IsLearnt)
+            m_AbilityImage.gameObject.SetActive(true);
+            m_AbilityImage.sprite = m_AssignedAbility.Sprite;
+
+            if (m_AssignedAbility.IsLearnt)
             {
                 m_Slot.interactable = false;
                 m_AbilityImage.color = Color.white;
                 m_SlotImage.color = m_Slot.colors.pressedColor;
                 return;
             }
-
-            m_AbilityImage.gameObject.SetActive(true);
-            m_AbilityImage.sprite = m_AssignedAbility.Sprite;
 
             if(m_SlotTier != tier)
             {
@@ -61,6 +61,11 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
                 m_AbilityImage.color = Color.white;
             }
         }
+    }
+
+    public void SetAbility(Ability _Ability)
+    {
+        m_AssignedAbility = _Ability;
     }
 
     private void SetChosen(bool status)

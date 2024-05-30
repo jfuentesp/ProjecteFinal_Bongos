@@ -92,6 +92,7 @@ public class MiniEolosBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
+        m_BloodController.PlayDeathBlood();
         m_IsAlive = false;
         OnBossDeath?.Invoke();
         if (m_BossFinalSala)

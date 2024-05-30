@@ -33,7 +33,7 @@ public class MiniAgullesDeCoralScript : BossBehaviour
         };
         GetComponent<AgullaDeCoralFlipState>().OnAttackHitted = (GameObject obj) =>
         {
-            m_StateMachine.ChangeState<AgullaCoralAreaAttack>();
+            m_StateMachine.ChangeState<AgullaChargeState>();
         };
         GetComponent<AgullaDeCoralFlipState>().OnAttackMissed = (GameObject obj) =>
         {

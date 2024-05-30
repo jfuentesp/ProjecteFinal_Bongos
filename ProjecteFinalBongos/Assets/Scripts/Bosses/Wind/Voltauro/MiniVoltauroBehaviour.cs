@@ -144,6 +144,7 @@ public class MiniVoltauroBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
+        m_BloodController.PlayDeathBlood();
         GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         StopAllCoroutines();
         m_StateMachine.ChangeState<DeathState>();

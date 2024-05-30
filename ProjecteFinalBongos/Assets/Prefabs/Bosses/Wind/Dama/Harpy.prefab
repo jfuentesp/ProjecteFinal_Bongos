@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Target: {fileID: 0}
   m_BloodController: {fileID: 5455268024422032539}
   m_BossFinalSala: 0
+  m_Pivote: {x: 0, y: 0}
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 1.5
   m_AreaWideness: 1.5
@@ -195,6 +196,8 @@ MonoBehaviour:
   m_layerMask:
     serializedVersion: 2
     m_Bits: 128
+  m_GoldPrefab: {fileID: 0}
+  m_AbilityPointPrefab: {fileID: 0}
   m_OnDeathEvent: {fileID: 11400000, guid: c158ea061bdb7614d9e7adfc6b66abd3, type: 2}
 --- !u!114 &815698300243707662
 MonoBehaviour:
@@ -312,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAXHP: 200
+  MAXHP: 100
 --- !u!114 &4026666115353880429
 MonoBehaviour:
   m_ObjectHideFlags: 0

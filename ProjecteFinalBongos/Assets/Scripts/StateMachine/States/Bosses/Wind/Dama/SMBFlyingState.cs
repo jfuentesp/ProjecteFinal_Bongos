@@ -68,6 +68,7 @@ public class SMBFlyingState : SMState
         base.InitState();
         m_Animator.Play(m_FlyingAnimationName);
         m_Boss.SetBusy(true);
+        meshAgent.isStopped = false;
         m_NumberOfHarpiesToSpawn = Random.Range(m_MinimumHarpiesToSpawn, m_MaximumHarpiesToSpawn);
         m_HarpiesToDie = m_NumberOfHarpiesToSpawn; //Puede que esto sea -1...
         StartCoroutine(SpawnWhileFlyingCoroutine());
@@ -76,6 +77,7 @@ public class SMBFlyingState : SMState
     public override void ExitState()
     {
         base.ExitState();
+        meshAgent.isStopped = true;
     }
 
     public void OnHarpyDeath()
@@ -126,6 +128,7 @@ public class SMBFlyingState : SMState
             Vector3 spawnPos = new Vector3(Random.Range(transform.position.x - 5, transform.position.x + 5), transform.position.y + 7, 0);
             obj.transform.position = spawnPos;
             harpy.BossFinalSalaSpawn(m_Target);
+            harpy.SetDamaTransform(transform);
             yield return new WaitForSeconds(m_SpawnTime);
         }
     }
