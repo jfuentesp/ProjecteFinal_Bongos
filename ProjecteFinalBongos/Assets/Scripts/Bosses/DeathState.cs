@@ -30,6 +30,7 @@ public class DeathState : SMState
         m_NavMesh.velocity = Vector3.zero;
         m_Boss.SetBusy(true);
         m_Animator.Play(m_AnimationName);
+        print("EO");
     }
 
     public override void ExitState()

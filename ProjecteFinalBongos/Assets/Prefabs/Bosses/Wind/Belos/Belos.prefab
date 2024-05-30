@@ -278,6 +278,7 @@ MonoBehaviour:
   m_Target: {fileID: 0}
   m_BloodController: {fileID: 8901942161902240318}
   m_BossFinalSala: 1
+  m_Pivote: {x: -0.07185416, y: -0.141142}
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 2
   m_AreaWideness: 2
@@ -494,7 +495,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.07185416, y: -0.14114204}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -505,7 +506,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.790092}
+  m_Size: {x: 0.6612593, y: 0.9081381}
   m_EdgeRadius: 0
 --- !u!195 &-6093315730611099634
 NavMeshAgent:

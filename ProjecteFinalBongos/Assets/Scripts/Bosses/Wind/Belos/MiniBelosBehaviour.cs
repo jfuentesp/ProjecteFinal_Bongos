@@ -56,6 +56,16 @@ public class MiniBelosBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        m_HealthController.onHurt += CheckPhase;
+    }
+
+    private void CheckPhase()
+    {
+        if (m_CurrentPhase == Phase.ONE && m_HealthController.HP <= m_HealthController.HPMAX / 2)
+        {
+            print("Cambio de fase");
+            m_CurrentPhase = Phase.TWO;
+        }
     }
 
     private void Start()
@@ -105,7 +115,7 @@ public class MiniBelosBehaviour : BossBehaviour
 
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
-                RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
+                RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position + m_Pivote, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
@@ -118,7 +128,7 @@ public class MiniBelosBehaviour : BossBehaviour
             }
             else
             {
-                RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position, m_BoxArea, transform.rotation.z, transform.position);
+                RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position + m_Pivote, m_BoxArea, transform.rotation.z, transform.position);
                 if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
@@ -135,11 +145,7 @@ public class MiniBelosBehaviour : BossBehaviour
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
-        if (m_CurrentPhase == Phase.ONE && m_HealthController.HP <= m_HealthController.HPMAX / 2)
-        {
-            print("Cambio de fase");
-            m_CurrentPhase = Phase.TWO;
-        }
+       
     }
     private void MatarBoss()
     {

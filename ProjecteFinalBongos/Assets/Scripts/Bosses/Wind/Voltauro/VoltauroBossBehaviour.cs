@@ -79,6 +79,19 @@ public class VoltauroBossBehaviour : BossBehaviour
 
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
         m_StateMachine.ChangeState<SMBIdleState>();
+        m_HealthController.onHurt += CheckPhase;
+    }
+
+    private void CheckPhase()
+    {
+        if (m_IsAlive)
+        {
+            if (m_CurrentPhase == Phase.ONE && m_HealthController.HP <= m_HealthController.HPMAX / 2)
+            {
+                print("Cambio de fase");
+                m_CurrentPhase = Phase.TWO;
+            }
+        }
     }
 
     private void EmpezarCorutina(GameObject obj)
@@ -96,7 +109,7 @@ public class VoltauroBossBehaviour : BossBehaviour
 
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
-                RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
+                RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position + m_Pivote, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
@@ -109,7 +122,7 @@ public class VoltauroBossBehaviour : BossBehaviour
             }
             else
             {
-                RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position, m_BoxArea, transform.rotation.z, transform.position);
+                RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position + m_Pivote, m_BoxArea, transform.rotation.z, transform.position);
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
@@ -172,11 +185,7 @@ public class VoltauroBossBehaviour : BossBehaviour
     {
         base.OnTriggerEnter2D(collision);
 
-        if (m_CurrentPhase == Phase.ONE && m_HealthController.HP <= m_HealthController.HPMAX / 2)
-        {
-            print("Cambio de fase");
-            m_CurrentPhase = Phase.TWO;
-        }
+      
     }
 
     private void MatarBoss()

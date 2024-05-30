@@ -74,6 +74,20 @@ public class GryphusBossBehaviour : BossBehaviour
         };
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
         m_CurrentPhase = Phase.ONE;
+        m_HealthController.onHurt += CheckPhase;
+    }
+
+    private void CheckPhase()
+    {
+        if (m_IsAlive)
+        {
+            if (m_CurrentPhase == Phase.ONE && m_HealthController.HP <= m_HealthController.HPMAX / 2)
+            {
+                print("Cambio de fase");
+                m_CurrentPhase = Phase.TWO;
+                transform.GetChild(0).GetComponent<BossAttackDamage>().SetDamage(transform.GetChild(0).GetComponent<BossAttackDamage>().Damage * 2);
+            }
+        }
     }
 
     private void ParticulitasCura()
@@ -113,15 +127,6 @@ public class GryphusBossBehaviour : BossBehaviour
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
-        if (m_IsAlive)
-        {
-            if (m_CurrentPhase == Phase.ONE && m_HealthController.HP <= m_HealthController.HPMAX / 2)
-            {
-                print("Cambio de fase");
-                m_CurrentPhase = Phase.TWO;
-                transform.GetChild(0).GetComponent<BossAttackDamage>().SetDamage(transform.GetChild(0).GetComponent<BossAttackDamage>().Damage * 2);
-            }
-        }
     }
 
     private void SetAttack()
@@ -154,7 +159,7 @@ public class GryphusBossBehaviour : BossBehaviour
 
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
-                RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
+                RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position + m_Pivote, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
@@ -167,7 +172,7 @@ public class GryphusBossBehaviour : BossBehaviour
             }
             else
             {
-                RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position, m_BoxArea, transform.rotation.z, transform.position);
+                RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position + m_Pivote, m_BoxArea, transform.rotation.z, transform.position);
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
@@ -198,13 +203,17 @@ public class GryphusBossBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
-        m_BloodController.PlayDeathBlood();
-        StopAllCoroutines();
-        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
-        m_StateMachine.ChangeState<DeathState>();
-        m_IsAlive = false;
-        OnBossDeath?.Invoke();
-        if (m_BossFinalSala)
-            m_BossMuertoEvent.Raise();
+        if (m_IsAlive)
+        {
+            m_IsAlive = false;
+            m_BloodController.PlayDeathBlood();
+            StopAllCoroutines();
+            m_HealParticles.SetActive(false);
+            GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
+            m_StateMachine.ChangeState<DeathState>();
+            OnBossDeath?.Invoke();
+            if (m_BossFinalSala)
+                m_BossMuertoEvent.Raise();
+        }
     }
 }

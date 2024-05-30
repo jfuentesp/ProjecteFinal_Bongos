@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Target: {fileID: 0}
   m_BloodController: {fileID: 4245840019056302973}
   m_BossFinalSala: 1
+  m_Pivote: {x: 0, y: 0}
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 3
   m_AreaWideness: 3
@@ -437,7 +438,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.24, y: -0.18}
   serializedVersion: 2
   m_Radius: 1
 --- !u!114 &5353237562394554624

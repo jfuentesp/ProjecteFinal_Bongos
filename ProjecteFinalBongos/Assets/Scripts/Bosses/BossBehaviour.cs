@@ -51,7 +51,7 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] protected bool m_BossFinalSala;
 
     [Header("Pivote Detection")]
-    [SerializeField] protected Vector2 m_Pivote;
+    [SerializeField] protected Vector3 m_Pivote;
 
     protected enum CollisionType { CIRCLE, BOX }
 

@@ -21,7 +21,6 @@ public class BelosBossBehaviour : BossBehaviour
     private new void Awake()
     {
         base.Awake();
-        m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
         m_CurrentPhase = Phase.ONE;
         GetComponent<SMBParriedState>().OnRecomposited = (GameObject obj) =>
         {
@@ -65,8 +64,17 @@ public class BelosBossBehaviour : BossBehaviour
         };
 
         m_NumberOfAttacksBeforeTrap = Random.Range(1, 6);
+        m_HealthController.onHurt += CheckPhase;
     }
 
+    private void CheckPhase()
+    {
+        if (m_CurrentPhase == Phase.ONE && m_HealthController.HP <= m_HealthController.HPMAX / 2)
+        {
+            print("Cambio de fase");
+            m_CurrentPhase = Phase.TWO;
+        }
+    }
     private void Start()
     {
         m_StateMachine.ChangeState<SMBIdleState>();
@@ -76,6 +84,7 @@ public class BelosBossBehaviour : BossBehaviour
     {
         base.Init(_Target);
         m_StateMachine.ChangeState<SMBIdleState>();
+        m_PlayerDetectionCoroutine = StartCoroutine(PlayerDetectionCoroutine());
         OnPlayerInSala?.Invoke();
     }
 
@@ -128,7 +137,7 @@ public class BelosBossBehaviour : BossBehaviour
 
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
-                RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
+                RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position + m_Pivote, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
@@ -141,7 +150,7 @@ public class BelosBossBehaviour : BossBehaviour
             }
             else
             {
-                RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position, m_BoxArea, transform.rotation.z, transform.position);
+                RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position + m_Pivote, m_BoxArea, transform.rotation.z, transform.position);
                 if (hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
@@ -158,11 +167,7 @@ public class BelosBossBehaviour : BossBehaviour
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
-        if (m_CurrentPhase == Phase.ONE && m_HealthController.HP <= m_HealthController.HPMAX / 2)
-        {
-            print("Cambio de fase");
-            m_CurrentPhase = Phase.TWO;
-        }
+        
     }
     private void MatarBoss()
     {
@@ -182,13 +187,16 @@ public class BelosBossBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
-        m_BloodController.PlayDeathBlood();
-        StopAllCoroutines();
-        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
-        m_StateMachine.ChangeState<DeathState>();
-        m_IsAlive = false;
-        OnBossDeath?.Invoke();
-        if (m_BossFinalSala)
-            m_BossMuertoEvent.Raise();
+        if (m_IsAlive)
+        {
+            m_IsAlive = false;
+            m_BloodController.PlayDeathBlood();
+            StopAllCoroutines();
+            GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
+            m_StateMachine.ChangeState<DeathState>();
+            OnBossDeath?.Invoke();
+            if (m_BossFinalSala)
+                m_BossMuertoEvent.Raise();
+        }
     }
 }
