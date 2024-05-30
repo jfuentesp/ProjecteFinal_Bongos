@@ -151,17 +151,50 @@ public class PlayerAbilitiesController : MonoBehaviour
 
     public void SetOffensiveTier(AbilityTierEnum tier)
     {
-        m_CurrentOffensiveTier = tier == AbilityTierEnum.TIER1 ? AbilityTierEnum.TIER2 : AbilityTierEnum.TIER3;
+        switch(tier)
+        {
+            case AbilityTierEnum.TIER1:
+                m_CurrentOffensiveTier = AbilityTierEnum.TIER2;
+                break;
+            case AbilityTierEnum.TIER2:
+                m_CurrentOffensiveTier = AbilityTierEnum.TIER3;
+                break;
+            case AbilityTierEnum.TIER3:
+                m_CurrentOffensiveTier = AbilityTierEnum.FULL;
+                break;
+        }
     }
 
     public void SetDefensiveTier(AbilityTierEnum tier)
     {
-        m_CurrentDefensiveTier = tier == AbilityTierEnum.TIER1 ? AbilityTierEnum.TIER2 : AbilityTierEnum.TIER3;
+        switch (tier)
+        {
+            case AbilityTierEnum.TIER1:
+                m_CurrentDefensiveTier = AbilityTierEnum.TIER2;
+                break;
+            case AbilityTierEnum.TIER2:
+                m_CurrentDefensiveTier = AbilityTierEnum.TIER3;
+                break;
+            case AbilityTierEnum.TIER3:
+                m_CurrentDefensiveTier = AbilityTierEnum.FULL;
+                break;
+        }
     }
 
     public void SetAgilityTier(AbilityTierEnum tier)
     {
-        m_CurrentAgilityTier = tier == AbilityTierEnum.TIER1 ? AbilityTierEnum.TIER2 : AbilityTierEnum.TIER3;
+        switch (tier)
+        {
+            case AbilityTierEnum.TIER1:
+                m_CurrentAgilityTier = AbilityTierEnum.TIER2;
+                break;
+            case AbilityTierEnum.TIER2:
+                m_CurrentAgilityTier = AbilityTierEnum.TIER3;
+                break;
+            case AbilityTierEnum.TIER3:
+                m_CurrentAgilityTier = AbilityTierEnum.FULL;
+                break;
+        }
     }
 
     public void LoadOffensiveTier(AbilityTierEnum tier)

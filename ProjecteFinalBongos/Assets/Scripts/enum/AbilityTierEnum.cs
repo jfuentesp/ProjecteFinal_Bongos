@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum AbilityTierEnum
 {
-    TIER1, TIER2, TIER3
+    TIER1, TIER2, TIER3, FULL
 }
 
 public enum AbilityCategoryEnum

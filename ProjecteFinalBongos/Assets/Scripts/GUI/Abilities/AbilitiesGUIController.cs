@@ -69,7 +69,7 @@ public class AbilitiesGUIController : MonoBehaviour, ISaveableAbilitiesPlayerDat
         RefreshAbilityGUI();
     }
 
-    private void OnEnable()
+    private void Update()
     {
         RefreshDescriptionGUI();
     }
@@ -291,6 +291,7 @@ public class AbilitiesGUIController : MonoBehaviour, ISaveableAbilitiesPlayerDat
         {
             for (int i = 0; i < _PlayerAbilities.Length; i++)
             {
+                m_Slots[i].InitAbilitiesGUI();
                 m_Slots[i].SetAbility(LevelManager.Instance.AbilityDataBase.GetItemByID(_PlayerAbilities[i].m_AbilityId));
             }
         }
