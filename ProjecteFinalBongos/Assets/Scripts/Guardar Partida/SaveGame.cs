@@ -222,7 +222,7 @@ namespace SaveLoadGame
         public interface ISaveableBackPackData
         {
             public BackPack Save();
-            public void Load(BackPack _BackPack);
+            public void Load(BackPack _BackPack, bool entreEscena);
         }
         public interface ISaveablePlayerData
         {

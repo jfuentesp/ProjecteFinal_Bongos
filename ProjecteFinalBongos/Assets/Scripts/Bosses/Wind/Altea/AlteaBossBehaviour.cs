@@ -40,6 +40,14 @@ public class AlteaBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBRunAwayState>();
         };
+        GetComponent<SMBBossStunState>().OnStopStun = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBRunAwayState>();
+        };
+        GetComponent<SMBParalized>().OnStopParalized = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBRunAwayState>();
+        };
         m_Pool = LevelManager.Instance._SplashPool;
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
         m_StateMachine.ChangeState<SMBIdleState>();

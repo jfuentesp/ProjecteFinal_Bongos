@@ -131,8 +131,7 @@ namespace SaveLoadGame
                 }
             }
 
-            InventoryController inventoryController = FindObjectOfType<InventoryController>();
-            inventoryController.Load(data.m_BackPack);
+            FindObjectOfType<InventoryController>().Load(data.m_BackPack, true);
             PJSMB player = FindObjectOfType<PJSMB>();
             player.Load(data.m_PlayerStats);
 
@@ -169,6 +168,8 @@ namespace SaveLoadGame
                 //JsonUtility.FromJsonOverwrite(jsonDataLectura, data);
 
                 FindObjectOfType<AbilitiesGUIController>().Load(data.m_PlayerAbilities, true);
+
+                FindObjectOfType<InventoryController>().Load(data.m_BackPack, false);
 
             }
             catch (Exception e)

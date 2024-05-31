@@ -176,7 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RunSpeed: 6
   m_minimumWalkingDuration: 2
-  m_maximumWalkingDuration: 8
+  m_maximumWalkingDuration: 6
   m_ChaseAnimationName: Walk
   m_LayerMask:
     serializedVersion: 2
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Target: {fileID: 0}
   m_BloodController: {fileID: 4245840019056302973}
   m_BossFinalSala: 1
-  m_Pivote: {x: 0, y: 0}
+  m_Pivote: {x: 0, y: 0, z: 0}
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 3
   m_AreaWideness: 3
@@ -273,7 +273,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Pool: {fileID: 0}
-  m_TimeBetweenEggs: 10
+  m_TimeBetweenEggs: 6
   m_MaximumSnakes: 6
   m_CurrentSnakes: 0
 --- !u!114 &1105561501552978541
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cca67139dff3dd488cb7cce9fe6c87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  times: {fileID: 0}
+  times: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
 --- !u!114 &4648036377313968554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,8 +326,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  times: {fileID: 0}
-  m_NameAnimation: 
+  times: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
+  m_NameAnimation: Stun
 --- !u!114 &5298570761958592134
 MonoBehaviour:
   m_ObjectHideFlags: 0

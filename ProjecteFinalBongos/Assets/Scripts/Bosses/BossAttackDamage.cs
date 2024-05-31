@@ -46,6 +46,10 @@ public class BossAttackDamage : MonoBehaviour
         m_Damage = _damage;
         SetDamage();
     }
+    public void SetTime(float time)
+    {
+        stateTime = time;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

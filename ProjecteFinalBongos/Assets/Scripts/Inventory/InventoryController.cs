@@ -467,6 +467,7 @@ public class InventoryController : MonoBehaviour, ISaveableBackPackData
         m_BackPack.m_EquipableSlotId = equipableSlotId;
 
         string[] m_QuickItemList = new string[3];
+
         if (m_QuickItem1.AssignedConsumable != null)
         {
             print("entro");
@@ -486,52 +487,87 @@ public class InventoryController : MonoBehaviour, ISaveableBackPackData
         }
         else { m_QuickItemList[2] = "99"; }
 
+        print("QuickItems");
+        foreach (string item in m_QuickItemList)
+            print(item);
         m_BackPack.m_QuickCosnumableSlotsId = m_QuickItemList;
 
         return m_BackPack;
     }
 
-    public void Load(BackPack _BackPack)
+    public void Load(BackPack _BackPack, bool EntreEscena)
     {
-        for (int i = 0; i < _BackPack.m_ConsumableSlotId.Length; i++)
+        if (!EntreEscena)
         {
-            if (_BackPack.m_ConsumableSlotId[i].id != "99")
+            for (int i = 0; i < _BackPack.m_ConsumableSlotId.Length; i++)
             {
-                m_InventoryBackpack.AddConsumableLoadGame(LevelManager.Instance.ConsumableDataBase.GetItemByID(_BackPack.m_ConsumableSlotId[i].id), _BackPack.m_ConsumableSlotId[i].quantity, i);
+                if (_BackPack.m_ConsumableSlotId[i].id != "99")
+                {
+                    m_InventoryBackpack.AddConsumableLoadGame(LevelManager.Instance.ConsumableDataBase.GetItemByID(_BackPack.m_ConsumableSlotId[i].id), _BackPack.m_ConsumableSlotId[i].quantity, i);
+                }
             }
-        }
-        for (int i = 0; i < _BackPack.m_EquipableSlotId.Length; i++)
-        {
-            if (_BackPack.m_EquipableSlotId[i] != "99")
+            for (int i = 0; i < _BackPack.m_EquipableSlotId.Length; i++)
             {
-                m_InventoryBackpack.AddEquipableLoadGame(LevelManager.Instance.EquipableDataBase.GetItemByID(_BackPack.m_EquipableSlotId[i]), i);
+                if (_BackPack.m_EquipableSlotId[i] != "99")
+                {
+                    m_InventoryBackpack.AddEquipableLoadGame(LevelManager.Instance.EquipableDataBase.GetItemByID(_BackPack.m_EquipableSlotId[i]), i);
+                }
             }
-        }
 
-        if (_BackPack.m_QuickCosnumableSlotsId[0] != "99")
-        {
-            //slot.SetConsumable(itemToEquip);
-            //slot.RefreshEquippedSlot();
+            if (_BackPack.m_QuickCosnumableSlotsId[0] != "99")
+            {
+                //slot.SetConsumable(itemToEquip);
+                //slot.RefreshEquippedSlot();
 
-            m_QuickItem1.SetConsumable(LevelManager.Instance.ConsumableDataBase.GetItemByID(_BackPack.m_QuickCosnumableSlotsId[0]));
-            print(m_QuickItem1.AssignedConsumable.itemName);
-            m_QuickItem1.RefreshEquippedSlot();
+                m_QuickItem1.SetConsumable(LevelManager.Instance.ConsumableDataBase.GetItemByID(_BackPack.m_QuickCosnumableSlotsId[0]));
+                print(m_QuickItem1.AssignedConsumable.itemName);
+                m_QuickItem1.RefreshEquippedSlot();
 
+            }
+            if (_BackPack.m_QuickCosnumableSlotsId[1] != "99")
+            {
+                //m_Quickitem2.SetConsumable()
+                m_QuickItem2.SetConsumable(LevelManager.Instance.ConsumableDataBase.GetItemByID(_BackPack.m_QuickCosnumableSlotsId[1]));
+                print(m_QuickItem2.AssignedConsumable.itemName);
+                m_QuickItem2.RefreshEquippedSlot();
+            }
+            if (_BackPack.m_QuickCosnumableSlotsId[2] != "99")
+            {
+                //m_Quickitem2.SetConsumable()
+                m_QuickItem3.SetConsumable(LevelManager.Instance.ConsumableDataBase.GetItemByID(_BackPack.m_QuickCosnumableSlotsId[2]));
+                print(m_QuickItem3.AssignedConsumable.itemName);
+                m_QuickItem3.RefreshEquippedSlot();
+            }
+            OnEquipQuickConsumable?.Invoke();
         }
-        if (_BackPack.m_QuickCosnumableSlotsId[1] != "99")
+        else
         {
-            //m_Quickitem2.SetConsumable()
-            m_QuickItem2.SetConsumable(LevelManager.Instance.ConsumableDataBase.GetItemByID(_BackPack.m_QuickCosnumableSlotsId[1]));
-            print(m_QuickItem2.AssignedConsumable.itemName);
-            m_QuickItem2.RefreshEquippedSlot();
+            if (_BackPack.m_QuickCosnumableSlotsId[0] != "99")
+            {
+                //slot.SetConsumable(itemToEquip);
+                //slot.RefreshEquippedSlot();
+
+                m_QuickItem1.SetConsumable(LevelManager.Instance.ConsumableDataBase.GetItemByID(_BackPack.m_QuickCosnumableSlotsId[0]));
+                print(m_QuickItem1.AssignedConsumable.itemName);
+                m_QuickItem1.RefreshEquippedSlot();
+
+            }
+            if (_BackPack.m_QuickCosnumableSlotsId[1] != "99")
+            {
+                //m_Quickitem2.SetConsumable()
+                m_QuickItem2.SetConsumable(LevelManager.Instance.ConsumableDataBase.GetItemByID(_BackPack.m_QuickCosnumableSlotsId[1]));
+                print(m_QuickItem2.AssignedConsumable.itemName);
+                m_QuickItem2.RefreshEquippedSlot();
+            }
+            if (_BackPack.m_QuickCosnumableSlotsId[2] != "99")
+            {
+                //m_Quickitem2.SetConsumable()
+                m_QuickItem3.SetConsumable(LevelManager.Instance.ConsumableDataBase.GetItemByID(_BackPack.m_QuickCosnumableSlotsId[2]));
+                print(m_QuickItem3.AssignedConsumable.itemName);
+                m_QuickItem3.RefreshEquippedSlot();
+            }
+            OnEquipQuickConsumable?.Invoke();
         }
-        if (_BackPack.m_QuickCosnumableSlotsId[2] != "99")
-        {
-            //m_Quickitem2.SetConsumable()
-            m_QuickItem3.SetConsumable(LevelManager.Instance.ConsumableDataBase.GetItemByID(_BackPack.m_QuickCosnumableSlotsId[2]));
-            print(m_QuickItem3.AssignedConsumable.itemName);
-            m_QuickItem3.RefreshEquippedSlot();
-        }
-        OnEquipQuickConsumable?.Invoke();
+        
     }
 }
