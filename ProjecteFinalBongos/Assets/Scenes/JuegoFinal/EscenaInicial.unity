@@ -2799,6 +2799,9 @@ MonoBehaviour:
   m_IdiomasDropDown: {fileID: 1406096099}
   m_FullScreenToggle: {fileID: 585672917}
   m_ResolucionesDropDown: {fileID: 1246768170}
+  m_GlobalVolumeSlider: {fileID: 0}
+  m_MusicVolumeSlider: {fileID: 0}
+  m_EffectVolumeSlider: {fileID: 0}
 --- !u!114 &556643079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5651,9 +5654,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d30d5ee72fee44eb47383d560bf822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TotalVolume: 0.2
-  m_MusicVolume: 0.2
-  m_EffectVolume: 0.2
+  m_TotalVolume: 1
+  m_MusicVolume: 1
+  m_EffectVolume: 1
 --- !u!1 &1071544727
 GameObject:
   m_ObjectHideFlags: 0
