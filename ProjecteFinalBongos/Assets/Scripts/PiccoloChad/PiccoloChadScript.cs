@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static SaveLoadGame.SaveGame;
@@ -69,6 +70,7 @@ public class PiccoloChadScript : Interactuable
             if (!didDialogueStart)
             {
                 m_Animator.Play("Treballar");
+                PJSMB.Instance.StopPlayer();
             }
             else if (isInFirstMessage && dialogueText.text == m_FraseActual)
             {
@@ -85,6 +87,7 @@ public class PiccoloChadScript : Interactuable
             else
             {
                 CloseDialogue();
+
             }
         }
     }
@@ -101,6 +104,8 @@ public class PiccoloChadScript : Interactuable
         didDialogueStart = false;
         m_DialogueMark.SetActive(true);
         dialoguePanel.SetActive(false);
+        PJSMB.Instance.GetComponent<SMBPlayerStopState>().Exit();
+
     }
 
     private void BreakCoroutineDialogueInicial()
@@ -153,8 +158,11 @@ public class PiccoloChadScript : Interactuable
 
     private void OnClosingStore()
     {
-        if(isInFirstMessage)
+        if (isInFirstMessage) {
             SegundoDialogo();
+       
+        }
+          
     }
 
     private void OnDestroy()
