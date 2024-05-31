@@ -11,6 +11,9 @@ public class SMBParalized : SMState
     [SerializeField]
     private TimesScriptable times;
     public Action<GameObject> OnStopParalized;
+
+    [Header("Animation Name")]
+    [SerializeField] private string m_NameAnimation;
     private new void Awake()
     {
         base.Awake();
