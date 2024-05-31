@@ -131,7 +131,7 @@ namespace SaveLoadGame
                 }
             }
 
-            FindObjectOfType<InventoryController>().Load(data.m_BackPack, true);
+            FindObjectOfType<InventoryController>().Load(data.m_BackPack, false);
             PJSMB player = FindObjectOfType<PJSMB>();
             player.Load(data.m_PlayerStats);
 
@@ -169,7 +169,7 @@ namespace SaveLoadGame
 
                 FindObjectOfType<AbilitiesGUIController>().Load(data.m_PlayerAbilities, true);
 
-                FindObjectOfType<InventoryController>().Load(data.m_BackPack, false);
+                FindObjectOfType<InventoryController>().Load(data.m_BackPack, true);
 
             }
             catch (Exception e)
