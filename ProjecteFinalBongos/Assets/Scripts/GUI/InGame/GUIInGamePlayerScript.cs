@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -17,10 +18,16 @@ public class GUIInGamePlayerScript : MonoBehaviour
     [SerializeField] private Button m_ResumeGameButton;
     [SerializeField] private Button m_OptionsButton;
     [SerializeField] private Button m_ExitGameButton;
+    [SerializeField] private GameObject m_FirstPauseObject;
 
     [Header("Botones Exit")]
     [SerializeField] private Button m_ExitConfirmationButton;
     [SerializeField] private Button m_ExitBackButton;
+    [SerializeField] private GameObject m_FirstExitObject;
+
+    [Header("Botones Options")]
+    [SerializeField] private Button m_OptionsBackButton;
+    [SerializeField] private GameObject m_FirstOptionsObject;
 
     [Header("Paneles de la interfaz")]
     [SerializeField] private GameObject m_PanelInventory;
@@ -32,16 +39,19 @@ public class GUIInGamePlayerScript : MonoBehaviour
     [SerializeField] private List<GameObject> m_PanelsList;
 
     private InventoryController m_Inventory;
+    private EventSystem m_EventSystem;
 
     void Start()
     {
         m_Player = PJSMB.Instance;
         m_Inventory = LevelManager.Instance.InventoryController;
+        m_EventSystem = LevelManager.Instance.EventSystem;
         if (m_ResumeGameButton) m_ResumeGameButton.onClick.AddListener(ResumeGame);
         if (m_OptionsButton) m_OptionsButton.onClick.AddListener(OpenOptions);
         if (m_ExitGameButton) m_ExitGameButton.onClick.AddListener(OpenExit);
         if (m_ExitConfirmationButton) m_ExitConfirmationButton.onClick.AddListener(OnExitConfirmation);
         if (m_ExitBackButton) m_ExitBackButton.onClick.AddListener(CancelExit);
+        if (m_OptionsBackButton) m_OptionsBackButton.onClick.AddListener(OnOptionsBack);
         ClosePanelsInsteadOf(TypeOfPanels.INICIAL);
         m_Player.Input.FindActionMap("PlayerActions").FindAction("Pause").started += PararLaPartida;
         m_Player.Input.FindActionMap("PlayerActions").FindAction("OpenAbilities").performed += OpenAbilities;
@@ -72,15 +82,22 @@ public class GUIInGamePlayerScript : MonoBehaviour
     private void OpenOptions()
     {
         ClosePanelsInsteadOf(TypeOfPanels.OPTIONS);
+        m_EventSystem.SetSelectedGameObject(m_FirstOptionsObject);
     }
 
     private void OpenExit()
     {
         ClosePanelsInsteadOf(TypeOfPanels.NEW_GAME);
+        m_EventSystem.SetSelectedGameObject(m_FirstExitObject);
     }
 
     /* OPTIONS GUI BUTTONS */
 
+    private void OnOptionsBack()
+    {
+        ClosePanelsInsteadOf(TypeOfPanels.PAUSE);
+        m_EventSystem.SetSelectedGameObject(m_FirstPauseObject);
+    }
 
     /* EXIT GUI BUTTONS */
 
@@ -94,6 +111,7 @@ public class GUIInGamePlayerScript : MonoBehaviour
     private void CancelExit()
     {
         ClosePanelsInsteadOf(TypeOfPanels.PAUSE);
+        m_EventSystem.SetSelectedGameObject(m_FirstPauseObject);
     }
 
     private void PararLaPartida(InputAction.CallbackContext context)
@@ -103,6 +121,7 @@ public class GUIInGamePlayerScript : MonoBehaviour
             m_GameParado = true;
             ClosePanelsInsteadOf(TypeOfPanels.PAUSE);
             GameManager.Instance.PauseGame(m_GameParado);
+            m_EventSystem.SetSelectedGameObject(m_FirstPauseObject);
         }
         else
         {
