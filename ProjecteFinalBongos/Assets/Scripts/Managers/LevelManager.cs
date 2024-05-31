@@ -116,6 +116,11 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(DesfundirNegroCoroutine());
     }
 
+    public void FundirNegro(bool isLoadingNextScene)
+    {
+        StartCoroutine(FundirNegroCoroutine(isLoadingNextScene));
+    }
+
     private IEnumerator DesfundirNegroCoroutine()
     {
         //GetComponent<GUIInGamePlayerScript>().ClosePanelsInsteadOf(TypeOfPanels.INICIAL);
@@ -137,6 +142,7 @@ public class LevelManager : MonoBehaviour
         PJSMB.Instance.StopPlayer();
         while (m_FundidoNegroPanel.GetComponent<Image>().color.a < 1)
         {
+            print("Entro aquí.");
             Color colorin = m_FundidoNegroPanel.GetComponent<Image>().color;
             colorin.a += 0.01f;
             m_FundidoNegroPanel.GetComponent<Image>().color = colorin;
@@ -145,9 +151,15 @@ public class LevelManager : MonoBehaviour
         }
 
         if (isLoadingNextScene)
+        {
+            Debug.Log("Entro en seguir lol");
             GameManager.Instance.AvanzarMundo(m_MundoActual);
+        }
         else
-            GameManager.Instance.TerminarPartida();
+        {
+            Debug.Log("Entro en acabar");
+            PJSMB.Instance.AcabarJuego();
+        }
     }
 
     // Start is called before the first frame update
@@ -362,7 +374,7 @@ public class LevelManager : MonoBehaviour
         if (m_BossesMuertos == 7)
         {
             GuardarPartida();
-            StartCoroutine(FundirNegroCoroutine(true));
+            FundirNegro(true);
         }
     }
 
