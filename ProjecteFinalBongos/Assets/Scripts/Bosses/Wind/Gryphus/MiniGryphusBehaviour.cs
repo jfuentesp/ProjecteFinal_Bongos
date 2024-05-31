@@ -86,7 +86,7 @@ public class MiniGryphusBehaviour : BossBehaviour
 
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
-                RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
+                RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position + m_Pivote, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
@@ -99,7 +99,7 @@ public class MiniGryphusBehaviour : BossBehaviour
             }
             else
             {
-                RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position, m_BoxArea, transform.rotation.z, transform.position);
+                RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position + m_Pivote, m_BoxArea, transform.rotation.z, transform.position);
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
@@ -120,13 +120,17 @@ public class MiniGryphusBehaviour : BossBehaviour
     protected override void VidaCero()
     {
         base.VidaCero();
-        m_BloodController.PlayDeathBlood();
-        StopAllCoroutines();
-        GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
-        m_StateMachine.ChangeState<DeathState>();
-        m_IsAlive = false;
-        OnBossDeath?.Invoke();
-        if (m_BossFinalSala)
-            m_BossMuertoEvent.Raise();
+        if (m_IsAlive)
+        {
+            m_IsAlive = false;
+            m_BloodController.PlayDeathBlood();
+            StopAllCoroutines();
+            m_HealParticles.SetActive(false);
+            GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
+            m_StateMachine.ChangeState<DeathState>();
+            OnBossDeath?.Invoke();
+            if (m_BossFinalSala)
+                m_BossMuertoEvent.Raise();
+        }
     }
 }

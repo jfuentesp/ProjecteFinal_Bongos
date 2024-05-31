@@ -41,7 +41,7 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     {
         m_HaEntradoElPlayer = false;
         m_CanOpenDoor = true;
-        StartCoroutine(DeteccionPlayer());
+        //StartCoroutine(DeteccionPlayer());
     }
 
     private IEnumerator DeteccionPlayer()
@@ -73,6 +73,22 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
                 }
             }
             yield return new WaitForSeconds(m_TimeBetweenBoxCast);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            if (collision.gameObject.TryGetComponent<PJSMB>(out PJSMB pj))
+            {
+                m_CanOpenDoor = false;
+                cambioPuerta?.Invoke(false);
+                m_TransformPlayer = collision.transform;
+                OnPlayerIn?.Invoke(m_TransformPlayer);
+                m_JugadorEnSalaEvent.Raise();
+                m_HaEntradoElPlayer = true;
+                GetComponent<BoxCollider2D>().enabled = false;
+            }
         }
     }
 

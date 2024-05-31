@@ -18,12 +18,18 @@ public class Bullet : MonoBehaviour
     protected Rigidbody2D m_Rigidbody;
     protected BossAttackDamage m_AttackDamage;
     protected Animator m_Animator;
+    [SerializeField]
+    protected AudioClip m_AudioBullet;
+    protected AudioSource m_AudioSource;
+    [SerializeField] protected EstadosAlterados m_EstadoAlterado;
+    [SerializeField] protected float m_Time;
 
     protected void Awake()
     {
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_AttackDamage = GetComponent<BossAttackDamage>();
+        m_AudioSource = GetComponent<AudioSource>();
     }
 
     public virtual void Init(Vector2 direction)
@@ -35,6 +41,10 @@ public class Bullet : MonoBehaviour
         transform.localScale = m_Size;
         m_Rigidbody.velocity = transform.up * m_Speed;
         m_AttackDamage.SetDamage(m_Damage);
+        m_AttackDamage.SetEstado(m_EstadoAlterado);
+        m_AttackDamage.SetTime(m_Time);
+        if (m_AudioBullet)
+            m_AudioSource.Play();
         StartCoroutine(ReturnToPoolCoroutine());
     }
     private void Update()
@@ -44,7 +54,7 @@ public class Bullet : MonoBehaviour
     protected virtual IEnumerator ReturnToPoolCoroutine()
     {
         yield return new WaitForSeconds(m_TimeUntilDestroyed);
-        this.gameObject.SetActive(false);
+        DisableBullet();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -67,5 +77,6 @@ public class Bullet : MonoBehaviour
         }
         transform.localScale = m_Size;
         this.gameObject.SetActive(false);
+        gameObject.layer = LayerMask.NameToLayer("AllHitBox");
     }
 }

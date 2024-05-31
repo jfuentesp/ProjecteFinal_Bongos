@@ -10,9 +10,15 @@ public class OpcionesGUIScript : MonoBehaviour
     [SerializeField] private TMP_Dropdown m_IdiomasDropDown;
     [SerializeField] private Toggle m_FullScreenToggle;
     [SerializeField] private TMP_Dropdown m_ResolucionesDropDown;
+    [SerializeField] private Slider m_GlobalVolumeSlider;
+    [SerializeField] private Slider m_MusicVolumeSlider;
+    [SerializeField] private Slider m_EffectVolumeSlider;
 
     private int m_IdiomaGuardado;
     private int m_ResolucionGuardada;
+    private float m_GlobalVolumeValue;
+    private float m_MusicVolumeValue;
+    private float m_EffectVolumeValue;
 
     Resolution[] resoluciones;
     List<IdiomaEnum> m_IdiomaList = new();
@@ -24,9 +30,33 @@ public class OpcionesGUIScript : MonoBehaviour
         m_IdiomasDropDown.onValueChanged.AddListener(LanguageChanged);
         m_FullScreenToggle.onValueChanged.AddListener(CheckFullScreen);
         m_ResolucionesDropDown.onValueChanged.AddListener(CambiarResolucion);
+        if (m_GlobalVolumeSlider) m_GlobalVolumeSlider.onValueChanged.AddListener(ChangeGlobalVolume);
+        if (m_MusicVolumeSlider) m_MusicVolumeSlider.onValueChanged.AddListener(ChangeMusicVolume);
+        if (m_EffectVolumeSlider) m_EffectVolumeSlider.onValueChanged.AddListener(ChangeEffectVolume);
         CheckResolutions();
         StartCoroutine(LoadSettingsCoroutine());
         
+    }
+
+    private void ChangeGlobalVolume(float volume)
+    {
+        m_GlobalVolumeValue = volume;
+        GameManager.Instance.SoundManager.SetTotalVolume(volume);
+        SaveSettings();
+    }
+
+    private void ChangeMusicVolume(float volume)
+    {
+        m_MusicVolumeValue = volume;
+        GameManager.Instance.SoundManager.SetMusicVolume(volume);
+        SaveSettings();
+    }
+
+    private void ChangeEffectVolume(float volume)
+    {
+        m_EffectVolumeValue = volume;
+        GameManager.Instance.SoundManager.SetEffectVolume(volume);
+        SaveSettings();
     }
 
     private IEnumerator LoadSettingsCoroutine()
@@ -40,6 +70,9 @@ public class OpcionesGUIScript : MonoBehaviour
         m_IdiomaGuardado = (int) PlayerPrefs.GetFloat("Idioma");
         Screen.fullScreen = TranslateBool(PlayerPrefs.GetFloat("FullScreen"));
         m_ResolucionGuardada = (int)PlayerPrefs.GetFloat("Resolucion");
+        m_GlobalVolumeValue = PlayerPrefs.GetFloat("GlobalVolume");
+        m_MusicVolumeValue = PlayerPrefs.GetFloat("MusicVolume");
+        m_EffectVolumeValue = PlayerPrefs.GetFloat("EffectVolume");
         CambiarResolucion(m_ResolucionGuardada);
         LanguageChanged(m_IdiomaGuardado);
     }
@@ -48,6 +81,9 @@ public class OpcionesGUIScript : MonoBehaviour
         PlayerPrefs.SetFloat("Idioma", m_IdiomaGuardado);
         PlayerPrefs.SetFloat("FullScreen", TranslateBool(Screen.fullScreen));
         PlayerPrefs.SetFloat("Resolucion", m_ResolucionGuardada);
+        PlayerPrefs.SetFloat("GlobalVolume", m_GlobalVolumeValue);
+        PlayerPrefs.SetFloat("MusicVolume", m_MusicVolumeValue);
+        PlayerPrefs.SetFloat("EffectVolume", m_EffectVolumeValue);
         PlayerPrefs.Save();
     }
     public int TranslateBool(bool _BoolToTranslate)

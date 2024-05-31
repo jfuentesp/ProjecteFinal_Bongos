@@ -30,13 +30,7 @@ namespace SaveLoadGame
             data.PopulateDataPlayer(dataPlayer);
             data.PopulateDataAbilities(dataAbilites);
 
-            print("Estas vacio???????" + data.m_PlayerAbilities.Length);
-            foreach(PlayerAbilities habilidades in data.m_PlayerAbilities)
-            {
-                print(habilidades.m_AbilityId);
-                print(habilidades.m_AbilityIsLearned);
-                print(habilidades.m_ButtonId);
-            }
+         
             
             data.m_NameAndWorld = new NameAndWorld(GameManager.Instance.PlayerName, LevelManager.Instance.MundoActualJugador);
 
@@ -137,8 +131,7 @@ namespace SaveLoadGame
                 }
             }
 
-            InventoryController inventoryController = FindObjectOfType<InventoryController>();
-            inventoryController.Load(data.m_BackPack);
+            FindObjectOfType<InventoryController>().Load(data.m_BackPack, true);
             PJSMB player = FindObjectOfType<PJSMB>();
             player.Load(data.m_PlayerStats);
 
@@ -153,7 +146,7 @@ namespace SaveLoadGame
                     }
                 }
             }*/
-
+            FindObjectOfType<AbilitiesGUIController>().Load(data.m_PlayerAbilities, false);
             GameManager.Instance.SetNamePlayer(data.m_NameAndWorld.m_Name);
         }
         public void LoadDataBetweenScenes()
@@ -175,6 +168,8 @@ namespace SaveLoadGame
                 //JsonUtility.FromJsonOverwrite(jsonDataLectura, data);
 
                 FindObjectOfType<AbilitiesGUIController>().Load(data.m_PlayerAbilities, true);
+
+                FindObjectOfType<InventoryController>().Load(data.m_BackPack, false);
 
             }
             catch (Exception e)

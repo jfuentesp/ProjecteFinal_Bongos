@@ -5280,7 +5280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAXHP: 500
+  MAXHP: 1000
 --- !u!114 &6504747666623482257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5511,7 +5511,7 @@ MonoBehaviour:
   m_ElectricResistance: 5
   m_PlayerBaseStats: {fileID: 11400000, guid: fe6e42c4c219d03489147d28d3b95089, type: 2}
   m_Velocity: 0
-  m_AttackTime: 2
+  m_AttackTime: 1
   m_Strength: 0
   m_Defense: 0
   m_Sword: {fileID: 0}

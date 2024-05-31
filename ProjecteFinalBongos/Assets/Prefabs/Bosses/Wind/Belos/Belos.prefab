@@ -278,6 +278,7 @@ MonoBehaviour:
   m_Target: {fileID: 0}
   m_BloodController: {fileID: 8901942161902240318}
   m_BossFinalSala: 1
+  m_Pivote: {x: -0.07185416, y: -0.141142, z: 0}
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 2
   m_AreaWideness: 2
@@ -292,6 +293,7 @@ MonoBehaviour:
     m_Bits: 128
   m_GoldPrefab: {fileID: 8396476938269338464, guid: ed2065fa1efdc3943a19440d3281db0b, type: 3}
   m_AbilityPointPrefab: {fileID: 8490425180727072228, guid: 8e0e517ec543c2244babbdfa6a9359df, type: 3}
+  m_HealingParticles: {fileID: 4261166473923639325}
 --- !u!114 &6020152823283354660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,7 +496,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.07185416, y: -0.14114204}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -505,7 +507,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.790092}
+  m_Size: {x: 0.6612593, y: 0.9081381}
   m_EdgeRadius: 0
 --- !u!195 &-6093315730611099634
 NavMeshAgent:
@@ -566,7 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cca67139dff3dd488cb7cce9fe6c87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  times: {fileID: 0}
+  times: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
 --- !u!114 &2038813525817993778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,8 +581,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  times: {fileID: 0}
-  m_NameAnimation: 
+  times: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
+  m_NameAnimation: Parried
 --- !u!114 &4883039430118318516
 MonoBehaviour:
   m_ObjectHideFlags: 0

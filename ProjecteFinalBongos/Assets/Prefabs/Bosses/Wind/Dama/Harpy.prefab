@@ -163,7 +163,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.12}
   serializedVersion: 2
   m_Radius: 0.5
 --- !u!114 &-274922059993911915
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Target: {fileID: 0}
   m_BloodController: {fileID: 5455268024422032539}
   m_BossFinalSala: 0
-  m_Pivote: {x: 0, y: 0}
+  m_Pivote: {x: 0, y: 0.12}
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 1.5
   m_AreaWideness: 1.5
@@ -199,6 +199,8 @@ MonoBehaviour:
   m_GoldPrefab: {fileID: 0}
   m_AbilityPointPrefab: {fileID: 0}
   m_OnDeathEvent: {fileID: 11400000, guid: c158ea061bdb7614d9e7adfc6b66abd3, type: 2}
+  m_MaximumHarpies: 0
+  m_CurrentHarpies: 0
 --- !u!114 &815698300243707662
 MonoBehaviour:
   m_ObjectHideFlags: 0

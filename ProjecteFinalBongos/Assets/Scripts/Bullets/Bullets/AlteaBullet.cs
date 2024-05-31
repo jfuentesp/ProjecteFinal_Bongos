@@ -14,8 +14,16 @@ public class AlteaBullet : Bullet
         m_Devuelta = false;
         m_Size = new Vector2(m_SizeRadius, m_SizeRadius);
         m_AttackDamage.SetDamage(m_Damage);
+        m_AttackDamage.SetEstado(m_EstadoAlterado);
+        m_AttackDamage.SetTime(m_Time);
         transform.localScale = m_Size;
         m_Rigidbody.velocity = transform.up * m_Speed;
+        if (m_AudioBullet)
+        {
+            m_AudioSource.clip = m_AudioBullet;
+            m_AudioSource.Play();
+        }
+        StartCoroutine(ReturnToPoolCoroutine());
     }
 
     private void Update()
@@ -48,22 +56,10 @@ public class AlteaBullet : Bullet
                             DisableBullet();
                         }
                     }
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Default"))
-                if (collision.CompareTag("MechanicObstacle"))
-                {
-                    gameObject.layer = LayerMask.NameToLayer("AllHitBox");
-                    DisableBullet();
-                }   
         }
         else
         {
             m_Devuelta = false;
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Default"))
-                if (collision.CompareTag("MechanicObstacle"))
-                {
-                    gameObject.layer = LayerMask.NameToLayer("AllHitBox");
-                    DisableBullet();
-                }
             if (collision.gameObject.layer == LayerMask.NameToLayer("BossHurtBox"))
             {
                 collision.gameObject.GetComponent<BossBehaviour>().recibirDaño(m_Damage);

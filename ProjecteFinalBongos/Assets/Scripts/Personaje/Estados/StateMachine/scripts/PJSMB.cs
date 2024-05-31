@@ -246,9 +246,9 @@ public class PJSMB : MonoBehaviour, ISaveablePlayerData
         m_PlayerGold.SetDineroFromLoad(_PlayerStats.m_Money);
         m_PlayerAbilityPoints.SetHabilityPoints(_PlayerStats.m_AbilityPoints);
 
-        m_playerAbilitiesController.SetOffensiveTier(_PlayerStats.m_TierOffensive);
-        m_playerAbilitiesController.SetDefensiveTier(_PlayerStats.m_TierDefensive);
-        m_playerAbilitiesController.SetAgilityTier(_PlayerStats.m_TierAgility);
+        m_playerAbilitiesController.LoadOffensiveTier(_PlayerStats.m_TierOffensive);
+        m_playerAbilitiesController.LoadDefensiveTier(_PlayerStats.m_TierDefensive);
+        m_playerAbilitiesController.LoadAgilityTier(_PlayerStats.m_TierAgility);
 
         if (_PlayerStats.idSword != "99")
         {
