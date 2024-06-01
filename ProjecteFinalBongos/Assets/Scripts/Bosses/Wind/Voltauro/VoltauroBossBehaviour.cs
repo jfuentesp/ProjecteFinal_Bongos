@@ -76,7 +76,14 @@ public class VoltauroBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBParriedState>();
         };
-
+        GetComponent<SMBBossStunState>().OnStopStun = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBParalized>().OnStopParalized = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
         m_StateMachine.ChangeState<SMBIdleState>();
         m_HealthController.onHurt += CheckPhase;

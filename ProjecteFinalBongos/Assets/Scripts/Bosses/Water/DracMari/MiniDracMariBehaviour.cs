@@ -46,7 +46,6 @@ public class MiniDracMariBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
-     
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
     }
 

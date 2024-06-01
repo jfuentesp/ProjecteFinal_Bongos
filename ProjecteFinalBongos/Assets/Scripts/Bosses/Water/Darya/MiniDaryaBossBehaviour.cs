@@ -32,6 +32,14 @@ public class MiniDaryaBossBehaviour : BossBehaviour
         {
             StartCoroutine(SetAttack());
         };
+        GetComponent<SMBBossStunState>().OnStopStun = (GameObject obj) =>
+        {
+            StartCoroutine(SetAttack());
+        };
+        GetComponent<SMBParalized>().OnStopParalized = (GameObject obj) =>
+        {
+            StartCoroutine(SetAttack());
+        };
         atacando = false;
     }
     private void Start()

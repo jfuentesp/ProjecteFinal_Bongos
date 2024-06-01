@@ -31,6 +31,14 @@ public class MiniMedusaBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBRangedAttack>();
         };
+        GetComponent<SMBParalized>().OnStopParalized = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBBossStunState>().OnStopStun = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
     }
     private void Start()

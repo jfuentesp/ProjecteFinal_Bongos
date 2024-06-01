@@ -57,6 +57,14 @@ public class MiniBelosBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
+        GetComponent<SMBBossStunState>().OnStopStun = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBParalized>().OnStopParalized = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
         m_HealthController.onHurt += CheckPhase;
     }
 

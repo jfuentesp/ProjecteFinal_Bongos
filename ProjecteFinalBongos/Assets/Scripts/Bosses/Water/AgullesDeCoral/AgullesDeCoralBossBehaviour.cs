@@ -64,6 +64,14 @@ public class AgullesDeCoralBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBParriedState>();
         };
+        GetComponent<SMBBossStunState>().OnStopStun = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<AgullaChargeState>();
+        };
+        GetComponent<SMBParalized>().OnStopParalized = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<AgullaChargeState>();
+        };
         m_HealthController.onHeal += Curar;
         m_Pool = LevelManager.Instance._BulletPool;
     }

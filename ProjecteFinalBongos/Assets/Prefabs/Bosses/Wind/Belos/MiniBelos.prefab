@@ -5000,7 +5000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee5c8230df4f49ae73db6a2eb0766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IdleAnimationName: 
+  m_IdleAnimationName: Idle
 --- !u!114 &7932493208343023317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5114,7 +5114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cca67139dff3dd488cb7cce9fe6c87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  times: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
+  times: {fileID: 11400000, guid: 842e4027828dd8a4b84ee28745d6283a, type: 2}
+  m_NameAnimation: Paralyzed
 --- !u!114 &4822382496892530461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5127,8 +5128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  times: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
-  m_NameAnimation: Parried
+  times: {fileID: 11400000, guid: 842e4027828dd8a4b84ee28745d6283a, type: 2}
+  m_NameAnimation: Stun
 --- !u!114 &643399951551111992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5168,7 +5169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c862eb733f111414daa1cc87977a7bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bossTimes: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
+  m_bossTimes: {fileID: 11400000, guid: 842e4027828dd8a4b84ee28745d6283a, type: 2}
   m_ParalizedLifeModifier: 2
   m_WrathLifeModifier: 1.5
   m_WaterResistance: 5

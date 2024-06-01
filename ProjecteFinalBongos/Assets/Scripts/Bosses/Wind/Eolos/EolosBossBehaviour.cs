@@ -43,6 +43,14 @@ public class EolosBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaosState>();
         };
+        GetComponent<SMBBossStunState>().OnStopStun = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaosState>();
+        };
+        GetComponent<SMBParalized>().OnStopParalized = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaosState>();
+        };
     }
 
     private void Start()
