@@ -82,6 +82,9 @@ public class OpcionesGUIScript : MonoBehaviour
         m_GlobalVolumeSlider.value = m_GlobalVolumeValue;
         m_MusicVolumeSlider.value = m_MusicVolumeValue;
         m_EffectVolumeSlider.value = m_EffectVolumeValue;
+        m_FullScreenToggle.isOn = Screen.fullScreen;
+        m_IdiomasDropDown.value = m_IdiomaGuardado;
+        m_ResolucionesDropDown.value = m_ResolucionGuardada;
         CambiarResolucion(m_ResolucionGuardada);
         LanguageChanged(m_IdiomaGuardado);
     }

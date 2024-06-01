@@ -66,7 +66,6 @@ namespace GeneracionSalas
                 }
             }
         }
-
         public void Init()
         {
             if (GameManager.Instance.NuevaPartida)
@@ -146,11 +145,11 @@ namespace GeneracionSalas
             foreach (int puerta in puertasAlrededor)
             {
                 salaLado = Random.Range(0, 11);
-                if (salaLado >= 0 && salaLado <= 6)
+                if (salaLado >= 0 && salaLado <= 5)
                     salaLado = 2;
-                else if (salaLado > 6 && salaLado <= 8)
+                else if (salaLado > 5 && salaLado <= 7)
                     salaLado = 3;
-                else if (salaLado > 8 && salaLado <= 9)
+                else if (salaLado > 7 && salaLado <= 8)
                     salaLado = 4;
                 else
                     salaLado = 5;
