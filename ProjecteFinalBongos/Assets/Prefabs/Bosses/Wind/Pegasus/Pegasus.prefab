@@ -192,13 +192,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a589a5694c2dbc429eb54366e9d94e3, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_BossName: Pegasus
   m_Description: Caballo cabalga rayos (Kirin?)
   m_Target: {fileID: 0}
   m_BloodController: {fileID: 5116325523515917225}
   m_BossFinalSala: 1
+  m_Pivote: {x: 0, y: 0, z: 0}
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 4
   m_AreaWideness: 4
@@ -223,8 +224,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ffffcba53bd5cc140b776f6890a428fe, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7313588617200263524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,8 +236,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60aee5c8230df4f49ae73db6a2eb0766, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_IdleAnimationName: Charge
 --- !u!114 &3804332730328838451
 MonoBehaviour:
@@ -248,8 +249,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c95fcad212f9a846a53614aab35d8aa, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_ParryDuration: 2
   m_AnimationParryName: Parried
 --- !u!95 &7840665840602484523
@@ -268,7 +269,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -283,8 +284,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe3f8f95414136945818e9d39b233177, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_ChaseSpeed: 5
   m_ChaseAnimationName: Walk
   m_TwoDirections: 1
@@ -298,18 +299,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d03f062997d23bf46a50d2fa12d157ab, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_LayersTelegraph:
     serializedVersion: 2
     m_Bits: 55
   m_TimeBeforeCharge: 2.5
   m_Shader: {fileID: 8750361817555149449}
   m_ChargeSpeed: 45
+  m_Speed: {x: 0, y: 0, z: 0}
   m_ChargeForce: 2
   m_StartChargeAnimationName: StartCharge
   m_ChargeAnimationName: Charge
-  m_EndChargeAnimationName:
+  m_EndChargeAnimationName: 
   m_TwoDirections: 1
   m_ColoresList:
   - {r: 1, g: 0, b: 0, a: 1}
@@ -329,8 +331,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d5e8d4986c7e4f4f87b63564cc2ac48, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_SummoningDuration: 3
   m_Pool: {fileID: 0}
   m_AnimationSummoningName: BulleatArround
@@ -344,8 +346,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c95fcad212f9a846a53614aab35d8aa, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_ParryDuration: 1
   m_AnimationParryName: Parried
 --- !u!114 &1228011986976466924
@@ -358,8 +360,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0f3c3d81b8c72f4e9369780a8a90f26, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_WalkSpeed: 2
   m_minimumWalkingDuration: 1
   m_maximumWalkingDuration: 4
@@ -375,8 +377,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2df0422e5b9f6d840bc368b06c48aa2d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_OndaExpansiva: {fileID: 1457768912843992884, guid: 5e229082a6ef3a8488c6006ed6356b67, type: 3}
   m_AnimationName: Summoning
   m_GroundHitDuration: 2
@@ -390,8 +392,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d99d1fa5b4242d0479ca1ad86ab76bce, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   MAXHP: 1000
 --- !u!195 &-2504800261490869880
 NavMeshAgent:
@@ -425,8 +427,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e39f6090724e4a4a8aadeb042afa2bc, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2349389050857038823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,9 +439,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c862eb733f111414daa1cc87977a7bd0, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  m_bossTimes: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bossTimes: {fileID: 11400000, guid: 842e4027828dd8a4b84ee28745d6283a, type: 2}
   m_ParalizedLifeModifier: 2
   m_WrathLifeModifier: 1.5
   m_WaterResistance: 5
@@ -460,8 +462,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83c8b096c741d3344bcc550c5c033407, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   Invencible: 0
   Stun: 0
   Poison: 0
@@ -487,9 +489,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cca67139dff3dd488cb7cce9fe6c87c, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  times: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: {fileID: 11400000, guid: 842e4027828dd8a4b84ee28745d6283a, type: 2}
+  m_NameAnimation: Paralyzed
 --- !u!114 &7288981906074113650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,10 +503,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  times: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
-  m_NameAnimation: Parried
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: {fileID: 11400000, guid: 842e4027828dd8a4b84ee28745d6283a, type: 2}
+  m_NameAnimation: Stun
 --- !u!114 &-5115236751226555552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,8 +517,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0640d428ac906c2459218b66878fd018, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   Event: {fileID: 11400000, guid: 0934ad3906010854589bca17fba3ed79, type: 2}
   Response:
     m_PersistentCalls:
@@ -529,7 +532,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument:
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2238363034360222597
@@ -542,8 +545,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0640d428ac906c2459218b66878fd018, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   Event: {fileID: 11400000, guid: bb20dec7d7e3e0a46b3f3eafed4e37a8, type: 2}
   Response:
     m_PersistentCalls:
@@ -557,7 +560,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument:
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1101482408609079519
@@ -570,8 +573,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea3705b7a045dce4488aa2017422848a, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Damage: 20
   m_StatsController: {fileID: 0}
   m_player: {fileID: 0}
@@ -589,8 +592,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e8b048728a5a454191ff5fb5a4cf910, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_AnimationName: MiniDeath
 --- !u!1001 &5897783455094581493
 PrefabInstance:
@@ -787,8 +790,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce4e3bb771e77c441b1b59c97ab3cc72, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7005407481474117468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -827,7 +830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6228608156285021123, guid: b1bd9b96f18405640a74b45e7b4313c9, type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 2100000, guid: f3049073f6b2d6641b5659f6cd1246e0, type: 2}
     - target: {fileID: 7466651333783327861, guid: b1bd9b96f18405640a74b45e7b4313c9, type: 3}
       propertyPath: m_RootOrder

@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Target: {fileID: 0}
   m_BloodController: {fileID: 4814009253761939623}
   m_BossFinalSala: 0
+  m_Pivote: {x: 0, y: 0, z: 0}
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 2
   m_AreaWideness: 2
@@ -134,6 +135,8 @@ MonoBehaviour:
   m_layerMask:
     serializedVersion: 2
     m_Bits: 128
+  m_GoldPrefab: {fileID: 0}
+  m_AbilityPointPrefab: {fileID: 0}
   m_RangoHuirPerseguir: 3
   m_Bubble: {fileID: 8620301251343348470}
 --- !u!195 &4664308352426617065
@@ -289,7 +292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cca67139dff3dd488cb7cce9fe6c87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  times: {fileID: 0}
+  times: {fileID: 11400000, guid: 842e4027828dd8a4b84ee28745d6283a, type: 2}
+  m_NameAnimation: Paralyzed
 --- !u!114 &7976815135363041005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,8 +306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  times: {fileID: 0}
-  m_NameAnimation: 
+  times: {fileID: 11400000, guid: 842e4027828dd8a4b84ee28745d6283a, type: 2}
+  m_NameAnimation: Stun
 --- !u!114 &7230672898342102079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c862eb733f111414daa1cc87977a7bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bossTimes: {fileID: 0}
+  m_bossTimes: {fileID: 11400000, guid: 842e4027828dd8a4b84ee28745d6283a, type: 2}
   m_ParalizedLifeModifier: 2
   m_WrathLifeModifier: 1.5
   m_WaterResistance: 5

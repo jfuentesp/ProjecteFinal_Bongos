@@ -48,7 +48,15 @@ public class MiniGryphusBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBParriedState>();
         };
-       
+        GetComponent<SMBBossStunState>().OnStopStun = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBParalized>().OnStopParalized = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+
     }
     private void Start()
     {

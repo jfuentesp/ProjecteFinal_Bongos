@@ -740,6 +740,7 @@ MonoBehaviour:
   m_Target: {fileID: 0}
   m_BloodController: {fileID: 5586029801815327199}
   m_BossFinalSala: 1
+  m_Pivote: {x: 0, y: 0, z: 0}
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 0
   m_AreaWideness: 0
@@ -752,6 +753,8 @@ MonoBehaviour:
   m_layerMask:
     serializedVersion: 2
     m_Bits: 128
+  m_GoldPrefab: {fileID: 0}
+  m_AbilityPointPrefab: {fileID: 0}
   m_tentacle: {fileID: 7718859505142421878, guid: aaf4e78d9df55b4448dcab306b3282ef, type: 3}
   paralizingTenacleCount: 0
   m_TentaculosMask:
@@ -844,7 +847,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cca67139dff3dd488cb7cce9fe6c87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  times: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
+  times: {fileID: 11400000, guid: 842e4027828dd8a4b84ee28745d6283a, type: 2}
+  m_NameAnimation: Paralyzed
 --- !u!114 &4449570395813551865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -857,8 +861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  times: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
-  m_NameAnimation: 
+  times: {fileID: 11400000, guid: 842e4027828dd8a4b84ee28745d6283a, type: 2}
+  m_NameAnimation: Stun
 --- !u!114 &5121099191108693955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,7 +902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c862eb733f111414daa1cc87977a7bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bossTimes: {fileID: 11400000, guid: 1dc886873744a3b468af0d655498e8fe, type: 2}
+  m_bossTimes: {fileID: 11400000, guid: 842e4027828dd8a4b84ee28745d6283a, type: 2}
   m_ParalizedLifeModifier: 2
   m_WrathLifeModifier: 1.5
   m_WaterResistance: 5

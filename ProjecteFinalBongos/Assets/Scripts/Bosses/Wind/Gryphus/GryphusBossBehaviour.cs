@@ -72,6 +72,14 @@ public class GryphusBossBehaviour : BossBehaviour
                 ParticulitasCura();
             }
         };
+        GetComponent<SMBBossStunState>().OnStopStun = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBParalized>().OnStopParalized = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
         m_CurrentPhase = Phase.ONE;
         m_HealthController.onHurt += CheckPhase;

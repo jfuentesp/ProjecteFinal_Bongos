@@ -71,7 +71,6 @@ public class BelosBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBChaseState>();
         };
-
         m_NumberOfAttacksBeforeTrap = Random.Range(1, 6);
         m_HealthController.onHurt += CheckPhase;
     }

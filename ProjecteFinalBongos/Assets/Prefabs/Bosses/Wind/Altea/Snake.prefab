@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Target: {fileID: 0}
   m_BloodController: {fileID: 2855255479555372901}
   m_BossFinalSala: 0
-  m_Pivote: {x: -0.12, y: 0.09}
+  m_Pivote: {x: -0.12, y: 0.09, z: 0}
   m_PlayerAttackDetectionAreaType: 0
   m_AreaLength: 5
   m_AreaWideness: 5
@@ -332,7 +332,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cca67139dff3dd488cb7cce9fe6c87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  times: {fileID: 0}
+  times: {fileID: 11400000, guid: 842e4027828dd8a4b84ee28745d6283a, type: 2}
+  m_NameAnimation: Paralyzed
 --- !u!114 &9154980146482813755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,8 +346,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e36925c3dac6d48854dfd0a2038003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  times: {fileID: 0}
-  m_NameAnimation: 
+  times: {fileID: 11400000, guid: 842e4027828dd8a4b84ee28745d6283a, type: 2}
+  m_NameAnimation: Stun
 --- !u!114 &3814501471000115121
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -77,6 +77,14 @@ public class TritoBossBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBParriedState>();
         };
+        GetComponent<SMBParalized>().OnStopParalized = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
+        GetComponent<SMBBossStunState>().OnStopStun = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBChaseState>();
+        };
 
         GetComponent<SMBChaseState>().OnStartChase += EmpezarCuentaAtras;
       

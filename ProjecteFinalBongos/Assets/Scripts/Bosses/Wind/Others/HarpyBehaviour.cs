@@ -45,6 +45,14 @@ public class HarpyBehaviour : BossBehaviour
         {
             m_StateMachine.ChangeState<SMBParriedState>();
         };
+        GetComponent<SMBBossStunState>().OnStopStun = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBHarpyChaseState>();
+        };
+        GetComponent<SMBParalized>().OnStopParalized = (GameObject obj) =>
+        {
+            m_StateMachine.ChangeState<SMBHarpyChaseState>();
+        };
 
         GetComponent<SMBIdleState>().OnPlayerEnter += EmpezarCorutina;
     }
