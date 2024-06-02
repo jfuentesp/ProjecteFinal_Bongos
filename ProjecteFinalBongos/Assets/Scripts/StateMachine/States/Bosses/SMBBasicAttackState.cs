@@ -24,6 +24,11 @@ public class SMBBasicAttackState : SMState
     [Header("Animation Two Directions")]
     [SerializeField] protected bool m_TwoDirections;
 
+    [Header("Sounds")]
+    protected AudioSource m_AudioSource;
+    [SerializeField] protected AudioClip m_WaitClip;
+    [SerializeField] protected AudioClip[] m_SlashClipList;
+
     protected Transform m_Target;
 
     protected override void Awake()
@@ -32,6 +37,7 @@ public class SMBBasicAttackState : SMState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
+        m_AudioSource = GetComponent<AudioSource>();
         m_Boss = GetComponent<BossBehaviour>();
         m_Boss.OnPlayerInSala += GetTarget;
         /*
@@ -62,5 +68,17 @@ public class SMBBasicAttackState : SMState
         BoxCollider2D box;
         collider.TryGetComponent<BoxCollider2D>(out box);
         box.size = new Vector2(m_HitboxWideness, m_HitboxLength);
+    }
+
+    protected void PlayWaitSound()
+    {
+        m_AudioSource.clip = m_WaitClip;
+        m_AudioSource.Play();
+    }
+
+    protected void PlaySlashSound()
+    {
+        m_AudioSource.clip = m_SlashClipList[Random.Range(0, m_SlashClipList.Length)];
+        m_AudioSource.Play();
     }
 }

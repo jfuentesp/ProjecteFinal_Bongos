@@ -57,6 +57,7 @@ public class SMBTripleAttackState : SMBBasicAttackState
         if (m_TwoDirections)
         {
             m_Animator.Play(m_WaitAnimation);
+            PlayWaitSound();
             if (m_Target != null)
             {
                 if (m_Target.position.x - transform.position.x < 0)
@@ -135,5 +136,11 @@ public class SMBTripleAttackState : SMBBasicAttackState
             transform.localEulerAngles = Vector3.zero;
         else
             transform.localEulerAngles = new Vector3(0, 180, 0);
+    }
+
+    private void PlayTripleSlashSound()
+    {
+        m_AudioSource.clip = m_SlashClipList[Random.Range(0, m_SlashClipList.Length)];
+        m_AudioSource.Play();
     }
 }

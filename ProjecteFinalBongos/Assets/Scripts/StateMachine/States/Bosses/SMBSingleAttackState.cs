@@ -59,6 +59,7 @@ public class SMBSingleAttackState : SMBBasicAttackState
         if (m_TwoDirections)
         {
             m_Animator.Play(m_WaitAnimation);
+            PlayWaitSound();
             if (m_Target != null)
             {
                 if (m_Target.position.x - transform.position.x < 0)
@@ -76,6 +77,7 @@ public class SMBSingleAttackState : SMBBasicAttackState
         if (m_TwoDirections)
         {
             m_Animator.Play(m_SingleAttackAnimationName);
+            PlaySlashSound();
             if (m_Target != null)
             {
                 if (m_Target.position.x - transform.position.x < 0)

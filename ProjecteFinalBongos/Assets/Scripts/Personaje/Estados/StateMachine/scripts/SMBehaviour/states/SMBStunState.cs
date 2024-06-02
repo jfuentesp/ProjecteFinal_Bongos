@@ -15,6 +15,9 @@ public class SMBStunState : SMState
     private GameEvent m_event;
     [SerializeField]
     private TimesScriptable playerTimes;
+    [SerializeField]
+    private AudioClip[] m_AudioStunClip;
+    private AudioSource m_AudioSource;
     private float m_Time;
     private new void Awake()
     {
@@ -23,7 +26,7 @@ public class SMBStunState : SMState
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_StateMachine = GetComponent<FiniteStateMachine>();
-
+        m_AudioSource = GetComponent<AudioSource>();
     }
 
     public override void InitState()
@@ -31,7 +34,8 @@ public class SMBStunState : SMState
         base.InitState();
         m_Animator.Play("stunnedPlayer");
         StartCoroutine(StunSeconds());
-
+        m_AudioSource.clip = m_AudioStunClip[Random.Range(0, m_AudioStunClip.Length)];
+        m_AudioSource.Play();
     }
 
     IEnumerator StunSeconds() {

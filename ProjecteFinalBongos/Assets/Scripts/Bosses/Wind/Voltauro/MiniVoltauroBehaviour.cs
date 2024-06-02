@@ -95,10 +95,16 @@ public class MiniVoltauroBehaviour : BossBehaviour
     {
         while (m_IsAlive)
         {
+            RaycastHit2D hitInfo;
+            Vector3 m_PivoteUso;
 
             if (m_PlayerAttackDetectionAreaType == CollisionType.CIRCLE)
             {
-                RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position + m_Pivote, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
+                if (transform.localEulerAngles.y == 180)
+                    m_PivoteUso = -m_Pivote;
+                else
+                    m_PivoteUso = m_Pivote;
+                hitInfo = Physics2D.CircleCast(transform.position + m_PivoteUso, m_AreaRadius, transform.position, m_AreaRadius, m_LayersToCheck);
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;
@@ -111,7 +117,12 @@ public class MiniVoltauroBehaviour : BossBehaviour
             }
             else
             {
-                RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position + m_Pivote, m_BoxArea, transform.rotation.z, transform.position);
+                if (transform.localEulerAngles.y == 180)
+                    m_PivoteUso = -m_Pivote;
+                else
+                    m_PivoteUso = m_Pivote;
+
+                hitInfo = Physics2D.BoxCast(transform.position + m_PivoteUso, m_BoxArea, transform.rotation.z, transform.position);
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player") && !m_IsBusy)
                 {
                     m_IsPlayerDetected = true;

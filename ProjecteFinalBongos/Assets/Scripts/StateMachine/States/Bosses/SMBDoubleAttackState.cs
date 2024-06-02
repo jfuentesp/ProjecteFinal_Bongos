@@ -56,6 +56,7 @@ public class SMBDoubleAttackState : SMBBasicAttackState
         if (m_TwoDirections)
         {
             m_Animator.Play(m_WaitAnimation);
+            PlayWaitSound();
             if (m_Target != null)
             {
                 if (m_Target.position.x - transform.position.x < 0)
@@ -129,5 +130,10 @@ public class SMBDoubleAttackState : SMBBasicAttackState
             if (!m_Boss.IsPlayerDetected)
                 m_StateMachine.ChangeState<SMBChaseState>();
         }
+    }
+    private void PlayDoubleSlashSound()
+    {
+        m_AudioSource.clip = m_SlashClipList[Random.Range(0, m_SlashClipList.Length)];
+        m_AudioSource.Play();
     }
 }
