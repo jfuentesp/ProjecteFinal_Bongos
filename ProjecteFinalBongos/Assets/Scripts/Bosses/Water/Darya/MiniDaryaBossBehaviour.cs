@@ -58,33 +58,36 @@ public class MiniDaryaBossBehaviour : BossBehaviour
         {
             if (transform.parent.GetChild(i).childCount > 0)
             {
-                int hijosDeLosHijos = transform.parent.GetChild(i).childCount;
-                for (int j = 0; j < hijosDeLosHijos; j++)
+                if(transform.parent.GetChild(i).childCount == 3)
                 {
-                    if (transform.parent.GetChild(i).GetChild(j).gameObject.CompareTag("MechanicObstacle"))
+                    int hijosDeLosHijos = transform.parent.GetChild(i).childCount;
+                    for (int j = 0; j < hijosDeLosHijos; j++)
                     {
-                        GameObject prefabito;
-                        if (j == 0)
+                        if (transform.parent.GetChild(i).GetChild(j).gameObject.CompareTag("MechanicObstacle"))
                         {
-                             prefabito = Instantiate(m_PuertaPrefab, transform.parent.GetChild(i).GetChild(j));
-                        }
-                        else
-                        {
-                             prefabito = Instantiate(m_PuertaParedPrefab, transform.parent.GetChild(i).GetChild(j));
-                        }
-                        transform.parent.GetChild(i).GetChild(j).gameObject.AddComponent<BossAttackDamage>();
-                        transform.parent.GetChild(i).GetChild(j).gameObject.GetComponent<BossAttackDamage>().SetEstado(EstadosAlterados.Normal);
-                        transform.parent.GetChild(i).GetChild(j).gameObject.GetComponent<BossAttackDamage>().SetDamage(20);
-                        if (transform.parent.GetChild(i).GetChild(j).gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite))
-                            sprite.material = m_materialPared;
+                            GameObject prefabito;
+                            if (j == 0)
+                            {
+                                prefabito = Instantiate(m_PuertaPrefab, transform.parent.GetChild(i).GetChild(j));
+                            }
+                            else
+                            {
+                                prefabito = Instantiate(m_PuertaParedPrefab, transform.parent.GetChild(i).GetChild(j));
+                            }
+                            transform.parent.GetChild(i).GetChild(j).gameObject.AddComponent<BossAttackDamage>();
+                            transform.parent.GetChild(i).GetChild(j).gameObject.GetComponent<BossAttackDamage>().SetEstado(EstadosAlterados.Normal);
+                            transform.parent.GetChild(i).GetChild(j).gameObject.GetComponent<BossAttackDamage>().SetDamage(20);
+                            if (transform.parent.GetChild(i).GetChild(j).gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite))
+                                sprite.material = m_materialPared;
 
-                        if (j == 1)
-                        {
-                            prefabito.transform.localPosition = new Vector3(0.1f, prefabito.transform.localPosition.y, prefabito.transform.localPosition.z);
-                        }
-                        else if (j == 2)
-                        {
-                            prefabito.transform.localPosition = new Vector3(-0.1f, prefabito.transform.localPosition.y, prefabito.transform.localPosition.z);
+                            if (j == 1)
+                            {
+                                prefabito.transform.localPosition = new Vector3(0.1f, prefabito.transform.localPosition.y, prefabito.transform.localPosition.z);
+                            }
+                            else if (j == 2)
+                            {
+                                prefabito.transform.localPosition = new Vector3(-0.1f, prefabito.transform.localPosition.y, prefabito.transform.localPosition.z);
+                            }
                         }
                     }
                 }
@@ -103,6 +106,8 @@ public class MiniDaryaBossBehaviour : BossBehaviour
             }
         }
     }
+
+
 
     protected new void OnTriggerEnter2D(Collider2D collision)
     {

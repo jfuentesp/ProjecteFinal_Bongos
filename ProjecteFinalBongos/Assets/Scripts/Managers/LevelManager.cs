@@ -89,6 +89,10 @@ public class LevelManager : MonoBehaviour
     public EventSystem EventSystem => m_eventSystem;
     private InputSystemUIInputModule m_InputSystemUIInputModule;
     public InputSystemUIInputModule InputSystemUIInputModule => m_InputSystemUIInputModule;
+
+    [Header("SpawnLuces")]
+    private SpawnLucesBehaviour m_SpawnLuces;
+    public SpawnLucesBehaviour SpawnLuces => m_SpawnLuces;
     
     private void Awake()
     {
@@ -109,6 +113,11 @@ public class LevelManager : MonoBehaviour
         m_InventoryController = GetComponent<InventoryController>();
         m_AbilitiesGUIController = GetComponent<AbilitiesGUIController>();
         m_GeneracionSalasInstanciacion.onMapaFinalized += DesfundirNegro;
+    }
+
+    public void SetSpawnLuces(SpawnLucesBehaviour _SpawnLuces)
+    {
+        m_SpawnLuces = _SpawnLuces;
     }
 
     private void DesfundirNegro()

@@ -89,7 +89,8 @@ public class MedusitaBehaviour : MonoBehaviour
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtBox") || collision.gameObject.layer == LayerMask.NameToLayer("Default"))
             {
-                m_Animator.Play("MiniDeath");
+                StopAllCoroutines();
+                GetComponent<PlaceableController>().Initialize(PlaceableEnum.INSTANTEXPLOSION);
             }
         }
     }

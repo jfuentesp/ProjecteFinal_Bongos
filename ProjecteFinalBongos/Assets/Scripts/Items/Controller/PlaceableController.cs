@@ -22,11 +22,14 @@ public class PlaceableController : MonoBehaviour
     }
 
     private Coroutine m_Coroutine;
-    public void Initialize(PlaceableEnum type, Consumable consumable)
+    public void Initialize(PlaceableEnum type, Consumable consumable = null)
     {
         m_PlaceableType = type;
-        m_Consumable = consumable;
-        m_SpriteRenderer.sprite = consumable.Sprite;
+        if(consumable != null)
+        {
+            m_Consumable = consumable;
+            m_SpriteRenderer.sprite = consumable.Sprite;
+        }
         switch(type)
         {
             case PlaceableEnum.BOMB:
@@ -44,6 +47,10 @@ public class PlaceableController : MonoBehaviour
             case PlaceableEnum.TRAPWATER:
                 m_Coroutine = StartCoroutine(WaterTrap());
                 m_ExplosionBehaviour.InitializeExplosion(ExplosionType.SLOW);
+                break;
+            case PlaceableEnum.INSTANTEXPLOSION:
+                m_Coroutine = StartCoroutine(InstantBomb());
+                m_ExplosionBehaviour.InitializeExplosion(ExplosionType.EXPLOSION);
                 break;
         }
     }
@@ -101,6 +108,12 @@ public class PlaceableController : MonoBehaviour
         m_Rigidbody.simulated = false;
         yield return new WaitForSeconds(20f);
         m_Animator.Play("WaterWave");
+    }
+
+    private IEnumerator InstantBomb()
+    {
+        yield return new WaitForEndOfFrame();
+        m_Animator.Play("Explosion");
     }
 
     public void DestroyGameObject()

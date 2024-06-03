@@ -37,6 +37,11 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
     Transform m_TransformPlayer;
     private int m_BichitosVivos;
 
+    [Header("Variables Animacion Spawn")]
+    [SerializeField] private GameObject m_SpawnParticle;
+    [SerializeField] private GameObject m_SpawnLight;
+
+
     private void Start()
     {
         m_HaEntradoElPlayer = false;
@@ -183,7 +188,7 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
                 jefe.transform.localPosition = GetPositionToSpawnBoss(numero);*/
                 GameObject jefe = Instantiate(Bossito, transform);
                 jefe.GetComponent<BossBehaviour>().OnBossDeath += BichitoMuerto;
-                jefe.transform.localPosition = GetPositionToSpawnBoss(numero);
+                jefe.transform.localPosition = Vector3.zero;
                 numero++;
             }
         }
@@ -195,7 +200,11 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
    
     private IEnumerator SpawnFinalBossCoroutine()
     {
+        LevelManager.Instance.SpawnLuces.SetPositionLight(transform.position);
         yield return new WaitForSeconds(2);
+        GameObject Particula = Instantiate(m_SpawnParticle, transform);
+        Particula.transform.localPosition = new Vector3(0, -2f, 2);
+        yield return new WaitForSeconds(0.2f);
         SpawnBossFinalSala();
     }
 
@@ -211,7 +220,7 @@ public class SalaBoss : TipoSala, ISaveableSalaBossData
         GameObject jefe = Instantiate(m_BossSala.m_BossPrefab, transform);
 
         jefe.GetComponent<BossBehaviour>().OnBossDeath += DesbloquearPuertas;
-        jefe.transform.localPosition = GetPositionToSpawnBoss(0);
+        jefe.transform.localPosition = Vector3.zero;
         if (m_TransformPlayer != null)
             jefe.GetComponent<BossBehaviour>().BossFinalSalaSpawn(m_TransformPlayer);
     }

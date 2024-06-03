@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum PlaceableEnum
 {
-    BOMB, TEMPESTEXPLOSIVE, TRAPEXPLOSION, TRAPPOISON, TRAPWATER
+    BOMB, TEMPESTEXPLOSIVE, TRAPEXPLOSION, TRAPPOISON, TRAPWATER, INSTANTEXPLOSION
 }
 
 public enum ActivableEnum
@@ -14,7 +14,7 @@ public enum ActivableEnum
 
 public enum ExplosionType
 {
-    EXPLOSION, PROTECTEDEXPLOSION, SLOW, POISON
+    EXPLOSION, PROTECTEDEXPLOSION, SLOW, POISON, INSTANTEXPLOSION
 }
 
 public enum StatType

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1152736985539550507}
   - component: {fileID: 8588313822404193372}
   - component: {fileID: 3062298162538366403}
+  - component: {fileID: 1226657338966309403}
   m_Layer: 8
   m_Name: Medusita
   m_TagString: Untagged
@@ -33,7 +34,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 386401519472313280}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -198,3 +200,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffffcba53bd5cc140b776f6890a428fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1226657338966309403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3546253546742326696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5430f523d47781b4d94df17d08455ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ExplosionBehaviour: {fileID: 3247029444997593761}
+--- !u!1 &5490934192604405182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 386401519472313280}
+  - component: {fileID: 3247029444997593761}
+  m_Layer: 10
+  m_Name: ItemHitbox
+  m_TagString: Explosion
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &386401519472313280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5490934192604405182}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 12, y: 12, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3886325197462550885}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3247029444997593761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5490934192604405182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e525d3b91acf5eb4db698748f8d2b8fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ExplosionType: 4
+  m_ExplosionDamage: 20
+  m_ExplosionForce: 2
+  m_PoisonDuration: 0
+  m_SlowDuration: 0
+  m_LayersAffected:
+    serializedVersion: 2
+    m_Bits: 640
