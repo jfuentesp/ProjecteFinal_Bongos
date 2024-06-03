@@ -197,17 +197,7 @@ public class VoltauroBossBehaviour : BossBehaviour
 
     private void MatarBoss()
     {
-        if (m_GoldPrefab)
-        {
-            GameObject dinero = Instantiate(m_GoldPrefab, transform.parent);
-            dinero.transform.position = transform.position;
-        }
-        if (m_AbilityPointPrefab)
-        {
-            GameObject abilityPoint = Instantiate(m_AbilityPointPrefab, transform.parent);
-            abilityPoint.transform.position = transform.position;
-        }
-
+        SpawnEconomy();
         Destroy(gameObject);
     }
 

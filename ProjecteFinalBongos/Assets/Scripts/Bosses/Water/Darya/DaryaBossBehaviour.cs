@@ -150,6 +150,7 @@ public class DaryaBossBehaviour : BossBehaviour
     }
     private void MatarBoss()
     {
+        SpawnEconomy();
         Destroy(gameObject);
     }
 

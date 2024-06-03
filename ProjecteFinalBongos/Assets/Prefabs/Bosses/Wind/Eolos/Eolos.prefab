@@ -206,8 +206,8 @@ MonoBehaviour:
     m_Bits: 0
   m_GoldPrefab: {fileID: 8396476938269338464, guid: ed2065fa1efdc3943a19440d3281db0b, type: 3}
   m_AbilityPointPrefab: {fileID: 8490425180727072228, guid: 8e0e517ec543c2244babbdfa6a9359df, type: 3}
-  m_TiempoMinimo: 1
-  m_TiempoMaximo: 2
+  m_TiempoMinimo: 0.1
+  m_TiempoMaximo: 0.5
 --- !u!195 &450559291870490724
 NavMeshAgent:
   m_ObjectHideFlags: 0

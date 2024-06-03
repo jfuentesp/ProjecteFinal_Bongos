@@ -7,10 +7,13 @@ public class TritoChains : Bullet
     public override void Init(Vector2 direction)
     {
         base.Init(direction);
+        gameObject.layer = LayerMask.NameToLayer("BossHitBox");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(!enabled)
             return;
+        if(collision.gameObject.CompareTag("Player"))
+            DisableBullet();
     }
 }

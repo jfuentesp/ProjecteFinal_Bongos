@@ -13,7 +13,6 @@ public class SoundEffectOrMusicScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print(GameManager.Instance.SoundManager == null);
         if(GameManager.Instance != null)
         {
             switch (m_SoundType)

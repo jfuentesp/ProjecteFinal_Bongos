@@ -152,6 +152,7 @@ namespace SaveLoadGame
         public BackPack m_BackPack;
         public PlayerStats m_PlayerStats;
         public PlayerAbilities[] m_PlayerAbilities;
+        public int m_PlayerTimer;
 
 
         //Populates
@@ -196,6 +197,11 @@ namespace SaveLoadGame
             m_PlayerAbilities = _PlayerAbilities.Save();
         }
 
+        public void PopulateDataTimer(ISaveableTimerData _Timer)
+        {
+            m_PlayerTimer = _Timer.Save();
+        }
+
         public interface ISaveableSalasData
         {
             public SalasData Save();
@@ -235,5 +241,12 @@ namespace SaveLoadGame
             public PlayerAbilities[] Save();
             public void Load(PlayerAbilities[] _PlayerAbilities, bool entreEscena);
         }
+
+        public interface ISaveableTimerData
+        {
+            public int Save();
+            public void Load(int _PlayerTime);
+        }
+
     }
 }

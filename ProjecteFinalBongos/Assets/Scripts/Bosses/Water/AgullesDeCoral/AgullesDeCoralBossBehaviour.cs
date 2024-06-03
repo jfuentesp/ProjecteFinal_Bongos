@@ -142,6 +142,7 @@ public class AgullesDeCoralBossBehaviour : BossBehaviour
     }
     private void MatarBoss()
     {
+        SpawnEconomy();
         Destroy(gameObject);
     }
 

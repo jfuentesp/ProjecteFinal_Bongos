@@ -60,7 +60,7 @@ public class AlteaBossBehaviour : BossBehaviour
     }
     private void EmpezarCorutina(GameObject obj)
     {
-        m_SpawnEggCoroutine??= StartCoroutine(SpawnEggsCoroutine());
+        m_SpawnEggCoroutine ??= StartCoroutine(SpawnEggsCoroutine());
     }
 
     private IEnumerator SpawnEggsCoroutine()
@@ -74,7 +74,7 @@ public class AlteaBossBehaviour : BossBehaviour
 
     private void PonerHuevo()
     {
-        if(m_CurrentSnakes < m_MaximumSnakes)
+        if (m_CurrentSnakes < m_MaximumSnakes)
         {
             Vector2 posicionHuevo = m_SalaPadre.GetPosicionAleatoriaEnSala();
             RaycastHit2D hit = Physics2D.CircleCast(posicionHuevo, 1, posicionHuevo, 1, m_HuevosLayerMask);
@@ -101,16 +101,7 @@ public class AlteaBossBehaviour : BossBehaviour
 
     private void MatarBoss()
     {
-        if (m_GoldPrefab)
-        {
-            GameObject dinero = Instantiate(m_GoldPrefab, transform.parent);
-            dinero.transform.position = transform.position;
-        }
-        if (m_AbilityPointPrefab)
-        {
-            GameObject abilityPoint = Instantiate(m_AbilityPointPrefab, transform.parent);
-            abilityPoint.transform.position = transform.position;
-        }
+        SpawnEconomy();
         Destroy(gameObject);
     }
     protected override void VidaCero()

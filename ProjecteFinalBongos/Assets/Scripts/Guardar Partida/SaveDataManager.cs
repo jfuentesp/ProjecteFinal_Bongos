@@ -2,9 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using static SaveLoadGame.SaveGame;
-using static SaveLoadGame.SavePreSets;
+using static SaveLoadGame.SaveRecordTimer;
 
 namespace SaveLoadGame
 {
@@ -20,6 +21,7 @@ namespace SaveLoadGame
             ISaveableAbilitiesPlayerData dataAbilites = FindObjectOfType<AbilitiesGUIController>();
             ISaveableBackPackData dataBackpack = FindObjectOfType<InventoryController>();
             ISaveablePlayerData dataPlayer = FindObjectOfType<PJSMB>();
+            ISaveableTimerData dataTimer = FindObjectOfType<GameManager>();
 
             SaveGame data = new SaveGame();
             data.PopulateDataMapaSalas(dataSalas);
@@ -29,9 +31,8 @@ namespace SaveLoadGame
             data.PopulateDataBackPack(dataBackpack);
             data.PopulateDataPlayer(dataPlayer);
             data.PopulateDataAbilities(dataAbilites);
+            data.PopulateDataTimer(dataTimer);
 
-         
-            
             data.m_NameAndWorld = new NameAndWorld(GameManager.Instance.PlayerName, LevelManager.Instance.MundoActualJugador);
 
 
@@ -77,7 +78,7 @@ namespace SaveLoadGame
 
 
                 FindObjectOfType<GeneracionSalas.GeneracionSalaInstanciacion>().onMapaFinalized += SeguirElCargado;
-               
+
 
             }
             catch (Exception e)
@@ -135,6 +136,8 @@ namespace SaveLoadGame
             PJSMB player = FindObjectOfType<PJSMB>();
             player.Load(data.m_PlayerStats);
 
+            FindObjectOfType<GameManager>().Load(data.m_PlayerTimer);
+
             /*AbilitySlotBehaviour[] abilities = FindObjectsByType<AbilitySlotBehaviour>(FindObjectsSortMode.None);
             for(int i = 0; i < abilities.Length; i++)
             {
@@ -178,12 +181,38 @@ namespace SaveLoadGame
             }
         }
 
-        public void SaveDataPreStes()
+        public void SaveTimerRanking()
         {
-            ISaveablePreSetsData dataPreSets = FindObjectOfType<GameManager>();
-            SavePreSets data = new();
-            data.PopulateDataPreSets(dataPreSets);
+            ISaveableRecordTimerData m_TimerRanking = FindObjectOfType<GameManager>();
+            SaveRecordTimer data = new();
+            data.PopulateDataRecordTimer(m_TimerRanking);
+
+            try
+            {
+                string jsonDataLectura = File.ReadAllText(GameManager.Instance.RutaCompletaRanquing);
+                SaveAllRanquing ranquingTotal = new();
+                JsonUtility.FromJsonOverwrite(jsonDataLectura, ranquingTotal);
+
+                List<SaveRecordTimer> ranquings = ranquingTotal.m_SavedRanquings.ToList();
+                ranquings.Add(data);
+                ranquingTotal.m_SavedRanquings = ranquings.ToArray();
+                string jsonData = JsonUtility.ToJson(ranquingTotal);
+                File.WriteAllText(GameManager.Instance.RutaCompleta, jsonData);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Error while trying to save {Path.Combine(Application.persistentDataPath, GameManager.Instance.RutaCompleta)} with exception {e}");
+            }
         }
+
+        /* 
+         public void SaveDataPreStes()
+         {
+             ISaveablePreSetsData dataPreSets = FindObjectOfType<GameManager>();
+             SavePreSets data = new();
+             data.PopulateDataPreSets(dataPreSets);
+         }
+        */
     }
 
 }

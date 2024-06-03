@@ -125,6 +125,8 @@ GameObject:
   - component: {fileID: 743677561731547254}
   - component: {fileID: 1178398290571427504}
   - component: {fileID: 2316141832053011708}
+  - component: {fileID: 4180237748273025128}
+  - component: {fileID: 4071691724362009074}
   m_Layer: 9
   m_Name: AgullesDeCoral
   m_TagString: Untagged
@@ -307,6 +309,8 @@ MonoBehaviour:
   m_HitboxWideness: 1
   m_HitboxRadius: 0
   m_TwoDirections: 0
+  m_WaitClip: {fileID: 0}
+  m_SlashClipList: []
   m_AgullaCoralFlipAttackAnimationName: Rotacion
 --- !u!114 &7097273112155195239
 MonoBehaviour:
@@ -325,6 +329,15 @@ MonoBehaviour:
   m_HitboxWideness: 1
   m_HitboxRadius: 0
   m_TwoDirections: 1
+  m_WaitClip: {fileID: 8300000, guid: 8df8356b7bdafb94e88e5beeeacb3a41, type: 3}
+  m_SlashClipList:
+  - {fileID: 8300000, guid: 1e09cb909d55db2449bd52740f98ecc9, type: 3}
+  - {fileID: 8300000, guid: c59e2af26ed74fe4dacc44efd3a8d382, type: 3}
+  - {fileID: 8300000, guid: 4333dc7d056efc043a60c9f4da2713e6, type: 3}
+  - {fileID: 8300000, guid: fd38a80e04b60be478c6dc4c97467c2a, type: 3}
+  - {fileID: 8300000, guid: 23030c45ec5fcd94885c1f4ac6bf6dfb, type: 3}
+  - {fileID: 8300000, guid: e7c167b826a79af4492a9c55bb15c889, type: 3}
+  - {fileID: 8300000, guid: 13b677b8add40f44f9b72a0fe51bf43a, type: 3}
   m_AgullaCoralAreaAttackAnimationName: AreaAttack
   m_WaitAnimation: Wait
   minWaitTime: 0.3
@@ -573,6 +586,115 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AnimationName: Die
+--- !u!82 &4180237748273025128
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6867675123589539445}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 3
+  MaxDistance: 17
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &4071691724362009074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6867675123589539445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5c8c1c039dae94d8e4beb37709071f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SoundType: 0
 --- !u!1001 &474620783244451479
 PrefabInstance:
   m_ObjectHideFlags: 0

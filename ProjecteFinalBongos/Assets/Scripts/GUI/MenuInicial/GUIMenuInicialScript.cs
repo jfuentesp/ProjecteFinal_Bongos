@@ -43,6 +43,8 @@ namespace GUIScripts
         [Header("Menu Ranking")]
         [SerializeField] private GameObject m_MenuRankingPanel;
         [SerializeField] private Button m_BackRankingButton;
+        [SerializeField] private GameObject m_RanquingPrefab;
+        [SerializeField] private Transform parentRanquing;
 
         private List<GameObject> m_PanelsList;
         private int m_IdPartidaNueva;
@@ -192,6 +194,7 @@ namespace GUIScripts
                     break;
                 case TypeOfPanels.RANKING:
                     m_MenuRankingPanel.SetActive(true);
+                    GetRanquing();
                     m_eventSystem.SetSelectedGameObject(m_RankingFirstItem);
                     break;
                 case TypeOfPanels.START_GAME:
@@ -201,6 +204,25 @@ namespace GUIScripts
                     break;
             }
         }
+
+        private void GetRanquing()
+        {
+            SaveAllRanquing ranquing = GameManager.Instance.GetAllRanquing();
+            foreach(Transform child in parentRanquing)
+            {
+                Destroy(child.gameObject);
+            }
+            if(ranquing.m_SavedRanquings != null)
+            {
+                foreach (SaveRecordTimer timer in ranquing.m_SavedRanquings)
+                {
+                    GameObject posicion = Instantiate(m_RanquingPrefab, parentRanquing);
+                    posicion.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = timer.m_RecordTimer.m_TiempoJugador.ToString();
+                    posicion.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = timer.m_RecordTimer.m_NombreJugador.ToString();
+                }
+            }
+        }
+
         private void RefreshPlayersFromStartGame()
         {
             for (int i = 0; i < 3; i++)

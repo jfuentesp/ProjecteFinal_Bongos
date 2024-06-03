@@ -77,8 +77,6 @@ public class OpcionesGUIScript : MonoBehaviour
         m_GlobalVolumeValue = PlayerPrefs.GetFloat("GlobalVolume");
         m_MusicVolumeValue = PlayerPrefs.GetFloat("MusicVolume");
         m_EffectVolumeValue = PlayerPrefs.GetFloat("EffectVolume");
-        print("ayayadsyfasydfya: " + PlayerPrefs.GetFloat("GlobalVolume"));
-        print("asfsdf: " + m_ResolucionGuardada);
         m_GlobalVolumeSlider.value = m_GlobalVolumeValue;
         m_MusicVolumeSlider.value = m_MusicVolumeValue;
         m_EffectVolumeSlider.value = m_EffectVolumeValue;

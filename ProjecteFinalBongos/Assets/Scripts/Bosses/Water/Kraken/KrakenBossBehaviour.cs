@@ -223,6 +223,7 @@ public class KrakenBossBehaviour : BossBehaviour
         OnBossDeath?.Invoke();
         if (m_BossFinalSala)
             m_BossMuertoEvent.Raise();
+        SpawnEconomy();
         Destroy(gameObject);
     }
 }

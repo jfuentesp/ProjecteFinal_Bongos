@@ -24,6 +24,9 @@ public class DracMVaporSplash : Splash
         m_AttackDamage.SetDamage(m_Damage);
         StartCoroutine(DamageRoutine()) ;
         gameObject.tag = "Untagged";
+        GetComponent<BossAttackDamage>().SetEstado(EstadosAlterados.Cremat);
+        GetComponent<BossAttackDamage>().SetTime(2f);
+        GetComponent<BossAttackDamage>().SetDamage(15);
     }
     public void ChangeLayer(string Layer) { 
         gameObject.layer = LayerMask.NameToLayer(Layer);
@@ -41,6 +44,9 @@ public class DracMVaporSplash : Splash
 
     private void OnDisable()
     {
+        GetComponent<BossAttackDamage>().SetEstado(EstadosAlterados.Normal);
+        GetComponent<BossAttackDamage>().SetTime(0);
+        GetComponent<BossAttackDamage>().SetDamage(0);
         gameObject.tag = "Splash";
         gameObject.layer = LayerMask.NameToLayer("BossHitBox");
         StopCoroutine(DamageRoutine());

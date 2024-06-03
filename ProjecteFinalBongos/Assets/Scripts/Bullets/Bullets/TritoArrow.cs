@@ -16,6 +16,11 @@ public class TritoArrow : Bullet
         StartCoroutine(ReturnToPoolCoroutine());
         m_Target = _Transform;
         GetComponent<BossAttackDamage>().SetDamage(m_Damage);
+        if (m_AudioBullet)
+        {
+            m_AudioSource.clip = m_AudioBullet;
+            m_AudioSource.Play();
+        }
         gameObject.layer = LayerMask.NameToLayer("BossHitBox");
     }
     // Start is called before the first frame update

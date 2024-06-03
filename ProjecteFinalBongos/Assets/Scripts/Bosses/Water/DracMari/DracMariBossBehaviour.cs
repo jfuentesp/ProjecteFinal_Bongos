@@ -142,7 +142,9 @@ public class DracMariBossBehaviour : BossBehaviour
         base.Init(_Target);
         OnPlayerInSala?.Invoke();
     }
-    private void MatarBoss() { 
+    private void MatarBoss() 
+    {
+        SpawnEconomy();
         Destroy(gameObject);
     }
     protected override void VidaCero()

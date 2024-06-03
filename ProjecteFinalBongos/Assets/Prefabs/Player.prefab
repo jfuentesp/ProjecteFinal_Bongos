@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8591528798563654305}
   - component: {fileID: 7559704511392806223}
   - component: {fileID: 4514318178037008219}
+  - component: {fileID: 5221533642139643555}
   m_Layer: 0
   m_Name: HurtSound
   m_TagString: Untagged
@@ -164,6 +165,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 94353fc6b2d44e14cb9f0df7a57202c9, type: 3}
   - {fileID: 8300000, guid: 02f9d007ed65a344a934b1f9022745dd, type: 3}
   m_AudioDeath: {fileID: 8300000, guid: 36e5390f11d61804c9af8e30269bc644, type: 3}
+--- !u!114 &5221533642139643555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448954551382989113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d7ae8e1bb1ebe40b46744dcc6db995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AbilitySound: {fileID: 8300000, guid: a78f25e500bc60b46a03f8acbe711e53, type: 3}
+  m_GoldSound: {fileID: 8300000, guid: 7a98ff145bcf1294ea83c7591cfd139f, type: 3}
 --- !u!1 &1831576765180514441
 GameObject:
   m_ObjectHideFlags: 0
@@ -5037,10 +5052,10 @@ GameObject:
   - component: {fileID: 3912602046068204063}
   - component: {fileID: 2877444579328802483}
   - component: {fileID: -37645083596162389}
-  - component: {fileID: 6581448414601255830}
   - component: {fileID: 1380150824676145829}
   - component: {fileID: 1433367173843629497}
   - component: {fileID: 4098992467623065898}
+  - component: {fileID: 4168742901571864704}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -5781,19 +5796,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DINERO: 0
---- !u!114 &6581448414601255830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922464185457733035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3fef7cc538a7de4292de936fb02645d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HabilityPoints: 0
 --- !u!114 &1380150824676145829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5915,6 +5917,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SoundType: 0
+--- !u!114 &4168742901571864704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922464185457733035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace7d043270b66442b633afa09421e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AbilityPoints: 0
 --- !u!1 &2352748786373372752
 GameObject:
   m_ObjectHideFlags: 0

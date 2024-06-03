@@ -49,8 +49,8 @@ public class AbilitiesGUIController : MonoBehaviour, ISaveableAbilitiesPlayerDat
     private List<AbilitySlotBehaviour> m_Slots;
     public AbilitySlotBehaviour[] Slots => m_Slots.ToArray();
 
-    private HabilityPointsController m_AbilityPoints;
-    public HabilityPointsController AbilityPoints => m_AbilityPoints;
+    private AbilityPointsController m_AbilityPoints;
+    public AbilityPointsController AbilityPoints => m_AbilityPoints;
 
 
 
@@ -167,9 +167,9 @@ public class AbilitiesGUIController : MonoBehaviour, ISaveableAbilitiesPlayerDat
         if (m_AbilityPoints == null)
             return;
 
-        m_AvailablePointsText.text = m_AbilityPoints.HabilityPoints.ToString();
+        m_AvailablePointsText.text = m_AbilityPoints.AbilityPoints.ToString();
 
-        if (m_AbilityPoints.HabilityPoints <= 0)
+        if (m_AbilityPoints.AbilityPoints <= 0)
         {
             m_AvailablePointsText.color = m_ZeroPointsColor;
         }

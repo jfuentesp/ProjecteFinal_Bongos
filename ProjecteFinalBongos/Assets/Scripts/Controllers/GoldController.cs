@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GoldController : MonoBehaviour
 {
+    public Action onGainGold;
     private const int DINEROINICIAL = 0;
 
     [SerializeField]
@@ -13,6 +15,7 @@ public class GoldController : MonoBehaviour
     public void AddDinero(int _Dinero)
     {
         m_DINERO += _Dinero;
+        onGainGold?.Invoke();
     }
 
     public void RemoveDinero(int _Dinero)

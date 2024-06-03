@@ -264,6 +264,19 @@ public class BossBehaviour : MonoBehaviour
         }
         Init(Target);
     }
+    protected void SpawnEconomy()
+    {
+        if (m_GoldPrefab)
+        {
+            GameObject dinero = Instantiate(m_GoldPrefab, transform.parent);
+            dinero.transform.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
+        }
+        if (m_AbilityPointPrefab)
+        {
+            GameObject abilityPoint = Instantiate(m_AbilityPointPrefab, transform.parent);
+            abilityPoint.transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+        }
+    }
     private void OnDestroy()
     {
         m_HealthController.onDeath -= VidaCero;

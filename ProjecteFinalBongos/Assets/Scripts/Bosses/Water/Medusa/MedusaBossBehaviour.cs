@@ -173,7 +173,9 @@ public class MedusaBossBehaviour : BossBehaviour
             
     }
 
-    private void MatarBoss() {
+    private void MatarBoss() 
+    {
+        SpawnEconomy();
         Destroy(gameObject);
     }
     public override void Init(Transform _Target)

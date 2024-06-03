@@ -44,7 +44,10 @@ public class Bullet : MonoBehaviour
         m_AttackDamage.SetEstado(m_EstadoAlterado);
         m_AttackDamage.SetTime(m_Time);
         if (m_AudioBullet)
+        {
+            m_AudioSource.clip = m_AudioBullet;
             m_AudioSource.Play();
+        }
         StartCoroutine(ReturnToPoolCoroutine());
     }
     private void Update()

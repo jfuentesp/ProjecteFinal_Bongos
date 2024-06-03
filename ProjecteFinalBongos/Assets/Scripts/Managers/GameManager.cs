@@ -8,9 +8,10 @@ using System.Linq;
 using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static SaveLoadGame.SavePreSets;
+using static SaveLoadGame.SaveGame;
+using static SaveLoadGame.SaveRecordTimer;
 
-public class GameManager : MonoBehaviour, ISaveablePreSetsData
+public class GameManager : MonoBehaviour, ISaveableTimerData, ISaveableRecordTimerData
 {
     [Header("Testing")]
     [SerializeField] private bool m_Testing;
@@ -43,10 +44,14 @@ public class GameManager : MonoBehaviour, ISaveablePreSetsData
     [SerializeField] private string m_PlayerName;
     public string PlayerName => m_PlayerName;
     private const string playerAndWorldFile = "JugadoresGuardados.json";
+    private const string RanquingPlayersFile = "RanquingPlayers.json";
     private string rutaCompletaHastaCarpeta;
     public string RutaCompletaHastaCarpeta => rutaCompletaHastaCarpeta;
     private string rutaCompleta;
     public string RutaCompleta => rutaCompleta;
+    private string rutaCompletaRanquing;
+    public string RutaCompletaRanquing => rutaCompletaRanquing;
+
     [SerializeField]
     private List<SaveGame.NameAndWorld> m_PlayersAndTheirWorldsList = new();
     public List<SaveGame.NameAndWorld> PlayersAndTheirWorldsList => m_PlayersAndTheirWorldsList;
@@ -95,6 +100,7 @@ public class GameManager : MonoBehaviour, ISaveablePreSetsData
         m_LanguageManager = GetComponent<MultiLanguageManager>();
         rutaCompletaHastaCarpeta = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame");
         rutaCompleta = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame", playerAndWorldFile);
+        rutaCompletaRanquing = Path.Combine(Application.persistentDataPath, "DataFiles", "SaveGame", RanquingPlayersFile);
         GetPlayersAndTheirWorld();
 
     }
@@ -102,7 +108,7 @@ public class GameManager : MonoBehaviour, ISaveablePreSetsData
     {
         if (!m_Testing)
         {
-           
+
         }
         else
         {
@@ -142,10 +148,17 @@ public class GameManager : MonoBehaviour, ISaveablePreSetsData
     public void AcabarJuego()
     {
         SceneManager.LoadScene("EscenaInicial");
-        if(m_TimerCoroutine != null)
+        if (m_TimerCoroutine != null)
             StopCoroutine(m_TimerCoroutine);
-        print("MuereCalvo");
-        print(m_PlayerInGame == null);
+
+        for (int i = 0; i < m_PlayersAndTheirWorldsList.Count; i++)
+        {
+            if (m_PlayersAndTheirWorldsList[i].m_Name == PlayerName)
+            {
+                DeletePlayerGame(m_PlayersAndTheirWorldsList[i].m_Name, i);
+            }
+        }
+
         //Destroy(m_PlayerInGame);
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
@@ -166,12 +179,14 @@ public class GameManager : MonoBehaviour, ISaveablePreSetsData
 
             PJSMB.Instance.transform.position = Vector3.zero;
         }
+        /*
         if (scene.name == m_NombreDeTuEscena)
         {
             m_PlayerInGame = Instantiate(m_PlayerPrefab);
             m_PlayerInGame.transform.position = Vector3.zero;
             m_TimerCoroutine = StartCoroutine(Timer());
         }
+        */
     }
 
     public void AvanzarMundo(MundoEnum mundoEnum)
@@ -187,11 +202,16 @@ public class GameManager : MonoBehaviour, ISaveablePreSetsData
         }
     }
 
+    public void VolverAlMundoInicial()
+    {
+        SceneManager.LoadScene("EscenaInicial");
+    }
+
     public void AlCargarMundo()
     {
         m_NuevaPartida = true;
     }
-    
+
     private void GetPlayersAndTheirWorld()
     {
         if (!Directory.Exists(rutaCompletaHastaCarpeta))
@@ -208,6 +228,10 @@ public class GameManager : MonoBehaviour, ISaveablePreSetsData
             if (!File.Exists(rutaCompleta))
             {
                 BuildEmptyFile();
+            }
+            if (!File.Exists(rutaCompletaRanquing))
+            {
+                File.Create(rutaCompletaRanquing);
             }
 
             GetPlayersAndWorldsListOfGameManager();
@@ -294,42 +318,17 @@ public class GameManager : MonoBehaviour, ISaveablePreSetsData
         string jsonData = JsonUtility.ToJson(saveAllGames);
 
         File.WriteAllText(rutaCompleta, jsonData);
-
-        /*
-        m_PlayersAndTheirWorldsList.Add(saveGame.m_NameAndWorld);
-        if (GetPlayersFromFile().m_SavedGames == null)
-        {
-            List<SaveGame> playerAndWorld = new List<SaveGame> { saveGame };
-            saveAllGames.m_SavedGames = playerAndWorld.ToArray();
-            string jsonData = JsonUtility.ToJson(saveAllGames);
-
-            print(jsonData);
-
-            File.WriteAllText(rutaCompleta, jsonData);
-        }
-        else
-        {
-            List<SaveGame> playerAndWorld = GetPlayersFromFile().m_SavedGames.ToList();
-
-            playerAndWorld.Add(saveGame);
-            saveAllGames.m_SavedGames = playerAndWorld.ToArray();
-            string jsonData = JsonUtility.ToJson(saveAllGames);
-
-            print(jsonData);
-
-            File.WriteAllText(rutaCompleta, jsonData);
-        }
-        */
     }
 
     private IEnumerator Timer()
     {
-        while(m_PlayerInGame != null)
+        while (m_PlayerInGame != null)
         {
             yield return new WaitForSeconds(1f);
             m_TimerPartida++;
             OnTimerUpdate.Invoke(m_TimerPartida);
         }
+        print("nulo");
     }
 
     private Coroutine m_TimerCoroutine;
@@ -347,15 +346,15 @@ public class GameManager : MonoBehaviour, ISaveablePreSetsData
         m_Tier1AbilitiesCopy = new List<Ability>();
         m_Tier2AbilitiesCopy = new List<Ability>();
         m_Tier3AbilitiesCopy = new List<Ability>();
-        foreach(Ability ability in m_Tier1AbilitiesInitial)
+        foreach (Ability ability in m_Tier1AbilitiesInitial)
         {
             m_Tier1AbilitiesCopy.Add(ability);
         }
-        foreach(Ability ability in m_Tier2AbilitiesInitial)
+        foreach (Ability ability in m_Tier2AbilitiesInitial)
         {
             m_Tier2AbilitiesCopy.Add(ability);
         }
-        foreach(Ability ability in m_Tier3AbilitiesInitial)
+        foreach (Ability ability in m_Tier3AbilitiesInitial)
         {
             m_Tier3AbilitiesCopy.Add(ability);
         }
@@ -388,12 +387,41 @@ public class GameManager : MonoBehaviour, ISaveablePreSetsData
         OnPlayerDeleted?.Invoke();
     }
 
-    public PreSets Save()
+    int ISaveableTimerData.Save()
     {
-        throw new NotImplementedException();
+        return (int)m_TimerPartida;
     }
 
-    public void Load(PreSets _salaData)
+    public void Load(int _PlayerTime)
+    {
+        m_TimerPartida = _PlayerTime;
+    }
+
+    public RecordTimer Save()
+    {
+        RecordTimer timer = new();
+        timer.m_TiempoJugador = m_TimerPartida.ToString();
+        timer.m_NombreJugador = PlayerName;
+
+        return timer;
+    }
+
+    public SaveAllRanquing GetAllRanquing()
+    {
+        SaveAllRanquing ranquingTotal = new();
+        try
+        {
+            string jsonDataLectura = File.ReadAllText(RutaCompletaRanquing);
+            JsonUtility.FromJsonOverwrite(jsonDataLectura, ranquingTotal);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Error while trying to save {Path.Combine(Application.persistentDataPath, RutaCompletaRanquing)} with exception {e}");
+        }
+        return ranquingTotal;
+    }
+
+    public void Load(RecordTimer _salaData)
     {
         throw new NotImplementedException();
     }

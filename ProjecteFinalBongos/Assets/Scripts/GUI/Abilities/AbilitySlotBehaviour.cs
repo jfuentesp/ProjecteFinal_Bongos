@@ -83,7 +83,7 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
 
     public void OnSubmit(BaseEventData eventData)
     {
-        if (m_AbilitiesGUI.AbilityPoints.HabilityPoints <= 0)
+        if (m_AbilitiesGUI.AbilityPoints.AbilityPoints <= 0)
             return;
 
         switch(m_AssignedAbility.Category)
@@ -108,7 +108,7 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (m_AbilitiesGUI.AbilityPoints.HabilityPoints <= 0)
+        if (m_AbilitiesGUI.AbilityPoints.AbilityPoints <= 0)
             return;
 
         switch (m_AssignedAbility.Category)

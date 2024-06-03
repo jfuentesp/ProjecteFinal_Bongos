@@ -116,9 +116,9 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(DesfundirNegroCoroutine());
     }
 
-    public void FundirNegro(bool isLoadingNextScene)
+    public void FundirNegro(bool isLoadingNextScene, bool playerDead)
     {
-        StartCoroutine(FundirNegroCoroutine(isLoadingNextScene));
+        StartCoroutine(FundirNegroCoroutine(isLoadingNextScene, playerDead));
     }
 
     private IEnumerator DesfundirNegroCoroutine()
@@ -136,7 +136,7 @@ public class LevelManager : MonoBehaviour
         m_FundidoNegroPanel.SetActive(false);
     }
 
-    private IEnumerator FundirNegroCoroutine(bool isLoadingNextScene)
+    private IEnumerator FundirNegroCoroutine(bool isLoadingNextScene, bool playerDead)
     {
         m_FundidoNegroPanel.SetActive(true);
         PJSMB.Instance.StopPlayer();
@@ -155,10 +155,14 @@ public class LevelManager : MonoBehaviour
             Debug.Log("Entro en seguir lol");
             GameManager.Instance.AvanzarMundo(m_MundoActual);
         }
-        else
+        else if(!isLoadingNextScene && playerDead)
         {
             Debug.Log("Entro en acabar");
-            PJSMB.Instance.AcabarJuego();
+            PJSMB.Instance.TerminarPartida();
+        }
+        else if(!isLoadingNextScene && !playerDead)
+        {
+            GameManager.Instance.VolverAlMundoInicial();
         }
     }
 
@@ -374,7 +378,7 @@ public class LevelManager : MonoBehaviour
         if (m_BossesMuertos == 7)
         {
             GuardarPartida();
-            FundirNegro(true);
+            FundirNegro(true, false);
         }
     }
 

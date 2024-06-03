@@ -57,8 +57,12 @@ public class EggAltea : Splash
 
     private void OnDisable()
     {
-        if (m_TransformBoss.TryGetComponent<AlteaBossBehaviour>(out AlteaBossBehaviour altea))
-            altea.OnBossDeath -= BossMuerto;
+        if(m_TransformBoss != null)
+        {
+            if (m_TransformBoss.TryGetComponent<AlteaBossBehaviour>(out AlteaBossBehaviour altea))
+                altea.OnBossDeath -= BossMuerto;
+        }
+        
 
         DisableBullet();
     }

@@ -23,7 +23,10 @@ public class HealthController : MonoBehaviour, IHealable, IDamageable
 
     public void Damage(float damageAmount)
     {
-        m_HP -= damageAmount;
+        if (m_HP > 0)
+        {
+            m_HP -= damageAmount;
+        }
         if (m_HP <= 0)
         {
             m_HP = 0;

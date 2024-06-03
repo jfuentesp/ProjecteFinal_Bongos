@@ -172,6 +172,7 @@ public class LeviatanBossBehaviour : BossBehaviour
 
     private void MatarBoss()
     {
+        SpawnEconomy();
         Destroy(gameObject);
     }
 

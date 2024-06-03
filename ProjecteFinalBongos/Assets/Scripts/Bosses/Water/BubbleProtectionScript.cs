@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,14 @@ public class BubbleProtectionScript : MonoBehaviour
     private float m_Diferenciador;
     private int m_Final;
     private float m_Dissolve;
+    [SerializeField] private AudioClip[] m_AudioClipList;
+    [SerializeField] private AudioClip m_BrokeClip;
+    private AudioSource m_AudioSource;
+
+    private void Awake()
+    {
+        m_AudioSource = GetComponent<AudioSource>();
+    }
 
     public void Init(int veces)
     {
@@ -31,15 +40,25 @@ public class BubbleProtectionScript : MonoBehaviour
         m_Final = vez;
         if (m_Final == 0)
         {
-            Destroy(gameObject);
+            m_AudioSource.clip = m_BrokeClip;
+            m_AudioSource.Play();
+            StartCoroutine(BreakBubble());
         }
         else
         {
+            m_AudioSource.clip = m_AudioClipList[UnityEngine.Random.Range(0, m_AudioClipList.Length)];
+            m_AudioSource.Play();
             m_Dissolve = m_Final * multiplicador;
             m_MaterialHijo.SetFloat("_Dissolve", m_Dissolve);
             m_MaterialHijo.SetFloat("_ZoomNoise", m_ZoomHijo);
             m_MaterialPadre.SetFloat("_Dissolve", m_Dissolve);
             m_MaterialPadre.SetFloat("_ZoomNoise", m_ZoomPadre);
         }
+    }
+
+    private IEnumerator BreakBubble()
+    {
+        yield return new WaitForSeconds(0.3f);
+        Destroy(gameObject);
     }
 }

@@ -60,8 +60,8 @@ public class PJSMB : MonoBehaviour, ISaveablePlayerData
     private GoldController m_PlayerGold;
     public GoldController PlayerGold => m_PlayerGold;
 
-    private HabilityPointsController m_PlayerAbilityPoints;
-    public HabilityPointsController PlayerAbilityPoints => m_PlayerAbilityPoints;
+    private AbilityPointsController m_PlayerAbilityPoints;
+    public AbilityPointsController PlayerAbilityPoints => m_PlayerAbilityPoints;
 
     public Action m_CambiaElTarget;
     public Action OnPlayerDamaged;
@@ -69,6 +69,7 @@ public class PJSMB : MonoBehaviour, ISaveablePlayerData
     [SerializeField] private GameObject m_HealParticles;
     [Header("Componente Sanguineo")]
     [SerializeField] private BloodController m_ComponenteSanguineo;
+    private Animator m_Animator;
 
     private void Awake()
     {
@@ -89,14 +90,30 @@ public class PJSMB : MonoBehaviour, ISaveablePlayerData
         m_playersStatsController = GetComponent<PlayerStatsController>();
         m_PlayerEstadosController = GetComponent<PlayerEstadosController>();
         m_PlayerGold = GetComponent<GoldController>();
-        m_PlayerAbilityPoints = GetComponent<HabilityPointsController>();
+        m_PlayerAbilityPoints = GetComponent<AbilityPointsController>();
         m_SMBPlayerParryState = GetComponent<SMBPlayerParryState>();
+        m_Animator = GetComponent<Animator>();
         m_HealthController.onDeath += AcabarJuego;
         m_HealthController.onHurt += GetHurted;
         DontDestroyOnLoad(this.gameObject);
     }
 
     public void AcabarJuego()
+    {
+        if (m_HealthController)
+        {
+            m_HealthController.onDeath -= AcabarJuego;
+            m_HealthController.onHurt -= GetHurted;
+        }
+        if (m_Input)
+            m_Input.FindActionMap("PlayerActions").Disable();
+        m_ComponenteSanguineo.PlayDeathBlood();
+        m_Animator.Play("Death");
+        GetComponent<CircleCollider2D>().enabled = false;
+        m_StateMachine.enabled= false;
+        LevelManager.Instance.FundirNegro(false, true);
+    }
+    public void TerminarPartida()
     {
         GameManager.Instance.AcabarJuego();
         Destroy(gameObject);
@@ -191,13 +208,13 @@ public class PJSMB : MonoBehaviour, ISaveablePlayerData
     }
     private void OnDestroy()
     {
-        if (m_HealthController)
+        /*if (m_HealthController)
         {
             m_HealthController.onDeath -= AcabarJuego;
             m_HealthController.onHurt -= GetHurted;
         }
         if (m_Input)
-            m_Input.FindActionMap("PlayerActions").Disable();
+            m_Input.FindActionMap("PlayerActions").Disable();*/
     }
 
     public PlayerStats Save()
@@ -210,7 +227,7 @@ public class PJSMB : MonoBehaviour, ISaveablePlayerData
 
         m_PlayerStats.m_HP = m_HealthController.HP;
         m_PlayerStats.m_Money = m_PlayerGold.DINERO;
-        m_PlayerStats.m_AbilityPoints = m_PlayerAbilityPoints.HabilityPoints;
+        m_PlayerStats.m_AbilityPoints = m_PlayerAbilityPoints.AbilityPoints;
         m_PlayerStats.m_TierOffensive = m_playerAbilitiesController.CurrentOffensiveTier;
         m_PlayerStats.m_TierDefensive = m_playerAbilitiesController.CurrentDefensiveTier;
         m_PlayerStats.m_TierAgility = m_playerAbilitiesController.CurrentAgilityTier;

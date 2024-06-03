@@ -484,8 +484,6 @@ public class InventoryController : MonoBehaviour, ISaveableBackPackData
         }
         else { m_QuickItemList[2] = "99"; }
 
-        foreach (string item in m_QuickItemList)
-            print(item);
         m_BackPack.m_QuickCosnumableSlotsId = m_QuickItemList;
 
         return m_BackPack;

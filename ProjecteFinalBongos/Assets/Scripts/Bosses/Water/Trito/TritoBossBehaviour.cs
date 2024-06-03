@@ -195,6 +195,7 @@ public class TritoBossBehaviour : BossBehaviour
     }
     private void MatarBoss()
     {
+        SpawnEconomy();
         Destroy(gameObject);
     }
     protected override void VidaCero()
