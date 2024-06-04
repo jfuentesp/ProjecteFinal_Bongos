@@ -58,7 +58,7 @@ public class MiniDaryaBossBehaviour : BossBehaviour
         {
             if (transform.parent.GetChild(i).childCount > 0)
             {
-                if(transform.parent.GetChild(i).childCount == 3)
+                if (transform.parent.GetChild(i).childCount == 3)
                 {
                     int hijosDeLosHijos = transform.parent.GetChild(i).childCount;
                     for (int j = 0; j < hijosDeLosHijos; j++)
@@ -80,13 +80,58 @@ public class MiniDaryaBossBehaviour : BossBehaviour
                             if (transform.parent.GetChild(i).GetChild(j).gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite))
                                 sprite.material = m_materialPared;
 
-                            if (j == 1)
+                        }
+                    }
+                }
+                else
+                {
+                    int hijosNuevaSala = transform.parent.GetChild(i).childCount;
+                    for (int j = 0; j < hijosNuevaSala; j++)
+                    {
+                        int hijosDeLosHijos = transform.parent.GetChild(i).GetChild(j).childCount;
+                        if (transform.parent.GetChild(i).GetChild(j).childCount == 3)
+                        {
+                            for (int k = 0; k < hijosDeLosHijos; k++)
                             {
-                                prefabito.transform.localPosition = new Vector3(0.1f, prefabito.transform.localPosition.y, prefabito.transform.localPosition.z);
+
+                                /* print("Primer print");
+                                 print("Child count: " + transform.parent.GetChild(i).GetChild(j).childCount + " nombre gameobject: " + transform.parent.GetChild(i).GetChild(j).name);
+                                 print("Segundo print");
+                                 print("Child count: " + transform.parent.GetChild(i).GetChild(j).GetChild(k).childCount + " nombre gameobject: " + transform.parent.GetChild(i).GetChild(j).GetChild(k).name);*/
+                                if (transform.parent.GetChild(i).GetChild(j).GetChild(k).gameObject.CompareTag("MechanicObstacle"))
+                                {
+                                    GameObject prefabito;
+                                    if (k == 0)
+                                    {
+                                        prefabito = Instantiate(m_PuertaPrefab, transform.parent.GetChild(i).GetChild(j).GetChild(k));
+                                    }
+                                    else
+                                    {
+                                        prefabito = Instantiate(m_PuertaParedPrefab, transform.parent.GetChild(i).GetChild(j).GetChild(k));
+                                    }
+                                    transform.parent.GetChild(i).GetChild(j).GetChild(k).gameObject.AddComponent<BossAttackDamage>();
+                                    transform.parent.GetChild(i).GetChild(j).GetChild(k).gameObject.GetComponent<BossAttackDamage>().SetEstado(EstadosAlterados.Normal);
+                                    transform.parent.GetChild(i).GetChild(j).GetChild(k).gameObject.GetComponent<BossAttackDamage>().SetDamage(20);
+                                    if (transform.parent.GetChild(i).GetChild(j).GetChild(k).gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite))
+                                        sprite.material = m_materialPared;
+
+                                }
+
                             }
-                            else if (j == 2)
+                        }
+                        else
+                        {
+                            //print("Tercer print");
+                            //print("Child count: " + transform.parent.GetChild(i).GetChild(j).childCount + " nombre gameobject: " + transform.parent.GetChild(i).GetChild(j).name);
+                            if (transform.parent.GetChild(i).GetChild(j).gameObject.CompareTag("MechanicObstacle"))
                             {
-                                prefabito.transform.localPosition = new Vector3(-0.1f, prefabito.transform.localPosition.y, prefabito.transform.localPosition.z);
+                                print("Child count: " + transform.parent.GetChild(i).GetChild(j).childCount + " nombre gameobject: " + transform.parent.GetChild(i).GetChild(j).name);
+                                GameObject prefabito = Instantiate(m_ParedesPinchoPrefab, transform.parent.GetChild(i).GetChild(j));
+                                transform.parent.GetChild(i).GetChild(j).gameObject.AddComponent<BossAttackDamage>();
+                                transform.parent.GetChild(i).GetChild(j).gameObject.GetComponent<BossAttackDamage>().SetEstado(EstadosAlterados.Normal);
+                                transform.parent.GetChild(i).GetChild(j).gameObject.GetComponent<BossAttackDamage>().SetDamage(20);
+                                if (transform.parent.GetChild(i).GetChild(j).gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite))
+                                    sprite.material = m_materialPared;
                             }
                         }
                     }

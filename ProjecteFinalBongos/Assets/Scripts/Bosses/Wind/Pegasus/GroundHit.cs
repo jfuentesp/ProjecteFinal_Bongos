@@ -9,6 +9,7 @@ public class GroundHit : MonoBehaviour
     float m_GrowingDuration;
     [SerializeField]
     private int m_FuerzaRepulsion;
+    [SerializeField] private GameObject m_GroundHitParticle;
     float m_CurrentDuration;
     // Start is called before the first frame update
     void Start()

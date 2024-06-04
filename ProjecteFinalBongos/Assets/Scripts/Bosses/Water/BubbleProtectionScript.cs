@@ -46,8 +46,11 @@ public class BubbleProtectionScript : MonoBehaviour
         }
         else
         {
-            m_AudioSource.clip = m_AudioClipList[UnityEngine.Random.Range(0, m_AudioClipList.Length)];
-            m_AudioSource.Play();
+            if(m_Final != m_VecesQueTePegan)
+            {
+                m_AudioSource.clip = m_AudioClipList[UnityEngine.Random.Range(0, m_AudioClipList.Length)];
+                m_AudioSource.Play();
+            }
             m_Dissolve = m_Final * multiplicador;
             m_MaterialHijo.SetFloat("_Dissolve", m_Dissolve);
             m_MaterialHijo.SetFloat("_ZoomNoise", m_ZoomHijo);

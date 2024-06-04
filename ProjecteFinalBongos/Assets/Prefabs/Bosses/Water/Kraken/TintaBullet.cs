@@ -29,7 +29,7 @@ public class TintaBullet : Bullet
                 }
                 else
                 {
-                    TintaEvent.Raise();
+                    LevelManager.Instance.GUIBossManager.SpawnTinta();
                     DisableBullet();
                 }
 
