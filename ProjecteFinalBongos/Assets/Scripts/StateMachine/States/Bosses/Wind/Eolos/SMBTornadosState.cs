@@ -69,17 +69,10 @@ public class SMBTornadosState : SMState
 
     private void SpawnTornado()
     {
-        Vector2 posicionTornado = new Vector2()
-        RaycastHit2D hit = Physics2D.CircleCast(posicionTornado, m_RangoCircleCast, posicionTornado, m_RangoCircleCast, m_TornadoLayerMask);
-        if (hit.collider != null || Vector2.Distance(posicionTornado, m_Target.position) > 6)
-        {
-            SpawnTornado();
-        }
-        else
-        {
-            GameObject tornado = Instantiate(m_TornadoPrefab);
-            tornado.transform.position = posicionTornado;
-            tornado.GetComponent<TornadoBehaviour>().Init(m_Target);
-        }
+        Vector2 posicionTornado = Random.insideUnitCircle.normalized * Random.Range(6f, 11f);
+        Vector2 posicionFinal = (Vector2) m_Target.transform.position + posicionTornado;
+        GameObject tornado = Instantiate(m_TornadoPrefab);
+        tornado.transform.position = posicionFinal;
+        tornado.GetComponent<TornadoBehaviour>().Init(m_Target);    
     }
 }
