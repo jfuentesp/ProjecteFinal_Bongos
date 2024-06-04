@@ -1,0 +1,227 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: GameTable_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: b3d8fefaeaa864b4fada9979ce426794, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 305509167104
+    m_Localized: START
+    m_Metadata:
+      m_Items: []
+  - m_Id: 613886980096
+    m_Localized: SETTINGS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 760742146048
+    m_Localized: EXIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 709462585344
+    m_Localized: RANKING
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7915050364928
+    m_Localized: GAME SETTINGS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8221100339200
+    m_Localized: 'LANGUAGE:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8332891123712
+    m_Localized: VIDEO SETTINGS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8679135113216
+    m_Localized: 'FULL SCREEN:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8811905806336
+    m_Localized: FULL SCREEN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9010103447552
+    m_Localized: 'RESOLUTION:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9127095169024
+    m_Localized: AUDIO SETTINGS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9341394743296
+    m_Localized: 'GLOBAL:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9360738873344
+    m_Localized: 'MUSIC:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9375305691136
+    m_Localized: 'EFFECTS:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11973899317248
+    m_Localized: CONFIRM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13121179873280
+    m_Localized: NEW GAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13210971533312
+    m_Localized: PLAYER NAME...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13313283190784
+    m_Localized: BACK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13840851136512
+    m_Localized: DELETE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14634455396352
+    m_Localized: RANKINGS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16643543789568
+    m_Localized: CONDITIONS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16677987414016
+    m_Localized: 'TIMER:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16697021165568
+    m_Localized: ABILITIES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16730181332992
+    m_Localized: QUICK ITEMS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19334600847360
+    m_Localized: PICCOLOMARKET
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19448702693376
+    m_Localized: ITEMS ON SALE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19635626045440
+    m_Localized: GEAR ON SALE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20254956974080
+    m_Localized: CONSUMABLES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20711452438528
+    m_Localized: EQUIPMENT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21005338931200
+    m_Localized: 'ITEM NAME:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21180501454848
+    m_Localized: 'DESCRIPTION:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21506990272512
+    m_Localized: CLOSE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21836398325760
+    m_Localized: EXIT TO MENU
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21819780493312
+    m_Localized: RESUME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22557810225152
+    m_Localized: GIVE UP...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22748521033728
+    m_Localized: ARE YOU SURE YOU WANT TO LEAVE?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23010459512832
+    m_Localized: YES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23029602316288
+    m_Localized: NO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24777184243712
+    m_Localized: INVENTORY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24894280822784
+    m_Localized: EQUIPPED GEAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25368090374144
+    m_Localized: WEAPON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25819057745920
+    m_Localized: ARMOR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26668068761600
+    m_Localized: BUY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26688381775872
+    m_Localized: SELL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26706660552704
+    m_Localized: CANCEL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27098098167808
+    m_Localized: CHOOSE QUANTITY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28205033713664
+    m_Localized: OFFENSIVE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28324617515008
+    m_Localized: DEFENSIVE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28449465167872
+    m_Localized: AGILITY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28550413676544
+    m_Localized: 'ABILITY NAME:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28944409817088
+    m_Localized: 'AVAILABLE POINTS:'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

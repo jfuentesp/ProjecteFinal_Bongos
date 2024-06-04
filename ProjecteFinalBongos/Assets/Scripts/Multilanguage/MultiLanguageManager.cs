@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 namespace multilanguaje
 {
@@ -43,38 +44,8 @@ namespace multilanguaje
                 consumableScriptable.itemName = m_IdiomaActual.consumiblesDatos[i].name;
                 consumableScriptable.description = m_IdiomaActual.consumiblesDatos[i].descripcion;
             }
-
+            ChangeLanguage(GameManager.Instance.IdiomaJuego.ToString().ToLower());
             cambioIdiomaEvent.Raise();
-
-            //GameManager.Instance.IdiomaJuego;
-            /*Multilanguage multilanguage = new Multilanguage();
-            Multilanguage.Idioma lengua = new Multilanguage.Idioma();
-             lengua.id = IdiomaEnum.ES.ToString();
-             Multilanguage.PiccoloChanFrases piccoloFrases = new();
-             string[] frases = new string[]
-             {
-                 "eo",
-                 "oe"
-             };
-
-             piccoloFrases.frasesIniciales = frases;
-             lengua.frasesPiccoloChan = piccoloFrases;
-             Multilanguage.Idioma lengua2 = new Multilanguage.Idioma();
-             lengua2.id = IdiomaEnum.EN.ToString();
-             Multilanguage.PiccoloChanFrases piccoloPhrases = new();
-             string[] phrases = new string[]
-            {
-                 "eiou",
-                 "oue"
-            };
-             piccoloPhrases.frasesIniciales = phrases;
-             lengua2.frasesPiccoloChan = piccoloPhrases;
-             Multilanguage.Idioma[] lenguas = new Multilanguage.Idioma[2];
-            lenguas[0] = lengua;
-            lenguas[1] = lengua2;
-            multilanguage.m_Idiomas = lenguas;
-            string jsonData = JsonUtility.ToJson(multilanguage);
-            File.WriteAllText(rutaCompleta, jsonData);*/
         }
 
         public Multilanguage.PiccoloChanFrases GetPiccoloChadFrases()
@@ -84,10 +55,24 @@ namespace multilanguaje
             return piccoloFrases;
         }
 
-        // Update is called once per frame
-        void Update()
+        public void ChangeLanguage(string localeCode)
         {
+            StartCoroutine(SetLocale(localeCode));
+        }
 
+        private IEnumerator SetLocale(string localeCode)
+        {
+            var locale = LocalizationSettings.AvailableLocales.Locales.Find(l => l.Identifier.Code == localeCode);
+
+            if (locale != null)
+            {
+                yield return LocalizationSettings.InitializationOperation; 
+                LocalizationSettings.SelectedLocale = locale;
+            }
+            else
+            {
+                Debug.LogWarning("Locale not found: " + localeCode);
+            }
         }
     }
 }
