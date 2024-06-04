@@ -12,7 +12,7 @@
             ],
             "frasesFinales":[
                "PICCOLO CHAD: Hay que trabajar, hay que aprender, hay que comer, hay que descansar y también hay que jugar.",
-               "PICCOLO CHAD: Esas son las bases del entrenamiento del maestro Roshi para tener una buena condición!",
+               "PICCOLO CHAD: Esas son las bases del entrenamiento del maestro Roshi para tener una buena condicion!",
                "PICCOLO CHAD: ALE!",
                "PICCOLO CHAD: A seguir trabajando!"
             ]
@@ -21,7 +21,7 @@
             {
                "id":"0",
                "name":"Pocion de Ataque",
-               "descripcion":"Una poción burbujeante que incrementa la potencia del ataque."
+               "descripcion":"Una pocion burbujeante que incrementa la potencia del ataque."
             },
             {
                "id":"1",
@@ -67,6 +67,11 @@
                "id":"9",
                "name":"Trampa de agua",
                "descripcion":"Ralentiza a los enemigos que pasan por encima."
+            },
+            {
+               "id":"10",
+               "name":"Bomba",
+               "descripcion":"Una bomba sencilla con una poderosa explosion."
             }
          ],
          "equipablesDatos":[
@@ -139,8 +144,168 @@
          "habilidadesDatos":[
             {
                "id":"0",
-               "name":"Espada Basica",
-               "descripcion":"Es una espada normal y corriente, no tiene ningun efecto especial."
+               "name":"Clon",
+               "descripcion":"Crea un clon para distraer al enemigo."
+            },
+            {
+               "id":"1",
+               "name":"Desplazamiento",
+               "descripcion":"Un desplazamiento rapido que permite esquivar ciertos peligros."
+            },
+            {
+               "id":"2",
+               "name":"Desplazamiento evasivo",
+               "descripcion":"Un desplazamiento corto, pero que te hace invencible."
+            },
+            {
+               "id":"3",
+               "name":"Retirada",
+               "descripcion":"Te transporta a un lugar al que ya hayas estado."
+            },
+            {
+               "id":"4",
+               "name":"Ralentizar",
+               "descripcion":"Deja una zona que ralentiza a los enemigos."
+            },
+            {
+               "id":"5",
+               "name":"Pies ligeros",
+               "descripcion":"Otorga un incremento temporal de velocidad."
+            },
+            {
+               "id":"6",
+               "name":"Bendicion de Pereza I",
+               "descripcion":"Incrementa tu velocidad ligeramente."
+            },
+            {
+               "id":"7",
+               "name":"Bendicion de Pereza II",
+               "descripcion":"Incrementa tu velocidad moderadamente."
+            },
+            {
+               "id":"8",
+               "name":"Bendicion de Pereza III",
+               "descripcion":"Incrementa tu velocidad en gran cantidad."
+            },
+            {
+               "id":"9",
+               "name":"Bendicion de Soberbia I",
+               "descripcion":"Incrementa tu defensa ligeramente."
+            },
+            {
+               "id":"10",
+               "name":"Bendicion de Soberbia II",
+               "descripcion":"Incrementa tu defensa moderadamente."
+            },
+            {
+               "id":"11",
+               "name":"Bendicion de Soberbia III",
+               "descripcion":"Incrementa tu defensa en gran cantidad."
+            },
+            {
+               "id":"12",
+               "name":"Bendicion de Gula I",
+               "descripcion":"Incrementa tu vida ligeramente."
+            },
+            {
+               "id":"13",
+               "name":"Bendicion de Gula II",
+               "descripcion":"Incrementa tu vida moderadamente."
+            },
+            {
+               "id":"14",
+               "name":"Bendicion de Gula III",
+               "descripcion":"Incrementa tu vida en gran cantidad."
+            },
+            {
+               "id":"15",
+               "name":"Bloqueo robusto",
+               "descripcion":"Al realizar un bloqueo, tu defensa sube temporalmente."
+            },
+            {
+               "id":"16",
+               "name":"Bloqueo explosivo",
+               "descripcion":"Al realizar un bloqueo, realizas una explosion sonica alrededor."
+            },
+            {
+               "id":"17",
+               "name":"Bloqueo a la muerte",
+               "descripcion":"Al realizar un bloqueo, te vuelves invulnerable por una fracción de segundo."
+            },
+            {
+               "id":"18",
+               "name":"Bloqueo electrizante",
+               "descripcion":"Al realizar un bloqueo, paralizas al enemigo temporalmente."
+            },
+            {
+               "id":"19",
+               "name":"Bloqueo presto",
+               "descripcion":"Al realizar un bloqueo, tu velocidad de movimiento aumenta temporalmente."
+            },
+            {
+               "id":"20",
+               "name":"Bendicion de Ira I",
+               "descripcion":"Incrementa tu velocidad de ataque ligeramente."
+            },
+            {
+               "id":"21",
+               "name":"Bendicion de Ira II",
+               "descripcion":"Incrementa tu velocidad de ataque moderadamente."
+            },
+            {
+               "id":"22",
+               "name":"Bendicion de Ira III",
+               "descripcion":"Incrementa tu velocidad de ataque en gran cantidad."
+            },
+            {
+               "id":"23",
+               "name":"Cancelar",
+               "descripcion":"Algunos ataques ahora se pueden cancelar en otros."
+            },
+            {
+               "id":"24",
+               "name":"Bendicion de Lujuria I",
+               "descripcion":"Incrementa tu ataque ligeramente."
+            },
+            {
+               "id":"25",
+               "name":"Bendicion de Lujuria II",
+               "descripcion":"Incrementa tu ataque moderadamente."
+            },
+            {
+               "id":"26",
+               "name":"Bendicion de Lujuria III",
+               "descripcion":"Incrementa tu ataque en gran cantidad."
+            },
+            {
+               "id":"27",
+               "name":"Frenesi de ataques",
+               "descripcion":"Tu primer ataque fuerte y ataque flojo golpea el doble de veces."
+            },
+            {
+               "id":"28",
+               "name":"Ataque Temerario",
+               "descripcion":"Tus ataques rapidos pueden aplicarte el estado Fuerte al terminar el combo"
+            },
+            {
+               "id":"29",
+               "name":"Puñalada lejana",
+               "descripcion":"Tu ataque fuerte tiene un mayor alcance"
+            },
+            {
+               "id":"30",
+               "name":"Ataque aturdidor",
+               "descripcion":"Tus ataques rapidos tienen la posibilidad de aturdir al enemigo."
+            },
+            {
+               "id":"31",
+               "name":"Arco Sonico",
+               "descripcion":"Tus ataques fuertes son tan poderosos que lanzan proyectiles en un arco."
+            },
+            {
+               "id":"32",
+               "name":"Ataque giratorio",
+               "descripcion":"Tus ataques rapidos daran vueltas extras cuando finalizas el combo"
             }
          ]
       },
@@ -211,6 +376,11 @@
                "id":"9",
                "name":"Water Trap",
                "descripcion":"Slows down enemies that pass over the trap."
+            },
+            {
+               "id":"10",
+               "name":"Bomb",
+               "descripcion":"A simple bomb with a powerful explosion."
             }
          ],
          "equipablesDatos":[
@@ -280,11 +450,171 @@
                "descripcion":"Armor that conquered the power of lightning. Resistant to being paralyzed and electrical attacks"
             }
          ],
-           "habilidadesDatos":[
+         "habilidadesDatos":[
             {
                "id":"0",
-               "name":"Espada Basica",
-               "descripcion":"Es una espada normal y corriente, no tiene ningun efecto especial."
+               "name":"Clone",
+               "descripcion":"Creates a clone to distract the enemy."
+            },
+            {
+               "id":"1",
+               "name":"Dash",
+               "descripcion":"A quick dash that allows you to dodge certain dangers."
+            },
+            {
+               "id":"2",
+               "name":"Evasive Dash",
+               "descripcion":"A short dash that makes you invincible."
+            },
+            {
+               "id":"3",
+               "name":"Retreat",
+               "descripcion":"Transports you to a place you have already been to."
+            },
+            {
+               "id":"4",
+               "name":"Slow",
+               "descripcion":"Leaves a zone that slows down enemies."
+            },
+            {
+               "id":"5",
+               "name":"Light Feet",
+               "descripcion":"Grants a temporary speed boost."
+            },
+            {
+               "id":"6",
+               "name":"Sloth's Blessing I",
+               "descripcion":"Slightly increases your speed."
+            },
+            {
+               "id":"7",
+               "name":"Sloth's Blessing II",
+               "descripcion":"Moderately increases your speed."
+            },
+            {
+               "id":"8",
+               "name":"Sloth's Blessing III",
+               "descripcion":"Greatly increases your speed."
+            },
+            {
+               "id":"9",
+               "name":"Pride's Blessing I",
+               "descripcion":"Slightly increases your defense."
+            },
+            {
+               "id":"10",
+               "name":"Pride's Blessing II",
+               "descripcion":"Moderately increases your defense."
+            },
+            {
+               "id":"11",
+               "name":"Pride's Blessing III",
+               "descripcion":"Greatly increases your defense."
+            },
+            {
+               "id":"12",
+               "name":"Gluttony's Blessing I",
+               "descripcion":"Slightly increases your health."
+            },
+            {
+               "id":"13",
+               "name":"Gluttony's Blessing II",
+               "descripcion":"Moderately increases your health."
+            },
+            {
+               "id":"14",
+               "name":"Gluttony's Blessing III",
+               "descripcion":"Greatly increases your health."
+            },
+            {
+               "id":"15",
+               "name":"Sturdy Block",
+               "descripcion":"When performing a block, your defense temporarily increases."
+            },
+            {
+               "id":"16",
+               "name":"Explosive Block",
+               "descripcion":"When performing a block, you release a sonic explosion around you."
+            },
+            {
+               "id":"17",
+               "name":"Death Block",
+               "descripcion":"When performing a block, you become invulnerable for a fraction of a second."
+            },
+            {
+               "id":"18",
+               "name":"Electrifying Block",
+               "descripcion":"When performing a block, you temporarily paralyze the enemy."
+            },
+            {
+               "id":"19",
+               "name":"Quick Block",
+               "descripcion":"When performing a block, your movement speed temporarily increases."
+            },
+            {
+               "id":"20",
+               "name":"Wrath's Blessing I",
+               "descripcion":"Slightly increases your attack speed."
+            },
+            {
+               "id":"21",
+               "name":"Wrath's Blessing II",
+               "descripcion":"Moderately increases your attack speed."
+            },
+            {
+               "id":"22",
+               "name":"Wrath's Blessing III",
+               "descripcion":"Greatly increases your attack speed."
+            },
+            {
+               "id":"23",
+               "name":"Cancel",
+               "descripcion":"Some attacks can now be canceled into others."
+            },
+            {
+               "id":"24",
+               "name":"Lust's Blessing I",
+               "descripcion":"Slightly increases your attack."
+            },
+            {
+               "id":"25",
+               "name":"Lust's Blessing II",
+               "descripcion":"Moderately increases your attack."
+            },
+            {
+               "id":"26",
+               "name":"Lust's Blessing III",
+               "descripcion":"Greatly increases your attack."
+            },
+            {
+               "id":"27",
+               "name":"Frenzy Attacks",
+               "descripcion":"Your first heavy and light attacks hit twice as many times."
+            },
+            {
+               "id":"28",
+               "name":"Reckless Attack",
+               "descripcion":"Your quick attacks can apply the Strong status at the end of the combo."
+            },
+            {
+               "id":"29",
+               "name":"Distant Stab",
+               "descripcion":"Your heavy attack has a greater reach."
+            },
+            {
+               "id":"30",
+               "name":"Stunning Attack",
+               "descripcion":"Your quick attacks have a chance to stun the enemy."
+            },
+            {
+               "id":"31",
+               "name":"Sonic Arc",
+               "descripcion":"Your heavy attacks are powerful enough to launch projectiles in an arc."
+            },
+            {
+               "id":"32",
+               "name":"Spinning Attack",
+               "descripcion":"Your quick attacks will spin extra times when finishing the combo."
             }
          ]
       },
@@ -292,35 +622,81 @@
          "id":"IT",
          "frasesPiccoloChan":{
             "frasesIniciales":[
-               "eiou",
-               "oue"
+               "PICCOLO-CHAN: Se vuoi odiarmi devi cominciare odiando il tuo destino, proprio come faccio io",
+               "PICCOLO-CHAN: Questo e un colore ecologico e non fare il furbo altrimenti ti andra molto male.",
+               "PICCOLO-CHAN: Lasciami in pace, solo perche e verde non significa che non sia maturo.",
+               "PICCOLO-CHAN: Non preoccuparti di combattere se la tua abilita non conferma le tue parole",
+               "PICCOLO-CHAN: Io e te, amici, non fatemi ridere"
             ],
             "frasesFinales":[
-               
+               "PICCOLO CHAD: Devi lavorare, devi imparare, devi mangiare, devi riposare e devi anche giocare.",
+               "PICCOLO CHAD: Queste sono le basi dell'allenamento del Maestro Muten per avere una buona condizione!",
+               "PICCOLO CHAD: ALE!",
+               "PICCOLO CHAD: Per continuare a lavorare!"
             ]
          },
          "consumiblesDatos":[
             {
                "id":"0",
-               "name":"PotionAttack",
-               "descripcion":"Una poción burbujeante que incrementa la potencia del ataque. "
+               "name":"Pozione d'attacco",
+               "descripcion":"Una pozione ribollente che aumenta la potenza d'attacco."
             },
             {
                "id":"1",
-               "name":"PotionDefense",
-               "descripcion":"Una pocion de aspecto lodosa que te hace mas resistente."
+               "name":"Pozione di difesa",
+               "descripcion":"Una pozione dall'aspetto fangoso che ti rende piu resistente."
             },
             {
                "id":"2",
-               "name":"PotionHealth",
-               "descripcion":"Una pocion que restaura ligeramente tu salud. Huele raro."
+               "name":"Pozione di vita",
+               "descripcion":"Una pozione che ripristina leggermente la tua salute. Ha un odore strano."
+            },
+            {
+               "id":"3",
+               "name":"Pozione di veleno",
+               "descripcion":"Una pozione che riduce gradualmente la vita dei nemici."
+            },
+            {
+               "id":"4",
+               "name":"Pozione di lentezza",
+               "descripcion":"Le persone si muovono piu lentamente."
+            },
+            {
+               "id":"5",
+               "name":"Penna veloce",
+               "descripcion":"Piuma che aumenta temporaneamente la tua velocita."
+            },
+            {
+               "id":"6",
+               "name":"Bottiglia di tempesta",
+               "descripcion":"Una bottiglia che evoca una tempesta intorno a te, usala con attenzione"
+            },
+            {
+               "id":"7",
+               "name":"Trappola esplosiva",
+               "descripcion":"Trappola che esplode quando un nemico ci passa sopra."
+            },
+            {
+               "id":"8",
+               "name":"Trappola per veleno",
+               "descripcion":"Trappola che avvelena i nemici che la calpestano."
+            },
+            {
+               "id":"9",
+               "name":"Trappola d'acqua",
+               "descripcion":"Rallenta i nemici che lo attraversano."
+            },
+            {
+               "id":"10",
+               "name":"Bomba",
+               "descripcion":"Una bomba semplice con una potente esplosione."
             }
          ],
          "equipablesDatos":[
             {
                "id":"0",
                "name":"Spada normale",
-               "descripcion":"È una spada normale, non ha effetti speciali."
+               "descripcion":"E una spada normale, non ha effetti speciali."
             },
             {
                "id":"1",
@@ -330,7 +706,7 @@
             {
                "id":"2",
                "name":"Spada d'acqua",
-               "descripcion":"Spada avvolta nell'acqua magica che ostacolerà i movimenti dei nemici ad ogni colpo ricevuto. Si applica bagnata ai nemici."
+               "descripcion":"Spada avvolta nell'acqua magica che ostacolera i movimenti dei nemici ad ogni colpo ricevuto. Si applica bagnata ai nemici."
             },
             {
                "id":"3",
@@ -348,13 +724,13 @@
                "descripcion":"Spada colpita da uno strano fulmine che paralizza i nemici."
             },
             {
-               " id":"6",
+               "id":"6",
                "name":"Spada del vento",
                "descripcion":"Spada che produce venti che ti spingono alla vittoria."
             },
             {
                "id":"7",
-               " name":"Armatura normale",
+               "name":"Armatura normale",
                "descripcion":"Armatura normale, ti proteggerà ma non fa molto altro."
             },
             {
@@ -368,7 +744,7 @@
                "descripcion":"Armatura le cui punte feriranno i nemici che osano toccarti."
             },
             {
-               "id ":"10",
+               "id":"10",
                "name":"Armatura Solare",
                "descripcion":"Armatura che riceve i poteri del sole. Resistente agli attacchi con fuoco e bruciature."
             },
@@ -382,7 +758,175 @@
                "name":"Armatura Tempesta",
                "descripcion":"Armatura che ha vinto il potere del fulmine. Resistente alla paralisi e agli attacchi elettrici"
             }
-         ]
+         ],
+         "habilidadesDatos":[
+    {
+        "id":"0",
+        "name":"Clone",
+        "descripcion":"Crea un clone per distrarre il nemico."
+    },
+    {
+        "id":"1",
+        "name":"Scatto",
+        "descripcion":"Uno scatto rapido che consente di schivare certi pericoli."
+    },
+    {
+        "id":"2",
+        "name":"Scatto Evasivo",
+        "descripcion":"Uno scatto breve che ti rende invincibile."
+    },
+    {
+        "id":"3",
+        "name":"Ritirata",
+        "descripcion":"Ti trasporta in un luogo in cui sei gia stato."
+    },
+    {
+        "id":"4",
+        "name":"Rallentare",
+        "descripcion":"Lascia una zona che rallenta i nemici."
+    },
+    {
+        "id":"5",
+        "name":"Piedi Leggeri",
+        "descripcion":"Concede un incremento temporaneo della velocita."
+    },
+    {
+        "id":"6",
+        "name":"Benedizione dell'Accidia I",
+        "descripcion":"Aumenta leggermente la tua velocita."
+    },
+    {
+        "id":"7",
+        "name":"Benedizione dell'Accidia II",
+        "descripcion":"Aumenta moderatamente la tua velocita."
+    },
+    {
+        "id":"8",
+        "name":"Benedizione dell'Accidia III",
+        "descripcion":"Aumenta di molto la tua velocita."
+    },
+    {
+        "id":"9",
+        "name":"Benedizione della Superbia I",
+        "descripcion":"Aumenta leggermente la tua difesa."
+    },
+    {
+        "id":"10",
+        "name":"Benedizione della Superbia II",
+        "descripcion":"Aumenta moderatamente la tua difesa."
+    },
+    {
+        "id":"11",
+        "name":"Benedizione della Superbia III",
+        "descripcion":"Aumenta di molto la tua difesa."
+    },
+    {
+        "id":"12",
+        "name":"Benedizione della Gola I",
+        "descripcion":"Aumenta leggermente la tua vita."
+    },
+    {
+        "id":"13",
+        "name":"Benedizione della Gola II",
+        "descripcion":"Aumenta moderatamente la tua vita."
+    },
+    {
+        "id":"14",
+        "name":"Benedizione della Gola III",
+        "descripcion":"Aumenta di molto la tua vita."
+    },
+    {
+        "id":"15",
+        "name":"Blocco Robusto",
+        "descripcion":"Quando esegui un blocco, la tua difesa aumenta temporaneamente."
+    },
+    {
+        "id":"16",
+        "name":"Blocco Esplosivo",
+        "descripcion":"Quando esegui un blocco, rilasci un'esplosione sonica intorno a te."
+    },
+    {
+        "id":"17",
+        "name":"Blocco della Morte",
+        "descripcion":"Quando esegui un blocco, diventi invulnerabile per una frazione di secondo."
+    },
+    {
+        "id":"18",
+        "name":"Blocco Elettrizzante",
+        "descripcion":"Quando esegui un blocco, paralizzi temporaneamente il nemico."
+    },
+    {
+        "id":"19",
+        "name":"Blocco Veloce",
+        "descripcion":"Quando esegui un blocco, la tua velocita di movimento aumenta temporaneamente."
+    },
+    {
+        "id":"20",
+        "name":"Benedizione dell'Ira I",
+        "descripcion":"Aumenta leggermente la tua velocita d'attacco."
+    },
+    {
+        "id":"21",
+        "name":"Benedizione dell'Ira II",
+        "descripcion":"Aumenta moderatamente la tua velocita d'attacco."
+    },
+    {
+        "id":"22",
+        "name":"Benedizione dell'Ira III",
+        "descripcion":"Aumenta di molto la tua velocita d'attacco."
+    },
+    {
+        "id":"23",
+        "name":"Annullare",
+        "descripcion":"Alcuni attacchi possono ora essere annullati in altri."
+    },
+    {
+        "id":"24",
+        "name":"Benedizione della Lussuria I",
+        "descripcion":"Aumenta leggermente il tuo attacco."
+    },
+    {
+        "id":"25",
+        "name":"Benedizione della Lussuria II",
+        "descripcion":"Aumenta moderatamente il tuo attacco."
+    },
+    {
+        "id":"26",
+        "name":"Benedizione della Lussuria III",
+        "descripcion":"Aumenta di molto il tuo attacco."
+    },
+    {
+        "id":"27",
+        "name":"Frenesia di Attacchi",
+        "descripcion":"Il tuo primo attacco forte e debole colpisce il doppio delle volte."
+    },
+    {
+        "id":"28",
+        "name":"Attacco Sconsiderato",
+        "descripcion":"I tuoi attacchi rapidi possono applicarti lo stato Forte al termine della combo."
+    },
+    {
+        "id":"29",
+        "name":"Pugnalata Distante",
+        "descripcion":"Il tuo attacco forte ha una maggiore portata."
+    },
+    {
+        "id":"30",
+        "name":"Attacco Stordente",
+        "descripcion":"I tuoi attacchi rapidi hanno la possibilita di stordire il nemico."
+    },
+    {
+        "id":"31",
+        "name":"Arco Sonico",
+        "descripcion":"I tuoi attacchi forti sono cosi potenti da lanciare proiettili ad arco."
+    },
+    {
+        "id":"32",
+        "name":"Attacco Rotante",
+        "descripcion":"I tuoi attacchi rapidi faranno giri extra quando finisci la combo."
+    }
+]
+
       },
       {
          "id":"CH",
@@ -416,7 +960,7 @@
          "equipablesDatos":[
             
          ],
-           "habilidadesDatos":[
+         "habilidadesDatos":[
             {
                "id":"0",
                "name":"Espada Basica",
