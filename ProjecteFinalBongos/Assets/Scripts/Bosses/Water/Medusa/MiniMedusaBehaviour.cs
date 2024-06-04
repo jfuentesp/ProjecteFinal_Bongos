@@ -117,6 +117,5 @@ public class MiniMedusaBehaviour : BossBehaviour
         OnBossDeath?.Invoke();
         if (m_BossFinalSala)
             m_BossMuertoEvent.Raise();
-
     }
 }

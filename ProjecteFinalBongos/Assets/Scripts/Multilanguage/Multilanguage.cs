@@ -17,6 +17,7 @@ namespace multilanguaje
             public PiccoloChanFrases frasesPiccoloChan;
             public ObjetosDatos[] consumiblesDatos;
             public ObjetosDatos[] equipablesDatos;
+            public ObjetosDatos[] habilidadesDatos;
         }
 
         [Serializable]
