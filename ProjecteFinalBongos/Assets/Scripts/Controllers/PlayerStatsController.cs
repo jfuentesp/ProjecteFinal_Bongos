@@ -79,6 +79,15 @@ public class PlayerStatsController : MonoBehaviour, IBuffable
     {
         m_HealthController = GetComponent<HealthController>();
     }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+            m_HealthController.Heal(m_HealthController.HPMAX);
+        }
+    }
+
     public float getModifier(string modifier)
     {
         switch (modifier)
