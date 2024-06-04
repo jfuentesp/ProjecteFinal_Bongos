@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TimeUntilDestroyed: 3
-  m_SizeRadius: 0.5
+  m_SizeRadius: 1
   m_Speed: 25
   m_Damage: 20
   m_AnimationName: TritoBullet
@@ -334,7 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TimeUntilDestroyed: 0
   m_SizeRadius: 1
-  m_Speed: 10
+  m_Speed: 20
   m_Damage: 10
   m_AnimationName: 
   m_AudioBullet: {fileID: 0}
