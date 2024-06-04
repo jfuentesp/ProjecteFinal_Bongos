@@ -1,0 +1,232 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: GameTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: GameTable
+  m_TableCollectionNameGuidString: b3d8fefaeaa864b4fada9979ce426794
+  m_Entries:
+  - m_Id: 305509167104
+    m_Key: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 613886980096
+    m_Key: Options
+    m_Metadata:
+      m_Items: []
+  - m_Id: 709462585344
+    m_Key: Ranking
+    m_Metadata:
+      m_Items: []
+  - m_Id: 760742146048
+    m_Key: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7915050364928
+    m_Key: GameOptions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8221100339200
+    m_Key: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8332891123712
+    m_Key: OptionsVideo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8679135113216
+    m_Key: 'FullScreen:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8811905806336
+    m_Key: FullScreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9010103447552
+    m_Key: Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9127095169024
+    m_Key: AudioSettings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9341394743296
+    m_Key: Global
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9360738873344
+    m_Key: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9375305691136
+    m_Key: Effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11973899317248
+    m_Key: Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13121179873280
+    m_Key: NewGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13210971533312
+    m_Key: PlayerName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13313283190784
+    m_Key: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13840851136512
+    m_Key: Delete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14634455396352
+    m_Key: Rankings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16643543789568
+    m_Key: Conditions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16677987414016
+    m_Key: Timer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16697021165568
+    m_Key: Abilities
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16730181332992
+    m_Key: "QuickItems\t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19334600847360
+    m_Key: PiccoloMarket
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19448702693376
+    m_Key: ItemsOnSale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19635626045440
+    m_Key: GearOnSale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20254956974080
+    m_Key: Consumables
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20711452438528
+    m_Key: Equipment
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21005338931200
+    m_Key: ItemName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21180501454848
+    m_Key: Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21506990272512
+    m_Key: Close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21819780493312
+    m_Key: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21836398325760
+    m_Key: ExitToMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22557810225152
+    m_Key: GiveUp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22748521033728
+    m_Key: YouSureYouWantToLeave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23010459512832
+    m_Key: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23029602316288
+    m_Key: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24777184243712
+    m_Key: Inventory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24894280822784
+    m_Key: EquippedGear
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25368090374144
+    m_Key: Weapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25819057745920
+    m_Key: Armor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26668068761600
+    m_Key: Buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26688381775872
+    m_Key: Sell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26706660552704
+    m_Key: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27098098167808
+    m_Key: ChooseQuantity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28205033713664
+    m_Key: Offensive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28324617515008
+    m_Key: Defensive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28449465167872
+    m_Key: Agility
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28550413676544
+    m_Key: AbilityName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28944409817088
+    m_Key: AvailablePoints
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5030104168701886488
+  references:
+    version: 2
+    RefIds:
+    - rid: 5030104168701886488
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1717494940279
