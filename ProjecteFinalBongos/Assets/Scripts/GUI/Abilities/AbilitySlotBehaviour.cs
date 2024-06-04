@@ -47,7 +47,6 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
 
             if (m_AssignedAbility.IsLearnt)
             {
-                m_Slot.interactable = false;
                 m_AbilityImage.color = Color.white;
                 m_SlotImage.color = m_Slot.colors.pressedColor;
                 return;
@@ -55,12 +54,10 @@ public class AbilitySlotBehaviour : MonoBehaviour, ISelectHandler, ISubmitHandle
 
             if(m_SlotTier != tier)
             {
-                m_Slot.interactable = false;
                 m_AbilityImage.color = Color.gray;
             }
             else
             {
-                m_Slot.interactable = true;
                 m_AbilityImage.color = Color.white;
             }
         }

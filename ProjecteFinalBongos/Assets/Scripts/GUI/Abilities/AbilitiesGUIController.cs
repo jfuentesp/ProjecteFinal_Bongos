@@ -52,8 +52,6 @@ public class AbilitiesGUIController : MonoBehaviour, ISaveableAbilitiesPlayerDat
     private AbilityPointsController m_AbilityPoints;
     public AbilityPointsController AbilityPoints => m_AbilityPoints;
 
-
-
     // Start is called before the first frame update
     void Awake()
     {
