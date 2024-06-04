@@ -105,7 +105,7 @@ public class TornadoBehaviour : MonoBehaviour
         {
             if (!m_PlayerCremat)
                 return;
-
+            StopCoroutine(m_CremarCoroutine);
         }
     }
 
