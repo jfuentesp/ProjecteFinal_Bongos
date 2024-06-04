@@ -22,7 +22,7 @@ namespace multilanguaje
 
         void Start()
         {
-            rutaCompleta = Path.Combine(Application.dataPath, "Language", languagesFile);
+            rutaCompleta = Path.Combine(Application.streamingAssetsPath, "Language", languagesFile);
             getIdioma();
         }
 
