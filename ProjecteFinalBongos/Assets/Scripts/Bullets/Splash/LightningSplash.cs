@@ -28,7 +28,6 @@ public class LightningSplash : Splash
     {
         if (!enabled)
             return;
-        print(collision.gameObject.name);
         //Podríamos hacer que si el boss pasa por encima dispare balas también por que se electrifica o te hace daño alrededor
     }
 }

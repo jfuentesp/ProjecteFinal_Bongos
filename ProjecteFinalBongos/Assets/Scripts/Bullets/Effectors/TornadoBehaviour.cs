@@ -11,6 +11,7 @@ public class TornadoBehaviour : MonoBehaviour
     private float m_FinalSpeed;
 
     private bool m_PlayerTucat;
+    private bool m_PlayerCremat;
 
     private Transform m_Target;
     private Rigidbody2D m_Rigidbody;
@@ -26,6 +27,7 @@ public class TornadoBehaviour : MonoBehaviour
     public void Init(Transform target)
     {
         m_PlayerTucat = false;
+        m_PlayerCremat = false;
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         m_SpriteRenderer.material.SetColor("_Color", m_ColorShader);
@@ -64,9 +66,10 @@ public class TornadoBehaviour : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+    private Coroutine m_CremarCoroutine;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.gameObject.tag);
         if (collision.gameObject.CompareTag("Player"))
         {
             if (!m_PlayerTucat)
@@ -74,16 +77,44 @@ public class TornadoBehaviour : MonoBehaviour
                 m_PlayerTucat = true;
                 m_Rigidbody.velocity = (m_Target.position - transform.position).normalized * m_FinalSpeed;
             }
+            if (m_PlayerCremat)
+            {
+                collision.gameObject.TryGetComponent(out PlayerEstadosController estados);
+                if (estados != null)
+                    estados.AlternarEstado(EstadosAlterados.Cremat, 10f);
+                collision.gameObject.TryGetComponent(out HealthController health);
+                if (health != null)
+                    m_CremarCoroutine = StartCoroutine(DamageCoroutine(health));
+            }
+
         }
         if (collision.gameObject.CompareTag("Splash"))
         {
-            print("Toque splash");
-            if (collision.GetComponent<Splash>().SplashEffectState == ObstacleStateEnum.ELECTRIFIED)
+            collision.gameObject.TryGetComponent(out LightningSplash splash);
+            if (splash?.SplashEffectState == ObstacleStateEnum.ELECTRIFIED)
             {
+                m_PlayerCremat = true;
                 m_SpriteRenderer.material.SetColor("_Color", m_CoorquemadoSader);
             }
         }
+    }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            if (!m_PlayerCremat)
+                return;
+            StopCoroutine(m_CremarCoroutine);
+        }
+    }
 
+    private IEnumerator DamageCoroutine(HealthController health)
+    {
+        while(m_PlayerCremat)
+        {
+            yield return new WaitForSeconds(1f);
+            health.Damage(5f);
+        }
     }
 }
