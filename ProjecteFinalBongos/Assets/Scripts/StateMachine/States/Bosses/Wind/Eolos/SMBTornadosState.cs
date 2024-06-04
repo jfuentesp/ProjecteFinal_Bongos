@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
+using Random = UnityEngine.Random;
 
 public class SMBTornadosState : SMState
 {
@@ -68,7 +69,7 @@ public class SMBTornadosState : SMState
 
     private void SpawnTornado()
     {
-        Vector2 posicionTornado = m_Boss.SalaPadre.GetPosicionAleatoriaEnSala();
+        Vector2 posicionTornado = new Vector2()
         RaycastHit2D hit = Physics2D.CircleCast(posicionTornado, m_RangoCircleCast, posicionTornado, m_RangoCircleCast, m_TornadoLayerMask);
         if (hit.collider != null || Vector2.Distance(posicionTornado, m_Target.position) > 6)
         {
