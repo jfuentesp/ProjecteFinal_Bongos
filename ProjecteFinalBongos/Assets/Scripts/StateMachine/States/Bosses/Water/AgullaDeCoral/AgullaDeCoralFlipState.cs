@@ -28,6 +28,7 @@ public class AgullaDeCoralFlipState : SMBBasicAttackState
         m_Boss.SetBusy(true);
         m_Golpeado = false;
         m_Animator.Play(m_AgullaCoralFlipAttackAnimationName);
+        PlaySlashSound();
     }
 
     public override void ExitState()

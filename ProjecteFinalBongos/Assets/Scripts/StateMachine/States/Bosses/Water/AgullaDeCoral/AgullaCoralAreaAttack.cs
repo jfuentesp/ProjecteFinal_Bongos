@@ -37,6 +37,7 @@ public class AgullaCoralAreaAttack : SMBBasicAttackState
         base.InitState();
         m_Boss.SetBusy(true);
         StartCoroutine(AttackAnimationRoutine());
+        PlayWaitSound();
     }
 
     public override void ExitState()
@@ -96,7 +97,11 @@ public class AgullaCoralAreaAttack : SMBBasicAttackState
             OnStopDetectingPlayer?.Invoke(gameObject);
         }
     }
-
+    private void PlaySlashFlipSound()
+    {
+        m_AudioSource.clip = m_SlashClipList[Random.Range(0, m_SlashClipList.Length)];
+        m_AudioSource.Play();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!enabled)
