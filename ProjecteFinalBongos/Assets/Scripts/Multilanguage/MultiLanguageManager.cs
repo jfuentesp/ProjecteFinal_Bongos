@@ -16,6 +16,8 @@ namespace multilanguaje
         [SerializeField] private Multilanguage.Idioma m_IdiomaActual;
         [SerializeField] private GameEvent cambioIdiomaEvent;
         [SerializeField] private ConsumablesDataBase m_ConsumablesList;
+        [SerializeField] private EquipableDataBase m_EquipablesList;
+        [SerializeField] private AbilityDataBase m_AbilitiesList;
 
 
         void Start()
@@ -43,6 +45,21 @@ namespace multilanguaje
                 Consumable consumableScriptable = m_ConsumablesList.GetItemByID(m_IdiomaActual.consumiblesDatos[i].id);
                 consumableScriptable.itemName = m_IdiomaActual.consumiblesDatos[i].name;
                 consumableScriptable.description = m_IdiomaActual.consumiblesDatos[i].descripcion;
+            }
+
+            for (int i = 0; i < m_IdiomaActual.equipablesDatos.Length; i++)
+            {
+                Equipable equipableScriptable = m_EquipablesList.GetItemByID(m_IdiomaActual.equipablesDatos[i].id);
+                if(m_IdiomaActual.equipablesDatos[i].name != null)
+                    equipableScriptable.itemName = m_IdiomaActual.equipablesDatos[i].name;
+                if (m_IdiomaActual.equipablesDatos[i].descripcion != null)
+                    equipableScriptable.description = m_IdiomaActual.equipablesDatos[i].descripcion;
+            }
+            for (int i = 0; i < m_IdiomaActual.habilidadesDatos.Length; i++)
+            {
+                Ability abilityScriptable = m_AbilitiesList.GetItemByID(m_IdiomaActual.habilidadesDatos[i].id);
+                    abilityScriptable.abilityName = m_IdiomaActual.habilidadesDatos[i].name;
+                    abilityScriptable.abilityDescription = m_IdiomaActual.habilidadesDatos[i].descripcion;
             }
             ChangeLanguage(GameManager.Instance.IdiomaJuego.ToString().ToLower());
             cambioIdiomaEvent.Raise();
