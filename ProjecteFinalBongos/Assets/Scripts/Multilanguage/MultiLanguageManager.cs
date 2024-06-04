@@ -16,6 +16,8 @@ namespace multilanguaje
         [SerializeField] private Multilanguage.Idioma m_IdiomaActual;
         [SerializeField] private GameEvent cambioIdiomaEvent;
         [SerializeField] private ConsumablesDataBase m_ConsumablesList;
+        [SerializeField] private EquipableDataBase m_EquipablesList;
+        [SerializeField] private AbilityDataBase m_AbilitiesList;
 
 
         void Start()
