@@ -19,9 +19,9 @@ MonoBehaviour:
   m_ShopPrice: 400
   m_SellPrice: 90
   m_Estado: 12
-  propiedades: 
-  defense: 0
-  speed: 0
+  propiedades: 00000000
+  defense: 10
+  speed: 3
   ElementalResistance: 0
   stateResistance: 0
   stateResistanceMin: 0
@@ -33,5 +33,5 @@ MonoBehaviour:
   regenMin: 0
   regenMax: 0
   RegenTime: 0
-  spikeDamageMin: 0
-  spikeDamageMax: 0
+  spikeDamageMin: 20
+  spikeDamageMax: 50
