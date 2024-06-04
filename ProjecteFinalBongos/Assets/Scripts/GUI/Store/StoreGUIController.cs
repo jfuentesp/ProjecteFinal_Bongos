@@ -31,7 +31,7 @@ public class StoreGUIController : MonoBehaviour
     private Consumable[] m_PiccoloStoreConsumables = new Consumable[10];
     [SerializeField]
     private Equipable[] m_PiccoloStoreEquipables = new Equipable[10];
-
+    [SerializeField]
     private GameObject m_InitialButton;
     private GameObject m_LastSelected;
     public GameObject LastSelected => m_LastSelected;

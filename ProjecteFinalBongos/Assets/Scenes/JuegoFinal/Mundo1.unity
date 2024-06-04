@@ -131,6 +131,98 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1534793000}
     m_Modifications:
+    - target: {fileID: 2706557414709607367, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 4081071504693138491, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
+    - target: {fileID: 2706557414709607367, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ButtonActionsEnum
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706557414709607367, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
+    - target: {fileID: 4804736004192761726, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 4081071504693138491, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
+    - target: {fileID: 4804736004192761726, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
+    - target: {fileID: 6795101143430082635, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 4081071504693138491, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
+    - target: {fileID: 6795101143430082635, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
+    - target: {fileID: 7383711189088630217, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383711189088630217, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383711189088630217, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383711189088630217, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624798561387803700, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624798561387803700, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624798561387803700, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624798561387803700, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794638481096866049, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_text
+      value: REMOVE
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259405504182633940, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ActionButtons
+      value: 
+      objectReference: {fileID: 4081071504693138491, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
+    - target: {fileID: 8259405504182633940, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_ButtonActionsEnum
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259405504182633940, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_InventoryController
+      value: 
+      objectReference: {fileID: -3551111455132506853, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
+    - target: {fileID: 9072063027308604918, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9072063027308604918, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9072063027308604918, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9072063027308604918, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 484470769027385183, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -289,98 +381,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8952748689917066941, guid: c9d989611028bf04488f8d4f7a548aa9, type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2706557414709607367, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_ActionButtons
-      value: 
-      objectReference: {fileID: 4081071504693138491, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
-    - target: {fileID: 2706557414709607367, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_ButtonActionsEnum
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2706557414709607367, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_InventoryController
-      value: 
-      objectReference: {fileID: -3551111455132506853, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
-    - target: {fileID: 4804736004192761726, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_ActionButtons
-      value: 
-      objectReference: {fileID: 4081071504693138491, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
-    - target: {fileID: 4804736004192761726, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_InventoryController
-      value: 
-      objectReference: {fileID: -3551111455132506853, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
-    - target: {fileID: 6795101143430082635, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_ActionButtons
-      value: 
-      objectReference: {fileID: 4081071504693138491, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
-    - target: {fileID: 6795101143430082635, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_InventoryController
-      value: 
-      objectReference: {fileID: -3551111455132506853, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
-    - target: {fileID: 7383711189088630217, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7383711189088630217, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7383711189088630217, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7383711189088630217, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7624798561387803700, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7624798561387803700, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7624798561387803700, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7624798561387803700, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7794638481096866049, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_text
-      value: REMOVE
-      objectReference: {fileID: 0}
-    - target: {fileID: 8259405504182633940, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_ActionButtons
-      value: 
-      objectReference: {fileID: 4081071504693138491, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
-    - target: {fileID: 8259405504182633940, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_ButtonActionsEnum
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8259405504182633940, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_InventoryController
-      value: 
-      objectReference: {fileID: -3551111455132506853, guid: 97a461d3f0ce2ca45a3b97c033b512eb, type: 3}
-    - target: {fileID: 9072063027308604918, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9072063027308604918, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9072063027308604918, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9072063027308604918, guid: ac3b0789aa82466459c7fcf49daef551, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1010,6 +1010,7 @@ GameObject:
   - component: {fileID: 26369212}
   - component: {fileID: 26369211}
   - component: {fileID: 26369210}
+  - component: {fileID: 26369214}
   m_Layer: 5
   m_Name: TiendaGUI
   m_TagString: Untagged
@@ -1088,6 +1089,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &26369214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26369209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b378eb22142bc49898b3901485198a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ActionButtons: {fileID: 712142894}
+  m_ConfirmationButtons: {fileID: 1529498016}
 --- !u!1001 &26681407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27279,6 +27294,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  m_InitialButton: {fileID: 1215922677}
   m_DescriptionImage: {fileID: 1811168166}
   m_DescriptionName: {fileID: 29057524}
   m_DescriptionText: {fileID: 1464481841}
@@ -33620,6 +33636,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1215922677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1703710630520631282, guid: 77057430373f0fc43b7509e41af7567a, type: 3}
+  m_PrefabInstance: {fileID: 1215922674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1217891840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41028,6 +41049,10 @@ PrefabInstance:
     - target: {fileID: 2973327024731983189, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378409084581784397, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
+      propertyPath: m_OrderButton
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4378409084581784397, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
       propertyPath: m_StoreCanvasGroup

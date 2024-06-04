@@ -13107,6 +13107,7 @@ GameObject:
   - component: {fileID: 519965451}
   - component: {fileID: 519965450}
   - component: {fileID: 519965449}
+  - component: {fileID: 519965452}
   m_Layer: 5
   m_Name: TiendaGUI
   m_TagString: Untagged
@@ -13185,6 +13186,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519965447}
   m_CullTransparentMesh: 1
+--- !u!114 &519965452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519965447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b378eb22142bc49898b3901485198a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ActionButtons: {fileID: 1562699024}
+  m_ConfirmationButtons: {fileID: 2000338892}
 --- !u!1 &525279181
 GameObject:
   m_ObjectHideFlags: 0
@@ -14650,11 +14665,6 @@ PrefabInstance:
 --- !u!224 &568775951 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8585020001964860824, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
-  m_PrefabInstance: {fileID: 568775950}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &568775952 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1241599414380940555, guid: 13e80aa2622992446acd90571117fb3c, type: 3}
   m_PrefabInstance: {fileID: 568775950}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &569357880
@@ -25846,6 +25856,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  m_InitialButton: {fileID: 1453733487}
   m_DescriptionImage: {fileID: 1888290382}
   m_DescriptionName: {fileID: 1151925015}
   m_DescriptionText: {fileID: 882532938}
@@ -25869,6 +25880,9 @@ MonoBehaviour:
   m_IdiomasDropDown: {fileID: 401111524}
   m_FullScreenToggle: {fileID: 1986209074}
   m_ResolucionesDropDown: {fileID: 549100853}
+  m_GlobalVolumeSlider: {fileID: 0}
+  m_MusicVolumeSlider: {fileID: 0}
+  m_EffectVolumeSlider: {fileID: 0}
 --- !u!114 &1099265612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25936,7 +25950,7 @@ MonoBehaviour:
   m_DescriptionImage: {fileID: 610804434}
   m_DescriptionName: {fileID: 236536766}
   m_DescriptionText: {fileID: 392820309}
-  m_InitialButton: {fileID: 568775952}
+  m_InitialButton: {fileID: 1453733487}
   m_ConsumableCanvasGroup: {fileID: 1792179885}
   m_EquipableCanvasGroup: {fileID: 1591524144}
   m_EquippedGearCanvasGroup: {fileID: 804798230}
@@ -35349,6 +35363,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1453733487 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1703710630520631282, guid: 77057430373f0fc43b7509e41af7567a, type: 3}
+  m_PrefabInstance: {fileID: 1453733484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1454778767
 GameObject:
   m_ObjectHideFlags: 0
@@ -50896,6 +50915,10 @@ PrefabInstance:
     - target: {fileID: 2973327024731983189, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378409084581784397, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
+      propertyPath: m_OrderButton
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4378409084581784397, guid: 267fd8e1ada4d684e89b4cad4aeeef1c, type: 3}
       propertyPath: m_StoreCanvasGroup

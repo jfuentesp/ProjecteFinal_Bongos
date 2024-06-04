@@ -9,6 +9,8 @@ public class ActionButtonsStoreCanvas : MonoBehaviour
     private CanvasGroup m_StoreCanvasGroup;
     [SerializeField]
     private CanvasGroup m_ActionButtonsCanvasGroup;
+    [SerializeField]
+    private int m_OrderButton;
 
     private void OnEnable()
     {
@@ -17,7 +19,7 @@ public class ActionButtonsStoreCanvas : MonoBehaviour
         m_ActionButtonsCanvasGroup.interactable = true;
         m_ActionButtonsCanvasGroup.blocksRaycasts = true;
         LevelManager.Instance.StoreGUIController.QuantityStoreText.text = "1";
-        LevelManager.Instance.EventSystem.SetSelectedGameObject(transform.GetChild(0).gameObject);
+        LevelManager.Instance.EventSystem.SetSelectedGameObject(transform.GetChild(0).GetChild(m_OrderButton).gameObject);
     }
 
     private void OnDisable()
