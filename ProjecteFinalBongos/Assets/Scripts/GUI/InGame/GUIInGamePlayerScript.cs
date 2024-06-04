@@ -105,7 +105,7 @@ public class GUIInGamePlayerScript : MonoBehaviour
     {
         m_GameParado = false;
         GameManager.Instance.PauseGame(m_GameParado);
-        LevelManager.Instance.FundirNegro(true, false);
+        LevelManager.Instance.FundirNegro(false, false);
     }
 
     private void CancelExit()
