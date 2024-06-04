@@ -10,6 +10,8 @@ public class PlaceableController : MonoBehaviour
     private Rigidbody2D m_Rigidbody;
     [SerializeField]
     private ExplosionBehaviour m_ExplosionBehaviour;
+    [SerializeField]
+    private LayerMask m_LayersToIgnore;
 
     private bool m_FirstPush;
 
@@ -25,6 +27,8 @@ public class PlaceableController : MonoBehaviour
     public void Initialize(PlaceableEnum type, Consumable consumable = null)
     {
         m_PlaceableType = type;
+        if(type != PlaceableEnum.BOMB)
+            m_Rigidbody.excludeLayers = m_LayersToIgnore;
         if(consumable != null)
         {
             m_Consumable = consumable;
@@ -57,10 +61,7 @@ public class PlaceableController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && !m_FirstPush)
-            return;
-
-        switch (m_PlaceableType) 
+        switch (m_PlaceableType)
         {
             case PlaceableEnum.BOMB:
                 if (m_FirstPush)
@@ -76,7 +77,7 @@ public class PlaceableController : MonoBehaviour
             case PlaceableEnum.TRAPWATER:
                 m_Animator.Play("WaterWave");
                 break;
-        }   
+        }
     }
 
     private IEnumerator Bomb()
@@ -89,7 +90,6 @@ public class PlaceableController : MonoBehaviour
     private IEnumerator ExplosiveTrap()
     {
         m_Animator.Play("ExplosionTrap");
-        m_Rigidbody.simulated = false;
         yield return new WaitForSeconds(20f);
         m_Animator.Play("Explosion");
     }
@@ -97,7 +97,6 @@ public class PlaceableController : MonoBehaviour
     private IEnumerator PoisionTrap()
     {
         m_Animator.Play("PoisonTrap");
-        m_Rigidbody.simulated = false;
         yield return new WaitForSeconds(20f);
         m_Animator.Play("PoisonCloud");
     }
@@ -105,7 +104,6 @@ public class PlaceableController : MonoBehaviour
     private IEnumerator WaterTrap()
     {
         m_Animator.Play("WaterTrap");
-        m_Rigidbody.simulated = false;
         yield return new WaitForSeconds(20f);
         m_Animator.Play("WaterWave");
     }

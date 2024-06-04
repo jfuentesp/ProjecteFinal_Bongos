@@ -17,7 +17,7 @@ public class ExplosionBehaviour : MonoBehaviour
     [SerializeField]
     private LayerMask m_LayersAffected;
 
-    public void InitializeExplosion(ExplosionType explosionType, float explosionDamage = 5f, float explosionForce = 10f, float poisonDuration = 5f, float slowDuration = 5f)
+    public void InitializeExplosion(ExplosionType explosionType, float explosionDamage = 20f, float explosionForce = 10f, float poisonDuration = 5f, float slowDuration = 5f)
     {
         m_ExplosionType = explosionType;
         m_ExplosionDamage = explosionDamage;
