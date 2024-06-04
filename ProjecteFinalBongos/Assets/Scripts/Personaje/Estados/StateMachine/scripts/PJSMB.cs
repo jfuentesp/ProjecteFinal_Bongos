@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 using static SaveLoadGame.SaveGame;
 using Random = UnityEngine.Random;
 
@@ -125,6 +126,7 @@ public class PJSMB : MonoBehaviour, ISaveablePlayerData
         m_StateMachine = GetComponent<FiniteStateMachine>();
         m_StateMachine.ChangeState<SMBPlayerStopState>();
     }
+
     public void StopPlayer()
     {
         m_StateMachine?.ChangeState<SMBPlayerStopState>();
