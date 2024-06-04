@@ -52,9 +52,6 @@ public class AbilitiesGUIController : MonoBehaviour, ISaveableAbilitiesPlayerDat
     private AbilityPointsController m_AbilityPoints;
     public AbilityPointsController AbilityPoints => m_AbilityPoints;
 
-    [SerializeField]
-    private GameObject m_ReturnButton;
-
     // Start is called before the first frame update
     void Awake()
     {
