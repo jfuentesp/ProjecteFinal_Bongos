@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   m_Id: 9
-  m_ItemName: Espada Basica
-  m_Description: Es una espada normal y corriente, no tiene ningun efecto especial.
+  m_ItemName: Armadura de pinchos
+  m_Description: Armadura cuyos pinchos heriran a los enemigos que osen tocarte.
   m_Sprite: {fileID: -1726390922, guid: f640b4d25227a654c9d389b368edc2a8, type: 3}
   m_ShopPrice: 120
   m_SellPrice: 25
   m_Estado: 12
   propiedades: 
   attack: 1000
-  speed: 1
+  speed: 10
   speedAttack: 0
   maxRatio: 0
   minRatio: 0

@@ -75,7 +75,6 @@ public class SubMergeState : SMState
     {
         base.InitState();
         m_Boss.SetBusy(true);
-        Steps = 20;
         m_Animator.Play(m_SubmergeAnimationName);
         StartCoroutine(Merge());
     }
