@@ -64,12 +64,8 @@ public class SubMergeState : SMState
         while (Steps > 0) {
             Steps--;
             yield return new WaitForSeconds(1f);
-            if (Steps <= 0)
-            {
-                m_StateMachine.ChangeState<KrakenMergeState>();
-            }
         }
-    
+        m_StateMachine.ChangeState<KrakenMergeState>();
     }
     public override void InitState()
     {

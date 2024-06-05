@@ -81,7 +81,7 @@ public class TornadoBehaviour : MonoBehaviour
             {
                 collision.gameObject.TryGetComponent(out PlayerEstadosController estados);
                 if (estados != null)
-                    estados.AlternarEstado(EstadosAlterados.Cremat, 10f);
+                    estados.AlternarEstado(EstadosAlterados.Cremat, 20f);
                 collision.gameObject.TryGetComponent(out HealthController health);
                 if (health != null)
                     m_CremarCoroutine = StartCoroutine(DamageCoroutine(health));
