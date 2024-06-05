@@ -20,13 +20,13 @@ MonoBehaviour:
   m_ShopPrice: 300
   m_SellPrice: 75
   m_Estado: 12
-  propiedades: 
-  attack: 0
-  speed: 0
-  speedAttack: 0
+  propiedades: 03000000
+  attack: 20
+  speed: 5
+  speedAttack: 1
   maxRatio: 0
-  minRatio: 0
+  minRatio: 10
   minPosibilty: 0
-  maxPosibilty: 0
-  lifeMin: 0
-  lifeMax: 0
+  maxPosibilty: 10
+  lifeMin: 50
+  lifeMax: 100

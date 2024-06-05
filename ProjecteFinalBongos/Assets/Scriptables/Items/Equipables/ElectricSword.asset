@@ -19,14 +19,14 @@ MonoBehaviour:
   m_Sprite: {fileID: 2041735614, guid: f640b4d25227a654c9d389b368edc2a8, type: 3}
   m_ShopPrice: 280
   m_SellPrice: 60
-  m_Estado: 12
-  propiedades: 
-  attack: 0
-  speed: 0
-  speedAttack: 0
-  maxRatio: 0
+  m_Estado: 3
+  propiedades: 01000000
+  attack: 20
+  speed: 5
+  speedAttack: 0.1
+  maxRatio: 10
   minRatio: 0
   minPosibilty: 0
-  maxPosibilty: 0
+  maxPosibilty: 10
   lifeMin: 0
   lifeMax: 0
