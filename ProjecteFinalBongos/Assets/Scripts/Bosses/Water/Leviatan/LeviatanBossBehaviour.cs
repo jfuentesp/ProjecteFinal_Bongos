@@ -22,6 +22,9 @@ public class LeviatanBossBehaviour : BossBehaviour
     [Header("Variables mordisco")]
     [SerializeField] private float m_RadioMeleMordisco;
     [SerializeField] private LayerMask m_DeteccionMordisco;
+    [Header("Maximum Snakes")]
+    [SerializeField] private int m_MaximumCreeps;
+    [SerializeField] private int m_CurrentCreeps;
     private int count = 0;
     private new void Awake()
     {
@@ -128,13 +131,21 @@ public class LeviatanBossBehaviour : BossBehaviour
         {
             yield return new WaitForSeconds(1f);
             count++;
-            if (count >= 20 && !m_IsBusy)
+            if (m_CurrentCreeps < m_MaximumCreeps)
             {
-                count = 0;
-                m_StateMachine.ChangeState<LeviatanMinionsSpawnState>();
+                if (count >= 20 && !m_IsBusy)
+                {
+                    m_CurrentCreeps += 2;
+                    count = 0;
+                    m_StateMachine.ChangeState<LeviatanMinionsSpawnState>();
+                }
             }
         }
 
+    }
+    public void CreepMuerto()
+    {
+        m_CurrentCreeps--;
     }
     private IEnumerator PlayerDetectionCoroutine()
     {

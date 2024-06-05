@@ -168,6 +168,8 @@ MonoBehaviour:
   m_DeteccionMordisco:
     serializedVersion: 2
     m_Bits: 128
+  m_MaximumCreeps: 4
+  m_CurrentCreeps: 0
 --- !u!195 &2675848766902250357
 NavMeshAgent:
   m_ObjectHideFlags: 0

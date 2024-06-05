@@ -7887,8 +7887,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5
-  MaxDistance: 30
+  MinDistance: 10
+  MaxDistance: 60
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -26557,7 +26557,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IdiomasDropDown: {fileID: 1688625096}
   m_FullScreenToggle: {fileID: 496009337}
-  m_ResolucionesDropDown: {fileID: 1344850994}
   m_GlobalVolumeSlider: {fileID: 75468655}
   m_MusicVolumeSlider: {fileID: 1294477535}
   m_EffectVolumeSlider: {fileID: 1996424751}
@@ -26898,6 +26897,7 @@ MonoBehaviour:
   numeroObjetosSalaObjetos: 4
   numeroEquipoSalaObjetos: 2
   m_FundidoNegroPanel: {fileID: 694500261}
+  m_GameEventTimer: {fileID: 0}
 --- !u!114 &1000535109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28671,7 +28671,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1035039182
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34954,7 +34954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1344850993
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46041,7 +46041,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c760fead46bc194f9fde2d9d745f127, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 75470b8663acc304d88e210a91710a1e, type: 2}
   m_sharedMaterial: {fileID: 7480989328631231018, guid: fc86d1091a969c248804a6e44ad13426, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

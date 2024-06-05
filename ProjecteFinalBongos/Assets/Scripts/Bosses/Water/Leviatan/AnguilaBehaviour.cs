@@ -13,6 +13,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(SMBChargeState))]
 public class AnguilaBehaviour : BossBehaviour
 {
+    private Transform m_LeviatanTransform;
     private new void Awake()
     {
         base.Awake();
@@ -47,9 +48,15 @@ public class AnguilaBehaviour : BossBehaviour
 
     }
 
+    public void SetLeviatanTransform(Transform _AlteaTransform)
+    {
+        m_LeviatanTransform = _AlteaTransform;
+        if (m_LeviatanTransform.TryGetComponent<LeviatanBossBehaviour>(out LeviatanBossBehaviour leviatan))
+            leviatan.OnBossDeath += VidaCero;
+    }
+
     private void Start()
     {
-        print("aaasd"); 
         m_StateMachine.ChangeState<SMBIdleState>();
     }
     public override void Init(Transform _Target)
@@ -96,6 +103,11 @@ public class AnguilaBehaviour : BossBehaviour
     }
     private void MatarBoss()
     {
+        if (m_LeviatanTransform != null)
+        {
+            if (m_LeviatanTransform.TryGetComponent<LeviatanBossBehaviour>(out LeviatanBossBehaviour leviatan))
+                leviatan.OnBossDeath -= VidaCero;
+        }
         Destroy(gameObject);
     }
     protected override void VidaCero()
@@ -105,6 +117,11 @@ public class AnguilaBehaviour : BossBehaviour
         GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
+        if (m_LeviatanTransform != null)
+        {
+            if (m_LeviatanTransform.TryGetComponent<LeviatanBossBehaviour>(out LeviatanBossBehaviour leviatan))
+                leviatan.CreepMuerto();
+        }
         OnBossDeath?.Invoke();
         if (m_BossFinalSala)
             m_BossMuertoEvent.Raise();

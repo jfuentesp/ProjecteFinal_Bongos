@@ -15,6 +15,8 @@ public class DracMBullet : Bullet
         m_pool = LevelManager.Instance._SplashPool;
         boss = false;
         m_AttackDamage.SetDamage(m_Damage);
+        m_AttackDamage.SetEstado(EstadosAlterados.Normal);
+        m_AttackDamage.SetTime(0);
         gameObject.tag = "Untagged";
     }
 

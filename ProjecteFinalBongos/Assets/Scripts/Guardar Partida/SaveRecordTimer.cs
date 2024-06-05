@@ -12,7 +12,7 @@ namespace SaveLoadGame
     }
 
     [Serializable]
-    public class SaveRecordTimer : MonoBehaviour
+    public class SaveRecordTimer
     {
         [Serializable]
         public struct RecordTimer

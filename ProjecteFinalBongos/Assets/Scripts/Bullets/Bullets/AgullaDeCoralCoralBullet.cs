@@ -14,13 +14,20 @@ public class AgullaDeCoralCoralBullet : Bullet
     public void Init(Vector2 destino, Transform _BossTransform, float _Damage)
     {
         m_BossTransform = _BossTransform;
-        m_Damage = _Damage; 
-
+        m_BossTransform.GetComponent<AgullesDeCoralBossBehaviour>().OnBossDeath += Desaparecer;
+        m_Damage = _Damage;
+        gameObject.layer = LayerMask.NameToLayer("BossHitBox");
         m_Size = new Vector2(m_SizeRadius, m_SizeRadius);
         transform.localScale = m_Size;
         m_Returning = true;
         m_Animator.Play(m_AnimationName);
         StartCoroutine(MoveToPosition(destino));
+    }
+
+    private void Desaparecer()
+    {
+        StopAllCoroutines();
+        DisableBullet();
     }
 
     private IEnumerator MoveToPosition(Vector2 destino)
@@ -41,6 +48,7 @@ public class AgullaDeCoralCoralBullet : Bullet
     {
         m_Returning = false;
         yield return new WaitForSeconds(m_TimeUntilReturn);
+        gameObject.layer = LayerMask.NameToLayer("AllHitBox");
         m_Animator.Play(m_EndAnimation);
         m_Returning = true;
         while (Vector2.Distance(transform.position, m_BossTransform.position) > 0.5f)

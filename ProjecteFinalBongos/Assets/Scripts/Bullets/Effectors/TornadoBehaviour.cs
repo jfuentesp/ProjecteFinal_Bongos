@@ -63,7 +63,7 @@ public class TornadoBehaviour : MonoBehaviour
         if (m_Duration >= m_TornadoActiveDuration)
         {
             m_Rigidbody.velocity = Vector3.zero;
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 
@@ -105,7 +105,8 @@ public class TornadoBehaviour : MonoBehaviour
         {
             if (!m_PlayerCremat)
                 return;
-            StopCoroutine(m_CremarCoroutine);
+            if (m_CremarCoroutine != null)
+                StopCoroutine(m_CremarCoroutine);
         }
     }
 

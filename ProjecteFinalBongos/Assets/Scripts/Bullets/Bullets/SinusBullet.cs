@@ -10,6 +10,7 @@ public class SinusBullet : Bullet
     public override void Init(Vector2 direction)
     {
         base.Init(direction);
+        gameObject.layer = LayerMask.NameToLayer("BossHitBox");
         rotation = 0; 
         switch (Random.Range(0, 2))
         {

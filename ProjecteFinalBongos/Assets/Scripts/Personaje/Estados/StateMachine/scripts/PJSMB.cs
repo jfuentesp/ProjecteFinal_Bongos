@@ -119,7 +119,10 @@ public class PJSMB : MonoBehaviour, ISaveablePlayerData
         GameManager.Instance.AcabarJuego();
         Destroy(gameObject);
     }
-
+    public void SalirDelJuego()
+    {
+        Destroy(gameObject);
+    }
     private void Start()
     {
         m_Inventory = LevelManager.Instance.InventoryController;

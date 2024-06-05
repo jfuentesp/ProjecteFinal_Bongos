@@ -76,7 +76,7 @@ public class MiniDaryaBossBehaviour : BossBehaviour
                             }
                             transform.parent.GetChild(i).GetChild(j).gameObject.AddComponent<BossAttackDamage>();
                             transform.parent.GetChild(i).GetChild(j).gameObject.GetComponent<BossAttackDamage>().SetEstado(EstadosAlterados.Normal);
-                            transform.parent.GetChild(i).GetChild(j).gameObject.GetComponent<BossAttackDamage>().SetDamage(20);
+                            transform.parent.GetChild(i).GetChild(j).gameObject.GetComponent<BossAttackDamage>().SetDamage(40);
                             if (transform.parent.GetChild(i).GetChild(j).gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite))
                                 sprite.material = m_materialPared;
 
@@ -111,7 +111,7 @@ public class MiniDaryaBossBehaviour : BossBehaviour
                                     }
                                     transform.parent.GetChild(i).GetChild(j).GetChild(k).gameObject.AddComponent<BossAttackDamage>();
                                     transform.parent.GetChild(i).GetChild(j).GetChild(k).gameObject.GetComponent<BossAttackDamage>().SetEstado(EstadosAlterados.Normal);
-                                    transform.parent.GetChild(i).GetChild(j).GetChild(k).gameObject.GetComponent<BossAttackDamage>().SetDamage(20);
+                                    transform.parent.GetChild(i).GetChild(j).GetChild(k).gameObject.GetComponent<BossAttackDamage>().SetDamage(40);
                                     if (transform.parent.GetChild(i).GetChild(j).GetChild(k).gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite))
                                         sprite.material = m_materialPared;
 
@@ -129,7 +129,7 @@ public class MiniDaryaBossBehaviour : BossBehaviour
                                 GameObject prefabito = Instantiate(m_ParedesPinchoPrefab, transform.parent.GetChild(i).GetChild(j));
                                 transform.parent.GetChild(i).GetChild(j).gameObject.AddComponent<BossAttackDamage>();
                                 transform.parent.GetChild(i).GetChild(j).gameObject.GetComponent<BossAttackDamage>().SetEstado(EstadosAlterados.Normal);
-                                transform.parent.GetChild(i).GetChild(j).gameObject.GetComponent<BossAttackDamage>().SetDamage(20);
+                                transform.parent.GetChild(i).GetChild(j).gameObject.GetComponent<BossAttackDamage>().SetDamage(40);
                                 if (transform.parent.GetChild(i).GetChild(j).gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite))
                                     sprite.material = m_materialPared;
                             }
@@ -144,7 +144,7 @@ public class MiniDaryaBossBehaviour : BossBehaviour
                     GameObject prefabito = Instantiate(m_ParedesPinchoPrefab, transform.parent.GetChild(i));
                     transform.parent.GetChild(i).gameObject.AddComponent<BossAttackDamage>();
                     transform.parent.GetChild(i).gameObject.GetComponent<BossAttackDamage>().SetEstado(EstadosAlterados.Normal);
-                    transform.parent.GetChild(i).gameObject.GetComponent<BossAttackDamage>().SetDamage(20);
+                    transform.parent.GetChild(i).gameObject.GetComponent<BossAttackDamage>().SetDamage(40);
                     if (transform.parent.GetChild(i).gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite))
                         sprite.material = m_materialPared;
                 }

@@ -93,7 +93,9 @@ public class LevelManager : MonoBehaviour
     [Header("SpawnLuces")]
     private SpawnLucesBehaviour m_SpawnLuces;
     public SpawnLucesBehaviour SpawnLuces => m_SpawnLuces;
-    
+    [Header("GameEvent Timer")]
+    [SerializeField] private GameEvent m_GameEventTimer;
+
     private void Awake()
     {
         if (m_Instance == null)
@@ -149,9 +151,13 @@ public class LevelManager : MonoBehaviour
     {
         m_FundidoNegroPanel.SetActive(true);
         PJSMB.Instance.StopPlayer();
+        if (isLoadingNextScene)
+        {
+            if(m_GameEventTimer != null)
+                m_GameEventTimer.Raise();
+        }
         while (m_FundidoNegroPanel.GetComponent<Image>().color.a < 1)
         {
-            print("Entro aquí.");
             Color colorin = m_FundidoNegroPanel.GetComponent<Image>().color;
             colorin.a += 0.01f;
             m_FundidoNegroPanel.GetComponent<Image>().color = colorin;
@@ -171,6 +177,7 @@ public class LevelManager : MonoBehaviour
         }
         else if(!isLoadingNextScene && !playerDead)
         {
+            PJSMB.Instance.SalirDelJuego();
             GameManager.Instance.VolverAlMundoInicial();
         }
     }

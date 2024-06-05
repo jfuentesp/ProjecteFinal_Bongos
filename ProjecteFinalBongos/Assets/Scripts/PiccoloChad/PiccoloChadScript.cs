@@ -84,6 +84,10 @@ public class PiccoloChadScript : Interactuable
             {
                 BreakCoroutineDialogueFinall();
             }
+            else if(!isInFirstMessage && m_FrasesParaDecir.Count > 0)
+            {
+                SegundoDialogo();
+            }
             else
             {
                 CloseDialogue();

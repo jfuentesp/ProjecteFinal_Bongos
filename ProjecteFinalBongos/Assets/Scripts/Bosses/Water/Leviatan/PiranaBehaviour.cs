@@ -17,6 +17,7 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(SMBParriedState))]
 public class PiranaBehaviour : BossBehaviour
 {
+    private Transform m_LeviatanTransform;
     private new void Awake()
     {
         base.Awake();
@@ -84,7 +85,12 @@ public class PiranaBehaviour : BossBehaviour
         OnPlayerInSala.Invoke();
         StartCoroutine(PlayerDetectionCoroutine());
     }
-
+    public void SetLeviatanTransform(Transform _AlteaTransform)
+    {
+        m_LeviatanTransform = _AlteaTransform;
+        if (m_LeviatanTransform.TryGetComponent<LeviatanBossBehaviour>(out LeviatanBossBehaviour leviatan))
+            leviatan.OnBossDeath += VidaCero;
+    }
     private IEnumerator PlayerDetectionCoroutine()
     {
         while (m_IsAlive)
@@ -121,6 +127,11 @@ public class PiranaBehaviour : BossBehaviour
     }
     private void MatarBoss()
     {
+        if (m_LeviatanTransform != null)
+        {
+            if (m_LeviatanTransform.TryGetComponent<LeviatanBossBehaviour>(out LeviatanBossBehaviour leviatan))
+                leviatan.OnBossDeath -= VidaCero;
+        }
         Destroy(gameObject);
     }
 
@@ -131,6 +142,11 @@ public class PiranaBehaviour : BossBehaviour
         GetComponentInParent<SalaBoss>().OnPlayerIn -= Init;
         m_StateMachine.ChangeState<DeathState>();
         m_IsAlive = false;
+        if (m_LeviatanTransform != null)
+        {
+            if (m_LeviatanTransform.TryGetComponent<LeviatanBossBehaviour>(out LeviatanBossBehaviour leviatan))
+                leviatan.CreepMuerto();
+        }
         OnBossDeath?.Invoke();
         if (m_BossFinalSala)
             m_BossMuertoEvent.Raise();

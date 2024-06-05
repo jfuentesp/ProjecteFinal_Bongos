@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour, ISaveableTimerData, ISaveableRecordTim
     private List<Ability> m_Tier3AbilitiesCopy;
     public List<Ability> Tier3Abilities => m_Tier3AbilitiesCopy;
 
+
     private void Awake()
     {
         if (m_Instance == null)
@@ -198,13 +199,16 @@ public class GameManager : MonoBehaviour, ISaveableTimerData, ISaveableRecordTim
         }
         else
         {
-            print("Te lo pasaste bro!");
+            VolverAlMundoInicial();
         }
     }
 
     public void VolverAlMundoInicial()
     {
         SceneManager.LoadScene("EscenaInicial");
+        if (m_TimerCoroutine != null)
+            StopCoroutine(m_TimerCoroutine);
+
     }
 
     public void AlCargarMundo()

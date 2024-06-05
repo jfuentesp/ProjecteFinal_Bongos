@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,18 +10,18 @@ public class OpcionesGUIScript : MonoBehaviour
 {
     [SerializeField] private TMP_Dropdown m_IdiomasDropDown;
     [SerializeField] private Toggle m_FullScreenToggle;
-    [SerializeField] private TMP_Dropdown m_ResolucionesDropDown;
+    //[SerializeField] private TMP_Dropdown m_ResolucionesDropDown;
     [SerializeField] private Slider m_GlobalVolumeSlider;
     [SerializeField] private Slider m_MusicVolumeSlider;
     [SerializeField] private Slider m_EffectVolumeSlider;
 
     private int m_IdiomaGuardado;
-    private int m_ResolucionGuardada;
+    //private int m_ResolucionGuardada;
     private float m_GlobalVolumeValue;
     private float m_MusicVolumeValue;
     private float m_EffectVolumeValue;
 
-    Resolution[] resoluciones;
+    IEnumerable<Resolution> resoluciones;
     List<IdiomaEnum> m_IdiomaList = new();
     // Start is called before the first frame update
     void Start()
@@ -29,11 +30,11 @@ public class OpcionesGUIScript : MonoBehaviour
         SetDropDownValue();
         m_IdiomasDropDown.onValueChanged.AddListener(LanguageChanged);
         m_FullScreenToggle.onValueChanged.AddListener(CheckFullScreen);
-        m_ResolucionesDropDown.onValueChanged.AddListener(CambiarResolucion);
+        //m_ResolucionesDropDown.onValueChanged.AddListener(CambiarResolucion);
         if (m_GlobalVolumeSlider) m_GlobalVolumeSlider.onValueChanged.AddListener(ChangeGlobalVolume);
         if (m_MusicVolumeSlider) m_MusicVolumeSlider.onValueChanged.AddListener(ChangeMusicVolume);
         if (m_EffectVolumeSlider) m_EffectVolumeSlider.onValueChanged.AddListener(ChangeEffectVolume);
-        CheckResolutions();
+        //CheckResolutions();
         StartCoroutine(LoadSettingsCoroutine());
         
     }
@@ -73,7 +74,7 @@ public class OpcionesGUIScript : MonoBehaviour
     {
         m_IdiomaGuardado = (int) PlayerPrefs.GetFloat("Idioma");
         Screen.fullScreen = TranslateBool(PlayerPrefs.GetFloat("FullScreen"));
-        m_ResolucionGuardada = (int)PlayerPrefs.GetFloat("Resolucion");
+        //m_ResolucionGuardada = (int)PlayerPrefs.GetFloat("Resolucion");
         m_GlobalVolumeValue = PlayerPrefs.GetFloat("GlobalVolume");
         m_MusicVolumeValue = PlayerPrefs.GetFloat("MusicVolume");
         m_EffectVolumeValue = PlayerPrefs.GetFloat("EffectVolume");
@@ -82,15 +83,15 @@ public class OpcionesGUIScript : MonoBehaviour
         m_EffectVolumeSlider.value = m_EffectVolumeValue;
         m_FullScreenToggle.isOn = Screen.fullScreen;
         m_IdiomasDropDown.value = m_IdiomaGuardado;
-        m_ResolucionesDropDown.value = m_ResolucionGuardada;
-        CambiarResolucion(m_ResolucionGuardada);
+        //m_ResolucionesDropDown.value = m_ResolucionGuardada;
+        //CambiarResolucion(m_ResolucionGuardada);
         LanguageChanged(m_IdiomaGuardado);
     }
     public void SaveSettings()
     {
         PlayerPrefs.SetFloat("Idioma", m_IdiomaGuardado);
         PlayerPrefs.SetFloat("FullScreen", TranslateBool(Screen.fullScreen));
-        PlayerPrefs.SetFloat("Resolucion", m_ResolucionGuardada);
+        //PlayerPrefs.SetFloat("Resolucion", m_ResolucionGuardada);
         PlayerPrefs.SetFloat("GlobalVolume", m_GlobalVolumeValue);
         PlayerPrefs.SetFloat("MusicVolume", m_MusicVolumeValue);
         PlayerPrefs.SetFloat("EffectVolume", m_EffectVolumeValue);
@@ -118,38 +119,38 @@ public class OpcionesGUIScript : MonoBehaviour
         }
     }
 
- 
 
-    private void CheckResolutions()
-    {
-        resoluciones = Screen.resolutions;
-        m_ResolucionesDropDown.ClearOptions();
-        List<string> opciones = new();
-        int resolucionActual = 0;
 
-        for (int i = 0; i < resoluciones.Length; i++)
-        {
-            string opcion = resoluciones[i].width + "x" + resoluciones[i].height;
-            opciones.Add(opcion);
+    /* private void CheckResolutions()
+     {
+         resoluciones = Screen.resolutions.Select(resolution => new Resolution { width = resolution.width, height = resolution.height }).Distinct();
+         m_ResolucionesDropDown.ClearOptions();
+         List<string> opciones = new();
+         int resolucionActual = 0;
 
-            if (Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height)
-            {
-                resolucionActual = i;
-            }
-        }
+         for (int i = 0; i < resoluciones.Count(); i++)
+         {
+             string opcion = resoluciones.G[i].width + "x" + resoluciones[i].height;
+             opciones.Add(opcion);
 
-        m_ResolucionesDropDown.AddOptions(opciones);
-        m_ResolucionesDropDown.value = resolucionActual;
-        m_ResolucionesDropDown.RefreshShownValue();
-    }
+             if (Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height)
+             {
+                 resolucionActual = i;
+             }
+         }
 
-    private void CambiarResolucion(int indiceResolucion)
-    {
-        m_ResolucionGuardada = indiceResolucion;
-        Resolution resolucion = resoluciones[indiceResolucion];
-        Screen.SetResolution(resolucion.width, resolucion.height, Screen.fullScreen);
-        SaveSettings();
-    }
+         m_ResolucionesDropDown.AddOptions(opciones);
+         m_ResolucionesDropDown.value = resolucionActual;
+         m_ResolucionesDropDown.RefreshShownValue();
+     }
+
+     private void CambiarResolucion(int indiceResolucion)
+     {
+         m_ResolucionGuardada = indiceResolucion;
+         Resolution resolucion = resoluciones[indiceResolucion];
+         Screen.SetResolution(resolucion.width, resolucion.height, Screen.fullScreen);
+         SaveSettings();
+     }*/
 
     private void CheckFullScreen(bool fullScreen)
     {

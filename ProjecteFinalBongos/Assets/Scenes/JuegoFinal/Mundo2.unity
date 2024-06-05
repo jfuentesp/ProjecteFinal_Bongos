@@ -1782,7 +1782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &52718178
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16986,7 +16986,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c760fead46bc194f9fde2d9d745f127, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 75470b8663acc304d88e210a91710a1e, type: 2}
   m_sharedMaterial: {fileID: 7480989328631231018, guid: fc86d1091a969c248804a6e44ad13426, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -23498,8 +23498,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5
-  MaxDistance: 30
+  MinDistance: 10
+  MaxDistance: 60
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -34877,6 +34877,7 @@ GameObject:
   - component: {fileID: 1467405399}
   - component: {fileID: 1467405398}
   - component: {fileID: 1467405402}
+  - component: {fileID: 1467405403}
   m_Layer: 0
   m_Name: ManagerData
   m_TagString: Untagged
@@ -34986,6 +34987,34 @@ MonoBehaviour:
       - m_Target: {fileID: 1467405400}
         m_TargetAssemblyTypeName: SaveLoadGame.SaveDataManager, Assembly-CSharp
         m_MethodName: LoadDataBetweenScenes
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1467405403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467405397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0640d428ac906c2459218b66878fd018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 5e8439722104e154498532e1c6c4c717, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1467405400}
+        m_TargetAssemblyTypeName: SaveLoadGame.SaveDataManager, Assembly-CSharp
+        m_MethodName: SaveTimerRanking
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -36397,7 +36426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1548997149
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39059,7 +39088,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IdiomasDropDown: {fileID: 1624631699}
   m_FullScreenToggle: {fileID: 1464170368}
-  m_ResolucionesDropDown: {fileID: 1548997150}
   m_GlobalVolumeSlider: {fileID: 624921380}
   m_MusicVolumeSlider: {fileID: 162325019}
   m_EffectVolumeSlider: {fileID: 280985712}
@@ -39401,6 +39429,7 @@ MonoBehaviour:
   numeroObjetosSalaObjetos: 4
   numeroEquipoSalaObjetos: 2
   m_FundidoNegroPanel: {fileID: 1143612910}
+  m_GameEventTimer: {fileID: 11400000, guid: 5e8439722104e154498532e1c6c4c717, type: 2}
 --- !u!114 &1623389128
 MonoBehaviour:
   m_ObjectHideFlags: 0

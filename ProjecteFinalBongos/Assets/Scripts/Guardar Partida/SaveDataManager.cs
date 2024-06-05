@@ -193,15 +193,25 @@ namespace SaveLoadGame
                 SaveAllRanquing ranquingTotal = new();
                 JsonUtility.FromJsonOverwrite(jsonDataLectura, ranquingTotal);
 
-                List<SaveRecordTimer> ranquings = ranquingTotal.m_SavedRanquings.ToList();
+                List<SaveRecordTimer> ranquings;
+                if (ranquingTotal.m_SavedRanquings != null)
+                {
+                     ranquings = ranquingTotal.m_SavedRanquings.ToList();
+                }
+                else
+                {
+                    ranquings = new();
+                }
+               
                 ranquings.Add(data);
                 ranquingTotal.m_SavedRanquings = ranquings.ToArray();
                 string jsonData = JsonUtility.ToJson(ranquingTotal);
-                File.WriteAllText(GameManager.Instance.RutaCompleta, jsonData);
+                File.WriteAllText(GameManager.Instance.RutaCompletaRanquing, jsonData);
             }
             catch (Exception e)
             {
-                Debug.LogError($"Error while trying to save {Path.Combine(Application.persistentDataPath, GameManager.Instance.RutaCompleta)} with exception {e}");
+                Debug.LogError(e);
+                Debug.LogError($"Error while trying to save {GameManager.Instance.RutaCompletaRanquing} with exception {e}");
             }
         }
 

@@ -90,7 +90,7 @@ public class LeviatanMinionsSpawnState : SMState
                 bicho.transform.position = new Vector2(posicionBicho.x, posicionBicho.y);
                 bicho.SetActive(true);
                 bicho.GetComponent<LeviatanEggs>().enabled = true;
-                bicho.GetComponent<LeviatanEggs>().Init(m_Target, transform.parent, 0);
+                bicho.GetComponent<LeviatanEggs>().Init(m_Target, transform.parent, 0, transform);
             }
             else
             {
@@ -99,7 +99,7 @@ public class LeviatanMinionsSpawnState : SMState
                 bicho.transform.position = new Vector2(posicionBicho.x, posicionBicho.y);
                 bicho.SetActive(true);
                 bicho.GetComponent<LeviatanEggs>().enabled = true;
-                bicho.GetComponent<LeviatanEggs>().Init(m_Target, transform.parent, 1);
+                bicho.GetComponent<LeviatanEggs>().Init(m_Target, transform.parent, 1, transform);
             }
         }
     }

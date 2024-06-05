@@ -106,7 +106,8 @@ public class AgullesDeCoralBossBehaviour : BossBehaviour
             if(collision.gameObject.TryGetComponent<AttackDamage>(out Damage))
             {
                 recibirDaño(Damage.Damage);
-                SoltarCoral(Damage.Damage);
+                if(m_HealthController.HP > 0)
+                    SoltarCoral(Damage.Damage);
             }
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("AllHitBox"))

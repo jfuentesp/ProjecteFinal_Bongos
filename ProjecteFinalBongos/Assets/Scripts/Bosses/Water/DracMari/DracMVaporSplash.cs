@@ -26,7 +26,6 @@ public class DracMVaporSplash : Splash
         gameObject.tag = "Untagged";
         GetComponent<BossAttackDamage>().SetEstado(EstadosAlterados.Cremat);
         GetComponent<BossAttackDamage>().SetTime(2f);
-        GetComponent<BossAttackDamage>().SetDamage(15);
     }
     public void ChangeLayer(string Layer) { 
         gameObject.layer = LayerMask.NameToLayer(Layer);
